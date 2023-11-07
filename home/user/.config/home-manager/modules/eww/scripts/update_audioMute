@@ -1,0 +1,7 @@
+eww update audio_mute=$(
+    if [ "$(wpctl get-volume @DEFAULT_SINK@ | cut -d ' ' -f3)" = '[MUTED]' ]; then
+        echo true
+    else
+        echo false
+    fi
+)

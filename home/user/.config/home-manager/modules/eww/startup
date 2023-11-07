@@ -1,0 +1,17 @@
+eww kill
+eww open background
+eww open workspaces
+eww open clock
+eww open usersettings
+eww open systeminfo
+eww open powermenu
+
+# test for backlight
+if [ -n "$(ls -A /sys/class/backlight 2>/dev/null)" ]; then
+    eww update brightness=true
+    eww update brightness_percent=$(light)
+fi
+eww update microphone_mute=$(if [ \"$(wpctl get-volume @DEFAULT_SOURCE@ | cut -d ' ' -f3)\" = '[MUTED]' ]; then echo true; else echo false; fi)
+eww update microphone_volume_percent=$(wpctl get-volume @DEFAULT_SOURCE@ | tr -d 'Volume: ' | tr -d '[MUTED]')
+eww update audio_mute=$(if [ \"$(wpctl get-volume @DEFAULT_SINK@ | cut -d ' ' -f3)\" = '[MUTED]' ]; then echo true; else echo false; fi)
+eww update audio_volume_percent=$(wpctl get-volume @DEFAULT_SINK@ | tr -d 'Volume: ' | tr -d '[MUTED]')

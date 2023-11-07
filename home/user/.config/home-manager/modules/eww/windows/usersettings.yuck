@@ -1,0 +1,95 @@
+(defvar brightness false)
+(defvar brightness_percent 0.0)
+(defvar microphone_mute false)
+(defvar microphone_volume_percent 0.0)
+(defvar audio_mute false)
+(defvar audio_volume_percent 0.0)
+(deflisten music_data `playerctl --follow metadata --format '{ "status": "{{status}}", "artist": "{{artist}}", "title": "{{title}}" }'`)
+(deflisten music_position `playerctl --follow position --format "{{position}}"`)
+(defvar hover_music false)
+(defwindow usersettings
+  :monitor 0
+  :stacking "bg"
+  :geometry (geometry
+    :anchor "bottom left"
+    :x "3%" :y "5%"
+  )
+  (box :class "usersettings"
+    :orientation "v"
+    :spacing 5 :space-evenly true
+
+    (box :class "brightness"
+      :orientation "h"
+      :spacing 2 :space-evenly false
+      :active brightness
+      :visible brightness
+      (button :onclick ""
+        (icon :glyph "")
+      )
+      (scale
+        :orientation "h"
+        :value brightness_percent :max 101
+        :onchange "light -S {}"
+      )
+    )
+
+    (box :class "microphone"
+      :orientation "h"
+      :spacing 2 :space-evenly false
+      :width 200
+      (button :onclick "wpctl set-mute @DEFAULT_SOURCE@ toggle && ${SCRIPTS}/update_microphoneMute"
+        (icon :glyph {microphone_mute ? "" : ""})
+      )
+      (scale
+        :orientation "h"
+        :value {microphone_volume_percent * 100} :max 101
+        :onchange "wpctl set-volume @DEFAULT_SOURCE@ {}%"
+      )
+    )
+
+    (box :class "audio"
+      :orientation "h"
+      :spacing 2 :space-evenly false
+      :width 200
+      (button :onclick "wpctl set-mute @DEFAULT_SINK@ toggle && ${SCRIPTS}/update_audioMute"
+        (icon :glyph {audio_mute ? "" : ""})
+      )
+      (scale
+        :orientation "h"
+        :value {audio_volume_percent * 100} :max 101
+        :onchange "wpctl set-volume @DEFAULT_SINK@ {}%"
+      )
+    )
+
+    (revealer :class "music"
+      :reveal {music_data.status ? true : false} :transition "slideup" :duration "550ms"
+      :spacing 2 :space-evenly false
+      (eventbox
+        :onhover "${EWW_CMD} update hover_music=true" :onhoverlost "${EWW_CMD} update hover_music=false"
+        :active {music_data.status == "" ? false : true}
+        (box
+          :space-evenly false
+          (revealer
+            :reveal hover_music :transition "slideleft" :duration "550ms"
+            :style "font-size: 0.5em;"
+            (button :onclick "playerctl previous" (icon :glyph ""))
+          )
+          (button :onclick "playerctl play-pause" (icon :glyph {music_data.status == "Playing" ? "" : ""})
+          )
+          (revealer
+            :reveal hover_music :transition "slideright" :duration "550ms"
+            :style "font-size: 0.5em;"
+            (button :onclick "playerctl next" (icon :glyph ""))
+          )
+          (box
+            :orientation "v"
+            :style "font-size: 0.325em;"
+            (label :halign "start" :text " ${music_data.artist}")
+            (label :halign "start" :text " ${music_data.title}")
+          )
+        )
+      )
+    )
+    ; playerctl <https://github.com/altdesktop/playerctl>
+  )
+)

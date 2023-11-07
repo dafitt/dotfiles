@@ -1,0 +1,68 @@
+(defwindow powermenu
+  :monitor 0
+  :stacking "bg"
+  :geometry (geometry
+    :anchor "bottom right"
+    :x "3%" :y "5%"
+  )
+  (box
+    :orientation "h"
+    :spacing 15 :space-evenly true
+    :style "font-size: 3rem;"
+    (eventbox ; colorpicker
+      :tooltip "colorpicker"
+      :cursor "pointer"
+      (button
+        ;:timeout 30000
+        :onclick "hyprpicker -a -r"
+        :css "button:hover {color: ${base05};}"
+        (icon :glyph "")
+      )
+    )
+    (eventbox ; suspend
+      :tooltip "suspend"
+      :cursor "pointer"
+      (button
+        :onclick "systemctl suspend"
+        :css "button:hover {color: ${base0D};}"
+        (icon :glyph "")
+      )
+    )
+    (eventbox ; lock
+      :tooltip "lock"
+      :cursor "pointer"
+      (button
+        :onclick "loginctl lock-session self"
+        :css "button:hover {color: ${base0A};}"
+        (icon :glyph "")
+      )
+    )
+    (eventbox ; logout
+      :tooltip "logout"
+      :cursor "pointer"
+      (button
+        :onclick "loginctl kill-session self"
+        :css "button:hover {color: ${base0B};}"
+        (icon :glyph "")
+      )
+    )
+    (eventbox ; reboot
+      :tooltip "reboot"
+      :cursor "pointer"
+      (button
+        :onclick "reboot"
+        :css "button:hover {color: ${base09};}"
+        (icon :glyph "")
+      )
+    )
+    (eventbox ; shutdown
+      :tooltip "shutdown"
+      :cursor "pointer"
+      (button
+        :onclick "poweroff"
+        :css "button:hover {color: ${base08};}"
+        (icon :glyph "")
+      )
+    )
+  )
+)

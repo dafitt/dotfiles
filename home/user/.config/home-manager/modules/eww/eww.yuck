@@ -1,0 +1,45 @@
+(include "./css/colors.yuck")
+
+(include "./windows/workspaces.yuck")
+(include "./windows/clock.yuck")
+(include "./windows/usersettings.yuck")
+(include "./windows/systeminfo.yuck")
+(include "./windows/powermenu.yuck")
+
+(defvar SCRIPTS "$XDG_CONFIG_HOME/eww/scripts")
+
+(defwidget icon [glyph]
+  (label
+      :style "font-family: 'Phosphor-Fill'; font-size: inherit;"
+      :text glyph
+  )
+) ;(icon :glyph " ")
+
+
+(defwindow background
+  :monitor 0
+  :stacking "bg" ; fg, bg, overlay or bottom
+  :geometry (geometry
+    ;:anchor "top left" ;  top, center, bottom and left, center, right.
+    ;:x "5%" ; Relative to anchor.
+    ;:y "10%" ; Relative to anchor.
+    :width "100%" :height "100%"
+  )
+  ;:exclusive "false" ; Whether the compositor should reserve space for the window.
+  ;:focusable "false" ; This is necessary for any widgets that use the keyboard to work.
+  ;:namespace "??" ; Set the wayland layersurface namespace eww uses.
+  (box :style "background-color: ${base01}; opacity: 0.5;") ; widget
+)
+(defwindow test
+  :monitor 0
+  :stacking "bg"
+  :geometry (geometry
+    :anchor "center"
+    ;:width "100%" :height "50%"
+  )
+  (box
+    :orientation "h" :spacing 20
+    :space-evenly false
+    (label :style "font-size: 8px;" :text "${EWW_TEMPS}")
+  )
+)

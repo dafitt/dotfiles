@@ -1,0 +1,3 @@
+eww update audio_volume_percent=$(
+    wpctl get-volume @DEFAULT_SINK@ | tr -d 'Volume: ' | tr -d '[MUTED]'
+)

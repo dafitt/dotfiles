@@ -1,0 +1,55 @@
+.usersettings {
+    font-size: 3rem;
+
+    scale trough {
+        background-color: $base01;
+        min-height: 1.4rem;
+        min-width: 14rem;
+        //margin: 0.3rem 0 0.3rem 0;
+        border-radius: 0.625rem;
+        opacity: 1;
+
+        highlight {
+            border-radius: 0.625rem;
+        }
+    }
+    highlight {
+        background-color: $base04;
+    }
+}
+.brightness {
+    button:hover {
+        color: $base0A;
+    }
+    highlight:hover,
+    highlight:focus {
+        background-color: $base0A;
+    }
+}
+.microphone {
+    button:hover {
+        color: $base0C;
+    }
+    highlight:hover,
+    highlight:focus {
+        background-color: $base0C;
+    }
+}
+.audio {
+    button:hover {
+        color: $base09;
+    }
+    highlight:hover,
+    highlight:focus {
+        background-color: $base09;
+    }
+}
+.music {
+    button:hover {
+        color: $base0E;
+    }
+    highlight:hover,
+    highlight:focus {
+        background-color: $base0E;
+    }
+}
