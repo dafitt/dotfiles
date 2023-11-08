@@ -10,8 +10,9 @@ declare -a flatpaks=(
     "org.gtk.Gtk3theme.adw-gtk3-dark"
     "com.gitlab.davem.ClamTk" # clam antivirus scanner
 
-    "io.bassi.Amberol"   # plays music, and nothing else
-    "nl.hjdskes.gcolor3" # quick color tool
+    "md.obsidian.Obsidian" # a knowledge base that works with plain Markdown files
+    "io.bassi.Amberol"     # plays music, and nothing else
+    "nl.hjdskes.gcolor3"   # quick color tool
     "com.valvesoftware.Steam"
     "de.shorsh.discord-screenaudio"
     "org.signal.Signal"

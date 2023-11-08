@@ -9,7 +9,6 @@
     hunspellDicts.de_DE
     hunspellDicts.en_US-large
     libreoffice-fresh # office suite
-    obsidian # a knowledge base that works with plain Markdown files
     gamehub
     tenacity # Sound editor with graphical UI
 
