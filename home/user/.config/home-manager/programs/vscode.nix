@@ -315,6 +315,12 @@
         "key" = "ctrl+shift+j";
         "command" = "workbench.panel.chatSidebar.copilot";
       }
+      {
+        # Remove Ctrl-L for line selection
+        "key" = "ctrl+l";
+        "command" = "-workbench.action.chat.clear";
+        "when" = "hasChatProvider && inChat";
+      }
     ];
 
     globalSnippets = {
@@ -447,6 +453,12 @@
           publisher = "adpyke";
           version = "1.4.4";
           sha256 = "sha256-g4oqB0zV7jB7PeA/d2e8jKfHh+Ci+us0nK2agy1EBxs=";
+        }
+        {
+          name = "latex-utilities";
+          publisher = "tecosaur";
+          version = "0.4.10";
+          sha256 = "sha256-tNf4sTsae+NKB7QZ5PQOXI6T14eEH0YIK/LhgWq6QHA=";
         }
         #{
         #  name = "vscode-groovy-lint";
