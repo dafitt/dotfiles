@@ -1,5 +1,5 @@
 # more options: https://search.nixos.org/options?channel=unstable
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
 
 
   imports = [
@@ -24,8 +24,23 @@
 
   # activate zfs
   boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.forceImportRoot = false;
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages; # latest compatible kernel
+  boot.zfs = {
+    forceImportRoot = false;
+    extraPools = [ "DavidTANK" ];
+  };
+
+  # spin down hard drives
+  systemd.services."hd-idle" = {
+    description = "External HD spin down daemon";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = ''${pkgs.hd-idle}/bin/hd-idle -i 0 \
+        -a /dev/disk/by-id/ata-MB4000GVYZK_ZC18DN03 -i 300 \
+        -a /dev/disk/by-id/ata-MB4000GVYZK_ZC18DNEY -i 300
+        '';
+    };
+  };
 
 
   boot.kernelParams = [
@@ -93,6 +108,7 @@
     #  ];
     #};
   };
+
 
   networking = {
     hostName = "DavidDESKTOP"; # Define your hostname.
