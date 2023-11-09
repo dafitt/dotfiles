@@ -33,6 +33,7 @@
           "button.secondaryForeground" = "#${config.lib.stylix.colors.base06}";
         };
       };
+      "workbench.editor.defaultBinaryEditor" = "hexEditor.hexedit";
       "workbench.editor.showTabs" = true;
       "workbench.startupEditor" = "none";
       "workbench.statusBar.visible" = true;
@@ -84,6 +85,9 @@
       };
       "[jsonc]" = {
         "editor.tabSize" = 2;
+      };
+      "[latex]" = {
+        "editor.defaultFormatter" = "lenagain.latexindent";
       };
       "[markdown]" = {
         "editor.formatOnSave" = false;
@@ -443,6 +447,18 @@
           sha256 = "0gw0nd5yhq7d08mf7k78zz8xaj23qlirip3amx2jmqjav1fbz46m";
         }
         {
+          name = "latex-utilities";
+          publisher = "tecosaur";
+          version = "0.4.10";
+          sha256 = "sha256-tNf4sTsae+NKB7QZ5PQOXI6T14eEH0YIK/LhgWq6QHA=";
+        }
+        {
+          name = "latexindent";
+          publisher = "lenagain";
+          version = "0.0.1";
+          sha256 = "sha256-/gH64YE7bVqYdGI3GTaOYhLHIA+ndqqDEGl72jqratI=";
+        }
+        {
           name = "linux-desktop-file";
           publisher = "nico-castell";
           version = "0.0.21";
@@ -453,12 +469,6 @@
           publisher = "adpyke";
           version = "1.4.4";
           sha256 = "sha256-g4oqB0zV7jB7PeA/d2e8jKfHh+Ci+us0nK2agy1EBxs=";
-        }
-        {
-          name = "latex-utilities";
-          publisher = "tecosaur";
-          version = "0.4.10";
-          sha256 = "sha256-tNf4sTsae+NKB7QZ5PQOXI6T14eEH0YIK/LhgWq6QHA=";
         }
         #{
         #  name = "vscode-groovy-lint";
