@@ -424,14 +424,14 @@
         {
           name = "vscode-filesystemtoolbox";
           publisher = "carlocardella";
-          version = "1.3.0";
-          sha256 = "xj1I+7ATLSG32tm2cNhLwjpmdqPwPIsjmXrIzwbX7nE=";
+          version = "1.5.0";
+          sha256 = "0wfbqglpfh4afkp6ykibzhznf6s3is23k5jwiipfr4jcmjki5kbc";
         }
         {
           name = "vscode-stylelint";
           publisher = "stylelint";
-          version = "1.2.4";
-          sha256 = "krJ8vC+przrHL3PIQrW0hQhL6ntp71nhudP4LxdDIno=";
+          version = "1.3.0";
+          sha256 = "1q1idvpqnzlp186kymq2h407hqnhzngxs8n414p13j0svpcrm016";
         }
         ## Language support
         {
