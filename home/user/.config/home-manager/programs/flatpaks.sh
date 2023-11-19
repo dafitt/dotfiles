@@ -17,7 +17,7 @@ declare -a flatpaks=(
     "de.shorsh.discord-screenaudio"
     "org.signal.Signal"
     "ch.threema.threema-web-desktop"
-    "com.github.eneshecan.WhatsAppForLinux"
+    "com.rtosta.zapzap"                # WhatsApp client
     "org.x.Warpinator"                 # send and receive files across the network
     "com.github.rajsolai.textsnatcher" # copy text from images
 )
