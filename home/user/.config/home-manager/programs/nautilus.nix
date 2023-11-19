@@ -32,7 +32,7 @@
         "detailed_type"
         "where"
       ];
-      default-visible-columns = [ "name" "size" "date_modified" "permissions" ];
+      default-visible-columns = [ "name" "type" "size" "date_modified" "permissions" ];
       default-zoom-level = "small";
     };
   };
