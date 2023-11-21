@@ -9,8 +9,6 @@
 
   imports = [
     ./modules/file.mutable.nix
-    ./modules/Hyprland.nix
-    ./modules/Stylix.nix
     ./programs
   ];
 

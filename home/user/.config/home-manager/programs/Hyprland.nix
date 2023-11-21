@@ -243,7 +243,7 @@
         # <https://wiki.hyprland.org/Configuring/Window-Rules/>
         # <https://regex101.com/>
         #$ hyprctl clients
-        "opacity 1 0.5, floating:1, title:(.)+" # make inactive floating windows (with titles) more transparent
+        "opacity 1 0.7, floating:1, title:(.)+" # make inactive floating windows (with titles) more transparent
 
         "float, title:(S|s)etup"
         "float, title:(P|p)rogress"
