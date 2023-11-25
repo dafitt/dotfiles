@@ -32,9 +32,9 @@
     ];
     exec = [ ];
     windowrulev2 = [
-      # Steam
       "bordercolor rgb(1887d8), class:steam"
       "float, class:steam, title:(Friends List)|(Settings)"
+      "float, class:whatsapp-desktop-linux, title:WhatsApp"
     ];
   };
 }
