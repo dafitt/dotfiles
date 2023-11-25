@@ -17,9 +17,9 @@ declare -a flatpaks=(
     "de.shorsh.discord-screenaudio"
     "org.signal.Signal"
     "ch.threema.threema-web-desktop"
-    "com.rtosta.zapzap"                # WhatsApp client
-    "org.x.Warpinator"                 # send and receive files across the network
-    "com.github.rajsolai.textsnatcher" # copy text from images
+    "io.github.mimbrero.WhatsAppDesktop" # WhatsApp client
+    "org.x.Warpinator"                   # send and receive files across the network
+    "com.github.rajsolai.textsnatcher"   # copy text from images
 )
 
 # Loop through the array and install or update each Flatpak
