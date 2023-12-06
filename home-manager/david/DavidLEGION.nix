@@ -9,10 +9,10 @@
 
   monitors = [
     {
-      name = "eDP-1";
-      width = 2560;
-      height = 1440;
-      refreshRate = 90;
+      name = "eDP-2";
+      width = 1920; # 16:10
+      height = 1200;
+      refreshRate = 165;
       workspace = "1";
       primary = true;
     }
