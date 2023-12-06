@@ -1,14 +1,21 @@
 # more options: https://search.nixos.org/options?channel=unstable
 
-{ config, pkgs, nix-software-center, ... }: {
+{ config, lib, pkgs, nix-software-center, ... }: {
 
   nixpkgs.config.allowUnfree = true; # Allow unfree packages
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ]; # Experimental nix features
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
+  nix = {
+    settings = {
+      auto-optimise-store = lib.mkDefault true;
+      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      warn-dirty = false;
+      system-features = [ "kvm" "big-parallel" "nixos-test" ];
+      flake-registry = ""; # Disable global flake registry
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
 
 
@@ -73,14 +80,19 @@
 
   programs = {
     zsh.enable = true;
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
     # Monitor backlight control
     light.enable = true;
 
     system-config-printer.enable = true;
+  };
+
+  programs.fish = {
+    enable = true;
+    vendor = {
+      completions.enable = true;
+      config.enable = true;
+      functions.enable = true;
+    };
   };
 
 
@@ -153,8 +165,6 @@
       nssmdns = true;
     };
 
-    flatpak.enable = true;
-
     colord.enable = true; # icc profiles
 
     fwupd.enable = false; # update various firmware <https://nixos.wiki/wiki/Fwupd>
@@ -181,15 +191,6 @@
   };
 
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland # has more features on Hyprland
-      pkgs.xdg-desktop-portal-gtk # required for flatpak
-    ];
-  };
-
-
   systemd.user.extraConfig = ''
     DefaultEnvironment="PATH=/run/current-system/sw/bin"
   '';
@@ -199,12 +200,23 @@
   users.users.david = {
     isNormalUser = true;
     description = "David Schaller";
-    extraGroups = [
-      "wheel" # for sudo
-      "video" # for light (backlight control)
-      "libvirtd" # for virt-manager
-      "wireshark"
-    ];
+    extraGroups =
+      let
+        ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+      in
+      [
+        "wheel" # for sudo
+        "video" # for light (backlight control)
+      ] ++ ifTheyExist [
+        "wireshark"
+        "i2c"
+        "mysql"
+        "docker"
+        "podman"
+        "git"
+        "libvirtd"
+        "deluge"
+      ];
     shell = pkgs.zsh;
 
     openssh.authorizedKeys.keyFiles = [ ];

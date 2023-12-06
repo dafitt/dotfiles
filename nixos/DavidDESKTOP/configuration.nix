@@ -1,11 +1,6 @@
 # more options: https://search.nixos.org/options?channel=unstable
 { config, lib, pkgs, ... }: {
 
-  imports = [
-    ../common-desktop.nix
-  ];
-
-
   boot.loader = {
     grub = {
       enable = true;
@@ -17,27 +12,6 @@
 
     # Skip the boot selection menu. [space] to open it.
     timeout = 0;
-  };
-
-
-  # activate zfs
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages; # latest compatible kernel
-  boot.zfs = {
-    forceImportRoot = false;
-    extraPools = [ "DavidTANK" ];
-  };
-
-  # spin down hard drives
-  systemd.services."hd-idle" = {
-    description = "External HD spin down daemon";
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = ''${pkgs.hd-idle}/bin/hd-idle -i 0 \
-        -a /dev/disk/by-id/ata-MB4000GVYZK_ZC18DN03 -i 300 \
-        -a /dev/disk/by-id/ata-MB4000GVYZK_ZC18DNEY -i 300
-        '';
-    };
   };
 
 
@@ -110,7 +84,6 @@
 
   networking = {
     hostName = "DavidDESKTOP"; # Define your hostname.
-    hostId = "389a4fde"; #$ head -c 8 /etc/machine-id
 
     #proxy.default = "http://user:password@proxy:port/";
     #proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -124,12 +97,6 @@
 
   services = {
     fstrim.enable = true; # SSD
-
-    zfs = {
-      autoScrub.enable = true; # recommended
-    };
-
-    nfs.server.enable = true; # for zfs set sharenfs=...
   };
 
 

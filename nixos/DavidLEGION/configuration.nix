@@ -6,7 +6,6 @@
     # FIXME import nixos-hardware
     #<nixos-hardware/common/cpu/amd>
     #<nixos-hardware/common/gpu/amd>
-    ../common-desktop.nix
   ];
 
   boot.loader = {
