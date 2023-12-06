@@ -2,14 +2,12 @@
 
 { config, lib, pkgs, ... }: {
 
-
   imports = [
     # FIXME import nixos-hardware
     #<nixos-hardware/common/cpu/amd>
     #<nixos-hardware/common/gpu/amd>
     ../common-desktop.nix
   ];
-
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -24,17 +22,9 @@
     timeout = 0;
   };
 
-
-  console.keyMap = "de-latin1-nodeadkeys";
-
-
   boot.kernel.sysctl = { "vm.swappiness" = 10; }; # reduce swappiness
 
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 35 * 1024; # in MiB
-  }];
-
+  console.keyMap = "de-latin1-nodeadkeys";
 
   networking = {
     hostName = "DavidLEGION"; # Define your hostname.
@@ -58,12 +48,10 @@
     };
   };
 
-
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
   };
-
 
   services = {
 
@@ -73,10 +61,8 @@
 
   };
 
-
   # Discrete Graphics
   #$$ env DRI_PRIME=1 [command] {args}
-
 
   system.stateVersion = "23.05"; # Do not touch
 }
