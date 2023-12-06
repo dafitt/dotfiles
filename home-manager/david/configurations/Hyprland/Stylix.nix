@@ -6,7 +6,7 @@
   ];
 
   stylix = {
-    image = ../../pkgs/wallhaven-967zyk.jpg;
+    image = ../../pkgs/wallpaper.jpg;
     polarity = "dark"; # force dark/light theme
 
     # explore themes <https://github.com/tinted-theming/base16-schemes>
