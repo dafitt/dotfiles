@@ -1,17 +1,19 @@
 { config, lib, pkgs, ... }: {
 
   home.packages = with pkgs; [
+    flatpak
     gnome.gnome-software # to search flatpaks grafically
   ];
 
+
   # add flatpaks .desktop binary paths
   home.sessionPath = [
-    "/var/lib/flatpak/exports/share"
-    "$HOME/.local/share/flatpak/exports/share"
+    "/var/lib/flatpak/exports"
+    "$HOME/.local/share/flatpak/exports"
   ];
   xdg.systemDirs.data = [
-    "/var/lib/flatpak/exports/share"
-    "$HOME/.local/share/flatpak/exports/share"
+    "/var/lib/flatpak/exports"
+    "$HOME/.local/share/flatpak/exports"
   ];
 
   home.file = {

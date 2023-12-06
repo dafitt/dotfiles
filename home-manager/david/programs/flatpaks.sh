@@ -1,6 +1,3 @@
-#! /usr/bin/env nix-shell
-#! nix-shell -i sh -p flatpak
-
 # Remote repository
 flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
@@ -8,7 +5,6 @@ flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/fl
 declare -a flatpaks=(
     "com.github.tchx84.Flatseal"
     "org.gtk.Gtk3theme.adw-gtk3-dark"
-    "com.gitlab.davem.ClamTk" # clam antivirus scanner
 
     "md.obsidian.Obsidian" # a knowledge base that works with plain Markdown files
     "io.bassi.Amberol"     # plays music, and nothing else
