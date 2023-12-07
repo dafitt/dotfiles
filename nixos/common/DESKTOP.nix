@@ -181,16 +181,6 @@
   };
 
 
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      onBoot = "ignore";
-      onShutdown = "shutdown";
-    };
-    spiceUSBRedirection.enable = true;
-  };
-
-
   systemd.user.extraConfig = ''
     DefaultEnvironment="PATH=/run/current-system/sw/bin"
   '';
