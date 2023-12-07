@@ -6,7 +6,7 @@
 
     historyControl = [ "erasedups" "ignoredups" "ignorespace" ];
     historyIgnore = [ "ls" "cd" "rm" "exit" ];
-    shellAliases = import ../options/shellAliases.nix;
+    shellAliases = import ../common/shellAliases.nix;
     shellOptions = [
       "autocd"
 
@@ -28,7 +28,8 @@
       "cmdhist"
     ];
 
-    initExtra = ''stty werase \^H
+    initExtra = ''
+      stty werase \^H
     '';
   };
 }

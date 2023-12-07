@@ -14,7 +14,7 @@
       ignoreSpace = true;
     };
     historySubstringSearch.enable = true;
-    shellAliases = import ../options/shellAliases.nix;
+    shellAliases = import ../common/shellAliases.nix;
     syntaxHighlighting.enable = true;
 
     initExtra = ''
