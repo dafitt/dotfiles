@@ -6,14 +6,14 @@
   ];
 
 
-  # add flatpaks .desktop binary paths
+  # find flatpaks .desktop binary paths
+  # $PATH
   home.sessionPath = [
-    "/var/lib/flatpak/exports"
-    "$HOME/.local/share/flatpak/exports"
+    "$HOME/.local/share/flatpak/exports/share"
   ];
+  # $XDG_DATA_DIRS
   xdg.systemDirs.data = [
-    "/var/lib/flatpak/exports"
-    "$HOME/.local/share/flatpak/exports"
+    "$HOME/.local/share/flatpak/exports/share"
   ];
 
   home.file = {
