@@ -3,7 +3,7 @@
   # The Z shell
   # https://www.zsh.org/
   programs.zsh = {
-    enable = true;
+    enable = false;
     autocd = true;
     enableCompletion = true;
     enableAutosuggestions = true;
@@ -29,7 +29,7 @@
       "${pkgs.neofetch}/bin/neofetch"
 
       # Autostart Hyprland
-      ''if [ "$(tty)" = "/dev/tty1" ]; then exec Hyprland; fi''
+      #''if [ "$(tty)" = "/dev/tty1" ]; then exec Hyprland; fi''
     ];
   };
 

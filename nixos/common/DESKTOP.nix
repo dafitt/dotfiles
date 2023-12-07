@@ -83,7 +83,6 @@
   # Monitor backlight control
   programs.light.enable = true;
 
-  programs.zsh.enable = true;
   programs.fish = {
     enable = true;
     # also use objects provided by other packages
@@ -102,6 +101,7 @@
       micro # easy to use texteditor
       raider # securely delete your files
       wget
+      home-manager
 
       nix-software-center.packages.${system}.nix-software-center # GUI for installing nix-packages
     ];

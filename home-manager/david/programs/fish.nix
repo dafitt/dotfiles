@@ -1,7 +1,7 @@
 { pkgs, ... }: {
 
   # The friendly interactive shell
-  #
+  # https://fishshell.com/
   programs.fish = {
     enable = true;
 
