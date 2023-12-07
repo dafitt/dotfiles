@@ -104,7 +104,7 @@
       raider # securely delete your files
       wget
 
-      #nix-software-center.packages.${system}.nix-software-center # GUI for installing nix-packages # TODO remove
+      nix-software-center.packages.${system}.nix-software-center # GUI for installing nix-packages
     ];
     pathsToLink = [ "/share/zsh" ];
   };
