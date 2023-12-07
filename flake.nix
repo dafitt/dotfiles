@@ -33,24 +33,24 @@
         nixos = nixpkgs.lib.nixosSystem {
           # with no configuration, point to the Generic host
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; }; # pass all inputs to external configuration files
-          modules = [ ./nixos/Generic ];
+          specialArgs = inputs; # pass all inputs to external configuration files
+          modules = [ ./nixos/hosts/Generic ];
         };
 
         DavidDESKTOP = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [ ./nixos/DavidDESKTOP ];
+          specialArgs = inputs;
+          modules = [ ./nixos/hosts/DavidDESKTOP ];
         };
         DavidLEGION = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [ ./nixos/DavidLEGION ];
+          specialArgs = inputs;
+          modules = [ ./nixos/hosts/DavidLEGION ];
         };
         DavidTUX = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [ ./nixos/DavidTUX ];
+          specialArgs = inputs;
+          modules = [ ./nixos/hosts/DavidTUX ];
         };
       };
 
