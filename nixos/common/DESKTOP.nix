@@ -86,6 +86,7 @@
   programs.zsh.enable = true;
   programs.fish = {
     enable = true;
+    # use objects provided by other packages
     vendor = {
       completions.enable = true;
       config.enable = true;

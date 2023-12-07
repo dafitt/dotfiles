@@ -20,5 +20,5 @@
   rsync-update = "rsync --archive --update --progress -zvh";
 
   # flatpak
-  "flatpak install" = "flatpak install --user --or-update --assumeyes";
+  flatpak-install = "flatpak install --user --or-update --assumeyes";
 }

@@ -19,7 +19,7 @@
         "libvirtd"
         "deluge"
       ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
 
     openssh.authorizedKeys.keyFiles = [ ];
   };

@@ -6,7 +6,7 @@
     #overlays = [ ];
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = _: true; # Workaround for https://github.com/nix-community/home-manager/issues/2942
+      allowUnfreePredicate = _: true; # Workaround for [Flake cannot use unfree packages](https://github.com/nix-community/home-manager/issues/2942)
     };
   };
 
@@ -20,31 +20,11 @@
       EDITOR = "${pkgs.micro}/bin/micro";
       GDITOR = "${pkgs.vscode}/bin/code";
       TERMINAL = "${config.programs.kitty.package}/bin/kitty";
-      TERM = TERMINAL;
       TOP = "${config.programs.btop.package}/bin/btop"; # preferred system monitor
     };
 
     language.base = "en_US.UTF-8";
   };
-
-  #systemd.user = {
-  #  automounts = { };
-  #  mounts = {
-  #    "home-${config.home.username}-.media-Archive" = {
-  #      Unit.Description = "Mount DavidTanks archive";
-  #      Unit.After = [ "nss-lookup.target" ];
-  #      Install.WantedBy = [ "multi-user.target" ];
-  #      Mount = {
-  #        What = "192.168.18.151:/DavidTank/archive";
-  #        Where = "/home/${config.home.username}/.media/Archive";
-  #        Type = "nfs";
-  #        Options = "noatime,noauto,_netdev,user,setuid=1000,vers=4";
-  #        TimeoutSec = "30";
-  #      };
-  #    };
-  #  };
-  #};
-
 
 
   xdg = {
