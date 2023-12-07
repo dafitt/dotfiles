@@ -8,5 +8,6 @@
 
     ../../common/DESKTOP.nix
     ../../common/gamemode.nix
+    ../../common/virtualisation.nix
   ];
 }
