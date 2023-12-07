@@ -10,11 +10,6 @@
 
   boot.loader = {
     systemd-boot.enable = true;
-    grub = {
-      enable = false;
-      device = "nodev";
-      efiSupport = true;
-    };
     efi.canTouchEfiVariables = true;
 
     # Skip the boot selection menu. [space] to open it.

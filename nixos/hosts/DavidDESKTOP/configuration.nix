@@ -2,12 +2,7 @@
 { config, lib, pkgs, ... }: {
 
   boot.loader = {
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      gfxmodeEfi = "2560x1440";
-    };
+    systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
 
     # Skip the boot selection menu. [space] to open it.
