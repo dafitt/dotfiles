@@ -27,9 +27,6 @@
 
     loginExtra = lib.mkMerge [
       "${pkgs.neofetch}/bin/neofetch"
-
-      # Autostart Hyprland
-      #''if [ "$(tty)" = "/dev/tty1" ]; then exec Hyprland; fi''
     ];
   };
 

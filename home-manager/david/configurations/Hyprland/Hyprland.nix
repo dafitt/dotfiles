@@ -364,6 +364,11 @@
     NIXOS_OZONE_WL = "1";
   };
 
+  # Autostart Hyprland from tty1
+  programs.bash.profileExtra = ''if [ "$(tty)" = "/dev/tty1" ]; then exec Hyprland; fi'';
+  programs.zsh.loginExtra = ''if [ "$(tty)" = "/dev/tty1" ]; then exec Hyprland; fi'';
+  programs.fish.loginShellInit = ''set TTY (tty); [ "$TTY" = /dev/tty1 ] && exec Hyprland'';
+
   # Extend Wayland / Hyprland
   # - Awesome Hyprland <https://github.com/hyprland-community/awesome-hyprland>
   # - Awesome Wayland <https://github.com/natpen/awesome-wayland>
