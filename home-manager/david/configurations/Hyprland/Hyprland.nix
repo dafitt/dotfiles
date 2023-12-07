@@ -62,7 +62,7 @@
         pseudotile = true; # master switch for pseudotiling
         force_split = 2;
         preserve_split = true; # you probably want this
-        split_width_multiplier = 1.35;
+        default_split_ratio = 1.3; # 0.1 - 1.9
       };
       master = {
         # <https://wiki.hyprland.org/Configuring/Master-Layout/>
@@ -314,7 +314,7 @@
         # some system services
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" # start polkit manually (isn't done automatically)
         "${pkgs.swayosd}/bin/swayosd"
-        "hyprctl setcursor ${config.gtk.cursorTheme.name} ${builtins.toString config.gtk.cursorTheme.size}"
+        #"hyprctl setcursor ${config.gtk.cursorTheme.name} ${builtins.toString config.gtk.cursorTheme.size}"
       ];
       # only on each reload
       exec = [ ];

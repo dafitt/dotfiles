@@ -26,6 +26,12 @@
       base05 = "cdd6d9"; # text
     };
 
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
+    };
+
     fonts = {
       sansSerif = config.stylix.fonts.serif;
       serif = {

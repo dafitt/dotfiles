@@ -19,7 +19,7 @@
   home.file = {
     # Cursor theme fix
     # <https://nixos.wiki/wiki/Cursor_Themes>
-    ".icons/default".source = "${config.gtk.cursorTheme.package}/share/icons/${config.gtk.cursorTheme.name}";
+    ".icons/default".source = "${config.stylix.cursor.package}/share/icons/${config.stylix.cursor.name}";
 
     # fix missing fonts (make a symlink to current font store)
     #".local/share/fonts".source = config.lib.file.mkOutOfStoreSymlink "/run/current-system/sw/share/X11/fonts"; # steam wont start
