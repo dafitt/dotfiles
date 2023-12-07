@@ -78,14 +78,12 @@
   security.pam.services.swaylock = { }; # swaylock fix <https://github.com/NixOS/nixpkgs/issues/158025>
 
 
-  programs = {
-    zsh.enable = true;
-    # Monitor backlight control
-    light.enable = true;
+  programs.dconf.enable = true;
 
-    system-config-printer.enable = true;
-  };
+  # Monitor backlight control
+  programs.light.enable = true;
 
+  programs.zsh.enable = true;
   programs.fish = {
     enable = true;
     vendor = {
@@ -94,6 +92,8 @@
       functions.enable = true;
     };
   };
+
+  programs.system-config-printer.enable = true;
 
 
   environment = {
@@ -194,32 +194,5 @@
   systemd.user.extraConfig = ''
     DefaultEnvironment="PATH=/run/current-system/sw/bin"
   '';
-
-
-  # User(s)
-  users.users.david = {
-    isNormalUser = true;
-    description = "David Schaller";
-    extraGroups =
-      let
-        ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-      in
-      [
-        "wheel" # for sudo
-        "video" # for light (backlight control)
-      ] ++ ifTheyExist [
-        "wireshark"
-        "i2c"
-        "mysql"
-        "docker"
-        "podman"
-        "git"
-        "libvirtd"
-        "deluge"
-      ];
-    shell = pkgs.zsh;
-
-    openssh.authorizedKeys.keyFiles = [ ];
-  };
 
 }

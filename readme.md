@@ -64,6 +64,13 @@ Now you have your base NixOS system. Delete my hosts and adjust my shared-deskto
 
 I prefered the standalone installation because i don't want to use sudo and rebuild my enire system to only apply some home changes. Plus I **could** theoretically install Home-manager to any linux distribution and apply my config. But i haven't tested this yet.
 
+Requirements for home-manager-only:
+
+```nix
+hardware.opengl.enable = true;
+programs.dconf.enable = true;
+```
+
 1. Download this repository and put it somewhere to _`~/Desktop`_ for example
 2. Make some changes to my sourcecode in _`./home-manager/`_
     - the USERNAME should be your own

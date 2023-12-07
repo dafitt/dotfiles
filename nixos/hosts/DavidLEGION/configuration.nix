@@ -23,7 +23,9 @@
 
   boot.kernel.sysctl = { "vm.swappiness" = 10; }; # reduce swappiness
 
+
   console.keyMap = "de-latin1-nodeadkeys";
+
 
   networking = {
     hostName = "DavidLEGION"; # Define your hostname.
@@ -47,21 +49,22 @@
     };
   };
 
+
+  services.fstrim.enable = true; # SSD
+
+  services.blueman.enable = true;
+
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
   };
 
-  services = {
-
-    fstrim.enable = true; # SSD
-
-    blueman.enable = true;
-
-  };
+  hardware.opengl.enable = true;
 
   # Discrete Graphics
   #$$ env DRI_PRIME=1 [command] {args}
+
 
   system.stateVersion = "23.05"; # Do not touch
 }

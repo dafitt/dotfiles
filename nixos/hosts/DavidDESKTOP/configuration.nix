@@ -27,7 +27,6 @@
 
 
   fileSystems = {
-
     "/mnt/games" = {
       label = "GAMES"; # how to write a label <https://wiki.archlinux.org/title/persistent_block_device_naming#by-label>
       options = [
@@ -39,7 +38,6 @@
         "X-mount.mkdir" # create directory if not existing
       ];
     };
-
     "/mnt/file" = {
       label = "FILE"; # how to write a label <https://wiki.archlinux.org/title/persistent_block_device_naming#by-label>
       options = [
@@ -51,7 +49,6 @@
         "X-mount.mkdir" # create directory if not existing
       ];
     };
-
     #"/home/david/.media/Archive" = {
     #  device = "192.168.18.151:/DavidTank/archive";
     #  fsType = "nfs";
@@ -65,7 +62,6 @@
     #    "x-systemd.idle-timeout=300"
     #  ];
     #};
-
     #"/home/david/.media/Familiendaten" = {
     #  device = "192.168.18.3:/Familiendaten";
     #  fsType = "nfs";
@@ -98,6 +94,9 @@
   services = {
     fstrim.enable = true; # SSD
   };
+
+
+  hardware.opengl.enable = true;
 
 
   system.stateVersion = "23.05"; # Do not touch
