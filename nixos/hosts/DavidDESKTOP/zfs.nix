@@ -21,11 +21,13 @@
     };
   };
 
-  services = {
-    zfs = {
-      autoScrub.enable = true; # recommended
-    };
+  services.zfs = {
+    autoScrub.enable = true; # recommended
+  };
 
+  # NFS
+  services = {
     nfs.server.enable = true; # for zfs set sharenfs=...
+    rpcbind.enable = true; # required for NFS
   };
 }

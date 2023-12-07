@@ -86,15 +86,13 @@
   programs.zsh.enable = true;
   programs.fish = {
     enable = true;
-    # use objects provided by other packages
+    # also use objects provided by other packages
     vendor = {
       completions.enable = true;
       config.enable = true;
       functions.enable = true;
     };
   };
-
-  programs.system-config-printer.enable = true;
 
 
   environment = {
@@ -153,19 +151,6 @@
       wifi.backend = "iwd";
     };
 
-    rpcbind.enable = true; # required for NFS
-
-    printing = {
-      # <https://nixos.wiki/wiki/Printing>
-      enable = true; # Enable CUPS
-      drivers = [ pkgs.foomatic-db-ppds ];
-    };
-    #system-config-printer.enable = true; # Printing GUI
-    avahi = {
-      enable = true;
-      nssmdns = true;
-    };
-
     colord.enable = true; # icc profiles
 
     fwupd.enable = false; # update various firmware <https://nixos.wiki/wiki/Fwupd>
@@ -182,6 +167,7 @@
   };
 
 
+  # Fix for [Flatpak apps can't launch the default browser](https://github.com/NixOS/nixpkgs/issues/189851)
   systemd.user.extraConfig = ''
     DefaultEnvironment="PATH=/run/current-system/sw/bin"
   '';
