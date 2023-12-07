@@ -8,7 +8,7 @@
     # widgets doc <https://elkowar.github.io/eww/widgets.html>
     # a good example <https://github.com/end-4/dots-hyprland/tree/m3ww>
 
-    # set symlink manually $ ln -s ~/Desktop/NixOS-hm-standalone/home/user/.config/home-manager/modules/eww ~/.config/
+    # set symlink manually $ ln -s ~/Desktop/NixOS/home-manager/david/modules/eww ~/.config/
 
     enable = true;
     package = pkgs.eww-wayland;
