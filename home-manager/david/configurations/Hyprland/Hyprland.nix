@@ -63,6 +63,7 @@
         force_split = 2;
         preserve_split = true; # you probably want this
         default_split_ratio = 1.3; # 0.1 - 1.9
+        no_gaps_when_only = 1; # without border
       };
       master = {
         # <https://wiki.hyprland.org/Configuring/Master-Layout/>
