@@ -78,6 +78,7 @@
   security.pam.services.swaylock = { }; # swaylock fix <https://github.com/NixOS/nixpkgs/issues/158025>
 
 
+  # For GNOME programs outside of GNOME and DBus
   programs.dconf.enable = true;
 
   # Monitor backlight control

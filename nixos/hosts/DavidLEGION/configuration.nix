@@ -2,12 +2,6 @@
 
 { config, lib, pkgs, ... }: {
 
-  imports = [
-    # FIXME import nixos-hardware
-    #<nixos-hardware/common/cpu/amd>
-    #<nixos-hardware/common/gpu/amd>
-  ];
-
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;

@@ -14,7 +14,7 @@
     username = "david";
     homeDirectory = "/home/david";
 
-    sessionVariables = rec {
+    sessionVariables = {
       # Default programs
       BROWSER = "${config.programs.librewolf.package}/bin/librewolf";
       EDITOR = "${pkgs.micro}/bin/micro";

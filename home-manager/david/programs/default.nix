@@ -47,6 +47,5 @@ in
     gnome.gnome-nettool
     gnome.gucharmap # to search unicode characters
     pandoc # document converter
-    wireshark # network protocol analyzer
   ];
 }
