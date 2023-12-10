@@ -13,12 +13,15 @@
     tlp = {
       # power management daemon
       # docs <https://linrunner.de/tlp/>
+      #$$ tlp-stst --help
       enable = true;
       settings = {
         # battery care
+        #$$ sudo tlp-stat -b
         STOP_CHARGE_THRESH_BAT0 = 1;
 
         # graphics
+        #$$ sudo tlp-stat -g
         RADEON_DPM_STATE_ON_AC = "performance";
         RADEON_DPM_STATE_ON_BAT = "battery";
 
@@ -30,6 +33,7 @@
         PLATFORM_PROFILE_ON_BAT = "low-power";
 
         # processor
+        #$$ sudo tlp-stat -p
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
         CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
         CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
@@ -38,6 +42,8 @@
         CPU_SCALING_MAX_FREQ_ON_AC = 3200000;
         CPU_SCALING_MIN_FREQ_ON_BAT = 0;
         CPU_SCALING_MAX_FREQ_ON_BAT = 1600000;
+        CPU_MIN_PERF_ON_BAT = 0;
+        CPU_MAX_PERF_ON_BAT = 60;
         CPU_BOOST_ON_AC = 1;
         CPU_BOOST_ON_BAT = 0;
       };
