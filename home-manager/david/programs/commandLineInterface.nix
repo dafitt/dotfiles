@@ -8,13 +8,10 @@
     calc # a calculator
     dig # tool for DNS
     duf # a better 'df'
-    grim # screenshot tool
     httpie
     hyprpicker # color picker
     ncdu # disk usage analyzer with an ncurses interface
     nvme-cli # tool for nvme interface
-    slurp # screenshot area select tool
-    swappy # screenshot edit tool
     tldr # simplified and community-driven man pages
     tree
     wev # tool for keyboard input

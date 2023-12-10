@@ -249,16 +249,11 @@
         ", XF86KbdBrightnessDown, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -U 10"
 
         # Screenshots
-        "SUPER, Print, exec, ${pkgs.grim}/bin/grim $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # quick all
-        "SUPER, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -o)\" $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # quick monitor
-        "SUPER CTRL, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # quick select
-        "SUPER ALT, S, exec, ${pkgs.grim}/bin/grim - | ${pkgs.swappy}/bin/swappy -f -" # all swappy
-        "SUPER ALT CTRL, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.swappy}/bin/swappy -f -" # select swappy
-        ", Print, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copy output"
-        "SHIFT, Print, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copy active"
-        "CONTROL, Print, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copy screen"
-        "SUPER, Print, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copy area"
-        "ALT, Print, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copy area"
+        ", PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze copysave output $XDG_SCREENSHOTS_DIR/$(date +'%s.png')"
+        "ALT, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave active $XDG_SCREENSHOTS_DIR/$(date +'%s.png')"
+        "CONTROL, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave area $XDG_SCREENSHOTS_DIR/$(date +'%s.png')"
+        "SUPER, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze save area - | ${pkgs.swappy}/bin/swappy -f - -o $XDG_SCREENSHOTS_DIR/$(date +'%s.png')"
+        "CONTROL SHIFT, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave screen $XDG_SCREENSHOTS_DIR/$(date +'%s.png')"
 
         # some small helper programs
         "ALT SUPER, U, exec, ${pkgs.gnome.gnome-characters}/bin/gnome-characters"
