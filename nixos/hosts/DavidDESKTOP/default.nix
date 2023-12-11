@@ -10,6 +10,7 @@
     ../../users/david.nix
 
     ./zfs.nix
+    ./nextcloud.nix
 
     ../../common/DESKTOP.nix
     ../../common/gamemode.nix
