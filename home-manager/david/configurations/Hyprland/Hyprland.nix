@@ -244,10 +244,6 @@
         "SUPER, mouse_down, workspace, -1"
         "SUPER, mouse_up, workspace, +1"
 
-        # Media keys
-        ", XF86KbdBrightnessUp, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -A 10"
-        ", XF86KbdBrightnessDown, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -U 10"
-
         # Screenshots
         ", PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze copysave output $XDG_SCREENSHOTS_DIR/$(date +'%s.png')"
         "ALT, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave active $XDG_SCREENSHOTS_DIR/$(date +'%s.png')"
@@ -272,23 +268,32 @@
         "ALT, XF86AudioPlay, exec, systemctl --user restart playerctld"
       ]) ++
       (lib.optionals config.services.swayosd.enable [
-        ", XF86AudioRaiseVolume, execr, ${pkgs.swayosd}/bin/swayosd --output-volume raise && $XDG_CONFIG_HOME/eww/scripts/update_audioVolume"
-        ", XF86AudioLowerVolume, execr, ${pkgs.swayosd}/bin/swayosd --output-volume lower && $XDG_CONFIG_HOME/eww/scripts/update_audioVolume"
-        "ALT, XF86AudioRaiseVolume, exec, ${pkgs.swayosd}/bin/swayosd --input-volume raise && $XDG_CONFIG_HOME/eww/scripts/update_microphoneVolume"
-        "ALT, XF86AudioLowerVolume, exec, ${pkgs.swayosd}/bin/swayosd --input-volume lower && $XDG_CONFIG_HOME/eww/scripts/update_microphoneVolume"
         ", XF86AudioMute, exec, ${pkgs.swayosd}/bin/swayosd --output-volume mute-toggle && $XDG_CONFIG_HOME/eww/scripts/update_audioMute"
         "ALT, XF86AudioMute, exec, ${pkgs.swayosd}/bin/swayosd --input-volume mute-toggle && $XDG_CONFIG_HOME/eww/scripts/update_microphoneMute"
         ", XF86AudioMicMute, exec, ${pkgs.swayosd}/bin/swayosd --input-volume mute-toggle && $XDG_CONFIG_HOME/eww/scripts/update_microphoneMute"
-        ", XF86MonBrightnessUp, exec, ${pkgs.swayosd}/bin/swayosd --brightness raise && $XDG_CONFIG_HOME/eww/scripts/update_brightness"
-        ", XF86MonBrightnessDown, exec, ${pkgs.swayosd}/bin/swayosd --brightness lower && $XDG_CONFIG_HOME/eww/scripts/update_brightness"
         ", Caps_Lock, exec, ${pkgs.swayosd}/bin/swayosd --caps-lock"
       ]);
 
+      # Bind: mouse binds
       bindm = [
         # Move/resize windows with mainMod + LMB/RMB and dragging
         "SUPER, mouse:272, movewindow"
         "SUPER, mouse:273, resizewindow"
       ];
+
+      # Bind: repeat while holding
+      binde = [
+        # Media Keys
+        ", XF86KbdBrightnessUp, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -A 10"
+        ", XF86KbdBrightnessDown, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -U 10"
+      ] ++ (lib.optionals config.services.swayosd.enable [
+        ", XF86AudioRaiseVolume, execr, ${pkgs.swayosd}/bin/swayosd --output-volume raise && $XDG_CONFIG_HOME/eww/scripts/update_audioVolume"
+        ", XF86AudioLowerVolume, execr, ${pkgs.swayosd}/bin/swayosd --output-volume lower && $XDG_CONFIG_HOME/eww/scripts/update_audioVolume"
+        "ALT, XF86AudioRaiseVolume, exec, ${pkgs.swayosd}/bin/swayosd --input-volume raise && $XDG_CONFIG_HOME/eww/scripts/update_microphoneVolume"
+        "ALT, XF86AudioLowerVolume, exec, ${pkgs.swayosd}/bin/swayosd --input-volume lower && $XDG_CONFIG_HOME/eww/scripts/update_microphoneVolume"
+        ", XF86MonBrightnessUp, exec, ${pkgs.swayosd}/bin/swayosd --brightness raise && $XDG_CONFIG_HOME/eww/scripts/update_brightness"
+        ", XF86MonBrightnessDown, exec, ${pkgs.swayosd}/bin/swayosd --brightness lower && $XDG_CONFIG_HOME/eww/scripts/update_brightness"
+      ]);
 
       windowrulev2 = [
         # <https://wiki.hyprland.org/Configuring/Window-Rules/>
