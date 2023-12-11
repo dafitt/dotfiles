@@ -312,11 +312,10 @@
         #"systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP"
         #"dbus-update-activation-environment --all"
 
-        # some system services
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" # start polkit manually (isn't done automatically)
         "${pkgs.swayosd}/bin/swayosd"
-        #"hyprctl setcursor ${config.gtk.cursorTheme.name} ${builtins.toString config.gtk.cursorTheme.size}"
       ];
+
       # only on each reload
       exec = [ ];
 
