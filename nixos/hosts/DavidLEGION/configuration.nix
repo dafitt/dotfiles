@@ -1,5 +1,3 @@
-# a minimal host configuration
-
 { config, lib, pkgs, ... }: {
 
   boot.loader = {

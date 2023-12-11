@@ -1,4 +1,3 @@
-# more options: https://search.nixos.org/options?channel=unstable
 { config, lib, pkgs, ... }: {
 
   boot.loader = {
