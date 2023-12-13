@@ -3,7 +3,7 @@
   # activate zfs
   networking.hostId = "389a4fde"; #$ head -c 8 /etc/machine-id
   boot.supportedFilesystems = [ "zfs" ];
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages; # latest compatible kernel
+  boot.kernelPackages = lib.mkForce config.boot.zfs.package.latestCompatibleLinuxPackages; # latest compatible kernel
   boot.zfs = {
     forceImportRoot = false;
     extraPools = [ "DavidTANK" ];
@@ -27,7 +27,7 @@
 
   # NFS
   services = {
-    nfs.server.enable = true; # for zfs set sharenfs=...
-    rpcbind.enable = true; # required for NFS
+    #nfs.server.enable = true; # for zfs set sharenfs=...
+    #rpcbind.enable = true; # required for NFS
   };
 }
