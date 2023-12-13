@@ -20,7 +20,7 @@
 
     # fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    (callPackage ../pkgs/phosphoricons { }) # <https://phosphoricons.com/>
+    (callPackage ../../../pkgs/phosphoricons { }) # <https://phosphoricons.com/>
 
     # dependency: Hyprland workspaces widget
     socat
