@@ -4,13 +4,6 @@
     let
       # Take from the respective mimetype files
       #$$ xdg-mime query filetype <https://wiki.archlinux.org/title/Xdg-utils#xdg-mime>
-      browser = [
-        "text/html"
-        "x-scheme-handler/http"
-        "x-scheme-handler/https"
-        "x-scheme-handler/about"
-        "x-scheme-handler/unknown"
-      ];
       images = [
         "image/bmp"
         "image/gif"
@@ -286,6 +279,5 @@
       // (lib.genAttrs audioVideo (_: [ "mpv.desktop" ]))
       // (lib.genAttrs documents (_: [ "org.gnome.Evince.desktop" ]))
       // (lib.genAttrs images (_: [ "org.gnome.eog.desktop" ]))
-      // (lib.genAttrs browser (_: [ "librewolf.desktop" ]))
     );
 }

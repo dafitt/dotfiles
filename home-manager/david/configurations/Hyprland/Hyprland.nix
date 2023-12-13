@@ -333,11 +333,13 @@
         "QT_QPA_PLATFORM=wayland;xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
 
-        # Toolkit
+        # Tell apps to use Wayland
+        "GDK_BACKEND,wayland,x11"
+        "MOZ_ENABLE_WAYLAND,1"
+        "NIXOS_OZONE_WL,1"
         "SDL_VIDEODRIVER,wayland"
         "_JAVA_AWT_WM_NONEREPARENTING,1"
         "CLUTTER_BACKEND,wayland"
-        "GDK_BACKEND,wayland,x11"
       ];
     };
 
@@ -356,13 +358,6 @@
     hyprwm-contrib.packages.${pkgs.system}.grimblast
     hyprpicker
   ];
-
-  home.sessionVariables = {
-    # Tell apps to use Wayland
-    MOZ_ENABLE_WAYLAND = 1;
-    QT_QPA_PLATFORM = "wayland";
-    NIXOS_OZONE_WL = "1";
-  };
 
   # Autostart Hyprland from tty1
   programs.bash.profileExtra = ''if [ "$(tty)" = "/dev/tty1" ]; then exec Hyprland; fi'';
