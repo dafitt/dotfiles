@@ -149,7 +149,9 @@ Manually configure syncthing on <http://localhost:8384>
 
 Rollback:
 
--   NixOS: `nix profile rollback {--to <n>}`
+-   NixOS:
+    -   `sudo nixos-rebuild switch --rollback` to the last build
+    -   `nix profile rollback {--to <n>}`
 -   Home-manager: See <https://nix-community.github.io/home-manager/index.html#sec-usage-rollbacks>
 
 Cleanup:
