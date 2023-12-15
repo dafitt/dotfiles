@@ -40,6 +40,7 @@ in
     hunspellDicts.en_US-large
     libreoffice-fresh # office suite
     tenacity # Sound editor with graphical UI
+    ludusavi # Savegame manager
 
     # for development and administration
     gnome.dconf-editor
