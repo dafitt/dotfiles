@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     gnome.nautilus
     gnome.file-roller # archive manager
+    xfce.thunar # as bulk renamer
   ];
 
   dconf.settings = {
