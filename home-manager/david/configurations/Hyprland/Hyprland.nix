@@ -299,7 +299,8 @@
         # <https://wiki.hyprland.org/Configuring/Window-Rules/>
         # <https://regex101.com/>
         #$ hyprctl clients
-        "opacity 1 0.7, floating:1, title:(.)+" # make inactive floating windows (with titles) more transparent
+        "opacity 1 0.7, floating:1, title:(.)+, xwayland:0" # make inactive floating windows (with titles) more transparent
+        "bordercolor rgb(${config.lib.stylix.colors.base09}), xwayland:1" # other border color for xwayland windows
 
         "float, title:(S|s)etup"
         "float, title:(P|p)rogress"
