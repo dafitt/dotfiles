@@ -49,9 +49,10 @@
       };
     };
 
-    logind.extraConfig = ''
-      HandlePowerKey=suspend
-    '';
+    logind = {
+      powerKey = "suspend";
+      powerKeyLongPress = "poweroff";
+    };
 
     upower = {
       enable = true; # provides power management support to applications
@@ -75,7 +76,7 @@
       # TODO disable wakeup: LID
 
       # autosuspend USB devices
-      #''ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"''
+      ''ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"''
       # autosuspend PCI devices
       ''ACTION=="add", SUBSYSTEM=="pci", TEST=="power/control", ATTR{power/control}="auto"''
       # disable Ethernet Wake-on-LAN
