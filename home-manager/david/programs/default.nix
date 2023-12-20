@@ -41,6 +41,8 @@ in
     libreoffice-fresh # office suite
     tenacity # Sound editor with graphical UI
     ludusavi # Savegame manager
+    signal-desktop
+    super-productivity # To-do list & time tracker
 
     # for development and administration
     gnome.dconf-editor
