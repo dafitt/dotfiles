@@ -71,9 +71,21 @@
     #};
   };
 
+  services.connman.enable = lib.mkForce false; # Intervenes with network configuration!
 
   networking = {
     hostName = "DavidDESKTOP"; # Define your hostname.
+
+    networking.useDHCP = false; # Is needed!
+    networking.bridges."br0".interfaces = [ "enp42s0" ];
+    networking.interfaces."br0".useDHCP = true;
+    # Static host-ip
+    #interfaces."br0".ipv4.addresses = [{
+    #  address = "192.168.19.3";
+    #  prefixLength = 23;
+    #}];
+    #defaultGateway = "192.168.18.1";
+    #nameservers = [ "192.168.18.156" ];
 
     #proxy.default = "http://user:password@proxy:port/";
     #proxy.noProxy = "127.0.0.1,localhost,internal.domain";

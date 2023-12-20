@@ -5,6 +5,10 @@
   containers.nextcloud = {
     autoStart = false;
 
+    privateNetwork = true;
+    hostBridge = "br0";
+    localAddress = "192.168.19.22/23";
+
     config = { config, lib, pkgs, ... }: {
 
       services.nextcloud = {
@@ -23,14 +27,13 @@
       };
 
 
-      #networking = {
-      #  firewall = {
-      #    enable = true;
-      #    allowedTCPPorts = [ 80 ];
-      #  };
-      #   Use systemd-resolved inside the container
-      #  useHostResolvConf = lib.mkForce false;
-      #};
+      networking = {
+        firewall = {
+          allowedTCPPorts = [ 80 ];
+        };
+        # Use systemd-resolved inside the container
+        #useHostResolvConf = lib.mkForce false;
+      };
       #services.resolved.enable = true;
 
 
