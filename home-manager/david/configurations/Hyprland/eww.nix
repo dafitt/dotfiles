@@ -12,7 +12,7 @@
 
     enable = true;
     package = pkgs.eww-wayland;
-    configDir = ../modules/eww;
+    configDir = ../../modules/eww;
   };
 
   home.packages = with pkgs; [
@@ -20,7 +20,7 @@
 
     # fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    (callPackage ../../../pkgs/phosphoricons { }) # <https://phosphoricons.com/>
+    (callPackage ../../../../pkgs/phosphoricons { }) # <https://phosphoricons.com/>
 
     # dependency: Hyprland workspaces widget
     socat
