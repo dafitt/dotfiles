@@ -43,20 +43,15 @@
 
   services.swayidle = {
     enable = true;
+    systemdTarget = "hyprland-session.target";
     # options <https://github.com/swaywm/swayidle/blob/master/swayidle.1.scd>
     timeouts = [
-      {
-        timeout = 360;
-        command = "swaylock && systemctl suspend";
-      }
+      { timeout = 360; command = "${config.programs.swaylock.package}/bin/swaylock --daemonize"; }
+      { timeout = 600; command = "${pkgs.systemd}/bin/systemctl suspend"; }
     ];
     events = [
-      {
-        event = "before-sleep";
-        command = "swaylock --fade-in 0";
-      }
+      { event = "before-sleep"; command = "${config.programs.swaylock.package}/bin/swaylock --daemonize --fade-in 0"; }
     ];
-    systemdTarget = "hyprland-session.target";
   };
 
   wayland.windowManager.hyprland.settings = {
