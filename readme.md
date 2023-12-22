@@ -126,16 +126,20 @@ flatpak --user install kdeapps org.kde.PlatformTheme.QGnomePlatform//5.9
 
 `nix build` (or shell or run) To build and use packages
 
-### Applying changes
+### Rebuild and apply changes
 
 ```
 nixos-rebuild test --flake .
 home-manager switch --flake .
 ```
 
-### Updating / -grading
+### Update / -grade
 
-...
+1. Update the `flake.lock` file.
+    ```shell
+    nix flake update [input]
+    ```
+2. Rebuild system and/or home
 
 ### Network
 
