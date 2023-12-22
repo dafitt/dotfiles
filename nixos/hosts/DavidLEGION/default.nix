@@ -18,6 +18,7 @@
     ./power-management.nix
 
     ../../common/DESKTOP.nix
+    ../../common/bluetooth.nix
     ../../common/gamemode.nix
     ../../common/virtualisation.nix
   ];

@@ -39,13 +39,6 @@
 
   services.fstrim.enable = true; # SSD
 
-  services.blueman.enable = true;
-
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
 
   hardware.opengl.enable = true;
 
