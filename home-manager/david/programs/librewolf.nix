@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
 
   # a fork of Firefox, focused on privacy, security and freedom
   # https://librewolf.net/
@@ -256,4 +256,16 @@
       "idleinhibit fullscreen, class:librewolf, title:(Youtube)"
     ];
   };
+
+  xdg.mimeApps.defaultApplications =
+    let
+      mimetypes = [
+        "text/html"
+        "x-scheme-handler/http"
+        "x-scheme-handler/https"
+        "x-scheme-handler/about"
+        "x-scheme-handler/unknown"
+      ];
+    in
+    (lib.genAttrs mimetypes (_: [ "librewolf.desktop" ]));
 }
