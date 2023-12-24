@@ -466,6 +466,12 @@
           sha256 = "0d2pfby72qczljzw1dk2rsqkqharl2sbq3g31zylz0rx73cvxb72";
         }
         {
+          name = "todotxt-mode";
+          publisher = "davraamides";
+          version = "1.4.32";
+          sha256 = "sha256-HICvHLL9mCKyQqEZYfOb+q8tmSS4NzxkuLle8MdEA2Y=";
+        }
+        {
           name = "vscode-sql-formatter";
           publisher = "adpyke";
           version = "1.4.4";
