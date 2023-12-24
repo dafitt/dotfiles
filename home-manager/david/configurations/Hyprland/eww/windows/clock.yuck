@@ -1,4 +1,3 @@
-(defpoll time :interval "5s" `date +'{"year":"%y","month":"%m","day":"%d","hour":"%H","min":"%M"}'`)
 (defwindow clock
   :monitor 0
   :stacking "bg"
@@ -9,17 +8,17 @@
   (box :class "clock"
     :orientation "v"
     :space-evenly false
-    (label :text "${time.hour} :: ${time.min}")
+    (label :text {formattime(EWW_TIME, "%H :: %M")})
     ;(label :style "font-size: 32px" :text "${time.year}-${time.month}-${time.day}")
     (box :style "border: 1px solid;")
     (box
       :orientation "h"
       :style "font-size: 0.45em"
-      (label :text "${time.year}")
+      (label :text {formattime(EWW_TIME, "%Y")})
       (label :text "-")
-      (label :text "${time.month}")
+      (label :text {formattime(EWW_TIME, "%m")})
       (label :text "-")
-      (label :text "${time.day}")
+      (label :text {formattime(EWW_TIME, "%d")})
     )
   )
 )

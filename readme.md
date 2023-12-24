@@ -86,14 +86,6 @@ programs.dconf.enable = true;
 
 Yea, i know my eww configuration isn't finished and still lacking. I will work on it from time to time.
 
-##### symlink eww config directory
-
-You have to manually make a symlink from your eww config folder to _`~/.config/eww`_ in order for eww to work. Adjust it to your path:
-
-```shell
-ln -s ~/Desktop/NixOS/home-manager/david/modules/eww ~/.config/
-```
-
 #### Flatpak
 
 Run the script `/home-manager/programs/flatpaks.sh` to add the flathub repository and install some specified flatpaks.
@@ -150,6 +142,8 @@ home-manager switch --flake .
 Manually configure syncthing on <http://localhost:8384>
 
 ### Nix in general
+
+> [NixLanguage](https://nixos.org/manual/nix/stable/language/)
 
 Rollback:
 

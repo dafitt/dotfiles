@@ -10,11 +10,6 @@
     #package = hyprland.packages.${pkgs.system}.default;
     systemd = {
       enable = true;
-      # Same as default, but stop graphical-session too
-      extraCommands = lib.mkBefore [
-        "systemctl --user stop graphical-session.target"
-        "systemctl --user start hyprland-session.target"
-      ];
     };
 
     # custom variables
@@ -325,7 +320,6 @@
         # <https://wiki.hyprland.org/FAQ/>
 
         #XDG
-        "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
 
