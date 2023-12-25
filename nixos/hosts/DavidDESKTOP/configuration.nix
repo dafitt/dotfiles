@@ -76,9 +76,9 @@
   networking = {
     hostName = "DavidDESKTOP"; # Define your hostname.
 
-    networking.useDHCP = false; # Is needed!
-    networking.bridges."br0".interfaces = [ "enp42s0" ];
-    networking.interfaces."br0".useDHCP = true;
+    useDHCP = false; # Is needed!
+    bridges."br0".interfaces = [ "enp42s0" ];
+    interfaces."br0".useDHCP = true;
     # Static host-ip
     #interfaces."br0".ipv4.addresses = [{
     #  address = "192.168.19.3";

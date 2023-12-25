@@ -11,6 +11,7 @@
 
     ./zfs.nix
     ./nextcloud.nix
+    ./miniDLNA.nix
 
     ../../common/DESKTOP.nix
     ../../common/gamemode.nix
