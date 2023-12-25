@@ -3,7 +3,7 @@
   xdg.mimeApps.defaultApplications =
     let
       # Take from the respective mimetype files
-      #$$ xdg-mime query filetype <https://wiki.archlinux.org/title/Xdg-utils#xdg-mime>
+      #$ xdg-mime query filetype <https://wiki.archlinux.org/title/Xdg-utils#xdg-mime>
       images = [
         "image/bmp"
         "image/gif"
@@ -269,10 +269,10 @@
         "text/x-tcl"
         "text/x-tex"
       ];
-      #$$ find -L / -name "*.desktop" 2>/dev/null
-      #$$ ls /run/current-system/sw/share/applications
-      #$$ ls ~/.local/state/nix/profiles/home-manager/home-path/share/applications
-      #$$ ls ~/.local/share/flatpak/exports/share/applications/
+      #$ find -L / -name "*.desktop" 2>/dev/null
+      #$ ls /run/current-system/sw/share/applications
+      #$ ls ~/.local/state/nix/profiles/home-manager/home-path/share/applications
+      #$ ls ~/.local/share/flatpak/exports/share/applications/
     in
     ((lib.genAttrs code (_: [ "code.desktop" ]))
       // (lib.genAttrs archives (_: [ "ark.desktop" ]))

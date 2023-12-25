@@ -35,7 +35,7 @@
 
     profiles."david" = {
       isDefault = true;
-      #!! switched to sync settings with syncthing
+      #! switched to sync settings with syncthing
       #settings = {
       #  # Security
       #  "browser.crashReports.unsubmittedCheck.autoSubmit2" = true;

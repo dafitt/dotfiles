@@ -43,7 +43,7 @@
   hardware.opengl.enable = true;
 
   # Discrete Graphics
-  #$$ env DRI_PRIME=1 [command] {args}
+  #$ env DRI_PRIME=1 [command] {args}
 
 
   system.stateVersion = "23.05"; # Do not touch

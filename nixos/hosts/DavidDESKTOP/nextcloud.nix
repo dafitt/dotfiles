@@ -1,6 +1,6 @@
 {
-  #$$ sudo nixos-container start nextcloud
-  #$$ sudo nixos-container root-login nextcloud
+  #$ sudo nixos-container start nextcloud
+  #$ sudo nixos-container root-login nextcloud
 
   containers.nextcloud = {
     autoStart = false;

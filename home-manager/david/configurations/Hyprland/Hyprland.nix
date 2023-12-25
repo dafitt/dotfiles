@@ -21,7 +21,7 @@
       # <https://wiki.hyprland.org/Configuring/Monitors/>
       # <https://wiki.hyprland.org/hyprland-wiki/pages/Configuring/Advanced-config/#monitors>
 
-      #$$ nix-shell -p xorg.xrandr --run xrandr
+      #$ nix-shell -p wlr-randr --run wlr-randr
 
       # monitor=name,resolution{preferred,highres,highrr,disable},position,scale
       # ,transform,1

@@ -15,7 +15,6 @@
     tldr # simplified and community-driven man pages
     tree
     wev # tool for keyboard input
-    xorg.xrandr # tool for screens/monitors
 
     # unix porn
     asciiquarium # aquarium in your terminal

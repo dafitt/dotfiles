@@ -10,7 +10,7 @@
 
 
   boot.kernelParams = [
-    #$ xrandr --query
+    #$ wlr-randr
     #$ head /sys/class/drm/*/status
     "video=HDMI-A-1:2560x1440@120"
     "video=DP-1:2560x1440@120"
