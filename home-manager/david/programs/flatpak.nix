@@ -31,6 +31,7 @@
       # fix for flatpak open URLs with default browser <https://discourse.nixos.org/t/open-links-from-flatpak-via-host-firefox/15465/11>
       "systemctl --user import-environment PATH"
       "systemctl --user restart xdg-desktop-portal.service"
+      "[workspace 3 silent;noinitialfocus] ${pkgs.flatpak}/bin/flatpak run md.obsidian.Obsidian"
     ];
     exec = [ ];
     windowrulev2 = [

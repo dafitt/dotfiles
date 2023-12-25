@@ -40,5 +40,6 @@
 
   wayland.windowManager.hyprland.settings = {
     bind = [ "ALT SUPER, F, exec, ${pkgs.gnome.nautilus}/bin/nautilus" ];
+    exec-once = [ "[workspace 2 silent] ${pkgs.gnome.nautilus}/bin/nautilus" ];
   };
 }

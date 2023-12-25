@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
 
   # a fork of Firefox, focused on privacy, security and freedom
   # https://librewolf.net/
@@ -251,12 +251,6 @@
     };
   };
 
-  wayland.windowManager.hyprland.settings = {
-    windowrulev2 = [
-      "idleinhibit fullscreen, class:librewolf, title:(Youtube)"
-    ];
-  };
-
   xdg.mimeApps.defaultApplications =
     let
       mimetypes = [
@@ -268,4 +262,11 @@
       ];
     in
     (lib.genAttrs mimetypes (_: [ "librewolf.desktop" ]));
+
+  wayland.windowManager.hyprland.settings = {
+    exec-once = [ "[workspace 1 silent] ${config.programs.librewolf.package}/bin/librewolf" ];
+    windowrulev2 = [
+      "idleinhibit fullscreen, class:librewolf, title:(Youtube)"
+    ];
+  };
 }

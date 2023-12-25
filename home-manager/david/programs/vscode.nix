@@ -539,4 +539,8 @@
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # vscodium wayland
   };
+
+  wayland.windowManager.hyprland.settings = {
+    exec-once = [ "[workspace 4 silent] ${config.programs.vscode.package}/bin/code" ];
+  };
 }
