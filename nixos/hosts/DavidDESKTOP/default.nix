@@ -7,13 +7,14 @@
   imports = [
     ./configuration.nix
     ./hardware-configuration.nix
-    ../../users/david.nix
-
     ./zfs.nix
     ./nextcloud.nix
     ./miniDLNA.nix
 
+    ../../users/david.nix
+
     ../../common/DESKTOP.nix
+    ../../common/nix.nix
     ../../common/gamemode.nix
     ../../common/virtualisation.nix
   ];

@@ -13,11 +13,12 @@
   imports = [
     ./configuration.nix
     ./hardware-configuration.nix
-    ../../users/david.nix
-
     ./power-management.nix
 
+    ../../users/david.nix
+
     ../../common/DESKTOP.nix
+    ../../common/nix.nix
     ../../common/bluetooth.nix
     ../../common/gamemode.nix
     ../../common/virtualisation.nix

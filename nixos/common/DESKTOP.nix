@@ -3,21 +3,6 @@
 { config, lib, pkgs, nix-software-center, ... }: {
 
   nixpkgs.config.allowUnfree = true; # Allow unfree packages
-  nix = {
-    settings = {
-      auto-optimise-store = lib.mkDefault true;
-      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
-      warn-dirty = false;
-      system-features = [ "kvm" "big-parallel" "nixos-test" ];
-      flake-registry = ""; # Disable global flake registry
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-  };
-
 
   boot.loader.grub = {
     # TODO extraGrubInstallArgs = [];
@@ -106,7 +91,6 @@
 
       nix-software-center.packages.${system}.nix-software-center # GUI for installing nix-packages
     ];
-    pathsToLink = [ "/share/zsh" ];
   };
 
 
