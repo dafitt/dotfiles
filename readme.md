@@ -99,7 +99,7 @@ See [Flatpak applications can't find system fonts](https://nixos.wiki/wiki/Fonts
 ```shell
 flatpak --user override --filesystem=~/.local/share/fonts:ro
 flatpak --user override --filesystem=~/.icons:ro
-flatpak --user override --filesystem=~/.themes:rof
+flatpak --user override --filesystem=~/.themes:ro
 
 # GTK
 flatpak --user intall org.gtk.Gtk3theme.adw-gtk3-dark
@@ -147,6 +147,8 @@ Manually configure syncthing on <http://localhost:8384>
 
 Rollback:
 
+See available builds with `nix profile history --profile /nix/var/nix/profiles/system`
+
 -   NixOS:
     -   `sudo nixos-rebuild switch --rollback` to the last build
     -   `nix profile rollback {--to <n>}`
@@ -154,10 +156,10 @@ Rollback:
 
 Cleanup:
 
--   `nix-store --gc` or `nix-collect-garbage` deletes unreachable packages
--   `nix-collect-garbage --delete-old` also deletes previous generations (rollbacks), be careful with that!
+-   `sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles`
+-   `sudo nix store gc --debug`
 
 Build without internet:
 
--   `nixos-rebuild switch --option substitute false`
--   `nixos-rebuild switch --option binary-caches ""`
+-   `sudo nixos-rebuild switch --option substitute false`
+-   `sudo nixos-rebuild switch --option binary-caches ""`

@@ -5,7 +5,6 @@
     gnome.gnome-software # to search flatpaks grafically
   ];
 
-
   # find flatpaks .desktop binary paths
   # $PATH
   home.sessionPath = [
@@ -15,15 +14,6 @@
   xdg.systemDirs.data = [
     "$HOME/.local/share/flatpak/exports/share"
   ];
-
-  home.file = {
-    # Cursor theme fix
-    # <https://nixos.wiki/wiki/Cursor_Themes>
-    ".icons/default".source = "${config.stylix.cursor.package}/share/icons/${config.stylix.cursor.name}";
-
-    # fix missing fonts (make a symlink to current font store)
-    #".local/share/fonts".source = config.lib.file.mkOutOfStoreSymlink "/run/current-system/sw/share/X11/fonts"; # steam wont start
-  };
 
   wayland.windowManager.hyprland.settings = {
     bind = [ ];

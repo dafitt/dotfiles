@@ -28,24 +28,24 @@
       # NixOS configuration entrypoint
       # Available through `nixos-rebuild --flake .#your-hostname`
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        "nixos" = nixpkgs.lib.nixosSystem {
           # with no configuration, point to the Generic host
           system = "x86_64-linux";
           specialArgs = inputs; # pass all inputs to external configuration files
           modules = [ ./nixos/hosts/Generic ];
         };
 
-        DavidDESKTOP = nixpkgs.lib.nixosSystem {
+        "DavidDESKTOP" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = inputs;
           modules = [ ./nixos/hosts/DavidDESKTOP ];
         };
-        DavidLEGION = nixpkgs.lib.nixosSystem {
+        "DavidLEGION" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = inputs;
           modules = [ ./nixos/hosts/DavidLEGION ];
         };
-        DavidTUX = nixpkgs.lib.nixosSystem {
+        "DavidTUX" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = inputs;
           modules = [ ./nixos/hosts/DavidTUX ];

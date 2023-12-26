@@ -7,7 +7,7 @@
     # configuration doc <https://elkowar.github.io/eww/configuration.html>
     # widgets doc <https://elkowar.github.io/eww/widgets.html>
     # a good example <https://github.com/end-4/dots-hyprland/tree/m3ww>
-    enable = true;
+    enable = false;
 
     #manualSymlinked = true;
   };

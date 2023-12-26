@@ -331,12 +331,24 @@
     hyprpicker
   ];
 
-  # Autostart Hyprland from tty1
-  programs.bash.profileExtra = ''if [ "$(tty)" = "/dev/tty1" ]; then exec Hyprland; fi'';
-  programs.zsh.loginExtra = ''if [ "$(tty)" = "/dev/tty1" ]; then exec Hyprland; fi'';
-  programs.fish.loginShellInit = ''set TTY (tty); [ "$TTY" = /dev/tty1 ] && exec Hyprland'';
+  # Autostart Hyprland from tty
+  programs.bash.profileExtra = ''
+    if [[ -z $DISPLAY && $(tty) =~ /dev/tty[1-4] && $XDG_SESSION_TYPE == tty ]]; then
+        exec Hyprland
+    fi
+  '';
+  programs.zsh.loginExtra = ''
+    if [[ -z $DISPLAY && $(tty) =~ /dev/tty[1-4] && $XDG_SESSION_TYPE == tty ]]; then
+        exec Hyprland
+    fi
+  '';
+  programs.fish.loginShellInit = ''
+    if test -z $DISPLAY; and tty | string match -r "/dev/tty[1-4]"; and test $XDG_SESSION_TYPE = tty
+        exec Hyprland
+    end
+  '';
 
-  # Extend Wayland / Hyprland
+  # TODO Extend Wayland / Hyprland
   # - Awesome Hyprland <https://github.com/hyprland-community/awesome-hyprland>
   # - Awesome Wayland <https://github.com/natpen/awesome-wayland>
 }
