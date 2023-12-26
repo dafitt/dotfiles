@@ -1,5 +1,6 @@
 { config, pkgs, ... }: {
-  users.users.david = {
+
+  users.users."david" = {
     isNormalUser = true;
     description = "David Schaller";
     extraGroups =
