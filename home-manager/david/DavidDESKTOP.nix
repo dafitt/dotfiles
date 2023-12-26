@@ -10,12 +10,12 @@
   #  ------
   # | DP-1 |
   #  ------
-  monitors = [
+  wayland.windowManager.hyprland.monitors = [
     {
       name = "DP-1";
       width = 2560;
       height = 1440;
-      refreshRate = 144;
+      refreshRate = 120;
       workspace = "1";
       primary = true;
     }

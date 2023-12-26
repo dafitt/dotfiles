@@ -18,29 +18,6 @@
 
     settings = {
 
-      # <https://wiki.hyprland.org/Configuring/Monitors/>
-      # <https://wiki.hyprland.org/hyprland-wiki/pages/Configuring/Advanced-config/#monitors>
-
-      #$ nix-shell -p wlr-randr --run wlr-randr
-
-      # monitor=name,resolution{preferred,highres,highrr,disable},position,scale
-      # ,transform,1
-      # ,mirror,[NAME]
-      # ,bitdepth,10
-      # ,vrr,[0]
-      #monitor = lib.mkDefault ",preffered,auto,1";
-      monitor = map
-        (m:
-          let
-            resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-            position = "${toString m.x}x${toString m.y}";
-          in
-          "${m.name},${if m.enabled then "${resolution},${position},1" else "disable"}"
-        )
-        (config.monitors);
-
-      #xwayland.force_zero_scaling = true;
-
       # Variables
       # <https://wiki.hyprland.org/Configuring/Variables/>
       general = {
