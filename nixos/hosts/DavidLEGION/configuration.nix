@@ -14,26 +14,10 @@
   console.keyMap = "de-latin1-nodeadkeys";
 
 
-  networking = {
-    hostName = "DavidLEGION"; # Define your hostname.
-
-    firewall = {
-      allowedTCPPorts = [
-        #25 465 587 # SMTP
-        #143 993 # IMAP
-        22000 # syncthing
-      ];
-      allowedUDPPorts = [
-        21027 # syncthing broadcast
-        22000 # syncthing
-      ];
-      allowedTCPPortRanges = [
-        #{ from = 27015; to = 27050; } # Steam
-      ];
-      allowedUDPPortRanges = [
-        #{ from = 27015; to = 27050; } # Steam
-      ];
-    };
+  networking.hostName = "DavidLEGION";
+  connman = {
+    enable = true;
+    wifi.backend = "iwd";
   };
 
 

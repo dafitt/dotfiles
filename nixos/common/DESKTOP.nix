@@ -1,6 +1,6 @@
 # more options: https://search.nixos.org/options?channel=unstable
 
-{ config, lib, pkgs, nix-software-center, ... }: {
+{ config, lib, pkgs, ... }: {
 
   nixpkgs.config.allowUnfree = true; # Allow unfree packages
 
@@ -60,6 +60,7 @@
 
 
   security.polkit.enable = true; # Required for Home-manager
+
   security.pam.services.swaylock = { }; # swaylock fix <https://github.com/NixOS/nixpkgs/issues/158025>
 
 
@@ -88,8 +89,6 @@
       raider # securely delete your files
       wget
       home-manager
-
-      nix-software-center.packages.${system}.nix-software-center # GUI for installing nix-packages
     ];
   };
 
@@ -130,13 +129,6 @@
         };
       };
     };
-
-    connman = {
-      enable = true;
-      wifi.backend = "iwd";
-    };
-
-    colord.enable = true; # icc profiles
 
     fwupd.enable = false; # update various firmware <https://nixos.wiki/wiki/Fwupd>
 

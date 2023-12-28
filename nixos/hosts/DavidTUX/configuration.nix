@@ -35,24 +35,14 @@
   console.keyMap = "de-latin1-nodeadkeys";
 
 
-  networking = {
-    hostName = "DavidTUX";
-
-    firewall = {
-      allowedTCPPorts = [
-        22000 # syncthing
-      ];
-      allowedUDPPorts = [
-        21027 # syncthing broadcast
-        22000 # syncthing
-      ];
-    };
+  networking.hostName = "DavidTUX";
+  connman = {
+    enable = true;
+    wifi.backend = "iwd";
   };
 
 
-  services = {
-    fstrim.enable = true; # SSD
-  };
+  services.fstrim.enable = true; # SSD
 
 
   hardware.opengl.enable = true;

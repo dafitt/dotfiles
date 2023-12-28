@@ -88,7 +88,7 @@ Yea, i know my eww configuration isn't finished and still lacking. I will work o
 
 #### Flatpak
 
-Run the script `/home-manager/programs/flatpaks.sh` to add the flathub repository and install some specified flatpaks.
+Run the script `home-manager/programs/flatpaks.sh` to add the flathub repository and install some specified flatpaks.
 
 If you also want to manage your Flatpaks declarively look at [this](https://github.com/GermanBread/declarative-flatpak) project. I might switch to it in the future.
 

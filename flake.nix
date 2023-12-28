@@ -22,8 +22,6 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware"; # Hardware snippets <https://github.com/NixOS/nixos-hardware>
 
-    nix-software-center.url = "github:vlinkz/nix-software-center";
-
     tuxedo-nixos.url = "github:blitz/tuxedo-nixos";
   };
 
