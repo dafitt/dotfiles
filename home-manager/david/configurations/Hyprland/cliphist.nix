@@ -2,9 +2,9 @@
 
   # Wayland clipboard manager
   # https://github.com/sentriz/cliphist
-  services.clipman = {
+  services.cliphist = {
     enable = true;
-    package = pkgs.cliphist;
+    #systemdTarget =
   };
 
   home.packages = [
