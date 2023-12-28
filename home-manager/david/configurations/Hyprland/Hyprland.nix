@@ -222,19 +222,7 @@
         # some small helper programs
         "ALT SUPER, U, exec, ${pkgs.gnome.gnome-characters}/bin/gnome-characters"
         "ALT SUPER, K, exec, ${pkgs.hyprpicker}/bin/hyprpicker"
-      ] ++
-      (lib.optionals config.services.playerctld.enable [
-        ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
-        ", XF86AudioPause, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
-        ", XF86AudioStop, exec, ${pkgs.playerctl}/bin/playerctl stop"
-        ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
-        ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
-        "CTRL, XF86AudioRaiseVolume, exec, ${pkgs.playerctl}/bin/playerctl position 1+"
-        "CTRL, XF86AudioLowerVolume, exec, ${pkgs.playerctl}/bin/playerctl position 1-"
-        "ALT, XF86AudioNext, exec, ${config.services.playerctld.package}/bin/playerctld shift"
-        "ALT, XF86AudioPrev, exec, ${config.services.playerctld.package}/bin/playerctld unshift"
-        "ALT, XF86AudioPlay, exec, systemctl --user restart playerctld"
-      ]);
+      ];
 
       # Bind: mouse binds
       bindm = [
