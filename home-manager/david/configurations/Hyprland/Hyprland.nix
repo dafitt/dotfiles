@@ -7,14 +7,10 @@
   # <https://github.com/hyprwm/Hyprland>
   wayland.windowManager.hyprland = {
     enable = true;
-    #package = hyprland.packages.${pkgs.system}.default;
+    package = hyprland.packages.${pkgs.system}.hyprland;
     systemd = {
       enable = true;
     };
-
-    # custom variables
-    extraConfig = ''
-    '';
 
     settings = {
 
@@ -175,7 +171,7 @@
         "SUPER, 8, workspace, 8"
         "SUPER, 9, workspace, 9"
         "SUPER, 0, workspace, 10"
-        "SUPER, D, workspace, 11"
+        "SUPER, D, workspace, name:D"
         "SUPER, code:87, workspace, 1" # Numpad
         "SUPER, code:88, workspace, 2" # Numpad
         "SUPER, code:89, workspace, 3" # Numpad
@@ -240,10 +236,10 @@
         "ALT, XF86AudioPlay, exec, systemctl --user restart playerctld"
       ]) ++
       (lib.optionals config.services.swayosd.enable [
-        ", XF86AudioMute, exec, ${pkgs.swayosd}/bin/swayosd --output-volume mute-toggle && $XDG_CONFIG_HOME/eww/scripts/update_audioMute"
-        "ALT, XF86AudioMute, exec, ${pkgs.swayosd}/bin/swayosd --input-volume mute-toggle && $XDG_CONFIG_HOME/eww/scripts/update_microphoneMute"
-        ", XF86AudioMicMute, exec, ${pkgs.swayosd}/bin/swayosd --input-volume mute-toggle && $XDG_CONFIG_HOME/eww/scripts/update_microphoneMute"
-        ", Caps_Lock, exec, ${pkgs.swayosd}/bin/swayosd --caps-lock"
+        ", XF86AudioMute, exec, ${config.services.swayosd.package}/bin/swayosd --output-volume mute-toggle && $XDG_CONFIG_HOME/eww/scripts/update_audioMute"
+        "ALT, XF86AudioMute, exec, ${config.services.swayosd.package}/bin/swayosd --input-volume mute-toggle && $XDG_CONFIG_HOME/eww/scripts/update_microphoneMute"
+        ", XF86AudioMicMute, exec, ${config.services.swayosd.package}/bin/swayosd --input-volume mute-toggle && $XDG_CONFIG_HOME/eww/scripts/update_microphoneMute"
+        ", Caps_Lock, exec, ${config.services.swayosd.package}/bin/swayosd --caps-lock"
       ]);
 
       # Bind: mouse binds
@@ -259,12 +255,12 @@
         ", XF86KbdBrightnessUp, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -A 10"
         ", XF86KbdBrightnessDown, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -U 10"
       ] ++ (lib.optionals config.services.swayosd.enable [
-        ", XF86AudioRaiseVolume, execr, ${pkgs.swayosd}/bin/swayosd --output-volume raise && $XDG_CONFIG_HOME/eww/scripts/update_audioVolume"
-        ", XF86AudioLowerVolume, execr, ${pkgs.swayosd}/bin/swayosd --output-volume lower && $XDG_CONFIG_HOME/eww/scripts/update_audioVolume"
-        "ALT, XF86AudioRaiseVolume, exec, ${pkgs.swayosd}/bin/swayosd --input-volume raise && $XDG_CONFIG_HOME/eww/scripts/update_microphoneVolume"
-        "ALT, XF86AudioLowerVolume, exec, ${pkgs.swayosd}/bin/swayosd --input-volume lower && $XDG_CONFIG_HOME/eww/scripts/update_microphoneVolume"
-        ", XF86MonBrightnessUp, exec, ${pkgs.swayosd}/bin/swayosd --brightness raise && $XDG_CONFIG_HOME/eww/scripts/update_brightness"
-        ", XF86MonBrightnessDown, exec, ${pkgs.swayosd}/bin/swayosd --brightness lower && $XDG_CONFIG_HOME/eww/scripts/update_brightness"
+        ", XF86AudioRaiseVolume, execr, ${config.services.swayosd.package}/bin/swayosd --output-volume raise && $XDG_CONFIG_HOME/eww/scripts/update_audioVolume"
+        ", XF86AudioLowerVolume, execr, ${config.services.swayosd.package}/bin/swayosd --output-volume lower && $XDG_CONFIG_HOME/eww/scripts/update_audioVolume"
+        "ALT, XF86AudioRaiseVolume, exec, ${config.services.swayosd.package}/bin/swayosd --input-volume raise && $XDG_CONFIG_HOME/eww/scripts/update_microphoneVolume"
+        "ALT, XF86AudioLowerVolume, exec, ${config.services.swayosd.package}/bin/swayosd --input-volume lower && $XDG_CONFIG_HOME/eww/scripts/update_microphoneVolume"
+        ", XF86MonBrightnessUp, exec, ${config.services.swayosd.package}/bin/swayosd --brightness raise && $XDG_CONFIG_HOME/eww/scripts/update_brightness"
+        ", XF86MonBrightnessDown, exec, ${config.services.swayosd.package}/bin/swayosd --brightness lower && $XDG_CONFIG_HOME/eww/scripts/update_brightness"
       ]);
 
       windowrulev2 = [
@@ -286,7 +282,7 @@
         #"dbus-update-activation-environment --all"
 
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" # start polkit manually (isn't done automatically)
-        "${pkgs.swayosd}/bin/swayosd"
+        "${config.services.swayosd.package}/bin/swayosd"
       ];
 
       # only on each reload
@@ -319,11 +315,8 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-wlr
-    ];
-    configPackages = [ hyprland.packages.${pkgs.system}.default ];
+    extraPortals = [ hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
+    configPackages = [ config.wayland.windowManager.hyprland.package ];
   };
 
   home.packages = with pkgs; [
