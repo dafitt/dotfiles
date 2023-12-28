@@ -234,12 +234,6 @@
         "ALT, XF86AudioNext, exec, ${config.services.playerctld.package}/bin/playerctld shift"
         "ALT, XF86AudioPrev, exec, ${config.services.playerctld.package}/bin/playerctld unshift"
         "ALT, XF86AudioPlay, exec, systemctl --user restart playerctld"
-      ]) ++
-      (lib.optionals config.services.swayosd.enable [
-        ", XF86AudioMute, exec, ${config.services.swayosd.package}/bin/swayosd --output-volume mute-toggle && $XDG_CONFIG_HOME/eww/scripts/update_audioMute"
-        "ALT, XF86AudioMute, exec, ${config.services.swayosd.package}/bin/swayosd --input-volume mute-toggle && $XDG_CONFIG_HOME/eww/scripts/update_microphoneMute"
-        ", XF86AudioMicMute, exec, ${config.services.swayosd.package}/bin/swayosd --input-volume mute-toggle && $XDG_CONFIG_HOME/eww/scripts/update_microphoneMute"
-        ", Caps_Lock, exec, ${config.services.swayosd.package}/bin/swayosd --caps-lock"
       ]);
 
       # Bind: mouse binds
@@ -254,14 +248,7 @@
         # Media Keys
         ", XF86KbdBrightnessUp, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -A 10"
         ", XF86KbdBrightnessDown, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -U 10"
-      ] ++ (lib.optionals config.services.swayosd.enable [
-        ", XF86AudioRaiseVolume, execr, ${config.services.swayosd.package}/bin/swayosd --output-volume raise && $XDG_CONFIG_HOME/eww/scripts/update_audioVolume"
-        ", XF86AudioLowerVolume, execr, ${config.services.swayosd.package}/bin/swayosd --output-volume lower && $XDG_CONFIG_HOME/eww/scripts/update_audioVolume"
-        "ALT, XF86AudioRaiseVolume, exec, ${config.services.swayosd.package}/bin/swayosd --input-volume raise && $XDG_CONFIG_HOME/eww/scripts/update_microphoneVolume"
-        "ALT, XF86AudioLowerVolume, exec, ${config.services.swayosd.package}/bin/swayosd --input-volume lower && $XDG_CONFIG_HOME/eww/scripts/update_microphoneVolume"
-        ", XF86MonBrightnessUp, exec, ${config.services.swayosd.package}/bin/swayosd --brightness raise && $XDG_CONFIG_HOME/eww/scripts/update_brightness"
-        ", XF86MonBrightnessDown, exec, ${config.services.swayosd.package}/bin/swayosd --brightness lower && $XDG_CONFIG_HOME/eww/scripts/update_brightness"
-      ]);
+      ];
 
       windowrulev2 = [
         # <https://wiki.hyprland.org/Configuring/Window-Rules/>
@@ -282,7 +269,6 @@
         #"dbus-update-activation-environment --all"
 
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" # start polkit manually (isn't done automatically)
-        "${config.services.swayosd.package}/bin/swayosd"
       ];
 
       # only on each reload
