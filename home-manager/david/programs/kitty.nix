@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
 
   # A modern, hackable, featureful, OpenGL based terminal emulator
   # https://github.com/kovidgoyal/kitty
@@ -22,10 +22,37 @@
     };
   };
 
+  #$ kitty --session
+  xdg.configFile = {
+    "kitty/idleinhibitor".text = ''
+      os_window_class idleinhibitor
+      launch --title idleinhibit "hyprctl activewindow"
+
+      new_tab
+    '';
+    "kitty/wallpaper".text = ''
+      os_window_class wallpaper
+
+      layout fat:mirrored=true;bias=60;full_size=1
+      launch ${pkgs.btop}/bin/btop
+      launch ${pkgs.asciiquarium}/bin/asciiquarium
+      launch
+      launch ${pkgs.pipes}/bin/pipes.sh -f20 -s14 -t1
+
+      new_tab
+      launch --title "kitty" ${config.programs.kitty.package}/bin/kitten @
+
+      new_tab
+      launch
+    '';
+  };
+
   wayland.windowManager.hyprland.settings = {
-    bind = [ ];
-    exec-once = [ ];
-    exec = [ ];
-    windowrulev2 = [ ];
+    exec-once = [ "[workspace name:D silent] ${config.programs.kitty.package}/bin/kitty --start-as=fullscreen --session wallpaper" ];
+    windowrulev2 = [
+      "idleinhibit always, class:idleinhibitor, floating:1"
+
+      "noborder, class:wallpaper"
+    ];
   };
 }
