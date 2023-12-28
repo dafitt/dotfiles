@@ -7,6 +7,7 @@ cd $(dirname $0)
 
 # Remote repository
 flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak --user update
 
 # Define your array of Flatpak applications
 declare -a flatpaks=(
@@ -16,6 +17,7 @@ declare -a flatpaks=(
     "md.obsidian.Obsidian" # A knowledge base that works with plain Markdown files
     "io.bassi.Amberol"     # Plays music, and nothing else
     "nl.hjdskes.gcolor3"   # Quick color tool
+    "dev.aunetx.deezer"
     "com.valvesoftware.Steam"
     "de.shorsh.discord-screenaudio"
     "org.signal.Signal"
