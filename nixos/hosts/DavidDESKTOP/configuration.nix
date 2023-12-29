@@ -53,6 +53,16 @@
     useDHCP = false; # Is needed!
     bridges."br0".interfaces = [ "enp42s0" ];
     interfaces."br0".useDHCP = true;
+
+    firewall.interfaces."br0" = {
+      allowedTCPPorts = [
+        22000 # Syncthing traffic
+      ];
+      allowedUDPPorts = [
+        22000 # Syncthing traffic
+        21027 # Syncthing discovery
+      ];
+    };
   };
 
 
