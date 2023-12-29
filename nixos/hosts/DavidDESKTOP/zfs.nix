@@ -3,7 +3,8 @@
   # activate zfs
   networking.hostId = "389a4fde"; #$ head -c 8 /etc/machine-id
   boot.supportedFilesystems = [ "zfs" ];
-  boot.kernelPackages = lib.mkForce config.boot.zfs.package.latestCompatibleLinuxPackages; # latest compatible kernel
+  # FIXME (2023-12-29) bug: kworker at 100% and gui freezes:
+  #boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages; # latest compatible kernel
   boot.zfs = {
     forceImportRoot = false;
     extraPools = [ "DavidTANK" ];
