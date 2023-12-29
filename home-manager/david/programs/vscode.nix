@@ -530,6 +530,7 @@
   };
 
   home.packages = with pkgs; [
+    xdg-utils # xdg-open to open hyperlinks
     nixpkgs-fmt # nix code formatter
     gcc # gnu c compiler
     clang-tools # clangd for c/c++
