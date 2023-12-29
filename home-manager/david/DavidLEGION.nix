@@ -18,9 +18,5 @@
         primary = true;
       }
     ];
-
-    extraConfig = ''
-      misc:disable_autoreload = true
-    '';
   };
 }

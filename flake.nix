@@ -30,13 +30,13 @@
       # NixOS configuration entrypoint
       # Available through `nixos-rebuild --flake .#your-hostname`
       nixosConfigurations = {
+
         "nixos" = nixpkgs.lib.nixosSystem {
           # with no configuration, point to the Generic host
           system = "x86_64-linux";
           specialArgs = inputs; # pass all inputs to external configuration files
           modules = [ ./nixos/hosts/Generic ];
         };
-
         "DavidDESKTOP" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = inputs;
@@ -57,12 +57,7 @@
       # Standalone home-manager configuration entrypoint
       # Available through `home-manager --flake .#your-username@your-hostname`
       homeConfigurations = {
-        "david" = home-manager.lib.homeManagerConfiguration {
-          #pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = inputs;
-          modules = [ ./home-manager/david/Template.nix ];
-        };
+
         "david@DavidDESKTOP" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = inputs;

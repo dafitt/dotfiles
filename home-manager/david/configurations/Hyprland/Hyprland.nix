@@ -39,10 +39,9 @@
       };
       misc = {
         # <https://wiki.hyprland.org/Configuring/Variables/#misc>
+        disable_autoreload = true;
         disable_hyprland_logo = true;
         focus_on_activate = true;
-        vrr = 0;
-        vfr = true;
       };
       decoration = {
         # <https://wiki.hyprland.org/Configuring/Variables/#decoration>
@@ -116,7 +115,7 @@
         # <https://wiki.hyprland.org/Configuring/Dispatchers/>
 
         "CONTROL SUPER, Q, exit," # Exit Hyprland all together (force quit Hyprland)
-        "CONTROL SUPER, R, exec, hyprctl reload"
+        "CONTROL SUPER, R, exec, hyprctl reload && forcerendererreload"
         "CONTROL SUPER, ODIAERESIS, exec, poweroff --reboot" # quick-reboot
         "CONTROL SUPER, ADIAERESIS, exec, poweroff" # quick-poweroff
         "SUPER, UDIAERESIS, exec, systemctl suspend" # quick-suspend
@@ -139,6 +138,7 @@
         "SUPER, P, pseudo," # dwindle
         "SUPER, J, togglesplit," # dwindle
         "SUPER, F, fullscreen,"
+        "SUPER, A, fullscreen, 1" # maximize only
         "SUPER, V, togglefloating," # Allow a window to float
         "SUPER, B, pin,"
 
@@ -277,11 +277,11 @@
 
         # Tell apps to use Wayland
         "GDK_BACKEND,wayland,x11"
-        "MOZ_ENABLE_WAYLAND,1"
         "NIXOS_OZONE_WL,1"
+        "MOZ_ENABLE_WAYLAND,1"
         "SDL_VIDEODRIVER,wayland"
-        "_JAVA_AWT_WM_NONEREPARENTING,1"
         "CLUTTER_BACKEND,wayland"
+        "_JAVA_AWT_WM_NONEREPARENTING,1"
       ];
     };
 
