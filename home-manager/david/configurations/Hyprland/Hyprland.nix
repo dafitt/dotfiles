@@ -213,11 +213,11 @@
         "SUPER, mouse_up, workspace, +1"
 
         # Screenshots
-        ", PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze copysave output $XDG_SCREENSHOTS_DIR/$(date +'%s.png')"
-        "ALT, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave active $XDG_SCREENSHOTS_DIR/$(date +'%s.png')"
-        "CONTROL, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave area $XDG_SCREENSHOTS_DIR/$(date +'%s.png')"
-        "SUPER, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze save area - | ${pkgs.swappy}/bin/swappy -f - -o $XDG_SCREENSHOTS_DIR/$(date +'%s.png')"
-        "CONTROL SHIFT, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave screen $XDG_SCREENSHOTS_DIR/$(date +'%s.png')"
+        ", PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze copysave output $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # QUICK
+        "ALT, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave active $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # WINDOW
+        "CONTROL, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave area $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # AREA
+        "ALT SUPER, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze save area - | ${pkgs.swappy}/bin/swappy -f - -o $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # EDIT
+        "CONTROL SHIFT, PRINT, exec, ${hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave screen $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # SCREEN
 
         # some small helper programs
         "ALT SUPER, U, exec, ${pkgs.gnome.gnome-characters}/bin/gnome-characters"
