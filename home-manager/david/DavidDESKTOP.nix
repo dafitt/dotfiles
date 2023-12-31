@@ -20,4 +20,9 @@
       primary = true;
     }
   ];
+
+  services.swayidle = {
+    timeout.lock = 0;
+    timeout.suspend = 0;
+  };
 }
