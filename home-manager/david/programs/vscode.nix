@@ -321,10 +321,16 @@
         "command" = "workbench.panel.chatSidebar.copilot";
       }
       {
-        # Remove Ctrl-L for line selection
+        # Unset Ctrl-L for line selection
         "key" = "ctrl+l";
         "command" = "-workbench.action.chat.clear";
         "when" = "hasChatProvider && inChat";
+      }
+      {
+        # Unset Ctrl-Shift-Z for redo
+        "key" = "ctrl+shift+z";
+        "command" = "-extension.decrementPriority";
+        "when" = "editorTextFocus";
       }
     ];
 
