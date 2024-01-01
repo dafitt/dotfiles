@@ -21,13 +21,13 @@
         { "placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action","sponsorblocker_ajay_app-browser-action","_7b1bf0b6-a1b9-42b0-b75d-252036438bdc_-browser-action","_605a075b-09d9-4443-bed6-4baa743f7d79_-browser-action","myallychou_gmail_com-browser-action","cookieautodelete_kennydo_com-browser-action","jid1-kkzogwgsw3ao4q_jetpack-browser-action","_74145f27-f039-47ce-a470-a662b129930a_-browser-action","_94249bf3-29a3-4bb5-aa30-013883e8f2f4_-browser-action","_2cf5dbed-78fe-4bd5-9524-38fdf837be98_-browser-action","_ab0ae774-f22f-479b-9b1b-6aff11bf6f5c_-browser-action"],"nav-bar":["simple-tab-groups_drive4ik-browser-action","back-button","forward-button","stop-reload-button","customizableui-special-spring1","addon_darkreader_org-browser-action","ublock0_raymondhill_net-browser-action","_73a6fe31-595d-460b-a920-fcc0f8843232_-browser-action","urlbar-container","_4853d046-c5a3-436b-bc36-220fd935ee1d_-browser-action","history-panelmenu","screenshot-button","downloads-button","customizableui-special-spring2","_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action","fxa-toolbar-menu-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["firefox-view-button","tabbrowser-tabs","new-tab-button","alltabs-button"],"PersonalToolbar":["personal-bookmarks"]},"seen":["save-to-pocket-button","developer-button","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action","sponsorblocker_ajay_app-browser-action","_7b1bf0b6-a1b9-42b0-b75d-252036438bdc_-browser-action","_73a6fe31-595d-460b-a920-fcc0f8843232_-browser-action","_605a075b-09d9-4443-bed6-4baa743f7d79_-browser-action","myallychou_gmail_com-browser-action","cookieautodelete_kennydo_com-browser-action","jid1-kkzogwgsw3ao4q_jetpack-browser-action","simple-tab-groups_drive4ik-browser-action","_4853d046-c5a3-436b-bc36-220fd935ee1d_-browser-action","_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","_74145f27-f039-47ce-a470-a662b129930a_-browser-action","_94249bf3-29a3-4bb5-aa30-013883e8f2f4_-browser-action","_2cf5dbed-78fe-4bd5-9524-38fdf837be98_-browser-action","_ab0ae774-f22f-479b-9b1b-6aff11bf6f5c_-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","toolbar-menubar","TabsToolbar","unified-extensions-area"],"currentVersion":19,"newElementCount":8}
       '';
       "noscript.sync.enabled" = true;
+
       # Dark Theme
       "devtools.theme" = "dark";
       "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org"; # browser dark theme
       "layout.css.prefers-color-scheme.content-override" = 0; # set default perefered color scheme to dark
       "svg.context-properties.content.enabled" = true; # fully support the dark theme
-      # Ctrl-Backspace delete last word
-      "browser.backspace_action" = 0;
+
       # Resore last Session
       "browser.startup.page" = 3;
       # Do not check if Librewolf is the default browser
@@ -91,26 +91,16 @@
       "app.normandy.first_run" = false;
       # Disable middle click paste
       "middlemouse.paste" = false;
-      # Disable tailored performance settings and enable hw accel
-      "browser.preferences.defaultPerformanceSettings.enabled" = false;
-      "layers.acceleration.disabled" = false;
-      "layers.acceleration.force-enabled" = true;
-      "gfx.x11-egl.force-enabled" = true;
-      "media.ffmpeg.enabled" = true;
-      "media.rdd-ffmpeg.enabled" = true;
-      "media.ffmpeg.vaapi.enabled" = true;
-      "media.ffvpx.enabled" = false;
-      "media.rdd-vpx.enabled" = false;
-      "media.navigator.mediadatadecoder_vpx_enabled" = true;
-      "widget.dmabuf.force-enabled" = true;
 
       # Betterfox <https://github.com/yokoffing/Betterfox/blob/main/librewolf.overrides.cfg>
+
       # Fastfox
-      "layout.css.grid-template-masonry-value.enabled" = true;
       "dom.enable_web_task_scheduling" = true;
+      "layout.css.grid-template-masonry-value.enabled" = true;
       "layout.css.animation-composition.enabled" = true;
       "network.dns.disablePrefetch" = true;
       "network.prefetch-next" = false;
+
       # Peskyfox
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       "browser.compactmode.show" = true;
@@ -130,13 +120,14 @@
       "browser.bookmarks.openInTabClosesMenu" = false;
       "editor.truncate_user_pastes" = false;
       "clipboard.plainTextOnly" = true;
+
       # Securefox
       "privacy.trackingprotection.emailtracking.enabled" = true;
       "urlclassifier.trackingSkipURLs" = "*.reddit.com, *.twitter.com, *.twimg.com";
       "urlclassifier.features.socialtracking.skipURLs" = "*.instagram.com, *.twitter.com, *.twimg.com";
       "security.OCSP.enabled" = 0;
       "security.OCSP.require" = false;
-      "privacy.resistFingerprinting" = false; # problems firefox sync login
+      #"privacy.resistFingerprinting" = false; # problems firefox sync login
       "webgl.disabled" = false;
       "media.eme.enabled" = true;
       "dom.security.https_only_mode_error_page_user_suggestions" = true;
@@ -216,10 +207,10 @@
       # Don't allow websites to mess with context menu
       "dom.event.contextmenu.enabled" = false;
       # Mitigate fingerprinting
-      "media.peerconnection.enabled " = false;
-      "geo.enabled" = false;
-      "privacy.firstparty.isolate" = true;
-      "media.navigator.enabled" = false; # this block websites from getting your camera and mic status
+      #"media.peerconnection.enabled " = false;
+      #"geo.enabled" = false;
+      #"privacy.firstparty.isolate" = true;
+      #"media.navigator.enabled" = false; # this block websites from getting your camera and mic status
       # Disable crash reports
       "breakpad.reportURL" = "";
       "browser.tabs.crashReporting.sendReport" = false;
@@ -236,12 +227,10 @@
       "privacy.cpd.history" = true;
       "dom.security.https_only_mode" = true;
       "dom.security.https_only_mode_ever_enabled" = true;
-      "layout.spellcheckDefault" = 0;
       "dom.event.clipboardevents.enabled" = false;
       "browser.safebrowsing.phishing.enabled" = false;
       "browser.safebrowsing.malware.enabled" = false;
       "security.pki.crlite_mode" = 2; # advance ssl certificate check
-      "network.http.referer.XOriginPolicy" = 2; # send hostnames when there is a full match
       "privacy.clearOnShutdown.cache" = true; # clear cache on shutdown
       "privacy.clearOnShutdown.downloads" = true;
       "privacy.clearOnShutdown.formdata" = true;
