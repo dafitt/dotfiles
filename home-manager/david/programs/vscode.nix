@@ -34,7 +34,7 @@
         };
       };
       "workbench.editor.defaultBinaryEditor" = "hexEditor.hexedit";
-      "workbench.editor.showTabs" = true;
+      "workbench.editor.showTabs" = "multiple";
       "workbench.startupEditor" = "none";
       "workbench.statusBar.visible" = true;
       "workbench.tree.expandMode" = "doubleClick";
@@ -132,6 +132,7 @@
       "security.workspace.trust.untrustedFiles" = "open";
       "telemetry.telemetryLevel" = "off";
       "terminal.integrated.gpuAcceleration" = "on";
+      "terminal.integrated.hideOnStartup" = "always";
       "update.mode" = "none";
       "update.showReleaseNotes" = false;
       "zenMode.fullScreen" = false;
