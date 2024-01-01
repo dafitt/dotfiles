@@ -131,16 +131,6 @@
     };
 
     fwupd.enable = false; # update various firmware <https://nixos.wiki/wiki/Fwupd>
-
-    openssh = {
-      enable = true;
-      settings = {
-        # require bublic key authentication for better security
-        PasswordAuthentication = false;
-        KbdInteractiveAuthentication = false;
-        PermitRootLogin = "yes";
-      };
-    };
   };
 
   # Flatpaks

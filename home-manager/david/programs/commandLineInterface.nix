@@ -43,9 +43,5 @@
       # ls, ll, la, lt ...
       enableAliases = true;
     };
-
-    ssh = {
-      enable = true;
-    };
   };
 }
