@@ -1,8 +1,10 @@
 {
   # I don't like the default but my hand just types it
-  cat = "bat";
   top = "$TOP";
+  cat = "bat";
   df = "duf";
+  du = "ncdu -r -x";
+  tree = "eza -T";
 
   # Navigation;
   ".." = "cd ..";

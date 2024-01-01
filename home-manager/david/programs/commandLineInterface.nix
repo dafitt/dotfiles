@@ -29,6 +29,12 @@
       enable = true;
     };
 
+    eza = {
+      enable = true;
+      icons = true;
+      git = true;
+    };
+
     fzf = {
       enable = true;
       enableBashIntegration = true;
