@@ -6,7 +6,7 @@
   ];
 
   stylix = {
-    image = ./wallpaper.jpg;
+    image = ./wallpaper.png;
     polarity = "dark"; # force dark/light theme
 
     # explore themes <https://github.com/tinted-theming/base16-schemes>

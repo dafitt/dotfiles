@@ -48,7 +48,7 @@
   };
 
   wayland.windowManager.hyprland.settings = {
-    exec-once = [ "[workspace name:D silent] ${config.programs.kitty.package}/bin/kitty --start-as=fullscreen --session wallpaper" ];
+    exec-once = [ "[workspace name:D silent] ${config.programs.kitty.package}/bin/kitty --start-as=maximized --session wallpaper" ];
     windowrulev2 = [
       "idleinhibit always, class:idleinhibitor, floating:1"
 
