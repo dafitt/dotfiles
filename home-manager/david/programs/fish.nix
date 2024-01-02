@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
 
   # The friendly interactive shell
   # https://fishshell.com/
@@ -6,6 +6,17 @@
     enable = true;
 
     shellAliases = import ../common/shellAliases.nix;
+
+    shellInit = lib.mkMerge [
+      # Keybindings
+      ''
+        bind \t accept-autosuggestion
+        bind \cH backward-kill-word
+        bind \e\[3\;5~ kill-word
+        bind \e\[3\;3~ kill-word
+        bind \b backward-kill-path-component
+      ''
+    ];
 
     interactiveShellInit = ''
 
@@ -25,20 +36,21 @@
       # This lets multiple fish instances share history
       up-or-search = ''
         if commandline --search-mode
-        commandline -f history-search-backward
-        return
+          commandline -f history-search-backward
+          return
         end
         if commandline --paging-mode
-        commandline -f up-line
-        return
+          commandline -f up-line
+          return
         end
+
         set -l lineno (commandline -L)
         switch $lineno
         case 1
-        commandline -f history-search-backward
-        history merge
+          commandline -f history-search-backward
+          history merge
         case '*'
-        commandline -f up-line
+          commandline -f up-line
         end
       '';
     };
