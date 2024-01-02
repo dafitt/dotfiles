@@ -430,6 +430,24 @@
           sha256 = "vEZi+rBT8dxhi+sIPSXWpUiWmE29deWzKj7uN7T+4is=";
         }
         {
+          name = "bracket-select2";
+          publisher = "jhasse";
+          version = "2.1.1";
+          sha256 = "sha256-1t5y9C6793l7YPihmNFqlEjo//MpQqOwnrKhjGecn90=";
+        }
+        {
+          name = "auto-add-brackets";
+          publisher = "aliariff";
+          version = "0.12.2";
+          sha256 = "sha256-DH1NfneJTMC7BmOP4IiUG8J7BQtwOj4/k5Qn62DkZ7Q=";
+        }
+        {
+          name = "bracket-padder";
+          publisher = "viablelab";
+          version = "0.3.0";
+          sha256 = "sha256-5DfEaG8vRYcpebeBcWidaySaOgMdrDT8DiS1TmpetKg=";
+        }
+        {
           name = "vscode-filesystemtoolbox";
           publisher = "carlocardella";
           version = "1.5.0";
