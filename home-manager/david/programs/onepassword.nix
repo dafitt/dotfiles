@@ -8,7 +8,7 @@
     bind = [ "ALT SUPER, PERIOD, exec, ${pkgs._1password-gui}/bin/1password" ];
     windowrulev2 = [
       "float, class:1Password, title:1Password"
-      "size 600 900, class:1Password, title:1Password"
+      "size 650 620, class:1Password, title:1Password"
       "move 70% 10%, class:1Password, title:1Password"
       "opacity 1 0.5, class:1Password, title:1Password, floating:1"
 
