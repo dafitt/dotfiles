@@ -146,6 +146,7 @@ in
             "NIXOS_XDG_DESKTOP_PORTAL_CONFIG_DIR=${joinedPortalConfigs}/share/xdg-desktop-portal");
           Type = "dbus";
           BusName = "org.freedesktop.portal.Desktop";
+          ExecStartPre = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";
           ExecStart = "${pkgs.xdg-desktop-portal}/libexec/xdg-desktop-portal";
           Slice = "session.slice";
         };

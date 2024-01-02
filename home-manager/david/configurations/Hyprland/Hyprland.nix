@@ -252,10 +252,6 @@
 
       # only on launch
       exec-once = [
-        # fix for some commands doesnt exec-once, see: Issue <https://github.com/hyprwm/Hyprland/issues/1906>
-        #"systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP"
-        #"dbus-update-activation-environment --all"
-
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" # start polkit manually (isn't done automatically)
       ];
 
@@ -291,6 +287,7 @@
     enable = true;
     extraPortals = [ hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
     configPackages = [ config.wayland.windowManager.hyprland.package ];
+    xdgOpenUsePortal = true;
   };
 
   home.packages = with pkgs; [
