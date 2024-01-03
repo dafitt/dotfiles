@@ -8,6 +8,7 @@
     calc # a calculator
     dig # tool for DNS
     duf # a better 'df'
+    gptfdisk
     httpie
     hyprpicker # color picker
     ncdu # disk usage analyzer with an ncurses interface

@@ -5,6 +5,7 @@
   df = "duf";
   du = "ncdu -r -x";
   tree = "eza -T";
+  fdisk = "gdisk";
 
   # Navigation;
   ".." = "cd ..";
