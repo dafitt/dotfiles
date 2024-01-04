@@ -17,6 +17,7 @@
     ../../common/DESKTOP.nix
     ../../common/nix.nix
     ../../common/gamemode.nix
+    ../../common/ssh.nix
     ../../common/virtualisation.nix
   ];
 }
