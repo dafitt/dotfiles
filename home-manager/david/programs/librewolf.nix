@@ -11,14 +11,13 @@
       "browser.tabs.insertAfterCurrent" = true;
       "browser.urlbar.shortcuts.quickactions" = true;
       "general.autoScroll" = true;
-      "privacy.clearOnShutdown.history" = false;
       #"widget.use-xdg-desktop-portal.file-picker" = true;
 
       # Sync
       "identity.fxaccounts.enabled" = true;
       "services.sync.prefs.sync.browser.uiCustomization.state" = true; # sync customized toolbar settings
       "browser.uiCustomization.state" = ''
-        { "placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action","sponsorblocker_ajay_app-browser-action","_7b1bf0b6-a1b9-42b0-b75d-252036438bdc_-browser-action","_605a075b-09d9-4443-bed6-4baa743f7d79_-browser-action","myallychou_gmail_com-browser-action","cookieautodelete_kennydo_com-browser-action","jid1-kkzogwgsw3ao4q_jetpack-browser-action","_74145f27-f039-47ce-a470-a662b129930a_-browser-action","_94249bf3-29a3-4bb5-aa30-013883e8f2f4_-browser-action","_2cf5dbed-78fe-4bd5-9524-38fdf837be98_-browser-action","_ab0ae774-f22f-479b-9b1b-6aff11bf6f5c_-browser-action"],"nav-bar":["simple-tab-groups_drive4ik-browser-action","back-button","forward-button","stop-reload-button","customizableui-special-spring1","addon_darkreader_org-browser-action","ublock0_raymondhill_net-browser-action","_73a6fe31-595d-460b-a920-fcc0f8843232_-browser-action","urlbar-container","_4853d046-c5a3-436b-bc36-220fd935ee1d_-browser-action","history-panelmenu","screenshot-button","downloads-button","customizableui-special-spring2","_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action","fxa-toolbar-menu-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["firefox-view-button","tabbrowser-tabs","new-tab-button","alltabs-button"],"PersonalToolbar":["personal-bookmarks"]},"seen":["save-to-pocket-button","developer-button","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action","sponsorblocker_ajay_app-browser-action","_7b1bf0b6-a1b9-42b0-b75d-252036438bdc_-browser-action","_73a6fe31-595d-460b-a920-fcc0f8843232_-browser-action","_605a075b-09d9-4443-bed6-4baa743f7d79_-browser-action","myallychou_gmail_com-browser-action","cookieautodelete_kennydo_com-browser-action","jid1-kkzogwgsw3ao4q_jetpack-browser-action","simple-tab-groups_drive4ik-browser-action","_4853d046-c5a3-436b-bc36-220fd935ee1d_-browser-action","_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","_74145f27-f039-47ce-a470-a662b129930a_-browser-action","_94249bf3-29a3-4bb5-aa30-013883e8f2f4_-browser-action","_2cf5dbed-78fe-4bd5-9524-38fdf837be98_-browser-action","_ab0ae774-f22f-479b-9b1b-6aff11bf6f5c_-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","toolbar-menubar","TabsToolbar","unified-extensions-area"],"currentVersion":19,"newElementCount":8}
+        {"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["sponsorblocker_ajay_app-browser-action","_7b1bf0b6-a1b9-42b0-b75d-252036438bdc_-browser-action","_605a075b-09d9-4443-bed6-4baa743f7d79_-browser-action","myallychou_gmail_com-browser-action","cookieautodelete_kennydo_com-browser-action","jid1-kkzogwgsw3ao4q_jetpack-browser-action","_74145f27-f039-47ce-a470-a662b129930a_-browser-action","_94249bf3-29a3-4bb5-aa30-013883e8f2f4_-browser-action","_2cf5dbed-78fe-4bd5-9524-38fdf837be98_-browser-action","_ab0ae774-f22f-479b-9b1b-6aff11bf6f5c_-browser-action","_b9acf540-acba-11e1-8ccb-001fd0e08bd4_-browser-action","_34daeb50-c2d2-4f14-886a-7160b24d66a4_-browser-action"],"nav-bar":["simple-tab-groups_drive4ik-browser-action","back-button","forward-button","stop-reload-button","customizableui-special-spring1","addon_darkreader_org-browser-action","ublock0_raymondhill_net-browser-action","_73a6fe31-595d-460b-a920-fcc0f8843232_-browser-action","urlbar-container","_4853d046-c5a3-436b-bc36-220fd935ee1d_-browser-action","history-panelmenu","screenshot-button","downloads-button","customizableui-special-spring2","_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action","fxa-toolbar-menu-button","unified-extensions-button","reset-pbm-toolbar-button","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["firefox-view-button","tabbrowser-tabs","new-tab-button","alltabs-button"],"PersonalToolbar":["personal-bookmarks"]},"seen":["save-to-pocket-button","developer-button","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action","sponsorblocker_ajay_app-browser-action","_7b1bf0b6-a1b9-42b0-b75d-252036438bdc_-browser-action","_73a6fe31-595d-460b-a920-fcc0f8843232_-browser-action","_605a075b-09d9-4443-bed6-4baa743f7d79_-browser-action","myallychou_gmail_com-browser-action","cookieautodelete_kennydo_com-browser-action","jid1-kkzogwgsw3ao4q_jetpack-browser-action","simple-tab-groups_drive4ik-browser-action","_4853d046-c5a3-436b-bc36-220fd935ee1d_-browser-action","_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","_74145f27-f039-47ce-a470-a662b129930a_-browser-action","_94249bf3-29a3-4bb5-aa30-013883e8f2f4_-browser-action","_2cf5dbed-78fe-4bd5-9524-38fdf837be98_-browser-action","_ab0ae774-f22f-479b-9b1b-6aff11bf6f5c_-browser-action","_b9acf540-acba-11e1-8ccb-001fd0e08bd4_-browser-action","_34daeb50-c2d2-4f14-886a-7160b24d66a4_-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","toolbar-menubar","TabsToolbar","unified-extensions-area"],"currentVersion":20,"newElementCount":8}
       '';
       "noscript.sync.enabled" = true;
 
@@ -30,6 +29,8 @@
 
       # Resore last Session
       "browser.startup.page" = 3;
+      "places.history.enabled" = true;
+      "privacy.clearOnShutdown.history" = false;
       # Do not check if Librewolf is the default browser
       "browser.shell.checkDefaultBrowser" = false;
       # Don't use the built-in password manager
@@ -218,16 +219,16 @@
       # Other privacy focused settings
       "accessibility.force_disabled" = 1;
       "accessibility.typeaheadfind.flashBar" = 0;
-      "browser.search.suggest.enabled" = false;
+      "browser.search.suggest.enabled" = true;
       "browser.search.update" = false;
       "privacy.trackingprotection.enabled" = true;
       "privacy.trackingprotection.socialtracking.enabled" = true;
-      "places.history.enabled" = false;
       "privacy.history.custom" = true;
       "privacy.cpd.history" = true;
       "dom.security.https_only_mode" = true;
       "dom.security.https_only_mode_ever_enabled" = true;
       "dom.event.clipboardevents.enabled" = false;
+      "dom.push.enabled" = false; # I don't even know why you would want this.
       "browser.safebrowsing.phishing.enabled" = false;
       "browser.safebrowsing.malware.enabled" = false;
       "security.pki.crlite_mode" = 2; # advance ssl certificate check
@@ -236,7 +237,6 @@
       "privacy.clearOnShutdown.formdata" = true;
       "privacy.clearOnShutdown.cookies" = false; # don't clear so we stay logged in
       "privacy.clearOnShutdown.offlineApps" = false; # don't clear so we stay logged in
-      "dom.push.enabled" = false; # I don't even know why you would want this.
     };
   };
 
