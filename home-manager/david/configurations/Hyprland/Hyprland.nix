@@ -245,6 +245,7 @@
         "opacity 1 0.7, floating:1, title:(.)+, xwayland:0" # make inactive floating windows (with titles) more transparent
         "bordercolor rgb(${config.lib.stylix.colors.base09}), xwayland:1" # other border color for xwayland windows
 
+        "float, title:(A|a)lert"
         "float, title:(S|s)etup"
         "float, title:(P|p)rogress"
         "float, class:nm-connection-editor"
@@ -312,7 +313,7 @@
     end
   '';
 
-  # TODO Extend Wayland / Hyprland
+  # Extend Wayland / Hyprland
   # - Awesome Hyprland <https://github.com/hyprland-community/awesome-hyprland>
   # - Awesome Wayland <https://github.com/natpen/awesome-wayland>
 }

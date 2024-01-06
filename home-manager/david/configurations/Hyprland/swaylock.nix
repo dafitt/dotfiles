@@ -36,9 +36,9 @@
         # Display an idle indicator
         indicator = true;
         indicator-idle-visible = true;
-        indicator-radius = 200; # TODO get screen size and do /12 or similar
+        indicator-radius = 200; # TODO get screen size and do /5 or similar
         indicator-thickness = 30;
-        font = "${config.stylix.fonts.monospace.name}";
+        font = config.stylix.fonts.monospace.name;
         line-uses-inside = true;
 
         # Display the current time

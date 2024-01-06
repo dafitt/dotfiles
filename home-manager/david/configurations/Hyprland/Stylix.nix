@@ -14,6 +14,7 @@
     # some good themes: catppuccin-mocha, gruvbox-dark-medium, onedark, everforest, material-darker, da-one-gray, hardcore, chalk, tokyodark, ashes, mountain, tender
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     # base16 Styling Guidelines: https://github.com/chriskempson/base16/blob/main/styling.md
+    #$ use colors with ${config.lib.stylix.colors.base00}
 
     override = {
       # cattppuccin-mocha: but less blue in the background
