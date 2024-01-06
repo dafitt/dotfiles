@@ -5,16 +5,18 @@
 
     # tools
     broot # an interactive tree view with fuzzy search, balanced BFS descent and customizable commands
+    borgbackup # deduplicating backup program
     calc # a calculator
     dig # tool for DNS
     duf # a better 'df'
-    gptfdisk
-    httpie
+    gptfdisk # tool for GPT partition tables
+    hdparm # tool for SATA/ATA devices
+    httpie # a modern command line HTTP client
     hyprpicker # color picker
     ncdu # disk usage analyzer with an ncurses interface
     nvme-cli # tool for nvme interface
     tldr # simplified and community-driven man pages
-    tree
+    tree # a directory listing program
     wev # tool for keyboard input
 
     # unix porn
