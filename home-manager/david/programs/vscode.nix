@@ -178,14 +178,14 @@
         "FIXME" = {
           # FIXME test
           "icon" = "flame";
-          "foreground" = "#${config.lib.stylix.colors.base01}";
+          "foreground" = "#${config.lib.stylix.colors.base00}";
           "background" = "#${config.lib.stylix.colors.base08}";
           "iconColour" = "#${config.lib.stylix.colors.base08}";
         };
         "TODO" = {
           # TODO test
           "icon" = "code";
-          "foreground" = "#${config.lib.stylix.colors.base01}";
+          "foreground" = "#${config.lib.stylix.colors.base00}";
           "background" = "#${config.lib.stylix.colors.base09}";
           "iconColour" = "#${config.lib.stylix.colors.base09}";
         };
@@ -247,6 +247,16 @@
           #* test
           "tag" = "* ";
           "color" = "#98C379";
+          "strikethrough" = false;
+          "underline" = false;
+          "backgroundColor" = "transparent";
+          "bold" = true;
+          "italic" = false;
+        }
+        {
+          #NOTE test
+          "tag" = "NOTE ";
+          "color" = "#${config.lib.stylix.colors.base06}";
           "strikethrough" = false;
           "underline" = false;
           "backgroundColor" = "transparent";
