@@ -15,10 +15,6 @@
 
 
   networking.hostName = "DavidLEGION";
-  services.connman = {
-    enable = true;
-    wifi.backend = "iwd";
-  };
   networking.firewall = {
     allowedTCPPorts = [
       22000 # Syncthing traffic

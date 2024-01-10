@@ -45,6 +45,7 @@
     };
   };
 
+  services.connman.networkInterfaceBlacklist = [ "enp42s0" "br0" ];
   networking = {
     hostName = "DavidDESKTOP";
 

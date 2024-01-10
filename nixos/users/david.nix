@@ -11,6 +11,7 @@
         "wheel" # for sudo
         "video" # for light (backlight control)
       ] ++ ifTheyExist [
+        "networkmanager"
         "wireshark"
         "i2c"
         "mysql"
