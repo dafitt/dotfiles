@@ -31,5 +31,4 @@
 
   # Multitheaded and faster building (make)
   environment.variables.MAKEFLAGS = "-j$(expr $(nproc) \+ 1)";
-  nixpkgs.config.enableParallelBuildingByDefault = true;
 }
