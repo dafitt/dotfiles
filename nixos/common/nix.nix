@@ -28,4 +28,8 @@
   # Limit the number of generations to keep
   boot.loader.systemd-boot.configurationLimit = lib.mkDefault 10;
   boot.loader.grub.configurationLimit = lib.mkDefault config.boot.loader.systemd-boot.configurationLimit;
+
+  # Multitheaded and faster building (make)
+  environment.variables.MAKEFLAGS = "-j$(expr $(nproc) \+ 1)";
+  nixpkgs.config.enableParallelBuildingByDefault = true;
 }
