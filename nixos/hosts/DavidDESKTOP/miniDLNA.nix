@@ -7,7 +7,7 @@
 
     privateNetwork = true;
     hostBridge = "br0";
-    localAddress = "192.168.19.11/23";
+    localAddress = "192.168.19.136/23";
 
     bindMounts = {
       recordings = {
