@@ -113,6 +113,10 @@
         #"editor.foldingHighlight" = false;
         #"editor.foldingImportsByDefault" = true;
       };
+      "[yaml]" = {
+        "editor.defaultFormatter" = "redhat.vscode-yaml";
+        "editor.tabSize" = 2;
+      };
       "[yuck]" = {
         "editor.tabSize" = 2;
       };
