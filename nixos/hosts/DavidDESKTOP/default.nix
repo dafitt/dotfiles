@@ -7,6 +7,7 @@
   imports = [
     ./configuration.nix
     ./hardware-configuration.nix
+    ./connman.nix
     ./zfs.nix
     ./nextcloud.nix
     ./miniDLNA.nix
