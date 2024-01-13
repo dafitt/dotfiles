@@ -14,6 +14,7 @@
     ./configuration.nix
     ./hardware-configuration.nix
     ./power-management.nix
+    ./DavidVPN.nix
 
     ../../users/david.nix
     ../../users/guest.nix
