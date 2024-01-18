@@ -11,10 +11,10 @@
 
     peers = [{
       # DavidVPN Server
-      endpoint = "htdth4b8vgtu5dym.myfritz.net:123"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+      endpoint = "[2003:d7:e71a:c200::7591]:123"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
       publicKey = "UVLXpDHXGdolVpVWB0Vt0YWVr0HFkhZGpsK72pXFTww=";
       # Which traffic to forward
-      allowedIPs = [ "192.168.18.0/23" "fd02:f69b:7377:a500::/56" ];
+      allowedIPs = [ "192.168.18.0/23" "fd02:f69b:7377:a500::/56" "10.0.0.1/32" "fc07:32a8:2fea:19eb::1/128" ];
       persistentKeepalive = 25; # Important to keep NAT tables alive.
     }];
   };
