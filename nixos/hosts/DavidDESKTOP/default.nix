@@ -8,13 +8,11 @@
     ./configuration.nix
     ./hardware-configuration.nix
     ./zfs.nix
-    ./nextcloud.nix
     ./miniDLNA.nix
 
     ../../users/david.nix
     ../../users/guest.nix
 
-    ../../common/connman.nix
     ../../common/DESKTOP.nix
     ../../common/nix.nix
     ../../common/gamemode.nix

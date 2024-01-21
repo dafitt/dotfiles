@@ -45,17 +45,10 @@
     };
   };
 
-  services.connman.networkInterfaceBlacklist = [ "enp42s0" "br0" ];
   networking = {
     hostName = "DavidDESKTOP";
 
-    networkmanager.enable = false;
-
-    useDHCP = false; # Is needed!
-    bridges."br0".interfaces = [ "enp42s0" ];
-    interfaces."br0".useDHCP = true;
-
-    firewall.interfaces."br0" = {
+    firewall = {
       allowedTCPPorts = [
         22000 # Syncthing traffic
       ];
