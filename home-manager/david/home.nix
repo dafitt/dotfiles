@@ -2,6 +2,13 @@
 
 { config, lib, pkgs, ... }: {
 
+  imports = [
+    ./configurations/Hyprland
+    ./modules
+    ./programs
+    ./services
+  ];
+
   nixpkgs = {
     #overlays = [ ];
     config = {

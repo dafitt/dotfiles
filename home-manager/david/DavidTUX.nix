@@ -1,10 +1,6 @@
 {
   imports = [
     ./home.nix
-    ./configurations/Hyprland
-    ./modules
-    ./programs
-    ./services
   ];
 
   wayland.windowManager.hyprland.monitors = [
