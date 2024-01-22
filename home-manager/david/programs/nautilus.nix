@@ -36,6 +36,9 @@
       default-visible-columns = [ "name" "type" "size" "date_modified" "permissions" ];
       default-zoom-level = "small";
     };
+    "com/github/stunkymonkey/nautilus-open-any-terminal" = {
+      terminal = "kitty";
+    };
   };
 
   wayland.windowManager.hyprland.settings = {

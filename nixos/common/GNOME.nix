@@ -1,1 +1,3 @@
-{ services.xserver.desktopManager.gnome.enable = true; }
+{ pkgs, ... }: {
+  services.xserver.desktopManager.gnome.enable = true;
+}

@@ -19,7 +19,6 @@
       visual_bell_duration = "1.0";
 
       # window layout
-      hide_window_decorations = true;
       window_border_width = "5px";
       active_border_color = "none";
       inactive_border_color = "#${config.lib.stylix.colors.base01}";
