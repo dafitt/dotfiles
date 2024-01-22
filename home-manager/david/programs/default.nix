@@ -29,9 +29,8 @@ in
   # Import all *.nix files in this directory
   imports = validFiles ./.;
 
-  # Some packages to install
+  # Various grafical applications
   home.packages = with pkgs; [
-    # search packages here: <https://search.nixos.org/packages>
 
     clapper # a simple and modern GNOME media player
     gnome.gnome-characters # character picker
@@ -39,15 +38,15 @@ in
     hunspellDicts.de_DE
     hunspellDicts.en_US-large
     libreoffice-fresh # office suite
-    tenacity # Sound editor with graphical UI
     ludusavi # Savegame manager
     signal-desktop
     super-productivity # To-do list & time tracker
+    tenacity # Sound editor with graphical UI
 
     # for development and administration
     gnome.dconf-editor
-    gnome.gnome-tweaks
     gnome.gnome-nettool
+    gnome.gnome-tweaks
     gnome.gucharmap # to search unicode characters
     pandoc # document converter
   ];

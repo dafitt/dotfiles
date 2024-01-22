@@ -1,18 +1,17 @@
 { pkgs, ... }: {
 
-  # various command line programs
+  # Various command line programs
   home.packages = with pkgs; [
 
     # tools
-    broot # an interactive tree view with fuzzy search, balanced BFS descent and customizable commands
     borgbackup # deduplicating backup program
+    broot # an interactive tree view with fuzzy search, balanced BFS descent and customizable commands
     calc # a calculator
     dig # tool for DNS
     duf # a better 'df'
-    gptfdisk # tool for GPT partition tables
-    hdparm # tool for SATA/ATA devices
     httpie # a modern command line HTTP client
     hyprpicker # color picker
+    mtr # better traceroute
     ncdu # disk usage analyzer with an ncurses interface
     nvme-cli # tool for nvme interface
     tldr # simplified and community-driven man pages
