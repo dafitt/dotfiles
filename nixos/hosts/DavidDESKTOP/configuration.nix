@@ -8,15 +8,6 @@
     timeout = 0;
   };
 
-
-  boot.kernelParams = [
-    #$ wlr-randr
-    #$ head /sys/class/drm/*/status
-    "video=HDMI-A-1:2560x1440@120"
-    "video=DP-1:2560x1440@120"
-  ];
-
-
   console.keyMap = "de-latin1-nodeadkeys";
 
 
