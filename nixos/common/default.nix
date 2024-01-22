@@ -20,7 +20,6 @@
     # TODO add if platform == "efi"
   };
 
-
   time.timeZone = "Europe/Berlin";
 
   # language & locale
@@ -44,8 +43,7 @@
     };
   };
 
-
-  # Enable sound with pipewire.
+  # Enable sound with pipewire (over pulseaudio)
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -55,10 +53,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-
-  security.polkit.enable = true; # Required for Home-manager
-
 
   # Monitor backlight control
   programs.light.enable = true;
@@ -73,18 +67,13 @@
     };
   };
 
-
-  environment = {
-    systemPackages = with pkgs; [
-      bashmount # easy mounting
-      gparted # graphical disk partitioning tool
-      micro # easy to use texteditor
-      raider # securely delete your files
-      wget
-      home-manager
-    ];
-  };
-
+  environment.systemPackages = with pkgs; [
+    bashmount # easy mounting
+    gparted # graphical disk partitioning tool
+    micro # easy to use texteditor
+    raider # securely delete your files
+    wget
+  ];
 
   # Basic (default) font configuration
   fonts = {
@@ -107,32 +96,7 @@
     fontDir.enable = true; # /run/current-system/sw/share/X11/fonts
   };
 
-
   services = {
-
-    gvfs = {
-      enable = true; # userspace virtual filesystem (to be able to browse remote resources)
-      package = pkgs.gvfs;
-    };
-    udisks2 = {
-      enable = true; # to allow applications to query and manipulate storage devices
-      settings = {
-        "udisks2.conf".defaults = {
-          allow = "exec";
-        };
-      };
-    };
-
-    fwupd.enable = false; # update various firmware <https://nixos.wiki/wiki/Fwupd>
+    fwupd.enable = false; # update various firmware (https://nixos.wiki/wiki/Fwupd)
   };
-
-  # Flatpaks
-  services.flatpak.enable = true;
-  xdg.portal.enable = true;
-
-  # Fix for [Flatpak apps can't launch the default browser](https://github.com/NixOS/nixpkgs/issues/189851)
-  systemd.user.extraConfig = ''
-    DefaultEnvironment="PATH=/run/current-system/sw/bin"
-  '';
-
 }

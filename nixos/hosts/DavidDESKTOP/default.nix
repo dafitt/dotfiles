@@ -11,10 +11,11 @@
     ./miniDLNA.nix
 
     ../../users/david.nix
-    #../../users/guest.nix
+    ../../users/guest.nix
 
     ../../common
     ../../common/displayManager.nix
+    ../../common/flatpak.nix
     ../../common/gamemode.nix
     ../../common/GNOME.nix
     ../../common/Hyprland.nix

@@ -2,13 +2,6 @@
 
   imports = [ home-manager.nixosModules.home-manager ];
 
-  # Enable GNOME
-  services.xserver.desktopManager.gnome.enable = true;
-
-  environment.gnome.excludePackages = with pkgs.gnome; [
-    geary # email reader
-  ];
-
   # Guest account
   users.users."guest" = {
     isNormalUser = true;
