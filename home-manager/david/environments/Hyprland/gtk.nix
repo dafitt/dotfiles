@@ -40,6 +40,4 @@
       "Net/IconThemeName" = gtk.iconTheme.name;
     };
   };
-
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }

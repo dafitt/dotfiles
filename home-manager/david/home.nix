@@ -3,7 +3,7 @@
 { config, lib, pkgs, ... }: {
 
   imports = [
-    ./configurations/Hyprland
+    ./environments/Hyprland
     ./modules
     ./programs
     ./services
@@ -47,17 +47,11 @@
     };
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-  # For other OSes than NixOS
-  #targets.genericLinux.enable = true;
-
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+
   home.stateVersion = "23.05"; # [When do I update stateVersion?](https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion)
 }
-
-# more options: <https://mipmip.github.io/home-manager-option-search/?query=hyprland>
-# more options: <https://nix-community.github.io/home-manager/options.html>

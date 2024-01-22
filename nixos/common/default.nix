@@ -57,43 +57,11 @@
   # Monitor backlight control
   programs.light.enable = true;
 
-  programs.fish = {
-    enable = true;
-    # also use objects provided by other packages
-    vendor = {
-      completions.enable = true;
-      config.enable = true;
-      functions.enable = true;
-    };
-  };
+  # To update various firmware (https://nixos.wiki/wiki/Fwupd)
+  services.fwupd.enable = false; # enable, when needed
 
   environment.systemPackages = with pkgs; [
     raider # securely delete files
     wget
   ];
-
-  # Basic (default) font configuration
-  fonts = {
-    packages = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      source-han-sans
-      source-han-sans-japanese
-      source-han-serif-japanese
-    ];
-    fontconfig = {
-      defaultFonts = {
-        serif = [ "Noto Serif" "Source Han Serif" ];
-        sansSerif = [ "Noto Sans" "Source Han Sans" ];
-        monospace = [ "Noto Mono" ];
-        emoji = [ "Noto Color Emoji" ];
-      };
-    };
-    fontDir.enable = true; # /run/current-system/sw/share/X11/fonts
-  };
-
-  services = {
-    fwupd.enable = false; # update various firmware (https://nixos.wiki/wiki/Fwupd)
-  };
 }

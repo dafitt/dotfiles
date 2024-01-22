@@ -29,4 +29,17 @@
 
     openssh.authorizedKeys.keyFiles = [ ];
   };
+
+  # Default Shell
+  programs.fish = {
+    enable = true;
+    # also use objects provided by other packages
+    vendor = {
+      completions.enable = true;
+      config.enable = true;
+      functions.enable = true;
+    };
+  };
+
+  #* home-manager is used 'standalone'
 }

@@ -285,13 +285,6 @@
     };
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
-    configPackages = [ config.wayland.windowManager.hyprland.package ];
-    xdgOpenUsePortal = true;
-  };
-
   home.packages = with pkgs; [
     hyprwm-contrib.packages.${pkgs.system}.grimblast
     hyprpicker
