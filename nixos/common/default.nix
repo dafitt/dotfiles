@@ -68,10 +68,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    bashmount # easy mounting
-    gparted # graphical disk partitioning tool
-    micro # easy to use texteditor
-    raider # securely delete your files
+    raider # securely delete files
     wget
   ];
 

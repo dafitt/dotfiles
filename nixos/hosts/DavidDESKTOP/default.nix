@@ -12,6 +12,7 @@
 
     ../../users/david.nix
     ../../users/guest.nix
+    ../../users/root.nix
 
     ../../common
     ../../common/displayManager.nix

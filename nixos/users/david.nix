@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, home-manager, ... }: {
 
   users.users."david" = {
     isNormalUser = true;
@@ -22,6 +22,10 @@
         "deluge"
       ];
     shell = pkgs.fish;
+
+    packages = with pkgs; [
+      home-manager.packages.${pkgs.system}.default
+    ] ++ config.users.users.root.packages;
 
     openssh.authorizedKeys.keyFiles = [ ];
   };
