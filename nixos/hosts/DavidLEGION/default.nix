@@ -14,16 +14,19 @@
     ./configuration.nix
     ./hardware-configuration.nix
     ./power-management.nix
-    ./DavidVPN.nix
+    #./DavidVPN.nix
 
     ../../users/david.nix
     ../../users/guest.nix
 
+    ../../common
     ../../common/connman.nix
-    ../../common/DESKTOP.nix
-    ../../common/nix.nix
-    ../../common/bluetooth.nix
+    ../../common/displayManager.nix
+    ../../common/flatpak.nix
     ../../common/gamemode.nix
+    ../../common/GNOME.nix
+    ../../common/Hyprland.nix
+    ../../common/nix.nix
     ../../common/virtualisation.nix
   ];
 }

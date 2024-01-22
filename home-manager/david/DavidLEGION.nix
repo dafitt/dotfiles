@@ -1,6 +1,8 @@
 {
   imports = [
     ./home.nix
+    ./environments/GNOME
+    ./environments/Hyprland
   ];
 
   wayland.windowManager.hyprland = {

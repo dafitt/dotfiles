@@ -3,8 +3,6 @@
 { config, lib, pkgs, ... }: {
 
   imports = [
-    ./environments/GNOME
-    ./environments/Hyprland
     ./modules
     ./programs
     ./services
