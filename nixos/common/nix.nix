@@ -1,5 +1,7 @@
 { lib, config, nixpkgs, ... }: {
 
+  nixpkgs.config.allowUnfree = true;
+
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];

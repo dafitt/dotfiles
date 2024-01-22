@@ -11,11 +11,14 @@
     ./miniDLNA.nix
 
     ../../users/david.nix
-    ../../users/guest.nix
+    #../../users/guest.nix
 
-    ../../common/DESKTOP.nix
-    ../../common/nix.nix
+    ../../common
+    ../../common/displayManager.nix
     ../../common/gamemode.nix
+    ../../common/GNOME.nix
+    ../../common/Hyprland.nix
+    ../../common/nix.nix
     ../../common/ssh.nix
     ../../common/steam.nix
     ../../common/virtualisation.nix

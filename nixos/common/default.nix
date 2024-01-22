@@ -2,8 +2,6 @@
 
 { config, lib, pkgs, ... }: {
 
-  nixpkgs.config.allowUnfree = true; # Allow unfree packages
-
   boot.loader.grub = {
     # TODO extraGrubInstallArgs = [];
     extraEntries = ''
@@ -61,11 +59,6 @@
 
   security.polkit.enable = true; # Required for Home-manager
 
-  security.pam.services.swaylock = { }; # swaylock fix <https://github.com/NixOS/nixpkgs/issues/158025>
-
-
-  # For GNOME programs outside of GNOME
-  programs.dconf.enable = true;
 
   # Monitor backlight control
   programs.light.enable = true;

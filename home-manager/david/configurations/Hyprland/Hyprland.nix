@@ -8,6 +8,8 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = hyprland.packages.${pkgs.system}.hyprland;
+
+    xwayland.enable = true;
     systemd = {
       enable = true;
     };
@@ -281,7 +283,6 @@
         "_JAVA_AWT_WM_NONEREPARENTING,1"
       ];
     };
-
   };
 
   xdg.portal = {
