@@ -1,3 +1,4 @@
+# XDG-Portal for Window-Managers
 # <https://github.com/Misterio77/nix-config/blob/f4368087b0fd0bf4a41bdbf8c0d7292309436bb0/modules/home-manager/xdg-portal.nix>
 { config, pkgs, lib, ... }:
 
