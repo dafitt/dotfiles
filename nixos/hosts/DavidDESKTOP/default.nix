@@ -17,6 +17,7 @@
     ../../common/nix.nix
     ../../common/gamemode.nix
     ../../common/ssh.nix
+    ../../common/steam.nix
     ../../common/virtualisation.nix
   ];
 }
