@@ -397,6 +397,7 @@
 
       # Features / Advancements #
       esbenp.prettier-vscode
+      eamodio.gitlens
       #chouzz.vscode-better-align
       #donjayamanne.githistory # git
       #mhutchie.git-graph # git
@@ -553,12 +554,6 @@
         #  version = "1.4.4";
         #  sha256 = "Tt1UF1i7bgWm/jRP6IG5UOQcfe5YOeCx6Hxs/bnkkgE=";
         #} # Cant download chromium: Read only filesystem!
-        {
-          name = "gitless";
-          publisher = "maattdd";
-          version = "11.7.2";
-          sha256 = "05zbxi1f1jb53ijnxrj7ixm8xfsxmh8hlb6rwxsfc7gs3hs9k1xd";
-        }
         {
           name = "vscode-status-bar-format-toggle";
           publisher = "tombonnike";
