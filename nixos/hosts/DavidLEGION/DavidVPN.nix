@@ -1,25 +1,25 @@
 {
+  #$ sudo systemctl status wg-quick-DavidVPN
+  #$ sudo systemctl stop wg-quick-DavidVPN
+  #$ sudo systemctl start wg-quick-DavidVPN
   services.connman.networkInterfaceBlacklist = [ "DavidVPN" ];
-  networking.wireguard.interfaces."DavidVPN" = {
+  networking.wg-quick.interfaces."DavidVPN" = {
+    address = [ "fc07::2/64" "10.0.0.2/24" ];
+    dns = [ "fd02:f69b:7377:a500::9" "192.168.19.133" ];
 
-    ips = [ "10.0.0.2/24" "fc07:32a8:2fea:19eb::2/64" ];
-    listenPort = 51820; # to match firewalls' allowedUDPPorts (without -> random port numbers)
-
-    generatePrivateKeyFile = true;
+    #$ (umask 0077; wg genkey > /var/lib/wireguard/private.key)
     privateKeyFile = "/var/lib/wireguard/private.key";
-    #$ wg pubkey < /var/lib/wireguard/private.key > /var/lib/wireguard/public.key
+
+    #$ wg pubkey < /var/lib/wireguard/private.key
+    # D90wpk+4Hwpvnmq8JUqcjoph1tswJ5sZRKwvmKSlLnw=
 
     peers = [{
       # DavidVPN Server
-      endpoint = "[2003:d7:e71a:c200::7591]:123"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
-      publicKey = "UVLXpDHXGdolVpVWB0Vt0YWVr0HFkhZGpsK72pXFTww=";
+      endpoint = "david.wireguard.schallernetz.de:123";
+      publicKey = "D90wpk+4Hwpvnmq8JUqcjoph1tswJ5sZRKwvmKSlLnw=";
       # Which traffic to forward
-      allowedIPs = [ "192.168.18.0/23" "fd02:f69b:7377:a500::/56" "10.0.0.1/32" "fc07:32a8:2fea:19eb::1/128" ];
+      allowedIPs = [ "fd02:f69b:7377:a500::/56" "192.168.18.0/23" ];
       persistentKeepalive = 25; # Important to keep NAT tables alive.
     }];
-  };
-
-  networking.firewall = {
-    allowedUDPPorts = [ 51820 ]; # Clients and peers can use the same port, see listenport
   };
 }
