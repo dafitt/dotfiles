@@ -123,17 +123,6 @@
         "SUPER, UDIAERESIS, exec, systemctl suspend" # quick-suspend
         "SUPER, Q, exec, wlogout --protocol layer-shell" # show the logout window
 
-        # Default programs
-        "SUPER, RETURN, exec, $TERMINAL"
-        "SUPER, F1, exec, $BROWSER"
-        "ALT SUPER, B, exec, $BROWSER"
-        "SUPER, F2, exec, $TERMINAL -e $TOP"
-        "ALT SUPER, Z, exec, $TERMINAL -e $TOP"
-        "SUPER, F3, exec, $TERMINAL -e $EDITOR"
-        "ALT SUPER, T, exec, $TERMINAL -e $EDITOR"
-        "SUPER, F4, exec, $GDITOR"
-        "ALT SUPER, G, exec, $GDITOR"
-
         # Window Control
         "SUPER, DELETE, exec, hyprctl kill" # kill a window by clicking it
         "SUPER, X, killactive," # close the active window
@@ -224,7 +213,20 @@
         # some small helper programs
         "ALT SUPER, U, exec, ${pkgs.gnome.gnome-characters}/bin/gnome-characters"
         "ALT SUPER, K, exec, ${pkgs.hyprpicker}/bin/hyprpicker"
-      ];
+
+      ] ++ (with config.home.sessionVariables; [
+
+        # Default programs
+        "SUPER, RETURN, exec, ${TERMINAL}"
+        "SUPER, F1, exec, ${BROWSER}"
+        "ALT SUPER, B, exec, ${BROWSER}"
+        "SUPER, F2, exec, ${TERMINAL} -e ${TOP}"
+        "ALT SUPER, Z, exec, ${TERMINAL} -e ${TOP}"
+        "SUPER, F3, exec, ${TERMINAL} -e ${EDITOR}"
+        "ALT SUPER, T, exec, ${TERMINAL} -e ${EDITOR}"
+        "SUPER, F4, exec, ${GDITOR}"
+        "ALT SUPER, G, exec, ${GDITOR}"
+      ]);
 
       # Bind: mouse binds
       bindm = [
@@ -255,7 +257,7 @@
 
       # only on launch
       exec-once = [
-        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" # start polkit manually (isn't done automatically)
+        #"${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" # start polkit manually (isn't done automatically)
       ];
 
       # only on each reload

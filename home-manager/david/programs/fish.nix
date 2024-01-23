@@ -2,30 +2,22 @@
 
   # The friendly interactive shell
   # https://fishshell.com/
+  # https://github.com/fish-shell/fish-shell
   programs.fish = {
     enable = true;
 
     shellAliases = import ../common/shellAliases.nix;
 
     shellInit = lib.mkMerge [
-      # Keybindings
+      # [Default keybindings](https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_default_key_bindings.fish)
+      #$ fish_key_reader
       ''
-        bind \t accept-autosuggestion
         bind \cH backward-kill-word
         bind \e\[3\;5~ kill-word
         bind \e\[3\;3~ kill-word
         bind \b backward-kill-path-component
       ''
     ];
-
-    interactiveShellInit = ''
-
-      # kitty integration
-      set --global KITTY_INSTALLATION_DIR "${pkgs.kitty}/lib/kitty"
-      set --global KITTY_SHELL_INTEGRATION enabled
-      source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
-      set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
-    '';
 
     functions = {
 
