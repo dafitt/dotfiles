@@ -1,10 +1,14 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
 
-  home.packages = with pkgs.gnomeExtensions; [
+  home.packages = with pkgs; [
+    gnome-extension-manager
+  ] ++ (with pkgs.gnomeExtensions; [
     forge
-  ];
+  ]);
 
-  dconf.settings = {
+  dconf.settings = with lib.hm.gvariant; {
+
+    # Extensions
     "org/gnome/shell" = {
       enabled-extensions = [
         "apps-menu@gnome-shell-extensions.gcampax.github.com"
@@ -53,7 +57,14 @@
       ];
     };
 
-
+    # Desktop settings
+    "org/gnome/desktop/input-sources" = {
+      sources = [ (mkTuple [ "xkb" "de" ]) ];
+    };
+    "org/gnome/desktop/peripherals/touchpad" = {
+      tap-to-click = true;
+      two-finger-scrolling-enabled = true;
+    };
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
       edge-tiling = true;
@@ -100,6 +111,11 @@
       move-to-monitor-up = [ ];
       unmaximize = [ ];
     };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Super>Return";
+      command = "kitty";
+      name = "Terminal";
+    };
     "org/gnome/shell/keybindings" = {
       switch-to-application-1 = [ ];
       switch-to-application-2 = [ ];
@@ -112,11 +128,6 @@
       switch-to-application-9 = [ ];
       toggle-application-view = [ ];
     };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = "<Super>Return";
-      command = "kitty";
-      name = "Terminal";
-    };
     "org/gnome/shell/window-switcher" = {
       current-workspace-only = false;
     };
@@ -124,5 +135,7 @@
       auto-save-session = true;
       logout-prompt = false;
     };
+    "org/gnome/session" = { idle-delay = mkUint32 0; };
+    "system/locale" = { region = "en_US.UTF-8"; };
   };
 }

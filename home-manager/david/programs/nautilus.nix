@@ -3,6 +3,7 @@
   # The file manager for GNOME
   home.packages = with pkgs; [
     gnome.nautilus
+    nautilus-open-any-terminal
     gnome.file-roller # archive manager
     xfce.thunar # as bulk renamer
   ];

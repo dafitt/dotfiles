@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: {
 
   # Virtualisation software
-  # 
+  #
   home.packages = with pkgs; [
     virt-manager
     spice-gtk # Needed for USB redirection in kvm-VMs.
@@ -10,10 +10,8 @@
     win-virtio
   ];
 
-  dconf.settings = {
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = [ "qemu:///system" ];
-      uris = [ "qemu:///system" ];
-    };
+  dconf.settings."org/virt-manager/virt-manager/connections" = {
+    autoconnect = [ "qemu:///system" ];
+    uris = [ "qemu:///system" ];
   };
 }

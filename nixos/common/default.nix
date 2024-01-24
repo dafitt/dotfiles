@@ -43,17 +43,6 @@
     };
   };
 
-  # Enable sound with pipewire (over pulseaudio)
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
   # Monitor backlight control
   programs.light.enable = true;
 

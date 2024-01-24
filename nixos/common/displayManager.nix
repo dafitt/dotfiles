@@ -8,4 +8,10 @@
     };
     defaultSession = "hyprland";
   };
+
+  programs.dconf.profiles.gdm.databases = [{
+    settings = {
+      "org/gnome/desktop/peripherals/touchpad".tap-to-click = true;
+    };
+  }];
 }

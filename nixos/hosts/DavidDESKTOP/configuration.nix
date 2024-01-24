@@ -8,7 +8,9 @@
     timeout = 0;
   };
 
+  # Keyboard layout
   console.keyMap = "de-latin1-nodeadkeys";
+  services.xserver = { layout = "de"; xkbVariant = "nodeadkeys"; };
 
 
   fileSystems = {
