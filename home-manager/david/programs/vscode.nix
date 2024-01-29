@@ -335,18 +335,12 @@
         "key" = "ctrl+shift+j";
         "command" = "workbench.panel.chatSidebar.copilot";
       }
-      {
-        # Unset Ctrl-L for line selection
-        "key" = "ctrl+l";
-        "command" = "-workbench.action.chat.clear";
-        "when" = "hasChatProvider && inChat";
-      }
-      {
-        # Unset Ctrl-Shift-Z for redo
-        "key" = "ctrl+shift+z";
-        "command" = "-extension.decrementPriority";
-        "when" = "editorTextFocus";
-      }
+      # Unset Ctrl-L for line selection
+      { "key" = "ctrl+l"; "command" = "-workbench.action.chat.clear"; }
+      # Unset Ctrl-Shift-Z for redo
+      { "key" = "ctrl+shift+z"; "command" = "-extension.decrementPriority"; }
+      # Unset todo-txt
+      { "key" = "ctrl+shift+a"; "command" = "-extension.incrementPriority"; }
     ];
 
     globalSnippets = {
