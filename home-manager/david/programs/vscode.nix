@@ -271,70 +271,27 @@
     };
 
     keybindings = [
-      {
-        # Change keybinding expression
-        "key" = "ctrl+e";
-        "command" = "keybindings.editor.defineWhenExpression";
-        "when" = "inKeybindings && keybindingFocus";
-      }
-      {
-        # Insert Line Above
-        "key" = "shift+enter";
-        "command" = "editor.action.insertLineBefore";
-        "when" = "editorTextFocus && !editorReadonly";
-      }
-      {
-        # Insert Line Below
-        "key" = "ctrl+enter";
-        "command" = "editor.action.insertLineAfter";
-        "when" = "editorTextFocus && !editorReadonly";
-      }
-      {
-        # Indent Line
-        "key" = "tab";
-        "command" = "editor.action.indentLines";
-        "when" = "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !suggestWidgetHasFocusedSuggestion && !inSnippetMode && !atEndOfWord && !inlineSuggestionVisible";
-      }
-      {
-        # Copy Line Down
-        "key" = "ctrl+alt+l";
-        "command" = "editor.action.copyLinesDownAction";
-        "when" = "editorTextFocus && !editorReadonly";
-      }
-      {
-        # Toggle Line  Comment
-        "key" = "ctrl+[Backslash]";
-        "command" = "editor.action.commentLine";
-        "when" = "editorTextFocus && !editorReadonly";
-      }
-      {
-        # Toggle Block Comment
-        "key" = "ctrl+shift+[Backslash]";
-        "command" = "editor.action.blockComment";
-        "when" = "editorTextFocus && !editorReadonly";
-      }
-
-      {
-        # Save All Files
-        "key" = "ctrl+shift+s";
-        "command" = "workbench.action.files.saveFiles";
-      }
-      {
-        # File: Save As...
-        "key" = "ctrl+alt+s";
-        "command" = "workbench.action.files.saveAs";
-      }
-      {
-        # Code Runner: Run current File
-        "key" = "ctrl+e ctrl+e";
-        "command" = "code-runner.run";
-        "when" = "editorTextFocus && !editorReadonly && resourceExtname != .sql";
-      }
-      {
-        # Copilot: Open Chat
-        "key" = "ctrl+shift+j";
-        "command" = "workbench.panel.chatSidebar.copilot";
-      }
+      # Insert Line above and below
+      { "key" = "shift+enter"; "command" = "editor.action.insertLineBefore"; "when" = "editorTextFocus && !editorReadonly"; }
+      { "key" = "ctrl+enter"; "command" = "editor.action.insertLineAfter"; "when" = "editorTextFocus && !editorReadonly"; }
+      # Indent Line
+      { "key" = "tab"; "command" = "editor.action.indentLines"; "when" = "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !suggestWidgetHasFocusedSuggestion && !inSnippetMode && !atEndOfWord && !inlineSuggestionVisible"; }
+      # Copy Line Down
+      { "key" = "ctrl+alt+l"; "command" = "editor.action.copyLinesDownAction"; "when" = "editorTextFocus && !editorReadonly"; }
+      # Toggle Comments
+      { "key" = "ctrl+/"; "command" = "editor.action.commentLine"; "when" = "editorTextFocus && !editorReadonly"; }
+      { "key" = "ctrl+shift+/"; "command" = "editor.action.blockComment"; "when" = "editorTextFocus && !editorReadonly"; }
+      # Save All Files
+      { "key" = "ctrl+shift+s"; "command" = "workbench.action.files.saveFiles"; }
+      # File: Save As...
+      { "key" = "ctrl+alt+s"; "command" = "workbench.action.files.saveAs"; }
+      # VSCode settings: Change keybinding expression
+      { "key" = "ctrl+e"; "command" = "keybindings.editor.defineWhenExpression"; "when" = "inKeybindings && keybindingFocus"; }
+      # Code Runner: Run current File
+      { "key" = "ctrl+e ctrl+e"; "command" = "code-runner.run"; "when" = "editorTextFocus && !editorReadonly && resourceExtname != .sql"; }
+      # Copilot: Open Chat
+      { "key" = "ctrl+shift+j"; "command" = "workbench.panel.chatSidebar.copilot"; }
+      # Unsets
       # Unset Ctrl-L for line selection
       { "key" = "ctrl+l"; "command" = "-workbench.action.chat.clear"; }
       # Unset Ctrl-Shift-Z for redo
