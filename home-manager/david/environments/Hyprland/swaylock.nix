@@ -26,12 +26,12 @@
 
       settings = {
         # <https://man.archlinux.org/man/swaylock.1>
-        submit-on-touch = true;
         ignore-empty-password = true;
         show-failed-attempts = true;
 
-        # Take a screenshot of the current desktop
-        screenshots = true;
+        # dont unlock with --grace
+        grace-no-mouse = true;
+        grace-no-touch = true;
 
         # Display an idle indicator
         indicator = true;
@@ -48,14 +48,10 @@
         datestr = "%y-%m-%d:%a";
 
         # background
+        screenshots = true;
         effect-pixelate = "64";
         effect-vignette = "0.7:0.9";
         fade-in = 1;
-
-        # dont require passwort the first seconds
-        grace = 2;
-        grace-no-mouse = true;
-        grace-no-touch = true;
       };
     };
 
@@ -64,17 +60,17 @@
       systemdTarget = "hyprland-session.target";
       # options <https://github.com/swaywm/swayidle/blob/master/swayidle.1.scd>
       timeouts = let timeout = config.services.swayidle.timeout; in [
-        (lib.mkIf (timeout.lock > 0) { timeout = timeout.lock; command = "${config.programs.swaylock.package}/bin/swaylock --daemonize"; })
+        (lib.mkIf (timeout.lock > 0) { timeout = timeout.lock; command = "${config.programs.swaylock.package}/bin/swaylock --grace 30"; })
         (lib.mkIf (timeout.suspend > 0) { timeout = timeout.suspend; command = "${pkgs.systemd}/bin/systemctl suspend"; })
       ];
       events = [
-        { event = "before-sleep"; command = "${config.programs.swaylock.package}/bin/swaylock --daemonize --fade-in 0"; }
+        { event = "before-sleep"; command = "${config.programs.swaylock.package}/bin/swaylock --grace 0 --fade-in 0"; }
       ];
     };
 
     wayland.windowManager.hyprland.settings = {
       bind = [
-        "SUPER, L, exec, swaylock" # Lock the screen
+        "SUPER, L, exec, swaylock --grace 2" # Lock the screen
       ];
     };
   };
