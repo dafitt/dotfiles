@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   #$ sudo systemctl status wg-quick-DavidVPN
   #$ sudo systemctl stop wg-quick-DavidVPN
   #$ sudo systemctl start wg-quick-DavidVPN
@@ -21,5 +21,23 @@
       allowedIPs = [ "fd02:f69b:7377:a500::/56" "192.168.18.0/23" ];
       persistentKeepalive = 25; # Important to keep NAT tables alive.
     }];
+  };
+
+  systemd.services."wg-quick-DavidVPN-restart" = {
+    description = "restart DavidVPN"; # because of endpoint's dyndns
+    wantedBy = [ "multi-user.target" ];
+    after = [ "nss-lookup.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.systemd}/bin/systemctl restart wg-quick-DavidVPN";
+    };
+  };
+  systemd.timers."wg-quick-DavidVPN-restart" = {
+    wantedBy = [ "timers.target" ];
+    after = [ "nss-lookup.target" ];
+    timerConfig = {
+      OnCalendar = "daily";
+      Persistent = true;
+    };
   };
 }
