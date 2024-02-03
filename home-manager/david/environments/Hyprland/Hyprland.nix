@@ -49,7 +49,7 @@
         # <https://wiki.hyprland.org/Configuring/Variables/#decoration>
         active_opacity = 0.93;
         inactive_opacity = 0.93;
-        rounding = 8;
+        rounding = 18;
         dim_inactive = true;
         dim_strength = .1;
         drop_shadow = true;

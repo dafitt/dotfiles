@@ -10,23 +10,34 @@
 
       # TODO primary monitor only ``` (lib.find (monitor: monitor.primary)  config.wayland.windowManager.hyprland.monitors;).name
 
-      layer = "top"; # Waybar at top layer
-      position = "bottom"; # Waybar position (top|bottom|left|right)
-      #height = 30; # Waybar height (to be removed for auto height)
-      #width = 1280; # Waybar width
-      #spacing = 4; # Gaps between modules (4px)
+      layer = "top";
+      position = "bottom";
 
-      modules-left = [ "custom/l" "custom/launcher" "hyprland/workspaces" "custom/r" ];
+      modules-left = [ "custom/l" "custom/launcher" "custom/_" "hyprland/workspaces" "custom/_" "wlr/taskbar" "custom/r" ];
       "custom/launcher" = {
-        "format" = " ";
-        "tooltip" = false;
+        format = " ";
+        on-click = "pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel";
+        tooltip = false;
       };
-      "hyprland/workspaces" = { };
+      "hyprland/workspaces" = {
+        #active-only = true;
+      };
+      "wlr/taskbar" = {
+        format = "{icon}";
+        icon-size = 18;
+        tooltip-format = "{title}";
+        on-click = "activate";
+        on-click-middle = "close";
+        ignore-list = [ ];
+        app_ids-mapping = {
+          firefoxdeveloperedition = "firefox-developer-edition";
+        };
+      };
 
       modules-center = [ "custom/l" "clock" "custom/r" ];
       "clock" = {
-        format = "{:%R}";
-        format-alt = "{:%R 󰃭 %Y·%m·%d}";
+        format = "{:%R} ";
+        format-alt = "{:%R  %Y·%m·%d}";
         tooltip-format = "<tt>{calendar}</tt>";
         calendar = {
           mode = "month";
@@ -34,7 +45,7 @@
           on-scroll = 1;
           on-click-right = "mode";
           format = {
-            months = "<span color='#ffead3'><b>{}</b></span>";
+            months = "<span color = '#ffead3'><b>{}</b></span>";
             weekdays = "<span color='#ffcc66'><b>{}</b></span>";
             today = "<span color='#ff6699'><b>{}</b></span>";
           };
@@ -48,7 +59,72 @@
         };
       };
 
-      modules-right = [ ];
+      modules-right = [ "custom/l" "tray" "custom/r" "custom/l" "backlight" "bluetooth" "network" "battery" "custom/_" "pulseaudio#microphone" "pulseaudio" "custom/r" ];
+      "tray" = {
+        icon-size = 18;
+        spacing = 5;
+      };
+      "backlight" = {
+        device = "intel_backlight";
+        format = "{percent}% {icon}";
+        format-icons = [ "" "" "" "" "" "" "" "" "" ];
+        on-scroll-up = "brightnessctl set 1%+";
+        on-scroll-down = "brightnessctl set 1%-";
+        min-length = 6;
+      };
+      "bluetooth" = {
+        format = "";
+        format-disabled = "";
+        # an empty format will hide the module
+        format-connected = "{num_connections} ";
+        tooltip-format = "{device_alias} ";
+        tooltip-format-connected = "{device_enumerate}";
+        tooltip-format-enumerate-connected = "{device_alias} ";
+      };
+      "network" = {
+        #interface = "wlp2*"; # (Optional) To force the use of this interface
+        format-wifi = "{essid} 󰤨";
+        format-ethernet = "Wired 󱘖";
+        tooltip-format = "{ipaddr} 󱘖 {bandwidthDownBytes}   {bandwidthUpBytes}";
+        format-linked = "{ifname} 󱘖 (No IP)";
+        format-disconnected = "Disconnected ";
+        format-alt = "{signalStrength}% 󰤨";
+        interval = 5;
+      };
+      "pulseaudio#microphone" = {
+        format = "{format_source}";
+        format-source = "";
+        format-source-muted = "";
+        on-click = "pavucontrol -t 4";
+        on-click-middle = "${config.services.swayosd.package}/bin/swayosd --input-volume mute-toggle";
+        on-scroll-up = "${config.services.swayosd.package}/bin/swayosd --input-volume raise";
+        on-scroll-down = "${config.services.swayosd.package}/bin/swayosd --input-volume lower";
+        tooltip-format = "{format_source} {source_desc} // {source_volume}%";
+        scroll-step = 5;
+      };
+      "pulseaudio" = {
+        format = "{volume} {icon}";
+        format-muted = "";
+        on-click = "pavucontrol -t 3";
+        on-click-middle = "${config.services.swayosd.package}/bin/swayosd --output-volume mute-toggle";
+        on-scroll-up = "${config.services.swayosd.package}/bin/swayosd --output-volume raise";
+        on-scroll-down = "${config.services.swayosd.package}/bin/swayosd --output-volume lower";
+        tooltip-format = "{icon} {desc} // {volume}%";
+        scroll-step = 5;
+        format-icons = { headphone = ""; hands-free = ""; headset = ""; phone = ""; portable = ""; car = ""; default = [ "" "" "" ]; };
+      };
+      "battery" = {
+        states = {
+          good = 75;
+          warning = 30;
+          critical = 15;
+        };
+        format = "{capacity}% {icon}";
+        format-charging = "{capacity}% ";
+        format-plugged = "{capacity}% ";
+        format-alt = "{time} {icon}";
+        format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+      };
 
       # modules for padding #
       "custom/l" = { format = " "; interval = "once"; tooltip = false; };

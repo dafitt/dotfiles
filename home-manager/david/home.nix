@@ -12,9 +12,12 @@
     #overlays = [ ];
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = _: true; # Workaround for [Flake cannot use unfree packages](https://github.com/nix-community/home-manager/issues/2942)
     };
   };
+  xdg.configFile."nixpkgs/config.nix".text = ''
+    {
+      allowUnfree = true;
+    }'';
 
   home = {
     username = "david";

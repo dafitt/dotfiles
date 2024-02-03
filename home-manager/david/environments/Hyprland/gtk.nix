@@ -22,16 +22,14 @@
 
   qt = {
     enable = true;
-    platformTheme = "gtk";
-    #style = {
-    #  name = lib.mkForce "adwaita-dark";
-    #  package = pkgs.adwaita-qt;
-    #};
-    #style = {
-    #  name = lib.mkForce "gtk2";
-    #  package = pkgs.qt6Packages.qt6gtk2;
-    #};
+    platformTheme = "gnome";
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
   };
+
+  home.packages = [ pkgs.libsForQt5.qt5ct ];
 
   services.xsettingsd = {
     enable = true;
