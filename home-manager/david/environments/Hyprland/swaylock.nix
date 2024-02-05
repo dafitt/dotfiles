@@ -26,8 +26,8 @@
 
       settings = {
         # <https://man.archlinux.org/man/swaylock.1>
+        daemonize = true;
         ignore-empty-password = true;
-        show-failed-attempts = true;
 
         # dont unlock with --grace
         grace-no-mouse = true;
@@ -41,11 +41,11 @@
         font = config.stylix.fonts.monospace.name;
         line-uses-inside = true;
 
-        # Display the current time
         clock = true;
         timestr = "%H:%M";
-        #datestr = "%a, %d %b %y";
         datestr = "%y-%m-%d:%a";
+
+        show-failed-attempts = true;
 
         # background
         screenshots = true;
