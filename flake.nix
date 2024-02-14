@@ -12,16 +12,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix.url = "github:danth/stylix/release-23.11";
+
+    agenix.url = "github:ryantm/agenix";
+
     hyprland.url = "github:hyprwm/hyprland";
     hyprwm-contrib.url = "github:hyprwm/contrib";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-
-    stylix.url = "github:danth/stylix";
-
-    nixos-hardware.url = "github:nixos/nixos-hardware"; # Hardware snippets <https://github.com/NixOS/nixos-hardware>
 
     tuxedo-nixos.url = "github:blitz/tuxedo-nixos";
   };
