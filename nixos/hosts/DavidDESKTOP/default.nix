@@ -3,26 +3,27 @@
 # GPU: AMD ATI Radeon RX 6650 XT
 # Memory: 64GB
 # Case: Dark Base 900 Orange
-{
+{ path, ... }: {
+
   imports = [
     ./configuration.nix
     ./hardware-configuration.nix
     ./zfs.nix
     ./miniDLNA.nix
 
-    ../../users/david.nix
-    ../../users/guest.nix
-    ../../users/root.nix
+    "${path.nixosDir}/users/david.nix"
+    "${path.nixosDir}/users/guest.nix"
+    "${path.nixosDir}/users/root.nix"
 
-    ../../common
-    ../../common/displayManager.nix
-    ../../common/flatpak.nix
-    ../../common/gamemode.nix
-    ../../common/GNOME.nix
-    ../../common/Hyprland.nix
-    ../../common/nix.nix
-    ../../common/ssh.nix
-    ../../common/steam.nix
-    ../../common/virtualisation.nix
+    "${path.nixosDir}/common"
+    "${path.nixosDir}/common/displayManager.nix"
+    "${path.nixosDir}/common/flatpak.nix"
+    "${path.nixosDir}/common/gamemode.nix"
+    "${path.nixosDir}/common/GNOME.nix"
+    "${path.nixosDir}/common/Hyprland.nix"
+    "${path.nixosDir}/common/nix.nix"
+    "${path.nixosDir}/common/ssh.nix"
+    "${path.nixosDir}/common/steam.nix"
+    "${path.nixosDir}/common/virtualisation.nix"
   ];
 }

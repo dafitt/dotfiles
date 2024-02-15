@@ -1,8 +1,8 @@
 # Documentation: <https://danth.github.io/stylix/index.html>
-{ config, pkgs, stylix, ... }: {
+{ config, pkgs, inputs, ... }: {
 
   imports = [
-    stylix.homeManagerModules.stylix
+    inputs.stylix.homeManagerModules.stylix
   ];
 
   stylix = {

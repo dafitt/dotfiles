@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, ... }: {
+{ config, pkgs, inputs, ... }: {
 
   users.users."david" = {
     isNormalUser = true;
@@ -24,7 +24,7 @@
     shell = pkgs.fish;
 
     packages = with pkgs; [
-      home-manager.packages.${pkgs.system}.default
+      inputs.home-manager.packages.${pkgs.system}.default
     ] ++ config.users.users.root.packages;
 
     openssh.authorizedKeys.keyFiles = [ ];

@@ -9,25 +9,26 @@
 # - Bluetooth 5.1
 # - Storm Grey
 
-{
+{ path, ... }: {
+
   imports = [
     ./configuration.nix
     ./hardware-configuration.nix
     ./power-management.nix
     ./DavidVPN.nix
 
-    ../../users/david.nix
-    ../../users/guest.nix
+    "${path.nixosDir}/users/david.nix"
+    "${path.nixosDir}/users/guest.nix"
 
-    ../../common
-    ../../common/connman.nix
-    ../../common/displayManager.nix
-    ../../common/flatpak.nix
-    ../../common/gamemode.nix
-    ../../common/GNOME.nix
-    ../../common/Hyprland.nix
-    ../../common/nix.nix
-    ../../common/ssh.nix
-    ../../common/virtualisation.nix
+    "${path.nixosDir}/common"
+    "${path.nixosDir}/common/connman.nix"
+    "${path.nixosDir}/common/displayManager.nix"
+    "${path.nixosDir}/common/flatpak.nix"
+    "${path.nixosDir}/common/gamemode.nix"
+    "${path.nixosDir}/common/GNOME.nix"
+    "${path.nixosDir}/common/Hyprland.nix"
+    "${path.nixosDir}/common/nix.nix"
+    "${path.nixosDir}/common/ssh.nix"
+    "${path.nixosDir}/common/virtualisation.nix"
   ];
 }

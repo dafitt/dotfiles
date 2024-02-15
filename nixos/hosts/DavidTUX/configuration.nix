@@ -1,6 +1,6 @@
-{ config, pkgs, tuxedo-nixos, ... }: {
+{ config, pkgs, inputs, ... }: {
 
-  imports = [ tuxedo-nixos.nixosModules.default ];
+  imports = [ inputs.tuxedo-nixos.nixosModules.default ];
 
 
   boot.loader = {
@@ -21,7 +21,7 @@
   # TUXEDO Control Center
   hardware.tuxedo-control-center = {
     enable = true;
-    package = tuxedo-nixos.packages.x86_64-linux.default; # FIX for [Build broken on nixos-unstable](https://github.com/blitz/tuxedo-nixos/issues/5)
+    package = inputs.tuxedo-nixos.packages.x86_64-linux.default; # FIX for [Build broken on nixos-unstable](https://github.com/blitz/tuxedo-nixos/issues/5)
   };
   hardware.tuxedo-keyboard.enable = true;
   boot.kernelParams = [

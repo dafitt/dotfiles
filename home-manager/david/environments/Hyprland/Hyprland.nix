@@ -1,4 +1,4 @@
-{ config, lib, pkgs, hyprland, hyprwm-contrib, ... }: {
+{ config, lib, pkgs, inputs, ... }: {
 
   # current log $ cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
   # last log $ cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 1)/hyprland.log
@@ -7,7 +7,7 @@
   # <https://github.com/hyprwm/Hyprland>
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
     xwayland.enable = true;
     systemd = {
@@ -288,7 +288,7 @@
   };
 
   home.packages = with pkgs; [
-    hyprwm-contrib.packages.${pkgs.system}.grimblast
+    inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast
     hyprpicker
   ];
 

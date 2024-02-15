@@ -1,12 +1,12 @@
-{ config, pkgs, hyprland-plugins, ... }: {
+{ config, pkgs, inputs, ... }: {
 
   # <https://github.com/hyprwm/hyprland-plugins/tree/main>
 
   wayland.windowManager.hyprland = {
 
     plugins = [
-      #hyprland-plugins.packages.${pkgs.system}.hyprwinwrap # allows you to put any app as a wallpaper
-      #hyprland-plugins.packages.${pkgs.system}.hyprtrails
+      #inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap # allows you to put any app as a wallpaper
+      #inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
     ];
 
     extraConfig = ''

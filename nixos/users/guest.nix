@@ -1,6 +1,6 @@
-{ pkgs, home-manager, ... }: {
+{ pkgs, inputs, ... }: {
 
-  imports = [ home-manager.nixosModules.home-manager ];
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   # Guest account
   users.users."guest" = {

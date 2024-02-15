@@ -1,13 +1,13 @@
-{
+{ path, ... }: {
   imports = [
     ./configuration.nix
     ./hardware-configuration.nix
 
-    ../../users/david.nix
-    ../../users/guest.nix
+    "${path.nixosDir}/users/david.nix"
+    "${path.nixosDir}/users/guest.nix"
 
-    ../../common/connman.nix
-    ../../common/DESKTOP.nix
-    ../../common/nix.nix
+    "${path.nixosDir}/common/connman.nix"
+    "${path.nixosDir}/common/DESKTOP.nix"
+    "${path.nixosDir}/common/nix.nix"
   ];
 }

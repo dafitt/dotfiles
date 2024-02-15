@@ -1,16 +1,15 @@
 # credits to https://github.com/fufexan/dotfiles/blob/38c5af92d8767cd69f4ce30026e8be9022d2dbf1/home/services/eww/default.nix
 
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, path, ... }:
 let
   dependencies = with pkgs; [
     cfg.package
 
-    #inputs.gross.packages.${pkgs.system}.gross
     config.wayland.windowManager.hyprland.package
 
     # Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    (callPackage ../../../../../pkgs/phosphoricons { })
+    (callPackage "${path.pkgsDir}/phosphoricons" { })
 
     ripgrep # recursive directory regex grep
 

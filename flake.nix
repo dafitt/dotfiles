@@ -26,7 +26,15 @@
     tuxedo-nixos.url = "github:blitz/tuxedo-nixos";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: # pass @inputs for futher configuration
+  outputs = { nixpkgs, home-manager, ... }@inputs: # pass @inputs for futher configuration
+    let
+      path = {
+        rootDir = ./.;
+        nixosDir = ./nixos;
+        secretsDir = ./secrets;
+        pkgsDir = ./pkgs;
+      };
+    in
     {
       # NixOS configuration entrypoint
       # Available through `nixos-rebuild --flake .#your-hostname`
@@ -35,22 +43,22 @@
         "nixos" = nixpkgs.lib.nixosSystem {
           # with no configuration, point to the Generic host
           system = "x86_64-linux";
-          specialArgs = inputs; # pass all inputs to external configuration files
+          specialArgs = { inherit inputs path; }; # pass all inputs to external configuration files
           modules = [ ./nixos/hosts/Generic ];
         };
         "DavidDESKTOP" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = inputs;
+          specialArgs = { inherit inputs path; };
           modules = [ ./nixos/hosts/DavidDESKTOP ];
         };
         "DavidLEGION" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = inputs;
+          specialArgs = { inherit inputs path; };
           modules = [ ./nixos/hosts/DavidLEGION ];
         };
         "DavidTUX" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = inputs;
+          specialArgs = { inherit inputs path; };
           modules = [ ./nixos/hosts/DavidTUX ];
         };
       };
@@ -61,17 +69,17 @@
 
         "david@DavidDESKTOP" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = inputs;
+          extraSpecialArgs = { inherit inputs path; };
           modules = [ ./home-manager/david/DavidDESKTOP.nix ];
         };
         "david@DavidLEGION" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = inputs;
+          extraSpecialArgs = { inherit inputs path; };
           modules = [ ./home-manager/david/DavidLEGION.nix ];
         };
         "david@DavidTUX" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = inputs;
+          extraSpecialArgs = { inherit inputs path; };
           modules = [ ./home-manager/david/DavidTUX.nix ];
         };
       };
