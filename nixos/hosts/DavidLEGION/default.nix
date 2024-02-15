@@ -27,6 +27,7 @@
     ../../common/GNOME.nix
     ../../common/Hyprland.nix
     ../../common/nix.nix
+    ../../common/ssh.nix
     ../../common/virtualisation.nix
   ];
 }

@@ -6,7 +6,7 @@
 
     plugins = [
       #hyprland-plugins.packages.${pkgs.system}.hyprwinwrap # allows you to put any app as a wallpaper
-      hyprland-plugins.packages.${pkgs.system}.hyprtrails
+      #hyprland-plugins.packages.${pkgs.system}.hyprtrails
     ];
 
     extraConfig = ''

@@ -42,6 +42,7 @@ in
     signal-desktop
     super-productivity # To-do list & time tracker
     tenacity # Sound editor with graphical UI
+    yed # Drawing flowcharts
 
     # for development and administration
     gnome.dconf-editor

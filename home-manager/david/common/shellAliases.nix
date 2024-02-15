@@ -1,7 +1,7 @@
 {
   # I don't like the default but my hand just types it
   top = "$TOP";
-  cat = "bat";
+  cat = "bat --paging=never";
   df = "duf";
   du = "ncdu -r -x";
   tree = "eza -T";
