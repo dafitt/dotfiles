@@ -1,7 +1,0 @@
-eww update microphone_mute=$(
-    if [ "$(wpctl get-volume @DEFAULT_SOURCE@ | cut -d ' ' -f3)" = '[MUTED]' ]; then
-        echo true
-    else
-        echo false
-    fi
-)

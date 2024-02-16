@@ -1,3 +1,0 @@
-eww update microphone_volume_percent=$(
-    wpctl get-volume @DEFAULT_SOURCE@ | tr -d 'Volume: ' | tr -d '[MUTED]'
-)
