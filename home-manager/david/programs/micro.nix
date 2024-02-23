@@ -5,6 +5,7 @@
   programs.micro = {
     enable = true;
     settings = {
+      # https://github.com/zyedidia/micro/blob/master/runtime/help/options.md
       colorscheme = "simple";
       mkparents = true;
       softwrap = true;
@@ -12,6 +13,7 @@
       tabsize = 4;
       tabstospaces = true;
       autosu = true;
+      eofnewline = false;
     };
   };
 }

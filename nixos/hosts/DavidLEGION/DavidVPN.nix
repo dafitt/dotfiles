@@ -5,7 +5,7 @@
   services.connman.networkInterfaceBlacklist = [ "DavidVPN" ];
   networking.wg-quick.interfaces."DavidVPN" = {
     address = [ "fc07::2/64" "10.0.0.2/24" ];
-    dns = [ "fd02:f69b:7377:a500::9" "192.168.19.133" ];
+    dns = [ "fd02:f69b:7377:a500::8" "192.168.19.132" ];
 
     #$ (umask 0077; wg genkey > /var/lib/wireguard/private.key)
     privateKeyFile = "/var/lib/wireguard/private.key";
