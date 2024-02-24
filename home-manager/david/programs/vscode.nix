@@ -285,6 +285,8 @@
       { "key" = "ctrl+shift+s"; "command" = "workbench.action.files.saveFiles"; }
       # File: Save As...
       { "key" = "ctrl+alt+s"; "command" = "workbench.action.files.saveAs"; }
+      # Zen Mode
+      { "key" = "ctrl+alt+z"; "command" = "workbench.action.toggleZenMode"; "when" = "!isAuxiliaryWindowFocusedContext"; }
       # VSCode settings: Change keybinding expression
       { "key" = "ctrl+e"; "command" = "keybindings.editor.defineWhenExpression"; "when" = "inKeybindings && keybindingFocus"; }
       # Code Runner: Run current File
