@@ -1,7 +1,7 @@
 # install flakes: <https://nix-community.github.io/home-manager/index.html#ch-nix-flakes>
 
 {
-  description = "My NixOS configuration";
+  description = "Dafitt's desktop flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
@@ -9,6 +9,11 @@
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    snowfall-lib = {
+      url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -26,62 +31,44 @@
     tuxedo-nixos.url = "github:blitz/tuxedo-nixos";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: # pass @inputs for futher configuration
+  # [Snowfall framework](https://snowfall.org/guides/lib/quickstart/)
+  outputs = inputs:
     let
       path = {
+        # TODO make obsolete
         rootDir = ./.;
         nixosDir = ./nixos;
-        secretsDir = ./secrets;
         pkgsDir = ./pkgs;
       };
     in
-    {
-      # NixOS configuration entrypoint
-      # Available through `nixos-rebuild --flake .#your-hostname`
-      nixosConfigurations = {
+    inputs.snowfall-lib.mkFlake
+      {
+        inherit inputs;
+        src = ./.;
 
-        "nixos" = nixpkgs.lib.nixosSystem {
-          # with no configuration, point to the Generic host
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs path; }; # pass all inputs to external configuration files
-          modules = [ ./nixos/hosts/Generic ];
+        snowfall = {
+          namespace = "custom";
+          meta = {
+            name = "dafitt-desktop-flake";
+            title = "Dafitt's desktop flake";
+          };
         };
-        "DavidDESKTOP" = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs path; };
-          modules = [ ./nixos/hosts/DavidDESKTOP ];
+
+        channels-config = {
+          allowUnfree = true;
         };
-        "DavidLEGION" = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs path; };
-          modules = [ ./nixos/hosts/DavidLEGION ];
-        };
-        "DavidTUX" = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs path; };
-          modules = [ ./nixos/hosts/DavidTUX ];
-        };
+
+        homes.users."david@DavidDESKTOP".specialArgs = { inherit path; };
+        homes.users."david@DavidLEGION".specialArgs = { inherit path; };
+        homes.users."david@DavidTUX".specialArgs = { inherit path; };
+
+        overlays = with inputs; [ ];
+
+        systems.modules.nixos = with inputs; [ ];
+        systems.hosts."DavidDESKTOP".specialArgs = { inherit path; };
+        systems.hosts."DavidLEGION".specialArgs = { inherit path; };
+        systems.hosts."DavidTUX".specialArgs = { inherit path; };
+
+        templates = import ./templates { };
       };
-
-      # Standalone home-manager configuration entrypoint
-      # Available through `home-manager --flake .#your-username@your-hostname`
-      homeConfigurations = {
-
-        "david@DavidDESKTOP" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs path; };
-          modules = [ ./home-manager/david/DavidDESKTOP.nix ];
-        };
-        "david@DavidLEGION" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs path; };
-          modules = [ ./home-manager/david/DavidLEGION.nix ];
-        };
-        "david@DavidTUX" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs path; };
-          modules = [ ./home-manager/david/DavidTUX.nix ];
-        };
-      };
-    };
 }

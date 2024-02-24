@@ -10,4 +10,6 @@
     "${path.nixosDir}/common/DESKTOP.nix"
     "${path.nixosDir}/common/nix.nix"
   ];
+
+  system.stateVersion = "23.05"; # Do not touch
 }
