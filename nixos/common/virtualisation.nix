@@ -1,5 +1,6 @@
 {
   virtualisation = {
+    # kvm hypervisor
     libvirtd = {
       enable = true;
       onBoot = "ignore";

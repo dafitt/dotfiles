@@ -5,9 +5,8 @@
   home.packages = with pkgs; [
     virt-manager
     spice-gtk # Needed for USB redirection in kvm-VMs.
-    gnome.gnome-boxes # simple virtualisation manager gui
     bottles # run Windows software on Linux
-    win-virtio
+    win-virtio # windows drivers
   ];
 
   dconf.settings."org/virt-manager/virt-manager/connections" = {
