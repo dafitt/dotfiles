@@ -26,6 +26,7 @@
   systemd.services."wg-quick-DavidVPN-restart" = {
     description = "restart DavidVPN"; # because of endpoint's dyndns
     wantedBy = [ "multi-user.target" ];
+    wants = [ "network-online.target" ];
     after = [ "nss-lookup.target" ];
     serviceConfig = {
       Type = "oneshot";
@@ -34,6 +35,7 @@
   };
   systemd.timers."wg-quick-DavidVPN-restart" = {
     wantedBy = [ "timers.target" ];
+    wants = [ "network-online.target" ];
     after = [ "nss-lookup.target" ];
     timerConfig = {
       OnCalendar = "daily";
