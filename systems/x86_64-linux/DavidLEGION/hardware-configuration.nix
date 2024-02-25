@@ -20,6 +20,8 @@
     fsType = "vfat";
   };
 
+  # swap
+  boot.kernel.sysctl = { "vm.swappiness" = 10; }; # reduce swappiness
   swapDevices = [{
     device = "/var/lib/swapfile";
     size = 35 * 1024; # in MiB

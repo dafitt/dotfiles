@@ -2,21 +2,7 @@
 
   imports = [ inputs.tuxedo-nixos.nixosModules.default ];
 
-
-  boot.loader = {
-    systemd-boot.enable = false;
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      gfxmodeEfi = "1920x1080";
-      useOSProber = true;
-    };
-    efi.canTouchEfiVariables = true;
-  };
-
-  boot.kernel.sysctl = { "vm.swappiness" = 10; }; # reduce swappiness
-
+  boot.loader.timeout = 5;
 
   # TUXEDO Control Center
   hardware.tuxedo-control-center = {
@@ -31,11 +17,6 @@
     "tuxedo_keyboard.color_left=0xffffff"
   ];
 
-
-  console.keyMap = "de-latin1-nodeadkeys";
-
-
-  networking.hostName = "DavidTUX";
   networking.firewall = {
     allowedTCPPorts = [
       22000 # Syncthing traffic
@@ -45,10 +26,4 @@
       21027 # Syncthing discovery
     ];
   };
-
-
-  services.fstrim.enable = true; # SSD
-
-
-  hardware.opengl.enable = true;
 }

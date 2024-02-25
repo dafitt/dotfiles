@@ -1,17 +1,7 @@
 { config, lib, pkgs, ... }: {
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-
-    # Skip the boot selection menu. [space] to open it.
-    timeout = 0;
-  };
-
-  # Keyboard layout
-  console.keyMap = "de-latin1-nodeadkeys";
-  services.xserver = { layout = "de"; xkbVariant = "nodeadkeys"; };
-
+  # Skip the boot selection menu. [space] to open it.
+  boot.loader.timeout = 0;
 
   fileSystems = {
     "/mnt/games" = {
@@ -39,8 +29,6 @@
   };
 
   networking = {
-    hostName = "DavidDESKTOP";
-
     firewall = {
       allowedTCPPorts = [
         22000 # Syncthing traffic
@@ -51,10 +39,4 @@
       ];
     };
   };
-
-
-  services.fstrim.enable = true; # SSD
-
-
-  hardware.opengl.enable = true;
 }

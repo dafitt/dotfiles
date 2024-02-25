@@ -11,22 +11,23 @@
     ./hardware-configuration.nix
     ./zfs.nix
     ./miniDLNA.nix
-
-    "${path.nixosDir}/users/david.nix"
-    #"${path.nixosDir}/users/guest.nix"
-    "${path.nixosDir}/users/root.nix"
-
-    "${path.nixosDir}/common"
-    "${path.nixosDir}/common/displayManager.nix"
-    "${path.nixosDir}/common/flatpak.nix"
-    "${path.nixosDir}/common/gamemode.nix"
-    "${path.nixosDir}/common/GNOME.nix"
-    "${path.nixosDir}/common/Hyprland.nix"
-    "${path.nixosDir}/common/nix.nix"
-    "${path.nixosDir}/common/ssh.nix"
-    "${path.nixosDir}/common/steam.nix"
-    "${path.nixosDir}/common/virtualisation.nix"
   ];
 
-  system.stateVersion = "23.05"; # Do not touch
+  system = {
+    boot.systemd-boot.enable = true;
+    networking.networkmanager.enable = true;
+  };
+
+  features = {
+    desktops.gnome.enable = true;
+    desktops.hyprland.enable = true;
+    flatpak.enable = true;
+    fwupd.enable = true;
+    gamemode.enable = true;
+    displayManager.gdm.enable = true;
+    sshAgent.enable = true;
+    virtualization.virt-manager.enable = true;
+  };
+
+  system.stateVersion = "23.11";
 }

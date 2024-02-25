@@ -65,9 +65,6 @@
         overlays = with inputs; [ ];
 
         systems.modules.nixos = with inputs; [ ];
-        systems.hosts."DavidDESKTOP".specialArgs = { inherit path; };
-        systems.hosts."DavidLEGION".specialArgs = { inherit path; };
-        systems.hosts."DavidTUX".specialArgs = { inherit path; };
 
         templates = import ./templates { };
       };
