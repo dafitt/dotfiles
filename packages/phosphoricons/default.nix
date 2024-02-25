@@ -1,5 +1,6 @@
 { lib, stdenvNoCC, fetchzip }:
 
+# TODO upstream to nixpkgs
 stdenvNoCC.mkDerivation rec {
   dontPatch = true;
   dontConfigure = true;
