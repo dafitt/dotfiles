@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.custom.features.displayManager.gdm;
+  cfg = config.custom.displayManager.gdm;
 in
 {
-  options.custom.features.displayManager.gdm = with types; {
+  options.custom.displayManager.gdm = with types; {
     enable = mkBoolOpt false "Enable gdm as the login/display manager";
   };
 

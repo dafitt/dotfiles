@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.custom.features.printing;
+  cfg = config.custom.printing;
 in
 {
-  options.custom.features.printing = with types; {
+  options.custom.printing = with types; {
     enable = mkBoolOpt false "Enable the ability to print documents from your system";
   };
 

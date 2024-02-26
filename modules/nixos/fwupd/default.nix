@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.custom.features.fwupd;
+  cfg = config.custom.fwupd;
 in
 {
-  options.custom.features.fwupd = with types; {
+  options.custom.fwupd = with types; {
     enable = mkBoolOpt false "Enable fwupd, a tool to update firmware on Linux";
   };
 

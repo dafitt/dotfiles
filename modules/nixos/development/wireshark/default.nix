@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.custom.features.wireshark;
+  cfg = config.custom.development.wireshark;
 in
 {
-  options.custom.features.wireshark = with types; {
+  options.custom.development.wireshark = with types; {
     enable = mkBoolOpt false "Enable wireshark, a network protocol analyzer";
   };
 

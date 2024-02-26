@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.custom.features.desktops.hyprland;
+  cfg = config.custom.desktops.hyprland;
 in
 {
-  options.custom.features.desktops.hyprland = with types; {
+  options.custom.desktops.hyprland = with types; {
     enable = mkBoolOpt false "Enable the Hyprland desktop environment";
   };
 

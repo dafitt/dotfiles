@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.custom.features.gamemode;
+  cfg = config.custom.gaming.gamemode;
 in
 {
-  options.custom.features.gamemode = with types; {
+  options.custom.gaming.gamemode = with types; {
     enable = mkBoolOpt false "Enable gamemode, a program to optimize system performance for games";
   };
 

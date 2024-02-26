@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.custom.features.sshAgent;
+  cfg = config.custom.development.sshAgent;
 in
 {
-  options.custom.features.sshAgent = with types; {
+  options.custom.development.sshAgent = with types; {
     enable = mkBoolOpt false "Enable sshAgent";
   };
 

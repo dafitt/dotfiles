@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.custom.features.flatpak;
+  cfg = config.custom.flatpak;
 in
 {
-  options.custom.features.flatpak = with types; {
+  options.custom.flatpak = with types; {
     enable = mkBoolOpt false "Enable flatpak support";
   };
 
