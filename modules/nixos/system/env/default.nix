@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.system.env;
+  cfg = config.custom.system.env;
 in
 {
-  options.system.env = with types; mkOption {
+  options.custom.system.env = with types; mkOption {
     type = attrsOf (oneOf [ str path (listOf (either str path)) ]);
     apply = mapAttrs (_n: v:
       if isList v

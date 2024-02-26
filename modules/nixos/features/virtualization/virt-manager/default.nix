@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.features.virtualization.virt-manager;
+  cfg = config.custom.features.virtualization.virt-manager;
 in
 {
-  options.features.virtualization.virt-manager = with types; {
+  options.custom.features.virtualization.virt-manager = with types; {
     enable = mkBoolOpt false "Enable virt-manager, a graphical tool for managing virtual machines";
   };
 

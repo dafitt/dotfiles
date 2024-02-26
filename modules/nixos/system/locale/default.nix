@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.system.locale;
+  cfg = config.custom.system.locale;
 in
 {
-  options.system.locale = {
+  options.custom.system.locale = {
     enable = mkBoolOpt true "Whether or not to manage locale settings.";
   };
 

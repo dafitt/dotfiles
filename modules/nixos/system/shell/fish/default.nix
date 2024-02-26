@@ -3,11 +3,11 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.system.shell.fish;
+  cfg = config.custom.system.shell.fish;
 in
 {
   # TODO check if only one shell is enabled (mabe in system/shell/default.nix)
-  options.system.shell.fish = with types; {
+  options.custom.system.shell.fish = with types; {
     enable = mkBoolOpt true "Enable fish shell";
   };
 

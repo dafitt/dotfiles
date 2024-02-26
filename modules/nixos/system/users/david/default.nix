@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.system.users.david;
+  cfg = config.custom.system.users.david;
 in
 {
-  options.system.users.david = with types; {
+  options.custom.system.users.david = with types; {
     enable = mkBoolOpt true "Enable user david";
   };
 

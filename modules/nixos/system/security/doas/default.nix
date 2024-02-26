@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.system.security.doas;
+  cfg = config.custom.system.security.doas;
 in
 {
-  options.system.security.doas = {
+  options.custom.system.security.doas = {
     enable = mkBoolOpt false "Whether or not to replace sudo with doas.";
   };
 

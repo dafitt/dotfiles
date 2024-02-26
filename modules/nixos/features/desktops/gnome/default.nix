@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.features.desktops.gnome;
+  cfg = config.custom.features.desktops.gnome;
 in
 {
-  options.features.desktops.gnome = with types; {
+  options.custom.features.desktops.gnome = with types; {
     enable = mkBoolOpt false "Enable the Gnome desktop environment";
   };
 

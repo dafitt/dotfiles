@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.system.fonts;
+  cfg = config.custom.system.fonts;
 in
 {
-  options.system.fonts = with types; {
+  options.custom.system.fonts = with types; {
     enable = mkBoolOpt true "Whether or not to manage fonts.";
     fonts = mkOpt (listOf package) [ ] "Custom font packages to install.";
   };

@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.system.time;
+  cfg = config.custom.system.time;
 in
 {
-  options.system.time = with types; {
+  options.custom.system.time = with types; {
     enable = mkBoolOpt true "Whether or not to configure timezone information.";
   };
 

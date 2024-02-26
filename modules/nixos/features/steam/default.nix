@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.features.steam;
+  cfg = config.custom.features.steam;
 in
 {
-  options.features.steam = with types; {
+  options.custom.features.steam = with types; {
     enable = mkBoolOpt false "Enable steam";
   };
 

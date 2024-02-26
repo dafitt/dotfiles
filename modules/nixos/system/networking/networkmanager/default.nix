@@ -3,11 +3,11 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.system.networking.networkmanager;
+  cfg = config.custom.system.networking.networkmanager;
 in
 {
   # TODO check if only one network manager is enabled (mabe in system/networking/default.nix)
-  options.system.networking.networkmanager = with types; {
+  options.custom.system.networking.networkmanager = with types; {
     enable = mkBoolOpt false "Enable networking through NetworkManager";
   };
 

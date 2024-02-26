@@ -13,20 +13,22 @@
     ./miniDLNA.nix
   ];
 
-  system = {
-    boot.systemd-boot.enable = true;
-    networking.networkmanager.enable = true;
-  };
+  cutsom = {
+    system = {
+      boot.systemd-boot.enable = true;
+      networking.networkmanager.enable = true;
+    };
 
-  features = {
-    desktops.gnome.enable = true;
-    desktops.hyprland.enable = true;
-    flatpak.enable = true;
-    fwupd.enable = true;
-    gamemode.enable = true;
-    displayManager.gdm.enable = true;
-    sshAgent.enable = true;
-    virtualization.virt-manager.enable = true;
+    features = {
+      desktops.gnome.enable = true;
+      desktops.hyprland.enable = true;
+      flatpak.enable = true;
+      fwupd.enable = true;
+      gamemode.enable = true;
+      displayManager.gdm.enable = true;
+      sshAgent.enable = true;
+      virtualization.virt-manager.enable = true;
+    };
   };
 
   system.stateVersion = "23.11";

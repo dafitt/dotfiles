@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.module;
+  cfg = config.custom.module;
 in
 {
-  options.module = with types; {
+  options.custom.module = with types; {
     enable = mkBoolOpt false "Enable module";
   };
 

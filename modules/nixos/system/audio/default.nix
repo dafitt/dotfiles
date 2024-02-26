@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.hardware.audio;
+  cfg = config.custom.system.audio;
 in
 {
-  options.hardware.audio = with types; {
+  options.custom.system.audio = with types; {
     enable = mkBoolOpt true "Enable audio through pipewire";
   };
 

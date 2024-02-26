@@ -1,5 +1,3 @@
-# install flakes: <https://nix-community.github.io/home-manager/index.html#ch-nix-flakes>
-
 {
   description = "Dafitt's desktop flake";
 

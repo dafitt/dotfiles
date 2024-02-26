@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.system.nix;
+  cfg = config.custom.system.nix;
 in
 {
-  options.system.nix = with types; {
+  options.custom.system.nix = with types; {
     enable = mkBoolOpt true "Whether or not to manage nix configuration.";
     package = mkOpt package pkgs.nixUnstable "Which nix package to use.";
   };

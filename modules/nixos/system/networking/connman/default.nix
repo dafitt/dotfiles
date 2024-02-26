@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.system.networking.connman;
+  cfg = config.custom.system.networking.connman;
 in
 {
-  options.system.networking.connman = with types; {
+  options.custom.system.networking.connman = with types; {
     enable = mkBoolOpt false "Enable networking through connman";
   };
 

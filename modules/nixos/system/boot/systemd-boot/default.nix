@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.system.boot.systemd-boot;
+  cfg = config.custom.system.boot.systemd-boot;
 in
 {
-  options.system.boot.systemd-boot = with types; {
+  options.custom.system.boot.systemd-boot = with types; {
     enable = mkBoolOpt false "Whether or not to enable booting by systemd-boot.";
   };
 

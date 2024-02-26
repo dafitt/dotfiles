@@ -18,19 +18,21 @@
     ./DavidVPN.nix
   ];
 
-  system = {
-    boot.systemd-boot.enable = true;
-    networking.connman.enable = true;
-  };
+  custom = {
+    system = {
+      boot.systemd-boot.enable = true;
+      networking.connman.enable = true;
+    };
 
-  features = {
-    desktops.gnome.enable = true;
-    desktops.hyprland.enable = true;
-    displayManager.gdm.enable = true;
-    flatpak.enable = true;
-    fwupd.enable = true;
-    sshAgent.enable = true;
-    virtualization.virt-manager.enable = true;
+    features = {
+      desktops.gnome.enable = true;
+      desktops.hyprland.enable = true;
+      displayManager.gdm.enable = true;
+      flatpak.enable = true;
+      fwupd.enable = true;
+      sshAgent.enable = true;
+      virtualization.virt-manager.enable = true;
+    };
   };
 
   system.stateVersion = "23.11";
