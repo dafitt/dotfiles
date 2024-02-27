@@ -1,4 +1,4 @@
-{ path, ... }: {
+{ ... }: {
   imports = [
     ./configuration.nix
     ./hardware-configuration.nix
@@ -7,7 +7,7 @@
   custom = {
     system = {
       battery.enable = true;
-      boot.grub.enable = true;
+      bootloader.grub.enable = true;
       networking.connman.enable = true;
     };
 

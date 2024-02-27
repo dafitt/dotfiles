@@ -9,7 +9,7 @@
 # Bluetooth: 5.1
 # Color: Storm Grey
 
-{ path, ... }: {
+{ ... }: {
 
   imports = [
     ./configuration.nix
@@ -20,7 +20,7 @@
 
   custom = {
     system = {
-      boot.systemd-boot.enable = true;
+      bootloader.systemd-boot.enable = true;
       networking.connman.enable = true;
     };
 

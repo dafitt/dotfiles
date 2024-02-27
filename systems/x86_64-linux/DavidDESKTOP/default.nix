@@ -4,7 +4,7 @@
 # Memory: 64GB
 # Case: Dark Base 900 Orange
 
-{ pkgs, path, ... }: {
+{ ... }: {
 
   imports = [
     ./configuration.nix
@@ -13,9 +13,9 @@
     ./miniDLNA.nix
   ];
 
-  cutsom = {
+  custom = {
     system = {
-      boot.systemd-boot.enable = true;
+      bootloader.systemd-boot.enable = true;
       networking.networkmanager.enable = true;
     };
 

@@ -3,10 +3,10 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.custom.system.boot.grub;
+  cfg = config.custom.system.bootloader.grub;
 in
 {
-  options.custom.system.boot.grub = with types; {
+  options.custom.system.bootloader.grub = with types; {
     enable = mkBoolOpt false "Whether or not to enable booting by grub.";
   };
 
