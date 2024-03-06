@@ -2,7 +2,6 @@
   imports = [
     ./home.nix
     ./environments/GNOME
-    ./environments/Hyprland
   ];
 
   #  ------
@@ -18,9 +17,4 @@
       primary = true;
     }
   ];
-
-  services.swayidle = {
-    timeout.lock = 0;
-    timeout.suspend = 0;
-  };
 }

@@ -19,19 +19,14 @@
   ];
 
   custom = {
-    system = {
-      bootloader.systemd-boot.enable = true;
-      networking.connman.enable = true;
-    };
-
+    bootloader.systemd-boot.enable = true;
     desktops.gnome.enable = true;
     desktops.hyprland.enable = true;
-    displayManager.gdm.enable = true;
     development.sshAgent.enable = true;
+    displayManager.gdm.enable = true;
     flatpak.enable = true;
     fwupd.enable = true;
+    networking.connman.enable = true;
     virtualization.virt-manager.enable = true;
   };
-
-  system.stateVersion = "23.11";
 }

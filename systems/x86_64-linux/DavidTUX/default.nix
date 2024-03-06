@@ -5,18 +5,13 @@
   ];
 
   custom = {
-    system = {
-      battery.enable = true;
-      bootloader.grub.enable = true;
-      networking.connman.enable = true;
-    };
-
+    battery.enable = true;
+    bootloader.grub.enable = true;
     desktops.gnome.enable = true;
     desktops.hyprland.enable = true;
-    displayManager.gdm.enable = true;
     development.sshAgent.enable = true;
+    displayManager.gdm.enable = true;
     flatpak.enable = true;
+    networking.connman.enable = true;
   };
-
-  system.stateVersion = "23.11"; # Do not touch
 }

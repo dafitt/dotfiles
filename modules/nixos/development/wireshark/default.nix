@@ -7,7 +7,7 @@ let
 in
 {
   options.custom.development.wireshark = with types; {
-    enable = mkBoolOpt false "Enable wireshark, a network protocol analyzer";
+    enable = mkBoolOpt config.custom.development.enableSuite "Enable wireshark, a network protocol analyzer";
   };
 
   config = mkIf cfg.enable {

@@ -7,7 +7,7 @@ let
 in
 {
   options.custom.development.sshAgent = with types; {
-    enable = mkBoolOpt false "Enable sshAgent";
+    enable = mkBoolOpt config.custom.development.enableSuite "Enable sshAgent";
   };
 
   config = mkIf cfg.enable {

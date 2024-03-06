@@ -14,15 +14,9 @@
       allowUnfree = true;
     };
   };
-  xdg.configFile."nixpkgs/config.nix".text = ''
-    {
-      allowUnfree = true;
-    }'';
+  xdg.configFile."nixpkgs/config.nix".text = "{ allowUnfree = true; }";
 
   home = {
-    username = "david";
-    homeDirectory = "/home/david";
-
     sessionVariables = {
       # Default programs
       BROWSER = "${config.programs.librewolf.package}/bin/librewolf";
@@ -33,20 +27,6 @@
     };
 
     language.base = "en_US.UTF-8";
-  };
-
-
-  xdg = {
-    enable = true;
-    cacheHome = config.home.homeDirectory + "/.local/cache";
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-      extraConfig = {
-        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
-        XDG_SECRETS_DIR = "${config.home.homeDirectory}/.secrets";
-      };
-    };
   };
 
   # Nicely reload system units when changing configs

@@ -30,40 +30,26 @@
   };
 
   # [Snowfall framework](https://snowfall.org/guides/lib/quickstart/)
-  outputs = inputs:
-    let
-      path = {
-        # TODO make obsolete
-        rootDir = ./.;
-        nixosDir = ./nixos;
-        pkgsDir = ./pkgs;
+  outputs = inputs: inputs.snowfall-lib.mkFlake {
+    inherit inputs;
+    src = ./.;
+
+    snowfall = {
+      namespace = "custom";
+      meta = {
+        name = "dafitt-desktop-flake";
+        title = "Dafitt's desktop flake";
       };
-    in
-    inputs.snowfall-lib.mkFlake
-      {
-        inherit inputs;
-        src = ./.;
+    };
 
-        snowfall = {
-          namespace = "custom";
-          meta = {
-            name = "dafitt-desktop-flake";
-            title = "Dafitt's desktop flake";
-          };
-        };
+    channels-config = {
+      allowUnfree = true;
+    };
 
-        channels-config = {
-          allowUnfree = true;
-        };
+    overlays = with inputs; [ ];
 
-        homes.users."david@DavidDESKTOP".specialArgs = { inherit path; };
-        homes.users."david@DavidLEGION".specialArgs = { inherit path; };
-        homes.users."david@DavidTUX".specialArgs = { inherit path; };
+    systems.modules.nixos = with inputs; [ ];
 
-        overlays = with inputs; [ ];
-
-        systems.modules.nixos = with inputs; [ ];
-
-        templates = import ./templates { };
-      };
+    templates = import ./templates { };
+  };
 }
