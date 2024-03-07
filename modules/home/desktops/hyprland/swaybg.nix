@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enable {
     # wallpaper utility for Wayland compositors
     # https://github.com/swaywm/swaybg
-    home.packages = [ pkgs.swaybg ];
+    home.packages = with pkgs; [ swaybg ];
 
     wayland.windowManager.hyprland.settings = {
       exec-once = [

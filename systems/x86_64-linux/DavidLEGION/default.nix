@@ -22,7 +22,7 @@
     bootloader.systemd-boot.enable = true;
     desktops.gnome.enable = true;
     desktops.hyprland.enable = true;
-    development.sshAgent.enable = true;
+    development.enableSuite = true;
     displayManager.gdm.enable = true;
     flatpak.enable = true;
     fwupd.enable = true;

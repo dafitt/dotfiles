@@ -13,9 +13,11 @@ in
   config = mkIf cfg.enable {
     services.flatpak.enable = true;
 
+    environment.systemPackages = with pkgs; [ gnome.gnome-software ];
+
     xdg.portal = {
       enable = true;
-      config.common.default = [ "*" ]; # fix weblinks not opening in default browser}
+      config.common.default = [ "*" ]; # fix weblinks not opening in default browser
     };
   };
 }

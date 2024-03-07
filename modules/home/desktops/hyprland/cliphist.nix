@@ -18,7 +18,7 @@ in
       #systemdTarget =
     };
 
-    home.packages = [
+    home.packages = with pkgs; [
       pkgs.wl-clipboard # Command-line copy/paste utilities for Wayland
     ];
 

@@ -40,7 +40,7 @@ in
       };
     };
 
-    home.packages = [ pkgs.libsForQt5.qt5ct ];
+    home.packages = with pkgs; [ libsForQt5.qt5ct ];
 
     services.xsettingsd = {
       enable = true;

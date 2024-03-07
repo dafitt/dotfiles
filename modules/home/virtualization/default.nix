@@ -1,28 +1,20 @@
-{ options, config, lib, pkgs, ... }:
+{ config, lib, options, osConfig ? { }, pkgs, ... }:
 
 with lib;
 with lib.custom;
 let
   cfg = config.custom.virtualizaion;
+  osCfg = osConfig.custom.virtualizaion or null;
 in
 {
   options.custom.virtualizaion = with types; {
-    enable = mkBoolOpt false "Enable virtualizaion software";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the full virtualizaion suite";
+    installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra virtualizaion packages";
   };
 
-  config = mkIf cfg.enable {
-    # Virtualisation software
-    #
+  config = mkIf cfg.installExtraPackages {
     home.packages = with pkgs; [
-      virt-manager
-      spice-gtk # Needed for USB redirection in kvm-VMs.
       bottles # run Windows software on Linux
-      win-virtio # windows drivers
     ];
-
-    dconf.settings."org/virt-manager/virt-manager/connections" = {
-      autoconnect = [ "qemu:///system" ];
-      uris = [ "qemu:///system" ];
-    };
   };
 }

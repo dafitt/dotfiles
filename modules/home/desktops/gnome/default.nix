@@ -14,6 +14,8 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       gnome-extension-manager
+      gnome.dconf-editor
+      gnome.gnome-tweaks
     ] ++ (with pkgs.gnomeExtensions; [
       forge
     ]);

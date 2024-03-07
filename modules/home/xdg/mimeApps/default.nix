@@ -7,31 +7,36 @@ let
 in
 {
   options.custom.xdg.mimeApps = with types; {
-    enable = mkBoolOpt false "Whether or not to set default applications for mime types";
+    enable = mkBoolOpt true "Whether or not to set default applications for mime types";
     archivesApp = mkOption {
-      type = types.str;
+      type = str;
       default = "ark.desktop";
       description = "The default desktop file to use for archive files";
     };
     audioVideoApp = mkOption {
-      type = types.str;
+      type = str;
       default = "mpv.desktop";
       description = "The default desktop file to use for audio and video files";
     };
     codeApp = mkOption {
-      type = types.str;
+      type = str;
       default = "code.desktop";
       description = "The default desktop file to use for code files";
     };
     documentsApp = mkOption {
-      type = types.str;
+      type = str;
       default = "org.gnome.Evince.desktop";
       description = "The default desktop file to use for document files";
     };
     imagesApp = mkOption {
-      type = types.str;
+      type = str;
       default = "org.gnome.eog.desktop";
       description = "The default desktop file to use for image files";
+    };
+    webApp = mkOption {
+      type = str;
+      default = "librewolf.desktop";
+      description = "The default desktop file to use for browser files";
     };
   };
 
@@ -305,16 +310,24 @@ in
           "image/x-xbitmap"
           "image/x-xpixmap"
         ];
+        web = [
+          "text/html"
+          "x-scheme-handler/http"
+          "x-scheme-handler/https"
+          "x-scheme-handler/about"
+          "x-scheme-handler/unknown"
+        ];
         #$ find -L / -name "*.desktop" 2>/dev/null
         #$ ls /run/current-system/sw/share/applications
         #$ ls ~/.local/state/nix/profiles/home-manager/home-path/share/applications
         #$ ls ~/.local/share/flatpak/exports/share/applications/
       in
-      ((lib.genAttrs code (_: [ cfg.codeApp ]))
-        // (lib.genAttrs archives (_: [ cfg.archivesApp ]))
+      ((lib.genAttrs archives (_: [ cfg.archivesApp ]))
         // (lib.genAttrs audioVideo (_: [ cfg.audioVideoApp ]))
+        // (lib.genAttrs code (_: [ cfg.codeApp ]))
         // (lib.genAttrs documents (_: [ cfg.documentsApp ]))
         // (lib.genAttrs images (_: [ cfg.imagesApp ]))
+        // (lib.genAttrs web (_: [ cfg.webApp ]))
       );
   };
 }

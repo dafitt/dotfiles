@@ -8,8 +8,10 @@ let
 in
 {
   imports = [
+    ./calculator.nix
     ./cliphist.nix
     ./fuzzel.nix
+    ./gedit.nix
     ./gtk.nix
     ./mako.nix
     ./playerctld.nix
@@ -17,14 +19,18 @@ in
     ./swaybg.nix
     ./swaylock.nix
     ./swayosd.nix
+    ./top.nix
   ];
 
-  options.custom.desktops.hyprland = with types;
-    {
-      enable = mkBoolOpt (osCfg.enable or false) "Enable Hyprland configuration";
-    };
+  options.custom.desktops.hyprland = with types; {
+    enable = mkBoolOpt (osCfg.enable or false) "Enable Hyprland configuration";
+  };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast
+      hyprpicker # color picker
+    ];
 
     # current log $ cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
     # last log $ cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 1)/hyprland.log
@@ -303,20 +309,15 @@ in
           "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
 
           # Tell apps to use Wayland
-          "GDK_BACKEND,wayland,x11"
-          "NIXOS_OZONE_WL,1"
-          "MOZ_ENABLE_WAYLAND,1"
-          "SDL_VIDEODRIVER,wayland"
-          "CLUTTER_BACKEND,wayland"
-          "_JAVA_AWT_WM_NONEREPARENTING,1"
+          #"GDK_BACKEND,wayland,x11"
+          #"NIXOS_OZONE_WL,1"
+          #"MOZ_ENABLE_WAYLAND,1"
+          #"SDL_VIDEODRIVER,wayland"
+          #"CLUTTER_BACKEND,wayland"
+          #"_JAVA_AWT_WM_NONEREPARENTING,1"
         ];
       };
     };
-
-    home.packages = with pkgs; [
-      inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast
-      hyprpicker
-    ];
 
     # Autostart Hyprland from tty
     programs.bash.profileExtra = ''

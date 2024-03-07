@@ -13,8 +13,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    # Open source code editor
-    # https://github.com/VSCodium/vscodium
+    home.packages = with pkgs; [
+      xdg-utils # xdg-open to open hyperlinks
+    ];
+
     programs.vscode = {
       enable = true;
       package = pkgs.vscode;
@@ -25,26 +27,58 @@ in
         "window.titleBarStyle" = "custom";
         "window.title" = "\${rootPath}/\${activeEditorShort}";
         "window.autoDetectHighContrast" = false;
-        "window.menuBarVisibility" = "compact";
         "window.zoomLevel" = 1;
 
         # Workbench
         "workbench.colorCustomizations" = {
           "[Stylix]" = {
             # <https://github.com/danth/stylix/blob/master/modules/vscode/template.mustache>
-            "button.background" = "#${config.lib.stylix.colors.base0D}BB";
-            "button.foreground" = "#${config.lib.stylix.colors.base06}";
-            "button.secondaryBackground" = "#${config.lib.stylix.colors.base0E}BB";
-            "button.secondaryForeground" = "#${config.lib.stylix.colors.base06}";
-            "editor.selectionHighlightBackground" = "#${config.lib.stylix.colors.base04}EE";
-            "editor.wordHighlightBackground" = "#${config.lib.stylix.colors.base01}00";
-            "scrollbarSlider.activeBackground" = "#${config.lib.stylix.colors.base04}55";
-            "scrollbarSlider.background" = "#${config.lib.stylix.colors.base03}55";
-            "scrollbarSlider.hoverBackground" = "#${config.lib.stylix.colors.base04}99";
-            "statusBar.background" = "#${config.lib.stylix.colors.base00}";
-            "statusBar.noFolderBackground" = "#${config.lib.stylix.colors.base00}";
-            "statusBar.noFolderForeground" = "#${config.lib.stylix.colors.base06}";
-            "statusBarItem.remoteBackground" = "#${config.lib.stylix.colors.base00}";
+            "editor.selectionHighlightBackground" = "#${config.lib.stylix.colors.base02}";
+            "editor.wordHighlightBackground" = "#00000000";
+            "editor.findMatchBackground" = "#${config.lib.stylix.colors.base0A}77";
+            "searchEditor.findMatchBackground" = "#${config.lib.stylix.colors.base0A}77";
+
+            #"button.background" = "#${config.lib.stylix.colors.base0D}";
+            "button.foreground" = "#${config.lib.stylix.colors.base00}";
+            #"button.secondaryBackground" = "#${config.lib.stylix.colors.base0E}";
+            "button.secondaryForeground" = "#${config.lib.stylix.colors.base00}";
+            "notification.buttonForeground" = "#${config.lib.stylix.colors.base00}";
+            #"notification.buttonHoverBackground" = "#${config.lib.stylix.colors.base02}";
+            "extensionButton.prominentForeground" = "#${config.lib.stylix.colors.base00}";
+            #"extensionButton.prominentHoverBackground" = "#${config.lib.stylix.colors.base02}";
+
+            "editorRuler.foreground" = "#${config.lib.stylix.colors.base01}";
+            #"panel.border" = "#${config.lib.stylix.colors.base05}";
+
+            "editorOverviewRuler.border" = "#00000000";
+            "scrollbarSlider.activeBackground" = "#${config.lib.stylix.colors.base04}77";
+            "scrollbarSlider.background" = "#${config.lib.stylix.colors.base03}33";
+            "scrollbarSlider.hoverBackground" = "#${config.lib.stylix.colors.base03}77";
+
+
+            # ---------
+            "statusBar.background" = "#${config.lib.stylix.colors.base01}";
+            "statusBar.foreground" = "#${config.lib.stylix.colors.base05}";
+            "statusBar.debuggingBackground" = "#${config.lib.stylix.colors.base09}";
+            "statusBar.debuggingForeground" = "#${config.lib.stylix.colors.base00}";
+            "statusBar.noFolderBackground" = "#${config.lib.stylix.colors.base01}";
+            "statusBar.noFolderForeground" = "#${config.lib.stylix.colors.base05}";
+            "statusBarItem.activeBackground" = "#${config.lib.stylix.colors.base03}";
+            "statusBarItem.hoverBackground" = "#${config.lib.stylix.colors.base03}";
+            "statusBarItem.prominentForeground" = "#${config.lib.stylix.colors.base00}";
+            "statusBarItem.prominentBackground" = "#${config.lib.stylix.colors.base0E}";
+            "statusBarItem.prominentHoverBackground" = "#${config.lib.stylix.colors.base03}";
+            "statusBarItem.remoteBackground" = "#${config.lib.stylix.colors.base0B}";
+            "statusBarItem.remoteForeground" = "#${config.lib.stylix.colors.base00}";
+            "statusBarItem.errorBackground" = "#${config.lib.stylix.colors.base08}";
+            "statusBarItem.errorForeground" = "#${config.lib.stylix.colors.base00}";
+            "statusBarItem.warningBackground" = "#${config.lib.stylix.colors.base0A}";
+            "statusBarItem.warningForeground" = "#${config.lib.stylix.colors.base00}";
+            "editorInlayHint.foreground" = "#${config.lib.stylix.colors.base03}";
+            "editorInlayHint.typeBackground" = "#${config.lib.stylix.colors.base01}";
+            "editorInlayHint.typeForeground" = "#${config.lib.stylix.colors.base03}";
+            "editorInlayHint.parameterBackground" = "#${config.lib.stylix.colors.base01}";
+            "editorInlayHint.parameterForeground" = "#${config.lib.stylix.colors.base03}";
           };
         };
         "workbench.editor.defaultBinaryEditor" = "hexEditor.hexedit";
@@ -181,7 +215,6 @@ in
           "REFACTOR"
           "???"
           "[ ]"
-          "[x]"
         ];
         "todo-tree.highlights.defaultHighlight" = {
           "icon" = "alert";
@@ -222,11 +255,7 @@ in
           };
           "[ ]" = {
             # [ ]
-            "icon" = "issue-draft";
-          };
-          "[x]" = {
-            # [x]
-            "icon" = "issue-closed";
+            "icon" = "tasklist";
           };
         };
         "better-comments.tags" = [
@@ -338,28 +367,35 @@ in
 
       extensions = with pkgs.vscode-extensions; [
         # Language Support #
-        bbenoist.nix # nix
-        jnoortheen.nix-ide # nix
+        # general
         #christian-kohler.path-intellisense
         #cschlosser.doxdocgen
-        #ms-vscode.cpptools # c/c++
-        llvm-vs-code-extensions.vscode-clangd # c/c++
-        vadimcn.vscode-lldb # c/c++
-        twxs.cmake # c/c++
-        bmewburn.vscode-intelephense-client # php
         codezombiech.gitignore # gitignore
-        yzhang.markdown-all-in-one # markdown
         dotjoshjohnson.xml # xml
         foxundermoon.shell-format # shell
-        formulahendry.auto-close-tag # html
-        formulahendry.auto-rename-tag # html
-        gencer.html-slim-scss-css-class-completion # html
         james-yu.latex-workshop # latex
         jock.svg # svg
-        ms-python.python # python
         redhat.vscode-yaml # yaml
         tamasfe.even-better-toml # toml
         #tomoki1207.pdf # pdf
+        # c/c++
+        #ms-vscode.cpptools
+        llvm-vs-code-extensions.vscode-clangd
+        vadimcn.vscode-lldb
+        twxs.cmake
+        # nix
+        bbenoist.nix
+        jnoortheen.nix-ide
+        # php
+        bmewburn.vscode-intelephense-client
+        # markdown
+        yzhang.markdown-all-in-one
+        # html
+        formulahendry.auto-close-tag
+        formulahendry.auto-rename-tag
+        gencer.html-slim-scss-css-class-completion
+        # python
+        ms-python.python
 
         # Features / Advancements #
         esbenp.prettier-vscode
@@ -377,161 +413,156 @@ in
         kamikillerto.vscode-colorize
         ibm.output-colorizer
         ms-vscode.hexeditor
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace
-        [
-          # Advancements
-          {
-            name = "better-comments";
-            publisher = "aaron-bond";
-            version = "3.0.2";
-            sha256 = "15w1ixvp6vn9ng6mmcmv9ch0ngx8m85i1yabxdfn6zx3ypq802c5";
-          }
-          #{
-          #  name = "better-dockerfile-syntax";
-          #  publisher = "jeff-hykin";
-          #  version = "1.0.2";
-          #  #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-          #}
-          {
-            name = "better-jsonc-syntax";
-            publisher = "jeff-hykin";
-            version = "1.0.3";
-            sha256 = "KXSP65TG8OGXSJv1FTl+gBaexg6VWysQ5mHIhLf9PgM=";
-          }
-          {
-            name = "better-shellscript-syntax";
-            publisher = "jeff-hykin";
-            version = "1.6.2";
-            sha256 = "008lhsww28c6qzsih662iakzz7py34rw36445icw5ywvzv8xpb18";
-          }
-          {
-            name = "better-folding";
-            publisher = "MohammadBaqer";
-            version = "0.5.1";
-            sha256 = "vEZi+rBT8dxhi+sIPSXWpUiWmE29deWzKj7uN7T+4is=";
-          }
-          {
-            name = "bracket-select2";
-            publisher = "jhasse";
-            version = "2.1.1";
-            sha256 = "sha256-1t5y9C6793l7YPihmNFqlEjo//MpQqOwnrKhjGecn90=";
-          }
-          {
-            name = "auto-add-brackets";
-            publisher = "aliariff";
-            version = "0.12.2";
-            sha256 = "sha256-DH1NfneJTMC7BmOP4IiUG8J7BQtwOj4/k5Qn62DkZ7Q=";
-          }
-          {
-            name = "bracket-padder";
-            publisher = "viablelab";
-            version = "0.3.0";
-            sha256 = "sha256-5DfEaG8vRYcpebeBcWidaySaOgMdrDT8DiS1TmpetKg=";
-          }
-          {
-            name = "vscode-filesystemtoolbox";
-            publisher = "carlocardella";
-            version = "1.5.0";
-            sha256 = "0wfbqglpfh4afkp6ykibzhznf6s3is23k5jwiipfr4jcmjki5kbc";
-          }
-          {
-            name = "vscode-stylelint";
-            publisher = "stylelint";
-            version = "1.3.0";
-            sha256 = "1q1idvpqnzlp186kymq2h407hqnhzngxs8n414p13j0svpcrm016";
-          }
-          ## Language support
-          {
-            name = "fix-all-json";
-            publisher = "zardoy";
-            version = "0.1.5";
-            sha256 = "nkp5wdUPy+lUmc4Yg3b+NNosQgCPr6/sVad+j4Ln7Uo=";
-          }
-          {
-            name = "haltarys-shellman";
-            publisher = "Haltarys";
-            version = "5.7.1";
-            sha256 = "0gw0nd5yhq7d08mf7k78zz8xaj23qlirip3amx2jmqjav1fbz46m";
-          }
-          {
-            name = "latex-utilities";
-            publisher = "tecosaur";
-            version = "0.4.10";
-            sha256 = "sha256-tNf4sTsae+NKB7QZ5PQOXI6T14eEH0YIK/LhgWq6QHA=";
-          }
-          {
-            name = "latexindent";
-            publisher = "lenagain";
-            version = "0.0.1";
-            sha256 = "sha256-/gH64YE7bVqYdGI3GTaOYhLHIA+ndqqDEGl72jqratI=";
-          }
-          {
-            name = "linux-desktop-file";
-            publisher = "nico-castell";
-            version = "0.0.21";
-            sha256 = "0d2pfby72qczljzw1dk2rsqkqharl2sbq3g31zylz0rx73cvxb72";
-          }
-          {
-            name = "todotxt-mode";
-            publisher = "davraamides";
-            version = "1.4.32";
-            sha256 = "sha256-HICvHLL9mCKyQqEZYfOb+q8tmSS4NzxkuLle8MdEA2Y=";
-          }
-          {
-            name = "vscode-sql-formatter";
-            publisher = "adpyke";
-            version = "1.4.4";
-            sha256 = "sha256-g4oqB0zV7jB7PeA/d2e8jKfHh+Ci+us0nK2agy1EBxs=";
-          }
-          #{
-          #  name = "vscode-groovy-lint";
-          #  publisher = "nicolasvuillamy";
-          #  version = "2.0.0";
-          #  #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-          #}
-          {
-            name = "vscode-css-peek";
-            publisher = "pranaygp";
-            version = "4.4.1";
-            sha256 = "189134apvp0xj8s0bwbj9iyyzns395l7v0mlda5x0ny86zs8jzhr";
-          }
-          #{
-          #  name = "bash-debug";
-          #  publisher = "rogalmic";
-          #  version = "0.3.9";
-          #  #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-          #}
-          #{
-          #  name = "jenkins-jack";
-          #  publisher = "tabeyti";
-          #  version = "1.2.1";
-          #  #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-          #}
-          {
-            name = "yuck";
-            publisher = "eww-yuck";
-            version = "0.0.3";
-            sha256 = "DITgLedaO0Ifrttu+ZXkiaVA7Ua5RXc4jXQHPYLqrcM=";
-          }
-          ## Features
-          #{
-          #  name = "markdown-pdf";
-          #  publisher = "yzane";
-          #  version = "1.4.4";
-          #  sha256 = "Tt1UF1i7bgWm/jRP6IG5UOQcfe5YOeCx6Hxs/bnkkgE=";
-          #} # Cant download chromium: Read only filesystem!
-          {
-            name = "vscode-status-bar-format-toggle";
-            publisher = "tombonnike";
-            version = "3.1.1";
-            sha256 = "mZymHbdJ7HD6acBPomwxKyatDfkDPAA0PaZpPU+nViQ=";
-          }
-        ];
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        # Advancements
+        {
+          name = "better-comments";
+          publisher = "aaron-bond";
+          version = "3.0.2";
+          sha256 = "15w1ixvp6vn9ng6mmcmv9ch0ngx8m85i1yabxdfn6zx3ypq802c5";
+        }
+        #{
+        #  name = "better-dockerfile-syntax";
+        #  publisher = "jeff-hykin";
+        #  version = "1.0.2";
+        #  #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        #}
+        {
+          name = "better-jsonc-syntax";
+          publisher = "jeff-hykin";
+          version = "1.0.3";
+          sha256 = "KXSP65TG8OGXSJv1FTl+gBaexg6VWysQ5mHIhLf9PgM=";
+        }
+        {
+          name = "better-shellscript-syntax";
+          publisher = "jeff-hykin";
+          version = "1.6.2";
+          sha256 = "008lhsww28c6qzsih662iakzz7py34rw36445icw5ywvzv8xpb18";
+        }
+        {
+          name = "better-folding";
+          publisher = "MohammadBaqer";
+          version = "0.5.1";
+          sha256 = "vEZi+rBT8dxhi+sIPSXWpUiWmE29deWzKj7uN7T+4is=";
+        }
+        {
+          name = "bracket-select2";
+          publisher = "jhasse";
+          version = "2.1.1";
+          sha256 = "sha256-1t5y9C6793l7YPihmNFqlEjo//MpQqOwnrKhjGecn90=";
+        }
+        {
+          name = "auto-add-brackets";
+          publisher = "aliariff";
+          version = "0.12.2";
+          sha256 = "sha256-DH1NfneJTMC7BmOP4IiUG8J7BQtwOj4/k5Qn62DkZ7Q=";
+        }
+        {
+          name = "bracket-padder";
+          publisher = "viablelab";
+          version = "0.3.0";
+          sha256 = "sha256-5DfEaG8vRYcpebeBcWidaySaOgMdrDT8DiS1TmpetKg=";
+        }
+        {
+          name = "vscode-filesystemtoolbox";
+          publisher = "carlocardella";
+          version = "1.5.0";
+          sha256 = "0wfbqglpfh4afkp6ykibzhznf6s3is23k5jwiipfr4jcmjki5kbc";
+        }
+        {
+          name = "vscode-stylelint";
+          publisher = "stylelint";
+          version = "1.3.0";
+          sha256 = "1q1idvpqnzlp186kymq2h407hqnhzngxs8n414p13j0svpcrm016";
+        }
+        ## Language support
+        {
+          name = "fix-all-json";
+          publisher = "zardoy";
+          version = "0.1.5";
+          sha256 = "nkp5wdUPy+lUmc4Yg3b+NNosQgCPr6/sVad+j4Ln7Uo=";
+        }
+        {
+          name = "haltarys-shellman";
+          publisher = "Haltarys";
+          version = "5.7.1";
+          sha256 = "0gw0nd5yhq7d08mf7k78zz8xaj23qlirip3amx2jmqjav1fbz46m";
+        }
+        {
+          name = "latex-utilities";
+          publisher = "tecosaur";
+          version = "0.4.10";
+          sha256 = "sha256-tNf4sTsae+NKB7QZ5PQOXI6T14eEH0YIK/LhgWq6QHA=";
+        }
+        {
+          name = "latexindent";
+          publisher = "lenagain";
+          version = "0.0.1";
+          sha256 = "sha256-/gH64YE7bVqYdGI3GTaOYhLHIA+ndqqDEGl72jqratI=";
+        }
+        {
+          name = "linux-desktop-file";
+          publisher = "nico-castell";
+          version = "0.0.21";
+          sha256 = "0d2pfby72qczljzw1dk2rsqkqharl2sbq3g31zylz0rx73cvxb72";
+        }
+        {
+          name = "todotxt-mode";
+          publisher = "davraamides";
+          version = "1.4.32";
+          sha256 = "sha256-HICvHLL9mCKyQqEZYfOb+q8tmSS4NzxkuLle8MdEA2Y=";
+        }
+        {
+          name = "vscode-sql-formatter";
+          publisher = "adpyke";
+          version = "1.4.4";
+          sha256 = "sha256-g4oqB0zV7jB7PeA/d2e8jKfHh+Ci+us0nK2agy1EBxs=";
+        }
+        #{
+        #  name = "vscode-groovy-lint";
+        #  publisher = "nicolasvuillamy";
+        #  version = "2.0.0";
+        #  #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        #}
+        {
+          name = "vscode-css-peek";
+          publisher = "pranaygp";
+          version = "4.4.1";
+          sha256 = "189134apvp0xj8s0bwbj9iyyzns395l7v0mlda5x0ny86zs8jzhr";
+        }
+        #{
+        #  name = "bash-debug";
+        #  publisher = "rogalmic";
+        #  version = "0.3.9";
+        #  #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        #}
+        #{
+        #  name = "jenkins-jack";
+        #  publisher = "tabeyti";
+        #  version = "1.2.1";
+        #  #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        #}
+        {
+          name = "yuck";
+          publisher = "eww-yuck";
+          version = "0.0.3";
+          sha256 = "DITgLedaO0Ifrttu+ZXkiaVA7Ua5RXc4jXQHPYLqrcM=";
+        }
+        ## Features
+        #{
+        #  name = "markdown-pdf";
+        #  publisher = "yzane";
+        #  version = "1.4.4";
+        #  sha256 = "Tt1UF1i7bgWm/jRP6IG5UOQcfe5YOeCx6Hxs/bnkkgE=";
+        #} # Cant download chromium: Read only filesystem!
+        {
+          name = "vscode-status-bar-format-toggle";
+          publisher = "tombonnike";
+          version = "3.1.1";
+          sha256 = "mZymHbdJ7HD6acBPomwxKyatDfkDPAA0PaZpPU+nViQ=";
+        }
+      ];
     };
-
-    home.packages = with pkgs; [
-      xdg-utils # xdg-open to open hyperlinks
-    ];
 
     wayland.windowManager.hyprland.settings = {
       exec-once = [ "[workspace 4 silent] ${config.programs.vscode.package}/bin/code" ];
