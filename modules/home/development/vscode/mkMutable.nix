@@ -1,4 +1,4 @@
-{ config, lib, options, pkgs, ... }:
+{ options, config, lib, pkgs, ... }:
 
 # This makes vscode settings/keybindings/tasks/snippets writable
 # from <https://gist.github.com/piousdeer/b29c272eaeba398b864da6abf6cb5daa>

@@ -1,4 +1,4 @@
-{ config, lib, options, osConfig ? { }, pkgs, ... }:
+{ options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
 with lib.custom;

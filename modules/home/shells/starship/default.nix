@@ -1,4 +1,4 @@
-{ config, lib, options, pkgs, ... }:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.custom;
