@@ -137,9 +137,7 @@ in
         "[latex]" = {
           "editor.defaultFormatter" = "lenagain.latexindent";
         };
-        "[markdown]" = {
-          "editor.formatOnSave" = false;
-        };
+        "[markdown]" = { };
         "[nix]" = {
           "editor.defaultFormatter" = "jnoortheen.nix-ide";
           "editor.insertSpaces" = true;

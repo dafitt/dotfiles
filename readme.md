@@ -1,165 +1,81 @@
-# ❄️NixOS desktop
+# My Snowfall🌨️ NixOS❄️ desktop flake
 
-My solution to a full [NixOS](https://nixos.org/) / [Hyprland](https://hyprland.org/) desktop. Heavily inspired by [@Misterio77](https://github.com/Misterio77/nix-config) and [Vimjoyer](https://www.youtube.com/@vimjoyer).
-
-I tried to make my configuration as simple as possbile to understand. I also pasted some links to helpful websites into the sourcecode and left some personal comments.
-
-Feel free to copy'n'paste as you like.
+-   [My Snowfall🌨️ NixOS❄️ desktop flake](#my-snowfall️-nixos️-desktop-flake)
+    -   [Programs and Features](#programs-and-features)
+    -   [Installation](#installation)
+        -   [Building](#building)
+        -   [Updating](#updating)
+    -   [Usage](#usage)
+        -   [Keybindings](#keybindings)
+        -   [Flatpaks](#flatpaks)
+    -   [Inspiration, Credits and Thanks](#inspiration-credits-and-thanks)
 
 ## Programs and Features
 
--   🔄 made for synchronizing between multiple hosts
+-   🔄 multiple hosts
+-   🏗️ [Snowfall flake structure](https://snowfall.org/reference/lib/#flake-structure)
+-   📦 Flatpaks
 
-### System
-
--   Declare **multiple hosts** but still some **shared configuration** ↔️
--   📦 Flatpak support
-
-### Home
-
-|                 🧍 | standalone                    |
-| -----------------: | :---------------------------- |
-|  Window manager 🌿 | Hyprland                      |
-|        Terminal ⬛ | kitty                         |
-|           Shell 🐚 | zsh, _bash(disabled)_         |
-|          Prompt 🗣️ | starship                      |
-|    File manager 🗃️ | nautilus, _pcmanfm(disabled)_ |
-|          Editor 📝 | micro, vscodium               |
-|         Browser 🐺 | librewolf                     |
-|         Theming 🖌️ | Stylix (colors & fonts)       |
-|         Network 🌐 | connman                       |
-|             VMs 🪟 | gnomeboxes, virt-manager      |
-| Session looking 🔒 | swaylock                      |
-
-## Strucure
-
-- `./home-manager` configuration for home (standalone)
-- `./nixos` configuration for different host's system's
-    - ``
+| Operating System 💻 | [NixOS](https://nixos.org/)                                                                            |
+| ------------------: | :----------------------------------------------------------------------------------------------------- |
+|   Window manager 🪟 | [Hyprland](https://hyprland.org/), [Gnome](https://www.gnome.org/)                                     |
+|    Login manager 🔒 | gdm, tty                                                                                               |
+|  Session locking 🔒 | swaylock                                                                                               |
+|         Terminal ⌨️ | [kitty](https://sw.kovidgoyal.net/kitty/)                                                              |
+|            Shell 🐚 | [fish](https://fishshell.com/)                                                                         |
+|           Prompt ➡️ | [starship](https://starship.rs/)                                                                       |
+|     File manager 📁 | nautilus, pcmanfm                                                                                      |
+|           Editor ✏️ | [vscode](https://code.visualstudio.com/)                                                               |
+|              Web 🌍 | [librewolf](https://librewolf.net/), [epiphany](https://apps.gnome.org/Epiphany/)                      |
+|          Theming 🎨 | [Stylix](https://github.com/danth/stylix) - modified [Catppuccin](https://github.com/catppuccin) Mocha |
+|       Networking 🌐 | networkmanager, connman                                                                                |
+|   Virtualization 🪟 | virt-manager, bottles                                                                                  |
 
 ## Installation
 
-### Base System
+### Building
 
-`etc/nixos/`
-
-1. Install [NixOS](https://nixos.org/) on a machine.
-    - NOTE: You can use any environment you want, it doesn't matter because we are changing the configuration anyway.
-2. Download this repository and put it somewhere to _`~/Desktop`_ for example
-3. Enable Flakes through `nix-shell` or `nix-develop`
-4. Create your own `nixos/hosts/HOSTNAME/`.
-    - NOTE: You can use my _`hosts/Generic`_ and your _`/etc/nixos/configruation.nix`_ from your installation for help. See my existing devices what should be in this folder.
-    1. change locale, username, hostname, etc.
-    2. include my `./nixos/hosts/common-desktop.nix`
-    3. add more packages you would like to use for every user and root
-    4. dont forget to copy `/etc/nixos/hardware-configuration.nix`
-5. Run `sudo nixos-rebuild test --flake .#HOSTNAME`
-    - NOTE: First test/switch can take a while.
-    - Nice2know: `sudo nixos-rebuild build-vm-with-bootloader` to create a virtual machine. See the `--help` page
-6. _If everything works,_ make the configruation the default boot with `sudo nixos-rebuild switch --flake .`
-
-Now you have your base NixOS system. Delete my hosts and adjust my shared-desktop to your needs.
-
-### Home-manager standalone
-
-I prefered the standalone installation because i don't want to use sudo and rebuild my enire system to only apply some home changes. Plus I **could** theoretically install Home-manager to any linux distribution and apply my config. But i haven't tested this yet.
-
-Requirements for home-manager-only:
-
-```nix
-hardware.opengl.enable = true;
-programs.dconf.enable = true;
-```
-
-1. Download this repository and put it somewhere to _`~/Desktop`_ for example
-2. Make some changes to my sourcecode in _`./home-manager/`_
-    - the USERNAME should be your own
-    - your monitor configuration per HOSTNAME
-    - your own programs or services you want
-3. Enable Flakes through `nix-shell` or `nix-develop`
-4. Run `home-manager switch --flake .#USERNAME@HOSTNAME`
-    - NOTE: First switch can take a while.
-
-### Bugs'n'Fixes
-
-#### eww
-
-Yea, i know my eww configuration isn't finished and still lacking. I will work on it from time to time.
-
-#### Flatpak
-
-Run the script `home-manager/programs/flatpaks.sh` to add the flathub repository and install some specified flatpaks.
-
-If you also want to manage your Flatpaks declarively look at [this](https://github.com/GermanBread/declarative-flatpak) project. I might switch to it in the future.
-
-##### Theming
-
-See [Flatpak applications can't find system fonts](https://nixos.wiki/wiki/Fonts#Flatpak_applications_can.27t_find_system_fonts)
+How i use my system:
 
 ```shell
-flatpak --user override --filesystem=~/.local/share/fonts:ro
-flatpak --user override --filesystem=~/.icons:ro
-flatpak --user override --filesystem=~/.themes:ro
+nixos-rebuild test --flake .#[host]
+nixos-rebuild switch --flake .#[host]
+```
 
-# GTK
-flatpak --user intall org.gtk.Gtk3theme.adw-gtk3-dark
+How you can test my system:
 
-# QT
-flatpak --user remote-add kdeapps https://distribute.kde.org/kdeapps.flatpakrepo
-flatpak --user install kdeapps org.kde.KStyle.Adwaita//5.9
-flatpak --user install kdeapps org.kde.PlatformTheme.QGnomePlatform//5.9
+```shell
+nixos-rebuild build-vm --flake .#[host]
+```
+
+Build home manager standalone:
+
+```shell
+home-manager switch --flake .#[user]@[host]
+```
+
+### Updating
+
+```shell
+nix flake update --commit-lock-file
+# or
+nix flake update [input]
 ```
 
 ## Usage
 
-> [A helpful NixOS Guide](https://github.com/mikeroyal/NixOS-Guide#table-of-contents)
+### Keybindings
 
-`nix-shell` or `nix-develop` to enter a custom shell with enable nix and some tools
+### Flatpaks
 
-`nix build` (or shell or run) To build and use packages
+Edit and run the script `modules/home/flatpak/flatpaks.sh` to add the flathub repository and install some specified flatpaks.
 
-### Rebuild and apply changes
+## Inspiration, Credits and Thanks
 
-```
-nixos-rebuild test --flake .
-home-manager switch --flake .
-```
-
-### Update / -grade
-
-1. Update the `flake.lock` file.
-    ```shell
-    nix flake update [input]
-    ```
-2. Rebuild system and/or home
-
-### Network
-
-`connman-gtk` or `ALT SUPER + N`
-
-### Syncronisation
-
-Manually configure syncthing on <http://localhost:8384>
-
-### Nix in general
-
-> [NixLanguage](https://nixos.org/manual/nix/stable/language/)
-
-Rollback:
-
-See available builds with `nix profile history --profile /nix/var/nix/profiles/system`
-
--   NixOS:
-    -   `sudo nixos-rebuild switch --rollback` to the last build
-    -   `nix profile rollback {--to <n>}`
--   Home-manager: See <https://nix-community.github.io/home-manager/index.html#sec-usage-rollbacks>
-
-Cleanup:
-
--   `sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles`
--   `sudo nix store gc --debug`
-
-Build without internet:
-
--   `sudo nixos-rebuild switch --option substitute false`
--   `sudo nixos-rebuild switch --option binary-caches ""`
+-   [Vimjoyer - Youtube](https://www.youtube.com/@vimjoyer)
+-   [IogaMaster - Youtube](https://www.youtube.com/@IogaMaster)
+-   [mikeroyal/NixOS-Guide](https://github.com/mikeroyal/NixOS-Guide)
+-   [jakehamilton/config](https://github.com/jakehamilton/config)
+-   [IogaMaster/dotfiles](https://github.com/IogaMaster/dotfiles)
+-   [IogaMaster/snowfall-starter](https://github.com/IogaMaster/snowfall-starter)
+-   [Misterio77/nix-config](https://github.com/Misterio77/nix-config)

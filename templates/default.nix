@@ -3,7 +3,8 @@
     path = ./lib;
   };
   module = {
-    path = ./module;
+    home.path = ./module/home;
+    nixos.path = ./module/nixos;
   };
   overlay = {
     path = ./overlay;
