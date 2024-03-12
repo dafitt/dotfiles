@@ -204,11 +204,11 @@
         "SUPER, mouse_up, workspace, +1"
 
         # Screenshots
-        ", PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze copysave output $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # QUICK
-        "ALT, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave active $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # WINDOW
-        "CONTROL, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave area $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # AREA
-        "ALT SUPER, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze save area - | ${pkgs.swappy}/bin/swappy -f - -o $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # EDIT
-        "CONTROL SHIFT, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave screen $XDG_SCREENSHOTS_DIR/$(date +'%s.png')" # SCREEN
+        ", PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast copysave output ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK
+        "ALT, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave active ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # WINDOW
+        "CONTROL, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze --cursor copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # AREA
+        "ALT SUPER, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze save area - | ${pkgs.swappy}/bin/swappy -f - -o ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # EDIT
+        "CONTROL SHIFT, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave screen ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SCREEN
 
         # some small helper programs
         "ALT SUPER, U, exec, ${pkgs.gnome.gnome-characters}/bin/gnome-characters"
