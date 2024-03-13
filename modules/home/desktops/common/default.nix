@@ -20,6 +20,7 @@ in
       gnome.gnome-characters # character picker
       ncdu # disk usage analyzer with an ncurses interface
       neofetch # quick system information tool
+      pika-backup # Simple backups based on borg
       raider # file shredder
       tldr # simplified and community-driven man pages
       tree # a directory listing program
