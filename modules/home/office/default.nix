@@ -24,6 +24,7 @@ in
       libreoffice-fresh # office suite
       pandoc # document converter
       pdfarranger # merge split rotate crop rearrange pdf pages
+      ghostscript # pdf tools
     ];
 
     fonts.fontconfig.enable = true; # discover fonts and configurations installed through home.packages and nix-env
