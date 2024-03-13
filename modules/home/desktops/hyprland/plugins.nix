@@ -11,7 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    # <https://github.com/hyprwm/hyprland-plugins/tree/main>
+    # https://github.com/hyprwm/hyprland-plugins/tree/main
     wayland.windowManager.hyprland = {
 
       plugins = [

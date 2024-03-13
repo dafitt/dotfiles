@@ -1,7 +1,7 @@
-# This module extends home.file, xdg.configFile and xdg.dataFile with the `mutable` option.
-# <https://gist.github.com/piousdeer/b29c272eaeba398b864da6abf6cb5daa>
 { config, lib, ... }:
 
+# https://gist.github.com/piousdeer/b29c272eaeba398b864da6abf6cb5daa
+# This module extends home.file, xdg.configFile and xdg.dataFile with the `mutable` option.
 let
   fileOptionAttrPaths = [ [ "home" "file" ] [ "xdg" "configFile" ] [ "xdg" "dataFile" ] ];
 in

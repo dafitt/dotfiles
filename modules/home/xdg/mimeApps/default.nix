@@ -45,7 +45,8 @@ in
     xdg.mimeApps.defaultApplications =
       let
         # Take from the respective mimetype files
-        #$ xdg-mime query filetype <https://wiki.archlinux.org/title/Xdg-utils#xdg-mime>
+        # https://wiki.archlinux.org/title/Xdg-utils#xdg-mime
+        #$ xdg-mime query filetype
         archives = [
           "application/bzip2"
           "application/gzip"

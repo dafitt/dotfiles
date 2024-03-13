@@ -17,7 +17,7 @@ in
       enable = true;
 
       settings = {
-        # detailed settings <https://searchfox.org/mozilla-release/source/browser/app/profile/firefox.js>
+        # [detailed settings](https://searchfox.org/mozilla-release/source/browser/app/profile/firefox.js)
 
         "browser.tabs.insertAfterCurrent" = true;
         "browser.urlbar.shortcuts.quickactions" = true;
@@ -104,7 +104,7 @@ in
         # Disable middle click paste
         "middlemouse.paste" = false;
 
-        # Betterfox <https://github.com/yokoffing/Betterfox/blob/main/librewolf.overrides.cfg>
+        # [Betterfox](https://github.com/yokoffing/Betterfox/blob/main/librewolf.overrides.cfg)
 
         # Fastfox
         "dom.enable_web_task_scheduling" = true;

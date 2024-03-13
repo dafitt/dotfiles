@@ -34,8 +34,8 @@ in
     # current log $ cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
     # last log $ cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 1)/hyprland.log
 
-    #  Hyprland is a highly customizable dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
-    # <https://github.com/hyprwm/Hyprland>
+    # [Hyprland](https://github.com/hyprwm/Hyprland) is a highly customizable
+    # dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
     wayland.windowManager.hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -46,11 +46,10 @@ in
       };
 
       settings = {
+        # [Variables](https://wiki.hyprland.org/Configuring/Variables/)
 
-        # Variables
-        # <https://wiki.hyprland.org/Configuring/Variables/>
         general = {
-          # <https://wiki.hyprland.org/Configuring/Variables/#general>
+          # https://wiki.hyprland.org/Configuring/Variables/#general
           gaps_in = 5;
           gaps_out = 8;
           border_size = 2;
@@ -59,7 +58,7 @@ in
           layout = "dwindle";
         };
         dwindle = {
-          # <https://wiki.hyprland.org/Configuring/Dwindle-Layout/>
+          # https://wiki.hyprland.org/Configuring/Dwindle-Layout/
           pseudotile = true; # master switch for pseudotiling
           force_split = 2;
           preserve_split = true; # you probably want this
@@ -67,17 +66,17 @@ in
           no_gaps_when_only = 1; # without border
         };
         master = {
-          # <https://wiki.hyprland.org/Configuring/Master-Layout/>
+          # https://wiki.hyprland.org/Configuring/Master-Layout/
           new_is_master = false;
         };
         misc = {
-          # <https://wiki.hyprland.org/Configuring/Variables/#misc>
+          # https://wiki.hyprland.org/Configuring/Variables/#misc
           disable_autoreload = true;
           disable_hyprland_logo = true;
           focus_on_activate = true;
         };
         decoration = {
-          # <https://wiki.hyprland.org/Configuring/Variables/#decoration>
+          # https://wiki.hyprland.org/Configuring/Variables/#decoration
           active_opacity = 0.93;
           inactive_opacity = 0.93;
           rounding = 18;
@@ -95,7 +94,7 @@ in
           ];
         };
         animations = {
-          # <https://wiki.hyprland.org/Configuring/Animations/>
+          # https://wiki.hyprland.org/Configuring/Animations/
           enabled = true;
 
           bezier = [
@@ -118,7 +117,7 @@ in
         };
 
         input = {
-          # <https://wiki.hyprland.org/Configuring/Variables/#input>
+          # https://wiki.hyprland.org/Configuring/Variables/#input
           # list of options `/usr/share/X11/xkb/rules/base.lst`
           kb_layout = "de";
           kb_variant = "nodeadkeys";
@@ -133,19 +132,19 @@ in
           };
         };
         gestures = {
-          # <https://wiki.hyprland.org/Configuring/Variables/#gestures>
+          # https://wiki.hyprland.org/Configuring/Variables/#gestures
           workspace_swipe = true;
         };
 
         binds = {
-          # <https://wiki.hyprland.org/Configuring/Variables/#binds>
+          # https://wiki.hyprland.org/Configuring/Variables/#binds
           workspace_back_and_forth = true;
           scroll_event_delay = 150;
         };
 
         bind = [
-          # <https://wiki.hyprland.org/Configuring/Binds/>
-          # <https://wiki.hyprland.org/Configuring/Dispatchers/>
+          # https://wiki.hyprland.org/Configuring/Binds/
+          # https://wiki.hyprland.org/Configuring/Dispatchers/
 
           "CONTROL SUPER, Q, exit," # Exit Hyprland all together (force quit Hyprland)
           "CONTROL SUPER, R, exec, hyprctl reload && forcerendererreload"
@@ -274,8 +273,8 @@ in
         ];
 
         windowrulev2 = [
-          # <https://wiki.hyprland.org/Configuring/Window-Rules/>
-          # <https://regex101.com/>
+          # https://wiki.hyprland.org/Configuring/Window-Rules/
+          # https://regex101.com/
           #$ hyprctl clients
           "opacity 1 0.7, floating:1, title:(.)+, xwayland:0" # make inactive floating windows (with titles) more transparent
           "bordercolor rgb(${config.lib.stylix.colors.base09}), xwayland:1" # other border color for xwayland windows
@@ -294,9 +293,9 @@ in
         # only on each reload
         exec = [ ];
 
-        # <https://wiki.hyprland.org/Configuring/Environment-variables/>
+        # https://wiki.hyprland.org/Configuring/Environment-variables/
         env = [
-          # <https://wiki.hyprland.org/FAQ/>
+          # https://wiki.hyprland.org/FAQ/
 
           #XDG
           "XDG_SESSION_TYPE,wayland"

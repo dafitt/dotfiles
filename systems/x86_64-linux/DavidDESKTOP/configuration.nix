@@ -5,9 +5,9 @@
 
   fileSystems = {
     "/mnt/games" = {
-      label = "GAMES"; # how to write a label <https://wiki.archlinux.org/title/persistent_block_device_naming#by-label>
+      label = "GAMES"; # [How to write a label](https://wiki.archlinux.org/title/persistent_block_device_naming#by-label)
       options = [
-        # options <https://man.archlinux.org/man/mount.8#COMMAND-LINE_OPTIONS>
+        # [options](https://man.archlinux.org/man/mount.8#COMMAND-LINE_OPTIONS)
         "defaults"
         #"user"
         #"nofail"
@@ -16,9 +16,8 @@
       ];
     };
     "/mnt/file" = {
-      label = "FILE"; # how to write a label <https://wiki.archlinux.org/title/persistent_block_device_naming#by-label>
+      label = "FILE";
       options = [
-        # options <https://man.archlinux.org/man/mount.8#COMMAND-LINE_OPTIONS>
         "defaults"
         "user"
         "nofail"

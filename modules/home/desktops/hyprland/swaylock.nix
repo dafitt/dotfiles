@@ -18,7 +18,7 @@ in
       package = pkgs.swaylock-effects;
 
       settings = {
-        # <https://man.archlinux.org/man/swaylock.1>
+        # https://man.archlinux.org/man/swaylock.1
         daemonize = true;
         ignore-empty-password = true;
 

@@ -17,7 +17,7 @@ in
       enable = true;
       settings = {
         main = {
-          # settings <https://man.archlinux.org/man/fuzzel.ini.5.en>
+          # [settings](https://man.archlinux.org/man/fuzzel.ini.5.en)
 
           terminal = "$TERMINAL";
           prompt = "🔎";

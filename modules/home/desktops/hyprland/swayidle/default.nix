@@ -27,7 +27,8 @@ in
     services.swayidle = {
       enable = true;
       systemdTarget = "hyprland-session.target";
-      # options <https://github.com/swaywm/swayidle/blob/master/swayidle.1.scd>
+
+      # [options](https://github.com/swaywm/swayidle/blob/master/swayidle.1.scd)
       timeouts = [
         (mkIf (cfg.timeout.lock > 0) { timeout = cfg.timeout.lock; command = "${config.programs.swaylock.package}/bin/swaylock --grace 30"; })
         (mkIf (cfg.timeout.suspend > 0) { timeout = cfg.timeout.suspend; command = "${pkgs.systemd}/bin/systemctl suspend"; })

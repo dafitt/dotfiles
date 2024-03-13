@@ -32,7 +32,7 @@ in
         # Workbench
         "workbench.colorCustomizations" = {
           "[Stylix]" = {
-            # <https://github.com/danth/stylix/blob/master/modules/vscode/template.mustache>
+            # https://github.com/danth/stylix/blob/master/modules/vscode/template.mustache
             "editor.selectionHighlightBackground" = "#${config.lib.stylix.colors.base02}";
             "editor.wordHighlightBackground" = "#00000000";
             "editor.findMatchBackground" = "#${config.lib.stylix.colors.base0A}77";

@@ -12,7 +12,7 @@
     power-profiles-daemon.enable = false; # Disable GNOMEs power management
     tlp = {
       # power management daemon
-      # docs <https://linrunner.de/tlp/>
+      # [docs](https://linrunner.de/tlp/)
       #$ tlp-stst --help
       enable = true;
       settings = {
@@ -66,7 +66,7 @@
 
     udev.enable = true;
     udev.extraRules = lib.mkMerge [
-      # diable wakeup <https://nixos.wiki/wiki/Power_Management#System_Immediately_wakes_up_from_suspend>
+      # [diable wakeup](https://nixos.wiki/wiki/Power_Management#System_Immediately_wakes_up_from_suspend)
       #$ cat /proc/acpi/wakeup
       ''ACTION=="add", SUBSYSTEM=="pci", DRIVER=="pcieport", ATTR{power/wakeup}="disabled"''
       # diable wakeup: USB XHC0 (Keyboard)
