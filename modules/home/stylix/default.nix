@@ -7,7 +7,6 @@
 
   stylix = {
     image = ./wallpaper.png;
-    #polarity = "dark"; # force dark/light theme
 
     # explore themes <https://github.com/tinted-theming/base16-schemes>
     # explore themes grafical <https://vimcolorschemes.com/tinted-theming/base16-vim>
@@ -15,7 +14,6 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     # base16 Styling Guidelines: https://github.com/chriskempson/base16/blob/main/styling.md
     #$ use colors with ${config.lib.stylix.colors.base00}
-
     override = {
       # cattppuccin-mocha: but less blue in the background
       # <https://github.com/catppuccin/base16>
@@ -26,6 +24,8 @@
       base04 = "585b5d"; # surface2
       base05 = "cdd6d9"; # text
     };
+
+    polarity = "dark"; # for epiphany, flatpaks
 
     cursor = {
       # Manages home.pointerCursor
@@ -55,6 +55,22 @@
         desktop = 11; # used in window titles/bars/widgets elements of the desktop
         popups = 14; # for notifications/popups and in general overlay elements of the desktop
         terminal = 12; # for terminals/text editors
+      };
+    };
+
+    gtk = {
+      iconTheme = {
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme.override { color = "black"; };
+      };
+    };
+
+    qt = {
+      enable = true;
+      platformTheme = "gnome";
+      style = {
+        name = "adwaita-dark";
+        package = pkgs.adwaita-qt;
       };
     };
   };
