@@ -12,7 +12,6 @@ in
     ./cliphist.nix
     ./fuzzel.nix
     ./gedit.nix
-    ./gtk.nix
     ./mako.nix
     ./playerctld.nix
     ./plugins.nix

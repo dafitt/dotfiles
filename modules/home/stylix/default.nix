@@ -1,10 +1,10 @@
-# Documentation: <https://danth.github.io/stylix/index.html>
 { config, pkgs, inputs, ... }: {
 
   imports = [
     inputs.stylix.homeManagerModules.stylix
   ];
 
+  # [Documentation](https://danth.github.io/stylix/index.html)
   stylix = {
     image = ./wallpaper.png;
 
@@ -57,21 +57,21 @@
         terminal = 12; # for terminals/text editors
       };
     };
+  };
 
-    gtk = {
-      iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme.override { color = "black"; };
-      };
+  gtk = {
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme.override { color = "black"; };
     };
+  };
 
-    qt = {
-      enable = true;
-      platformTheme = "gnome";
-      style = {
-        name = "adwaita-dark";
-        package = pkgs.adwaita-qt;
-      };
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
     };
   };
 }
