@@ -1,15 +1,12 @@
-{ config, pkgs, inputs, ... }: {
-
-  imports = [ inputs.tuxedo-nixos.nixosModules.default ];
+{ ... }: {
 
   boot.loader.timeout = 5;
 
   # TUXEDO Control Center
-  hardware.tuxedo-control-center = {
+  hardware.tuxedo-rs = {
     enable = true;
-    package = inputs.tuxedo-nixos.packages.x86_64-linux.default; # FIX for [Build broken on nixos-unstable](https://github.com/blitz/tuxedo-nixos/issues/5)
+    tailor-gui.enable = true;
   };
-  hardware.tuxedo-keyboard.enable = true;
   boot.kernelParams = [
     # [tuxedo kernel params](https://github.com/tuxedocomputers/tuxedo-keyboard/blob/v3.1.4/README.md#kernel-parameter-)
     "tuxedo_keyboard.mode=0"
