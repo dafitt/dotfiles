@@ -32,31 +32,95 @@ in
         # Workbench
         "workbench.colorCustomizations" = {
           "[Stylix]" = {
-            # https://github.com/danth/stylix/blob/master/modules/vscode/template.mustache
-            "editor.selectionHighlightBackground" = "#${config.lib.stylix.colors.base02}";
-            "editor.wordHighlightBackground" = "#00000000";
-            "editor.findMatchBackground" = "#${config.lib.stylix.colors.base0A}77";
-            "searchEditor.findMatchBackground" = "#${config.lib.stylix.colors.base0A}77";
+            # improve focus colors
+            "focusBorder" = "#${config.lib.stylix.colors.base0D}";
+            #"list.inactiveSelectionBackground" = "#${config.lib.stylix.colors.base00}";
 
-            #"button.background" = "#${config.lib.stylix.colors.base0D}";
-            "button.foreground" = "#${config.lib.stylix.colors.base00}";
-            #"button.secondaryBackground" = "#${config.lib.stylix.colors.base0E}";
-            "button.secondaryForeground" = "#${config.lib.stylix.colors.base00}";
-            "notification.buttonForeground" = "#${config.lib.stylix.colors.base00}";
-            #"notification.buttonHoverBackground" = "#${config.lib.stylix.colors.base02}";
-            "extensionButton.prominentForeground" = "#${config.lib.stylix.colors.base00}";
-            #"extensionButton.prominentHoverBackground" = "#${config.lib.stylix.colors.base02}";
+            # improve widgets
+            "input.background" = "#${config.lib.stylix.colors.base02}88";
 
-            "editorRuler.foreground" = "#${config.lib.stylix.colors.base01}";
-            #"panel.border" = "#${config.lib.stylix.colors.base05}";
+            # improve input
+            "selection.background" = "#${config.lib.stylix.colors.base0A}66";
+            # improve input option colors
+            "inputOption.activeBackground" = "#${config.lib.stylix.colors.base0A}";
+            "inputOption.activeForeground" = "#${config.lib.stylix.colors.base00}";
+            "inputOption.activeBorder" = "#00000000";
 
-            "editorOverviewRuler.border" = "#00000000";
-            "scrollbarSlider.activeBackground" = "#${config.lib.stylix.colors.base04}77";
-            "scrollbarSlider.background" = "#${config.lib.stylix.colors.base03}33";
-            "scrollbarSlider.hoverBackground" = "#${config.lib.stylix.colors.base03}77";
+            # improve menu contrast
+            "menu.border" = "#${config.lib.stylix.colors.base02}";
+            "menu.separatorBackground" = "#${config.lib.stylix.colors.base02}";
+
+            # improve active tab colors
+            "tab.activeBorder" = "#${config.lib.stylix.colors.base0A}";
+            "tab.activeBackground" = "#${config.lib.stylix.colors.base00}";
+            "tab.inactiveForeground" = "#${config.lib.stylix.colors.base03}";
+            "tab.hoverForeground" = "#${config.lib.stylix.colors.base05}";
+            "tab.hoverBackground" = "#${config.lib.stylix.colors.base00}";
+            # improve activity bar colors
+            "activityBar.activeBackground" = "#${config.lib.stylix.colors.base00}";
+            #"activityBar.activeBorder" = "#${config.lib.stylix.colors.base05}";
+            #"activityBar.inactiveBorder" = "#${config.lib.stylix.colors.base03}";
+            "activityBarBadge.foreground" = "#${config.lib.stylix.colors.base02}";
+
+            # improve focus drop & hover opacity
+            "editorGroup.dropBackground" = "#${config.lib.stylix.colors.base03}66";
+            "list.dropBackground" = "#${config.lib.stylix.colors.base03}66";
+            "list.hoverBackground" = "#${config.lib.stylix.colors.base03}66";
+            "editorStickyScrollHover.background" = "#${config.lib.stylix.colors.base03}66";
+
+            # improve selection & find match colors
+            "editor.findMatchBackground" = "#${config.lib.stylix.colors.base0A}66";
+            "editor.findMatchBorder" = "#${config.lib.stylix.colors.base0A}";
+            "editorOverviewRuler.findMatchForeground" = "#${config.lib.stylix.colors.base0A}";
+            "editor.findMatchHighlightBackground" = "#${config.lib.stylix.colors.base0A}66";
+            #"editor.findMatchHighlightBorder" = "#${config.lib.stylix.colors.base0A}66";
+            "editor.selectionBackground" = "#${config.lib.stylix.colors.base0A}66";
+            "editor.wordHighlightBackground" = "#${config.lib.stylix.colors.base0A}18";
+            "editorOverviewRuler.wordHighlightForeground" = "#${config.lib.stylix.colors.base0A}4C";
+            "editor.inactiveSelectionBackground" = "#${config.lib.stylix.colors.base0A}18";
+            "editor.selectionHighlightBorder" = "#${config.lib.stylix.colors.base0A}18";
+            "editor.selectionHighlightBackground" = "#${config.lib.stylix.colors.base0A}18";
+            "editorOverviewRuler.selectionHighlightForeground" = "#${config.lib.stylix.colors.base0A}88";
+            "editorOverviewRuler.rangeHighlightForeground" = "#${config.lib.stylix.colors.base0A}";
+
+            # improve git colors in overview ruler
+            "editorOverviewRuler.modifiedForeground" = "#${config.lib.stylix.colors.base0E}66";
+            "editorOverviewRuler.addedForeground" = "#${config.lib.stylix.colors.base0B}66";
+            "editorOverviewRuler.deletedForeground" = "#${config.lib.stylix.colors.base08}66";
+
+            # improve workspace backgrounds
+            "editorStickyScroll.background" = "#${config.lib.stylix.colors.base01}";
+            "panel.background" = "#${config.lib.stylix.colors.base01}";
+            "panel.border" = "#${config.lib.stylix.colors.base01}";
+            #"terminal.background" = "#${config.lib.stylix.colors.base01}";
+
+            "keybindingLabel.background" = "#${config.lib.stylix.colors.base03}";
+            "keybindingLabel.bottomBorder" = "#${config.lib.stylix.colors.base03}";
+            "keybindingLabel.border" = "#${config.lib.stylix.colors.base03}";
+
+            # better git colors
+            #"gitDecoration.modifiedResourceForeground" = "#${config.lib.stylix.colors.base09}";
+            #"editorGutter.modifiedBackground" = "#${config.lib.stylix.colors.base09}";
+            #"minimapGutter.modifiedBackground" = "#${config.lib.stylix.colors.base09}";
+            #"editorOverviewRuler.modifiedForeground" = "#${config.lib.stylix.colors.base09}";
 
 
             # ---------
+            "widget.shadow" = "#00000000";
+            "editorWidget.background" = "#${config.lib.stylix.colors.base00}";
+            "listFilterWidget.background" = "#${config.lib.stylix.colors.base00}";
+            "widget.border" = "#${config.lib.stylix.colors.base02}";
+            "editorWidget.resizeBorder" = "#${config.lib.stylix.colors.base0D}";
+            "editorOverviewRuler.border" = "#00000000";
+            "scrollbarSlider.activeBackground" = "#${config.lib.stylix.colors.base04}88";
+            "scrollbarSlider.background" = "#${config.lib.stylix.colors.base03}33";
+            "scrollbarSlider.hoverBackground" = "#${config.lib.stylix.colors.base03}88";
+            "button.foreground" = "#${config.lib.stylix.colors.base00}";
+            "button.secondaryForeground" = "#${config.lib.stylix.colors.base00}";
+            "notification.buttonForeground" = "#${config.lib.stylix.colors.base00}";
+            "extensionButton.prominentForeground" = "#${config.lib.stylix.colors.base00}";
+            "editorRuler.foreground" = "#${config.lib.stylix.colors.base02}";
+            "tab.border" = "#00000000";
             "statusBar.background" = "#${config.lib.stylix.colors.base01}";
             "statusBar.foreground" = "#${config.lib.stylix.colors.base05}";
             "statusBar.debuggingBackground" = "#${config.lib.stylix.colors.base09}";
@@ -170,12 +234,14 @@ in
         "breadcrumbs.enabled" = true;
         "explorer.confirmDelete" = false;
         "explorer.confirmDragAndDrop" = false;
+        "extensions.autoCheckUpdates" = false;
         "extensions.autoUpdate" = false;
         "git.autofetch" = true;
         "git.confirmSync" = false;
         "git.enableCommitSigning" = false;
         "git.openRepositoryInParentFolders" = "never";
         "keyboard.dispatch" = "keyCode"; # use correct keycodes
+        "search.followSymlinks" = false;
         "search.searchOnType" = false;
         "security.workspace.trust.enabled" = false;
         "security.workspace.trust.untrustedFiles" = "open";
@@ -197,15 +263,19 @@ in
         "codesnap.showWindowControls" = false;
         "codesnap.transparentBackground" = true;
         "colorize.decoration_type" = "underline";
+        "gitlens.showWelcomeOnInstall" = false;
+        "gitlens.showWhatsNewAfterUpgrades" = false;
+        "gitlens.telemetry.enabled" = false;
         "hexeditor.columnWidth" = 32;
         "hexeditor.defaultEndianness" = "little";
         "hexeditor.inspectorType" = "aside";
         "hexeditor.showDecodedText" = true;
-        "gitlens.showWelcomeOnInstall" = false;
-        "gitlens.showWhatsNewAfterUpgrades" = false;
+        "intelephense.telemetry.enabled" = false;
         "prettier.bracketSameLine" = true;
         "prettier.tabWidth" = 4;
         "redhat.telemetry.enabled" = false;
+        "markdown-preview-github-styles.colorTheme" = "dark";
+        "markdown-preview-enhanced.previewTheme" = "atom-dark.css";
         # Todo-tree
         "todo-tree.general.tags" = [
           "FIXME"
@@ -365,200 +435,93 @@ in
 
       extensions = with pkgs.vscode-extensions; [
         # Language Support #
-        # general
-        #christian-kohler.path-intellisense
-        #cschlosser.doxdocgen
-        codezombiech.gitignore # gitignore
-        dotjoshjohnson.xml # xml
-        foxundermoon.shell-format # shell
-        james-yu.latex-workshop # latex
-        jock.svg # svg
-        redhat.vscode-yaml # yaml
-        tamasfe.even-better-toml # toml
-        #tomoki1207.pdf # pdf
+        # binary
+        ms-vscode.hexeditor
         # c/c++
-        #ms-vscode.cpptools
         llvm-vs-code-extensions.vscode-clangd
+        ms-vscode.makefile-tools
         vadimcn.vscode-lldb
         twxs.cmake
-        # nix
-        bbenoist.nix
-        jnoortheen.nix-ide
-        # php
-        bmewburn.vscode-intelephense-client
-        # markdown
-        yzhang.markdown-all-in-one
+        # gitignore
+        codezombiech.gitignore
         # html
         formulahendry.auto-close-tag
         formulahendry.auto-rename-tag
         gencer.html-slim-scss-css-class-completion
-        # python
+        # latex
+        james-yu.latex-workshop
+        # markdown
+        yzhang.markdown-all-in-one
+        shd101wyy.markdown-preview-enhanced
+        # makefile
+        ms-vscode.makefile-tools
+        # nix
+        bbenoist.nix
+        jnoortheen.nix-ide
+        # pdf
+        #tomoki1207.pdf
+        # php
+        bmewburn.vscode-intelephense-client
+        # pyhton
         ms-python.python
+        # shell
+        foxundermoon.shell-format
+        # svg
+        jock.svg # svg
+        # toml
+        tamasfe.even-better-toml
+        # yaml
+        redhat.vscode-yaml
+        # xml
+        dotjoshjohnson.xml
 
         # Features / Advancements #
-        esbenp.prettier-vscode
-        eamodio.gitlens
-        #chouzz.vscode-better-align
-        #donjayamanne.githistory # git
-        #mhutchie.git-graph # git
-        #nonoroazoro.syncing
         adpyke.codesnap
+        eamodio.gitlens
+        esbenp.prettier-vscode
         formulahendry.code-runner
         github.copilot
         github.copilot-chat
         github.vscode-pull-request-github
         gruntfuggly.todo-tree
-        kamikillerto.vscode-colorize
         ibm.output-colorizer
-        ms-vscode.hexeditor
+        kamikillerto.vscode-colorize
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        # Advancements
-        {
-          name = "better-comments";
-          publisher = "aaron-bond";
-          version = "3.0.2";
-          sha256 = "15w1ixvp6vn9ng6mmcmv9ch0ngx8m85i1yabxdfn6zx3ypq802c5";
-        }
-        #{
-        #  name = "better-dockerfile-syntax";
-        #  publisher = "jeff-hykin";
-        #  version = "1.0.2";
-        #  #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-        #}
-        {
-          name = "better-jsonc-syntax";
-          publisher = "jeff-hykin";
-          version = "1.0.3";
-          sha256 = "KXSP65TG8OGXSJv1FTl+gBaexg6VWysQ5mHIhLf9PgM=";
-        }
-        {
-          name = "better-shellscript-syntax";
-          publisher = "jeff-hykin";
-          version = "1.6.2";
-          sha256 = "008lhsww28c6qzsih662iakzz7py34rw36445icw5ywvzv8xpb18";
-        }
-        {
-          name = "better-folding";
-          publisher = "MohammadBaqer";
-          version = "0.5.1";
-          sha256 = "vEZi+rBT8dxhi+sIPSXWpUiWmE29deWzKj7uN7T+4is=";
-        }
-        {
-          name = "bracket-select2";
-          publisher = "jhasse";
-          version = "2.1.1";
-          sha256 = "sha256-1t5y9C6793l7YPihmNFqlEjo//MpQqOwnrKhjGecn90=";
-        }
-        {
-          name = "auto-add-brackets";
-          publisher = "aliariff";
-          version = "0.12.2";
-          sha256 = "sha256-DH1NfneJTMC7BmOP4IiUG8J7BQtwOj4/k5Qn62DkZ7Q=";
-        }
-        {
-          name = "bracket-padder";
-          publisher = "viablelab";
-          version = "0.3.0";
-          sha256 = "sha256-5DfEaG8vRYcpebeBcWidaySaOgMdrDT8DiS1TmpetKg=";
-        }
-        {
-          name = "vscode-filesystemtoolbox";
-          publisher = "carlocardella";
-          version = "1.5.0";
-          sha256 = "0wfbqglpfh4afkp6ykibzhznf6s3is23k5jwiipfr4jcmjki5kbc";
-        }
-        {
-          name = "vscode-stylelint";
-          publisher = "stylelint";
-          version = "1.3.0";
-          sha256 = "1q1idvpqnzlp186kymq2h407hqnhzngxs8n414p13j0svpcrm016";
-        }
-        ## Language support
-        {
-          name = "fix-all-json";
-          publisher = "zardoy";
-          version = "0.1.5";
-          sha256 = "nkp5wdUPy+lUmc4Yg3b+NNosQgCPr6/sVad+j4Ln7Uo=";
-        }
-        {
-          name = "haltarys-shellman";
-          publisher = "Haltarys";
-          version = "5.7.1";
-          sha256 = "0gw0nd5yhq7d08mf7k78zz8xaj23qlirip3amx2jmqjav1fbz46m";
-        }
-        {
-          name = "latex-utilities";
-          publisher = "tecosaur";
-          version = "0.4.10";
-          sha256 = "sha256-tNf4sTsae+NKB7QZ5PQOXI6T14eEH0YIK/LhgWq6QHA=";
-        }
-        {
-          name = "latexindent";
-          publisher = "lenagain";
-          version = "0.0.1";
-          sha256 = "sha256-/gH64YE7bVqYdGI3GTaOYhLHIA+ndqqDEGl72jqratI=";
-        }
-        {
-          name = "linux-desktop-file";
-          publisher = "nico-castell";
-          version = "0.0.21";
-          sha256 = "0d2pfby72qczljzw1dk2rsqkqharl2sbq3g31zylz0rx73cvxb72";
-        }
-        {
-          name = "todotxt-mode";
-          publisher = "davraamides";
-          version = "1.4.32";
-          sha256 = "sha256-HICvHLL9mCKyQqEZYfOb+q8tmSS4NzxkuLle8MdEA2Y=";
-        }
-        {
-          name = "vscode-sql-formatter";
-          publisher = "adpyke";
-          version = "1.4.4";
-          sha256 = "sha256-g4oqB0zV7jB7PeA/d2e8jKfHh+Ci+us0nK2agy1EBxs=";
-        }
-        #{
-        #  name = "vscode-groovy-lint";
-        #  publisher = "nicolasvuillamy";
-        #  version = "2.0.0";
-        #  #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-        #}
-        {
-          name = "vscode-css-peek";
-          publisher = "pranaygp";
-          version = "4.4.1";
-          sha256 = "189134apvp0xj8s0bwbj9iyyzns395l7v0mlda5x0ny86zs8jzhr";
-        }
-        #{
-        #  name = "bash-debug";
-        #  publisher = "rogalmic";
-        #  version = "0.3.9";
-        #  #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-        #}
-        #{
-        #  name = "jenkins-jack";
-        #  publisher = "tabeyti";
-        #  version = "1.2.1";
-        #  #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-        #}
-        {
-          name = "yuck";
-          publisher = "eww-yuck";
-          version = "0.0.3";
-          sha256 = "DITgLedaO0Ifrttu+ZXkiaVA7Ua5RXc4jXQHPYLqrcM=";
-        }
-        ## Features
-        #{
-        #  name = "markdown-pdf";
-        #  publisher = "yzane";
-        #  version = "1.4.4";
-        #  sha256 = "Tt1UF1i7bgWm/jRP6IG5UOQcfe5YOeCx6Hxs/bnkkgE=";
-        #} # Cant download chromium: Read only filesystem!
-        {
-          name = "vscode-status-bar-format-toggle";
-          publisher = "tombonnike";
-          version = "3.1.1";
-          sha256 = "mZymHbdJ7HD6acBPomwxKyatDfkDPAA0PaZpPU+nViQ=";
-        }
+        # TODO: cschlosser.doxdocgen
+
+        # Language support #
+        # css
+        { name = "vscode-css-peek"; publisher = "pranaygp"; version = "4.4.1"; sha256 = "189134apvp0xj8s0bwbj9iyyzns395l7v0mlda5x0ny86zs8jzhr"; }
+        # desktop files
+        { name = "linux-desktop-file"; publisher = "nico-castell"; version = "0.0.21"; sha256 = "0d2pfby72qczljzw1dk2rsqkqharl2sbq3g31zylz0rx73cvxb72"; }
+        # json
+        { name = "fix-all-json"; publisher = "zardoy"; version = "0.1.5"; sha256 = "nkp5wdUPy+lUmc4Yg3b+NNosQgCPr6/sVad+j4Ln7Uo="; }
+        # latex
+        { name = "latex-utilities"; publisher = "tecosaur"; version = "0.4.10"; sha256 = "sha256-tNf4sTsae+NKB7QZ5PQOXI6T14eEH0YIK/LhgWq6QHA="; }
+        { name = "latexindent"; publisher = "lenagain"; version = "0.0.1"; sha256 = "sha256-/gH64YE7bVqYdGI3GTaOYhLHIA+ndqqDEGl72jqratI="; }
+        # shell
+        { name = "haltarys-shellman"; publisher = "Haltarys"; version = "5.7.1"; sha256 = "0gw0nd5yhq7d08mf7k78zz8xaj23qlirip3amx2jmqjav1fbz46m"; }
+        # sql
+        { name = "vscode-sql-formatter"; publisher = "adpyke"; version = "1.4.4"; sha256 = "sha256-g4oqB0zV7jB7PeA/d2e8jKfHh+Ci+us0nK2agy1EBxs="; }
+        # todo-txt
+        { name = "todotxt-mode"; publisher = "davraamides"; version = "1.4.32"; sha256 = "sha256-HICvHLL9mCKyQqEZYfOb+q8tmSS4NzxkuLle8MdEA2Y="; }
+
+        #{ name = "vscode-groovy-lint"; publisher = "nicolasvuillamy"; version = "2.0.0"; sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; }
+        #{ name = "bash-debug"; publisher = "rogalmic"; version = "0.3.9"; sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; }
+        #{ name = "jenkins-jack"; publisher = "tabeyti"; version = "1.2.1"; sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; }
+
+        # Features / Advancements
+        { name = "vscode-status-bar-format-toggle"; publisher = "tombonnike"; version = "3.1.1"; sha256 = "mZymHbdJ7HD6acBPomwxKyatDfkDPAA0PaZpPU+nViQ="; }
+        { name = "better-comments"; publisher = "aaron-bond"; version = "3.0.2"; sha256 = "15w1ixvp6vn9ng6mmcmv9ch0ngx8m85i1yabxdfn6zx3ypq802c5"; }
+        { name = "better-jsonc-syntax"; publisher = "jeff-hykin"; version = "1.0.3"; sha256 = "KXSP65TG8OGXSJv1FTl+gBaexg6VWysQ5mHIhLf9PgM="; }
+        { name = "better-shellscript-syntax"; publisher = "jeff-hykin"; version = "1.6.2"; sha256 = "008lhsww28c6qzsih662iakzz7py34rw36445icw5ywvzv8xpb18"; }
+        { name = "better-folding"; publisher = "MohammadBaqer"; version = "0.5.1"; sha256 = "vEZi+rBT8dxhi+sIPSXWpUiWmE29deWzKj7uN7T+4is="; }
+        { name = "bracket-select2"; publisher = "jhasse"; version = "2.1.1"; sha256 = "sha256-1t5y9C6793l7YPihmNFqlEjo//MpQqOwnrKhjGecn90="; }
+        { name = "auto-add-brackets"; publisher = "aliariff"; version = "0.12.2"; sha256 = "sha256-DH1NfneJTMC7BmOP4IiUG8J7BQtwOj4/k5Qn62DkZ7Q="; }
+        { name = "bracket-padder"; publisher = "viablelab"; version = "0.3.0"; sha256 = "sha256-5DfEaG8vRYcpebeBcWidaySaOgMdrDT8DiS1TmpetKg="; }
+        { name = "vscode-filesystemtoolbox"; publisher = "carlocardella"; version = "1.5.0"; sha256 = "0wfbqglpfh4afkp6ykibzhznf6s3is23k5jwiipfr4jcmjki5kbc"; }
+        { name = "vscode-stylelint"; publisher = "stylelint"; version = "1.3.0"; sha256 = "1q1idvpqnzlp186kymq2h407hqnhzngxs8n414p13j0svpcrm016"; }
+        #{ name = "better-dockerfile-syntax"; publisher = "jeff-hykin"; version = "1.0.2"; sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; }
       ];
     };
 

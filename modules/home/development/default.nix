@@ -21,6 +21,7 @@ in
       gcc # gnu c compiler
       gnome.gnome-nettool
       gnome.gucharmap # to search unicode characters
+      gnumake # makefile
       httpie # a modern command line HTTP client
       mtr # better traceroute
       nixpkgs-fmt # nix code formatter
