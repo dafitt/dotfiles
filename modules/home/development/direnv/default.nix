@@ -13,6 +13,6 @@ in
   config = mkIf cfg.enable {
     programs.direnv.enable = true;
 
-    #home.sessionVariables.DIRENV_LOG_FORMAT = ""; # silents direnv
+    home.sessionVariables.DIRENV_LOG_FORMAT = ""; # silents direnv
   };
 }

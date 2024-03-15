@@ -3,7 +3,7 @@
   custom = {
     desktops.hyprland = {
       enable = true;
-
+      monitors = [ ];
       swayidle.timeout = {
         lock = 0;
         suspend = 0;

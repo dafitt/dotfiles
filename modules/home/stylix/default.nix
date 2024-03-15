@@ -1,8 +1,6 @@
 { config, pkgs, inputs, ... }: {
 
-  imports = [
-    inputs.stylix.homeManagerModules.stylix
-  ];
+  imports = with inputs; [ stylix.homeManagerModules.stylix ];
 
   # [Documentation](https://danth.github.io/stylix/index.html)
   stylix = {
