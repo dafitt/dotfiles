@@ -59,6 +59,6 @@ in
         '' + lib.concatLines (map toCommand mutableFiles);
 
       in
-      (lib.hm.dag.entryAfter [ "linkGeneration" ] command);
+      (config.lib.dag.entryAfter [ "linkGeneration" ] command);
   };
 }
