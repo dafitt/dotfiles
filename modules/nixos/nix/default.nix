@@ -28,7 +28,7 @@ in
         trusted-users = [ "root" ];
         allowed-users = [ "@wheel" ];
       };
-      # ??? config.apps.tools.direnv.enable
+      # ???: config.apps.tools.direnv.enable
       #// (lib.optionalAttrs config.apps.tools.direnv.enable {
       #  keep-outputs = true;
       #  keep-derivations = true;
@@ -48,13 +48,13 @@ in
       # Make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
       registry."nixpkgs".flake = inputs.nixpkgs;
 
-      # ??? disable nix-channel, we use flakes instead.
+      # ???: disable nix-channel, we use flakes instead.
       #channel.enable = false;
     };
 
-    # ??? Make `nix repl '<nixpkgs>'` use the same nixpkgs as the one used by this flake.
-    #environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";
-    #nix.nixPath = [ "/etc/nix/inputs" ];
+    # Make `nix repl '<nixpkgs>'` use the same nixpkgs as the one used by this flake.
+    environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";
+    nix.nixPath = [ "/etc/nix/inputs" ];
 
     # Multitheaded and faster building (make)
     environment.variables.MAKEFLAGS = "-j$(expr $(nproc) \+ 1)";

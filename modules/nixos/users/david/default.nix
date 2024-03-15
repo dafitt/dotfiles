@@ -35,8 +35,5 @@ in
     };
 
     nix.settings.trusted-users = [ "david" ];
-
-    # ???
-    #home-manager.users."david" = mkAliasDefinitions options.custom.users.david.hm;
   };
 }

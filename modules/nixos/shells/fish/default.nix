@@ -6,7 +6,7 @@ let
   cfg = config.custom.shells.fish;
 in
 {
-  # TODO check if only one shell is enabled (mabe in system/shell/default.nix)
+  # TODO: check if only one shell is enabled (mabe in system/shell/default.nix)
   options.custom.shells.fish = with types; {
     enable = mkBoolOpt true "Enable fish shell";
   };

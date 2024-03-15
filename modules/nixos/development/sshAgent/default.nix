@@ -18,7 +18,7 @@ in
       services.sudo.sshAgentAuth = true;
     };
 
-    # TODO 24.05
+    # TODO: 24.05
     #programs.ssh.startAgent = true;
     #security.pam = {
     #  sshAgentAuth.enable = true;

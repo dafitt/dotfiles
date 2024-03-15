@@ -20,7 +20,7 @@ in
 
       settings = [{
 
-        # TODO primary monitor only ``` (lib.find (monitor: monitor.primary)  config.wayland.windowManager.hyprland.monitors;).name
+        # TODO: primary monitor only ``` (lib.find (monitor: monitor.primary)  config.wayland.windowManager.hyprland.monitors;).name
 
         layer = "top";
         position = "bottom";

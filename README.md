@@ -91,11 +91,11 @@ Explore flake options:
 flake option github:dafitt/dotfiles --pick
 ```
 
-Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake)
+Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage)
 
 ## Environment usage
 
-TODO Hyprland keybindings
+TODO: Hyprland keybindings
 
 ### Flatpaks
 
