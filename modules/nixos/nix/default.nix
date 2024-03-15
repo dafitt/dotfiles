@@ -8,31 +8,26 @@ in
 {
   options.custom.nix = with types; {
     enable = mkBoolOpt true "Whether or not to manage nix configuration.";
-    package = mkOpt package pkgs.nixUnstable "Which nix package to use.";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      nil
-      nixfmt
-      nix-index
-      nix-prefetch-git
+    environment.systemPackages = with pkgs; with inputs; [
+      snowfall-flake.packages.${system}.default
     ];
 
     nix = {
-      package = cfg.package;
+      package = pkgs.nixUnstable;
 
-      settings =
-        {
-          experimental-features = "nix-command flakes";
-          http-connections = 50;
-          warn-dirty = false;
-          log-lines = 50;
-          sandbox = "relaxed";
-          auto-optimise-store = true;
-          trusted-users = [ "root" ];
-          allowed-users = [ "@wheel" ];
-        };
+      settings = {
+        experimental-features = "nix-command flakes";
+        http-connections = 50;
+        warn-dirty = false;
+        log-lines = 50;
+        sandbox = "relaxed";
+        auto-optimise-store = true;
+        trusted-users = [ "root" ];
+        allowed-users = [ "@wheel" ];
+      };
       # ??? config.apps.tools.direnv.enable
       #// (lib.optionalAttrs config.apps.tools.direnv.enable {
       #  keep-outputs = true;

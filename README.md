@@ -1,20 +1,21 @@
-# My Snowfall🌨️ NixOS❄️ desktop flake
+# My Snowfall🌨️🍂 NixOS❄️ desktop flake
 
--   [My Snowfall🌨️ NixOS❄️ desktop flake](#my-snowfall️-nixos️-desktop-flake)
+-   [My Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-snowfall️-nixos️-desktop-flake)
     -   [Programs and Features](#programs-and-features)
-    -   [Installation](#installation)
+    -   [Flake usage](#flake-usage)
         -   [Building](#building)
         -   [Updating](#updating)
-    -   [Usage](#usage)
-        -   [Keybindings](#keybindings)
+    -   [Environment usage](#environment-usage)
         -   [Flatpaks](#flatpaks)
     -   [Structure](#structure)
     -   [Inspiration, Credits and Thanks](#inspiration-credits-and-thanks)
 
 ## Programs and Features
 
--   🔄 multiple hosts
--   🏗️ [Snowfall flake structure](https://snowfall.org/reference/lib/#flake-structure)
+-   👥 Multiple hosts
+-   🧍 Standalone home
+-   ❄️🏗️ [Snowfall-lib structure](https://snowfall.org/reference/lib/#flake-structure)
+-   ❄️💲 [Snowfall-flake commands](https://github.com/snowfallorg/flake)
 -   📦 Flatpaks
 
 | Operating System 💻 | [NixOS](https://nixos.org/)                                                                            |
@@ -32,24 +33,25 @@
 |       Networking 🌐 | networkmanager, connman                                                                                |
 |   Virtualization 🪟 | virt-manager, bottles                                                                                  |
 
-## Installation
+## Flake usage
+
+Enter development shell:
+
+```shell
+nix develop .#default
+# or
+nix dev
+```
 
 ### Building
 
-How i use my system:
-
 ```shell
-nixos-rebuild test --flake .#[host]
 nixos-rebuild switch --flake .#[host]
+# or
+flake switch
 ```
 
-How you can test my system:
-
-```shell
-nixos-rebuild build-vm --flake .#[host]
-```
-
-Build home manager standalone:
+Build home standalone:
 
 ```shell
 home-manager switch --flake .#[user]@[host]
@@ -60,12 +62,12 @@ home-manager switch --flake .#[user]@[host]
 ```shell
 nix flake update --commit-lock-file
 # or
-nix flake update [input]
+flake update
 ```
 
-## Usage
+## Environment usage
 
-### Keybindings
+TODO Hyprland keybindings
 
 ### Flatpaks
 
