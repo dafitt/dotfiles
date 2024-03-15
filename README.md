@@ -3,8 +3,8 @@
 -   [My Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-snowfall️-nixos️-desktop-flake)
     -   [Programs and Features](#programs-and-features)
     -   [Flake usage](#flake-usage)
-        -   [Building](#building)
-        -   [Updating](#updating)
+        -   [locally](#locally)
+        -   [remotely](#remotely)
     -   [Environment usage](#environment-usage)
         -   [Flatpaks](#flatpaks)
     -   [Structure](#structure)
@@ -15,7 +15,7 @@
 -   👥 Multiple hosts
 -   🧍 Standalone home
 -   ❄️🏗️ [Snowfall-lib structure](https://snowfall.org/reference/lib/#flake-structure)
--   ❄️💲 [Snowfall-flake commands](https://github.com/snowfallorg/flake)
+-   ❄️💲 [Snowfall-flake commands](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage)
 -   📦 Flatpaks
 
 | Operating System 💻 | [NixOS](https://nixos.org/)                                                                            |
@@ -35,15 +35,20 @@
 
 ## Flake usage
 
+### locally
+
 Enter development shell:
 
 ```shell
+nix-shell # to activate experimental nix commands & git
+
 nix develop .#default
 # or
-nix dev
+#nix shell github:snowfallorg/flake
+flake dev default
 ```
 
-### Building
+Building:
 
 ```shell
 nixos-rebuild switch --flake .#[host]
@@ -57,13 +62,36 @@ Build home standalone:
 home-manager switch --flake .#[user]@[host]
 ```
 
-### Updating
+Updating:
 
 ```shell
 nix flake update --commit-lock-file
 # or
 flake update
 ```
+
+### remotely
+
+```shell
+nix shell github:snowfallorg/flake
+
+flake dev github:dafitt/dotfiles#default
+flake switch github:dafitt/dotfiles#DavidDESKTOP
+```
+
+Show flake outputs:
+
+```shell
+flake show github:dafitt/dotfiles
+```
+
+Explore flake options:
+
+```shell
+flake option github:dafitt/dotfiles --pick
+```
+
+Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake)
 
 ## Environment usage
 
