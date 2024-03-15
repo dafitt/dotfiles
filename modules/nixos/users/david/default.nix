@@ -29,9 +29,7 @@ in
           "wireshark"
         ];
 
-      packages = with pkgs; [
-        inputs.home-manager.packages.${pkgs.system}.default
-      ] ++ config.users.users.root.packages;
+      packages = config.users.users.root.packages;
 
       openssh.authorizedKeys.keyFiles = [ ];
     };
