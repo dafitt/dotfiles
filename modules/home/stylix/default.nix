@@ -1,7 +1,5 @@
 { config, pkgs, inputs, ... }: {
 
-  imports = with inputs; [ stylix.homeManagerModules.stylix ];
-
   # [Documentation](https://danth.github.io/stylix/index.html)
   stylix = {
     image = ./wallpaper.png;
@@ -36,8 +34,6 @@
       serif = {
         package = pkgs.ubuntu_font_family;
         name = "Ubuntu";
-        #package = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
-        #name = "FiraCode Nerd Font";
       };
       monospace = {
         package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };

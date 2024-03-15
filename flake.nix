@@ -15,8 +15,6 @@
 
     stylix.url = "github:danth/stylix/release-23.11";
 
-    agenix.url = "github:ryantm/agenix";
-
     hyprland.url = "github:hyprwm/hyprland";
     hyprwm-contrib.url = "github:hyprwm/contrib";
     hyprland-plugins = { url = "github:hyprwm/hyprland-plugins"; inputs.hyprland.follows = "hyprland"; };
@@ -46,6 +44,7 @@
     ];
 
     homes.modules = with inputs; [
+      stylix.homeManagerModules.stylix
     ];
 
     templates = import ./templates { };
