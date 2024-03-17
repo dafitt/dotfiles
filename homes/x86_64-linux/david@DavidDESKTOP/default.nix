@@ -18,6 +18,8 @@
         suspend = 0;
       };
     };
+
+    office.enableSuite = true;
   };
 
   home.stateVersion = "23.05";

@@ -9,6 +9,8 @@
       workspace = "1";
       primary = true;
     }];
+
+    office.enableSuite = true;
   };
 
   home.stateVersion = "23.05";
