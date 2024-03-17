@@ -14,5 +14,10 @@ in
 
   config = mkIf cfg.installExtraPackages {
     home.packages = with pkgs; [ ];
+
+    services.flatpak.packages = [
+      "io.bassi.Amberol"
+      "dev.aunetx.deezer"
+    ];
   };
 }

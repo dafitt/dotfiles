@@ -27,6 +27,13 @@ in
       ghostscript # pdf tools
     ];
 
+    services.flatpak.packages = [
+      "de.bund.ausweisapp.ausweisapp2"
+      "md.obsidian.Obsidian"
+      "com.github.rajsolai.textsnatcher"
+      "org.x.Warpinator"
+    ];
+
     fonts.fontconfig.enable = true; # discover fonts and configurations installed through home.packages and nix-env
 
     # pdf reader

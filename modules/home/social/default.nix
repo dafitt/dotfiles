@@ -14,7 +14,14 @@ in
 
   config = mkIf cfg.installExtraPackages {
     home.packages = with pkgs; [
-      signal-desktop
+    ];
+
+    services.flatpak.packages = [
+      "de.shorsh.discord-screenaudio"
+      "im.riot.Riot"
+      "org.signal.Signal"
+      "io.github.mimbrero.WhatsAppDesktop"
+      "ch.threema.threema-web-desktop"
     ];
   };
 }

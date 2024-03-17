@@ -16,5 +16,9 @@ in
     home.packages = with pkgs; [
       ludusavi # Savegame manager
     ];
+
+    services.flatpak.packages = [
+      "com.valvesoftware.Steam"
+    ];
   };
 }
