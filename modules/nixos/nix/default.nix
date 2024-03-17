@@ -27,12 +27,10 @@ in
         auto-optimise-store = true;
         trusted-users = [ "root" ];
         allowed-users = [ "@wheel" ];
-      };
-      # ???: config.apps.tools.direnv.enable
-      #// (lib.optionalAttrs config.apps.tools.direnv.enable {
-      #  keep-outputs = true;
-      #  keep-derivations = true;
-      #});
+      } // (lib.optionalAttrs config.custom.development.direnv.enable {
+        keep-outputs = true;
+        keep-derivations = true;
+      });
 
       gc = {
         automatic = true;
