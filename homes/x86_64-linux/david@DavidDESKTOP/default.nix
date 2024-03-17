@@ -19,7 +19,10 @@
       };
     };
 
+    editing.enableSuite = true;
+    music.enableSuite = true;
     office.enableSuite = true;
+    social.enableSuite = true;
   };
 
   home.stateVersion = "23.05";

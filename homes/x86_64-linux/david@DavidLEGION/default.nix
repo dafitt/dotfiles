@@ -11,6 +11,7 @@
     }];
 
     office.enableSuite = true;
+    social.enableSuite = true;
   };
 
   home.stateVersion = "23.05";
