@@ -29,7 +29,6 @@ in
 
     services.flatpak.packages = [
       "de.bund.ausweisapp.ausweisapp2"
-      "md.obsidian.Obsidian"
       "com.github.rajsolai.textsnatcher"
       "org.x.Warpinator"
     ];
