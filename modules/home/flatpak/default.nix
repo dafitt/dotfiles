@@ -25,23 +25,13 @@ in
       ];
       overrides = {
         global = {
-          Context.sockets = [ "wayland" "fallback-x11" "x11" ];
+          #Context.sockets = [ "wayland" "fallback-x11" "x11" ];
           Environment = {
             XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
           };
         };
       };
     };
-
-    ## find flatpaks .desktop binary paths
-    ## $PATH
-    #home.sessionPath = [
-    #  "$HOME/.local/share/flatpak/exports/share"
-    #];
-    ## $XDG_DATA_DIRS
-    #xdg.systemDirs.data = [
-    #  "$HOME/.local/share/flatpak/exports/share"
-    #];
 
     home.shellAliases = {
       flatpak-install = "flatpak install --user --or-update --assumeyes";
