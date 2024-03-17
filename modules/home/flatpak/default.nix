@@ -47,16 +47,9 @@ in
       flatpak-install = "flatpak install --user --or-update --assumeyes";
     };
 
-    wayland.windowManager.hyprland.settings = {
-      bind = [ ];
-      exec-once = [
-        # [fix for flatpak open URLs with default browser](https://discourse.nixos.org/t/open-links-from-flatpak-via-host-firefox/15465/11)
-        "${pkgs.systemd}/bin/systemctl --user import-environment PATH && ${pkgs.systemd}/bin/systemctl --user restart xdg-desktop-portal.service"
-      ];
-      exec = [ ];
-      windowrulev2 = [
-        "float, class:whatsapp-desktop-linux, title:WhatsApp"
-      ];
-    };
+    wayland.windowManager.hyprland.settings.exec-once = [
+      # [fix for flatpak open URLs with default browser](https://discourse.nixos.org/t/open-links-from-flatpak-via-host-firefox/15465/11)
+      "${pkgs.systemd}/bin/systemctl --user import-environment PATH && ${pkgs.systemd}/bin/systemctl --user restart xdg-desktop-portal.service"
+    ];
   };
 }

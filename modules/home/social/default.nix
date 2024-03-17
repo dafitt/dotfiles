@@ -23,5 +23,13 @@ in
       "io.github.mimbrero.WhatsAppDesktop"
       "ch.threema.threema-web-desktop"
     ];
+
+    wayland.windowManager.hyprland.settings = {
+      bind = [ ];
+      exec-once = [ ];
+      windowrulev2 = [
+        "float, class:whatsapp-desktop-linux, title:WhatsApp"
+      ];
+    };
   };
 }
