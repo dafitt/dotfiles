@@ -10,5 +10,6 @@
     desktops.hyprland.enable = true;
     flatpak.enable = true;
     networking.connman.enable = true;
+    syncthing.openFirewall = true;
   };
 }

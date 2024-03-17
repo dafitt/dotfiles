@@ -32,6 +32,7 @@
     fwupd.enable = true;
     gaming.gamemode.enable = true;
     networking.networkmanager.enable = true;
+    syncthing.openFirewall = true;
     virtualization.virt-manager.enable = true;
   };
 }

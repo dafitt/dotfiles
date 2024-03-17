@@ -27,6 +27,7 @@
     flatpak.enable = true;
     fwupd.enable = true;
     networking.connman.enable = true;
+    syncthing.openFirewall = true;
     virtualization.virt-manager.enable = true;
   };
 }
