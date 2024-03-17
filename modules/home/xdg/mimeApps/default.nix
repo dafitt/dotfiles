@@ -7,7 +7,7 @@ let
 in
 {
   options.custom.xdg.mimeApps = with types; {
-    enable = mkBoolOpt true "Whether or not to set default applications for mime types";
+    enable = mkBoolOpt false "Whether or not to set default applications for mime types";
     archivesApp = mkOption {
       type = str;
       default = "ark.desktop";
