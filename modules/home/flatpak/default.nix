@@ -12,6 +12,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    # https://github.com/gmodena/nix-flatpak
     services.flatpak = {
       enable = true;
       remotes = [
