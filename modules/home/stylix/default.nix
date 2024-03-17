@@ -29,8 +29,8 @@
       size = 24;
     };
 
-    fonts = {
-      sansSerif = config.stylix.fonts.serif;
+    fonts = rec {
+      sansSerif = serif;
       serif = {
         package = pkgs.ubuntu_font_family;
         name = "Ubuntu";

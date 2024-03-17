@@ -22,12 +22,12 @@ in
   ];
 
   options.custom.desktops.hyprland = with types; {
-    enable = mkBoolOpt (osCfg.enable or false) "Enable Hyprland configuration";
+    enable = mkBoolOpt (osCfg.enable or false) "Enable the Hyprland desktop";
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast
+    home.packages = with pkgs; with inputs; [
+      hyprwm-contrib.packages.${system}.grimblast
       hyprpicker # color picker
     ];
 
@@ -235,8 +235,8 @@ in
 
           # Screenshots
           ", PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast copysave output ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK
-          "ALT, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave active ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # WINDOW
-          "CONTROL, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze --cursor copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # AREA
+          "ALT, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze --cursor copysave active ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # WINDOW
+          "CONTROL, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # AREA
           "ALT SUPER, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze save area - | ${pkgs.swappy}/bin/swappy -f - -o ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # EDIT
           "CONTROL SHIFT, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave screen ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SCREEN
 

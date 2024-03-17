@@ -32,6 +32,8 @@ in
         # Workbench
         "workbench.colorCustomizations" = {
           "[Stylix]" = {
+            # TODO: 24.05
+
             # improve focus colors
             "focusBorder" = "#${config.lib.stylix.colors.base0D}";
             #"list.inactiveSelectionBackground" = "#${config.lib.stylix.colors.base00}";
