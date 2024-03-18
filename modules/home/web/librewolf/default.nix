@@ -7,7 +7,7 @@ let
 in
 {
   options.custom.web.librewolf = with types; {
-    enable = mkBoolOpt false "Enable the librewolf web browser";
+    enable = mkBoolOpt config.custom.web.enableSuite "Enable the librewolf web browser";
   };
 
   config = mkIf cfg.enable {

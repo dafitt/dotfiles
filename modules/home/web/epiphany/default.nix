@@ -7,7 +7,7 @@ let
 in
 {
   options.custom.web.epiphany = with types; {
-    enable = mkBoolOpt false "Enable the epiphany web browser";
+    enable = mkBoolOpt config.custom.web.enableSuite "Enable the epiphany web browser";
   };
 
   config = mkIf cfg.enable {
