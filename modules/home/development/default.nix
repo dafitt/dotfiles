@@ -29,5 +29,10 @@ in
       wev # tool for keyboard input
       yed # Drawing flowcharts
     ];
+
+    services.flatpak.packages = [
+      "nl.hjdskes.gcolor3"
+      "com.belmoussaoui.ashpd.demo"
+    ];
   };
 }

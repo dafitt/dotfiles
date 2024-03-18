@@ -11,36 +11,36 @@ in
     enable = mkBoolOpt (osCfg.enable or true) "Enable flatpak support";
   };
 
-  config = mkIf cfg.enable
-    {
-      # find flatpaks .desktop binary paths
-      # $PATH
-      home.sessionPath = [
-        "$HOME/.local/share/flatpak/exports/share"
+  config = mkIf cfg.enable {
+    # https://github.com/gmodena/nix-flatpak
+    services.flatpak = {
+      enable = true;
+      remotes = [
+        { name = "flathub"; location = "https://dl.flathub.org/repo/flathub.flatpakrepo"; }
+        { name = "flathub-beta"; location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo"; }
       ];
-      # $XDG_DATA_DIRS
-      xdg.systemDirs.data = [
-        "$HOME/.local/share/flatpak/exports/share"
+      packages = [
+        #$ flatpak list
+        #{ appId = ""; origin = "flathub"; }
+        "com.github.tchx84.Flatseal"
       ];
-
-      home.shellAliases = {
-        flatpak-install = "flatpak install --user --or-update --assumeyes";
-      };
-
-      wayland.windowManager.hyprland.settings = {
-        bind = [ ];
-        exec-once = [
-          # [fix for flatpak open URLs with default browser](https://discourse.nixos.org/t/open-links-from-flatpak-via-host-firefox/15465/11)
-          "${pkgs.systemd}/bin/systemctl --user import-environment PATH && ${pkgs.systemd}/bin/systemctl --user restart xdg-desktop-portal.service"
-
-          "[workspace 3 silent;noinitialfocus] ${pkgs.flatpak}/bin/flatpak run md.obsidian.Obsidian"
-        ];
-        exec = [ ];
-        windowrulev2 = [
-          "bordercolor rgb(1887d8), class:steam"
-          "float, class:steam, title:(Friends List)|(Settings)"
-          "float, class:whatsapp-desktop-linux, title:WhatsApp"
-        ];
+      overrides = {
+        global = {
+          #Context.sockets = [ "wayland" "fallback-x11" "x11" ];
+          Environment = {
+            XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
+          };
+        };
       };
     };
+
+    home.shellAliases = {
+      flatpak-install = "flatpak install --user --or-update --assumeyes";
+    };
+
+    wayland.windowManager.hyprland.settings.exec-once = [
+      # [fix for flatpak open URLs with default browser](https://discourse.nixos.org/t/open-links-from-flatpak-via-host-firefox/15465/11)
+      "${pkgs.systemd}/bin/systemctl --user import-environment PATH && ${pkgs.systemd}/bin/systemctl --user restart xdg-desktop-portal.service"
+    ];
+  };
 }

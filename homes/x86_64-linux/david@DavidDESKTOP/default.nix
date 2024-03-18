@@ -25,5 +25,7 @@
     social.enableSuite = true;
   };
 
+  services.flatpak.overrides."com.valvesoftware.Steam".Context.filesystems = [ "/mnt/games" ];
+
   home.stateVersion = "23.05";
 }

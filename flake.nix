@@ -20,6 +20,8 @@
     hyprland-plugins = { url = "github:hyprwm/hyprland-plugins"; inputs.hyprland.follows = "hyprland"; };
 
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.3.0";
   };
 
   # [Snowfall framework](https://snowfall.org/guides/lib/quickstart/)
@@ -47,6 +49,7 @@
 
     homes.modules = with inputs; [
       stylix.homeManagerModules.stylix
+      nix-flatpak.homeManagerModules.nix-flatpak
     ];
 
     templates = import ./templates { };
