@@ -15,7 +15,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = [
-        "ALT SUPER, A, exec, ${pkgs.pavucontrol}/bin/pavucontrol"
+        "SUPER_ALT, A, exec, ${pkgs.pavucontrol}/bin/pavucontrol"
       ];
       exec-once = [ ];
       exec = [ ];

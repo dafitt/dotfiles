@@ -16,7 +16,7 @@ in
     home.packages = with pkgs; [ _1password-gui ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = [ "ALT SUPER, PERIOD, exec, ${pkgs._1password-gui}/bin/1password" ];
+      bind = [ "SUPER_ALT, PERIOD, exec, ${pkgs._1password-gui}/bin/1password" ];
       windowrulev2 = [
         "float, class:1Password, title:1Password"
         "size 650 620, class:1Password, title:1Password"

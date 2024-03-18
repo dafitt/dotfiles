@@ -20,7 +20,7 @@ in
     ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = [ "ALT SUPER, N, exec, ${pkgs.connman-gtk}/bin/connman-gtk" ];
+      bind = [ "SUPER_ALT, N, exec, ${pkgs.connman-gtk}/bin/connman-gtk" ];
       exec-once = [ ];
       exec = [ ];
       windowrulev2 = [ "float, class:connman-gtk" ];

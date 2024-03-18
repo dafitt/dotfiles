@@ -50,7 +50,7 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = [ "ALT SUPER, M, exec, ${pkgs.thunderbird}/bin/thunderbird" ];
+      bind = [ "SUPER_ALT, M, exec, ${pkgs.thunderbird}/bin/thunderbird" ];
     };
   };
 }

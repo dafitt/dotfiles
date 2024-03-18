@@ -24,7 +24,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = [
-        "ALT SUPER, V, exec, ${pkgs.kitty}/bin/kitty --class=clipboard -e sh -c 'cliphist list | fzf | cliphist decode | wl-copy'"
+        "SUPER_ALT, V, exec, ${pkgs.kitty}/bin/kitty --class=clipboard -e sh -c 'cliphist list | fzf | cliphist decode | wl-copy'"
       ];
       exec-once = [
         "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch cliphist store --max-items 10" # listen for clipboard changes on your keyboard and write it to the history

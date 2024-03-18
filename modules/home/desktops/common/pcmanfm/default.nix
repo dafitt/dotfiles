@@ -50,7 +50,7 @@ in
     '';
 
     wayland.windowManager.hyprland.settings = {
-      bind = [ "ALT SUPER, F, exec, ${pkgs.pcmanfm}/bin/pcmanfm" ];
+      bind = [ "SUPER_ALT, F, exec, ${pkgs.pcmanfm}/bin/pcmanfm" ];
     };
   };
 }

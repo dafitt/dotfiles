@@ -146,10 +146,10 @@ in
           # https://wiki.hyprland.org/Configuring/Binds/
           # https://wiki.hyprland.org/Configuring/Dispatchers/
 
-          "CONTROL SUPER, Q, exit," # Exit Hyprland all together (force quit Hyprland)
-          "CONTROL SUPER, R, exec, hyprctl reload && forcerendererreload"
-          "CONTROL SUPER, ODIAERESIS, exec, poweroff --reboot" # quick-reboot
-          "CONTROL SUPER, ADIAERESIS, exec, poweroff" # quick-poweroff
+          "SUPER_CONTROL, Q, exit," # Exit Hyprland all together (force quit Hyprland)
+          "SUPER_CONTROL, R, exec, hyprctl reload && forcerendererreload"
+          "SUPER_CONTROL, ODIAERESIS, exec, poweroff --reboot" # quick-reboot
+          "SUPER_CONTROL, ADIAERESIS, exec, poweroff" # quick-poweroff
           "SUPER, UDIAERESIS, exec, systemctl suspend" # quick-suspend
           "SUPER, Q, exec, wlogout --protocol layer-shell" # show the logout window
 
@@ -158,6 +158,8 @@ in
           "SUPER, X, killactive," # close the active window
           "SUPER, P, pseudo," # dwindle
           "SUPER, S, togglesplit," # dwindle
+          "SUPER, H, swapnext,"
+          "SUPER_SHIFT, H, swapnext, prev"
           "SUPER, F, fullscreen,"
           "SUPER, A, fullscreen, 1" # maximize only
           "SUPER, V, togglefloating," # Allow a window to float
@@ -170,16 +172,16 @@ in
           "SUPER, down, movefocus, d"
           "SUPER, Tab, cyclenext,"
           # move
-          "SHIFT SUPER, left, movewindow, l"
-          "SHIFT SUPER, right, movewindow, r"
-          "SHIFT SUPER, up, movewindow, u"
-          "SHIFT SUPER, down, movewindow, d"
-          "SHIFT SUPER, Tab, swapnext,"
+          "SUPER_SHIFT, left, movewindow, l"
+          "SUPER_SHIFT, right, movewindow, r"
+          "SUPER_SHIFT, up, movewindow, u"
+          "SUPER_SHIFT, down, movewindow, d"
+          "SUPER_SHIFT, Tab, swapnext,"
           # resize
-          "CTRL SUPER, left, resizeactive, -100 0"
-          "CTRL SUPER, right, resizeactive, 100 0"
-          "CTRL SUPER, up, resizeactive, 0 -100"
-          "CTRL SUPER, down, resizeactive, 0 100"
+          "SUPER_CTRL, left, resizeactive, -100 0"
+          "SUPER_CTRL, right, resizeactive, 100 0"
+          "SUPER_CTRL, up, resizeactive, 0 -100"
+          "SUPER_CTRL, down, resizeactive, 0 100"
 
           # Switch workspaces with
           "SUPER, 1, workspace, 1"
@@ -208,28 +210,28 @@ in
           "SUPER, backspace, workspace, previous"
 
           # Move active window to a workspace
-          "SHIFT SUPER, 1, movetoworkspacesilent, 1"
-          "SHIFT SUPER, 2, movetoworkspacesilent, 2"
-          "SHIFT SUPER, 3, movetoworkspacesilent, 3"
-          "SHIFT SUPER, 4, movetoworkspacesilent, 4"
-          "SHIFT SUPER, 5, movetoworkspacesilent, 5"
-          "SHIFT SUPER, 6, movetoworkspacesilent, 6"
-          "SHIFT SUPER, 7, movetoworkspacesilent, 7"
-          "SHIFT SUPER, 8, movetoworkspacesilent, 8"
-          "SHIFT SUPER, 9, movetoworkspacesilent, 9"
-          "SHIFT SUPER, 0, movetoworkspacesilent, 10"
-          "SHIFT SUPER, code:87, movetoworkspacesilent, 1" # Numpad
-          "SHIFT SUPER, code:88, movetoworkspacesilent, 2" # Numpad
-          "SHIFT SUPER, code:89, movetoworkspacesilent, 3" # Numpad
-          "SHIFT SUPER, code:83, movetoworkspacesilent, 4" # Numpad
-          "SHIFT SUPER, code:84, movetoworkspacesilent, 5" # Numpad
-          "SHIFT SUPER, code:85, movetoworkspacesilent, 6" # Numpad
-          "SHIFT SUPER, code:79, movetoworkspacesilent, 7" # Numpad
-          "SHIFT SUPER, code:80, movetoworkspacesilent, 8" # Numpad
-          "SHIFT SUPER, code:81, movetoworkspacesilent, 9" # Numpad
-          "SHIFT SUPER, code:91, movetoworkspacesilent, 10" # Numpad
-          "SHIFT SUPER, code:86, movetoworkspacesilent, +1" # Numpad +
-          "SHIFT SUPER, code:82, movetoworkspacesilent, -1" # Numpad -
+          "SUPER_SHIFT, 1, movetoworkspacesilent, 1"
+          "SUPER_SHIFT, 2, movetoworkspacesilent, 2"
+          "SUPER_SHIFT, 3, movetoworkspacesilent, 3"
+          "SUPER_SHIFT, 4, movetoworkspacesilent, 4"
+          "SUPER_SHIFT, 5, movetoworkspacesilent, 5"
+          "SUPER_SHIFT, 6, movetoworkspacesilent, 6"
+          "SUPER_SHIFT, 7, movetoworkspacesilent, 7"
+          "SUPER_SHIFT, 8, movetoworkspacesilent, 8"
+          "SUPER_SHIFT, 9, movetoworkspacesilent, 9"
+          "SUPER_SHIFT, 0, movetoworkspacesilent, 10"
+          "SUPER_SHIFT, code:87, movetoworkspacesilent, 1" # Numpad
+          "SUPER_SHIFT, code:88, movetoworkspacesilent, 2" # Numpad
+          "SUPER_SHIFT, code:89, movetoworkspacesilent, 3" # Numpad
+          "SUPER_SHIFT, code:83, movetoworkspacesilent, 4" # Numpad
+          "SUPER_SHIFT, code:84, movetoworkspacesilent, 5" # Numpad
+          "SUPER_SHIFT, code:85, movetoworkspacesilent, 6" # Numpad
+          "SUPER_SHIFT, code:79, movetoworkspacesilent, 7" # Numpad
+          "SUPER_SHIFT, code:80, movetoworkspacesilent, 8" # Numpad
+          "SUPER_SHIFT, code:81, movetoworkspacesilent, 9" # Numpad
+          "SUPER_SHIFT, code:91, movetoworkspacesilent, 10" # Numpad
+          "SUPER_SHIFT, code:86, movetoworkspacesilent, +1" # Numpad +
+          "SUPER_SHIFT, code:82, movetoworkspacesilent, -1" # Numpad -
           "SUPER, mouse_down, workspace, -1"
           "SUPER, mouse_up, workspace, +1"
 
@@ -241,21 +243,21 @@ in
           "ALT CONTROL, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze save area - | ${pkgs.swappy}/bin/swappy -f - -o ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA | EDIT
 
           # some small helper programs
-          "ALT SUPER, U, exec, ${pkgs.gnome.gnome-characters}/bin/gnome-characters"
-          "ALT SUPER, K, exec, ${pkgs.hyprpicker}/bin/hyprpicker"
+          "SUPER_ALT, U, exec, ${pkgs.gnome.gnome-characters}/bin/gnome-characters"
+          "SUPER_ALT, K, exec, ${pkgs.hyprpicker}/bin/hyprpicker"
 
         ] ++ (with config.home.sessionVariables; [
 
           # Default programs
           "SUPER, RETURN, exec, ${TERMINAL}"
           "SUPER, F1, exec, ${BROWSER}"
-          "ALT SUPER, B, exec, ${BROWSER}"
+          "SUPER_ALT, B, exec, ${BROWSER}"
           "SUPER, F2, exec, ${TERMINAL} -e ${TOP}"
-          "ALT SUPER, Z, exec, ${TERMINAL} -e ${TOP}"
+          "SUPER_ALT, Z, exec, ${TERMINAL} -e ${TOP}"
           "SUPER, F3, exec, ${TERMINAL} -e ${EDITOR}"
-          "ALT SUPER, T, exec, ${TERMINAL} -e ${EDITOR}"
+          "SUPER_ALT, T, exec, ${TERMINAL} -e ${EDITOR}"
           "SUPER, F4, exec, ${GDITOR}"
-          "ALT SUPER, G, exec, ${GDITOR}"
+          "SUPER_ALT, G, exec, ${GDITOR}"
         ]);
 
         # Bind: mouse binds
