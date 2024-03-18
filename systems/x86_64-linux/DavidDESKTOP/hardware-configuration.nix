@@ -11,13 +11,13 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/445461ec-8b85-4984-9c4f-35a708292704";
+    device = "/dev/disk/by-uuid/11daefac-f52c-49e6-bd46-92b6ad0c648d";
     fsType = "btrfs";
     options = [ "subvol=@" ];
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/55A1-5FB4";
+    device = "/dev/disk/by-uuid/A5A4-B759";
     fsType = "vfat";
   };
 
@@ -34,5 +34,5 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }
