@@ -15,6 +15,8 @@ in
       snowfall-flake.packages.${system}.default
     ];
 
+    programs.git.enable = true;
+
     nix = {
       settings = {
         experimental-features = "nix-command flakes";
