@@ -18,6 +18,7 @@
     hyprland.url = "github:hyprwm/hyprland";
     hyprwm-contrib.url = "github:hyprwm/contrib";
     hyprland-plugins = { url = "github:hyprwm/hyprland-plugins"; inputs.hyprland.follows = "hyprland"; };
+    hyprkeys = { url = "github:hyprland-community/hyprkeys"; inputs.nixpkgs.follows = "nixpkgs"; };
 
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; };
 

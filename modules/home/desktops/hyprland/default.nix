@@ -28,6 +28,7 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; with inputs; [
       hyprwm-contrib.packages.${system}.grimblast
+      hyprkeys.packages.${system}.hyprkeys # A simple, fast and scriptable keybind inspection utility
       hyprpicker # color picker
     ];
 
@@ -142,7 +143,7 @@ in
           scroll_event_delay = 150;
         };
 
-        bind = [
+        bind = with pkgs; with inputs; [
           # https://wiki.hyprland.org/Configuring/Binds/
           # https://wiki.hyprland.org/Configuring/Dispatchers/
 
@@ -236,15 +237,15 @@ in
           "SUPER, mouse_up, workspace, +1"
 
           # Screenshots
-          ", PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast copysave output ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN
-          "CONTROL, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA
+          ", PRINT, exec, ${hyprwm-contrib.packages.${system}.grimblast}/bin/grimblast copysave output ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN
+          "CONTROL, PRINT, exec, ${hyprwm-contrib.packages.${system}.grimblast}/bin/grimblast --notify --freeze copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA
           # TODO: 24.05 [satty](https://github.com/gabm/satty?tab=readme-ov-file#wlroots-based-compositors-sway-hyprland-wayfire-river-)
-          "ALT, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze --cursor save output - | ${pkgs.swappy}/bin/swappy -f - -o ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN | EDIT
-          "ALT CONTROL, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze save area - | ${pkgs.swappy}/bin/swappy -f - -o ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA | EDIT
+          "ALT, PRINT, exec, ${hyprwm-contrib.packages.${system}.grimblast}/bin/grimblast --notify --freeze --cursor save output - | ${swappy}/bin/swappy -f - -o ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN | EDIT
+          "ALT CONTROL, PRINT, exec, ${hyprwm-contrib.packages.${system}.grimblast}/bin/grimblast --freeze save area - | ${swappy}/bin/swappy -f - -o ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA | EDIT
 
           # some small helper programs
-          "SUPER_ALT, U, exec, ${pkgs.gnome.gnome-characters}/bin/gnome-characters"
-          "SUPER_ALT, K, exec, ${pkgs.hyprpicker}/bin/hyprpicker"
+          "SUPER_ALT, U, exec, ${gnome.gnome-characters}/bin/gnome-characters"
+          "SUPER_ALT, K, exec, ${hyprpicker}/bin/hyprpicker | ${wl-clipboard}/bin/wl-copy" # TODO: 24.05 replace wl-clipboard-rs
 
         ] ++ (with config.home.sessionVariables; [
 
