@@ -2,11 +2,11 @@
 
 -   [My Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-snowfall️-nixos️-desktop-flake)
     -   [Programs and Features](#programs-and-features)
+    -   [Installation on a new host](#installation-on-a-new-host)
     -   [Flake usage](#flake-usage)
         -   [locally](#locally)
         -   [remotely](#remotely)
     -   [Environment usage](#environment-usage)
-        -   [Flatpaks](#flatpaks)
     -   [Structure](#structure)
     -   [Inspiration, Credits and Thanks](#inspiration-credits-and-thanks)
 
@@ -16,7 +16,7 @@
 -   🧍 Standalone home
 -   ❄️🏗️ [Snowfall-lib structure](https://snowfall.org/reference/lib/#flake-structure)
 -   ❄️💲 [Snowfall-flake commands](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage)
--   📦 Flatpaks
+-   📦 [Declarative flatpaks](https://github.com/gmodena/nix-flatpak)
 
 | Operating System 💻 | [NixOS](https://nixos.org/)                                                                            |
 | ------------------: | :----------------------------------------------------------------------------------------------------- |
@@ -32,6 +32,24 @@
 |          Theming 🎨 | [Stylix](https://github.com/danth/stylix) - modified [Catppuccin](https://github.com/catppuccin) Mocha |
 |       Networking 🌐 | networkmanager, connman                                                                                |
 |   Virtualization 🪟 | virt-manager, bottles                                                                                  |
+
+## Installation on a new host
+
+1. Install [NixOS](https://nixos.org/download/)
+2. `git clone https://github.com/dafitt/dotfiles.git`
+    1. Add a new system _`/systems/x86_64-linux/[host]/default.nix`_
+    2. Copy, import and commit _`hardware-configuration.nix`_!
+3. Remove files for home-manager: `rm ~/.config/user-dirs.dirs ~/.config/fish/config.fish ~/.config/hypr/hyprland.conf`
+4. `sudo nixos-rebuild boot --flake .#[host]`
+    - _NOTE: First install: Flatpaks need very long: A Timeout is normal!_
+    1. Check home-manager: `systemctl status home-manager-david.service`
+5. `reboot`
+6. Personal setup:
+    1. [Syncthing](https://localhost:8384/) setup
+    2. Firefox Sync Login
+        1. NoScript
+        2. SimpleTabsGroup
+        3. 1Password
 
 ## Flake usage
 
@@ -102,10 +120,6 @@ Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=r
 ## Environment usage
 
 TODO: Hyprland keybindings
-
-### Flatpaks
-
-Edit and run the script `modules/home/flatpak/flatpaks.sh` to add the flathub repository and install some specified flatpaks.
 
 ## Structure
 

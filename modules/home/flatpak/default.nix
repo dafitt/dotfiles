@@ -12,7 +12,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    # https://github.com/gmodena/nix-flatpak
+    # https://github.com/gmodena/nix-flatpak?tab=readme-ov-file#getting-started
     services.flatpak = {
       enable = true;
       remotes = [
