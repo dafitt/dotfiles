@@ -70,6 +70,12 @@ nix flake update --commit-lock-file
 flake update
 ```
 
+Rollback:
+
+```shell
+nixos-rebuild switch --rollback
+```
+
 ### remotely
 
 ```shell
