@@ -38,6 +38,7 @@ in
 
       # Make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
       registry."nixpkgs".flake = inputs.nixpkgs;
+      registry."unstable".flake = inputs.unstable;
 
       # ???: disable nix-channel, we use flakes instead.
       #channel.enable = false;
