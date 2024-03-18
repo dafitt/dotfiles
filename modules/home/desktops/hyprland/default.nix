@@ -157,7 +157,7 @@ in
           "SUPER, DELETE, exec, hyprctl kill" # kill a window by clicking it
           "SUPER, X, killactive," # close the active window
           "SUPER, P, pseudo," # dwindle
-          "SUPER, J, togglesplit," # dwindle
+          "SUPER, S, togglesplit," # dwindle
           "SUPER, F, fullscreen,"
           "SUPER, A, fullscreen, 1" # maximize only
           "SUPER, V, togglefloating," # Allow a window to float
