@@ -234,11 +234,11 @@ in
           "SUPER, mouse_up, workspace, +1"
 
           # Screenshots
-          ", PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast copysave output ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK
-          "ALT, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze --cursor copysave active ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # WINDOW
-          "CONTROL, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # AREA
-          "ALT SUPER, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze save area - | ${pkgs.swappy}/bin/swappy -f - -o ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # EDIT
-          "CONTROL SHIFT, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave screen ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SCREEN
+          ", PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast copysave output ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN
+          "CONTROL, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA
+          # TODO: 24.05 [satty](https://github.com/gabm/satty?tab=readme-ov-file#wlroots-based-compositors-sway-hyprland-wayfire-river-)
+          "ALT, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --notify --freeze --cursor save output - | ${pkgs.swappy}/bin/swappy -f - -o ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN | EDIT
+          "ALT CONTROL, PRINT, exec, ${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast --freeze save area - | ${pkgs.swappy}/bin/swappy -f - -o ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA | EDIT
 
           # some small helper programs
           "ALT SUPER, U, exec, ${pkgs.gnome.gnome-characters}/bin/gnome-characters"
