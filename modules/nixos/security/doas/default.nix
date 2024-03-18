@@ -11,22 +11,16 @@ in
   };
 
   config = mkIf cfg.enable {
-    # Disable sudo
-    security.sudo.enable = false;
-
-    # Enable and configure `doas`.
+    #security.sudo.enable = false;
     security.doas = {
       enable = true;
-      extraRules = [
-        {
-          users = [ "david" ];
-          noPass = true;
-          keepEnv = true;
-        }
-      ];
+      extraRules = [{
+        users = [ "david" ];
+        noPass = true;
+        keepEnv = true;
+      }];
     };
 
-    # Add an alias to the shell for backward-compat and convenience.
-    environment.shellAliases = { sudo = "doas"; };
+    #environment.shellAliases = { sudo = "doas"; };
   };
 }

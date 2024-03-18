@@ -16,8 +16,6 @@ in
     ];
 
     nix = {
-      package = pkgs.nixUnstable;
-
       settings = {
         experimental-features = "nix-command flakes";
         http-connections = 50;
@@ -37,11 +35,6 @@ in
         dates = "weekly";
         options = "--delete-older-than 7d";
       };
-
-      # flake-utils-plus
-      generateRegistryFromInputs = true;
-      generateNixPathFromInputs = true;
-      linkInputs = true;
 
       # Make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
       registry."nixpkgs".flake = inputs.nixpkgs;
