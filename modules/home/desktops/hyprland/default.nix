@@ -288,6 +288,7 @@ in
         # only on launch
         exec-once = [
           #"${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" # start polkit manually (isn't done automatically)
+          "${pkgs.wluma}/bin/wluma"
         ];
 
         # only on each reload
