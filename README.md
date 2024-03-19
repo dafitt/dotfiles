@@ -7,7 +7,9 @@
         -   [locally](#locally)
         -   [remotely](#remotely)
     -   [Environment usage](#environment-usage)
+        -   [Hyprland keybindings](#hyprland-keybindings)
     -   [Structure](#structure)
+        -   [You want to build from here?](#you-want-to-build-from-here)
     -   [Inspiration, Credits and Thanks](#inspiration-credits-and-thanks)
 
 ## Programs and Features
@@ -50,6 +52,7 @@
         1. NoScript
         2. SimpleTabsGroup
         3. 1Password
+    3. Volume Control: Set standard audio output
 
 ## Flake usage
 
@@ -119,7 +122,15 @@ Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=r
 
 ## Environment usage
 
-TODO: Hyprland keybindings
+### Hyprland keybindings
+
+<kbd>SUPER_CONTROL</kbd> - Hyprland control
+
+<kbd>SUPER</kbd> - Window control
+
+<kbd>SUPER_ALT</kbd> - Applications
+
+<kbd>SHIFT</kbd> - reverse, grab, move
 
 ## Structure
 
@@ -154,20 +165,20 @@ Last but no least, to keep things simple I put some very specific configuration 
 
 What you have to customize:
 
-- [ ] _`modules/nixos/time/default.nix`_: timezone
-- [ ] _`modules/nixos/locale/default.nix`_: locale
-- [ ] _`modules/nixos/users/main/default.nix`_: username
-- [ ] _`modules/home/office/thunderbird/default.nix`_
-- [ ] _`systems/[architecure]/[host]/default.nix`_: obviously your own host
-    - [ ] `hardware-configuration.nix`
-    - [ ] maybe some specific `configuration.nix`
-- [ ] _`homes/[architecure]/[user]@[host]/default.nix`_
+-   [ ] _`modules/nixos/time/default.nix`_: timezone
+-   [ ] _`modules/nixos/locale/default.nix`_: locale
+-   [ ] _`modules/nixos/users/main/default.nix`_: username
+-   [ ] _`modules/home/office/thunderbird/default.nix`_
+-   [ ] _`systems/[architecure]/[host]/default.nix`_: obviously your own host
+    -   [ ] `hardware-configuration.nix`
+    -   [ ] maybe some specific `configuration.nix`
+-   [ ] _`homes/[architecure]/[user]@[host]/default.nix`_
 
 Optionally:
 
-- [ ] _`modules/home/desktops/hyprland/default.nix`_: familiar keybindings
-- [ ] _`modules/home/stylix/default.nix`_: custom base16 theme / icon theme
-- [ ] Packages and programs you need
+-   [ ] _`modules/home/desktops/hyprland/default.nix`_: familiar keybindings
+-   [ ] _`modules/home/stylix/default.nix`_: custom base16 theme / icon theme
+-   [ ] Packages and programs you need
 
 ## Inspiration, Credits and Thanks
 
