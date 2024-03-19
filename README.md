@@ -141,12 +141,33 @@ My systems and homes are assembled using custom modules. Any custom module has a
     -   social
     -   virtualization
     -   web
+-   Firmly integrated, non-disableable
+    -   stylix
 
-Modules in _`/modules/nixos`_ are built with the standard `nixos-rebuild` command; _`/modules/home`_ with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "[user]@[host]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _home-manager-[user].service_).
+Modules in _`modules/nixos`_ are built with the standard `nixos-rebuild` command; _`modules/home`_ with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "[user]@[host]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _home-manager-[user].service_).
 
-Some _`/modules/home`_ are automatically activated, if the sister module in _`/modules/nixos`_ is enabled e.g. `options.custom.gaming.enableSuite = mkBoolOpt (osConfig.custom.gaming.enableSuite or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
+Some _`modules/home`_ are automatically activated, if the sister module in _`modules/nixos`_ is enabled e.g. `options.custom.gaming.enableSuite = mkBoolOpt (osConfig.custom.gaming.enableSuite or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
 
 Last but no least, to keep things simple I put some very specific configuration directly into the systems themselves.
+
+### You want to build from here?
+
+What you have to customize:
+
+- [ ] _`modules/nixos/time/default.nix`_: timezone
+- [ ] _`modules/nixos/locale/default.nix`_: locale
+- [ ] _`modules/nixos/users/main/default.nix`_: username
+- [ ] _`modules/home/office/thunderbird/default.nix`_
+- [ ] _`systems/[architecure]/[host]/default.nix`_: obviously your own host
+    - [ ] `hardware-configuration.nix`
+    - [ ] maybe some specific `configuration.nix`
+- [ ] _`homes/[architecure]/[user]@[host]/default.nix`_
+
+Optionally:
+
+- [ ] _`modules/home/desktops/hyprland/default.nix`_: familiar keybindings
+- [ ] _`modules/home/stylix/default.nix`_: custom base16 theme / icon theme
+- [ ] Packages and programs you need
 
 ## Inspiration, Credits and Thanks
 
