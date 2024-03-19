@@ -21,6 +21,7 @@
   ];
 
   custom = {
+    appimage.enable = true;
     bootloader.systemd-boot.enable = true;
     desktops = {
       gnome.enable = true;
