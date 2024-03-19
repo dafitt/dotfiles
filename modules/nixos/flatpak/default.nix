@@ -18,7 +18,7 @@ in
     xdg.portal = {
       enable = true;
       extraPortals = mkIf (!config.services.xserver.desktopManager.gnome.enable) [ pkgs.xdg-desktop-portal-gtk ];
-      config.common.default = [ "gtk" ];
+      config.common.default = [ "gtk" "gnome" ];
     };
   };
 }
