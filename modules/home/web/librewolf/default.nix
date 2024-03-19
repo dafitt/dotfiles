@@ -139,7 +139,7 @@ in
         "urlclassifier.features.socialtracking.skipURLs" = "*.instagram.com, *.twitter.com, *.twimg.com";
         "security.OCSP.enabled" = 0;
         "security.OCSP.require" = false;
-        #"privacy.resistFingerprinting" = false; # problems firefox sync login
+        "privacy.resistFingerprinting" = false; # problems firefox sync login
         "webgl.disabled" = false;
         "media.eme.enabled" = true;
         "dom.security.https_only_mode_error_page_user_suggestions" = true;
