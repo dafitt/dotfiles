@@ -125,13 +125,28 @@ TODO: Hyprland keybindings
 
 I use [snowfall-lib](https://github.com/snowfallorg/lib), so every _`default.nix`_ is automatically imported.
 
-My systems and homes are assembled using custom modules. Any custom module has at least one option which name matches the folder: `config.custom.myModule.enable`. Keep in mind some modules are enabled by default some are not. Suites are disabled by default.
+My systems and homes are assembled using custom modules. Any custom module has at least one option which name matches the folder: `config.custom.myModule.enable`. Keep in mind some modules are enabled by default some are not. Special modules:
+
+-   Desktops
+    -   desktops/common - configuration for all desktops
+    -   desktops/gnome
+    -   desktops/hyprland
+-   Suites (disabled by default)
+    -   development
+    -   editing
+    -   gaming
+    -   music
+    -   office
+    -   ricing
+    -   social
+    -   virtualization
+    -   web
 
 Modules in _`/modules/nixos`_ are built with the standard `nixos-rebuild` command; _`/modules/home`_ with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "[user]@[host]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _home-manager-[user].service_).
 
 Some _`/modules/home`_ are automatically activated, if the sister module in _`/modules/nixos`_ is enabled e.g. `options.custom.gaming.enableSuite = mkBoolOpt (osConfig.custom.gaming.enableSuite or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
 
-To keep it simple i had put some very specific configuration directly into the systems themselves.
+Last but no least, to keep things simple I put some very specific configuration directly into the systems themselves.
 
 ## Inspiration, Credits and Thanks
 
