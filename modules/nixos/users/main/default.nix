@@ -1,0 +1,62 @@
+{ options, config, lib, pkgs, inputs, ... }:
+
+with lib;
+with lib.custom;
+let
+  cfg = config.custom.users.main;
+
+  # profile picture
+  faceFileName = "face.png";
+  face = pkgs.stdenvNoCC.mkDerivation {
+    name = "face";
+    src = ./. + "/${faceFileName}";
+    dontUnpack = true;
+    installPhase = ''
+      cp $src $out
+    '';
+    passthru = { fileName = faceFileName; };
+  };
+in
+{
+  options.custom.users.main = with types; {
+    enable = mkBoolOpt true "Enable the main user";
+    username = mkOpt str "david" "The username of the main user";
+    fullname = mkOpt str "David Schaller" "The full name of the main user";
+  };
+
+  config = mkIf cfg.enable {
+    users.users.${cfg.username} = {
+      isNormalUser = true;
+      description = cfg.fullname;
+      extraGroups =
+        let
+          ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+        in
+        [
+          "wheel" # for sudo
+          "video" # for light (backlight control)
+        ] ++ ifTheyExist [
+          "deluge"
+          "git"
+          "libvirtd"
+          "networkmanager"
+          "wireshark"
+        ];
+
+      packages = config.users.users.root.packages;
+
+      openssh.authorizedKeys.keyFiles = [ ];
+    };
+
+    snowfallorg.users.${cfg.username}.home.config = {
+      home.file.".face".source = face;
+    };
+
+    nix.settings.trusted-users = [ cfg.username ];
+    security.doas.extraRules.extraRules = [{
+      users = [ cfg.username ];
+      noPass = true;
+      keepEnv = true;
+    }];
+  };
+}

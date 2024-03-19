@@ -12,14 +12,7 @@ in
 
   config = mkIf cfg.enable {
     #security.sudo.enable = false;
-    security.doas = {
-      enable = true;
-      extraRules = [{
-        users = [ "david" ];
-        noPass = true;
-        keepEnv = true;
-      }];
-    };
+    security.doas.enable = true;
 
     #environment.shellAliases = { sudo = "doas"; };
   };
