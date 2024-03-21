@@ -7,19 +7,6 @@ let
   osCfg = osConfig.custom.desktops.hyprland or null;
 in
 {
-  imports = [
-    ./calculator.nix
-    ./fuzzel.nix
-    ./gedit.nix
-    ./mako.nix
-    ./playerctld.nix
-    ./plugins.nix
-    ./swaybg.nix
-    ./swaylock.nix
-    ./swayosd.nix
-    ./top.nix
-  ];
-
   options.custom.desktops.hyprland = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Enable the Hyprland desktop";
   };
