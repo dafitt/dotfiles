@@ -1,6 +1,7 @@
 { ... }: {
 
   custom = {
+    desktops.common.bedtime.enable = true;
     desktops.hyprland = {
       #  ------
       # | DP-1 |

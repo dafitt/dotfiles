@@ -31,6 +31,7 @@
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "${pkgs.systemd}/bin/systemctl restart wg-quick-DavidVPN";
+      Restart = "on-failure";
     };
   };
   systemd.timers."wg-quick-DavidVPN-restart" = {
