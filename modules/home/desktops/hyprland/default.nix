@@ -9,7 +9,6 @@ in
 {
   imports = [
     ./calculator.nix
-    ./cliphist.nix
     ./fuzzel.nix
     ./gedit.nix
     ./mako.nix
