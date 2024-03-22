@@ -14,7 +14,7 @@
         #  primary = true;
         #}
       ];
-      swayidle.timeout = {
+      hypridle.timeouts = {
         #lock = 0;
         #suspend = 0;
       };

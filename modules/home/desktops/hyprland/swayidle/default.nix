@@ -7,9 +7,9 @@ let
 in
 {
   options.custom.desktops.hyprland.swayidle = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable swayidle";
+    enable = mkBoolOpt false "Enable swayidle";
 
-    timeout = {
+    timeouts = {
       lock = mkOption {
         type = int;
         default = 360;
@@ -24,14 +24,16 @@ in
   };
 
   config = mkIf cfg.enable {
+    custom.desktops.hyprland.swaylock.enable = true;
+
     services.swayidle = {
       enable = true;
       systemdTarget = "hyprland-session.target";
 
       # [options](https://github.com/swaywm/swayidle/blob/master/swayidle.1.scd)
       timeouts = [
-        (mkIf (cfg.timeout.lock > 0) { timeout = cfg.timeout.lock; command = "${config.programs.swaylock.package}/bin/swaylock --grace 30"; })
-        (mkIf (cfg.timeout.suspend > 0) { timeout = cfg.timeout.suspend; command = "${pkgs.systemd}/bin/systemctl suspend"; })
+        (mkIf (cfg.timeouts.lock > 0) { timeout = cfg.timeouts.lock; command = "${config.programs.swaylock.package}/bin/swaylock --grace 30"; })
+        (mkIf (cfg.timeouts.suspend > 0) { timeout = cfg.timeouts.suspend; command = "${pkgs.systemd}/bin/systemctl suspend"; })
       ];
       events = [
         { event = "before-sleep"; command = "${config.programs.swaylock.package}/bin/swaylock --grace 0 --fade-in 0"; }
