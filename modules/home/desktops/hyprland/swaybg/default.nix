@@ -7,7 +7,7 @@ let
 in
 {
   options.custom.desktops.hyprland.swaybg = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable swaybg for hyprland";
+    enable = mkBoolOpt false "Enable swaybg for hyprland";
   };
 
   config = mkIf cfg.enable {
