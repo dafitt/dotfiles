@@ -18,7 +18,9 @@
     hyprland.url = "github:hyprwm/hyprland";
     hyprwm-contrib.url = "github:hyprwm/contrib";
     hyprland-plugins = { url = "github:hyprwm/hyprland-plugins"; inputs.hyprland.follows = "hyprland"; };
+    hypridle = { url = "github:hyprwm/hypridle"; inputs.nixpkgs.follows = "nixpkgs"; };
     hyprkeys = { url = "github:hyprland-community/hyprkeys"; inputs.nixpkgs.follows = "nixpkgs"; };
+    hyprlock = { url = "github:hyprwm/hyprlock"; inputs.nixpkgs.follows = "nixpkgs"; };
 
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; };
 
@@ -50,6 +52,8 @@
 
     homes.modules = with inputs; [
       stylix.homeManagerModules.stylix
+      hypridle.homeManagerModules.default
+      hyprlock.homeManagerModules.default
       nix-flatpak.homeManagerModules.nix-flatpak
     ];
 

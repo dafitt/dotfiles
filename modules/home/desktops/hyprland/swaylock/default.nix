@@ -8,7 +8,7 @@ let
 in
 {
   options.custom.desktops.hyprland.swaylock = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable swaylock for hyprland";
+    enable = mkBoolOpt false "Enable swaylock for hyprland";
   };
 
   config = mkIf cfg.enable {
@@ -48,5 +48,9 @@ in
         fade-in = 1;
       };
     };
+
+    wayland.windowManager.hyprland.settings.bind = [
+      "SUPER, L, exec, ${config.programs.swaylock.package}/bin/swaylock --grace 2" # Lock the screen
+    ];
   };
 }

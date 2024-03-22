@@ -24,7 +24,7 @@
 | ------------------: | :----------------------------------------------------------------------------------------------------- |
 |   Window manager 🪟 | [Hyprland](https://hyprland.org/), [Gnome](https://www.gnome.org/)                                     |
 |    Login manager 🔒 | gdm, tty                                                                                               |
-|  Session locking 🔒 | swaylock                                                                                               |
+|  Session locking 🔒 | hyprlock, swaylock                                                                                     |
 |         Terminal ⌨️ | [kitty](https://sw.kovidgoyal.net/kitty/)                                                              |
 |            Shell 🐚 | [fish](https://fishshell.com/)                                                                         |
 |           Prompt ➡️ | [starship](https://starship.rs/)                                                                       |
@@ -89,6 +89,8 @@ Updating:
 nix flake update --commit-lock-file
 # or
 flake update
+# specific input
+nix flake lock --update-input [input]
 ```
 
 Rollback:

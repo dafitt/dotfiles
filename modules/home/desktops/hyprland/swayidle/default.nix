@@ -37,11 +37,5 @@ in
         { event = "before-sleep"; command = "${config.programs.swaylock.package}/bin/swaylock --grace 0 --fade-in 0"; }
       ];
     };
-
-    wayland.windowManager.hyprland.settings = {
-      bind = [
-        "SUPER, L, exec, swaylock --grace 2" # Lock the screen
-      ];
-    };
   };
 }
