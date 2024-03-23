@@ -7,7 +7,7 @@ pkgs.mkShell {
 
     # Formatting
     treefmt
-    alejandra
+    nixpkgs-fmt
     python310Packages.mdformat
     shfmt
   ];
