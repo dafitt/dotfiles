@@ -17,6 +17,12 @@ in
       enable = true;
       userName = "dafitt";
       userEmail = "dafitt@posteo.me";
+
+      extraConfig = {
+        init = { defaultBranch = "main"; };
+        pull = { rebase = true; };
+        core = { whitespace = "trailing-space,space-before-tab"; };
+      };
     };
   };
 }
