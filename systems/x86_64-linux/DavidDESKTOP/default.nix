@@ -31,7 +31,7 @@
     displayManager.gdm.enable = true;
     flatpak.enable = true;
     fwupd.enable = true;
-    gaming.gamemode.enable = true;
+    gaming.enableSuite = true;
     networking.networkmanager.enable = true;
     syncthing.openFirewall = true;
     virtualization.virt-manager.enable = true;

@@ -11,7 +11,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.steam.enable = true;
+    programs.steam = {
+      enable = true;
+      gamescopeSession = {
+        enable = true;
+        args = [ "--immediate-flips" ];
+      };
+    };
 
     services.udev.extraRules = ''
       ATTR{power/control}="on"
