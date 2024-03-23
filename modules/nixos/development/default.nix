@@ -7,6 +7,6 @@ let
 in
 {
   options.custom.development = with types; {
-    enableSuite = mkBoolOpt false "Enable the full development suite";
+    enableSuite = mkBoolOpt false "Enable the development suite";
   };
 }

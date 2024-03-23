@@ -8,7 +8,7 @@ let
 in
 {
   options.custom.gaming = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the full gaming suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the gaming suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra gaming packages";
   };
 

@@ -8,7 +8,7 @@ let
 in
 {
   options.custom.development = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the full development suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the development suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra development packages";
   };
 

@@ -8,7 +8,7 @@ let
 in
 {
   options.custom.web = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or true) "Enable the full web suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or true) "Enable the web suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra web packages";
   };
 

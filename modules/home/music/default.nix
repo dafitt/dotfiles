@@ -8,7 +8,7 @@ let
 in
 {
   options.custom.music = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the full music suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the music suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra music packages";
   };
 

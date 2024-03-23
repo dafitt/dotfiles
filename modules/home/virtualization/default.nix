@@ -8,7 +8,7 @@ let
 in
 {
   options.custom.virtualizaion = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the full virtualizaion suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the virtualizaion suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra virtualizaion packages";
   };
 

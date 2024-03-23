@@ -8,7 +8,7 @@ let
 in
 {
   options.custom.office = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the full office suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the office suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra office packages";
   };
 

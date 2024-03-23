@@ -8,7 +8,7 @@ let
 in
 {
   options.custom.social = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the full social suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the social suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra social packages";
   };
 
@@ -18,7 +18,8 @@ in
 
     services.flatpak.packages = [
       "de.shorsh.discord-screenaudio"
-      "im.riot.Riot"
+      "io.github.spacingbat3.webcord"
+      "org.gnome.Fractal"
       "org.signal.Signal"
       "io.github.mimbrero.WhatsAppDesktop"
       "ch.threema.threema-web-desktop"

@@ -8,7 +8,7 @@ let
 in
 {
   options.custom.ricing = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the full ricing suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the ricing suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra ricing packages";
   };
 
