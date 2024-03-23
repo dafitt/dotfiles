@@ -39,7 +39,7 @@ in
           onTimeout = "${getExe config.programs.hyprlock.package}";
         })
         {
-          timeout = cfg.timeouts.lock + 10;
+          timeout = if (cfg.timeouts.lock > 0) then (cfg.timeouts.lock + 10) else 360;
           onTimeout = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms off";
           onResume = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on";
         }
