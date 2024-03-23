@@ -4,6 +4,7 @@ with lib;
 with lib.custom;
 let
   cfg = config.custom.desktops.hyprland.mako;
+  hyprlandCfg = config.wayland.windowManager.hyprland;
 in
 {
   options.custom.desktops.hyprland.mako = with types; {
@@ -11,17 +12,20 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = [ pkgs.libnotify ];
+
     # notification daemon
-    # options $ man 5 mako
+    #$ man 5 mako
     services.mako = {
       enable = true;
       anchor = "bottom-right";
-      borderRadius = config.wayland.windowManager.hyprland.settings.decoration.rounding;
-      borderSize = config.wayland.windowManager.hyprland.settings.general.border_size;
-      defaultTimeout = 30;
+      margin = "0,48,48";
+      borderRadius = hyprlandCfg.settings.decoration.rounding;
+      borderSize = hyprlandCfg.settings.general.border_size;
+      defaultTimeout = 5000;
+      maxVisible = 10;
       format = "%a\\n%s\\n%b";
       sort = "+time";
-      layer = "overlay";
     };
   };
 }
