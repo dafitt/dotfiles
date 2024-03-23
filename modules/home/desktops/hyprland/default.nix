@@ -41,7 +41,6 @@ in
           gaps_out = 8;
           border_size = 2;
           resize_on_border = true;
-          cursor_inactive_timeout = 10;
           layout = "dwindle";
         };
         dwindle = {
@@ -61,6 +60,9 @@ in
           disable_autoreload = true;
           disable_hyprland_logo = true;
           focus_on_activate = true;
+          key_press_enables_dpms = true;
+          animate_manual_resizes = true;
+          animate_mouse_windowdragging = true;
         };
         decoration = {
           # https://wiki.hyprland.org/Configuring/Variables/#decoration
@@ -77,7 +79,6 @@ in
             # blurring layerSurfaces
             "launcher"
             "lockscreen"
-            "notifications"
           ];
         };
         animations = {
