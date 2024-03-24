@@ -25,15 +25,17 @@ in
     # dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
     wayland.windowManager.hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland; # TODO: 24.05 replace with nixpkgs
 
-      xwayland.enable = true;
+
       systemd = {
         enable = true;
       };
 
       settings = {
         # [Variables](https://wiki.hyprland.org/Configuring/Variables/)
+
+        xwayland.force_zero_scaling = true;
 
         general = {
           # https://wiki.hyprland.org/Configuring/Variables/#general
@@ -42,6 +44,7 @@ in
           border_size = 2;
           resize_on_border = true;
           layout = "dwindle";
+          allow_tearing = true;
         };
         dwindle = {
           # https://wiki.hyprland.org/Configuring/Dwindle-Layout/
@@ -68,12 +71,16 @@ in
           # https://wiki.hyprland.org/Configuring/Variables/#decoration
           active_opacity = 0.93;
           inactive_opacity = 0.93;
-          rounding = 18;
+
+          rounding = 16;
+
           dim_inactive = true;
           dim_strength = .1;
-          drop_shadow = true;
-          shadow_range = 8;
-          shadow_render_power = 3;
+
+          shadow_range = 16;
+          shadow_render_power = 2;
+          "col.shadow" = mkForce "rgb(${config.lib.stylix.colors.base01})";
+          "col.shadow_inactive" = "rgba(00000000)";
 
           blurls = [
             # blurring layerSurfaces
@@ -288,22 +295,14 @@ in
         env = [
           # https://wiki.hyprland.org/FAQ/
 
-          #XDG
+          # XDG Specifications
+          "XDG_CURRENT_DESKTOP=Hyprland"
           "XDG_SESSION_TYPE,wayland"
           "XDG_SESSION_DESKTOP,Hyprland"
 
           # QT
-          "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-          "QT_QPA_PLATFORM=wayland;xcb"
+          "QT_AUTO_SCREEN_SCALE_FACTOR,1" # enable automatic scaling
           "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-
-          # Tell apps to use Wayland
-          "GDK_BACKEND,wayland,x11"
-          "NIXOS_OZONE_WL,1"
-          "MOZ_ENABLE_WAYLAND,1"
-          "SDL_VIDEODRIVER,wayland"
-          "CLUTTER_BACKEND,wayland"
-          "_JAVA_AWT_WM_NONEREPARENTING,1"
         ];
       };
     };
