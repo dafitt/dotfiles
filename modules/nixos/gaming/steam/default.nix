@@ -7,18 +7,10 @@ let
 in
 {
   options.custom.gaming.steam = with types; {
-    enable = mkBoolOpt false "Enable steam";
+    enable = mkBoolOpt config.custom.gaming.enableSuite "Enable steam optimization";
   };
 
   config = mkIf cfg.enable {
-    programs.steam = {
-      enable = true;
-      gamescopeSession = {
-        enable = true;
-        args = [ "--immediate-flips" ];
-      };
-    };
-
     services.udev.extraRules = ''
       ATTR{power/control}="on"
     '';

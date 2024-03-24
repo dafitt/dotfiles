@@ -26,7 +26,7 @@ in
       ];
       overrides = {
         global = {
-          #Context.sockets = [ "wayland" "fallback-x11" "x11" ];
+          # [Metadata keywords](https://docs.flatpak.org/en/latest/flatpak-command-reference.html?highlight=override#flatpak-metadata)
           Environment = {
             XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
           };
