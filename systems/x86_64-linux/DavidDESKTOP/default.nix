@@ -28,7 +28,7 @@
       hyprland.enable = true;
     };
     development.enableSuite = true;
-    displayManager.gdm.enable = true;
+    displayManager.greetd.enable = true;
     flatpak.enable = true;
     fwupd.enable = true;
     gaming.enableSuite = true;

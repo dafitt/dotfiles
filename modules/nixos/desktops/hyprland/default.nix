@@ -13,12 +13,8 @@ in
   config = mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-
-      xwayland.enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland; # TODO: 24.05 replase with nixpkgs
     };
-
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
     # [Must Have's](https://wiki.hyprland.org/Useful-Utilities/Must-have/)
     programs.light.enable = true; # Monitor backlight control
@@ -70,5 +66,7 @@ in
         "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
       };
     };
+
+    custom.displayManager.greetd.sessionPaths = [ "${config.programs.hyprland.package}/share/wayland-sessions" ];
   };
 }
