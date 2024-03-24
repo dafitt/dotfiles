@@ -12,6 +12,14 @@
         -   [You want to build from here?](#you-want-to-build-from-here)
     -   [Inspiration, Credits and Thanks](#inspiration-credits-and-thanks)
 
+My dotfiles are not perfekt and never will be (unfortunately), but they strive to be:
+
+-   fully declarative 📝
+-   highly structured 🧱
+-   stable 🛡️
+-   suitable for everyday use 📅
+-   a consistent environment that doesn't sacrifice its looks ✨
+
 ## Programs and Features
 
 -   👥 Multiple hosts
