@@ -20,5 +20,8 @@ in
       preloads = [ "${config.stylix.image}" ];
       wallpapers = [ ",${config.stylix.image}" ];
     };
+
+    # fix for hyprpaper not starting
+    systemd.user.services.hyprpaper.Install.WantedBy = mkForce [ "hyprland-session.target" ];
   };
 }
