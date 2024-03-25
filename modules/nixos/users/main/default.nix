@@ -19,12 +19,11 @@ let
 in
 {
   options.custom.users.main = with types; {
-    enable = mkBoolOpt true "Enable the main user";
     username = mkOpt str "david" "The username of the main user";
     fullname = mkOpt str "David Schaller" "The full name of the main user";
   };
 
-  config = mkIf cfg.enable {
+  config = {
     users.users.${cfg.username} = {
       isNormalUser = true;
       description = cfg.fullname;
