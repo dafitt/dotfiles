@@ -59,6 +59,8 @@ in
       };
 
       shellAliases = {
+        # skip an alias with #$ command ...
+
         # I don't like the default but my hand just types it
         top = "$TOP";
         cat = "bat --paging=never";
@@ -72,6 +74,9 @@ in
         "..." = "cd ../..";
         "...." = "cd ../../..";
         "....." = "cd ../../../..";
+
+        # systemd
+        "systemctl" = "systemctl --no-pager --full";
 
         # Colors
         grep = "grep --color=auto";
