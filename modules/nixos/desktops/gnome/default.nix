@@ -12,7 +12,7 @@ let
     desktopFile = makeDesktopItem {
       name = "gnome";
       desktopName = "GNOME";
-      exec = getExe custom-gnome-session_wayland-startScript;
+      exec = "${custom-gnome-session_wayland-startScript}/bin/custom-gnome-session_wayland-startScript";
       terminal = true;
     };
 
