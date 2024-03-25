@@ -49,6 +49,7 @@ My dotfiles are not perfekt and never will be (unfortunately), but they strive t
 2. `git clone https://github.com/dafitt/dotfiles.git`
     1. Add a new system _`/systems/x86_64-linux/[host]/default.nix`_
     2. Copy, import and commit _`hardware-configuration.nix`_!
+    3. Set the correct `system.stateVersion`
 3. Remove files for home-manager: `rm ~/.config/user-dirs.dirs ~/.config/fish/config.fish ~/.config/hypr/hyprland.conf`
 4. `sudo nixos-rebuild boot --flake .#[host]`
     - _NOTE: First install: Flatpaks need very long: A Timeout is normal!_
