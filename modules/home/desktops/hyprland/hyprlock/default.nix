@@ -9,15 +9,17 @@ let
 in
 {
   options.custom.desktops.hyprland.hyprlock = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable hyprlock";
+    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable screenlocking";
+    package = mkOpt' package inputs.hyprlock.packages.${pkgs.system}.default;
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ inputs.hyprlock.packages.${pkgs.system}.default ];
+    home.packages = [ cfg.package ];
 
     # https://github.com/hyprwm/hyprlock/blob/main/nix/hm-module.nix
     programs.hyprlock = {
       enable = true;
+      package = cfg.package;
 
       general = {
         grace = 2;
@@ -58,7 +60,7 @@ in
     };
 
     wayland.windowManager.hyprland.settings.bind = [
-      "SUPER, L, exec, ${config.programs.hyprlock.package}/bin/hyprlock" # Lock the screen
+      "SUPER, L, exec, ${getExe cfg.package}" # Lock the screen
     ];
   };
 }

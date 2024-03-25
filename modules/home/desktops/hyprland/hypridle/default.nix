@@ -4,7 +4,10 @@ with lib;
 with lib.custom;
 let
   cfg = config.custom.desktops.hyprland.hypridle;
+  hyprlockCfg = config.custom.desktops.hyprland.hyprlock;
   hyprlandCfg = config.wayland.windowManager.hyprland;
+
+  locking_enabled = cfg.timeouts.lock > 0 && hyprlockCfg.enable;
 in
 {
   options.custom.desktops.hyprland.hypridle = with types; {
@@ -25,21 +28,20 @@ in
   };
 
   config = mkIf cfg.enable {
-    custom.desktops.hyprland.hyprlock.enable = true;
-
     # https://github.com/hyprwm/hypridle/blob/main/nix/hm-module.nix
     services.hypridle = {
       enable = true;
-      beforeSleepCmd = getExe config.programs.hyprlock.package; # ??? "${pkgs.systemd}/bin/loginctl lock-session";
-      lockCmd = getExe config.programs.hyprlock.package;
+
+      beforeSleepCmd = mkIf hyprlockCfg.enable (getExe hyprlockCfg.package); # ??? "${pkgs.systemd}/bin/loginctl lock-session";
+      lockCmd = mkIf hyprlockCfg.enable (getExe hyprlockCfg.package);
 
       listeners = [
-        (mkIf (cfg.timeouts.lock > 0) {
+        (mkIf locking_enabled {
           timeout = cfg.timeouts.lock;
-          onTimeout = "${getExe config.programs.hyprlock.package}";
+          onTimeout = "${getExe hyprlockCfg.package}";
         })
         {
-          timeout = if (cfg.timeouts.lock > 0) then (cfg.timeouts.lock + 10) else 360;
+          timeout = if locking_enabled then (cfg.timeouts.lock + 10) else 360;
           onTimeout = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms off";
           onResume = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on";
         }
