@@ -27,8 +27,7 @@ in
         time = {
           disabled = false;
           format = "[$time]($style)";
-          time_format = "%H:%M ";
-          time_range = "21:30:00-6:00:00";
+          time_format = "%H:%M:%S ";
         };
       };
     };
