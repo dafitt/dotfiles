@@ -11,7 +11,7 @@ in
     sessionPaths = mkOption {
       description = "List of paths to search for session files";
       type = listOf str;
-      default = [ ]; # NOTE: is used in the desktops/ modules
+      default = [ ]; #NOTE Is set from the nixos/desktops-modules
       example = [
         "${config.services.xserver.displayManager.sessionData.desktops}/share/xsessions"
         "${config.services.xserver.displayManager.sessionData.desktops}/share/wayland-sessions"

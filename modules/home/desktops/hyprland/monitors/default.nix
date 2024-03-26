@@ -119,9 +119,9 @@ in
 
       # monitor=name,resolution{preferred,highres,highrr,disable},position,scale
       # ,transform,1
-      # ,mirror,[NAME]
+      # ,mirror,<NAME>
       # ,bitdepth,10
-      # ,vrr,[0]
+      # ,vrr,<0>
       map
         (m:
           let

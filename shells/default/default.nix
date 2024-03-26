@@ -1,5 +1,9 @@
 { pkgs, inputs, ... }:
+
 pkgs.mkShell {
+  #$ flake dev
+  #$ nix develop
+
   nativeBuildInputs = with pkgs; with inputs; [
     snowfall-flake.packages.${system}.default
     home-manager.packages.${system}.default

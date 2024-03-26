@@ -47,12 +47,12 @@ My dotfiles are not perfekt and never will be (unfortunately), but they strive t
 
 1. Install [NixOS](https://nixos.org/download/)
 2. `git clone https://github.com/dafitt/dotfiles.git`
-    1. Add a new system _`/systems/x86_64-linux/[host]/default.nix`_
+    1. Add a new system _`/systems/x86_64-linux/<host>/default.nix`_
     2. Copy, import and commit _`hardware-configuration.nix`_!
     3. Set the correct `system.stateVersion`
 3. Remove files for home-manager: `rm ~/.config/user-dirs.dirs ~/.config/fish/config.fish ~/.config/hypr/hyprland.conf`
-4. `sudo nixos-rebuild boot --flake .#[host]`
-    - _NOTE: First install: Flatpaks need very long: A Timeout is normal!_
+4. `sudo nixos-rebuild boot --flake .#<host>`
+    - _NOTE First install: Flatpaks need very long: A Timeout is normal!_
     1. Check home-manager: `systemctl status home-manager-david.service`
 5. `reboot`
 6. Personal setup:
@@ -81,7 +81,7 @@ flake dev default
 Building:
 
 ```shell
-nixos-rebuild switch --flake .#[host]
+nixos-rebuild switch --flake .#<host>
 # or
 flake switch
 ```
@@ -89,7 +89,7 @@ flake switch
 Build home standalone:
 
 ```shell
-home-manager switch --flake .#[user]@[host]
+home-manager switch --flake .#<user>@<host>
 ```
 
 Updating:
@@ -166,7 +166,7 @@ My systems and homes are assembled using custom modules. Any custom module has a
 -   Firmly integrated, non-disableable
     -   stylix
 
-Modules in _`modules/nixos`_ are built with the standard `nixos-rebuild` command; _`modules/home`_ with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "[user]@[host]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _home-manager-[user].service_).
+Modules in _`modules/nixos`_ are built with the standard `nixos-rebuild` command; _`modules/home`_ with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _home-manager-<user>.service_).
 
 Some _`modules/home`_ are automatically activated, if the sister module in _`modules/nixos`_ is enabled e.g. `options.custom.gaming.enableSuite = mkBoolOpt (osConfig.custom.gaming.enableSuite or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
 
@@ -180,10 +180,10 @@ What you have to customize:
 -   [ ] _`modules/nixos/locale/default.nix`_: locale
 -   [ ] _`modules/nixos/users/main/default.nix`_: username
 -   [ ] _`modules/home/office/thunderbird/default.nix`_
--   [ ] _`systems/[architecure]/[host]/default.nix`_: obviously your own host
+-   [ ] _`systems/<architecure>/<host>/default.nix`_: obviously your own host
     -   [ ] `hardware-configuration.nix`
     -   [ ] maybe some specific `configuration.nix`
--   [ ] _`homes/[architecure]/[user]@[host]/default.nix`_
+-   [ ] _`homes/<architecure>/<user>[@<host>]/default.nix`_
 
 Optionally:
 

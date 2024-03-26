@@ -1,4 +1,6 @@
 { ... }: {
+  #$ home-manager build .[#<name>]
+  #$ home-manager switch .[#<name>]
 
   custom = {
     desktops.gnome.enable = true;

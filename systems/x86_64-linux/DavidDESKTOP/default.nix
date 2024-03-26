@@ -5,14 +5,6 @@
 # Case: Dark Base 900 Orange
 
 {
-  #$ nix build .#nixosConfigurations.DavidDESKTOP.config.system.build.toplevel
-  #$ nixos-rebuild build --flake .#DavidDESKTOP --show-trace
-  #$ nixos-rebuild build-vm --flake .#DavidDESKTOP
-  #$ sudo nixos-rebuild test --flake .#DavidDESKTOP
-  #$ sudo nixos-rebuild boot --flake .#DavidDESKTOP
-  #$ sudo nixos-rebuild switch --flake .#DavidDESKTOP
-
-
   imports = [
     ./configuration.nix
     ./hardware-configuration.nix
