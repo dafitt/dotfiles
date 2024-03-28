@@ -13,13 +13,14 @@ in
   config = mkIf cfg.enable {
     services.wlsunset = {
       enable = true;
+      systemdTarget = "hyprland-session.target";
 
       latitude = "48.0";
       longitude = "12.6";
 
       temperature = {
         day = 6500; # neutral: 6500K
-        night = 4000;
+        night = 4200;
       };
     };
   };
