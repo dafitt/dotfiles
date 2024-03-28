@@ -14,6 +14,8 @@ in
   config = mkIf cfg.enable {
     services.flatpak.packages = [
       "com.valvesoftware.Steam"
+      "org.freedesktop.Platform.VulkanLayer.gamescope"
+      "com.valvesoftware.Steam.Utility.steamtinkerlaunch"
     ];
 
     wayland.windowManager.hyprland.settings.windowrulev2 = [
