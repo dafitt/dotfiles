@@ -16,7 +16,6 @@ in
       calc # a calculator
       clapper # a simple and modern GNOME media player
       duf # a better 'df'
-      gnome.file-roller # archive manager
       gnome.gnome-characters # character picker
       ncdu # disk usage analyzer with an ncurses interface
       neofetch # quick system information tool

@@ -15,7 +15,6 @@ in
   config = mkIf cfg.installExtraPackages {
     home.packages = with pkgs; [
       cantarell-fonts
-      evince # GNOME's document viewer
       hunspell # Spell checking
       hunspellDicts.de_DE
       hunspellDicts.en_US-large

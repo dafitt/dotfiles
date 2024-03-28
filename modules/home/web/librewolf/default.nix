@@ -8,6 +8,7 @@ in
 {
   options.custom.web.librewolf = with types; {
     enable = mkBoolOpt config.custom.web.enableSuite "Enable the librewolf web browser";
+    defaultApplication = mkBoolOpt false "Set librewolf as the default application for its mimetypes";
   };
 
   config = mkIf cfg.enable {
@@ -250,6 +251,24 @@ in
         "privacy.clearOnShutdown.offlineApps" = false; # don't clear so we stay logged in
       };
     };
+
+    xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication (listToAttrs (map (mimeType: { name = mimeType; value = [ "librewolf.desktop" ]; }) [
+      "application/x-extension-htm"
+      "application/x-extension-html"
+      "application/x-extension-shtml"
+      "application/x-extension-xht"
+      "application/x-extension-xhtml"
+      "application/xhtml+xml"
+      "x-scheme-handler/about"
+      "x-scheme-handler/ftp"
+      "x-scheme-handler/http"
+      "x-scheme-handler/https"
+      "x-scheme-handler/unknown"
+      #"application/json"
+      #"application/pdf"
+      #"text/html"
+      #"text/xml"
+    ]));
 
     wayland.windowManager.hyprland.settings = {
       exec-once = [ "[workspace 1 silent] ${config.programs.librewolf.package}/bin/librewolf" ];

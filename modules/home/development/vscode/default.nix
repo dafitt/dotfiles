@@ -10,6 +10,7 @@ in
 
   options.custom.development.vscode = with types; {
     enable = mkBoolOpt config.custom.development.enableSuite "Enable vscode";
+    defaultApplication = mkBoolOpt false "Set vscode as the default application for its mimetypes";
   };
 
   config = mkIf cfg.enable {
@@ -526,6 +527,26 @@ in
         #{ name = "better-dockerfile-syntax"; publisher = "jeff-hykin"; version = "1.0.2"; sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; }
       ];
     };
+
+
+    xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication (listToAttrs (map (mimeType: { name = mimeType; value = [ "code.desktop" ]; }) [
+      "application/x-shellscript"
+      "text/english"
+      "text/html"
+      "text/x-c"
+      "text/x-c++"
+      "text/x-c++hdr"
+      "text/x-c++src"
+      "text/x-chdr"
+      "text/x-csrc"
+      "text/x-java"
+      "text/x-makefile"
+      "text/x-moc"
+      "text/x-pascal"
+      "text/x-tcl"
+      "text/x-tex"
+      "text/xml"
+    ]));
 
     wayland.windowManager.hyprland.settings = {
       exec-once = [ "[workspace 4 silent] ${config.programs.vscode.package}/bin/code" ];

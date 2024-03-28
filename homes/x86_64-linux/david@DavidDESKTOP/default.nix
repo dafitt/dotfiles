@@ -24,6 +24,8 @@
     music.enableSuite = true;
     office.enableSuite = true;
     social.enableSuite = true;
+
+    web.librewolf.defaultApplication = true;
   };
 
   services.flatpak.overrides."com.valvesoftware.Steam".Context.filesystems = [ "/mnt/games" ];
