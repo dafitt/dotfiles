@@ -18,6 +18,7 @@ in
         target = "hyprland-session.target";
       };
 
+      # https://github.com/Alexays/Waybar/wiki/Configuration
       settings = [{
 
         # TODO: primary monitor only ``` (lib.find (monitor: monitor.primary)  config.wayland.windowManager.hyprland.monitors;).name
@@ -26,18 +27,16 @@ in
         position = "bottom";
 
         # modules left
-        modules-left = [ "custom/l" "custom/launcher" "custom/_" "hyprland/workspaces" "custom/_" "wlr/taskbar" "custom/r" ];
+        modules-left = [ "custom/l" "custom/launcher" "custom/_" "hyprland/workspaces" "custom/r" "custom/l" "wlr/taskbar" "hyprland/window" "custom/r" ];
         "custom/launcher" = {
           format = " ";
           on-click = "pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel";
           tooltip = false;
         };
-        "hyprland/workspaces" = {
-          #active-only = true;
-        };
         "wlr/taskbar" = {
           format = "{icon}";
           icon-size = 18;
+          icon-theme = config.gtk.iconTheme.name;
           tooltip-format = "{title}";
           on-click = "activate";
           on-click-middle = "close";
@@ -46,6 +45,7 @@ in
             firefoxdeveloperedition = "firefox-developer-edition";
           };
         };
+        "hyprland/window" = { "format" = "{class}"; };
 
         # modules mid
         modules-center = [ "custom/l" "clock" "custom/r" ];
