@@ -25,6 +25,7 @@ in
         layer = "top";
         position = "bottom";
 
+        # modules left
         modules-left = [ "custom/l" "custom/launcher" "custom/_" "hyprland/workspaces" "custom/_" "wlr/taskbar" "custom/r" ];
         "custom/launcher" = {
           format = " ";
@@ -46,6 +47,7 @@ in
           };
         };
 
+        # modules mid
         modules-center = [ "custom/l" "clock" "custom/r" ];
         "clock" = {
           format = "{:%R} ";
@@ -71,6 +73,7 @@ in
           };
         };
 
+        # modules right
         modules-right = [ "custom/l" "tray" "custom/r" "custom/l" "backlight" "bluetooth" "network" "battery" "custom/_" "pulseaudio#microphone" "pulseaudio" "custom/r" ];
         "tray" = {
           icon-size = 18;
@@ -78,7 +81,7 @@ in
         };
         "backlight" = {
           device = "intel_backlight";
-          format = "{percent}% {icon}";
+          format = "{icon} {percent}%";
           format-icons = [ "" "" "" "" "" "" "" "" "" ];
           on-scroll-up = "brightnessctl set 1%+";
           on-scroll-down = "brightnessctl set 1%-";
@@ -88,19 +91,19 @@ in
           format = "";
           format-disabled = "";
           # an empty format will hide the module
-          format-connected = "{num_connections} ";
-          tooltip-format = "{device_alias} ";
+          format-connected = " {num_connections}";
+          tooltip-format = " {device_alias}";
           tooltip-format-connected = "{device_enumerate}";
-          tooltip-format-enumerate-connected = "{device_alias} ";
+          tooltip-format-enumerate-connected = " {device_alias}";
         };
         "network" = {
           #interface = "wlp2*"; # (Optional) To force the use of this interface
-          format-wifi = "{essid} 󰤨";
-          format-ethernet = "Wired 󱘖";
-          tooltip-format = "{ipaddr} 󱘖 {bandwidthDownBytes}   {bandwidthUpBytes}";
-          format-linked = "{ifname} 󱘖 (No IP)";
-          format-disconnected = "Disconnected ";
-          format-alt = "{signalStrength}% 󰤨";
+          format-wifi = "󰤨 {essid}";
+          format-ethernet = "󱘖 Wired";
+          tooltip-format = "󱘖 {ipaddr}  {bandwidthDownBytes}  {bandwidthUpBytes}";
+          format-linked = "󱘖 {ifname} (No IP)";
+          format-disconnected = " Disconnected";
+          format-alt = "󰤨 {signalStrength}%";
           interval = 5;
         };
         "pulseaudio#microphone" = {
@@ -115,7 +118,7 @@ in
           scroll-step = 5;
         };
         "pulseaudio" = {
-          format = "{volume} {icon}";
+          format = "{icon} {volume}";
           format-muted = "";
           on-click = "pavucontrol -t 3";
           on-click-middle = "${config.services.swayosd.package}/bin/swayosd --output-volume mute-toggle";
@@ -131,10 +134,10 @@ in
             warning = 30;
             critical = 15;
           };
-          format = "{capacity}% {icon}";
-          format-charging = "{capacity}% ";
-          format-plugged = "{capacity}% ";
-          format-alt = "{time} {icon}";
+          format = "{icon} {capacity}%";
+          format-charging = " {capacity}%";
+          format-plugged = " {capacity}%";
+          format-alt = "{icon} {time}";
           format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
         };
 
