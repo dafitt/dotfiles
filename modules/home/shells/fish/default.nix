@@ -12,6 +12,11 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      fzf
+      grc
+    ];
+
     # The friendly interactive shell
     # https://fishshell.com/
     # https://github.com/fish-shell/fish-shell
@@ -56,6 +61,23 @@ in
           end
         '';
       };
+
+      # https://github.com/jorgebucaran/awsm.fish#readme
+      # https://search.nixos.org/packages?query=fishPlugins
+      plugins = map (n: { name = n; src = pkgs.fishPlugins.${n}.src; }) [
+        "autopair" # https://github.com/jorgebucaran/autopair.fish
+        "bass" # https://github.com/edc/bass
+        "done" # https://github.com/franciscolourenco/done
+        "fzf" # https://github.com/jethrokuan/fzf # TODO: set -U FZF_LEGACY_KEYBINDINGS 0
+        "grc"
+        "puffer" # https://github.com/nickeb96/puffer-fish
+        "sponge" # https://github.com/meaningful-ooo/sponge
+      ];
+    };
+
+    home.sessionVariables = {
+      FZF_COMPLETE = "2";
+      FZF_LEGACY_KEYBINDINGS = "0";
     };
   };
 }
