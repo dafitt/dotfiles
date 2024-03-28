@@ -6,7 +6,7 @@ let
   cfg = config.custom.shells;
 in
 {
-  # TODO: check if only one shell is enabled (mabe in system/shell/default.nix)
+  # TODO: check if only one shell is enabled
   options.custom.shells = with types; {
     default = mkOpt package pkgs.fish "Which default shell to set";
   };

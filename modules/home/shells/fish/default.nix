@@ -68,7 +68,7 @@ in
         "autopair" # https://github.com/jorgebucaran/autopair.fish
         "bass" # https://github.com/edc/bass
         "done" # https://github.com/franciscolourenco/done
-        "fzf" # https://github.com/jethrokuan/fzf # TODO: set -U FZF_LEGACY_KEYBINDINGS 0
+        "fzf" # https://github.com/jethrokuan/fzf
         "grc"
         "puffer" # https://github.com/nickeb96/puffer-fish
         "sponge" # https://github.com/meaningful-ooo/sponge
