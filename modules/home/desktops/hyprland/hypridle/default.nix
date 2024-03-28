@@ -32,7 +32,7 @@ in
     services.hypridle = {
       enable = true;
 
-      beforeSleepCmd = mkIf hyprlockCfg.enable (getExe hyprlockCfg.package); # ??? "${pkgs.systemd}/bin/loginctl lock-session";
+      beforeSleepCmd = mkIf hyprlockCfg.enable "${getExe hyprlockCfg.package} --immediate"; # ??? "${pkgs.systemd}/bin/loginctl lock-session";
       lockCmd = mkIf hyprlockCfg.enable (getExe hyprlockCfg.package);
 
       listeners = [
