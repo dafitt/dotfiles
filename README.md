@@ -1,5 +1,7 @@
 # My Snowfall🌨️🍂 NixOS❄️ desktop flake
 
+![Hyprland-ricing](https://github.com/dafitt/dotfiles/assets/50248238/380705a7-4bd5-4431-81fe-ab04195e19f0)
+
 -   [My Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-snowfall️-nixos️-desktop-flake)
     -   [Programs and Features](#programs-and-features)
     -   [Installation on a new host](#installation-on-a-new-host)
