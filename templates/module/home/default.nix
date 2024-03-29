@@ -3,12 +3,12 @@
 with lib;
 with lib.custom;
 let
-  cfg = config.custom.module;
-  osCfg = osConfig.custom.module or null;
+  cfg = config.custom.MODULE;
+  osCfg = osConfig.custom.MODULE or null;
 in
 {
-  options.custom.module = with types; {
-    enable = mkBoolOpt (osCfg.enable or false) "Enable module";
+  options.custom.MODULE = with types; {
+    enable = mkBoolOpt (osCfg.enable or false) "Enable MODULE";
   };
 
   config = mkIf cfg.enable { };
