@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: with lib.custom; {
 
   custom = {
     desktops.hyprland.monitors = [{
