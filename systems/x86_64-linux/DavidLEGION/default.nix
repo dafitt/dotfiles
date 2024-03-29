@@ -9,8 +9,7 @@
 # Bluetooth: 5.1
 # Color: Storm Grey
 
-{ ... }: {
-
+{ lib, ... }: with lib.custom; {
   imports = [
     ./configuration.nix
     ./hardware-configuration.nix
@@ -19,15 +18,15 @@
   ];
 
   custom = {
-    bootloader.systemd-boot.enable = true;
-    desktops.gnome.enable = true;
-    desktops.hyprland.enable = true;
+    bootloader.systemd-boot = enable;
+    desktops.gnome = enable;
+    desktops.hyprland = enable;
     development.enableSuite = true;
-    displayManager.greetd.enable = true;
-    flatpak.enable = true;
-    fwupd.enable = true;
-    networking.connman.enable = true;
+    displayManager.greetd = enable;
+    flatpak = enable;
+    fwupd = enable;
+    networking.connman = enable;
     syncthing.openFirewall = true;
-    virtualization.virt-manager.enable = true;
+    virtualization.virt-manager = enable;
   };
 }
