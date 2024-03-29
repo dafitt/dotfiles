@@ -387,6 +387,9 @@ in
         # Insert Line above and below
         { "key" = "shift+enter"; "command" = "editor.action.insertLineBefore"; "when" = "editorTextFocus && !editorReadonly"; }
         { "key" = "ctrl+enter"; "command" = "editor.action.insertLineAfter"; "when" = "editorTextFocus && !editorReadonly"; }
+        # Sort lines
+        { "key" = "ctrl+numpad3"; "command" = "editor.action.sortLinesAscending"; "when" = "editorTextFocus && !editorReadonly"; }
+        { "key" = "ctrl+numpad9"; "command" = "editor.action.sortLinesDescending"; "when" = "editorTextFocus && !editorReadonly"; }
         # Indent Line
         { "key" = "tab"; "command" = "editor.action.indentLines"; "when" = "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !suggestWidgetHasFocusedSuggestion && !inSnippetMode && !atEndOfWord && !inlineSuggestionVisible"; }
         # Copy Line Down
