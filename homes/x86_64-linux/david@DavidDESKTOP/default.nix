@@ -16,6 +16,7 @@
     editing.enableSuite = true;
     music.enableSuite = true;
     office.enableSuite = true;
+    ricing.enableSuite = true;
     social.enableSuite = true;
     web.librewolf.defaultApplication = true;
   };

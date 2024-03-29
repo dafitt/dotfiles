@@ -16,6 +16,7 @@ in
     home.packages = with pkgs; [
       asciiquarium # aquarium in your terminal
       cbonsai # grow bonsai trees in your terminal
+      peaclock # a text-based clock
       pipes # animated pipes terminal screensaver
     ];
   };
