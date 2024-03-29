@@ -4,11 +4,11 @@
     -   [Programs and Features](#programs-and-features)
     -   [Installation on a new host](#installation-on-a-new-host)
     -   [Flake usage](#flake-usage)
-        -   [locally](#locally)
         -   [remotely](#remotely)
+        -   [locally](#locally)
     -   [Environment usage](#environment-usage)
-        -   [Hyprland keybindings](#hyprland-keybindings)
     -   [Structure](#structure)
+        -   [Hyprland keybindings modifiers](#hyprland-keybindings-modifiers)
         -   [You want to build from here?](#you-want-to-build-from-here)
     -   [Inspiration, Credits and Thanks](#inspiration-credits-and-thanks)
 
@@ -32,7 +32,7 @@ My dotfiles are not perfekt and never will be (unfortunately), but they strive t
 | ------------------: | :----------------------------------------------------------------------------------------------------- |
 |   Window manager 🪟 | [Hyprland](https://hyprland.org/), [Gnome](https://www.gnome.org/)                                     |
 |    Login manager 🔒 | gdm, tty                                                                                               |
-|  Session locking 🔒 | hyprlock, swaylock                                                                                     |
+|  Session locking 🔒 | hyprlock                                                                                               |
 |         Terminal ⌨️ | [kitty](https://sw.kovidgoyal.net/kitty/)                                                              |
 |            Shell 🐚 | [fish](https://fishshell.com/)                                                                         |
 |           Prompt ➡️ | [starship](https://starship.rs/)                                                                       |
@@ -65,6 +65,27 @@ My dotfiles are not perfekt and never will be (unfortunately), but they strive t
 
 ## Flake usage
 
+### remotely
+
+```shell
+nix shell github:snowfallorg/flake
+
+flake dev github:dafitt/dotfiles#default
+```
+
+Show flake outputs:
+
+```shell
+flake show github:dafitt/dotfiles
+nix flake show github:dafitt/dotfiles
+```
+
+Explore flake options:
+
+```shell
+flake option github:dafitt/dotfiles --pick
+```
+
 ### locally
 
 Enter development shell:
@@ -76,9 +97,10 @@ nix develop .#default
 # or
 #nix shell github:snowfallorg/flake
 flake dev default
+nix develop .#default
 ```
 
-Building:
+Build and switch to configuration:
 
 ```shell
 nixos-rebuild switch --flake .#<host>
@@ -86,13 +108,13 @@ nixos-rebuild switch --flake .#<host>
 flake switch
 ```
 
-Build home standalone:
+Build and switch home standalone:
 
 ```shell
 home-manager switch --flake .#<user>@<host>
 ```
 
-Updating:
+Updating flake:
 
 ```shell
 nix flake update --commit-lock-file
@@ -102,46 +124,15 @@ flake update
 nix flake lock --update-input [input]
 ```
 
-Rollback:
+Rollback nixos confituration:
 
 ```shell
 nixos-rebuild switch --rollback
 ```
 
-### remotely
-
-```shell
-nix shell github:snowfallorg/flake
-
-flake dev github:dafitt/dotfiles#default
-flake switch github:dafitt/dotfiles#DavidDESKTOP
-```
-
-Show flake outputs:
-
-```shell
-flake show github:dafitt/dotfiles
-```
-
-Explore flake options:
-
-```shell
-flake option github:dafitt/dotfiles --pick
-```
-
 Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage)
 
 ## Environment usage
-
-### Hyprland keybindings
-
-<kbd>SUPER_CONTROL</kbd> - Hyprland control
-
-<kbd>SUPER</kbd> - Window control
-
-<kbd>SUPER_ALT</kbd> - Applications
-
-<kbd>SHIFT</kbd> - reverse, grab, move
 
 ## Structure
 
@@ -171,6 +162,13 @@ Modules in _`modules/nixos`_ are built with the standard `nixos-rebuild` command
 Some _`modules/home`_ are automatically activated, if the sister module in _`modules/nixos`_ is enabled e.g. `options.custom.gaming.enableSuite = mkBoolOpt (osConfig.custom.gaming.enableSuite or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
 
 Last but no least, to keep things simple I put some very specific configuration directly into the systems themselves.
+
+### Hyprland keybindings modifiers
+
+<kbd>SUPER_CONTROL</kbd> - Hyprland control  
+<kbd>SUPER</kbd> - Window control  
+<kbd>SUPER_ALT</kbd> - Applications  
+<kbd>SHIFT</kbd> - reverse, grab, move  
 
 ### You want to build from here?
 
