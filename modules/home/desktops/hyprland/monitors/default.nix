@@ -21,6 +21,11 @@ in
             example = "DP-1";
             description = "Get the name with 'wlr-randr'";
           };
+          primary = mkOption {
+            type = bool;
+            default = false;
+            description = "Define one primary monitor.";
+          };
           width = mkOption {
             type = addCheck int (n: n >= 0);
             example = 1920;
@@ -77,11 +82,6 @@ in
               6 - flipped + 180 degrees
               7 - flipped + 270 degrees
             '';
-          };
-          primary = mkOption {
-            type = bool;
-            default = false;
-            description = "Define one primary monitor.";
           };
           mirror = mkOption {
             type = nullOr str;

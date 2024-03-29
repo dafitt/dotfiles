@@ -1,35 +1,85 @@
-{ ... }: {
-  #$ home-manager build .[#<name>]
-  #$ home-manager switch .[#<name>]
+#$ home-manager build .[#<name>]
+#$ home-manager switch .[#<name>]
+{ lib, ... }: with lib.custom; {
 
   custom = {
-    desktops.gnome.enable = true;
-    desktops.hyprland = {
-      enable = true;
-      monitors = [
-        #{
-        #  name = "DP-1";
-        #  width = 2560;
-        #  height = 1440;
-        #  refreshRate = 120;
-        #  workspace = "1";
-        #  primary = true;
-        #}
-      ];
-      hypridle.timeouts = {
-        #lock = 0;
-        #suspend = 0;
-      };
-    };
-
-    shells.fish.enable = true;
-
+    desktops.common = enable;
+    desktops.common._1password = enable;
+    desktops.common.bedtime = enable;
+    desktops.common.eog = enable;
+    desktops.common.eog.defaultApplication = true;
+    desktops.common.file-roller = enable;
+    desktops.common.file-roller.defaultApplication = true;
+    desktops.common.imv = enable;
+    desktops.common.kitty = enable;
+    desktops.common.micro = enable;
+    desktops.common.mpv = enable;
+    desktops.common.mpv.defaultApplication = true;
+    desktops.common.natuilus = enable;
+    desktops.common.pcmanfm = enable;
+    desktops.common.syncthing = enable;
+    desktops.common.udiskie = enable;
+    desktops.gnome = enable;
+    desktops.hyprland = enable;
+    desktops.hyprland.monitors = [{ name = "DP-1"; primary = true; width = 2560; height = 1440; refreshRate = 120; vrr = 1; bitdepth = 8; x = 0; y = 0; transform = 0; mirror = null; workspace = "1"; }];
+    desktops.hyprland.calculator = enable;
+    desktops.hyprland.cliphist = enable;
+    desktops.hyprland.fuzzel = enable;
+    desktops.hyprland.gedit = enable;
+    desktops.hyprland.hypridle = enable;
+    desktops.hyprland.hypridle.timeouts.lock = 360;
+    desktops.hyprland.hypridle.timeouts.suspend = 600;
+    desktops.hyprland.hyprlock = enable;
+    desktops.hyprland.hyprpaper = enable;
+    desktops.hyprland.mako = enable;
+    desktops.hyprland.pavucontrol = enable;
+    desktops.hyprland.playerctl = enable;
+    desktops.hyprland.plugins = enable;
+    desktops.hyprland.swaybg = enable;
+    desktops.hyprland.swayosd = enable;
+    desktops.hyprland.top = enable;
+    desktops.hyprland.waybar = enable;
+    desktops.hyprland.wlsunset = enable;
     development.enableSuite = true;
+    development.direnv = enable;
+    development.git = enable;
+    development.installExtraPackages = true;
+    development.vscode = enable;
+    development.vscode.defaultApplication = true;
     editing.enableSuite = true;
+    editing.installExtraPackages = true;
+    flatpak = enable;
     gaming.enableSuite = true;
+    gaming.installExtraPackages = true;
+    gaming.steam = enable;
     music.enableSuite = true;
+    music.installExtraPackages = true;
+    networking.connman = enable;
     office.enableSuite = true;
+    office.evince = enable;
+    office.evince.defaultApplication = true;
+    office.installExtraPackages = true;
+    office.obsidian = enable;
+    office.scribus = enable;
+    office.thunderbird = enable;
+    ricing.enableSuite = true;
+    ricing.installExtraPackages = true;
+    shells.bash = enable;
+    shells.fish = enable;
+    shells.starship = enable;
+    shells.zsh = enable;
     social.enableSuite = true;
+    social.installExtraPackages = true;
+    virtualizaion.enableSuite = true;
+    virtualizaion.installExtraPackages = true;
+    virtualizaion.virt-manager = enable;
+    web.enableSuite = true;
+    web.epiphany = enable;
+    web.installExtraPackages = true;
+    web.librewolf = enable;
+    web.librewolf.defaultApplication = true;
+    xdg = enable;
+    xdg.mimeApps = enable;
   };
 
   home.stateVersion = "23.11";

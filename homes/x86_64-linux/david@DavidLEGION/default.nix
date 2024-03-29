@@ -12,7 +12,6 @@
 
     office.enableSuite = true;
     social.enableSuite = true;
-
     web.librewolf.defaultApplication = true;
   };
 
