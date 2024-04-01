@@ -1,3 +1,5 @@
+# A module to remeber you to go to sleep early without being too annoying
+
 { options, config, lib, pkgs, ... }:
 
 with lib;
