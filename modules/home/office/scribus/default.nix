@@ -14,13 +14,8 @@ in
     # Desktop Publishing (DTP) and Layout program for Linux
     home.packages = with pkgs; [ scribus ];
 
-    wayland.windowManager.hyprland.settings = {
-      bind = [ ];
-      exec-once = [ ];
-      exec = [ ];
-      windowrulev2 = [
-        "float, class:scribus, title:(New Document)"
-      ];
-    };
+    wayland.windowManager.hyprland.settings.windowrulev2 = [
+      "float, class:scribus, title:(New Document)"
+    ];
   };
 }

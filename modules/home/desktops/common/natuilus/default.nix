@@ -8,6 +8,7 @@ in
 {
   options.custom.desktops.common.natuilus = with types; {
     enable = mkBoolOpt config.custom.desktops.common.enable "Enable natuilus file manager";
+    autostart = mkBoolOpt true "Start natuilus on login";
   };
 
   config = mkIf cfg.enable {
@@ -53,7 +54,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = [ "SUPER_ALT, F, exec, ${pkgs.gnome.nautilus}/bin/nautilus" ];
-      exec-once = [ "[workspace 2 silent] ${pkgs.gnome.nautilus}/bin/nautilus" ];
+      exec-once = mkIf cfg.autostart [ "[workspace 2 silent] ${pkgs.gnome.nautilus}/bin/nautilus" ];
     };
   };
 }

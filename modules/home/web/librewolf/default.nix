@@ -8,6 +8,7 @@ in
 {
   options.custom.web.librewolf = with types; {
     enable = mkBoolOpt config.custom.web.enableSuite "Enable the librewolf web browser";
+    autostart = mkBoolOpt false "Start librewolf on login";
     defaultApplication = mkBoolOpt false "Set librewolf as the default application for its mimetypes";
   };
 
@@ -136,7 +137,7 @@ in
     ]));
 
     wayland.windowManager.hyprland.settings = {
-      exec-once = [ "[workspace 1 silent] ${config.programs.librewolf.package}/bin/librewolf" ];
+      exec-once = mkIf cfg.autostart [ "[workspace 1 silent] ${config.programs.librewolf.package}/bin/librewolf" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:librewolf, title:(Youtube)"
       ];

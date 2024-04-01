@@ -8,6 +8,7 @@ in
 {
   options.custom.APPLICATION = with types; {
     enable = mkBoolOpt false "Enable APPLICATION";
+    autostart = mkBoolOpt false "Start APPLICATION on login";
     defaultApplication = mkBoolOpt true "Set APPLICATION as the default application for its mimetypes";
   };
 
@@ -26,7 +27,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       exec = [ ];
-      exec-once = [ ];
+      exec-once = mkIf cfg.autostart [ ];
       binds = [ ];
       windowrulev2 = [ ];
     };

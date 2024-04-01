@@ -15,6 +15,7 @@ in
 {
   options.custom.web.firefox = with types; {
     enable = mkBoolOpt config.custom.web.enableSuite "Enable the firefox web browser";
+    autostart = mkBoolOpt true "Start firefox on login";
     defaultApplication = mkBoolOpt false "Set firefox as the default application for its mimetypes";
   };
 
@@ -257,7 +258,7 @@ in
     ]));
 
     wayland.windowManager.hyprland.settings = {
-      exec-once = [ "[workspace 1 silent] ${getExe config.programs.firefox.package}" ];
+      exec-once = mkIf cfg.autostart [ "[workspace 1 silent] ${getExe config.programs.firefox.package}" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:firefox, title:(Youtube)"
       ];

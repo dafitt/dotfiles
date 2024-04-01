@@ -10,7 +10,8 @@ in
 
   options.custom.development.vscode = with types; {
     enable = mkBoolOpt config.custom.development.enableSuite "Enable vscode";
-    defaultApplication = mkBoolOpt false "Set vscode as the default application for its mimetypes";
+    autostart = mkBoolOpt true "Start vscode on login";
+    defaultApplication = mkBoolOpt true "Set vscode as the default application for its mimetypes";
   };
 
   config = mkIf cfg.enable {
@@ -553,7 +554,7 @@ in
     ]));
 
     wayland.windowManager.hyprland.settings = {
-      exec-once = [ "[workspace 4 silent] ${config.programs.vscode.package}/bin/code" ];
+      exec-once = mkIf cfg.autostart [ "[workspace 4 silent] ${config.programs.vscode.package}/bin/code" ];
     };
   };
 }

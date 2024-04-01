@@ -17,8 +17,6 @@ in
       bind = [
         "SUPER_ALT, A, exec, ${pkgs.pavucontrol}/bin/pavucontrol"
       ];
-      exec-once = [ ];
-      exec = [ ];
       windowrulev2 = [
         "float, class:pavucontrol, title:^(Volume Control)$"
         "center, class:pavucontrol, title:^(Volume Control)$"
