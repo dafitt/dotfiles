@@ -29,6 +29,8 @@
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.3.0";
+
+    nur.url = "github:nix-community/NUR"; # Nix User Repository
   };
 
   # [Snowfall framework](https://snowfall.org/guides/lib/quickstart/)
@@ -50,6 +52,7 @@
     };
 
     overlays = with inputs; [
+      nur.overlay
     ];
 
     systems.modules.nixos = with inputs; [

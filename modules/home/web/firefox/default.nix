@@ -26,17 +26,18 @@ in
         name = config.home.username;
         id = 0;
         isDefault = true;
-        settings = {
+        settings = mkAfter {
           #
           # General / personal settings
           #
           "browser.tabs.insertAfterCurrent" = true;
           "browser.urlbar.trimURLs" = false; # show whole URL in address bar
           "general.autoScroll" = true; # enable middle-click scrolling
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # enable userChrome customisations
 
           # ui arrangement
           "browser.uiCustomization.state" = ''
-            {"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["sponsorblocker_ajay_app-browser-action","_7b1bf0b6-a1b9-42b0-b75d-252036438bdc_-browser-action","_605a075b-09d9-4443-bed6-4baa743f7d79_-browser-action","myallychou_gmail_com-browser-action","cookieautodelete_kennydo_com-browser-action","jid1-kkzogwgsw3ao4q_jetpack-browser-action","_74145f27-f039-47ce-a470-a662b129930a_-browser-action","_94249bf3-29a3-4bb5-aa30-013883e8f2f4_-browser-action","_2cf5dbed-78fe-4bd5-9524-38fdf837be98_-browser-action","_ab0ae774-f22f-479b-9b1b-6aff11bf6f5c_-browser-action","_b9acf540-acba-11e1-8ccb-001fd0e08bd4_-browser-action","_34daeb50-c2d2-4f14-886a-7160b24d66a4_-browser-action"],"nav-bar":["simple-tab-groups_drive4ik-browser-action","back-button","forward-button","stop-reload-button","customizableui-special-spring1","addon_darkreader_org-browser-action","ublock0_raymondhill_net-browser-action","_73a6fe31-595d-460b-a920-fcc0f8843232_-browser-action","urlbar-container","_4853d046-c5a3-436b-bc36-220fd935ee1d_-browser-action","history-panelmenu","screenshot-button","downloads-button","customizableui-special-spring2","_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action","fxa-toolbar-menu-button","unified-extensions-button","reset-pbm-toolbar-button","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["firefox-view-button","tabbrowser-tabs","new-tab-button","alltabs-button"],"PersonalToolbar":["personal-bookmarks"]},"seen":["save-to-pocket-button","developer-button","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action","sponsorblocker_ajay_app-browser-action","_7b1bf0b6-a1b9-42b0-b75d-252036438bdc_-browser-action","_73a6fe31-595d-460b-a920-fcc0f8843232_-browser-action","_605a075b-09d9-4443-bed6-4baa743f7d79_-browser-action","myallychou_gmail_com-browser-action","cookieautodelete_kennydo_com-browser-action","jid1-kkzogwgsw3ao4q_jetpack-browser-action","simple-tab-groups_drive4ik-browser-action","_4853d046-c5a3-436b-bc36-220fd935ee1d_-browser-action","_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","_74145f27-f039-47ce-a470-a662b129930a_-browser-action","_94249bf3-29a3-4bb5-aa30-013883e8f2f4_-browser-action","_2cf5dbed-78fe-4bd5-9524-38fdf837be98_-browser-action","_ab0ae774-f22f-479b-9b1b-6aff11bf6f5c_-browser-action","_b9acf540-acba-11e1-8ccb-001fd0e08bd4_-browser-action","_34daeb50-c2d2-4f14-886a-7160b24d66a4_-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","toolbar-menubar","TabsToolbar","unified-extensions-area"],"currentVersion":20,"newElementCount":8}
+            {"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["jid1-mnnxcxisbpnsxq_jetpack-browser-action","sponsorblocker_ajay_app-browser-action","_7b1bf0b6-a1b9-42b0-b75d-252036438bdc_-browser-action","_605a075b-09d9-4443-bed6-4baa743f7d79_-browser-action","myallychou_gmail_com-browser-action","cookieautodelete_kennydo_com-browser-action","jid1-kkzogwgsw3ao4q_jetpack-browser-action","_74145f27-f039-47ce-a470-a662b129930a_-browser-action","_94249bf3-29a3-4bb5-aa30-013883e8f2f4_-browser-action","_2cf5dbed-78fe-4bd5-9524-38fdf837be98_-browser-action","_ab0ae774-f22f-479b-9b1b-6aff11bf6f5c_-browser-action","_b9acf540-acba-11e1-8ccb-001fd0e08bd4_-browser-action","_34daeb50-c2d2-4f14-886a-7160b24d66a4_-browser-action","jid1-bofifl9vbdl2zq_jetpack-browser-action"],"nav-bar":["simple-tab-groups_drive4ik-browser-action","_3c078156-979c-498b-8990-85f7987dd929_-browser-action","back-button","forward-button","stop-reload-button","customizableui-special-spring1","addon_darkreader_org-browser-action","ublock0_raymondhill_net-browser-action","_73a6fe31-595d-460b-a920-fcc0f8843232_-browser-action","urlbar-container","_4853d046-c5a3-436b-bc36-220fd935ee1d_-browser-action","history-panelmenu","screenshot-button","downloads-button","customizableui-special-spring2","_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action","fxa-toolbar-menu-button","unified-extensions-button","reset-pbm-toolbar-button","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["firefox-view-button","tabbrowser-tabs","new-tab-button","alltabs-button"],"PersonalToolbar":["personal-bookmarks"]},"seen":["save-to-pocket-button","developer-button","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action","sponsorblocker_ajay_app-browser-action","_7b1bf0b6-a1b9-42b0-b75d-252036438bdc_-browser-action","_73a6fe31-595d-460b-a920-fcc0f8843232_-browser-action","_605a075b-09d9-4443-bed6-4baa743f7d79_-browser-action","myallychou_gmail_com-browser-action","cookieautodelete_kennydo_com-browser-action","jid1-kkzogwgsw3ao4q_jetpack-browser-action","simple-tab-groups_drive4ik-browser-action","_4853d046-c5a3-436b-bc36-220fd935ee1d_-browser-action","_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","_74145f27-f039-47ce-a470-a662b129930a_-browser-action","_94249bf3-29a3-4bb5-aa30-013883e8f2f4_-browser-action","_2cf5dbed-78fe-4bd5-9524-38fdf837be98_-browser-action","_ab0ae774-f22f-479b-9b1b-6aff11bf6f5c_-browser-action","_b9acf540-acba-11e1-8ccb-001fd0e08bd4_-browser-action","_34daeb50-c2d2-4f14-886a-7160b24d66a4_-browser-action","jid1-mnnxcxisbpnsxq_jetpack-browser-action","_3c078156-979c-498b-8990-85f7987dd929_-browser-action","jid1-bofifl9vbdl2zq_jetpack-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","toolbar-menubar","TabsToolbar","unified-extensions-area"],"currentVersion":20,"newElementCount":9}
           '';
 
           # resore last session
@@ -52,8 +53,8 @@ in
 
           # dark theme
           "devtools.theme" = "dark";
-          "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org"; # browser dark theme
-          "layout.css.prefers-color-scheme.content-override" = 0; # set default perefered color scheme to dark
+          #"extensions.activeThemeID" = "firefox-compact-dark@mozilla.org"; # browser dark theme
+          #"layout.css.prefers-color-scheme.content-override" = 0; # set default perefered color scheme to dark
           "svg.context-properties.content.enabled" = true; # fully support the dark theme
 
           #
@@ -79,9 +80,18 @@ in
           "network.predictor.enabled" = false;
           "browser.urlbar.speculativeConnect.enabled" = false;
 
+          # Extensions are managed with Nix, so don't update.
+          "extensions.update.autoUpdateDefault" = false;
+          "extensions.update.enabled" = false;
+
           #
           # [Betterfox](https://github.com/yokoffing/Betterfox) additions
           #
+          # TODO: Fix cannot sign in to firefox sync account
+          "webchannel.allowObject.urlWhitelist" = "https://content.cdn.mozilla.net https://install.mozilla.org https://accounts.firefox.com";
+          # [Fastfox.js](https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js)
+          # SECTION: GFX RENDERING TWEAKS
+          "gfx.webrender.all" = true;
           # [Securefox.js](https://github.com/yokoffing/Betterfox/blob/main/Securefox.js)
           # SECTION: TRACKING PROTECTION
           "privacy.donottrackheader.enabled" = true;
@@ -111,6 +121,32 @@ in
           (builtins.readFile "${betterfox}/Securefox.js")
           (builtins.readFile "${betterfox}/Fastfox.js")
           (builtins.readFile "${betterfox}/Peskyfox.js")
+        ];
+
+        #userChrome = ''
+        #  /* Completely hide tabs */
+        #  #TabsToolbar { visibility: collapse; }
+        #'';
+
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          # https://nur.nix-community.org/repos/rycee/
+          cookie-autodelete
+          darkreader
+          decentraleyes
+          enhancer-for-youtube
+          i-dont-care-about-cookies
+          link-cleaner
+          noscript
+          onepassword-password-manager
+          privacy-badger
+          return-youtube-dislikes
+          sidebery
+          sponsorblock
+          to-deepl
+          ublock-origin
+          undoclosetabbutton
+          user-agent-string-switcher
+          youtube-recommended-videos
         ];
 
         search = {
@@ -239,23 +275,25 @@ in
       };
     };
 
-    xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication (listToAttrs (map (mimeType: { name = mimeType; value = [ "firefox.desktop" ]; }) [
-      "application/x-extension-htm"
-      "application/x-extension-html"
-      "application/x-extension-shtml"
-      "application/x-extension-xht"
-      "application/x-extension-xhtml"
-      "application/xhtml+xml"
-      "x-scheme-handler/about"
-      "x-scheme-handler/ftp"
-      "x-scheme-handler/http"
-      "x-scheme-handler/https"
-      "x-scheme-handler/unknown"
-      #"application/json"
-      #"application/pdf"
-      #"text/html"
-      #"text/xml"
-    ]));
+    xdg.mimeApps.defaultApplications = mkIf
+      cfg.defaultApplication
+      (listToAttrs (map (mimeType: { name = mimeType; value = [ "firefox.desktop" ]; }) [
+        "application/x-extension-htm"
+        "application/x-extension-html"
+        "application/x-extension-shtml"
+        "application/x-extension-xht"
+        "application/x-extension-xhtml"
+        "application/xhtml+xml"
+        "x-scheme-handler/about"
+        "x-scheme-handler/ftp"
+        "x-scheme-handler/http"
+        "x-scheme-handler/https"
+        "x-scheme-handler/unknown"
+        #"application/json"
+        #"application/pdf"
+        #"text/html"
+        #"text/xml"
+      ]));
 
     wayland.windowManager.hyprland.settings = {
       exec-once = mkIf cfg.autostart [ "[workspace 1 silent] ${getExe config.programs.firefox.package}" ];
