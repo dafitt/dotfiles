@@ -458,7 +458,6 @@ in
         james-yu.latex-workshop
         # markdown
         yzhang.markdown-all-in-one
-        shd101wyy.markdown-preview-enhanced
         # makefile
         ms-vscode.makefile-tools
         # nix
@@ -505,6 +504,8 @@ in
         # latex
         { name = "latex-utilities"; publisher = "tecosaur"; version = "0.4.10"; sha256 = "sha256-tNf4sTsae+NKB7QZ5PQOXI6T14eEH0YIK/LhgWq6QHA="; }
         { name = "latexindent"; publisher = "lenagain"; version = "0.0.1"; sha256 = "sha256-/gH64YE7bVqYdGI3GTaOYhLHIA+ndqqDEGl72jqratI="; }
+        # markdown
+        { name = "markdown-preview-github-styles"; publisher = "bierner"; version = "2.0.4"; sha256 = "sha256-jJulxvjMNsqQqmsb5szQIAUuLWuHw824Caa0KArjUVw="; }
         # shell
         { name = "haltarys-shellman"; publisher = "Haltarys"; version = "5.7.1"; sha256 = "0gw0nd5yhq7d08mf7k78zz8xaj23qlirip3amx2jmqjav1fbz46m"; }
         # sql
