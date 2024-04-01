@@ -8,8 +8,8 @@ in
 {
   options.custom.web.librewolf = with types; {
     enable = mkBoolOpt config.custom.web.enableSuite "Enable the librewolf web browser";
-    autostart = mkBoolOpt false "Start librewolf on login";
-    defaultApplication = mkBoolOpt false "Set librewolf as the default application for its mimetypes";
+    autostart = mkBoolOpt true "Start librewolf on login";
+    defaultApplication = mkBoolOpt true "Set librewolf as the default application for its mimetypes";
   };
 
   config = mkIf cfg.enable {

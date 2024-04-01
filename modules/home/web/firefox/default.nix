@@ -15,7 +15,7 @@ in
 {
   options.custom.web.firefox = with types; {
     enable = mkBoolOpt config.custom.web.enableSuite "Enable the firefox web browser";
-    autostart = mkBoolOpt true "Start firefox on login";
+    autostart = mkBoolOpt false "Start firefox on login";
     defaultApplication = mkBoolOpt false "Set firefox as the default application for its mimetypes";
   };
 
