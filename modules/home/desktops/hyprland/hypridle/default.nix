@@ -43,7 +43,7 @@ in
         {
           timeout = if locking_enabled then (cfg.timeouts.lock + 10) else 360;
           onTimeout = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms off";
-          onResume = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on";
+          onResume = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on && ${pkgs.systemd}/bin/systemctl restart --user wlsunset.service";
         }
         (mkIf (cfg.timeouts.suspend > 0) {
           timeout = cfg.timeouts.suspend;
