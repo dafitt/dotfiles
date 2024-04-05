@@ -29,6 +29,7 @@ My dotfiles are not perfekt and never will be (unfortunately), but they strive t
 -   ❄️🏗️ [Snowfall-lib structure](https://snowfall.org/reference/lib/#flake-structure)
 -   ❄️💲 [Snowfall-flake commands](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage)
 -   📦 [Declarative flatpaks](https://github.com/gmodena/nix-flatpak)
+-   📦 Appimage support
 
 | Operating System 💻 | [NixOS](https://nixos.org/)                                                                                                              |
 | ------------------: | :--------------------------------------------------------------------------------------------------------------------------------------- |
