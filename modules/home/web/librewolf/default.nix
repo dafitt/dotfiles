@@ -107,6 +107,7 @@ in
 
         /** DOWNLOADS ***/
         "browser.download.autohideButton" = true;
+        "browser.download.useDownloadDir" = true;
 
         /** PDF ***/
         "browser.download.open_pdf_attachments_inline" = true;
