@@ -50,8 +50,8 @@ in
         # modules mid
         modules-center = [ "custom/l" "clock" "custom/r" ];
         "clock" = {
-          format = "{:%R} ";
-          format-alt = "{:%R  %Y·%m·%d}";
+          format = "{:%R  %Y·%m·%d}";
+          format-alt = "{:%R} ";
           tooltip-format = "<tt>{calendar}</tt>";
           calendar = {
             mode = "month";
