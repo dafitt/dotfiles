@@ -304,6 +304,7 @@ in
       exec-once = mkIf cfg.autostart [ "[workspace 1 silent] ${getExe config.programs.firefox.package}" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:firefox, title:(Youtube)"
+        "float, class:librewolf, title:^Extension: \(NoScript\) - NoScript XSS Warning — LibreWolf$"
       ];
     };
   };
