@@ -12,11 +12,10 @@
 
     office.enableSuite = true;
     social.enableSuite = true;
+    web.librewolf.enable = true;
     web.librewolf.defaultApplication = true;
   };
 
   # MultiGPU
   wayland.windowManager.hyprland.settings.env = [ "WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0" ];
-
-  home.stateVersion = "23.05";
 }
