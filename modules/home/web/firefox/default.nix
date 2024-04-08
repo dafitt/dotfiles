@@ -83,44 +83,49 @@ in
           # Extensions are managed with Nix, so don't update.
           "extensions.update.autoUpdateDefault" = false;
           "extensions.update.enabled" = false;
-
-          #
-          # [Betterfox](https://github.com/yokoffing/Betterfox) additions
-          #
-          # TODO: Fix cannot sign in to firefox sync account
-          "webchannel.allowObject.urlWhitelist" = "https://content.cdn.mozilla.net https://install.mozilla.org https://accounts.firefox.com";
-          # [Fastfox.js](https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js)
-          # SECTION: GFX RENDERING TWEAKS
-          "gfx.webrender.all" = true;
-          # [Securefox.js](https://github.com/yokoffing/Betterfox/blob/main/Securefox.js)
-          # SECTION: TRACKING PROTECTION
-          "privacy.donottrackheader.enabled" = true;
-          "privacy.trackingprotection.enabled" = true;
-          "privacy.trackingprotection.socialtracking.enabled" = true;
-          "beacon.enabled" = false; # No bluetooth location BS in my webbrowser please
-          "dom.battery.enabled" = false; # you don't need to see my battery...
-          # SECTION: CONTAINERS
-          "privacy.userContext.enabled" = true;
-          # SECTION: PASSWORDS
-          "browser.contentblocking.report.lockwise.enabled" = false; # don't use firefox password manger
-          # SECTION: ADDRESS + CREDIT CARD MANAGER
-          "extensions.formautofill.creditCards.enabled" = false; # don't auto-fill credit card information
-          # SECTION: MOZILLA
-          "dom.push.enabled" = false; # no notifications, really...
-          # SECTION: TELEMETRY
-          "extensions.webcompat-reporter.enabled" = false; # don't report compability problems to mozilla
-          "browser.urlbar.eventTelemetry.enabled" = false; # (default)
-          # SECTION: PLUGINS
-          "browser.eme.ui.enabled" = false;
-          "media.eme.enabled" = false;
-          # SECTION: DETECTION
-          "extensions.abuseReport.enabled" = false; # don't show 'report abuse' in extensions
         };
 
         extraConfig = builtins.concatStringsSep "\n" [
-          (builtins.readFile "${betterfox}/Securefox.js")
+          #
+          # [Betterfox](https://github.com/yokoffing/Betterfox)
+          #
           (builtins.readFile "${betterfox}/Fastfox.js")
           (builtins.readFile "${betterfox}/Peskyfox.js")
+          (builtins.readFile "${betterfox}/Securefox.js")
+
+          # [Fastfox.js](https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js) overrides
+          # GFX RENDERING TWEAKS
+          ''user_pref("gfx.webrender.all", true);''
+
+          # [Peskyfox.js](https://github.com/yokoffing/Betterfox/blob/main/Peskyfox.js) overrides
+          # DOWNLOADS
+          ''user_pref("browser.download.alwaysOpenPanel", false);'' # disable download panel opening on every downloadj
+
+          # [Securefox.js](https://github.com/yokoffing/Betterfox/blob/main/Securefox.js) overrides
+          # TRACKING PROTECTION
+          ''user_pref("privacy.donottrackheader.enabled", true);''
+          ''user_pref("privacy.trackingprotection.enabled", true);''
+          ''user_pref("privacy.trackingprotection.socialtracking.enabled", true);''
+          ''user_pref("beacon.enabled", false);'' # No bluetooth location BS in my webbrowser please
+          ''user_pref("dom.battery.enabled", false);'' # you don't need to see my battery...
+          # CONTAINERS
+          ''user_pref("privacy.userContext.enabled", true);''
+          # PASSWORDS
+          ''user_pref("browser.contentblocking.report.lockwise.enabled", false);'' # don't use firefox password manger
+          # ADDRESS + CREDIT CARD MANAGER
+          ''user_pref("extensions.formautofill.creditCards.enabled", false);'' # don't auto-fill credit card information
+          # MOZILLA
+          ''user_pref("identity.fxaccounts.enabled", true);'' # eanble Firefox Sync
+          ''user_pref("webchannel.allowObject.urlWhitelist", "https://content.cdn.mozilla.net https://install.mozilla.org https://accounts.firefox.com");'' # fix for cannot sign in to firefox sync account
+          ''user_pref("dom.push.enabled", false);'' # no notifications, really...
+          # TELEMETRY
+          ''user_pref("extensions.webcompat-reporter.enabled", false);'' # don't report compability problems to mozilla
+          ''user_pref("browser.urlbar.eventTelemetry.enabled", false);'' # (default)
+          # PLUGINS
+          ''user_pref("browser.eme.ui.enabled", false);''
+          ''user_pref("media.eme.enabled", false);''
+          # DETECTION
+          ''user_pref("extensions.abuseReport.enabled", false);'' # don't show 'report abuse' in extensions
         ];
 
         #userChrome = ''
@@ -135,7 +140,7 @@ in
           decentraleyes
           enhancer-for-youtube
           i-dont-care-about-cookies
-          link-cleaner
+          clearurls # alternative: link-cleaner
           noscript
           onepassword-password-manager
           privacy-badger
@@ -160,7 +165,7 @@ in
             #"Amazon.com".metaData.hidden = true;
 
             "Searx" = {
-              #NOTE local server
+              #NOTE This is a local server!
               iconUpdateURL = "https://searx.schallernetz.lan/favicon.ico";
               definedAliases = [ "@searx" "@sx" ];
               urls = [{
