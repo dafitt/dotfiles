@@ -16,7 +16,6 @@ with lib.custom;
       warn-dirty = false;
       log-lines = 50;
       auto-optimise-store = true;
-      trusted-substituters = config.nix.settings.substituters;
       trusted-users = [ "root" ];
       allowed-users = [ "@wheel" config.custom.users.main.username ];
     }
