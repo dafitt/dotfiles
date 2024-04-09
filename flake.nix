@@ -1,7 +1,7 @@
 {
   description = "Dafitt's desktop flake";
 
-  #$ flake update [input]
+  #$ flake update [inputs]
   #$ nix flake update [--commit-lock-file]
   #$ nix flake lock --update-input [input]
   inputs = {

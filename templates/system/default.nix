@@ -1,14 +1,9 @@
-#$ flake build-system [#<name>]
-#$ nix build .#nixosConfigurations.<name>.config.system.build.toplevel
-#$ nixos-rebuild build --flake .[#<name>] --show-trace
-#$ nixos-rebuild build-vm --flake .[#<name>]
+#$ flake build-system [#<host>]
+#$ nix build .#nixosConfigurations.<host>.config.system.build.toplevel
+#$ nixos-rebuild build --fast --flake .[#<host>] --show-trace
 
-#$ flake test [#<name>]
-#$ flake switch [#<name>]
-#$ flake boot [#<name>]
-#$ sudo nixos-rebuild test --flake .[#<name>]
-#$ sudo nixos-rebuild switch --flake .[#<name>]
-#$ sudo nixos-rebuild boot --flake .[#<name>]
+#$ flake <test|switch|boot> [#<host>]
+#$ sudo nixos-rebuild --flake .[#<host>] <test|switch|boot>
 
 { lib, ... }: with lib.custom; {
   imports = [ ./hardware-configuration.nix ];
