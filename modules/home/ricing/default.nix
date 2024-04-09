@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.ricing;
-  osCfg = osConfig.custom.ricing or null;
+  cfg = config.dafitt.ricing;
+  osCfg = osConfig.dafitt.ricing or null;
 in
 {
-  options.custom.ricing = with types; {
+  options.dafitt.ricing = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the ricing suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra ricing packages";
   };

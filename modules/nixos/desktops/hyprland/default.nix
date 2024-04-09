@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, inputs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland;
+  cfg = config.dafitt.desktops.hyprland;
 in
 {
-  options.custom.desktops.hyprland = with types; {
+  options.dafitt.desktops.hyprland = with types; {
     enable = mkBoolOpt false "Enable the Hyprland desktop environment";
   };
 
@@ -73,6 +73,6 @@ in
       };
     };
 
-    custom.displayManager.greetd.sessionPaths = [ "${config.programs.hyprland.package}/share/wayland-sessions" ];
+    dafitt.displayManager.greetd.sessionPaths = [ "${config.programs.hyprland.package}/share/wayland-sessions" ];
   };
 }

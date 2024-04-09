@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.common.micro;
+  cfg = config.dafitt.desktops.common.micro;
 in
 {
-  options.custom.desktops.common.micro = with types; {
-    enable = mkBoolOpt config.custom.desktops.common.enable "Enable the micro text editor";
+  options.dafitt.desktops.common.micro = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable the micro text editor";
   };
 
   config = mkIf cfg.enable {

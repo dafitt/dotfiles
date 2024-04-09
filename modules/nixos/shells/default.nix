@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.shells;
+  cfg = config.dafitt.shells;
 in
 {
   # TODO: check if only one shell is enabled
-  options.custom.shells = with types; {
+  options.dafitt.shells = with types; {
     default = mkOpt package pkgs.fish "Which default shell to set";
   };
 

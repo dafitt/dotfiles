@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.office;
-  osCfg = osConfig.custom.office or null;
+  cfg = config.dafitt.office;
+  osCfg = osConfig.dafitt.office or null;
 in
 {
-  options.custom.office = with types; {
+  options.dafitt.office = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the office suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra office packages";
   };

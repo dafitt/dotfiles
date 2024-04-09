@@ -3,7 +3,7 @@
 # https://gist.github.com/piousdeer/b29c272eaeba398b864da6abf6cb5daa
 # This makes vscode settings/keybindings/tasks/snippets writable
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
   # Path logic from:
   # https://github.com/nix-community/home-manager/blob/3876cc613ac3983078964ffb5a0c01d00028139e/modules/programs/vscode.nix
@@ -38,11 +38,11 @@ let
   ];
 in
 {
-  options.custom.development.vscode = with types; {
-    mkMutable = mkBoolOpt config.custom.development.vscode.enable "Make vscode directory";
+  options.dafitt.development.vscode = with types; {
+    mkMutable = mkBoolOpt config.dafitt.development.vscode.enable "Make vscode directory";
   };
 
-  config = mkIf config.custom.development.vscode.mkMutable {
+  config = mkIf config.dafitt.development.vscode.mkMutable {
     home.file = lib.genAttrs pathsToMakeWritable (_: {
       force = true;
       mutable = true;

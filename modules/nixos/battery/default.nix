@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.battery;
+  cfg = config.dafitt.battery;
 in
 {
-  options.custom.battery = with types; {
+  options.dafitt.battery = with types; {
     enable = mkBoolOpt false "Whether or not to enable battery optimizations and utils.";
   };
 

@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.development.sshAgent;
+  cfg = config.dafitt.development.sshAgent;
 in
 {
-  options.custom.development.sshAgent = with types; {
-    enable = mkBoolOpt config.custom.development.enableSuite "Enable sshAgent";
+  options.dafitt.development.sshAgent = with types; {
+    enable = mkBoolOpt config.dafitt.development.enableSuite "Enable sshAgent";
   };
 
   config = mkIf cfg.enable {

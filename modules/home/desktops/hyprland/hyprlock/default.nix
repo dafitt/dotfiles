@@ -2,14 +2,14 @@
 { options, config, lib, pkgs, inputs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland.hyprlock;
+  cfg = config.dafitt.desktops.hyprland.hyprlock;
   hyprlandCfg = config.wayland.windowManager.hyprland;
 in
 {
-  options.custom.desktops.hyprland.hyprlock = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable screenlocking";
+  options.dafitt.desktops.hyprland.hyprlock = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable screenlocking";
     package = mkOpt' package inputs.hyprlock.packages.${pkgs.system}.default;
   };
 

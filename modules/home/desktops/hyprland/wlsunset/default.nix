@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland.wlsunset;
+  cfg = config.dafitt.desktops.hyprland.wlsunset;
 in
 {
-  options.custom.desktops.hyprland.wlsunset = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable the wlsunset, automatic adjustment for screen color temperature";
+  options.dafitt.desktops.hyprland.wlsunset = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable the wlsunset, automatic adjustment for screen color temperature";
   };
 
   config = mkIf cfg.enable {

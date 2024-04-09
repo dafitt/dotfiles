@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.fstrim;
+  cfg = config.dafitt.fstrim;
 in
 {
-  options.custom.fstrim = with types; {
+  options.dafitt.fstrim = with types; {
     enable = mkBoolOpt true "Enable fstrim, a utility to trim unused blocks on a filesystem periodically";
   };
 

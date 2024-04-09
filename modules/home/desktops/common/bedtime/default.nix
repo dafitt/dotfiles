@@ -3,12 +3,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.common.bedtime;
+  cfg = config.dafitt.desktops.common.bedtime;
 in
 {
-  options.custom.desktops.common.bedtime = with types; {
+  options.dafitt.desktops.common.bedtime = with types; {
     enable = mkBoolOpt false "Wether or not to tell you to go to sleep at night";
   };
 

@@ -40,7 +40,7 @@
     src = ./.;
 
     snowfall = {
-      namespace = "custom";
+      namespace = "dafitt";
       meta = {
         name = "dafitt-desktop-flake";
         title = "Dafitt's desktop flake";

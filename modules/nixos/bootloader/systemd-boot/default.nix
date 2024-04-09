@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.bootloader.systemd-boot;
+  cfg = config.dafitt.bootloader.systemd-boot;
 in
 {
-  options.custom.bootloader.systemd-boot = with types; {
+  options.dafitt.bootloader.systemd-boot = with types; {
     enable = mkBoolOpt false "Whether or not to enable booting by systemd-boot.";
   };
 

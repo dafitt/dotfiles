@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.common.kitty;
+  cfg = config.dafitt.desktops.common.kitty;
 in
 {
-  options.custom.desktops.common.kitty = with types; {
-    enable = mkBoolOpt config.custom.desktops.common.enable "Enable kitty terminal emulator";
+  options.dafitt.desktops.common.kitty = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable kitty terminal emulator";
   };
 
   config = mkIf cfg.enable {

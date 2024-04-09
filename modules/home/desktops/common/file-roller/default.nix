@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.common.file-roller;
+  cfg = config.dafitt.desktops.common.file-roller;
 in
 {
-  options.custom.desktops.common.file-roller = with types; {
-    enable = mkBoolOpt config.custom.desktops.common.enable "Enable the file-roller archive manager";
+  options.dafitt.desktops.common.file-roller = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable the file-roller archive manager";
     defaultApplication = mkBoolOpt true "Set file-roller as the default application for its mimetypes";
 
   };

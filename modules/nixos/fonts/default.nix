@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.fonts;
+  cfg = config.dafitt.fonts;
 in
 {
-  options.custom.fonts = with types; {
+  options.dafitt.fonts = with types; {
     enable = mkBoolOpt true "Whether or not to manage fonts.";
     fonts = mkOpt (listOf package) [ ] "Custom font packages to install.";
   };

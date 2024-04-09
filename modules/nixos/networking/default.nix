@@ -1,9 +1,9 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.networking;
+  cfg = config.dafitt.networking;
   networkManagers = builtins.attrNames cfg;
   enabledNetworkManagers = lib.filter (name: cfg.${name}.enable or false) networkManagers;
 in

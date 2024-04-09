@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.security.doas;
+  cfg = config.dafitt.security.doas;
 in
 {
-  options.custom.security.doas = {
+  options.dafitt.security.doas = {
     enable = mkBoolOpt false "Whether or not to replace sudo with doas.";
   };
 

@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.shells.fish;
+  cfg = config.dafitt.shells.fish;
 in
 {
-  options.custom.shells.fish = with types; {
+  options.dafitt.shells.fish = with types; {
     enable = mkBoolOpt true "Enable fish shell";
   };
 

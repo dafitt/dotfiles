@@ -1,9 +1,9 @@
 { options, config, lib, pkgs, host, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.web.firefox;
+  cfg = config.dafitt.web.firefox;
 
   betterfox = pkgs.fetchFromGitHub {
     owner = "yokoffing";
@@ -13,8 +13,8 @@ let
   };
 in
 {
-  options.custom.web.firefox = with types; {
-    enable = mkBoolOpt config.custom.web.enableSuite "Enable the firefox web browser";
+  options.dafitt.web.firefox = with types; {
+    enable = mkBoolOpt config.dafitt.web.enableSuite "Enable the firefox web browser";
     autostart = mkBoolOpt false "Start firefox on login";
     defaultApplication = mkBoolOpt false "Set firefox as the default application for its mimetypes";
   };

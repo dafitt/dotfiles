@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland.top;
+  cfg = config.dafitt.desktops.hyprland.top;
 in
 {
-  options.custom.desktops.hyprland.top = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable a top for hyprland";
+  options.dafitt.desktops.hyprland.top = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable a top for hyprland";
   };
 
   config = mkIf cfg.enable {

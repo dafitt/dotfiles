@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.development;
+  cfg = config.dafitt.development;
 in
 {
-  options.custom.development = with types; {
+  options.dafitt.development = with types; {
     enableSuite = mkBoolOpt false "Enable the development suite";
   };
 }

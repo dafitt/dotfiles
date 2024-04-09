@@ -1,9 +1,9 @@
 { options, config, lib, pkgs, inputs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.users.main;
+  cfg = config.dafitt.users.main;
 
   # profile picture
   faceFileName = "face.png";
@@ -18,7 +18,7 @@ let
   };
 in
 {
-  options.custom.users.main = with types; {
+  options.dafitt.users.main = with types; {
     username = mkOpt str "david" "The username of the main user";
     fullname = mkOpt str "David Schaller" "The full name of the main user";
   };

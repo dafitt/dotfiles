@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.fwupd;
+  cfg = config.dafitt.fwupd;
 in
 {
-  options.custom.fwupd = with types; {
+  options.dafitt.fwupd = with types; {
     enable = mkBoolOpt false "Enable fwupd, a tool to update firmware on Linux";
   };
 

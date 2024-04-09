@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.web;
-  osCfg = osConfig.custom.web or null;
+  cfg = config.dafitt.web;
+  osCfg = osConfig.dafitt.web or null;
 in
 {
-  options.custom.web = with types; {
+  options.dafitt.web = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or true) "Enable the web suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra web packages";
   };

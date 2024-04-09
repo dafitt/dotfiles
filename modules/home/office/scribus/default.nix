@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.office.scribus;
+  cfg = config.dafitt.office.scribus;
 in
 {
-  options.custom.office.scribus = with types; {
-    enable = mkBoolOpt config.custom.office.enableSuite "Enable scribus";
+  options.dafitt.office.scribus = with types; {
+    enable = mkBoolOpt config.dafitt.office.enableSuite "Enable scribus";
   };
 
   config = mkIf cfg.enable {

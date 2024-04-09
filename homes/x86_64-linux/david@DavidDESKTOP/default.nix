@@ -1,6 +1,6 @@
-{ lib, ... }: with lib.custom; {
+{ lib, ... }: with lib.dafitt; {
 
-  custom = {
+  dafitt = {
     desktops.hyprland.monitors = [{
       name = "DP-1";
       width = 2560;

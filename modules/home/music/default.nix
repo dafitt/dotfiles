@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.music;
-  osCfg = osConfig.custom.music or null;
+  cfg = config.dafitt.music;
+  osCfg = osConfig.dafitt.music or null;
 in
 {
-  options.custom.music = with types; {
+  options.dafitt.music = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the music suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra music packages";
   };

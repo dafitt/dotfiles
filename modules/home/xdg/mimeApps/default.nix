@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.xdg.mimeApps;
+  cfg = config.dafitt.xdg.mimeApps;
 in
 {
-  options.custom.xdg.mimeApps = with types; {
+  options.dafitt.xdg.mimeApps = with types; {
     enable = mkBoolOpt true "Whether or not to set default applications for mime types";
   };
 

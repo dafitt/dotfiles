@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.displayManager.greetd;
+  cfg = config.dafitt.displayManager.greetd;
 in
 {
-  options.custom.displayManager.greetd = with types; {
+  options.dafitt.displayManager.greetd = with types; {
     enable = mkBoolOpt false "Enable greetd as the login/display manager";
     sessionPaths = mkOption {
       description = "List of paths to search for session files";

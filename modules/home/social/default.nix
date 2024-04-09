@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.social;
-  osCfg = osConfig.custom.social or null;
+  cfg = config.dafitt.social;
+  osCfg = osConfig.dafitt.social or null;
 in
 {
-  options.custom.social = with types; {
+  options.dafitt.social = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the social suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra social packages";
   };

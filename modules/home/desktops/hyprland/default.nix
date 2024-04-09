@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, inputs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland;
-  osCfg = osConfig.custom.desktops.hyprland or null;
+  cfg = config.dafitt.desktops.hyprland;
+  osCfg = osConfig.dafitt.desktops.hyprland or null;
 in
 {
-  options.custom.desktops.hyprland = with types; {
+  options.dafitt.desktops.hyprland = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Enable the Hyprland desktop";
   };
 

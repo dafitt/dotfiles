@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.shells.fish;
-  osCfg = osConfig.custom.shells.fish or null;
+  cfg = config.dafitt.shells.fish;
+  osCfg = osConfig.dafitt.shells.fish or null;
 in
 {
-  options.custom.shells.fish = with types; {
+  options.dafitt.shells.fish = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Enable the fish shell";
   };
 

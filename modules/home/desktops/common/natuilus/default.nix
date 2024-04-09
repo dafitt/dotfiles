@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.common.natuilus;
+  cfg = config.dafitt.desktops.common.natuilus;
 in
 {
-  options.custom.desktops.common.natuilus = with types; {
-    enable = mkBoolOpt config.custom.desktops.common.enable "Enable natuilus file manager";
+  options.dafitt.desktops.common.natuilus = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable natuilus file manager";
     autostart = mkBoolOpt true "Start natuilus on login";
   };
 

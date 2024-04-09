@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.common.syncthing;
+  cfg = config.dafitt.desktops.common.syncthing;
 in
 {
-  options.custom.desktops.common.syncthing = with types; {
-    enable = mkBoolOpt config.custom.desktops.common.enable "Enable syncthing, a tool to sync files with other devices";
+  options.dafitt.desktops.common.syncthing = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable syncthing, a tool to sync files with other devices";
   };
 
   config = mkIf cfg.enable {

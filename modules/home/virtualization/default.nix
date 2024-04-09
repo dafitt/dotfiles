@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.virtualizaion;
-  osCfg = osConfig.custom.virtualizaion or null;
+  cfg = config.dafitt.virtualizaion;
+  osCfg = osConfig.dafitt.virtualizaion or null;
 in
 {
-  options.custom.virtualizaion = with types; {
+  options.dafitt.virtualizaion = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the virtualizaion suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra virtualizaion packages";
   };

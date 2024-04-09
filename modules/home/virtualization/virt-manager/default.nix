@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.virtualizaion.virt-manager;
-  osCfg = osConfig.custom.virtualizaion.virt-manager or null;
+  cfg = config.dafitt.virtualizaion.virt-manager;
+  osCfg = osConfig.dafitt.virtualizaion.virt-manager or null;
 in
 {
-  options.custom.virtualizaion.virt-manager = with types; {
+  options.dafitt.virtualizaion.virt-manager = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Enable virt-manager";
   };
 

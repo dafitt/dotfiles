@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.gaming;
+  cfg = config.dafitt.gaming;
 in
 {
-  options.custom.gaming = with types; {
+  options.dafitt.gaming = with types; {
     enableSuite = mkBoolOpt false "Enable the gaming suite";
   };
 

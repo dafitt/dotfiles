@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.office.thunderbird;
+  cfg = config.dafitt.office.thunderbird;
 in
 {
-  options.custom.office.thunderbird = with types; {
-    enable = mkBoolOpt config.custom.office.enableSuite "Enable thunderbird";
+  options.dafitt.office.thunderbird = with types; {
+    enable = mkBoolOpt config.dafitt.office.enableSuite "Enable thunderbird";
   };
 
   config = mkIf cfg.enable {

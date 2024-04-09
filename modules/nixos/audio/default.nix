@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.audio;
+  cfg = config.dafitt.audio;
 in
 {
-  options.custom.audio = with types; {
+  options.dafitt.audio = with types; {
     enable = mkBoolOpt true "Enable audio through pipewire";
   };
 

@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.editing;
-  osCfg = osConfig.custom.editing or null;
+  cfg = config.dafitt.editing;
+  osCfg = osConfig.dafitt.editing or null;
 in
 {
-  options.custom.editing = with types; {
+  options.dafitt.editing = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the editing suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra editing packages";
   };

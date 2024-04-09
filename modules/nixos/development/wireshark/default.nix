@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.development.wireshark;
+  cfg = config.dafitt.development.wireshark;
 in
 {
-  options.custom.development.wireshark = with types; {
-    enable = mkBoolOpt config.custom.development.enableSuite "Enable wireshark, a network protocol analyzer";
+  options.dafitt.development.wireshark = with types; {
+    enable = mkBoolOpt config.dafitt.development.enableSuite "Enable wireshark, a network protocol analyzer";
   };
 
   config = mkIf cfg.enable {

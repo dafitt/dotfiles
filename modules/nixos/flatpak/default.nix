@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.flatpak;
+  cfg = config.dafitt.flatpak;
 in
 {
-  options.custom.flatpak = with types; {
+  options.dafitt.flatpak = with types; {
     enable = mkBoolOpt false "Enable flatpak support";
   };
 

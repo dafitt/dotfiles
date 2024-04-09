@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.shells.starship;
+  cfg = config.dafitt.shells.starship;
 in
 {
-  options.custom.shells.starship = with types; {
+  options.dafitt.shells.starship = with types; {
     enable = mkBoolOpt true "Enable the starship prompt";
   };
 

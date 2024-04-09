@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, inputs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland.hyprpaper;
+  cfg = config.dafitt.desktops.hyprland.hyprpaper;
 in
 {
-  options.custom.desktops.hyprland.hyprpaper = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable hyprpaper";
+  options.dafitt.desktops.hyprland.hyprpaper = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable hyprpaper";
   };
 
   config = mkIf cfg.enable {

@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.development.git;
+  cfg = config.dafitt.development.git;
 in
 {
-  options.custom.development.git = with types; {
-    enable = mkBoolOpt config.custom.development.enableSuite "Enable git";
+  options.dafitt.development.git = with types; {
+    enable = mkBoolOpt config.dafitt.development.enableSuite "Enable git";
   };
 
   config = mkIf cfg.enable {

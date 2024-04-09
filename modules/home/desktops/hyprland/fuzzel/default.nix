@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland.fuzzel;
+  cfg = config.dafitt.desktops.hyprland.fuzzel;
 in
 {
-  options.custom.desktops.hyprland.fuzzel = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable fuzzel for hyprland";
+  options.dafitt.desktops.hyprland.fuzzel = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable fuzzel for hyprland";
   };
 
   config = mkIf cfg.enable {

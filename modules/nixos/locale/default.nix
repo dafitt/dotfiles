@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.locale;
+  cfg = config.dafitt.locale;
 in
 {
-  options.custom.locale = {
+  options.dafitt.locale = {
     enable = mkBoolOpt true "Whether or not to manage locale settings.";
   };
 

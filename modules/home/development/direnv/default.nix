@@ -1,14 +1,14 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.development.direnv;
-  osCfg = osConfig.custom.development.direnv or null;
+  cfg = config.dafitt.development.direnv;
+  osCfg = osConfig.dafitt.development.direnv or null;
 in
 {
-  options.custom.development.direnv = with types; {
-    enable = mkBoolOpt (!osCfg.enable or config.custom.development.enableSuite) "Enable direnv";
+  options.dafitt.development.direnv = with types; {
+    enable = mkBoolOpt (!osCfg.enable or config.dafitt.development.enableSuite) "Enable direnv";
   };
 
   config = mkIf cfg.enable {

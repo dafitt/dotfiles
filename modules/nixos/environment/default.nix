@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.env;
+  cfg = config.dafitt.env;
 in
 {
-  options.custom.env = with types; mkOption {
+  options.dafitt.env = with types; mkOption {
     type = attrsOf (oneOf [ str path (listOf (either str path)) ]);
     apply = mapAttrs (_n: v:
       if isList v

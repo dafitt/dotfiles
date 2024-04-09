@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.office.obsidian;
+  cfg = config.dafitt.office.obsidian;
 in
 {
-  options.custom.office.obsidian = with types; {
-    enable = mkBoolOpt config.custom.office.enableSuite "Enable obsidian";
+  options.dafitt.office.obsidian = with types; {
+    enable = mkBoolOpt config.dafitt.office.enableSuite "Enable obsidian";
   };
 
   config = mkIf cfg.enable {

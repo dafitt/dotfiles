@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.syncthing;
+  cfg = config.dafitt.syncthing;
 in
 {
-  options.custom.syncthing = with types; {
+  options.dafitt.syncthing = with types; {
     openFirewall = mkBoolOpt false "Whether or not open syncthing discovery ports";
   };
 

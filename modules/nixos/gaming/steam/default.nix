@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.gaming.steam;
+  cfg = config.dafitt.gaming.steam;
 in
 {
-  options.custom.gaming.steam = with types; {
-    enable = mkBoolOpt config.custom.gaming.enableSuite "Enable steam optimization";
+  options.dafitt.gaming.steam = with types; {
+    enable = mkBoolOpt config.dafitt.gaming.enableSuite "Enable steam optimization";
   };
 
   config = mkIf cfg.enable {

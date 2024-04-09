@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.common;
+  cfg = config.dafitt.desktops.common;
 in
 {
-  options.custom.desktops.common = with types; {
+  options.dafitt.desktops.common = with types; {
     enable = mkBoolOpt true "Enable my very common desktop environment (tools/programs/services)";
   };
 

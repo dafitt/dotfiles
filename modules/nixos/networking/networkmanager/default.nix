@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.networking.networkmanager;
+  cfg = config.dafitt.networking.networkmanager;
 in
 {
-  options.custom.networking.networkmanager = with types; {
+  options.dafitt.networking.networkmanager = with types; {
     enable = mkBoolOpt false "Enable networking through NetworkManager";
   };
 

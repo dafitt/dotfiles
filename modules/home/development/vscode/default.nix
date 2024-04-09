@@ -1,15 +1,15 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.development.vscode;
+  cfg = config.dafitt.development.vscode;
 in
 {
   imports = [ ./mkMutable.nix ];
 
-  options.custom.development.vscode = with types; {
-    enable = mkBoolOpt config.custom.development.enableSuite "Enable vscode";
+  options.dafitt.development.vscode = with types; {
+    enable = mkBoolOpt config.dafitt.development.enableSuite "Enable vscode";
     autostart = mkBoolOpt true "Start vscode on login";
     defaultApplication = mkBoolOpt true "Set vscode as the default application for its mimetypes";
   };

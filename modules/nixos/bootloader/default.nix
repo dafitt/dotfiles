@@ -1,9 +1,9 @@
 { config, lib, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.bootloader;
+  cfg = config.dafitt.bootloader;
   enabledSubModules = filterAttrs (_: v: v.enable) cfg;
   enabledSubModulesNames = concatStringsSep ", " (attrNames enabledSubModules);
 in

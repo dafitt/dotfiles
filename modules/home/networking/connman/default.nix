@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.networking.connman;
-  osCfg = osConfig.custom.networking.connman or null;
+  cfg = config.dafitt.networking.connman;
+  osCfg = osConfig.dafitt.networking.connman or null;
 in
 {
-  options.custom.networking.connman = with types;{
+  options.dafitt.networking.connman = with types;{
     enable = mkBoolOpt (osCfg.enable or false) "Enable a gui for connman";
   };
 

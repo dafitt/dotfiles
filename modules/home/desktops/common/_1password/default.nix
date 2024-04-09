@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.common._1password;
+  cfg = config.dafitt.desktops.common._1password;
 in
 {
-  options.custom.desktops.common._1password = with types; {
-    enable = mkBoolOpt config.custom.desktops.common.enable "Enable _1password";
+  options.dafitt.desktops.common._1password = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable _1password";
   };
 
   config = mkIf cfg.enable {

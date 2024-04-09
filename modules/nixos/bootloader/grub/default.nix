@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.bootloader.grub;
+  cfg = config.dafitt.bootloader.grub;
 in
 {
-  options.custom.bootloader.grub = with types; {
+  options.dafitt.bootloader.grub = with types; {
     enable = mkBoolOpt false "Whether or not to enable booting by grub.";
   };
 

@@ -1,17 +1,17 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland.hypridle;
-  hyprlockCfg = config.custom.desktops.hyprland.hyprlock;
+  cfg = config.dafitt.desktops.hyprland.hypridle;
+  hyprlockCfg = config.dafitt.desktops.hyprland.hyprlock;
   hyprlandCfg = config.wayland.windowManager.hyprland;
 
   locking_enabled = cfg.timeouts.lock > 0 && hyprlockCfg.enable;
 in
 {
-  options.custom.desktops.hyprland.hypridle = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable hypridle";
+  options.dafitt.desktops.hyprland.hypridle = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable hypridle";
 
     timeouts = {
       lock = mkOption {

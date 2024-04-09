@@ -9,7 +9,7 @@
 # Bluetooth: 5.1
 # Color: Storm Grey
 
-{ lib, ... }: with lib.custom; {
+{ lib, ... }: with lib.dafitt; {
   imports = [
     ./configuration.nix
     ./hardware-configuration.nix
@@ -17,7 +17,7 @@
     ./DavidVPN.nix
   ];
 
-  custom = {
+  dafitt = {
     bootloader.systemd-boot = enable;
     desktops.gnome = enable;
     desktops.hyprland = enable;

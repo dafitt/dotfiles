@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.flatpak;
-  osCfg = osConfig.custom.flatpak or null;
+  cfg = config.dafitt.flatpak;
+  osCfg = osConfig.dafitt.flatpak or null;
 in
 {
-  options.custom.flatpak = with types; {
+  options.dafitt.flatpak = with types; {
     enable = mkBoolOpt (osCfg.enable or true) "Enable flatpak support";
   };
 

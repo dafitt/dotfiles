@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.MODULE;
-  osCfg = osConfig.custom.MODULE or null;
+  cfg = config.dafitt.MODULE;
+  osCfg = osConfig.dafitt.MODULE or null;
 in
 {
-  options.custom.MODULE = with types; {
+  options.dafitt.MODULE = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Enable MODULE";
   };
 

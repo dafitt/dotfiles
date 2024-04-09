@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland.swaybg;
+  cfg = config.dafitt.desktops.hyprland.swaybg;
 in
 {
-  options.custom.desktops.hyprland.swaybg = with types; {
+  options.dafitt.desktops.hyprland.swaybg = with types; {
     enable = mkBoolOpt false "Enable swaybg for hyprland";
   };
 

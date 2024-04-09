@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland.cliphist;
+  cfg = config.dafitt.desktops.hyprland.cliphist;
 in
 {
-  options.custom.desktops.hyprland.cliphist = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable cliphist for hyprland";
+  options.dafitt.desktops.hyprland.cliphist = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable cliphist for hyprland";
   };
 
   config = mkIf cfg.enable {

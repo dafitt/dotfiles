@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.gaming;
-  osCfg = osConfig.custom.gaming or null;
+  cfg = config.dafitt.gaming;
+  osCfg = osConfig.dafitt.gaming or null;
 in
 {
-  options.custom.gaming = with types; {
+  options.dafitt.gaming = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the gaming suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra gaming packages";
   };

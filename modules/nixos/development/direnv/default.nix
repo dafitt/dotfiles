@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.development.direnv;
+  cfg = config.dafitt.development.direnv;
 in
 {
-  options.custom.development.direnv = with types; {
-    enable = mkBoolOpt config.custom.development.enableSuite "Enable direnv";
+  options.dafitt.development.direnv = with types; {
+    enable = mkBoolOpt config.dafitt.development.enableSuite "Enable direnv";
   };
 
   config = mkIf cfg.enable {

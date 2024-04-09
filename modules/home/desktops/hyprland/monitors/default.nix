@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland;
+  cfg = config.dafitt.desktops.hyprland;
 in
 {
-  options.custom.desktops.hyprland = with types; {
+  options.dafitt.desktops.hyprland = with types; {
     monitors = mkOption {
       type = listOf (submodule {
         options = {

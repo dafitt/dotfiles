@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.shells.bash;
+  cfg = config.dafitt.shells.bash;
 in
 {
-  options.custom.shells.bash = with types; {
+  options.dafitt.shells.bash = with types; {
     enable = mkBoolOpt false "Enable bourne-again shell's configuration";
   };
 

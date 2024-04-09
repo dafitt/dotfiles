@@ -4,7 +4,7 @@
 # Memory: 64GB
 # Case: Dark Base 900 Orange
 
-{ lib, ... }: with lib.custom; {
+{ lib, ... }: with lib.dafitt; {
   imports = [
     ./configuration.nix
     ./hardware-configuration.nix
@@ -12,7 +12,7 @@
     ./miniDLNA.nix
   ];
 
-  custom = {
+  dafitt = {
     appimage = enable;
     bootloader.systemd-boot = enable;
     desktops.gnome = enable;

@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.common.imv;
+  cfg = config.dafitt.desktops.common.imv;
 in
 {
-  options.custom.desktops.common.imv = with types; {
-    enable = mkBoolOpt config.custom.desktops.common.enable "Enable imv terminal image viewer";
+  options.dafitt.desktops.common.imv = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable imv terminal image viewer";
   };
 
   config = mkIf cfg.enable {

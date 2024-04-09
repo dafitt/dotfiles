@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.printing;
+  cfg = config.dafitt.printing;
 in
 {
-  options.custom.printing = with types; {
+  options.dafitt.printing = with types; {
     enable = mkBoolOpt false "Enable the ability to print documents from your system";
   };
 

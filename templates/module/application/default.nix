@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.APPLICATION;
+  cfg = config.dafitt.APPLICATION;
 in
 {
-  options.custom.APPLICATION = with types; {
+  options.dafitt.APPLICATION = with types; {
     enable = mkBoolOpt false "Enable APPLICATION";
     autostart = mkBoolOpt false "Start APPLICATION on login";
     defaultApplication = mkBoolOpt true "Set APPLICATION as the default application for its mimetypes";

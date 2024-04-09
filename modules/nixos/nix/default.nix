@@ -1,7 +1,7 @@
 { options, config, lib, pkgs, inputs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 {
   environment.systemPackages = with pkgs; with inputs; [
     snowfall-flake.packages.${system}.default
@@ -17,9 +17,9 @@ with lib.custom;
       log-lines = 50;
       auto-optimise-store = true;
       trusted-users = [ "root" ];
-      allowed-users = [ "@wheel" config.custom.users.main.username ];
+      allowed-users = [ "@wheel" config.dafitt.users.main.username ];
     }
-    // (lib.optionalAttrs config.custom.development.direnv.enable {
+    // (lib.optionalAttrs config.dafitt.development.direnv.enable {
       keep-outputs = true;
       keep-derivations = true;
     });

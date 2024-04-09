@@ -1,8 +1,8 @@
 #$ nix build .#install-isoConfigurations.minimal
 
-{ lib, ... }: with lib.custom; {
+{ lib, ... }: with lib.dafitt; {
 
-  custom = {
+  dafitt = {
     bootloader.systemd-boot = enable;
     desktops.hyprland = enable;
     development.enableSuite = true;

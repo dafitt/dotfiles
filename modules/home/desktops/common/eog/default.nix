@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.common.eog;
+  cfg = config.dafitt.desktops.common.eog;
 in
 {
-  options.custom.desktops.common.eog = with types; {
-    enable = mkBoolOpt config.custom.desktops.common.enable "Enable eog image viewer";
+  options.dafitt.desktops.common.eog = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable eog image viewer";
     defaultApplication = mkBoolOpt true "Set eog as the default application for its mimetypes";
   };
 

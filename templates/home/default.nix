@@ -1,8 +1,8 @@
 #$ home-manager build .[#<name>]
 #$ home-manager switch .[#<name>]
-{ lib, ... }: with lib.custom; {
+{ lib, ... }: with lib.dafitt; {
 
-  custom = {
+  dafitt = {
     desktops.common = enable;
     desktops.common._1password = enable;
     desktops.common.bedtime = enable;

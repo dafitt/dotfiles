@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.shells.zsh;
-  osCfg = osConfig.custom.shells.zsh or null;
+  cfg = config.dafitt.shells.zsh;
+  osCfg = osConfig.dafitt.shells.zsh or null;
 in
 {
-  options.custom.shells.zsh = with types;{
+  options.dafitt.shells.zsh = with types;{
     enable = mkBoolOpt (osCfg.enable or false) "Enable zsh shell";
   };
 

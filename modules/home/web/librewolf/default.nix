@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.web.librewolf;
+  cfg = config.dafitt.web.librewolf;
 in
 {
-  options.custom.web.librewolf = with types; {
-    enable = mkBoolOpt config.custom.web.enableSuite "Enable the librewolf web browser";
+  options.dafitt.web.librewolf = with types; {
+    enable = mkBoolOpt config.dafitt.web.enableSuite "Enable the librewolf web browser";
     autostart = mkBoolOpt true "Start librewolf on login";
     defaultApplication = mkBoolOpt true "Set librewolf as the default application for its mimetypes";
   };

@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.development;
-  osCfg = osConfig.custom.development or null;
+  cfg = config.dafitt.development;
+  osCfg = osConfig.dafitt.development or null;
 in
 {
-  options.custom.development = with types; {
+  options.dafitt.development = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the development suite";
     installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra development packages";
   };

@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.appimage;
+  cfg = config.dafitt.appimage;
 in
 {
-  options.custom.appimage = with types; {
+  options.dafitt.appimage = with types; {
     enable = mkBoolOpt false "Enable appimage support";
   };
 

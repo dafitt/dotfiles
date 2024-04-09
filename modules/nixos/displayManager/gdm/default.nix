@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.displayManager.gdm;
+  cfg = config.dafitt.displayManager.gdm;
 in
 {
-  options.custom.displayManager.gdm = with types; {
+  options.dafitt.displayManager.gdm = with types; {
     enable = mkBoolOpt false "Enable gdm as the login/display manager";
   };
 

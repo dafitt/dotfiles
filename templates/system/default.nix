@@ -1,14 +1,14 @@
 #$ flake build-system [#<host>]
 #$ nix build .#nixosConfigurations.<host>.config.system.build.toplevel
-#$ nixos-rebuild build --fast --flake .[#<host>] --show-trace
+#$ nixos-rebuild build --fast --flake .#<host> --show-trace
 
 #$ flake <test|switch|boot> [#<host>]
-#$ sudo nixos-rebuild --flake .[#<host>] <test|switch|boot>
+#$ sudo nixos-rebuild --flake .#<host> <test|switch|boot>
 
-{ lib, ... }: with lib.custom; {
+{ lib, ... }: with lib.dafitt; {
   imports = [ ./hardware-configuration.nix ];
 
-  custom = {
+  dafitt = {
     appimage = enable;
     audio = enable;
     battery = enable;

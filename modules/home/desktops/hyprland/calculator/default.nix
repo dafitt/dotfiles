@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland.calculator;
+  cfg = config.dafitt.desktops.hyprland.calculator;
 in
 {
-  options.custom.desktops.hyprland.calculator = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable a calculator for hyprland";
+  options.dafitt.desktops.hyprland.calculator = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable a calculator for hyprland";
   };
 
   config = mkIf cfg.enable {

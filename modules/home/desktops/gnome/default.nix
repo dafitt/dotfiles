@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, inputs, osConfig ? { }, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.gnome;
-  osCfg = osConfig.custom.desktops.gnome or null;
+  cfg = config.dafitt.desktops.gnome;
+  osCfg = osConfig.dafitt.desktops.gnome or null;
 in
 {
-  options.custom.desktops.gnome = with types; {
+  options.dafitt.desktops.gnome = with types; {
     enable = mkBoolOpt (osCfg.enable or true) "Enable Gnome configuration";
   };
 

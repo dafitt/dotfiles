@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.web.epiphany;
+  cfg = config.dafitt.web.epiphany;
 in
 {
-  options.custom.web.epiphany = with types; {
-    enable = mkBoolOpt config.custom.web.enableSuite "Enable the epiphany web browser";
+  options.dafitt.web.epiphany = with types; {
+    enable = mkBoolOpt config.dafitt.web.enableSuite "Enable the epiphany web browser";
   };
 
   config = mkIf cfg.enable {

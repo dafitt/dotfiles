@@ -1,14 +1,14 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland.mako;
+  cfg = config.dafitt.desktops.hyprland.mako;
   hyprlandCfg = config.wayland.windowManager.hyprland;
 in
 {
-  options.custom.desktops.hyprland.mako = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable mako for hyprland";
+  options.dafitt.desktops.hyprland.mako = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable mako for hyprland";
   };
 
   config = mkIf cfg.enable {

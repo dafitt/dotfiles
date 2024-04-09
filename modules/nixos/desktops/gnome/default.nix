@@ -1,9 +1,9 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.gnome;
+  cfg = config.dafitt.desktops.gnome;
 
   custom-gnome-session = with pkgs; stdenv.mkDerivation rec {
     name = "custom-gnome-session";
@@ -28,13 +28,13 @@ let
   };
 in
 {
-  options.custom.desktops.gnome = with types; {
+  options.dafitt.desktops.gnome = with types; {
     enable = mkBoolOpt false "Enable the Gnome desktop environment";
   };
 
   config = mkIf cfg.enable {
     services.xserver.desktopManager.gnome.enable = true;
 
-    custom.displayManager.greetd.sessionPaths = [ "${custom-gnome-session}/share/wayland-sessions" ];
+    dafitt.displayManager.greetd.sessionPaths = [ "${custom-gnome-session}/share/wayland-sessions" ];
   };
 }

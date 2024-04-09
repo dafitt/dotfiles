@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.common.pcmanfm;
+  cfg = config.dafitt.desktops.common.pcmanfm;
 in
 {
-  options.custom.desktops.common.pcmanfm = with types; {
+  options.dafitt.desktops.common.pcmanfm = with types; {
     enable = mkBoolOpt false "Enable pcmanfm file manager";
   };
 

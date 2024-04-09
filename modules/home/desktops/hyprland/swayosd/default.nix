@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.desktops.hyprland.swayosd;
+  cfg = config.dafitt.desktops.hyprland.swayosd;
 in
 {
-  options.custom.desktops.hyprland.swayosd = with types; {
-    enable = mkBoolOpt config.custom.desktops.hyprland.enable "Enable swayosd for hyprland";
+  options.dafitt.desktops.hyprland.swayosd = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable swayosd for hyprland";
   };
 
   config = mkIf cfg.enable {

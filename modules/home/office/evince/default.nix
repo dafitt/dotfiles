@@ -1,13 +1,13 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.office.evince;
+  cfg = config.dafitt.office.evince;
 in
 {
-  options.custom.office.evince = with types; {
-    enable = mkBoolOpt config.custom.office.enableSuite "Enable evince";
+  options.dafitt.office.evince = with types; {
+    enable = mkBoolOpt config.dafitt.office.enableSuite "Enable evince";
     defaultApplication = mkBoolOpt true "Set evince as the default application for its mimetypes";
   };
 

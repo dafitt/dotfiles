@@ -1,12 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.custom;
+with lib.dafitt;
 let
-  cfg = config.custom.networking.connman;
+  cfg = config.dafitt.networking.connman;
 in
 {
-  options.custom.networking.connman = with types; {
+  options.dafitt.networking.connman = with types; {
     enable = mkBoolOpt false "Enable networking through connman";
   };
 
