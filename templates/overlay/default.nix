@@ -1,3 +1,5 @@
-_: (final: prev: {
+{ channels, ... }:
+
+final: prev: {
   package = prev.package.override { };
-})
+}
