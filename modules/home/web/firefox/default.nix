@@ -26,7 +26,7 @@ in
         name = config.home.username;
         id = 0;
         isDefault = true;
-        settings = mkAfter {
+        settings = {
           #
           # General / personal settings
           #
@@ -304,7 +304,7 @@ in
       exec-once = mkIf cfg.autostart [ "[workspace 1 silent] ${getExe config.programs.firefox.package}" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:firefox, title:(Youtube)"
-        "float, class:librewolf, title:^Extension: \(NoScript\) - NoScript XSS Warning — LibreWolf$"
+        "float, class:firefox, title:^Extension: \(NoScript\) - NoScript"
       ];
     };
   };

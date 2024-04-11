@@ -141,7 +141,7 @@ in
       exec-once = mkIf cfg.autostart [ "[workspace 1 silent] ${config.programs.librewolf.package}/bin/librewolf" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:librewolf, title:(Youtube)"
-        "float, class:librewolf, title:^Extension: \(NoScript\) - NoScript XSS Warning — LibreWolf$"
+        "float, class:librewolf, title:^Extension: \(NoScript\) - NoScript"
       ];
     };
   };
