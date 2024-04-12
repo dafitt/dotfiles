@@ -28,6 +28,16 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.3.0"; # https://github.com/gmodena/nix-flatpak
   };
 
+  #NOTE uncomment on your first install (for faster build time)
+  #nixConfig = {
+  #  extra-substituters = [
+  #    "https://hyprland.cachix.org"
+  #  ];
+  #  extra-trusted-public-keys = [
+  #    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+  #  ];
+  #};
+
   # [Snowfall framework](https://snowfall.org/guides/lib/quickstart/)
   #$ nix flake check --keep-going
   outputs = inputs: inputs.snowfall-lib.mkFlake {
