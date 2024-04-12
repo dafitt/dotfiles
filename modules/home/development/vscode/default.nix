@@ -246,6 +246,7 @@ in
         "git.openRepositoryInParentFolders" = "never";
         "keyboard.dispatch" = "keyCode"; # use correct keycodes
         "search.followSymlinks" = false;
+        "search.quickOpen.includeHistory" = false;
         "search.searchOnType" = false;
         "security.workspace.trust.enabled" = false;
         "security.workspace.trust.untrustedFiles" = "open";
