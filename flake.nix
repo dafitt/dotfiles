@@ -71,4 +71,6 @@
 
     templates = import ./templates { };
   };
+
+  description = "Dafitt's desktop flake";
 }
