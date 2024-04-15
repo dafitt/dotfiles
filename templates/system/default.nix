@@ -12,8 +12,7 @@
     appimage.enable = true;
     audio.enable = true;
     battery.enable = true;
-    bootloader.grub.enable = true;
-    bootloader.systemd-boot.enable = true;
+    bootloader.enable = null; # enum [ "grub" "systemd-boot" ]
     desktops.gnome.enable = true;
     desktops.hyprland.enable = true;
     development.direnv.enable = true;

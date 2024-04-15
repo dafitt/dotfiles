@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.bootloader.grub = with types; {
-    enable = mkBoolOpt false "Whether or not to enable booting by grub.";
+    enable = mkBoolOpt (config.dafitt.bootloader.enable == "grub") "Whether or not to enable booting by grub.";
   };
 
   config = mkIf cfg.enable {

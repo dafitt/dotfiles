@@ -8,12 +8,14 @@ let
   enabledSubModulesNames = concatStringsSep ", " (attrNames enabledSubModules);
 in
 {
+  options.dafitt.bootloader = with types; {
+    enable = mkOpt (nullOr (enum [ "grub" "systemd-boot" ])) "systemd-boot" "Which bootloader to use";
+  };
+
   config = {
-    assertions = [
-      {
-        assertion = length (attrNames enabledSubModules) <= 1;
-        message = "Only one module for system.bootloader can be enabled. Currently enabled: ${enabledSubModulesNames}";
-      }
-    ];
+    assertions = [{
+      assertion = length (attrNames enabledSubModules) <= 1;
+      message = "Only one module for bootloader can be enabled. Currently enabled: ${enabledSubModulesNames}";
+    }];
   };
 }

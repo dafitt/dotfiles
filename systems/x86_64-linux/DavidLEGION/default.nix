@@ -18,7 +18,6 @@
   ];
 
   dafitt = {
-    bootloader.systemd-boot.enable = true;
     desktops.gnome.enable = true;
     desktops.hyprland.enable = true;
     development.enableSuite = true;
