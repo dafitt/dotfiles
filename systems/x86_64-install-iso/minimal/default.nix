@@ -3,10 +3,10 @@
 { lib, ... }: with lib.dafitt; {
 
   dafitt = {
-    bootloader.systemd-boot = enable;
-    desktops.hyprland = enable;
+    bootloader.systemd-boot.enable = true;
+    desktops.hyprland.enable = true;
     development.enableSuite = true;
-    fwupd = enable;
+    fwupd.enable = true;
   };
 
   system.stateVersion = "23.11";

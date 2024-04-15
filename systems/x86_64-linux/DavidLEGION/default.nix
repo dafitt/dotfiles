@@ -18,15 +18,15 @@
   ];
 
   dafitt = {
-    bootloader.systemd-boot = enable;
-    desktops.gnome = enable;
-    desktops.hyprland = enable;
+    bootloader.systemd-boot.enable = true;
+    desktops.gnome.enable = true;
+    desktops.hyprland.enable = true;
     development.enableSuite = true;
-    displayManager.greetd = enable;
-    flatpak = enable;
-    fwupd = enable;
-    networking.connman = enable;
+    displayManager.greetd.enable = true;
+    flatpak.enable = true;
+    fwupd.enable = true;
+    networking.connman.enable = true;
     syncthing.openFirewall = true;
-    virtualization.virt-manager = enable;
+    virtualization.virt-manager.enable = true;
   };
 }

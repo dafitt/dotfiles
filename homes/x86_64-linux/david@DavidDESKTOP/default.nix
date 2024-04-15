@@ -10,7 +10,7 @@
       primary = true;
     }];
 
-    desktops.common.bedtime = enable;
+    desktops.common.bedtime.enable = true;
     desktops.hyprland.hypridle.timeouts.lock = 0;
     desktops.hyprland.hypridle.timeouts.suspend = 0;
     editing.enableSuite = true;

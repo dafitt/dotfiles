@@ -13,17 +13,17 @@
   ];
 
   dafitt = {
-    appimage = enable;
-    bootloader.systemd-boot = enable;
-    desktops.gnome = enable;
-    desktops.hyprland = enable;
+    appimage.enable = true;
+    bootloader.systemd-boot.enable = true;
+    desktops.gnome.enable = true;
+    desktops.hyprland.enable = true;
     development.enableSuite = true;
-    displayManager.greetd = enable;
-    flatpak = enable;
-    fwupd = enable;
+    displayManager.greetd.enable = true;
+    flatpak.enable = true;
+    fwupd.enable = true;
     gaming.enableSuite = true;
-    networking.networkmanager = enable;
+    networking.networkmanager.enable = true;
     syncthing.openFirewall = true;
-    virtualization.virt-manager = enable;
+    virtualization.virt-manager.enable = true;
   };
 }

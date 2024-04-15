@@ -5,11 +5,11 @@
   ];
 
   dafitt = {
-    battery = enable;
-    bootloader.grub = enable;
-    desktops.hyprland = enable;
-    flatpak = enable;
-    networking.connman = enable;
+    battery.enable = true;
+    bootloader.grub.enable = true;
+    desktops.hyprland.enable = true;
+    flatpak.enable = true;
+    networking.connman.enable = true;
     syncthing.openFirewall = true;
   };
 }

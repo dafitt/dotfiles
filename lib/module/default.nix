@@ -6,7 +6,4 @@ with lib; rec {
 
   mkBoolOpt = mkOpt types.bool;
   mkBoolOpt' = mkOpt' types.bool;
-
-  enable = { enable = true; };
-  disable = { enable = false; };
 }
