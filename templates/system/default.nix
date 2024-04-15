@@ -19,8 +19,7 @@
     development.enableSuite = true;
     development.sshAgent.enable = true;
     development.wireshark.enable = true;
-    displayManager.gdm.enable = true;
-    displayManager.greetd.enable = true;
+    displayManager.enable = null; # enum [ "gdm" "greetd" ]
     flatpak.enable = true;
     fonts.enable = true;
     fstrim.enable = true;
