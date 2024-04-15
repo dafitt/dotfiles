@@ -21,8 +21,8 @@ in
       ];
       packages = [
         #$ flatpak list
-        #{ appId = ""; origin = "flathub"; }
-        "com.github.tchx84.Flatseal"
+        #{ appId = ""; origin = "flathub"; commit = "..."; }
+        { appId = "com.github.tchx84.Flatseal"; origin = "flathub"; }
       ];
       overrides = {
         global = {
