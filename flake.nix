@@ -23,7 +23,7 @@
 
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/wamserma/flake-programs-sqlite
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.3.0"; # https://github.com/gmodena/nix-flatpak
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1"; # https://github.com/gmodena/nix-flatpak
   };
 
   #NOTE uncomment on your first install (for faster build time)

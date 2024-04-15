@@ -617,16 +617,16 @@
     },
     "nix-flatpak": {
       "locked": {
-        "lastModified": 1708268179,
-        "narHash": "sha256-NNVuhf84AeDTxadfSGnFqPHR0ED+QyM2gmu+Wyz6PrY=",
+        "lastModified": 1711997201,
+        "narHash": "sha256-J71xzQlVYsjagA4AsVwRazhBh2rZrPpKvxTgs6UzL7c=",
         "owner": "gmodena",
         "repo": "nix-flatpak",
-        "rev": "a243cb0522f6240c194b873dde68e25370b06034",
+        "rev": "b76fa31346db7fc958a9898f3c594696ca71c4fd",
         "type": "github"
       },
       "original": {
         "owner": "gmodena",
-        "ref": "v0.3.0",
+        "ref": "v0.4.1",
         "repo": "nix-flatpak",
         "type": "github"
       }
