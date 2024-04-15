@@ -24,7 +24,7 @@
     displayManager.greetd.enable = true;
     flatpak.enable = true;
     fwupd.enable = true;
-    networking.connman.enable = true;
+    networking.enable = "connman";
     syncthing.openFirewall = true;
     virtualization.virt-manager.enable = true;
   };

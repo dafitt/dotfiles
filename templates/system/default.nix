@@ -28,8 +28,7 @@
     gaming.enableSuite = true;
     gaming.steam.enable = true;
     locale.enable = true;
-    networking.connman.enable = true;
-    networking.networkmanager.enable = true;
+    networking.enable = null; # enum [ "connman" "networkmanager" ]
     printing.enable = true;
     security.doas.enable = true;
     shells.fish.enable = true;

@@ -9,7 +9,7 @@
     bootloader.enable = "grub";
     desktops.hyprland.enable = true;
     flatpak.enable = true;
-    networking.connman.enable = true;
+    networking.enable = "connman";
     syncthing.openFirewall = true;
   };
 }
