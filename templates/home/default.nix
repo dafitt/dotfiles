@@ -19,6 +19,7 @@
     desktops.common.pcmanfm.enable = true;
     desktops.common.syncthing.enable = true;
     desktops.common.udiskie.enable = true;
+    desktops.common.yazi.enable = true;
     desktops.gnome.enable = true;
     desktops.hyprland.enable = true;
     desktops.hyprland.monitors = [{ name = "DP-1"; primary = true; width = 2560; height = 1440; refreshRate = 120; vrr = 1; bitdepth = 8; x = 0; y = 0; transform = 0; mirror = null; workspace = "1"; }];
