@@ -2,83 +2,106 @@
 #$ home-manager switch .[#<name>]
 { lib, ... }: with lib.dafitt; {
 
-  dafitt = {
+  dafitt = rec {
+    #NOTE These are the defaults
+
     desktops.common.enable = true;
-    desktops.common._1password.enable = true;
-    desktops.common.bedtime.enable = true;
-    desktops.common.eog.enable = true;
+    desktops.common._1password.enable = desktops.common.enable;
+    desktops.common.bedtime.enable = desktops.common.enable;
+    desktops.common.eog.enable = desktops.common.enable;
     desktops.common.eog.defaultApplication = true;
-    desktops.common.file-roller.enable = true;
+    desktops.common.file-roller.enable = desktops.common.enable;
     desktops.common.file-roller.defaultApplication = true;
-    desktops.common.imv.enable = true;
-    desktops.common.kitty.enable = true;
-    desktops.common.micro.enable = true;
-    desktops.common.mpv.enable = true;
+    desktops.common.imv.enable = desktops.common.enable;
+    desktops.common.kitty.enable = desktops.common.enable;
+    desktops.common.micro.enable = desktops.common.enable;
+    desktops.common.mpv.enable = desktops.common.enable;
     desktops.common.mpv.defaultApplication = true;
-    desktops.common.natuilus.enable = true;
-    desktops.common.pcmanfm.enable = true;
-    desktops.common.syncthing.enable = true;
-    desktops.common.udiskie.enable = true;
-    desktops.common.yazi.enable = true;
-    desktops.gnome.enable = true;
-    desktops.hyprland.enable = true;
-    desktops.hyprland.monitors = [{ name = "DP-1"; primary = true; width = 2560; height = 1440; refreshRate = 120; vrr = 1; bitdepth = 8; x = 0; y = 0; transform = 0; mirror = null; workspace = "1"; }];
-    desktops.hyprland.calculator.enable = true;
-    desktops.hyprland.cliphist.enable = true;
-    desktops.hyprland.fuzzel.enable = true;
-    desktops.hyprland.gedit.enable = true;
-    desktops.hyprland.hypridle.enable = true;
+    desktops.common.natuilus.enable = desktops.common.enable;
+    desktops.common.natuilus.autostart = true;
+    desktops.common.pcmanfm.enable = false;
+    desktops.common.syncthing.enable = desktops.common.enable;
+    desktops.common.udiskie.enable = desktops.common.enable;
+    desktops.common.yazi.enable = desktops.common.enable;
+
+    desktops.gnome.enable = osCfg.enable or true;
+
+    desktops.hyprland.enable = osCfg.enable or false;
+    desktops.hyprland.monitors = [ ]; # /modules/home/desktops/hyprland/monitors/default.nix
+    desktops.hyprland.calculator.enable = desktops.hyprland.enable;
+    desktops.hyprland.cliphist.enable = desktops.hyprland.enable;
+    desktops.hyprland.fuzzel.enable = desktops.hyprland.enable;
+    desktops.hyprland.gedit.enable = desktops.hyprland.enable;
+    desktops.hyprland.hypridle.enable = desktops.hyprland.enable;
     desktops.hyprland.hypridle.timeouts.lock = 360;
     desktops.hyprland.hypridle.timeouts.suspend = 600;
-    desktops.hyprland.hyprlock.enable = true;
-    desktops.hyprland.hyprpaper.enable = true;
-    desktops.hyprland.mako.enable = true;
-    desktops.hyprland.pavucontrol.enable = true;
-    desktops.hyprland.playerctl.enable = true;
-    desktops.hyprland.plugins.enable = true;
-    desktops.hyprland.swaybg.enable = true;
-    desktops.hyprland.swayosd.enable = true;
-    desktops.hyprland.top.enable = true;
-    desktops.hyprland.waybar.enable = true;
-    desktops.hyprland.wlsunset.enable = true;
-    development.enableSuite = true;
-    development.direnv.enable = true;
-    development.git.enable = true;
-    development.installExtraPackages = true;
-    development.vscode.enable = true;
+    desktops.hyprland.hyprlock.enable = desktops.hyprland.enable;
+    desktops.hyprland.hyprpaper.enable = desktops.hyprland.enable;
+    desktops.hyprland.mako.enable = desktops.hyprland.enable;
+    desktops.hyprland.pavucontrol.enable = desktops.hyprland.enable;
+    desktops.hyprland.playerctl.enable = desktops.hyprland.enable;
+    desktops.hyprland.plugins.enable = desktops.hyprland.enable;
+    desktops.hyprland.swaybg.enable = false;
+    desktops.hyprland.swayosd.enable = desktops.hyprland.enable;
+    desktops.hyprland.top.enable = desktops.hyprland.enable;
+    desktops.hyprland.waybar.enable = desktops.hyprland.enable;
+    desktops.hyprland.wlsunset.enable = desktops.hyprland.enable;
+
+    development.enableSuite = osCfg.enableSuite or false;
+    development.installExtraPackages = development.enableSuite;
+    development.direnv.enable = !osCfg.enable or development.enableSuite;
+    development.git.enable = development.enableSuite;
+    development.vscode.enable = development.enableSuite;
+    development.vscode.autostart = true;
     development.vscode.defaultApplication = true;
-    editing.enableSuite = true;
-    editing.installExtraPackages = true;
-    flatpak.enable = true;
-    gaming.enableSuite = true;
-    gaming.installExtraPackages = true;
-    gaming.steam.enable = true;
-    music.enableSuite = true;
-    music.installExtraPackages = true;
-    networking.connman.enable = true;
-    office.enableSuite = true;
-    office.evince.enable = true;
+
+    editing.enableSuite = osCfg.enableSuite or false;
+    editing.installExtraPackages = editing.enableSuite;
+
+    flatpak.enable = osCfg.enable or true;
+
+    gaming.enableSuite = osCfg.enableSuite or false;
+    gaming.installExtraPackages = gaming.enableSuite;
+    gaming.steam.enable = osCfg.enable or gaming.enableSuite;
+
+    music.enableSuite = osCfg.enableSuite or false;
+    music.installExtraPackages = music.enableSuite;
+
+    networking.connman.enable = osCfg.enable or false;
+
+    office.enableSuite = osCfg.enableSuite or false;
+    office.installExtraPackages = office.enableSuite;
+    office.evince.enable = office.enableSuite;
     office.evince.defaultApplication = true;
-    office.installExtraPackages = true;
-    office.obsidian.enable = true;
-    office.scribus.enable = true;
-    office.thunderbird.enable = true;
-    ricing.enableSuite = true;
-    ricing.installExtraPackages = true;
-    shells.bash.enable = true;
-    shells.fish.enable = true;
+    office.obsidian.enable = office.enableSuite;
+    office.scribus.enable = office.enableSuite;
+    office.thunderbird.enable = office.enableSuite;
+
+    ricing.enableSuite = osCfg.enableSuite or false;
+    ricing.installExtraPackages = ricing.enableSuite;
+
+    shells.bash.enable = false;
+    shells.fish.enable = osCfg.enable or false;
     shells.starship.enable = true;
-    shells.zsh.enable = true;
-    social.enableSuite = true;
-    social.installExtraPackages = true;
-    virtualizaion.enableSuite = true;
-    virtualizaion.installExtraPackages = true;
-    virtualizaion.virt-manager.enable = true;
-    web.enableSuite = true;
-    web.epiphany.enable = true;
-    web.installExtraPackages = true;
-    web.librewolf.enable = true;
+    shells.zsh.enable = osCfg.enable or false;
+
+    social.enableSuite = osCfg.enableSuite or false;
+    social.installExtraPackages = social.enableSuite;
+
+    virtualizaion.enableSuite = osCfg.enableSuite or false;
+    virtualizaion.installExtraPackages = virtualizaion.enableSuite;
+    virtualizaion.virt-manager.enable = osCfg.enable or false;
+
+    web.enableSuite = osCfg.enableSuite or false;
+    web.installExtraPackages = web.enableSuite;
+    web.epiphany.enable = web.enableSuite;
+    web.firefox.enable = web.enableSuite;
+    web.firefox.autostart = false;
+    web.firefox.defaultApplication = false;
+    web.librewolf.enable = web.enableSuite;
+    web.librewolf.autostart = true;
     web.librewolf.defaultApplication = true;
+
     xdg.enable = true;
     xdg.mimeApps.enable = true;
   };
