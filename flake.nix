@@ -38,6 +38,7 @@
 
   # [Snowfall framework](https://snowfall.org/guides/lib/quickstart/)
   #$ nix flake check --keep-going
+  #$ nix flake show
   outputs = inputs: inputs.snowfall-lib.mkFlake {
     inherit inputs;
     src = ./.;

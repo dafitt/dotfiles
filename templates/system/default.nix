@@ -1,9 +1,16 @@
-#$ flake build-system [#<host>]
-#$ nix build .#nixosConfigurations.<host>.config.system.build.toplevel
-#$ nixos-rebuild build --fast --flake .#<host> --show-trace
+# Check:
+#$ nix flake check
+#$ nix repl .#nixosConfigurations.<host>
 
+# Build:
+#$ flake build-system [#<host>]
+#$ nixos-rebuild build --fast --flake .#<host> --show-trace
+#$ nix build .#nixosConfigurations.<host>.config.system.build.toplevel
+
+# Activate:
 #$ flake <test|switch|boot> [#<host>]
-#$ sudo nixos-rebuild --flake .#<host> <test|switch|boot>
+#$ nixos-rebuild --flake .#<host> <test|switch|boot>
+#$ nix run .#nixosConfigurations.<host>.config.system.build.toplevel
 
 { lib, ... }: with lib.dafitt; {
   imports = [ ./hardware-configuration.nix ];

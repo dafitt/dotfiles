@@ -1,5 +1,15 @@
-#$ home-manager build .[#<name>]
-#$ home-manager switch .[#<name>]
+# Check:
+#$ nix flake check
+#$ nix repl .#homeConfigurations.<user>[@<host>]
+
+# Build:
+#$ home-manager build .#<user>[@<host>]
+#$ nix build .#homeConfigurations.<user>[@<host>].activationPackage
+
+# Activate:
+#$ home-manager switch .#<user>[@<host>]
+#$ nix run .#homeConfigurations.<user>[@<host>].activationPackage
+
 { lib, ... }: with lib.dafitt; {
 
   dafitt = rec {
