@@ -12,6 +12,8 @@
     -   [Structure](#structure)
         -   [Hyprland keybindings modifiers](#hyprland-keybindings-modifiers)
         -   [You want to build from here?](#you-want-to-build-from-here)
+    -   [Troubleshooting](#troubleshooting)
+        -   [Some options in _`/homes`_ and _`/modules/home`_ are not being applied with nixos-rebuild](#some-options-in-homes-and-moduleshome-are-not-being-applied-with-nixos-rebuild)
     -   [Inspiration, Credits and Thanks](#inspiration-credits-and-thanks)
 
 My dotfiles are not perfekt and never will be (unfortunately), but they strive to be:
@@ -135,8 +137,6 @@ nixos-rebuild switch --rollback
 
 Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage)
 
-## Environment usage
-
 ## Structure
 
 I use [snowfall-lib](https://github.com/snowfallorg/lib), so every _`default.nix`_ is automatically imported.
@@ -192,6 +192,20 @@ Optionally:
 -   [ ] _`/modules/home/desktops/hyprland/default.nix`_: familiar keybindings
 -   [ ] _`/modules/home/stylix/default.nix`_: custom base16 theme / icon theme
 -   [ ] Packages and programs you need
+
+## Troubleshooting
+
+### Some options in _`/homes`_ and _`/modules/home`_ are not being applied with nixos-rebuild
+
+Check if your option is being set through `osCfg`. Like this:
+
+```nix
+enable = mkBoolOpt (osCfg.enable or config.dafitt.gaming.enableSuite) "Enable steam";
+```
+
+If that is the case and `osCfg.enable` is not `null` then the `osCfg`-option will be preferred. Even if it is `false`.
+
+To solve this set your option to `true` in _`/systems`_ or _`/modules/nixos`_.
 
 ## Inspiration, Credits and Thanks
 
