@@ -25,12 +25,7 @@ in
     # dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
     wayland.windowManager.hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland; # TODO: 24.05 replace with nixpkgs
-
-
-      systemd = {
-        enable = true;
-      };
+      systemd.enable = true;
 
       settings = {
         # [Variables](https://wiki.hyprland.org/Configuring/Variables/)
@@ -44,7 +39,7 @@ in
           border_size = 2;
           resize_on_border = true;
           layout = "dwindle";
-          allow_tearing = true;
+          #allow_tearing = true; # TODO: 24.05 enable (immediate windowrule)
         };
         dwindle = {
           # https://wiki.hyprland.org/Configuring/Dwindle-Layout/
