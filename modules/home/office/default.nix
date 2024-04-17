@@ -27,9 +27,9 @@ in
     ];
 
     services.flatpak.packages = [
-      { appId = "de.bund.ausweisapp.ausweisapp2"; origin = "flathub"; }
-      { appId = "com.github.rajsolai.textsnatcher"; origin = "flathub"; }
-      { appId = "org.x.Warpinator"; origin = "flathub"; }
+      "de.bund.ausweisapp.ausweisapp2"
+      "com.github.rajsolai.textsnatcher"
+      "org.x.Warpinator"
     ];
 
     fonts.fontconfig.enable = true; # discover fonts and configurations installed through home.packages and nix-env

@@ -31,8 +31,8 @@ in
     ];
 
     services.flatpak.packages = [
-      { appId = "nl.hjdskes.gcolor3"; origin = "flathub"; }
-      { appId = "com.belmoussaoui.ashpd.demo"; origin = "flathub"; }
+      "nl.hjdskes.gcolor3"
+      "com.belmoussaoui.ashpd.demo"
     ];
   };
 }

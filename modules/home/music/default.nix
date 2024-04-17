@@ -16,8 +16,8 @@ in
     home.packages = with pkgs; [ ];
 
     services.flatpak.packages = [
-      { appId = "io.bassi.Amberol"; origin = "flathub"; }
-      { appId = "dev.aunetx.deezer"; origin = "flathub"; }
+      "io.bassi.Amberol"
+      "dev.aunetx.deezer"
     ];
   };
 }

@@ -12,7 +12,7 @@ in
 
   config = mkIf cfg.enable {
     services.flatpak.packages = [
-      { appId = "md.obsidian.Obsidian"; origin = "flathub"; }
+      "md.obsidian.Obsidian"
     ];
 
     wayland.windowManager.hyprland.settings.exec-once = [

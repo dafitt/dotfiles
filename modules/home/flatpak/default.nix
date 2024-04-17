@@ -15,15 +15,20 @@ in
     # https://github.com/gmodena/nix-flatpak?tab=readme-ov-file#getting-started
     services.flatpak = {
       enable = true;
+      #uninstallUnmanaged = true; # enable this for one activation for `error: No installed refs found for '<package>'`
+
       remotes = [
         { name = "flathub"; location = "https://dl.flathub.org/repo/flathub.flatpakrepo"; }
         { name = "flathub-beta"; location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo"; }
       ];
+
+      #$ flatpak list
+      #$ journalctl --user -eu flatpak-managed-install.service
       packages = [
-        #$ flatpak list
-        #{ appId = ""; origin = "flathub"; commit = "..."; }
+        #{ appId = "..."; origin = "flathub-beta"; commit = "..."; }
         { appId = "com.github.tchx84.Flatseal"; origin = "flathub"; }
       ];
+
       overrides = {
         global = {
           # [Metadata keywords](https://docs.flatpak.org/en/latest/flatpak-command-reference.html?highlight=override#flatpak-metadata)
