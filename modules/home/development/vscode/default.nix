@@ -240,6 +240,7 @@ in
         "explorer.confirmDragAndDrop" = false;
         "extensions.autoCheckUpdates" = false;
         "extensions.autoUpdate" = false;
+        "git.allowForcePush" = true;
         "git.autofetch" = true;
         "git.confirmSync" = false;
         "git.enableCommitSigning" = false;
