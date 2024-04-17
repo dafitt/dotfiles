@@ -23,6 +23,7 @@
     development.enableSuite = true;
     flatpak.enable = true;
     fwupd.enable = true;
+    gaming.steam.enable = true;
     networking.enable = "connman";
     syncthing.openFirewall = true;
     virtualization.virt-manager.enable = true;
