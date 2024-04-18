@@ -12,9 +12,12 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      ludusavi # Savegame manager
+    ];
+
     # [Using Steam in a Flatpak](https://steamcommunity.com/sharedfiles/filedetails/?id=2615011323)
     # [Steam-NixOS](https://github.com/Jovian-Experiments/Jovian-NixOS)
-
     services.flatpak = {
       packages = [
         "com.valvesoftware.Steam"
@@ -24,7 +27,7 @@ in
         "com.valvesoftware.Steam.Utility.protontricks"
         "com.valvesoftware.Steam.Utility.steamtinkerlaunch"
         "org.freedesktop.Platform.VulkanLayer.gamescope//23.08"
-        "org.freedesktop.Platform.VulkanLayer.MangoHud//23.08"
+        "org.freedesktop.Platform.VulkanLayer.MangoHud//23.08" # toggle HUD with Shift_R+F12
         "org.freedesktop.Platform.VulkanLayer.vkBasalt//23.08"
       ];
       overrides = {
