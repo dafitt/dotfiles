@@ -51,7 +51,6 @@ in
       sessionVariables = {
         # Default programs
         BROWSER = "${config.programs.librewolf.package}/bin/librewolf";
-        EDITOR = "${pkgs.micro}/bin/micro";
         GDITOR = "${pkgs.vscode}/bin/code";
         TERMINAL = "${config.programs.kitty.package}/bin/kitty";
         TOP = "${config.programs.btop.package}/bin/btop"; # preferred system monitor
