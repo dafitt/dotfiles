@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.xdg;
+  cfg = config.dafitt.environment.xdg;
 in
 {
-  options.dafitt.xdg = with types; {
-    enable = mkBoolOpt true "Set up basic xdg settings";
+  options.dafitt.environment.xdg = with types; {
+    enable = mkBoolOpt true "Whether or not to set up basic xdg settings";
   };
 
   config = mkIf cfg.enable {

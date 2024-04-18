@@ -69,6 +69,8 @@
     environment.mpv.defaultApplication = true;
     environment.syncthing.enable = environment.enable;
     environment.udiskie.enable = environment.enable;
+    environment.xdg.enable = true;
+    environment.xdg.mimeApps.enable = true;
 
     flatpak.enable = osCfg.enable or true;
 
@@ -113,9 +115,6 @@
     web.librewolf.enable = web.enableSuite;
     web.librewolf.autostart = true;
     web.librewolf.defaultApplication = true;
-
-    xdg.enable = true;
-    xdg.mimeApps.enable = true;
   };
 
   home.stateVersion = "23.11";
