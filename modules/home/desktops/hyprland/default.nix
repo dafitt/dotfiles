@@ -240,8 +240,6 @@ in
 
           # Default programs
           "SUPER, RETURN, exec, ${TERMINAL}"
-          "SUPER, F1, exec, ${BROWSER}"
-          "SUPER_ALT, B, exec, ${BROWSER}"
           "SUPER, F2, exec, ${TERMINAL} -e ${TOP}"
           "SUPER_ALT, Z, exec, ${TERMINAL} -e ${TOP}"
           "SUPER, F3, exec, ${TERMINAL} -e ${EDITOR}"

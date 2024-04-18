@@ -13,8 +13,6 @@
     environment.filemanagers.yazi.enable = true;
     office.enableSuite = true;
     social.enableSuite = true;
-    web.librewolf.enable = true;
-    web.librewolf.defaultApplication = true;
   };
 
   # MultiGPU

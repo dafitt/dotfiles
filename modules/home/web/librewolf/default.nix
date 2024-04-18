@@ -4,12 +4,13 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.web.librewolf;
+  webCfg = config.dafitt.web;
+
+  isDefault = webCfg.default == "librewolf";
 in
 {
   options.dafitt.web.librewolf = with types; {
-    enable = mkBoolOpt config.dafitt.web.enableSuite "Enable the librewolf web browser";
-    autostart = mkBoolOpt true "Start librewolf on login";
-    defaultApplication = mkBoolOpt true "Set librewolf as the default application for its mimetypes";
+    enable = mkBoolOpt (config.dafitt.web.enableSuite || isDefault) "Enable the librewolf web browser";
   };
 
   config = mkIf cfg.enable {
@@ -119,7 +120,7 @@ in
       };
     };
 
-    xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication (listToAttrs (map (mimeType: { name = mimeType; value = [ "librewolf.desktop" ]; }) [
+    xdg.mimeApps.defaultApplications = mkIf isDefault (listToAttrs (map (mimeType: { name = mimeType; value = [ "librewolf.desktop" ]; }) [
       "application/x-extension-htm"
       "application/x-extension-html"
       "application/x-extension-shtml"
@@ -137,11 +138,14 @@ in
       #"text/xml"
     ]));
 
-    wayland.windowManager.hyprland.settings = {
-      exec-once = mkIf cfg.autostart [ "[workspace 1 silent] ${config.programs.librewolf.package}/bin/librewolf" ];
+    wayland.windowManager.hyprland.settings = mkIf isDefault {
+      bind = [ "SUPER_ALT, B, exec, ${config.programs.librewolf.package}/bin/librewolf" ];
+      exec-once = mkIf webCfg.autostart [ "[workspace 1 silent] ${config.programs.librewolf.package}/bin/librewolf" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:librewolf, title:(Youtube)"
         "float, class:librewolf, title:^Extension: \(NoScript\) - NoScript"
+        # FIXME: initial title is librewolf
+        # TODO: no fullscreen
       ];
     };
   };

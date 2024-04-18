@@ -4,6 +4,9 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.web.firefox;
+  webCfg = config.dafitt.web;
+
+  isDefault = webCfg.default == "firefox";
 
   betterfox = pkgs.fetchFromGitHub {
     owner = "yokoffing";
@@ -14,9 +17,7 @@ let
 in
 {
   options.dafitt.web.firefox = with types; {
-    enable = mkBoolOpt config.dafitt.web.enableSuite "Enable the firefox web browser";
-    autostart = mkBoolOpt false "Start firefox on login";
-    defaultApplication = mkBoolOpt false "Set firefox as the default application for its mimetypes";
+    enable = mkBoolOpt (config.dafitt.web.enableSuite || isDefault) "Enable the firefox web browser";
   };
 
   config = mkIf cfg.enable {
@@ -280,28 +281,27 @@ in
       };
     };
 
-    xdg.mimeApps.defaultApplications = mkIf
-      cfg.defaultApplication
-      (listToAttrs (map (mimeType: { name = mimeType; value = [ "firefox.desktop" ]; }) [
-        "application/x-extension-htm"
-        "application/x-extension-html"
-        "application/x-extension-shtml"
-        "application/x-extension-xht"
-        "application/x-extension-xhtml"
-        "application/xhtml+xml"
-        "x-scheme-handler/about"
-        "x-scheme-handler/ftp"
-        "x-scheme-handler/http"
-        "x-scheme-handler/https"
-        "x-scheme-handler/unknown"
-        #"application/json"
-        #"application/pdf"
-        #"text/html"
-        #"text/xml"
-      ]));
+    xdg.mimeApps.defaultApplications = mkIf isDefault (listToAttrs (map (mimeType: { name = mimeType; value = [ "firefox.desktop" ]; }) [
+      "application/x-extension-htm"
+      "application/x-extension-html"
+      "application/x-extension-shtml"
+      "application/x-extension-xht"
+      "application/x-extension-xhtml"
+      "application/xhtml+xml"
+      "x-scheme-handler/about"
+      "x-scheme-handler/ftp"
+      "x-scheme-handler/http"
+      "x-scheme-handler/https"
+      "x-scheme-handler/unknown"
+      #"application/json"
+      #"application/pdf"
+      #"text/html"
+      #"text/xml"
+    ]));
 
-    wayland.windowManager.hyprland.settings = {
-      exec-once = mkIf cfg.autostart [ "[workspace 1 silent] ${getExe config.programs.firefox.package}" ];
+    wayland.windowManager.hyprland.settings = mkIf isDefault {
+      bind = [ "SUPER_ALT, B, exec, ${getExe config.programs.firefox.package}" ];
+      exec-once = mkIf webCfg.autostart [ "[workspace 1 silent] ${getExe config.programs.firefox.package}" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:firefox, title:(Youtube)"
         "float, class:firefox, title:^Extension: \(NoScript\) - NoScript"

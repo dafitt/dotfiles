@@ -108,13 +108,11 @@
 
     web.enableSuite = osCfg.enableSuite or false;
     web.installExtraPackages = web.enableSuite;
-    web.epiphany.enable = web.enableSuite;
-    web.firefox.enable = web.enableSuite;
-    web.firefox.autostart = false;
-    web.firefox.defaultApplication = false;
-    web.librewolf.enable = web.enableSuite;
-    web.librewolf.autostart = true;
-    web.librewolf.defaultApplication = true;
+    web.default = "librewolf"; # null or one of [ "epiphany" "firefox" "librewolf" ]
+    web.autostart = true;
+    web.epiphany.enable = web.enableSuite || web.default == "epiphany";
+    web.firefox.enable = web.enableSuite || web.default == "firefox";
+    web.librewolf.enable = web.enableSuite || web.default == "librewolf";
   };
 
   home.stateVersion = "23.11";
