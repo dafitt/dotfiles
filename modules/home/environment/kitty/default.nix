@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.common.kitty;
+  cfg = config.dafitt.environment.kitty;
 in
 {
-  options.dafitt.desktops.common.kitty = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable kitty terminal emulator";
+  options.dafitt.environment.kitty = with types; {
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable kitty terminal emulator";
   };
 
   config = mkIf cfg.enable {

@@ -24,7 +24,7 @@
 
     battery.enable = false;
 
-    bootloader.enable = "systemd-boot"; # nullOr (enum [ "grub" "systemd-boot" ])
+    bootloader.enable = "systemd-boot"; # null or one of [ "grub" "systemd-boot" ]
 
     desktops.gnome.enable = false;
     desktops.hyprland.enable = false;
@@ -34,7 +34,7 @@
     development.sshAgent.enable = false;
     development.wireshark.enable = false;
 
-    displayManager.enable = "greetd"; # nullOr (enum [ "gdm" "greetd" ])
+    displayManager.enable = "greetd"; # null or one of [ "gdm" "greetd" ]
 
     flatpak.enable = false;
 
@@ -49,7 +49,7 @@
 
     locale.enable = true;
 
-    networking.enable = "networkmanager"; # nullOr (enum [ "connman" "networkmanager" ])
+    networking.enable = "networkmanager"; # null or one of [ "connman" "networkmanager" ]
 
     printing.enable = false;
 

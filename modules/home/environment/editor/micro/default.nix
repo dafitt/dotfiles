@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.editor.micro = with types; {
-    enable = mkBoolOpt (config.dafitt.editor.default == "micro") "Enable the micro terminal text editor";
+    enable = mkBoolOpt (config.dafitt.environment.enable && config.dafitt.editor.default == "micro") "Enable the micro terminal text editor";
   };
 
   config = mkIf cfg.enable {

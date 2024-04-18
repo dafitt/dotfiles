@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.common.imv;
+  cfg = config.dafitt.environment.imv;
 in
 {
-  options.dafitt.desktops.common.imv = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable imv terminal image viewer";
+  options.dafitt.environment.imv = with types; {
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable imv terminal image viewer";
   };
 
   config = mkIf cfg.enable {

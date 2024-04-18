@@ -5,10 +5,10 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.common.bedtime;
+  cfg = config.dafitt.environment.bedtime;
 in
 {
-  options.dafitt.desktops.common.bedtime = with types; {
+  options.dafitt.environment.bedtime = with types; {
     enable = mkBoolOpt false "Wether or not to tell you to go to sleep at night";
   };
 

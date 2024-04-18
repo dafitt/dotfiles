@@ -15,25 +15,6 @@
   dafitt = rec {
     #NOTE These are the defaults
 
-    desktops.common.enable = true;
-    desktops.common._1password.enable = desktops.common.enable;
-    desktops.common.bedtime.enable = desktops.common.enable;
-    desktops.common.eog.enable = desktops.common.enable;
-    desktops.common.eog.defaultApplication = true;
-    desktops.common.file-roller.enable = desktops.common.enable;
-    desktops.common.file-roller.defaultApplication = true;
-    desktops.common.imv.enable = desktops.common.enable;
-    desktops.common.kitty.enable = desktops.common.enable;
-    desktops.common.micro.enable = desktops.common.enable;
-    desktops.common.mpv.enable = desktops.common.enable;
-    desktops.common.mpv.defaultApplication = true;
-    desktops.common.natuilus.enable = desktops.common.enable;
-    desktops.common.natuilus.autostart = true;
-    desktops.common.pcmanfm.enable = false;
-    desktops.common.syncthing.enable = desktops.common.enable;
-    desktops.common.udiskie.enable = desktops.common.enable;
-    desktops.common.yazi.enable = desktops.common.enable;
-
     desktops.gnome.enable = osCfg.enable or true;
 
     desktops.hyprland.enable = osCfg.enable or false;
@@ -67,6 +48,26 @@
 
     editing.enableSuite = osCfg.enableSuite or false;
     editing.installExtraPackages = editing.enableSuite;
+
+    environment.enable = true;
+    environment._1password.enable = environment.enable;
+    environment.bedtime.enable = environment.enable;
+    environment.eog.enable = environment.enable;
+    environment.eog.defaultApplication = true;
+    environment.file-roller.enable = environment.enable;
+    environment.file-roller.defaultApplication = true;
+    environment.imv.enable = environment.enable;
+    environment.kitty.enable = environment.enable;
+    environment.editor.default = "micro"; # null or one of [ "micro" ]
+    environment.editor.micro.enable = environment.enable && editor.default == "micro";
+    environment.mpv.enable = environment.enable;
+    environment.mpv.defaultApplication = true;
+    environment.natuilus.enable = environment.enable;
+    environment.natuilus.autostart = true;
+    environment.pcmanfm.enable = false;
+    environment.syncthing.enable = environment.enable;
+    environment.udiskie.enable = environment.enable;
+    environment.yazi.enable = environment.enable;
 
     flatpak.enable = osCfg.enable or true;
 

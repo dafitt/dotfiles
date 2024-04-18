@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.common._1password;
+  cfg = config.dafitt.environment._1password;
 in
 {
-  options.dafitt.desktops.common._1password = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable _1password";
+  options.dafitt.environment._1password = with types; {
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable _1password";
   };
 
   config = mkIf cfg.enable {

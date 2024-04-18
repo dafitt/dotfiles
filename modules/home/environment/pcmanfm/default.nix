@@ -3,10 +3,10 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.common.pcmanfm;
+  cfg = config.dafitt.environment.pcmanfm;
 in
 {
-  options.dafitt.desktops.common.pcmanfm = with types; {
+  options.dafitt.environment.pcmanfm = with types; {
     enable = mkBoolOpt false "Enable pcmanfm file manager";
   };
 

@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.common.natuilus;
+  cfg = config.dafitt.environment.natuilus;
 in
 {
-  options.dafitt.desktops.common.natuilus = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable natuilus file manager";
+  options.dafitt.environment.natuilus = with types; {
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable natuilus file manager";
     autostart = mkBoolOpt true "Start natuilus on login";
   };
 

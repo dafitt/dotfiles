@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.common.yazi;
+  cfg = config.dafitt.environment.yazi;
 in
 {
-  options.dafitt.desktops.common.yazi = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable the yazi terminal file manager";
+  options.dafitt.environment.yazi = with types; {
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable the yazi terminal file manager";
   };
 
   config = mkIf cfg.enable {

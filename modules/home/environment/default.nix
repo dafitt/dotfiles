@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.common;
+  cfg = config.dafitt.environment;
 in
 {
-  options.dafitt.desktops.common = with types; {
-    enable = mkBoolOpt true "Enable my very common desktop environment (tools/programs/services)";
+  options.dafitt.environment = with types; {
+    enable = mkBoolOpt true "Enable my common (desktop) environment (programs/services/variables) not paticular to any suite";
   };
 
   config = mkIf cfg.enable {

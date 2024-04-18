@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.common.mpv;
+  cfg = config.dafitt.environment.mpv;
 in
 {
-  options.dafitt.desktops.common.mpv = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable mpv, a free, open source, and cross-platform media player";
+  options.dafitt.environment.mpv = with types; {
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable mpv, a free, open source, and cross-platform media player";
     defaultApplication = mkBoolOpt true "Set mpv as the default application for its mimetypes";
   };
 

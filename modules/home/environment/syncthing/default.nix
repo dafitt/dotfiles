@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.common.syncthing;
+  cfg = config.dafitt.environment.syncthing;
 in
 {
-  options.dafitt.desktops.common.syncthing = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable syncthing, a tool to sync files with other devices";
+  options.dafitt.environment.syncthing = with types; {
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable syncthing, a tool to sync files with other devices";
   };
 
   config = mkIf cfg.enable {

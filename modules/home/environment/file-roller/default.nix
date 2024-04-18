@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.common.file-roller;
+  cfg = config.dafitt.environment.file-roller;
 in
 {
-  options.dafitt.desktops.common.file-roller = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.common.enable "Enable the file-roller archive manager";
+  options.dafitt.environment.file-roller = with types; {
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable the file-roller archive manager";
     defaultApplication = mkBoolOpt true "Set file-roller as the default application for its mimetypes";
 
   };
