@@ -48,14 +48,6 @@ in
     home = {
       language.base = "en_US.UTF-8";
 
-      sessionVariables = {
-        # Default programs
-        BROWSER = "${config.programs.librewolf.package}/bin/librewolf";
-        GDITOR = "${pkgs.vscode}/bin/code";
-        TERMINAL = "${config.programs.kitty.package}/bin/kitty";
-        TOP = "${config.programs.btop.package}/bin/btop"; # preferred system monitor
-      };
-
       shellAliases = {
         # skip an alias with #$ command ...
 

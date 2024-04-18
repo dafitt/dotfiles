@@ -235,15 +235,7 @@ in
           # some small helper programs
           "SUPER_ALT, U, exec, ${gnome.gnome-characters}/bin/gnome-characters"
           "SUPER_ALT, K, exec, ${hyprpicker}/bin/hyprpicker | ${wl-clipboard}/bin/wl-copy" # TODO: 24.05 replace wl-clipboard-rs
-
-        ] ++ (with config.home.sessionVariables; [
-
-          # Default programs
-          "SUPER, F2, exec, ${TERMINAL} -e ${TOP}"
-          "SUPER_ALT, Z, exec, ${TERMINAL} -e ${TOP}"
-          "SUPER, F4, exec, ${GDITOR}"
-          "SUPER_ALT, G, exec, ${GDITOR}"
-        ]);
+        ];
 
         # Bind: mouse binds
         bindm = [

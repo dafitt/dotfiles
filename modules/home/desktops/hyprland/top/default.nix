@@ -19,6 +19,7 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
+      bind = [ "SUPER_ALT, P, exec, ${config.home.sessionVariables.TERMINAL} -e ${config.programs.btop.package}/bin/btop" ];
       windowrulev2 = [
         "float, title:^btop$, class:kitty"
         "size 90% 90%, title:^btop$"

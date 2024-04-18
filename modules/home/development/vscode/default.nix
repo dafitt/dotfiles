@@ -556,7 +556,8 @@ in
     ]));
 
     wayland.windowManager.hyprland.settings = {
-      exec-once = mkIf cfg.autostart [ "[workspace 4 silent] ${config.programs.vscode.package}/bin/code" ];
+      bind = [ "SUPER_ALT, G, exec, ${getExe config.programs.vscode.package}" ];
+      exec-once = mkIf cfg.autostart [ "[workspace 4 silent] ${getExe config.programs.vscode.package}" ];
     };
   };
 }
