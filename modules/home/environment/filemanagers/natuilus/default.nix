@@ -5,10 +5,12 @@ with lib.dafitt;
 let
   cfg = config.dafitt.environment.filemanagers.natuilus;
   filemanagersCfg = config.dafitt.environment.filemanagers;
+
+  isDefault = filemanagersCfg.default == "nautilus";
 in
 {
   options.dafitt.environment.filemanagers.natuilus = with types; {
-    enable = mkBoolOpt (config.dafitt.environment.enable && filemanagersCfg.default == "nautilus") "Enable natuilus file manager";
+    enable = mkBoolOpt (config.dafitt.environment.enable && isDefault) "Enable natuilus file manager";
   };
 
   config = mkIf cfg.enable {
@@ -52,7 +54,7 @@ in
       };
     };
 
-    wayland.windowManager.hyprland.settings = mkIf (filemanagersCfg.default == "nautilus") {
+    wayland.windowManager.hyprland.settings = mkIf isDefault {
       bind = [ "SUPER_ALT, F, exec, ${pkgs.gnome.nautilus}/bin/nautilus" ];
       exec-once = mkIf filemanagersCfg.autostart [ "[workspace 2 silent] ${pkgs.gnome.nautilus}/bin/nautilus" ];
     };

@@ -5,10 +5,12 @@ with lib.dafitt;
 let
   cfg = config.dafitt.environment.filemanagers.yazi;
   filemanagersCfg = config.dafitt.environment.filemanagers;
+
+  isDefault = filemanagersCfg.default == "yazi";
 in
 {
   options.dafitt.environment.filemanagers.yazi = with types; {
-    enable = mkBoolOpt (config.dafitt.environment.enable && filemanagersCfg.default == "yazi") "Enable the yazi terminal file manager";
+    enable = mkBoolOpt (config.dafitt.environment.enable && isDefault) "Enable the yazi terminal file manager";
   };
 
   config = mkIf cfg.enable {
@@ -38,7 +40,7 @@ in
       };
     };
 
-    wayland.windowManager.hyprland.settings = mkIf (filemanagersCfg.default == "yazi") {
+    wayland.windowManager.hyprland.settings = mkIf isDefault {
       bind = [ "SUPER_ALT, F, exec, ${config.programs.yazi.package}/bin/yazi" ];
       exec-once = mkIf filemanagersCfg.autostart [ "[workspace 2 silent] ${config.programs.yazi.package}/bin/yazi" ];
     };

@@ -5,10 +5,12 @@ with lib.dafitt;
 let
   cfg = config.dafitt.environment.filemanagers.pcmanfm;
   filemanagersCfg = config.dafitt.environment.filemanagers;
+
+  isDefault = filemanagersCfg.default == "pcmanfm";
 in
 {
   options.dafitt.environment.filemanagers.pcmanfm = with types; {
-    enable = mkBoolOpt (config.dafitt.environment.enable && filemanagersCfg.default == "pcmanfm") "Enable pcmanfm file manager";
+    enable = mkBoolOpt (config.dafitt.environment.enable && isDefault) "Enable pcmanfm file manager";
   };
 
   config = mkIf cfg.enable {
@@ -50,7 +52,7 @@ in
       common_bg=0
     '';
 
-    wayland.windowManager.hyprland.settings = mkIf (filemanagersCfg.default == "pcmanfm") {
+    wayland.windowManager.hyprland.settings = mkIf isDefault {
       bind = [ "SUPER_ALT, F, exec, ${pkgs.pcmanfm}/bin/pcmanfm" ];
       exec-once = mkIf filemanagersCfg.autostart [ "[workspace 2 silent] ${pkgs.pcmanfm}/bin/pcmanfm" ];
     };
