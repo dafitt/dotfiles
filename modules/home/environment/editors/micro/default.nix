@@ -50,5 +50,9 @@ in
     };
 
     home.sessionVariables.EDITOR = mkIf isDefault "${pkgs.micro}/bin/micro"; # TODO: upstream programs.micro.package = pkgs.micro;
+
+    wayland.windowManager.hyprland.settings = mkIf isDefault {
+      bind = [ "SUPER_ALT, E, exec, ${config.home.sessionVariables.TERMINAL} -e ${pkgs.micro}/bin/micro" ];
+    };
   };
 }

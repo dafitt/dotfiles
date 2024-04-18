@@ -3,11 +3,14 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.environment.kitty;
+  cfg = config.dafitt.environment.terminals.kitty;
+  terminalsCfg = config.dafitt.environment.terminals;
+
+  isDefault = terminalsCfg.default == "kitty";
 in
 {
-  options.dafitt.environment.kitty = with types; {
-    enable = mkBoolOpt config.dafitt.environment.enable "Enable kitty terminal emulator";
+  options.dafitt.environment.terminals.kitty = with types; {
+    enable = mkBoolOpt isDefault "Enable the kitty terminal emulator";
   };
 
   config = mkIf cfg.enable {
@@ -87,12 +90,19 @@ in
       '';
     };
 
+    # this option is being used by other modules
+    home.sessionVariables.TERMINAL = mkIf isDefault "${getExe config.programs.kitty.package}";
+
     wayland.windowManager.hyprland.settings = {
       exec-once = [ "[workspace name:D silent] ${config.programs.kitty.package}/bin/kitty --start-as=maximized --session wallpaper" ];
       windowrulev2 = [
         "idleinhibit always, class:idleinhibitor, floating:1"
-
         "noborder, class:wallpaper"
+      ];
+    } // optionalAttrs isDefault {
+      bind = [
+        "SUPER, RETURN, exec, ${getExe config.programs.kitty.package}"
+        "SUPER_ALT, T, exec, ${getExe config.programs.kitty.package}"
       ];
     };
   };

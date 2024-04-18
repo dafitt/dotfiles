@@ -239,11 +239,8 @@ in
         ] ++ (with config.home.sessionVariables; [
 
           # Default programs
-          "SUPER, RETURN, exec, ${TERMINAL}"
           "SUPER, F2, exec, ${TERMINAL} -e ${TOP}"
           "SUPER_ALT, Z, exec, ${TERMINAL} -e ${TOP}"
-          "SUPER, F3, exec, ${TERMINAL} -e ${EDITOR}"
-          "SUPER_ALT, T, exec, ${TERMINAL} -e ${EDITOR}"
           "SUPER, F4, exec, ${GDITOR}"
           "SUPER_ALT, G, exec, ${GDITOR}"
         ]);

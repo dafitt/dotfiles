@@ -64,10 +64,11 @@
     environment.filemanagers.pcmanfm.enable = environment.enable && environment.filemanagers.default == "pcmanfm";
     environment.filemanagers.yazi.enable = environment.enable && environment.filemanagers.default == "yazi";
     environment.imv.enable = environment.enable;
-    environment.kitty.enable = environment.enable;
     environment.mpv.enable = environment.enable;
     environment.mpv.defaultApplication = true;
     environment.syncthing.enable = environment.enable;
+    environment.terminals.default = "kitty"; # one of [ "kitty" ]
+    environment.terminals.kitty.enable = environment.terminals.default == "kitty";
     environment.udiskie.enable = environment.enable;
     environment.xdg.enable = true;
     environment.xdg.mimeApps.enable = true;
