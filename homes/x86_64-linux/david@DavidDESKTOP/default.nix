@@ -14,6 +14,7 @@
     desktops.hyprland.hypridle.timeouts.suspend = 0;
     editing.enableSuite = true;
     environment.bedtime.enable = true;
+    environment.filemanagers.yazi.enable = true;
     music.enableSuite = true;
     office.enableSuite = true;
     ricing.enableSuite = true;

@@ -3,11 +3,12 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.editor.micro;
+  cfg = config.dafitt.environment.editors.micro;
+  editorsCfg = config.dafitt.environment.editors;
 in
 {
-  options.dafitt.editor.micro = with types; {
-    enable = mkBoolOpt (config.dafitt.environment.enable && config.dafitt.editor.default == "micro") "Enable the micro terminal text editor";
+  options.dafitt.environment.editors.micro = with types; {
+    enable = mkBoolOpt (config.dafitt.environment.enable && editorsCfg.default == "micro") "Enable the micro terminal text editor";
   };
 
   config = mkIf cfg.enable {
@@ -47,6 +48,6 @@ in
       };
     };
 
-    home.sessionVariables.EDITOR = mkIf (config.dafitt.editor.default == "micro") "${pkgs.micro}/bin/micro"; # TODO: upstream programs.micro.package = pkgs.micro;
+    home.sessionVariables.EDITOR = mkIf (editorsCfg.default == "micro") "${pkgs.micro}/bin/micro"; # TODO: upstream programs.micro.package = pkgs.micro;
   };
 }

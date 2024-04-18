@@ -10,6 +10,7 @@
       primary = true;
     }];
 
+    environment.filemanagers.yazi.enable = true;
     office.enableSuite = true;
     social.enableSuite = true;
     web.librewolf.enable = true;

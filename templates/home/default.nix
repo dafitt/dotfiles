@@ -52,22 +52,23 @@
     environment.enable = true;
     environment._1password.enable = environment.enable;
     environment.bedtime.enable = environment.enable;
+    environment.editors.default = "micro"; # null or one of [ "micro" ]
+    environment.editors.micro.enable = environment.enable && environment.editor.default == "micro";
     environment.eog.enable = environment.enable;
     environment.eog.defaultApplication = true;
-    environment.file-roller.enable = environment.enable;
     environment.file-roller.defaultApplication = true;
+    environment.file-roller.enable = environment.enable;
+    environment.filemanagers.default = "natuilus"; # null or one of [ "nautilus" "pcmanfm" "yazi" ]
+    environment.filemanagers.autostart = true;
+    environment.filemanagers.natuilus.enable = environment.enable && environment.filemanagers.default == "natuilus";
+    environment.filemanagers.pcmanfm.enable = environment.enable && environment.filemanagers.default == "pcmanfm";
+    environment.filemanagers.yazi.enable = environment.enable && environment.filemanagers.default == "yazi";
     environment.imv.enable = environment.enable;
     environment.kitty.enable = environment.enable;
-    environment.editor.default = "micro"; # null or one of [ "micro" ]
-    environment.editor.micro.enable = environment.enable && editor.default == "micro";
     environment.mpv.enable = environment.enable;
     environment.mpv.defaultApplication = true;
-    environment.natuilus.enable = environment.enable;
-    environment.natuilus.autostart = true;
-    environment.pcmanfm.enable = false;
     environment.syncthing.enable = environment.enable;
     environment.udiskie.enable = environment.enable;
-    environment.yazi.enable = environment.enable;
 
     flatpak.enable = osCfg.enable or true;
 
