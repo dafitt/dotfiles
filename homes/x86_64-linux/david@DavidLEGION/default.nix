@@ -12,6 +12,7 @@
 
     environment.filemanagers.yazi.enable = true;
     environment.launchers.rofi.enable = true;
+    gaming.steam.enable = true;
     office.enableSuite = true;
     social.enableSuite = true;
   };

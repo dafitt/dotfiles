@@ -45,7 +45,6 @@
     fwupd.enable = false;
 
     gaming.enableSuite = false;
-    gaming.steam.enable = false;
 
     locale.enable = true;
 

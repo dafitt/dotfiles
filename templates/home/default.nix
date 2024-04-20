@@ -79,7 +79,7 @@
 
     gaming.enableSuite = osCfg.enableSuite or false;
     gaming.installExtraPackages = gaming.enableSuite;
-    gaming.steam.enable = osCfg.enable or gaming.enableSuite;
+    gaming.steam.enable = gaming.enableSuite;
 
     music.enableSuite = osCfg.enableSuite or false;
     music.installExtraPackages = music.enableSuite;

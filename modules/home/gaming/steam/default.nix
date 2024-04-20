@@ -1,14 +1,13 @@
-{ options, config, lib, pkgs, osConfig ? { }, ... }:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.gaming.steam;
-  osCfg = osConfig.dafitt.gaming.steam or null;
 in
 {
   options.dafitt.gaming.steam = with types; {
-    enable = mkBoolOpt (osCfg.enable or config.dafitt.gaming.enableSuite) "Enable steam";
+    enable = mkBoolOpt config.dafitt.gaming.enableSuite "Enable steam";
   };
 
   config = mkIf cfg.enable {
