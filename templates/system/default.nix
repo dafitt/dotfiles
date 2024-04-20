@@ -45,6 +45,8 @@
     fwupd.enable = false;
 
     gaming.enableSuite = false;
+    gaming.gamemode = gaming.enableSuite;
+    gaming.gamescope = gaming.enableSuite;
 
     locale.enable = true;
 
