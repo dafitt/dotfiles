@@ -23,10 +23,9 @@
     polarity = "dark"; # for epiphany, flatpaks
 
     cursor = {
-      # Manages home.pointerCursor
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-      size = 24;
+      # manages `home.pointerCursor`
+      package = pkgs.phinger-cursors; # TODO: 24.05 switch to hyprcursor if hyprland>=v0.37.0
+      name = "phinger-cursors-light";
     };
 
     fonts = rec {
