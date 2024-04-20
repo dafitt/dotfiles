@@ -7,7 +7,6 @@
   dafitt = {
     battery.enable = true;
     bootloader.enable = "grub";
-    desktops.hyprland.enable = true;
     flatpak.enable = true;
     networking.enable = "connman";
     syncthing.openFirewall = true;

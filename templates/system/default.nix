@@ -27,7 +27,7 @@
     bootloader.enable = "systemd-boot"; # null or one of [ "grub" "systemd-boot" ]
 
     desktops.gnome.enable = false;
-    desktops.hyprland.enable = false;
+    desktops.hyprland.enable = true;
 
     development.direnv.enable = false;
     development.enableSuite = false;

@@ -15,7 +15,6 @@
   dafitt = {
     appimage.enable = true;
     desktops.gnome.enable = true;
-    desktops.hyprland.enable = true;
     development.enableSuite = true;
     flatpak.enable = true;
     fwupd.enable = true;
