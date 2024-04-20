@@ -3,8 +3,8 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.environment.filemanagers.pcmanfm;
   filemanagersCfg = config.dafitt.environment.filemanagers;
+  cfg = filemanagersCfg.pcmanfm;
 
   isDefault = filemanagersCfg.default == "pcmanfm";
 in

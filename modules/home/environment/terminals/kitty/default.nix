@@ -3,8 +3,8 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.environment.terminals.kitty;
   terminalsCfg = config.dafitt.environment.terminals;
+  cfg = terminalsCfg.kitty;
 
   isDefault = terminalsCfg.default == "kitty";
 in

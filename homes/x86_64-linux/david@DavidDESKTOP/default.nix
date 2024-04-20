@@ -16,6 +16,7 @@
     editing.enableSuite = true;
     environment.bedtime.enable = true;
     environment.filemanagers.yazi.enable = true;
+    environment.launchers.rofi.enable = true;
     music.enableSuite = true;
     office.enableSuite = true;
     ricing.enableSuite = true;

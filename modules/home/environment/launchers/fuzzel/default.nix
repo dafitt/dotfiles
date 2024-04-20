@@ -3,11 +3,14 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.hyprland.fuzzel;
+  launchersCfg = config.dafitt.environment.launchers;
+  cfg = launchersCfg.fuzzel;
+
+  isDefault = launchersCfg.default == "fuzzel";
 in
 {
-  options.dafitt.desktops.hyprland.fuzzel = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable fuzzel for hyprland";
+  options.dafitt.environment.launchers.fuzzel = with types; {
+    enable = mkBoolOpt (config.dafitt.desktops.hyprland.enable && isDefault) "Enable the application launcher fuzzel";
   };
 
   config = mkIf cfg.enable {
@@ -18,9 +21,7 @@ in
       settings = {
         main = {
           # [settings](https://man.archlinux.org/man/fuzzel.ini.5.en)
-
-          terminal = "$TERMINAL";
-          prompt = "🔎";
+          terminal = config.home.sessionVariables.TERMINAL;
           font = lib.mkForce "${config.stylix.fonts.serif.name}:size=16";
           letter-spacing = 1;
           icon-theme = "${config.gtk.iconTheme.name}";
@@ -33,8 +34,8 @@ in
       };
     };
 
-    wayland.windowManager.hyprland.settings = {
-      bind = [ "SUPER, SPACE, exec, ${pkgs.fuzzel}/bin/fuzzel" ];
+    wayland.windowManager.hyprland.settings = mkIf isDefault {
+      bind = [ "SUPER, SPACE, exec, ${config.programs.fuzzel.package}/bin/fuzzel" ];
     };
   };
 }

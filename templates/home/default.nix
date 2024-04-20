@@ -21,7 +21,6 @@
     desktops.hyprland.monitors = [ ]; # /modules/home/desktops/hyprland/monitors/default.nix
     desktops.hyprland.calculator.enable = desktops.hyprland.enable;
     desktops.hyprland.cliphist.enable = desktops.hyprland.enable;
-    desktops.hyprland.fuzzel.enable = desktops.hyprland.enable;
     desktops.hyprland.gedit.enable = desktops.hyprland.enable;
     desktops.hyprland.hypridle.enable = desktops.hyprland.enable;
     desktops.hyprland.hypridle.timeouts.lock = 360;
@@ -64,6 +63,9 @@
     environment.filemanagers.pcmanfm.enable = environment.enable && environment.filemanagers.default == "pcmanfm";
     environment.filemanagers.yazi.enable = environment.enable && environment.filemanagers.default == "yazi";
     environment.imv.enable = environment.enable;
+    environment.launchers.default = "fuzzel"; # null or one of [ "fuzzel" "rofi" ]
+    environment.launchers.fuzzel.enalbe = desktops.hyprland.enable && environment.launchers.default == "fuzzel";
+    environment.launchers.rofi.enalbe = desktops.hyprland.enable && environment.launchers.default == "rofi";
     environment.mpv.enable = environment.enable;
     environment.mpv.defaultApplication = true;
     environment.syncthing.enable = environment.enable;

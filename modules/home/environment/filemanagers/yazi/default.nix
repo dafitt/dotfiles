@@ -3,8 +3,8 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.environment.filemanagers.yazi;
   filemanagersCfg = config.dafitt.environment.filemanagers;
+  cfg = filemanagersCfg.yazi;
 
   isDefault = filemanagersCfg.default == "yazi";
 in

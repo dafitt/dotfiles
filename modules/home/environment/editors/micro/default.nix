@@ -3,9 +3,10 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.environment.editors.micro;
+  editorsCfg = config.dafitt.environment.editors;
+  cfg = editorsCfg.micro;
 
-  isDefault = config.dafitt.environment.editors.default == "micro";
+  isDefault = editorsCfg.default == "micro";
 in
 {
   options.dafitt.environment.editors.micro = with types; {

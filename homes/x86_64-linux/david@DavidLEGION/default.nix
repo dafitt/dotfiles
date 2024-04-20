@@ -11,6 +11,7 @@
     }];
 
     environment.filemanagers.yazi.enable = true;
+    environment.launchers.rofi.enable = true;
     office.enableSuite = true;
     social.enableSuite = true;
   };
