@@ -12,6 +12,7 @@
 
     desktops.hyprland.hypridle.timeouts.lock = 0;
     desktops.hyprland.hypridle.timeouts.suspend = 0;
+    desktops.hyprland.hyprlock.enable = false;
     editing.enableSuite = true;
     environment.bedtime.enable = true;
     environment.filemanagers.yazi.enable = true;

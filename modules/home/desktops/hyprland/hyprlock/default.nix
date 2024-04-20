@@ -1,4 +1,3 @@
-# TODO: 24.05 replace with hyprlock
 { options, config, lib, pkgs, inputs, ... }:
 
 with lib;
