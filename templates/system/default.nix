@@ -16,7 +16,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   dafitt = rec {
-    #NOTE These are the defaults
+    #NOTE These values are the defaults
 
     appimage.enable = false;
 

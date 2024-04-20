@@ -387,37 +387,37 @@ in
       };
 
       keybindings = [
-        # Insert Line above and below
+        # insert line above and below
         { "key" = "shift+enter"; "command" = "editor.action.insertLineBefore"; "when" = "editorTextFocus && !editorReadonly"; }
         { "key" = "ctrl+enter"; "command" = "editor.action.insertLineAfter"; "when" = "editorTextFocus && !editorReadonly"; }
-        # Sort lines
+        # sort lines
         { "key" = "ctrl+numpad3"; "command" = "editor.action.sortLinesAscending"; "when" = "editorTextFocus && !editorReadonly"; }
         { "key" = "ctrl+numpad9"; "command" = "editor.action.sortLinesDescending"; "when" = "editorTextFocus && !editorReadonly"; }
-        # Indent Line
+        # indent line
         { "key" = "tab"; "command" = "editor.action.indentLines"; "when" = "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !suggestWidgetHasFocusedSuggestion && !inSnippetMode && !atEndOfWord && !inlineSuggestionVisible"; }
-        # Copy Line Down
+        # copy line down
         { "key" = "ctrl+alt+l"; "command" = "editor.action.copyLinesDownAction"; "when" = "editorTextFocus && !editorReadonly"; }
-        # Toggle Comments
+        # toggle comments
         { "key" = "ctrl+/"; "command" = "editor.action.commentLine"; "when" = "editorTextFocus && !editorReadonly"; }
         { "key" = "ctrl+shift+/"; "command" = "editor.action.blockComment"; "when" = "editorTextFocus && !editorReadonly"; }
-        # Save All Files
+        # save all files
         { "key" = "ctrl+shift+s"; "command" = "workbench.action.files.saveFiles"; }
-        # File: Save As...
+        # file: save as...
         { "key" = "ctrl+alt+s"; "command" = "workbench.action.files.saveAs"; }
-        # Zen Mode
+        # zen mode
         { "key" = "ctrl+alt+z"; "command" = "workbench.action.toggleZenMode"; "when" = "!isAuxiliaryWindowFocusedContext"; }
-        # VSCode settings: Change keybinding expression
+        # vscode settings: change keybinding expression
         { "key" = "ctrl+e"; "command" = "keybindings.editor.defineWhenExpression"; "when" = "inKeybindings && keybindingFocus"; }
-        # Code Runner: Run current File
+        # code runner: run current file
         { "key" = "ctrl+e ctrl+e"; "command" = "code-runner.run"; "when" = "editorTextFocus && !editorReadonly && resourceExtname != .sql"; }
-        # Copilot: Open Chat
+        # copilot: open chat
         { "key" = "ctrl+shift+j"; "command" = "workbench.panel.chatSidebar.copilot"; }
-        # Unsets
-        # Unset Ctrl-L for line selection
+        # unsets
+        # unset ctrl-l for line selection
         { "key" = "ctrl+l"; "command" = "-workbench.action.chat.clear"; }
-        # Unset Ctrl-Shift-Z for redo
+        # unset ctrl-shift-z for redo
         { "key" = "ctrl+shift+z"; "command" = "-extension.decrementPriority"; }
-        # Unset todo-txt
+        # unset todo-txt
         { "key" = "ctrl+shift+a"; "command" = "-extension.incrementPriority"; }
       ];
 
@@ -534,7 +534,6 @@ in
         #{ name = "better-dockerfile-syntax"; publisher = "jeff-hykin"; version = "1.0.2"; sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; }
       ];
     };
-
 
     xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication (listToAttrs (map (mimeType: { name = mimeType; value = [ "code.desktop" ]; }) [
       "application/x-shellscript"

@@ -13,7 +13,7 @@
 { lib, ... }: with lib.dafitt; {
 
   dafitt = rec {
-    #NOTE These are the defaults
+    #NOTE These values are the defaults
 
     desktops.gnome.enable = osCfg.enable or true;
 
