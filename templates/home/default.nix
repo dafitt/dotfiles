@@ -15,7 +15,7 @@
   dafitt = rec {
     #NOTE These values are the defaults
 
-    desktops.gnome.enable = osCfg.enable or true;
+    desktops.gnome.enable = osCfg.enable or false;
 
     desktops.hyprland.enable = osCfg.enable or false;
     desktops.hyprland.monitors = [ ]; # /modules/home/desktops/hyprland/monitors/default.nix
