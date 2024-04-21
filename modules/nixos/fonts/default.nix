@@ -19,14 +19,23 @@ in
 
     environment.systemPackages = with pkgs; [ font-manager ];
 
-    fonts.packages = with pkgs;
-      [
-        noto-fonts
-        noto-fonts-cjk-sans
-        noto-fonts-cjk-serif
-        noto-fonts-emoji
-        (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-      ]
-      ++ cfg.fonts;
+    fonts.packages = with pkgs; [
+      (nerdfonts.override {
+        # https://www.nerdfonts.com/font-downloads
+        # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/data/fonts/nerdfonts/shas.nix
+        fonts = [
+          "JetBrainsMono"
+          "NerdFontsSymbolsOnly"
+          "Noto"
+          "Ubuntu"
+          "UbuntuMono"
+          # TODO: 24.05: "UbuntuSans"
+        ];
+      })
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-emoji
+    ] ++ cfg.fonts;
   };
 }

@@ -14,7 +14,7 @@ in
 
   config = mkIf cfg.installExtraPackages {
     home.packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
       clang-tools # clangd for c/c++
       dig # tool for DNS
       fira-code-symbols # the ligatures aviable as symbols
