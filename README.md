@@ -59,8 +59,8 @@ On a new host machine:
     4. Add a new home-configuration to _`/homes/<architecture>/<user>[@<host>]/default.nix`_ _(available `dafitt-home` options can be found at [/templates/home/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix))_
 3. Remove some files for home-manager (or back them up): `rm ~/.config/user-dirs.dirs ~/.config/fish/config.fish ~/.config/hypr/hyprland.conf`
 4. `sudo nixos-rebuild boot --flake .#<host>`
-    - _NOTE First install: Flatpaks need very long_
-    1. Check home-manager: `systemctl status home-manager-david.service`
+    - _NOTE First install: may take some time; especially flatpaks_
+    1. Check for home-manager errors `systemctl status home-manager-<user>.service` and resolve them if necessary
 5. `reboot`
 6. Personal setup:
     1. [Syncthing](https://localhost:8384/) setup
@@ -169,10 +169,10 @@ Last but no least, to keep things simple I put some very specific configuration 
 
 ### Hyprland keybindings modifiers
 
-<kbd>SUPER_CONTROL</kbd> - Hyprland control  
-<kbd>SUPER</kbd> - Window control  
-<kbd>SUPER_ALT</kbd> - Applications  
-<kbd>SHIFT</kbd> - reverse, grab, move  
+<kbd>SUPER_CONTROL</kbd> - Hyprland control
+<kbd>SUPER</kbd> - Window control
+<kbd>SUPER_ALT</kbd> - Applications
+<kbd>SHIFT</kbd> - reverse, grab, move
 
 ### You want to build from here?
 
