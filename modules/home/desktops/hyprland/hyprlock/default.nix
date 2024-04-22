@@ -48,7 +48,7 @@ in
           font_size = 44;
         }
         {
-          text = "Welcome back, $USER!";
+          text = "Welcome back!";
           color = "rgb(${config.lib.stylix.colors.base04})";
           font_family = "${config.stylix.fonts.monospace.name}";
           font_size = 20;
