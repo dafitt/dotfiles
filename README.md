@@ -134,7 +134,7 @@ nix flake lock --update-input [input]
 Format the entire flake code:
 
 ```shell
-nix fmt
+nix fmt [./folder] [./file.nix]
 ```
 
 Rollback nixos confituration:
