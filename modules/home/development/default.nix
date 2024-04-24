@@ -15,6 +15,7 @@ in
   config = mkIf cfg.installExtraPackages {
     home.packages = with pkgs; [
       (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
+      alejandra # nix code formatter
       clang-tools # clangd for c/c++
       dig # tool for DNS
       fira-code-symbols # the ligatures aviable as symbols
@@ -24,6 +25,7 @@ in
       gnumake # makefile
       httpie # a modern command line HTTP client
       mtr # better traceroute
+      nil # nix language server
       nixpkgs-fmt # nix code formatter
       texlive.combined.scheme-full # for latex-workshop
       wev # tool for keyboard input

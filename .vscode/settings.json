@@ -1,0 +1,24 @@
+{
+    "[nix]": {
+        "editor.defaultFormatter": "jnoortheen.nix-ide",
+        "editor.tabSize": 2
+    },
+    // with language server
+    "nix.enableLanguageServer": true, // disable this, when nil is NOT installed on your system
+    "nix.serverPath": "nil",
+    "nix.serverSettings": {
+        "nil": {
+            "diagnostics": {
+                "ignored": []
+            },
+            "formatting": {
+                "command": ["nixpkgs-fmt"]
+            }
+        }
+    },
+    // without language server
+    "nix.formatterPath": ["nixpkgs-fmt"],
+    //"nix.formatterPath": ["nix", "fmt", "--", "-"],
+
+    "todo-tree.general.tags": ["FIXME", "TODO", "REFACTOR", "???"]
+}

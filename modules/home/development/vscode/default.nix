@@ -34,7 +34,7 @@ in
         # Workbench
         "workbench.colorCustomizations" = {
           "[Stylix]" = {
-            # TODO: 24.05
+            # TODO: 24.05 stylix changes
 
             # improve focus colors
             "focusBorder" = "#${config.lib.stylix.colors.base0D}";
@@ -464,7 +464,6 @@ in
         # makefile
         ms-vscode.makefile-tools
         # nix
-        bbenoist.nix
         jnoortheen.nix-ide
         # pdf
         #tomoki1207.pdf

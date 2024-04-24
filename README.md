@@ -131,6 +131,12 @@ flake update
 nix flake lock --update-input [input]
 ```
 
+Format the entire flake code:
+
+```shell
+nix fmt
+```
+
 Rollback nixos confituration:
 
 ```shell

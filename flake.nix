@@ -27,6 +27,7 @@
   # [Snowfall framework](https://snowfall.org/guides/lib/quickstart/)
   #$ nix flake check --keep-going
   #$ nix flake show
+  #$ nix fmt [./folder] [./file.nix]
   outputs = inputs: inputs.snowfall-lib.mkFlake {
     inherit inputs;
     src = ./.;
@@ -59,6 +60,11 @@
     ];
 
     templates = import ./templates { };
+
+    # [Generic outputs](https://snowfall.org/guides/lib/generic/)
+    outputs-builder = channels: {
+      formatter = channels.nixpkgs.nixpkgs-fmt; # [nix fmt](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-fmt.html)
+    };
   };
 
   description = "Dafitt's desktop flake";
