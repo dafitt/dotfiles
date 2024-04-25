@@ -136,23 +136,30 @@ in
 
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           # https://nur.nix-community.org/repos/rycee/
+          # privacy and convenience
+          clearurls # alternative: link-cleaner
           cookie-autodelete
           darkreader
-          decentraleyes
           enhancer-for-youtube
+          fastforwardteam
           i-dont-care-about-cookies
-          clearurls # alternative: link-cleaner
-          noscript
-          onepassword-password-manager
+          localcdn
           privacy-badger
           return-youtube-dislikes
           sidebery
           sponsorblock
+          switchyomega
           to-deepl
           ublock-origin
           undoclosetabbutton
-          user-agent-string-switcher
           youtube-recommended-videos
+
+          # personal
+          github-file-icons
+          musescore-downloader
+          onepassword-password-manager
+          steam-database
+          violentmonkey
         ];
 
         search = {
