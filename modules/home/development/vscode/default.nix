@@ -263,6 +263,7 @@ in
         "betterAlign.alignAfterTypeEnter" = true;
         "betterFolding.excludedLanguages" = [ "sql" ];
         "betterFolding.showFoldedBodyLinesCount" = false;
+        "code-runner.ignoreSelection" = true;
         "code-runner.runInTerminal" = true;
         "codesnap.containerPadding" = "0em";
         "codesnap.roundedCorners" = false;
