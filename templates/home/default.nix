@@ -31,6 +31,9 @@
     desktops.hyprland.pavucontrol.enable = desktops.hyprland.enable;
     desktops.hyprland.playerctl.enable = desktops.hyprland.enable;
     desktops.hyprland.plugins.enable = desktops.hyprland.enable;
+    desktops.hyprland.pyprland.enable = desktops.hyprland.enable;
+    desktops.hyprland.pyprland.magnify = desktops.hyprland.pyprland.enable;
+    desktops.hyprland.pyprland.scratchpads = desktops.hyprland.pyprland.enable;
     desktops.hyprland.swaybg.enable = false;
     desktops.hyprland.swayosd.enable = desktops.hyprland.enable;
     desktops.hyprland.top.enable = desktops.hyprland.enable;
