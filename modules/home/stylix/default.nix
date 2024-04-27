@@ -59,11 +59,11 @@
   };
 
   qt = {
+    # https://github.com/nix-community/home-manager/blob/master/modules/misc/qt.nix
+    # TODO: wait for https://github.com/danth/stylix/pull/142
     enable = true;
-    platformTheme = "gnome";
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
+    platformTheme = "gnome"; # TODO 24.05: adwaita
+    style.name = "adwaita-dark";
+    style.package = pkgs.adwaita-qt;
   };
 }
