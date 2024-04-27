@@ -61,7 +61,7 @@ in
           key_press_enables_dpms = true;
           animate_manual_resizes = true;
           animate_mouse_windowdragging = true;
-        };
+                  };
         decoration = {
           # https://wiki.hyprland.org/Configuring/Variables/#decoration
           active_opacity = 0.93;
@@ -266,11 +266,15 @@ in
 
         # only on launch
         exec-once = [
+          # [Some of my apps take a really long time to open…?](https://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open)
+          "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+          "${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+
           #"${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" # start polkit manually (isn't done automatically)
           "${pkgs.wluma}/bin/wluma"
         ];
 
-        # only on each reload
+        # on each reload
         exec = [ ];
 
         # https://wiki.hyprland.org/Configuring/Environment-variables/
