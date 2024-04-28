@@ -18,7 +18,7 @@
     desktops.gnome.enable = osCfg.enable or false;
 
     desktops.hyprland.enable = osCfg.enable or false;
-    desktops.hyprland.monitors = [ ]; # /modules/home/desktops/hyprland/monitors/default.nix
+    desktops.hyprland.monitors = [ ]; # modules/home/desktops/hyprland/monitors/default.nix
     desktops.hyprland.calculator.enable = desktops.hyprland.enable;
     desktops.hyprland.cliphist.enable = desktops.hyprland.enable;
     desktops.hyprland.gedit.enable = desktops.hyprland.enable;

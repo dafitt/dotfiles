@@ -7,7 +7,7 @@ with lib.dafitt;
     homeManagerIntegration.autoImport = false; # snowfall-lib already does this for us
     homeManagerIntegration.followSystem = true;
 
-    #NOTE If you change something here in stylix, copy it to /modules/home/stylix/default.nix (see NOTE)
+    #NOTE If you change something here in stylix, copy it to modules/home/stylix/default.nix (see NOTE)
 
     image = ./wallpaper.png;
 

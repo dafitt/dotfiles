@@ -5,8 +5,8 @@ with lib.dafitt;
 {
   # [Documentation](https://danth.github.io/stylix/index.html)
   stylix = mkIf (osConfig == null) {
-    #NOTE This is a copy of /modules/nixos/stylix/default.nix and gets only applied if building with standalone home-manager
-    # I currently have no solution to follow the nixos configuration when building with standalone, so you have to manually copy the configuration from /modules/nixos/stylix/default.nix.
+    #NOTE This is a copy of modules/nixos/stylix/default.nix and gets only applied if building with standalone home-manager
+    # I currently have no solution to follow the nixos configuration when building with standalone, so you have to manually copy the configuration from modules/nixos/stylix/default.nix.
 
     image = ./wallpaper.png;
 

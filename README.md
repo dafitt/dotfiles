@@ -13,7 +13,7 @@
     -   [Structure](#structure)
         -   [You want to build from here?](#you-want-to-build-from-here)
     -   [Troubleshooting](#troubleshooting)
-        -   [Some options in /homes and /modules/home are not being applied with nixos-rebuild](#some-options-in-homes-and-moduleshome-are-not-being-applied-with-nixos-rebuild)
+        -   [Some options in homes/ and modules/home/ are not being applied with nixos-rebuild](#some-options-in-homes-and-moduleshome-are-not-being-applied-with-nixos-rebuild)
     -   [Inspiration, Credits and Thanks](#inspiration-credits-and-thanks)
 
 My dotfiles are not perfekt and never will be (unfortunately), but they strive to be:
@@ -57,7 +57,7 @@ On a new host machine:
     1. Add a new system-configuration to _`/systems/<architecture>/<host>/default.nix`_ _(available `dafitt-nixos` options can be found at [/templates/system/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix))_
     2. Copy, import and commit _`hardware-configuration.nix`_!
     3. Set the correct `system.stateVersion`
-    4. Add a new home-configuration to _`/homes/<architecture>/<user>[@<host>]/default.nix`_ _(available `dafitt-home` options can be found at [/templates/home/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix))_
+    4. Add a new home-configuration to _`homes/<architecture>/<user>[@<host>]/default.nix`_ _(available `dafitt-home` options can be found at [/templates/home/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix))_
 3. Remove some files for home-manager (or back them up): `rm ~/.config/user-dirs.dirs ~/.config/fish/config.fish ~/.config/hypr/hyprland.conf`
 4. `sudo nixos-rebuild boot --flake .#<host>`
     - _NOTE First install: may take some time; especially flatpaks_
@@ -306,9 +306,9 @@ My systems and homes are assembled using custom modules. Any custom module has a
 -   Firmly integrated, non-disableable
     -   stylix
 
-Modules in [/modules/nixos](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command; [/modules/home](https://github.com/dafitt/dotfiles/blob/main/modules/home) with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _home-manager-<user>.service_).
+Modules in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command; [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _home-manager-<user>.service_).
 
-Some [/modules/home](https://github.com/dafitt/dotfiles/blob/main/modules/home) are automatically activated, if the sister module in [/modules/nixos](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled e.g. `options.custom.gaming.enableSuite = mkBoolOpt (osConfig.custom.gaming.enableSuite or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
+Some [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are automatically activated, if the sister module in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled e.g. `options.custom.gaming.enableSuite = mkBoolOpt (osConfig.custom.gaming.enableSuite or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
 
 Last but no least, to keep things simple I put some very specific configuration directly into the systems themselves.
 
@@ -316,25 +316,25 @@ Last but no least, to keep things simple I put some very specific configuration 
 
 What you have to customize:
 
--   [ ] [/modules/nixos/time/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/time/default.nix): timezone
--   [ ] [/modules/nixos/locale/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/locale/default.nix): locale
--   [ ] [/modules/nixos/users/main/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/users/main/default.nix): username
--   [ ] [/modules/home/office/thunderbird/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/office/thunderbird/default.nix)
--   [ ] [/modules/home/web/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/37693f1b9fd4e4d8429506a882e9f9d14da31446/modules/home/web/firefox/default.nix#L168): searx search engine is a local instance/server, use a official one or setup your own
+-   [ ] [modules/nixos/time/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/time/default.nix): timezone
+-   [ ] [modules/nixos/locale/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/locale/default.nix): locale
+-   [ ] [modules/nixos/users/main/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/users/main/default.nix): username
+-   [ ] [modules/home/office/thunderbird/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/office/thunderbird/default.nix)
+-   [ ] [modules/home/web/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/37693f1b9fd4e4d8429506a882e9f9d14da31446/modules/home/web/firefox/default.nix#L168): searx search engine is a local instance/server, use a official one or setup your own
 -   [ ] [systems/\<architecure\>/\<host\>/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix): obviously your own host-configuration
     -   [ ] `hardware-configuration.nix`
     -   [ ] maybe some host-specific `configuration.nix`: make sure to import it: `imports = [ ./configuration.nix ];`
--   [ ] [/homes/\<architecure\>/\<user\>[@\<host\>]/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix): obviously your own home-configuration
+-   [ ] [homes/\<architecure\>/\<user\>[@\<host\>]/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix): obviously your own home-configuration
 
 Optionally:
 
--   [ ] [/modules/home/desktops/hyprland/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/desktops/hyprland/default.nix): familiar keybindings
--   [ ] [/modules/home/stylix/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/stylix/default.nix): custom base16 theme / icon theme
+-   [ ] [modules/home/desktops/hyprland/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/desktops/hyprland/default.nix): familiar keybindings
+-   [ ] [modules/home/stylix/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/stylix/default.nix): custom base16 theme / icon theme
 -   [ ] Packages and programs you need
 
 ## Troubleshooting
 
-### Some options in [/homes](https://github.com/dafitt/dotfiles/blob/main/homes) and [/modules/home](https://github.com/dafitt/dotfiles/blob/main/modules/home) are not being applied with nixos-rebuild
+### Some options in [homes/](https://github.com/dafitt/dotfiles/blob/main/homes) and [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are not being applied with nixos-rebuild
 
 Check if your option is being set through `osCfg`. Like this:
 
@@ -344,7 +344,7 @@ enable = mkBoolOpt (osCfg.enable or config.dafitt.gaming.enableSuite) "Enable st
 
 If that is the case and `osCfg.enable` is not `null` then the `osCfg`-option will be preferred. Even if it is `false`.
 
-To solve this set your option to `true` in [/systems](https://github.com/dafitt/dotfiles/blob/main/systems) and [/modules/nixos](https://github.com/dafitt/dotfiles/blob/main/modules/nixos).
+To solve this set your option to `true` in [systems/](https://github.com/dafitt/dotfiles/blob/main/systems) and [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos).
 
 ## Inspiration, Credits and Thanks
 
