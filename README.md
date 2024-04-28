@@ -64,12 +64,13 @@ On a new host machine:
     1. Check for home-manager errors `systemctl status home-manager-<user>.service` and resolve them if necessary
 5. `reboot`
 6. Personal setup:
-    1. [Syncthing](https://localhost:8384/) setup
-    2. Firefox Sync Login
+    1. Configure monitor setup with `nwg-displays`
+    2. [Syncthing](https://localhost:8384/) setup
+    3. Firefox Sync Login
         1. NoScript
         2. 1Password
         3. Sidebery
-    3. Volume Control: Set standard audio output
+    4. Volume Control: Set standard audio output
 
 ## Usage
 
