@@ -28,6 +28,7 @@
     desktops.hyprland.hyprlock.enable = desktops.hyprland.enable;
     desktops.hyprland.hyprpaper.enable = desktops.hyprland.enable;
     desktops.hyprland.mako.enable = desktops.hyprland.enable;
+    desktops.hyprland.nwg-displays.enable = desktops.hyprland.enable;
     desktops.hyprland.pavucontrol.enable = desktops.hyprland.enable;
     desktops.hyprland.playerctl.enable = desktops.hyprland.enable;
     desktops.hyprland.plugins.enable = desktops.hyprland.enable;

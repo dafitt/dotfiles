@@ -96,6 +96,7 @@ in
         };
       });
       default = [ ];
+      description = "Configuration for your hyprland monitors";
       example = [
         { name = "DP-0"; primary = true; width = 2560; height = 1440; refreshRate = 144; }
         { name = "DP-1"; primary = false; width = 1920; height = 1080; refreshRate = 120; vrr = 1; bitdepth = 10; x = 2560; y = 0; transform = 0; mirror = null; workspace = "8"; }
