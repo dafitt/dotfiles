@@ -8,7 +8,7 @@ in
 {
   options.dafitt.desktops.hyprland.pyprland = with types; {
     enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable pyprland an hyperland plugin system";
-    scratchpads = mkBoolOpt cfg.enable "Enable the scratchpads plugin";
+    #scratchpads = mkBoolOpt cfg.enable "Enable the scratchpads plugin";
     magnify = mkBoolOpt cfg.enable "Enable the magnify plugin";
   };
 
@@ -37,8 +37,8 @@ in
     xdg.configFile."hypr/pyprland.toml".source = (pkgs.formats.toml { }).generate "pyprland.toml" {
       # https://github.com/hyprland-community/pyprland/wiki/Getting-started
       pyprland.plugins =
-        #optionals cfg.scratchpads [ "scratchpads" ] ++
-        optionals cfg.magnify [ "magnify" ];
+        #optionals cfg.scratchpads [ "scratchpads" ] ++ # https://github.com/hyprland-community/pyprland/wiki/scratchpads
+        optionals cfg.magnify [ "magnify" ]; # https://github.com/hyprland-community/pyprland/wiki/magnify
 
       #scratchpads.term = {
       #  animation = "fromTop";
@@ -59,12 +59,17 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = optionals cfg.magnify [
-        "SUPER , Z, exec, pypr zoom 2" # TODO 24.04: pypr zoom ++0.5
-        "SUPER_SHIFT, Z, exec, pypr zoom"
-        # TODO 24.04: "SUPER_ALT, mouse_down, exec, pypr zoom --0.5"
-        # TODO 24.04: "SUPER_ALT, mouse_up, exec, pypr zoom ++0.5"
-      ];
+      bind =
+        #optionals cfg.scratchpads [
+        #  "SUPER_ALT_SHIFT , A, exec, pypr toggle volume"
+        #  "SUPER_ALT_SHIFT , T, exec, pypr toggle term"
+        #] ++
+        optionals cfg.magnify [
+          "SUPER , Z, exec, pypr zoom 2" # TODO 24.04: pypr zoom ++0.5
+          "SUPER_SHIFT, Z, exec, pypr zoom"
+          # TODO 24.04: "SUPER_ALT, mouse_down, exec, pypr zoom --0.5"
+          # TODO 24.04: "SUPER_ALT, mouse_up, exec, pypr zoom ++0.5"
+        ];
     };
   };
 }
