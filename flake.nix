@@ -49,6 +49,7 @@
     ];
 
     systems.modules.nixos = with inputs; [
+      stylix.nixosModules.stylix
     ];
 
     homes.modules = with inputs; [

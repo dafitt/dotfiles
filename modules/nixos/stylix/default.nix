@@ -1,12 +1,13 @@
-{ options, config, lib, pkgs, inputs, osConfig ? { }, ... }:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.dafitt;
 {
-  # [Documentation](https://danth.github.io/stylix/index.html)
-  stylix = mkIf (osConfig == null) {
-    #NOTE This is a copy of /modules/nixos/stylix/default.nix and gets only applied if building with standalone home-manager
-    # I currently have no solution to follow the nixos configuration when building with standalone, so you have to manually copy the configuration from /modules/nixos/stylix/default.nix.
+  stylix = {
+    homeManagerIntegration.autoImport = false; # snowfall-lib already does this for us
+    homeManagerIntegration.followSystem = true;
+
+    #NOTE If you change something here in stylix, copy it to /modules/home/stylix/default.nix (see NOTE)
 
     image = ./wallpaper.png;
 
@@ -55,21 +56,5 @@ with lib.dafitt;
         terminal = 12; # for terminals/text editors
       };
     };
-  };
-
-  gtk = {
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme.override { color = "black"; };
-    };
-  };
-
-  qt = {
-    # https://github.com/nix-community/home-manager/blob/master/modules/misc/qt.nix
-    # TODO: wait for https://github.com/danth/stylix/pull/142
-    enable = true;
-    platformTheme = "gnome"; # TODO 24.05: adwaita
-    style.name = "adwaita-dark";
-    style.package = pkgs.adwaita-qt;
   };
 }
