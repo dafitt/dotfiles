@@ -112,6 +112,8 @@ in
           # CONTAINERS
           ''user_pref("privacy.userContext.enabled", true);''
           # PASSWORDS
+          ''user_pref("signon.rememberSignons", false);''
+          ''user_pref("signon.autofillForms", false);''
           ''user_pref("browser.contentblocking.report.lockwise.enabled", false);'' # don't use firefox password manger
           # ADDRESS + CREDIT CARD MANAGER
           ''user_pref("extensions.formautofill.creditCards.enabled", false);'' # don't auto-fill credit card information
