@@ -27,7 +27,6 @@ in
       mtr # better traceroute
       nil # nix language server
       nixpkgs-fmt # nix code formatter
-      texlive.combined.scheme-full # for latex-workshop
       wev # tool for keyboard input
       yed # Drawing flowcharts
     ];

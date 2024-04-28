@@ -44,6 +44,7 @@
     development.installExtraPackages = development.enableSuite;
     development.direnv.enable = !osCfg.enable or development.enableSuite;
     development.git.enable = development.enableSuite;
+    development.latex.enable = false;
     development.vscode.enable = development.enableSuite;
     development.vscode.autostart = true;
     development.vscode.defaultApplication = true;

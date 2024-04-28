@@ -25,7 +25,6 @@ in
       #$ flatpak list
       #$ journalctl --user -eu flatpak-managed-install.service
       packages = [
-        #{ appId = "..."; origin = "flathub-beta"; commit = "..."; }
         { appId = "com.github.tchx84.Flatseal"; origin = "flathub"; }
       ];
 
@@ -36,6 +35,11 @@ in
             XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
           };
         };
+        # override template:
+        #"com.github.tchx84.Flatseal" = {
+        #  Context.filesystems = [ ];
+        #  Environment = { VARIABLE = ""; };
+        #};
       };
     };
 

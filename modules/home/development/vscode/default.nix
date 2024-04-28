@@ -202,9 +202,6 @@ in
         "[jsonc]" = {
           "editor.tabSize" = 2;
         };
-        "[latex]" = {
-          "editor.defaultFormatter" = "lenagain.latexindent";
-        };
         "[markdown]" = { };
         "[nix]" = {
           "editor.defaultFormatter" = "jnoortheen.nix-ide";
@@ -458,8 +455,6 @@ in
         formulahendry.auto-close-tag
         formulahendry.auto-rename-tag
         gencer.html-slim-scss-css-class-completion
-        # latex
-        james-yu.latex-workshop
         # markdown
         yzhang.markdown-all-in-one
         # makefile
@@ -467,7 +462,7 @@ in
         # nix
         jnoortheen.nix-ide
         # pdf
-        #tomoki1207.pdf
+        tomoki1207.pdf
         # php
         bmewburn.vscode-intelephense-client
         # pyhton
@@ -504,9 +499,6 @@ in
         { name = "linux-desktop-file"; publisher = "nico-castell"; version = "0.0.21"; sha256 = "0d2pfby72qczljzw1dk2rsqkqharl2sbq3g31zylz0rx73cvxb72"; }
         # json
         { name = "fix-all-json"; publisher = "zardoy"; version = "0.1.5"; sha256 = "nkp5wdUPy+lUmc4Yg3b+NNosQgCPr6/sVad+j4Ln7Uo="; }
-        # latex
-        { name = "latex-utilities"; publisher = "tecosaur"; version = "0.4.10"; sha256 = "sha256-tNf4sTsae+NKB7QZ5PQOXI6T14eEH0YIK/LhgWq6QHA="; }
-        { name = "latexindent"; publisher = "lenagain"; version = "0.0.1"; sha256 = "sha256-/gH64YE7bVqYdGI3GTaOYhLHIA+ndqqDEGl72jqratI="; }
         # markdown
         { name = "markdown-preview-github-styles"; publisher = "bierner"; version = "2.0.4"; sha256 = "sha256-jJulxvjMNsqQqmsb5szQIAUuLWuHw824Caa0KArjUVw="; }
         # shell

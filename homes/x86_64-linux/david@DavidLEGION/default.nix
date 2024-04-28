@@ -10,6 +10,7 @@
       primary = true;
     }];
 
+    development.latex.enable = false;
     environment.filemanagers.yazi.enable = true;
     environment.launchers.rofi.enable = true;
     gaming.steam.enable = true;
