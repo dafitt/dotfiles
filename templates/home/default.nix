@@ -114,7 +114,7 @@
 
     web.enableSuite = osCfg.enableSuite or false;
     web.installExtraPackages = web.enableSuite;
-    web.default = "librewolf"; # null or one of [ "epiphany" "firefox" "librewolf" ]
+    web.default = "firefox"; # null or one of [ "epiphany" "firefox" "librewolf" ]
     web.autostart = true;
     web.epiphany.enable = web.enableSuite || web.default == "epiphany";
     web.firefox.enable = web.enableSuite || web.default == "firefox";
