@@ -254,6 +254,8 @@ Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=r
 | <kbd>ALT XF86AudioNext</kbd>         | exec                  | playerctld shift                                                                        |
 | <kbd>ALT XF86AudioPrev</kbd>         | exec                  | playerctld unshift                                                                      |
 | <kbd>ALT XF86AudioPlay</kbd>         | exec                  | systemctl --user restart playerctld                                                     |
+| <kbd>SUPER Z</kbd>                   | exec                  | pypr zoom 2                                                                             |
+| <kbd>SUPER_SHIFT Z</kbd>             | exec                  | pypr zoom                                                                               |
 | <kbd>XF86AudioMute</kbd>             | exec                  | swayosd --output-volume mute-toggle                                                     |
 | <kbd>ALT XF86AudioMute</kbd>         | exec                  | swayosd --input-volume mute-toggle                                                      |
 | <kbd>XF86AudioMicMute</kbd>          | exec                  | swayosd --input-volume mute-toggle                                                      |
@@ -269,7 +271,7 @@ Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=r
 | <kbd>SUPER RETURN</kbd>              | exec                  | kitty                                                                                   |
 | <kbd>SUPER_ALT T</kbd>               | exec                  | kitty                                                                                   |
 | <kbd>SUPER_ALT M</kbd>               | exec                  | thunderbird                                                                             |
-| <kbd>SUPER_ALT B</kbd>               | exec                  | librewolf                                                                               |
+| <kbd>SUPER_ALT B</kbd>               | exec                  | firefox                                                                                 |
 | <kbd>XF86KbdBrightnessUp</kbd>       | exec                  | light -s sysfs/leds/kbd_backlight -A 10                                                 |
 | <kbd>XF86KbdBrightnessDown</kbd>     | exec                  | light -s sysfs/leds/kbd_backlight -U 10                                                 |
 | <kbd>XF86AudioRaiseVolume</kbd>      | execr                 | swayosd --output-volume raise                                                           |
