@@ -4,7 +4,7 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.desktops.hyprland.hypridle;
-  hyprlockCfg = config.dafitt.desktops.hyprland.hyprlock;
+  hyprlockCfg = config.programs.hyprlock;
   hyprlandCfg = config.wayland.windowManager.hyprland;
 
   locking_enabled = cfg.timeouts.lock > 0 && hyprlockCfg.enable;
