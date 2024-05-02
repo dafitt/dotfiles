@@ -189,10 +189,6 @@ in
         "files.trimTrailingWhitespace" = true;
 
         # Language settings
-        "[c]" = {
-          "editor.defaultFormatter" = "llvm-vs-code-extensions.vscode-clangd";
-          "editor.tabSize" = 8;
-        };
         "[ignore]" = {
           "editor.defaultFormatter" = "foxundermoon.shell-format";
         };
@@ -202,7 +198,6 @@ in
         "[jsonc]" = {
           "editor.tabSize" = 2;
         };
-        "[markdown]" = { };
         "[nix]" = {
           "editor.defaultFormatter" = "jnoortheen.nix-ide";
           "editor.insertSpaces" = true;
@@ -211,24 +206,8 @@ in
         "[properties]" = {
           "editor.defaultFormatter" = "foxundermoon.shell-format";
         };
-        "[php]" = {
-          "editor.defaultFormatter" = "bmewburn.vscode-intelephense-client";
-        };
         "[shellscript]" = {
           "editor.defaultFormatter" = "foxundermoon.shell-format";
-        };
-        "[sql]" = {
-          #"editor.defaultFormatter" = "adpyke.vscode-sql-formatter";
-          #"editor.foldingStrategy" = "indentation";
-          #"editor.foldingHighlight" = false;
-          #"editor.foldingImportsByDefault" = true;
-        };
-        "[yaml]" = {
-          "editor.defaultFormatter" = "redhat.vscode-yaml";
-          "editor.tabSize" = 2;
-        };
-        "[yuck]" = {
-          "editor.tabSize" = 2;
         };
 
         # Misellanious
@@ -257,7 +236,6 @@ in
         "zenMode.centerLayout" = false;
 
         # Extensions
-        "betterAlign.alignAfterTypeEnter" = true;
         "betterFolding.excludedLanguages" = [ "sql" ];
         "betterFolding.showFoldedBodyLinesCount" = false;
         "code-runner.enableAppInsights" = false; # telemetry
@@ -271,10 +249,6 @@ in
         "gitlens.showWelcomeOnInstall" = false;
         "gitlens.showWhatsNewAfterUpgrades" = false;
         "gitlens.telemetry.enabled" = false;
-        "hexeditor.columnWidth" = 32;
-        "hexeditor.defaultEndianness" = "little";
-        "hexeditor.inspectorType" = "aside";
-        "hexeditor.showDecodedText" = true;
         "intelephense.telemetry.enabled" = false;
         "prettier.bracketSameLine" = true;
         "prettier.tabWidth" = 4;
@@ -409,8 +383,6 @@ in
         { "key" = "ctrl+e"; "command" = "keybindings.editor.defineWhenExpression"; "when" = "inKeybindings && keybindingFocus"; }
         # code runner: run current file
         { "key" = "ctrl+e ctrl+e"; "command" = "code-runner.run"; "when" = "editorTextFocus && !editorReadonly && resourceExtname != .sql"; }
-        # copilot: open chat
-        { "key" = "ctrl+shift+j"; "command" = "workbench.panel.chatSidebar.copilot"; }
         # unsets
         # unset ctrl-l for line selection
         { "key" = "ctrl+l"; "command" = "-workbench.action.chat.clear"; }
@@ -422,80 +394,44 @@ in
 
       globalSnippets = {
         fixme = {
-          body = [
-            "$LINE_COMMENT FIXME= $0"
-          ];
+          body = [ "$LINE_COMMENT FIXME= $0" ];
           description = "Insert a FIXME remark";
-          prefix = [
-            "fixme"
-          ];
+          prefix = [ "fixme" ];
         };
       };
-
-      languageSnippets = {
-        html = {
-          "PHP tag" = {
-            "prefix" = [ "php" "?" ];
-            "body" = "<?php\n$0\n?>";
-          };
-        };
-      };
+      languageSnippets = { };
 
       extensions = with pkgs.vscode-extensions; [
-        # Language Support #
-        # binary
-        ms-vscode.hexeditor
-        # c/c++
-        llvm-vs-code-extensions.vscode-clangd
-        ms-vscode.makefile-tools
-        vadimcn.vscode-lldb
-        twxs.cmake
+        # https://search.nixos.org/packages#?type=packages&query=vscode-extensions.
+
+        # Basic language Support #
+        esbenp.prettier-vscode
         # gitignore
         codezombiech.gitignore
-        # html
-        formulahendry.auto-close-tag
-        formulahendry.auto-rename-tag
-        gencer.html-slim-scss-css-class-completion
         # markdown
         yzhang.markdown-all-in-one
-        # makefile
-        ms-vscode.makefile-tools
         # nix
         jnoortheen.nix-ide
         # pdf
         tomoki1207.pdf
-        # php
-        bmewburn.vscode-intelephense-client
-        # pyhton
-        ms-python.python
         # shell
         foxundermoon.shell-format
         # svg
         jock.svg # svg
         # toml
         tamasfe.even-better-toml
-        # yaml
-        redhat.vscode-yaml
-        # xml
-        dotjoshjohnson.xml
 
-        # Features / Advancements #
+        # Features / advancements #
         adpyke.codesnap
         eamodio.gitlens
-        esbenp.prettier-vscode
         formulahendry.code-runner
-        #github.copilot
-        #github.copilot-chat
         github.vscode-pull-request-github
         gruntfuggly.todo-tree
         ibm.output-colorizer
-        kamikillerto.vscode-colorize
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        # TODO: cschlosser.doxdocgen
+        # https://marketplace.visualstudio.com/
 
-        # Language support #
-        # css
-        { name = "vscode-css-peek"; publisher = "pranaygp"; version = "4.4.1"; sha256 = "189134apvp0xj8s0bwbj9iyyzns395l7v0mlda5x0ny86zs8jzhr"; }
+        # Basic language support #
         # desktop files
         { name = "linux-desktop-file"; publisher = "nico-castell"; version = "0.0.21"; sha256 = "0d2pfby72qczljzw1dk2rsqkqharl2sbq3g31zylz0rx73cvxb72"; }
         # json
@@ -504,27 +440,19 @@ in
         { name = "markdown-preview-github-styles"; publisher = "bierner"; version = "2.0.4"; sha256 = "sha256-jJulxvjMNsqQqmsb5szQIAUuLWuHw824Caa0KArjUVw="; }
         # shell
         { name = "haltarys-shellman"; publisher = "Haltarys"; version = "5.7.1"; sha256 = "0gw0nd5yhq7d08mf7k78zz8xaj23qlirip3amx2jmqjav1fbz46m"; }
-        # sql
-        { name = "vscode-sql-formatter"; publisher = "adpyke"; version = "1.4.4"; sha256 = "sha256-g4oqB0zV7jB7PeA/d2e8jKfHh+Ci+us0nK2agy1EBxs="; }
         # todo-txt
         { name = "todotxt-mode"; publisher = "davraamides"; version = "1.4.32"; sha256 = "sha256-HICvHLL9mCKyQqEZYfOb+q8tmSS4NzxkuLle8MdEA2Y="; }
 
-        #{ name = "vscode-groovy-lint"; publisher = "nicolasvuillamy"; version = "2.0.0"; sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; }
-        #{ name = "bash-debug"; publisher = "rogalmic"; version = "0.3.9"; sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; }
-        #{ name = "jenkins-jack"; publisher = "tabeyti"; version = "1.2.1"; sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; }
-
-        # Features / Advancements
+        # Features / advancements #
+        #{ name = "codeium"; publisher = "codeium"; version = "1.9.30"; sha256 = "sha256-0LkScGTeC269Tbf6JbdpkvEspqPwJlnh0v0tc+l1jHk="; }
         { name = "vscode-status-bar-format-toggle"; publisher = "tombonnike"; version = "3.1.1"; sha256 = "mZymHbdJ7HD6acBPomwxKyatDfkDPAA0PaZpPU+nViQ="; }
         { name = "better-comments"; publisher = "aaron-bond"; version = "3.0.2"; sha256 = "15w1ixvp6vn9ng6mmcmv9ch0ngx8m85i1yabxdfn6zx3ypq802c5"; }
-        { name = "better-jsonc-syntax"; publisher = "jeff-hykin"; version = "1.0.3"; sha256 = "KXSP65TG8OGXSJv1FTl+gBaexg6VWysQ5mHIhLf9PgM="; }
-        { name = "better-shellscript-syntax"; publisher = "jeff-hykin"; version = "1.6.2"; sha256 = "008lhsww28c6qzsih662iakzz7py34rw36445icw5ywvzv8xpb18"; }
+        { name = "better-syntax"; publisher = "jeff-hykin"; version = "2.0.5"; sha256 = "sha256-D06msfuSOk+8hy2Amgn+d1aQoyjwotTqKzk1NS5AhnU="; }
         { name = "better-folding"; publisher = "MohammadBaqer"; version = "0.5.1"; sha256 = "vEZi+rBT8dxhi+sIPSXWpUiWmE29deWzKj7uN7T+4is="; }
         { name = "bracket-select2"; publisher = "jhasse"; version = "2.1.1"; sha256 = "sha256-1t5y9C6793l7YPihmNFqlEjo//MpQqOwnrKhjGecn90="; }
         { name = "auto-add-brackets"; publisher = "aliariff"; version = "0.12.2"; sha256 = "sha256-DH1NfneJTMC7BmOP4IiUG8J7BQtwOj4/k5Qn62DkZ7Q="; }
         { name = "bracket-padder"; publisher = "viablelab"; version = "0.3.0"; sha256 = "sha256-5DfEaG8vRYcpebeBcWidaySaOgMdrDT8DiS1TmpetKg="; }
         { name = "vscode-filesystemtoolbox"; publisher = "carlocardella"; version = "1.5.0"; sha256 = "0wfbqglpfh4afkp6ykibzhznf6s3is23k5jwiipfr4jcmjki5kbc"; }
-        { name = "vscode-stylelint"; publisher = "stylelint"; version = "1.3.0"; sha256 = "1q1idvpqnzlp186kymq2h407hqnhzngxs8n414p13j0svpcrm016"; }
-        #{ name = "better-dockerfile-syntax"; publisher = "jeff-hykin"; version = "1.0.2"; sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; }
       ];
     };
 
