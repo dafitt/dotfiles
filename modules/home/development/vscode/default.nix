@@ -21,7 +21,7 @@ in
 
     programs.vscode = {
       enable = true;
-      package = pkgs.vscode;
+      package = pkgs.vscodium;
       userSettings = {
 
         # Window
@@ -260,6 +260,7 @@ in
         "betterAlign.alignAfterTypeEnter" = true;
         "betterFolding.excludedLanguages" = [ "sql" ];
         "betterFolding.showFoldedBodyLinesCount" = false;
+        "code-runner.enableAppInsights" = false; # telemetry
         "code-runner.ignoreSelection" = true;
         "code-runner.runInTerminal" = true;
         "codesnap.containerPadding" = "0em";
@@ -483,8 +484,8 @@ in
         eamodio.gitlens
         esbenp.prettier-vscode
         formulahendry.code-runner
-        github.copilot
-        github.copilot-chat
+        #github.copilot
+        #github.copilot-chat
         github.vscode-pull-request-github
         gruntfuggly.todo-tree
         ibm.output-colorizer
