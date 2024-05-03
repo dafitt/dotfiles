@@ -255,7 +255,6 @@ in
         "redhat.telemetry.enabled" = false;
         "markdown-preview-github-styles.colorTheme" = "dark";
         "markdown-preview-enhanced.previewTheme" = "atom-dark.css";
-        # Todo-tree
         "todo-tree.general.tags" = [
           "FIXME"
           "TODO"
@@ -305,6 +304,12 @@ in
             "icon" = "tasklist";
           };
         };
+        "todo-tree.tree.labelFormat" = "\${after}";
+        "todo-tree.tree.expanded" = true;
+        "todo-tree.tree.tagsOnly" = true;
+        "todo-tree.tree.groupedByTag" = true;
+        "todo-tree.tree.hideIconsWhenGroupedByTag" = true;
+        "todo-tree.regex.enableMultiLine" = true;
         "better-comments.tags" = [
           {
             #! test
