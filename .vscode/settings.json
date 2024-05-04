@@ -4,12 +4,12 @@
         "editor.tabSize": 2
     },
     // with language server
-    "nix.enableLanguageServer": true, // disable this, when nil is NOT installed on your system
+    "nix.enableLanguageServer": false, // disable this, when nil is NOT installed on your system
     "nix.serverPath": "nil",
     "nix.serverSettings": {
         "nil": {
             "diagnostics": {
-                "ignored": []
+                //"ignored": ["unused_binding", "unused_with"]
             },
             "formatting": {
                 "command": ["nixpkgs-fmt"]
