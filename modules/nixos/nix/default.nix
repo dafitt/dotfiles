@@ -19,10 +19,10 @@ with lib.dafitt;
       trusted-users = [ "root" ];
       allowed-users = [ "@wheel" config.dafitt.users.main.username ];
     }
-    // (lib.optionalAttrs config.dafitt.development.direnv.enable {
+    // optionalAttrs config.dafitt.development.direnv.enable {
       keep-outputs = true;
       keep-derivations = true;
-    });
+    };
 
     gc = {
       automatic = true;
