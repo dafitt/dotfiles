@@ -11,6 +11,8 @@ in
   };
 
   config = {
+    dafitt.desktops.hyprland.swayosd.enable = true;
+
     programs.waybar = {
       enable = true;
       systemd = {
