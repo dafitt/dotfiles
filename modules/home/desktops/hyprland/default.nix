@@ -61,7 +61,7 @@ in
           key_press_enables_dpms = true;
           animate_manual_resizes = true;
           animate_mouse_windowdragging = true;
-                  };
+        };
         decoration = {
           # https://wiki.hyprland.org/Configuring/Variables/#decoration
           active_opacity = 0.93;
@@ -138,10 +138,10 @@ in
 
           "SUPER_CONTROL, Q, exit," # Exit Hyprland all together (force quit Hyprland)
           "SUPER_CONTROL, R, exec, hyprctl reload && forcerendererreload"
-          "SUPER_CONTROL, ODIAERESIS, exec, poweroff --reboot" # quick-reboot
           "SUPER_CONTROL, ADIAERESIS, exec, poweroff" # quick-poweroff
+          "SUPER_CONTROL, ODIAERESIS, exec, poweroff --reboot" # quick-reboot
+          "SUPER, ODIAERESIS, dpms, off"
           "SUPER, UDIAERESIS, exec, systemctl suspend" # quick-suspend
-          "SUPER, Q, exec, wlogout --protocol layer-shell" # show the logout window
 
           # Window Control
           "SUPER, DELETE, exec, hyprctl kill" # kill a window by clicking it

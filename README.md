@@ -151,7 +151,7 @@ Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=r
 
 ### Hyprkeys
 
-<kbd>SUPER_CONTROL</kbd> - Hyprland control \
+<kbd>SUPER_CONTROL</kbd> - System and Hyprland control \
 <kbd>SUPER</kbd> - Window control \
 <kbd>SUPER_ALT</kbd> - Applications \
 <kbd>SHIFT</kbd> - reverse, grab, move
