@@ -3,17 +3,16 @@
   #$ nix flake update [--commit-lock-file]
   #$ nix flake lock --update-input [input]
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # https://github.com/NixOS/nixpkgs
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # https://github.com/NixOS/nixpkgs
     nur.url = "github:nix-community/NUR"; # https://github.com/nix-community/NUR
 
-    home-manager = { url = "github:nix-community/home-manager/release-23.11"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/home-manager
+    home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/home-manager
     nixos-generators = { url = "github:nix-community/nixos-generators"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/nixos-generators
 
     snowfall-lib = { url = "github:snowfallorg/lib/dev"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/lib
     snowfall-flake = { url = "github:snowfallorg/flake"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/flake
 
-    stylix.url = "github:danth/stylix/release-23.11"; # https://github.com/danth/stylix
+    stylix.url = "github:danth/stylix"; # https://github.com/danth/stylix
 
     #NOTE We use the hyprland option from nixpkgs but we need this input for the plugins, which want to follow hyprland.
     #NOTE Update the version in case hyprland updates on nixpkgs!
@@ -61,7 +60,6 @@
 
     homes.modules = with inputs; [
       stylix.homeManagerModules.stylix
-      hypridle.homeManagerModules.default
       hyprlock.homeManagerModules.default
       hyprpaper.homeManagerModules.default
       nix-flatpak.homeManagerModules.nix-flatpak

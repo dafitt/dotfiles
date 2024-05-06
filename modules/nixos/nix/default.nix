@@ -10,6 +10,8 @@ with lib.dafitt;
   programs.git.enable = true;
 
   nix = {
+    package = pkgs.nix; # fixes error: nixVersions.unstable has been removed.
+
     settings = {
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
       http-connections = 50;
@@ -41,7 +43,6 @@ with lib.dafitt;
         "nix-hash --type sha256 --sri ${pkgs.path} > $out");
     };
     nixPath = [ "nixpkgs=flake:nixpkgs" ];
-    registry."unstable".flake = inputs.unstable;
 
     # disable nix-channel, we use flakes instead.
     channel.enable = false;

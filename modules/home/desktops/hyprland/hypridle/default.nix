@@ -32,24 +32,26 @@ in
     services.hypridle = {
       enable = true;
 
-      beforeSleepCmd = mkIf hyprlockCfg.enable "${getExe hyprlockCfg.package} --immediate"; # ??? "${pkgs.systemd}/bin/loginctl lock-session";
-      lockCmd = mkIf hyprlockCfg.enable (getExe hyprlockCfg.package);
+      settings = {
+        beforeSleepCmd = mkIf hyprlockCfg.enable "${getExe hyprlockCfg.package} --immediate"; # ??? "${pkgs.systemd}/bin/loginctl lock-session";
+        lockCmd = mkIf hyprlockCfg.enable (getExe hyprlockCfg.package);
 
-      listeners = [
-        (mkIf locking_enabled {
-          timeout = cfg.timeouts.lock;
-          onTimeout = "${getExe hyprlockCfg.package}";
-        })
-        {
-          timeout = if locking_enabled then (cfg.timeouts.lock + 10) else 360;
-          onTimeout = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms off";
-          onResume = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on && ${pkgs.systemd}/bin/systemctl restart --user wlsunset.service";
-        }
-        (mkIf (cfg.timeouts.suspend > 0) {
-          timeout = cfg.timeouts.suspend;
-          onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
-        })
-      ];
+        listeners = [
+          (mkIf locking_enabled {
+            timeout = cfg.timeouts.lock;
+            onTimeout = "${getExe hyprlockCfg.package}";
+          })
+          {
+            timeout = if locking_enabled then (cfg.timeouts.lock + 10) else 360;
+            onTimeout = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms off";
+            onResume = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on && ${pkgs.systemd}/bin/systemctl restart --user wlsunset.service";
+          }
+          (mkIf (cfg.timeouts.suspend > 0) {
+            timeout = cfg.timeouts.suspend;
+            onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
+          })
+        ];
+      };
     };
   };
 }

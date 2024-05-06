@@ -9,6 +9,7 @@
         -   [Flake](#flake)
             -   [remotely](#remotely)
             -   [locally](#locally)
+            -   [NixOS stable](#nixos-stable)
         -   [Hyprkeys](#hyprkeys)
     -   [Structure](#structure)
         -   [You want to build from here?](#you-want-to-build-from-here)
@@ -148,6 +149,21 @@ nixos-rebuild switch --rollback
 ```
 
 Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage)
+
+#### NixOS stable
+
+If you want to use the NixOS stable branch, update the following inputs and rebuild the system.
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # https://github.com/NixOS/nixpkgs
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable"; # https://github.com/NixOS/nixpkgs
+    home-manager = { url = "github:nix-community/home-manager/release-23.11"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/home-manager
+    stylix.url = "github:danth/stylix/release-23.11"; # https://github.com/danth/stylix
+  };
+}
+```
 
 ### Hyprkeys
 
