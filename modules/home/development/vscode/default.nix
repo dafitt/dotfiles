@@ -41,7 +41,7 @@ in
             #"list.inactiveSelectionBackground" = "#${config.lib.stylix.colors.base00}";
 
             # improve widgets
-            "input.background" = "#${config.lib.stylix.colors.base02}88";
+            "input.background" = "#${config.lib.stylix.colors.base02}80";
 
             # improve input
             "selection.background" = "#${config.lib.stylix.colors.base0A}66";
@@ -108,6 +108,22 @@ in
             #"minimapGutter.modifiedBackground" = "#${config.lib.stylix.colors.base09}";
             #"editorOverviewRuler.modifiedForeground" = "#${config.lib.stylix.colors.base09}";
 
+            # better merge opacity
+            "descriptionForeground" = "#${config.lib.stylix.colors.base05}99";
+            "merge.currentHeaderBackground" = "#${config.lib.stylix.colors.base0D}66";
+            "merge.currentContentBackground" = "#${config.lib.stylix.colors.base0D}18";
+            "merge.incomingHeaderBackground" = "#${config.lib.stylix.colors.base0B}66";
+            "merge.incomingContentBackground" = "#${config.lib.stylix.colors.base0B}18";
+
+            # better diffEditor opacity
+            "diffEditor.insertedTextBackground" = "#${config.lib.stylix.colors.base0B}4c";
+            "diffEditor.insertedLineBackground" = "#${config.lib.stylix.colors.base0B}18";
+            "diffEditorGutter.insertedLineBackground" = "#${config.lib.stylix.colors.base0B}99";
+            "diffEditorOverview.insertedForeground" = "#${config.lib.stylix.colors.base0B}66";
+            "diffEditor.removedTextBackground" = "#${config.lib.stylix.colors.base08}4c";
+            "diffEditor.removedLineBackground" = "#${config.lib.stylix.colors.base08}18";
+            "diffEditorGutter.removedLineBackground" = "#${config.lib.stylix.colors.base08}99";
+            "diffEditorOverview.removedForeground" = "#${config.lib.stylix.colors.base08}66";
 
             # ---------
             "widget.shadow" = "#00000000";
@@ -380,8 +396,9 @@ in
         { "key" = "ctrl+shift+/"; "command" = "editor.action.blockComment"; "when" = "editorTextFocus && !editorReadonly"; }
         # save all files
         { "key" = "ctrl+shift+s"; "command" = "workbench.action.files.saveFiles"; }
-        # file: save as...
-        { "key" = "ctrl+alt+s"; "command" = "workbench.action.files.saveAs"; }
+        # file: save without formatting
+        { "key" = "ctrl+shift+s"; "command" = "-workbench.action.files.saveAs"; }
+        { "key" = "ctrl+shift+s"; "command" = "workbench.action.files.saveWithoutFormatting"; }
         # zen mode
         { "key" = "ctrl+alt+z"; "command" = "workbench.action.toggleZenMode"; "when" = "!isAuxiliaryWindowFocusedContext"; }
         # vscode settings: change keybinding expression
