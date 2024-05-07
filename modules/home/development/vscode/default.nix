@@ -449,15 +449,15 @@ in
         { name = "todotxt-mode"; publisher = "davraamides"; version = "1.4.32"; sha256 = "sha256-HICvHLL9mCKyQqEZYfOb+q8tmSS4NzxkuLle8MdEA2Y="; }
 
         # Features / advancements #
-        #{ name = "codeium"; publisher = "codeium"; version = "1.9.30"; sha256 = "sha256-0LkScGTeC269Tbf6JbdpkvEspqPwJlnh0v0tc+l1jHk="; }
-        { name = "vscode-status-bar-format-toggle"; publisher = "tombonnike"; version = "3.1.1"; sha256 = "mZymHbdJ7HD6acBPomwxKyatDfkDPAA0PaZpPU+nViQ="; }
-        { name = "better-comments"; publisher = "aaron-bond"; version = "3.0.2"; sha256 = "15w1ixvp6vn9ng6mmcmv9ch0ngx8m85i1yabxdfn6zx3ypq802c5"; }
-        { name = "better-syntax"; publisher = "jeff-hykin"; version = "2.0.5"; sha256 = "sha256-D06msfuSOk+8hy2Amgn+d1aQoyjwotTqKzk1NS5AhnU="; }
-        { name = "better-folding"; publisher = "MohammadBaqer"; version = "0.5.1"; sha256 = "vEZi+rBT8dxhi+sIPSXWpUiWmE29deWzKj7uN7T+4is="; }
-        { name = "bracket-select2"; publisher = "jhasse"; version = "2.1.1"; sha256 = "sha256-1t5y9C6793l7YPihmNFqlEjo//MpQqOwnrKhjGecn90="; }
         { name = "auto-add-brackets"; publisher = "aliariff"; version = "0.12.2"; sha256 = "sha256-DH1NfneJTMC7BmOP4IiUG8J7BQtwOj4/k5Qn62DkZ7Q="; }
+        { name = "better-comments"; publisher = "aaron-bond"; version = "3.0.2"; sha256 = "15w1ixvp6vn9ng6mmcmv9ch0ngx8m85i1yabxdfn6zx3ypq802c5"; }
+        { name = "better-folding"; publisher = "MohammadBaqer"; version = "0.5.1"; sha256 = "vEZi+rBT8dxhi+sIPSXWpUiWmE29deWzKj7uN7T+4is="; }
+        { name = "better-syntax"; publisher = "jeff-hykin"; version = "2.0.5"; sha256 = "sha256-D06msfuSOk+8hy2Amgn+d1aQoyjwotTqKzk1NS5AhnU="; }
         { name = "bracket-padder"; publisher = "viablelab"; version = "0.3.0"; sha256 = "sha256-5DfEaG8vRYcpebeBcWidaySaOgMdrDT8DiS1TmpetKg="; }
+        { name = "bracket-select2"; publisher = "jhasse"; version = "2.1.1"; sha256 = "sha256-1t5y9C6793l7YPihmNFqlEjo//MpQqOwnrKhjGecn90="; }
         { name = "vscode-filesystemtoolbox"; publisher = "carlocardella"; version = "1.5.0"; sha256 = "0wfbqglpfh4afkp6ykibzhznf6s3is23k5jwiipfr4jcmjki5kbc"; }
+        { name = "vscode-status-bar-format-toggle"; publisher = "tombonnike"; version = "3.1.1"; sha256 = "mZymHbdJ7HD6acBPomwxKyatDfkDPAA0PaZpPU+nViQ="; }
+        #{ name = "codeium"; publisher = "codeium"; version = "1.9.30"; sha256 = "sha256-0LkScGTeC269Tbf6JbdpkvEspqPwJlnh0v0tc+l1jHk="; }
       ];
     };
 

@@ -6,5 +6,6 @@ with channels.unstable; {
   inherit
     gamescope
     lutris
+    vscodium
     ;
 }
