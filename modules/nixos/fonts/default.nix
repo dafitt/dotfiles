@@ -17,7 +17,7 @@ in
       LOG_ICONS = "true";
     };
 
-    environment.systemPackages = with pkgs; [ font-manager ];
+    environment.systemPackages = with pkgs; [ ];
 
     fonts.packages = with pkgs; [
       (nerdfonts.override {

@@ -32,6 +32,6 @@ in
     };
 
     console.keyMap = mkDefault "de-latin1-nodeadkeys";
-    services.xserver = mkDefault { layout = "de"; xkbVariant = "nodeadkeys"; };
+    services.xserver.xkb = mkDefault { layout = "de"; variant = "nodeadkeys"; };
   };
 }
