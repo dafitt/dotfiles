@@ -25,7 +25,15 @@ in
     # dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
     wayland.windowManager.hyprland = {
       enable = true;
-      systemd.enable = true;
+
+      systemd = {
+        # Same as default, but stop graphical-session too
+        extraCommands = [
+          "systemctl --user stop hyprland-session.target"
+          "systemctl --user stop graphical-session.target"
+          "systemctl --user start hyprland-session.target"
+        ];
+      };
 
       settings = {
         # [Variables](https://wiki.hyprland.org/Configuring/Variables/)
@@ -74,7 +82,7 @@ in
 
           shadow_range = 16;
           shadow_render_power = 2;
-          "col.shadow" = mkForce "rgb(${config.lib.stylix.colors.base01})";
+          "col.shadow" = mkForce "rgba(${config.lib.stylix.colors.base01}E5)";
           "col.shadow_inactive" = "rgba(00000000)";
 
           blurls = [

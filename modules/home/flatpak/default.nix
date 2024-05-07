@@ -35,7 +35,7 @@ in
             XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
           };
         };
-        # override template:
+        # template for overrides:
         #"com.github.tchx84.Flatseal" = {
         #  Context.filesystems = [ ];
         #  Environment = { VARIABLE = ""; };
@@ -47,8 +47,9 @@ in
       flatpak-install = "flatpak install --user --or-update --assumeyes";
     };
 
+    # [fix for flatpak open URLs with default browser](https://discourse.nixos.org/t/open-links-from-flatpak-via-host-firefox/15465/11)
+    # [Clicked links in desktop apps not opening browers](https://discourse.nixos.org/t/clicked-links-in-desktop-apps-not-opening-browers/29114/28?u=digitalrobot)
     wayland.windowManager.hyprland.settings.exec-once = [
-      # [fix for flatpak open URLs with default browser](https://discourse.nixos.org/t/open-links-from-flatpak-via-host-firefox/15465/11)
       "${pkgs.systemd}/bin/systemctl --user import-environment PATH && ${pkgs.systemd}/bin/systemctl --user restart xdg-desktop-portal.service"
     ];
   };

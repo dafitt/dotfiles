@@ -55,15 +55,6 @@ in
 
     security.pam.services.swaylock = { }; # [swaylock fix](https://github.com/NixOS/nixpkgs/issues/158025)
 
-    xdg.portal = {
-      enable = true;
-      extraPortals = mkIf (!config.services.xserver.desktopManager.gnome.enable) [ pkgs.xdg-desktop-portal-gtk ];
-      config.Hyprland = {
-        default = [ "hyprland" "gtk" ];
-        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-      };
-    };
-
     dafitt.displayManager.greetd.sessionPaths = [ "${config.programs.hyprland.package}/share/wayland-sessions" ];
   };
 }
