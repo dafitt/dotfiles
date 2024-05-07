@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, ... }:
+{ options, config, lib, pkgs, inputs, ... }:
 
 with lib;
 with lib.dafitt;
@@ -30,8 +30,7 @@ with lib.dafitt;
     polarity = "dark"; # for epiphany, flatpaks
 
     cursor = {
-      # manages `home.pointerCursor`
-      package = pkgs.phinger-cursors; # TODO: 24.05 switch to hyprcursor if hyprland>=v0.37.0
+      package = inputs.hyprcursor-phinger.packages.${pkgs.system}.default;
       name = "phinger-cursors-light";
     };
 

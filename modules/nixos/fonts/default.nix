@@ -29,7 +29,7 @@ in
           "Noto"
           "Ubuntu"
           "UbuntuMono"
-          # TODO: 24.05: "UbuntuSans"
+          "UbuntuSans"
         ];
       })
       noto-fonts

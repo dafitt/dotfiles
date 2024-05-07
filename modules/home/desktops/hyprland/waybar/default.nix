@@ -23,7 +23,7 @@ in
       # https://github.com/Alexays/Waybar/wiki/Configuration
       settings = [{
 
-        # TODO: primary monitor only ``` (lib.find (monitor: monitor.primary)  config.wayland.windowManager.hyprland.monitors;).name
+        #TODO primary monitor only ``` (lib.find (monitor: monitor.primary)  config.wayland.windowManager.hyprland.monitors;).name
 
         layer = "top";
         position = "bottom";
@@ -164,7 +164,7 @@ in
       '' + (builtins.readFile ./modules.css);
     };
 
-    # reduce rate-limiting
+    # reduce rate limiting #TODO change default systemd value instead of every service
     systemd.user.services.waybar.Unit.StartLimitIntervalSec = "2s";
 
     # toggle waybar

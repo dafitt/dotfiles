@@ -14,16 +14,16 @@
 
     stylix.url = "github:danth/stylix"; # https://github.com/danth/stylix
 
-    #NOTE We use the hyprland option from nixpkgs but we need this input for the plugins, which want to follow hyprland.
-    #NOTE Update the version in case hyprland updates on nixpkgs!
+    #NOTE We use Hyprland from Nixpkgs, but specify the version for plugins to follow. Update the version if Hyprland updates in Nixpkgs.
     hyprland = { url = "github:hyprwm/Hyprland/tags/v0.39.1"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/Hyprland
     hyprland-plugins = { url = "github:hyprwm/hyprland-plugins"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/hyprwm/hyprland-plugins
-    #TODO 24.05: hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow/tags/v0.36.0"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/micha4w/Hypr-DarkWindow
-    #TODO 24.05: hyprspace = { url = "github:KZDKM/Hyprspace"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/KZDKM/Hyprspace
+    #TODO hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow/tags/v0.36.0"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/micha4w/Hypr-DarkWindow
+    #TODO hyprspace = { url = "github:KZDKM/Hyprspace"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/KZDKM/Hyprspace
 
     hypridle = { url = "github:hyprwm/hypridle"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/hypridle
     hyprlock = { url = "github:hyprwm/hyprlock"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/hyprlock
     hyprpaper = { url = "github:hyprwm/hyprpaper"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/hyprpaper
+    hyprcursor-phinger = { url = "github:Jappie3/hyprcursor-phinger"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/Jappie3/hyprcursor-phinger
 
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/wamserma/flake-programs-sqlite
 

@@ -59,7 +59,7 @@
       criticalPowerAction = "Hibernate";
     };
 
-    # TODO: thinkfan = {
+    #TODO thinkfan = {
     #  enable = true;
     #};
     ## man tinkfan 1/5
@@ -73,7 +73,6 @@
       ''ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x161d" ATTR{power/wakeup}="disabled"''
       # diable wakeup: USB XHC1 (external Mouse)
       ''ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x161e" ATTR{power/wakeup}="disabled"''
-      # TODO: disable wakeup on LID
 
       # autosuspend USB devices
       ''ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"''

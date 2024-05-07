@@ -144,8 +144,8 @@ in
       windowrulev2 = [
         "idleinhibit fullscreen, class:librewolf, title:(Youtube)"
         "float, class:librewolf, title:^Extension: \(NoScript\) - NoScript"
-        # FIXME: initial title is librewolf
-        # TODO: no fullscreen
+        #FIXME initial title is librewolf
+        #TODO no fullscreen
       ];
     };
   };

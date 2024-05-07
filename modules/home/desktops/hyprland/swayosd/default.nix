@@ -11,27 +11,27 @@ in
   };
 
   config = mkIf cfg.enable {
+    # https://github.com/ErikReider/SwayOSD
     services.swayosd.enable = true;
 
+    # reduce rate limiting #TODO change default systemd value instead of every service
+    systemd.user.services.swayosd.Unit.StartLimitIntervalSec = "2s";
+
     wayland.windowManager.hyprland.settings = {
-      exec-once = [ "${config.services.swayosd.package}/bin/swayosd" ];
-
       bind = [
-        ", XF86AudioMute, exec, ${config.services.swayosd.package}/bin/swayosd --output-volume mute-toggle"
-        "ALT, XF86AudioMute, exec, ${config.services.swayosd.package}/bin/swayosd --input-volume mute-toggle"
-        ", XF86AudioMicMute, exec, ${config.services.swayosd.package}/bin/swayosd --input-volume mute-toggle"
-        ", Caps_Lock, exec, ${config.services.swayosd.package}/bin/swayosd --caps-lock"
+        ", XF86AudioMute, exec, ${config.services.swayosd.package}/bin/swayosd-client --output-volume mute-toggle"
+        "ALT, XF86AudioMute, exec, ${config.services.swayosd.package}/bin/swayosd-client --input-volume mute-toggle"
+        ", XF86AudioMicMute, exec, ${config.services.swayosd.package}/bin/swayosd-client --input-volume mute-toggle"
+        ", Caps_Lock, exec, ${config.services.swayosd.package}/bin/swayosd-client --caps-lock"
       ];
-
       binde = [
-        ", XF86AudioRaiseVolume, execr, ${config.services.swayosd.package}/bin/swayosd --output-volume raise"
-        ", XF86AudioLowerVolume, execr, ${config.services.swayosd.package}/bin/swayosd --output-volume lower"
-        "ALT, XF86AudioRaiseVolume, exec, ${config.services.swayosd.package}/bin/swayosd --input-volume raise"
-        "ALT, XF86AudioLowerVolume, exec, ${config.services.swayosd.package}/bin/swayosd --input-volume lower"
-        ", XF86MonBrightnessUp, exec, ${config.services.swayosd.package}/bin/swayosd --brightness raise"
-        ", XF86MonBrightnessDown, exec, ${config.services.swayosd.package}/bin/swayosd --brightness lower"
+        ", XF86AudioRaiseVolume, execr, ${config.services.swayosd.package}/bin/swayosd-client --output-volume raise"
+        ", XF86AudioLowerVolume, execr, ${config.services.swayosd.package}/bin/swayosd-client --output-volume lower"
+        "ALT, XF86AudioRaiseVolume, exec, ${config.services.swayosd.package}/bin/swayosd-client --input-volume raise"
+        "ALT, XF86AudioLowerVolume, exec, ${config.services.swayosd.package}/bin/swayosd-client --input-volume lower"
+        ", XF86MonBrightnessUp, exec, ${config.services.swayosd.package}/bin/swayosd-client --brightness raise"
+        ", XF86MonBrightnessDown, exec, ${config.services.swayosd.package}/bin/swayosd-client --brightness lower"
       ];
-
       # NOTE swayosd is also used in waybar pulseaudio plugin!
     };
   };

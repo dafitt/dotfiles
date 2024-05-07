@@ -65,10 +65,11 @@ in
         #  "SUPER_ALT_SHIFT , T, exec, pypr toggle term"
         #] ++
         optionals cfg.magnify [
-          "SUPER , Z, exec, pypr zoom 2" # TODO 24.04: pypr zoom ++0.5
-          "SUPER_SHIFT, Z, exec, pypr zoom"
-          # TODO 24.04: "SUPER_ALT, mouse_down, exec, pypr zoom --0.5"
-          # TODO 24.04: "SUPER_ALT, mouse_up, exec, pypr zoom ++0.5"
+          "SUPER, Z, exec, pypr zoom"
+          "SUPER, minus, exec, pypr zoom --0.5"
+          "SUPER, plus, exec, pypr zoom ++0.5"
+          "SUPER_ALT, mouse_down, exec, pypr zoom ++0.5"
+          "SUPER_ALT, mouse_up, exec, pypr zoom --0.5"
         ];
     };
   };

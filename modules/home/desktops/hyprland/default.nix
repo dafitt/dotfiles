@@ -47,7 +47,7 @@ in
           border_size = 2;
           resize_on_border = true;
           layout = "dwindle";
-          #allow_tearing = true; # TODO: 24.05 enable (immediate windowrule)
+          allow_tearing = true;
         };
         dwindle = {
           # https://wiki.hyprland.org/Configuring/Dwindle-Layout/
@@ -234,15 +234,14 @@ in
           "SUPER, mouse_up, workspace, +1"
 
           # Screenshots
-          ", PRINT, exec, ${grimblast}/bin/grimblast copysave output ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN
-          "CONTROL, PRINT, exec, ${grimblast}/bin/grimblast --notify --freeze copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA
-          # TODO: 24.05 [satty](https://github.com/gabm/satty?tab=readme-ov-file#wlroots-based-compositors-sway-hyprland-wayfire-river-)
-          "ALT, PRINT, exec, ${grimblast}/bin/grimblast --notify --freeze --cursor save output - | ${swappy}/bin/swappy -f - -o ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN | EDIT
-          "ALT CONTROL, PRINT, exec, ${grimblast}/bin/grimblast --freeze save area - | ${swappy}/bin/swappy -f - -o ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA | EDIT
+          ", PRINT, exec, ${getExe grimblast} copysave output ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN
+          "CONTROL, PRINT, exec, ${getExe grimblast} --notify --freeze copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA
+          "ALT, PRINT, exec, ${getExe grimblast} --notify --freeze --cursor save output - | ${getExe satty} --filename - --fullscreen --output-filename ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN | EDIT
+          "ALT_CONTROL, PRINT, exec, ${getExe grimblast} --freeze save area - | ${getExe satty} --filename - --output-filename ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA | EDIT
 
           # some small helper programs
           "SUPER_ALT, U, exec, ${gnome.gnome-characters}/bin/gnome-characters"
-          "SUPER_ALT, K, exec, ${hyprpicker}/bin/hyprpicker | ${wl-clipboard}/bin/wl-copy" # TODO: 24.05 replace wl-clipboard-rs
+          "SUPER_ALT, K, exec, ${getExe hyprpicker} | ${wl-clipboard-rs}/bin/wl-copy"
         ];
 
         # Bind: mouse binds

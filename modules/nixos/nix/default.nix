@@ -32,18 +32,6 @@ with lib.dafitt;
       options = "--delete-older-than 7d";
     };
 
-    # TODO: 24.05 remove nixpkgs, see: https://github.com/NixOS/nixpkgs/pull/254405
-    # Make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
-    #registry."nixpkgs".flake = inputs.nixpkgs;
-    registry."nixpkgs".to = {
-      type = "path";
-      path = pkgs.path;
-      narHash = builtins.readFile (pkgs.runCommandLocal "get-nixpkgs-hash"
-        { nativeBuildInputs = [ pkgs.nix ]; }
-        "nix-hash --type sha256 --sri ${pkgs.path} > $out");
-    };
-    nixPath = [ "nixpkgs=flake:nixpkgs" ];
-
     # disable nix-channel, we use flakes instead.
     channel.enable = false;
   };

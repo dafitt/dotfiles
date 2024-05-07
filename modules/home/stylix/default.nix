@@ -29,8 +29,7 @@ with lib.dafitt;
     polarity = "dark"; # for epiphany, flatpaks
 
     cursor = {
-      # manages `home.pointerCursor`
-      package = pkgs.phinger-cursors; # TODO: 24.05 switch to hyprcursor if hyprland>=v0.37.0
+      package = inputs.hyprcursor-phinger.packages.${pkgs.system}.default;
       name = "phinger-cursors-light";
     };
 
@@ -66,7 +65,7 @@ with lib.dafitt;
 
   qt = {
     # https://github.com/nix-community/home-manager/blob/master/modules/misc/qt.nix
-    # TODO wait for https://github.com/danth/stylix/pull/142
+    #TODO wait for https://github.com/danth/stylix/pull/142
     enable = true;
     platformTheme.name = "adwaita";
     style.name = "adwaita-dark";
