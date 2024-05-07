@@ -3,6 +3,7 @@
         "editor.defaultFormatter": "jnoortheen.nix-ide",
         "editor.tabSize": 2
     },
+
     // with language server
     "nix.enableLanguageServer": false, // disable this, when nil is NOT installed on your system
     "nix.serverPath": "nil",
@@ -20,5 +21,9 @@
     "nix.formatterPath": ["nixpkgs-fmt"],
     //"nix.formatterPath": ["nix", "fmt", "--", "-"],
 
-    "todo-tree.general.tags": ["FIXME", "TODO", "REFACTOR", "???"]
+    "todo-tree.general.tags": ["FIXME", "TODO", "REFACTOR", "???"],
+
+    "workbench.editor.customLabels.patterns": {
+        "**/default.nix": "${dirname}/.nix"
+    }
 }
