@@ -20,7 +20,7 @@ in
       package = inputs.hyprlock.packages.${pkgs.system}.default;
 
       general = {
-        grace = 2;
+        grace = 10;
         hide_cursor = false;
       };
 

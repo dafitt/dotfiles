@@ -12,7 +12,7 @@ in
 {
   options.dafitt.desktops.hyprland.hypridle = with types; {
     enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable hypridle";
-
+    sleepTriggersLock = true;
     timeouts = {
       lock = mkOption {
         type = int;
@@ -33,8 +33,8 @@ in
       enable = true;
 
       settings = {
-        beforeSleepCmd = mkIf hyprlockCfg.enable "${getExe hyprlockCfg.package} --immediate"; # ??? "${pkgs.systemd}/bin/loginctl lock-session";
-        lockCmd = mkIf hyprlockCfg.enable (getExe hyprlockCfg.package);
+        beforeSleepCmd = mkIf (hyprlockCfg.enable && cfg.sleepTriggersLock) "${getExe hyprlockCfg.package} --immediate"; # ??? "${pkgs.systemd}/bin/loginctl lock-session";
+        lockCmd = mkIf hyprlockCfg.enable "${getExe hyprlockCfg.package} --immediate";
 
         listeners = [
           (mkIf locking_enabled {

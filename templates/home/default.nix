@@ -23,6 +23,7 @@
     desktops.hyprland.cliphist.enable = desktops.hyprland.enable;
     desktops.hyprland.gedit.enable = desktops.hyprland.enable;
     desktops.hyprland.hypridle.enable = desktops.hyprland.enable;
+    desktops.hyprland.hypridle.sleepTriggersLock = true;
     desktops.hyprland.hypridle.timeouts.lock = 360;
     desktops.hyprland.hypridle.timeouts.suspend = 600;
     desktops.hyprland.hyprlock.enable = desktops.hyprland.enable;
