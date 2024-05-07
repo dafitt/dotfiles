@@ -1,16 +1,16 @@
-# My Snowfall🌨️🍂 NixOS❄️ desktop flake
+# My daily driver's Snowfall🌨️🍂 NixOS❄️ desktop flake
 
 ![Hyprland-ricing](https://github.com/dafitt/dotfiles/assets/50248238/380705a7-4bd5-4431-81fe-ab04195e19f0)
 
--   [My Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-snowfall️-nixos️-desktop-flake)
+-   [My daily driver's Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-daily-drivers-snowfall️-nixos️-desktop-flake)
     -   [Programs and Features](#programs-and-features)
     -   [Installation](#installation)
     -   [Usage](#usage)
         -   [Flake](#flake)
             -   [remotely](#remotely)
             -   [locally](#locally)
-            -   [NixOS stable](#nixos-stable)
         -   [Hyprkeys](#hyprkeys)
+            -   [NixOS stable](#nixos-stable)
     -   [Structure](#structure)
         -   [You want to build from here?](#you-want-to-build-from-here)
     -   [Troubleshooting](#troubleshooting)
@@ -21,7 +21,6 @@ My dotfiles are not perfekt and never will be (unfortunately), but they strive t
 
 -   fully declarative 📝
 -   highly structured 🧱
--   stable 🛡️
 -   suitable for everyday use 📅
 -   a consistent environment that doesn't sacrifice its looks ✨
 
@@ -38,7 +37,7 @@ My dotfiles are not perfekt and never will be (unfortunately), but they strive t
 | ------------------: | :--------------------------------------------------------------------------------------------------------------------------------------- |
 |   Window manager 🪟 | [Hyprland](https://hyprland.org/), [Gnome](https://www.gnome.org/)                                                                       |
 |    Login manager 🔒 | greetd, gdm, tty                                                                                                                         |
-|  Session locking 🔒 | hyprlock                                                                                                                                 |
+|  Session locking 🔒 | [hyprlock](https://github.com/hyprwm/hyprlock)                                                                                           |
 |         Terminal ⌨️ | [kitty](https://sw.kovidgoyal.net/kitty/)                                                                                                |
 |            Shell 🐚 | [fish](https://fishshell.com/)                                                                                                           |
 |           Prompt ➡️ | [starship](https://starship.rs/)                                                                                                         |
@@ -64,14 +63,15 @@ On a new host machine:
     - _NOTE First install: may take some time; especially flatpaks_
     1. Check for home-manager errors `systemctl status home-manager-<user>.service` and resolve them if necessary
 5. `reboot`
-6. Personal setup:
+6. Personal imperative setup:
     1. Configure monitor setup with `nwg-displays`
     2. [Syncthing](https://localhost:8384/) setup
-    3. Firefox Sync Login
+    3. firefox: Sync Login
         1. NoScript
         2. 1Password
         3. Sidebery
-    4. Volume Control: Set standard audio output
+    4. pavucontrol: Set standard audio output
+    5. vscode: codeium plugin
 
 ## Usage
 
@@ -150,21 +150,6 @@ nixos-rebuild switch --rollback
 
 Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage)
 
-#### NixOS stable
-
-If you want to use the NixOS stable branch, update the following inputs and rebuild the system.
-
-```nix
-{
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # https://github.com/NixOS/nixpkgs
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable"; # https://github.com/NixOS/nixpkgs
-    home-manager = { url = "github:nix-community/home-manager/release-23.11"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/home-manager
-    stylix.url = "github:danth/stylix/release-23.11"; # https://github.com/danth/stylix
-  };
-}
-```
-
 ### Hyprkeys
 
 <kbd>SUPER_CONTROL</kbd> - System and Hyprland control \
@@ -172,133 +157,153 @@ If you want to use the NixOS stable branch, update the following inputs and rebu
 <kbd>SUPER_ALT</kbd> - Applications \
 <kbd>SHIFT</kbd> - reverse, grab, move
 
-| Keybind                              | Dispatcher            | Command                                                                                 |
-| ------------------------------------ | --------------------- | --------------------------------------------------------------------------------------- |
-| <kbd>SUPER_CONTROL Q</kbd>           | exit                  |                                                                                         |
-| <kbd>SUPER_CONTROL R</kbd>           | exec                  | hyprctl reload && forcerendererreload                                                   |
-| <kbd>SUPER_CONTROL ODIAERESIS</kbd>  | exec                  | poweroff --reboot                                                                       |
-| <kbd>SUPER_CONTROL ADIAERESIS</kbd>  | exec                  | poweroff                                                                                |
-| <kbd>SUPER UDIAERESIS</kbd>          | exec                  | systemctl suspend                                                                       |
-| <kbd>SUPER Q</kbd>                   | exec                  | wlogout --protocol layer-shell                                                          |
-| <kbd>SUPER DELETE</kbd>              | exec                  | hyprctl kill                                                                            |
-| <kbd>SUPER X</kbd>                   | killactive            |                                                                                         |
-| <kbd>SUPER P</kbd>                   | pseudo                |                                                                                         |
-| <kbd>SUPER S</kbd>                   | togglesplit           |                                                                                         |
-| <kbd>SUPER H</kbd>                   | swapnext              |                                                                                         |
-| <kbd>SUPER_SHIFT H</kbd>             | swapnext              | prev                                                                                    |
-| <kbd>SUPER F</kbd>                   | fullscreen            |                                                                                         |
-| <kbd>SUPER A</kbd>                   | fullscreen            | 1                                                                                       |
-| <kbd>SUPER V</kbd>                   | togglefloating        |                                                                                         |
-| <kbd>SUPER B</kbd>                   | pin                   |                                                                                         |
-| <kbd>SUPER left</kbd>                | movefocus             | l                                                                                       |
-| <kbd>SUPER right</kbd>               | movefocus             | r                                                                                       |
-| <kbd>SUPER up</kbd>                  | movefocus             | u                                                                                       |
-| <kbd>SUPER down</kbd>                | movefocus             | d                                                                                       |
-| <kbd>SUPER Tab</kbd>                 | cyclenext             |                                                                                         |
-| <kbd>SUPER_SHIFT left</kbd>          | movewindow            | l                                                                                       |
-| <kbd>SUPER_SHIFT right</kbd>         | movewindow            | r                                                                                       |
-| <kbd>SUPER_SHIFT up</kbd>            | movewindow            | u                                                                                       |
-| <kbd>SUPER_SHIFT down</kbd>          | movewindow            | d                                                                                       |
-| <kbd>SUPER_SHIFT Tab</kbd>           | swapnext              |                                                                                         |
-| <kbd>SUPER_CTRL left</kbd>           | resizeactive          | -100 0                                                                                  |
-| <kbd>SUPER_CTRL right</kbd>          | resizeactive          | 100 0                                                                                   |
-| <kbd>SUPER_CTRL up</kbd>             | resizeactive          | 0 -100                                                                                  |
-| <kbd>SUPER_CTRL down</kbd>           | resizeactive          | 0 100                                                                                   |
-| <kbd>SUPER 1</kbd>                   | workspace             | 1                                                                                       |
-| <kbd>SUPER 2</kbd>                   | workspace             | 2                                                                                       |
-| <kbd>SUPER 3</kbd>                   | workspace             | 3                                                                                       |
-| <kbd>SUPER 4</kbd>                   | workspace             | 4                                                                                       |
-| <kbd>SUPER 5</kbd>                   | workspace             | 5                                                                                       |
-| <kbd>SUPER 6</kbd>                   | workspace             | 6                                                                                       |
-| <kbd>SUPER 7</kbd>                   | workspace             | 7                                                                                       |
-| <kbd>SUPER 8</kbd>                   | workspace             | 8                                                                                       |
-| <kbd>SUPER 9</kbd>                   | workspace             | 9                                                                                       |
-| <kbd>SUPER 0</kbd>                   | workspace             | 10                                                                                      |
-| <kbd>SUPER D</kbd>                   | workspace             | name:D                                                                                  |
-| <kbd>SUPER code:87</kbd>             | workspace             | 1                                                                                       |
-| <kbd>SUPER code:88</kbd>             | workspace             | 2                                                                                       |
-| <kbd>SUPER code:89</kbd>             | workspace             | 3                                                                                       |
-| <kbd>SUPER code:83</kbd>             | workspace             | 4                                                                                       |
-| <kbd>SUPER code:84</kbd>             | workspace             | 5                                                                                       |
-| <kbd>SUPER code:85</kbd>             | workspace             | 6                                                                                       |
-| <kbd>SUPER code:79</kbd>             | workspace             | 7                                                                                       |
-| <kbd>SUPER code:80</kbd>             | workspace             | 8                                                                                       |
-| <kbd>SUPER code:81</kbd>             | workspace             | 9                                                                                       |
-| <kbd>SUPER code:91</kbd>             | workspace             | 10                                                                                      |
-| <kbd>SUPER code:86</kbd>             | workspace             | +1                                                                                      |
-| <kbd>SUPER code:82</kbd>             | workspace             | -1                                                                                      |
-| <kbd>SUPER backspace</kbd>           | workspace             | previous                                                                                |
-| <kbd>SUPER_SHIFT 1</kbd>             | movetoworkspacesilent | 1                                                                                       |
-| <kbd>SUPER_SHIFT 2</kbd>             | movetoworkspacesilent | 2                                                                                       |
-| <kbd>SUPER_SHIFT 3</kbd>             | movetoworkspacesilent | 3                                                                                       |
-| <kbd>SUPER_SHIFT 4</kbd>             | movetoworkspacesilent | 4                                                                                       |
-| <kbd>SUPER_SHIFT 5</kbd>             | movetoworkspacesilent | 5                                                                                       |
-| <kbd>SUPER_SHIFT 6</kbd>             | movetoworkspacesilent | 6                                                                                       |
-| <kbd>SUPER_SHIFT 7</kbd>             | movetoworkspacesilent | 7                                                                                       |
-| <kbd>SUPER_SHIFT 8</kbd>             | movetoworkspacesilent | 8                                                                                       |
-| <kbd>SUPER_SHIFT 9</kbd>             | movetoworkspacesilent | 9                                                                                       |
-| <kbd>SUPER_SHIFT 0</kbd>             | movetoworkspacesilent | 10                                                                                      |
-| <kbd>SUPER_SHIFT code:87</kbd>       | movetoworkspacesilent | 1                                                                                       |
-| <kbd>SUPER_SHIFT code:88</kbd>       | movetoworkspacesilent | 2                                                                                       |
-| <kbd>SUPER_SHIFT code:89</kbd>       | movetoworkspacesilent | 3                                                                                       |
-| <kbd>SUPER_SHIFT code:83</kbd>       | movetoworkspacesilent | 4                                                                                       |
-| <kbd>SUPER_SHIFT code:84</kbd>       | movetoworkspacesilent | 5                                                                                       |
-| <kbd>SUPER_SHIFT code:85</kbd>       | movetoworkspacesilent | 6                                                                                       |
-| <kbd>SUPER_SHIFT code:79</kbd>       | movetoworkspacesilent | 7                                                                                       |
-| <kbd>SUPER_SHIFT code:80</kbd>       | movetoworkspacesilent | 8                                                                                       |
-| <kbd>SUPER_SHIFT code:81</kbd>       | movetoworkspacesilent | 9                                                                                       |
-| <kbd>SUPER_SHIFT code:91</kbd>       | movetoworkspacesilent | 10                                                                                      |
-| <kbd>SUPER_SHIFT code:86</kbd>       | movetoworkspacesilent | +1                                                                                      |
-| <kbd>SUPER_SHIFT code:82</kbd>       | movetoworkspacesilent | -1                                                                                      |
-| <kbd>SUPER mouse_down</kbd>          | workspace             | -1                                                                                      |
-| <kbd>SUPER mouse_up</kbd>            | workspace             | +1                                                                                      |
-| <kbd>PRINT</kbd>                     | exec                  | grimblast copysave output /home/david/Pictures/$(date +'%F-%T\_%N.png')                 |
-| <kbd>CONTROL PRINT</kbd>             | exec                  | grimblast --notify --freeze copysave area /home/david/Pictures/$(date +'%F-%T\_%N.png') |
-| <kbd>ALT PRINT</kbd>                 | exec                  | swappy -f - -o /home/david/Pictures/$(date +'%F-%T\_%N.png')                            |
-| <kbd>ALT CONTROL PRINT</kbd>         | exec                  | swappy -f - -o /home/david/Pictures/$(date +'%F-%T\_%N.png')                            |
-| <kbd>SUPER_ALT U</kbd>               | exec                  | gnome-characters                                                                        |
-| <kbd>SUPER_ALT K</kbd>               | exec                  | wl-copy                                                                                 |
-| <kbd>XF86Calculator</kbd>            | exec                  | gnome-calculator                                                                        |
-| <kbd>SUPER_ALT V</kbd>               | exec                  | wl-copy'                                                                                |
-| <kbd>SUPER_ALT A</kbd>               | exec                  | pavucontrol                                                                             |
-| <kbd>XF86AudioPlay</kbd>             | exec                  | playerctl play-pause                                                                    |
-| <kbd>XF86AudioPause</kbd>            | exec                  | playerctl play-pause                                                                    |
-| <kbd>XF86AudioStop</kbd>             | exec                  | playerctl stop                                                                          |
-| <kbd>XF86AudioNext</kbd>             | exec                  | playerctl next                                                                          |
-| <kbd>XF86AudioPrev</kbd>             | exec                  | playerctl previous                                                                      |
-| <kbd>CTRL XF86AudioRaiseVolume</kbd> | exec                  | playerctl position 1+                                                                   |
-| <kbd>CTRL XF86AudioLowerVolume</kbd> | exec                  | playerctl position 1-                                                                   |
-| <kbd>ALT XF86AudioNext</kbd>         | exec                  | playerctld shift                                                                        |
-| <kbd>ALT XF86AudioPrev</kbd>         | exec                  | playerctld unshift                                                                      |
-| <kbd>ALT XF86AudioPlay</kbd>         | exec                  | systemctl --user restart playerctld                                                     |
-| <kbd>SUPER Z</kbd>                   | exec                  | pypr zoom 2                                                                             |
-| <kbd>SUPER_SHIFT Z</kbd>             | exec                  | pypr zoom                                                                               |
-| <kbd>XF86AudioMute</kbd>             | exec                  | swayosd --output-volume mute-toggle                                                     |
-| <kbd>ALT XF86AudioMute</kbd>         | exec                  | swayosd --input-volume mute-toggle                                                      |
-| <kbd>XF86AudioMicMute</kbd>          | exec                  | swayosd --input-volume mute-toggle                                                      |
-| <kbd>Caps_Lock</kbd>                 | exec                  | swayosd --caps-lock                                                                     |
-| <kbd>SUPER_ALT P</kbd>               | exec                  | btop                                                                                    |
-| <kbd>SUPER W</kbd>                   | exec                  | killall -SIGUSR1 .waybar-wrapped                                                        |
-| <kbd>SUPER_ALT G</kbd>               | exec                  | code                                                                                    |
-| <kbd>SUPER_ALT PERIOD</kbd>          | exec                  | 1password                                                                               |
-| <kbd>SUPER_ALT E</kbd>               | exec                  | micro                                                                                   |
-| <kbd>SUPER_ALT F</kbd>               | exec                  | nautilus                                                                                |
-| <kbd>SUPER SPACE</kbd>               | exec                  | fuzzel                                                                                  |
-| <kbd>SUPER_ALT Z</kbd>               | exec                  | xdg-open https://localhost:8384                                                         |
-| <kbd>SUPER RETURN</kbd>              | exec                  | kitty                                                                                   |
-| <kbd>SUPER_ALT T</kbd>               | exec                  | kitty                                                                                   |
-| <kbd>SUPER_ALT M</kbd>               | exec                  | thunderbird                                                                             |
-| <kbd>SUPER_ALT B</kbd>               | exec                  | firefox                                                                                 |
-| <kbd>XF86KbdBrightnessUp</kbd>       | exec                  | light -s sysfs/leds/kbd_backlight -A 10                                                 |
-| <kbd>XF86KbdBrightnessDown</kbd>     | exec                  | light -s sysfs/leds/kbd_backlight -U 10                                                 |
-| <kbd>XF86AudioRaiseVolume</kbd>      | execr                 | swayosd --output-volume raise                                                           |
-| <kbd>XF86AudioLowerVolume</kbd>      | execr                 | swayosd --output-volume lower                                                           |
-| <kbd>ALT XF86AudioRaiseVolume</kbd>  | exec                  | swayosd --input-volume raise                                                            |
-| <kbd>ALT XF86AudioLowerVolume</kbd>  | exec                  | swayosd --input-volume lower                                                            |
-| <kbd>XF86MonBrightnessUp</kbd>       | exec                  | swayosd --brightness raise                                                              |
-| <kbd>XF86MonBrightnessDown</kbd>     | exec                  | swayosd --brightness lower                                                              |
-| <kbd>SUPER mouse:272</kbd>           | movewindow            |                                                                                         |
-| <kbd>SUPER mouse:273</kbd>           | resizewindow          |                                                                                         |
+| Keybind                              | Dispatcher            | Command                                                                                         |
+| ------------------------------------ | --------------------- | ----------------------------------------------------------------------------------------------- |
+| <kbd>SUPER_CONTROL Q</kbd>           | exit                  |                                                                                                 |
+| <kbd>SUPER_CONTROL R</kbd>           | exec                  | hyprctl reload && forcerendererreload                                                           |
+| <kbd>SUPER_CONTROL ADIAERESIS</kbd>  | exec                  | poweroff                                                                                        |
+| <kbd>SUPER_CONTROL ODIAERESIS</kbd>  | exec                  | poweroff --reboot                                                                               |
+| <kbd>SUPER ODIAERESIS</kbd>          | dpms                  | off                                                                                             |
+| <kbd>SUPER UDIAERESIS</kbd>          | exec                  | systemctl suspend                                                                               |
+| <kbd>SUPER DELETE</kbd>              | exec                  | hyprctl kill                                                                                    |
+| <kbd>SUPER X</kbd>                   | killactive            |                                                                                                 |
+| <kbd>SUPER P</kbd>                   | pseudo                |                                                                                                 |
+| <kbd>SUPER S</kbd>                   | togglesplit           |                                                                                                 |
+| <kbd>SUPER H</kbd>                   | swapnext              |                                                                                                 |
+| <kbd>SUPER_SHIFT H</kbd>             | swapnext              | prev                                                                                            |
+| <kbd>SUPER F</kbd>                   | fullscreen            |                                                                                                 |
+| <kbd>SUPER A</kbd>                   | fullscreen            | 1                                                                                               |
+| <kbd>SUPER V</kbd>                   | togglefloating        |                                                                                                 |
+| <kbd>SUPER B</kbd>                   | pin                   |                                                                                                 |
+| <kbd>SUPER left</kbd>                | movefocus             | l                                                                                               |
+| <kbd>SUPER right</kbd>               | movefocus             | r                                                                                               |
+| <kbd>SUPER up</kbd>                  | movefocus             | u                                                                                               |
+| <kbd>SUPER down</kbd>                | movefocus             | d                                                                                               |
+| <kbd>SUPER Tab</kbd>                 | cyclenext             |                                                                                                 |
+| <kbd>SUPER_SHIFT left</kbd>          | movewindow            | l                                                                                               |
+| <kbd>SUPER_SHIFT right</kbd>         | movewindow            | r                                                                                               |
+| <kbd>SUPER_SHIFT up</kbd>            | movewindow            | u                                                                                               |
+| <kbd>SUPER_SHIFT down</kbd>          | movewindow            | d                                                                                               |
+| <kbd>SUPER_SHIFT Tab</kbd>           | swapnext              |                                                                                                 |
+| <kbd>SUPER_CTRL left</kbd>           | resizeactive          | -100 0                                                                                          |
+| <kbd>SUPER_CTRL right</kbd>          | resizeactive          | 100 0                                                                                           |
+| <kbd>SUPER_CTRL up</kbd>             | resizeactive          | 0 -100                                                                                          |
+| <kbd>SUPER_CTRL down</kbd>           | resizeactive          | 0 100                                                                                           |
+| <kbd>SUPER 1</kbd>                   | workspace             | 1                                                                                               |
+| <kbd>SUPER 2</kbd>                   | workspace             | 2                                                                                               |
+| <kbd>SUPER 3</kbd>                   | workspace             | 3                                                                                               |
+| <kbd>SUPER 4</kbd>                   | workspace             | 4                                                                                               |
+| <kbd>SUPER 5</kbd>                   | workspace             | 5                                                                                               |
+| <kbd>SUPER 6</kbd>                   | workspace             | 6                                                                                               |
+| <kbd>SUPER 7</kbd>                   | workspace             | 7                                                                                               |
+| <kbd>SUPER 8</kbd>                   | workspace             | 8                                                                                               |
+| <kbd>SUPER 9</kbd>                   | workspace             | 9                                                                                               |
+| <kbd>SUPER 0</kbd>                   | workspace             | 10                                                                                              |
+| <kbd>SUPER D</kbd>                   | workspace             | name:D                                                                                          |
+| <kbd>SUPER code:87</kbd>             | workspace             | 1                                                                                               |
+| <kbd>SUPER code:88</kbd>             | workspace             | 2                                                                                               |
+| <kbd>SUPER code:89</kbd>             | workspace             | 3                                                                                               |
+| <kbd>SUPER code:83</kbd>             | workspace             | 4                                                                                               |
+| <kbd>SUPER code:84</kbd>             | workspace             | 5                                                                                               |
+| <kbd>SUPER code:85</kbd>             | workspace             | 6                                                                                               |
+| <kbd>SUPER code:79</kbd>             | workspace             | 7                                                                                               |
+| <kbd>SUPER code:80</kbd>             | workspace             | 8                                                                                               |
+| <kbd>SUPER code:81</kbd>             | workspace             | 9                                                                                               |
+| <kbd>SUPER code:91</kbd>             | workspace             | 10                                                                                              |
+| <kbd>SUPER code:86</kbd>             | workspace             | +1                                                                                              |
+| <kbd>SUPER code:82</kbd>             | workspace             | -1                                                                                              |
+| <kbd>SUPER backspace</kbd>           | workspace             | previous                                                                                        |
+| <kbd>SUPER_SHIFT 1</kbd>             | movetoworkspacesilent | 1                                                                                               |
+| <kbd>SUPER_SHIFT 2</kbd>             | movetoworkspacesilent | 2                                                                                               |
+| <kbd>SUPER_SHIFT 3</kbd>             | movetoworkspacesilent | 3                                                                                               |
+| <kbd>SUPER_SHIFT 4</kbd>             | movetoworkspacesilent | 4                                                                                               |
+| <kbd>SUPER_SHIFT 5</kbd>             | movetoworkspacesilent | 5                                                                                               |
+| <kbd>SUPER_SHIFT 6</kbd>             | movetoworkspacesilent | 6                                                                                               |
+| <kbd>SUPER_SHIFT 7</kbd>             | movetoworkspacesilent | 7                                                                                               |
+| <kbd>SUPER_SHIFT 8</kbd>             | movetoworkspacesilent | 8                                                                                               |
+| <kbd>SUPER_SHIFT 9</kbd>             | movetoworkspacesilent | 9                                                                                               |
+| <kbd>SUPER_SHIFT 0</kbd>             | movetoworkspacesilent | 10                                                                                              |
+| <kbd>SUPER_SHIFT code:87</kbd>       | movetoworkspacesilent | 1                                                                                               |
+| <kbd>SUPER_SHIFT code:88</kbd>       | movetoworkspacesilent | 2                                                                                               |
+| <kbd>SUPER_SHIFT code:89</kbd>       | movetoworkspacesilent | 3                                                                                               |
+| <kbd>SUPER_SHIFT code:83</kbd>       | movetoworkspacesilent | 4                                                                                               |
+| <kbd>SUPER_SHIFT code:84</kbd>       | movetoworkspacesilent | 5                                                                                               |
+| <kbd>SUPER_SHIFT code:85</kbd>       | movetoworkspacesilent | 6                                                                                               |
+| <kbd>SUPER_SHIFT code:79</kbd>       | movetoworkspacesilent | 7                                                                                               |
+| <kbd>SUPER_SHIFT code:80</kbd>       | movetoworkspacesilent | 8                                                                                               |
+| <kbd>SUPER_SHIFT code:81</kbd>       | movetoworkspacesilent | 9                                                                                               |
+| <kbd>SUPER_SHIFT code:91</kbd>       | movetoworkspacesilent | 10                                                                                              |
+| <kbd>SUPER_SHIFT code:86</kbd>       | movetoworkspacesilent | +1                                                                                              |
+| <kbd>SUPER_SHIFT code:82</kbd>       | movetoworkspacesilent | -1                                                                                              |
+| <kbd>SUPER mouse_down</kbd>          | workspace             | -1                                                                                              |
+| <kbd>SUPER mouse_up</kbd>            | workspace             | +1                                                                                              |
+| <kbd>PRINT</kbd>                     | exec                  | grimblast copysave output /home/david/Pictures/$(date +'%F-%T\_%N.png')                         |
+| <kbd>CONTROL PRINT</kbd>             | exec                  | grimblast --notify --freeze copysave area /home/david/Pictures/$(date +'%F-%T\_%N.png')         |
+| <kbd>ALT PRINT</kbd>                 | exec                  | satty --filename - --fullscreen --output-filename /home/david/Pictures/$(date +'%F-%T\_%N.png') |
+| <kbd>ALT_CONTROL PRINT</kbd>         | exec                  | satty --filename - --output-filename /home/david/Pictures/$(date +'%F-%T\_%N.png')              |
+| <kbd>SUPER_ALT U</kbd>               | exec                  | gnome-characters                                                                                |
+| <kbd>SUPER_ALT K</kbd>               | exec                  | wl-copy                                                                                         |
+| <kbd>XF86Calculator</kbd>            | exec                  | gnome-calculator                                                                                |
+| <kbd>SUPER_ALT V</kbd>               | exec                  | wl-copy'                                                                                        |
+| <kbd>SUPER_ALT A</kbd>               | exec                  | pavucontrol                                                                                     |
+| <kbd>XF86AudioPlay</kbd>             | exec                  | playerctl play-pause                                                                            |
+| <kbd>XF86AudioPause</kbd>            | exec                  | playerctl play-pause                                                                            |
+| <kbd>XF86AudioStop</kbd>             | exec                  | playerctl stop                                                                                  |
+| <kbd>XF86AudioNext</kbd>             | exec                  | playerctl next                                                                                  |
+| <kbd>XF86AudioPrev</kbd>             | exec                  | playerctl previous                                                                              |
+| <kbd>CTRL XF86AudioRaiseVolume</kbd> | exec                  | playerctl position 1+                                                                           |
+| <kbd>CTRL XF86AudioLowerVolume</kbd> | exec                  | playerctl position 1-                                                                           |
+| <kbd>ALT XF86AudioNext</kbd>         | exec                  | playerctld shift                                                                                |
+| <kbd>ALT XF86AudioPrev</kbd>         | exec                  | playerctld unshift                                                                              |
+| <kbd>ALT XF86AudioPlay</kbd>         | exec                  | systemctl --user restart playerctld                                                             |
+| <kbd>SUPER Z</kbd>                   | exec                  | pypr zoom                                                                                       |
+| <kbd>SUPER minus</kbd>               | exec                  | pypr zoom --0.5                                                                                 |
+| <kbd>SUPER plus</kbd>                | exec                  | pypr zoom ++0.5                                                                                 |
+| <kbd>SUPER_ALT mouse_down</kbd>      | exec                  | pypr zoom ++0.5                                                                                 |
+| <kbd>SUPER_ALT mouse_up</kbd>        | exec                  | pypr zoom --0.5                                                                                 |
+| <kbd>XF86AudioMute</kbd>             | exec                  | swayosd-client --output-volume mute-toggle                                                      |
+| <kbd>ALT XF86AudioMute</kbd>         | exec                  | swayosd-client --input-volume mute-toggle                                                       |
+| <kbd>XF86AudioMicMute</kbd>          | exec                  | swayosd-client --input-volume mute-toggle                                                       |
+| <kbd>Caps_Lock</kbd>                 | exec                  | swayosd-client --caps-lock                                                                      |
+| <kbd>SUPER_ALT P</kbd>               | exec                  | btop                                                                                            |
+| <kbd>SUPER W</kbd>                   | exec                  | killall -SIGUSR1 .waybar-wrapped                                                                |
+| <kbd>SUPER_ALT G</kbd>               | exec                  | codium                                                                                          |
+| <kbd>SUPER_ALT PERIOD</kbd>          | exec                  | 1password                                                                                       |
+| <kbd>SUPER_ALT E</kbd>               | exec                  | micro                                                                                           |
+| <kbd>SUPER_ALT F</kbd>               | exec                  | nautilus                                                                                        |
+| <kbd>SUPER SPACE</kbd>               | exec                  | fuzzel                                                                                          |
+| <kbd>SUPER_ALT Z</kbd>               | exec                  | xdg-open https://localhost:8384                                                                 |
+| <kbd>SUPER RETURN</kbd>              | exec                  | kitty                                                                                           |
+| <kbd>SUPER_ALT T</kbd>               | exec                  | kitty                                                                                           |
+| <kbd>SUPER_ALT M</kbd>               | exec                  | thunderbird                                                                                     |
+| <kbd>SUPER_ALT B</kbd>               | exec                  | firefox                                                                                         |
+| <kbd>XF86KbdBrightnessUp</kbd>       | exec                  | light -s sysfs/leds/kbd_backlight -A 10                                                         |
+| <kbd>XF86KbdBrightnessDown</kbd>     | exec                  | light -s sysfs/leds/kbd_backlight -U 10                                                         |
+| <kbd>XF86AudioRaiseVolume</kbd>      | execr                 | swayosd-client --output-volume raise                                                            |
+| <kbd>XF86AudioLowerVolume</kbd>      | execr                 | swayosd-client --output-volume lower                                                            |
+| <kbd>ALT XF86AudioRaiseVolume</kbd>  | exec                  | swayosd-client --input-volume raise                                                             |
+| <kbd>ALT XF86AudioLowerVolume</kbd>  | exec                  | swayosd-client --input-volume lower                                                             |
+| <kbd>XF86MonBrightnessUp</kbd>       | exec                  | swayosd-client --brightness raise                                                               |
+| <kbd>XF86MonBrightnessDown</kbd>     | exec                  | swayosd-client --brightness lower                                                               |
+| <kbd>SUPER mouse:272</kbd>           | movewindow            |                                                                                                 |
+| <kbd>SUPER mouse:273</kbd>           | resizewindow          |                                                                                                 |
+
+#### NixOS stable
+
+If you want to use the [nixpkgs](https://github.com/NixOS/nixpkgs) stable branch, update the following inputs to `23.11` (as an example) in _[flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix)_ and rebuild the system. \
+When the last release of [nixpkgs](https://github.com/NixOS/nixpkgs) is some time away, then you will likely need to refactor some changed options. So directly after a new release is the best time to switch.
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager = { url = "github:nix-community/home-manager/release-23.11"; inputs.nixpkgs.follows = "nixpkgs"; };
+    stylix.url = "github:danth/stylix/release-23.11";
+    hyprland = { url = "github:hyprwm/Hyprland/tags/v0.32.3"; inputs.nixpkgs.follows = "nixpkgs"; };
+  };
+}
+```
 
 ## Structure
 
