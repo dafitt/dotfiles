@@ -8,7 +8,10 @@ let
 in
 {
   options.dafitt.desktops.hyprland.nwg-displays = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable nwg-displays, to adjust the screen layout and resolution";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable ''
+      Enable nwg-displays, to adjust the screen layout and resolution.
+      Declarative configuration through `config.dafitt.desktops.hyprland.monitors` overrides specific monitor configuraition!
+    '';
   };
 
   config = mkIf cfg.enable {
