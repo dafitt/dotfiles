@@ -10,7 +10,7 @@
       primary = true;
     }];
 
-    desktops.hypridle.hypridle.sleepTriggersLock = false;
+    desktops.hyprland.hypridle.sleepTriggersLock = false;
     desktops.hyprland.hypridle.timeouts.lock = 0;
     desktops.hyprland.hypridle.timeouts.suspend = 0;
     editing.enableSuite = true;
