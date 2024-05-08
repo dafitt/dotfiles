@@ -24,6 +24,7 @@
     "todo-tree.general.tags": ["FIXME", "TODO", "REFACTOR", "???"],
 
     "workbench.editor.customLabels.patterns": {
-        "**/default.nix": "${dirname}/.nix"
+        "**/default.nix": "${dirname}/.nix",
+        "**/templates/**/default.nix": "template/${dirname}/.nix"
     }
 }
