@@ -15,7 +15,7 @@
         -   [You want to build from here?](#you-want-to-build-from-here)
     -   [Troubleshooting](#troubleshooting)
         -   [Some options in homes/ and modules/home/ are not being applied with nixos-rebuild](#some-options-in-homes-and-moduleshome-are-not-being-applied-with-nixos-rebuild)
-    -   [Inspiration, Credits and Thanks](#inspiration-credits-and-thanks)
+    -   [👀, 🏆 and ❤️](#--and-️)
 
 My dotfiles are not perfekt and never will be (unfortunately), but they strive to be:
 
@@ -367,7 +367,7 @@ If that is the case and `osCfg.enable` is not `null` then the `osCfg`-option wil
 
 To solve this set your option to `true` in [systems/](https://github.com/dafitt/dotfiles/blob/main/systems) and [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos).
 
-## Inspiration, Credits and Thanks
+## 👀, 🏆 and ❤️
 
 -   [Vimjoyer - Youtube](https://www.youtube.com/@vimjoyer)
 -   [IogaMaster - Youtube](https://www.youtube.com/@IogaMaster)
@@ -376,3 +376,4 @@ To solve this set your option to `true` in [systems/](https://github.com/dafitt/
 -   [IogaMaster/dotfiles](https://github.com/IogaMaster/dotfiles)
 -   [IogaMaster/snowfall-starter](https://github.com/IogaMaster/snowfall-starter)
 -   [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
+-   [Aylur/dotfiles](https://github.com/Aylur/dotfiles)
