@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       # https://github.com/KZDKM/Hyprspace
-      plugins = with pkgs; [ inputs.hyprspace.packages.${system}.hyprspace ];
+      plugins = with pkgs; [ inputs.hyprspace.packages.${system}.default ];
 
       settings.bind = [ "SUPER, grave, overview:toggle, " ];
 
