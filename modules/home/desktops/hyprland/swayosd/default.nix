@@ -14,9 +14,6 @@ in
     # https://github.com/ErikReider/SwayOSD
     services.swayosd.enable = true;
 
-    # reduce rate limiting #TODO change default systemd value instead of every service
-    systemd.user.services.swayosd.Unit.StartLimitIntervalSec = "2s";
-
     wayland.windowManager.hyprland.settings = {
       bind = [
         ", XF86AudioMute, exec, ${config.services.swayosd.package}/bin/swayosd-client --output-volume mute-toggle"

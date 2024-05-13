@@ -164,9 +164,6 @@ in
       '' + (builtins.readFile ./modules.css);
     };
 
-    # reduce rate limiting #TODO change default systemd value instead of every service
-    systemd.user.services.waybar.Unit.StartLimitIntervalSec = "2s";
-
     # toggle waybar
     wayland.windowManager.hyprland.settings.bind = [ "SUPER, W, exec, ${pkgs.killall}/bin/killall -SIGUSR1 .waybar-wrapped" ];
   };
