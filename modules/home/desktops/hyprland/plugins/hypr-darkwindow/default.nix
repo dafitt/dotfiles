@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.plugins.hypr-darkwindow = with types; {
-    enable = mkBoolOpt false "Enable hypr-darkwindow hyprland plugin";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.plugins.enable "Enable hypr-darkwindow hyprland plugin";
   };
 
   config = mkIf cfg.enable {
@@ -16,9 +16,6 @@ in
       plugins = with pkgs; [ inputs.hypr-darkwindow.packages.${system}.Hypr-DarkWindow ];
 
       settings.bind = [ "SUPER, O, invertactivewindow, " ];
-
-      extraConfig = ''
-      '';
     };
   };
 }
