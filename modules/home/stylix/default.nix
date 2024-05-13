@@ -29,7 +29,7 @@ with lib.dafitt;
     polarity = "dark"; # for epiphany, flatpaks
 
     cursor = {
-      package = inputs.hyprcursor-phinger.packages.${pkgs.system}.default;
+      package = pkgs.phinger-cursors;
       name = "phinger-cursors-light";
     };
 

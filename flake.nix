@@ -23,7 +23,6 @@
     hypridle = { url = "github:hyprwm/hypridle"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/hypridle
     hyprlock = { url = "github:hyprwm/hyprlock"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/hyprlock
     hyprpaper = { url = "github:hyprwm/hyprpaper"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/hyprpaper
-    hyprcursor-phinger = { url = "github:Jappie3/hyprcursor-phinger"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/Jappie3/hyprcursor-phinger
 
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/wamserma/flake-programs-sqlite
 

@@ -12,7 +12,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      pkgs.wl-clipboard # Command-line copy/paste utilities for Wayland
+      pkgs.wl-clipboard-rs # Command-line copy/paste utilities for Wayland
     ];
 
     # Wayland clipboard manager
