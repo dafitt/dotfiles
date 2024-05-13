@@ -12,49 +12,50 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ inputs.hyprlock.packages.${pkgs.system}.default ];
+    home.packages = [ config.programs.hyprlock.package ];
 
     # https://github.com/hyprwm/hyprlock/blob/main/nix/hm-module.nix
     programs.hyprlock = {
       enable = true;
-      package = inputs.hyprlock.packages.${pkgs.system}.default;
 
-      general = {
-        grace = 10;
-        hide_cursor = false;
+      settings = {
+        general = {
+          grace = 10;
+          hide_cursor = false;
+        };
+
+        backgrounds = [{
+          path = "${config.stylix.image}";
+          blur_passes = 2;
+        }];
+
+        input-fields = [{
+          outline_thickness = hyprlandCfg.settings.general.border_size;
+          outer_color = "rgb(${config.lib.stylix.colors.base0A})";
+          inner_color = "rgb(${config.lib.stylix.colors.base03})";
+          font_color = "rgb(${config.lib.stylix.colors.base05})";
+          check_color = "rgb(${config.lib.stylix.colors.base0B})";
+          fail_color = "rgb(${config.lib.stylix.colors.base08})";
+          capslock_color = "rgb(${config.lib.stylix.colors.base09})";
+        }];
+
+        labels = [
+          {
+            text = "$TIME";
+            color = "rgb(${config.lib.stylix.colors.base05})";
+            font_family = "${config.stylix.fonts.monospace.name}";
+            font_size = 44;
+          }
+          {
+            text = "Welcome back!";
+            color = "rgb(${config.lib.stylix.colors.base04})";
+            font_family = "${config.stylix.fonts.monospace.name}";
+            font_size = 20;
+            valign = "top";
+            position.y = -30;
+          }
+        ];
       };
-
-      backgrounds = [{
-        path = "${config.stylix.image}";
-        blur_passes = 2;
-      }];
-
-      input-fields = [{
-        outline_thickness = hyprlandCfg.settings.general.border_size;
-        outer_color = "rgb(${config.lib.stylix.colors.base0A})";
-        inner_color = "rgb(${config.lib.stylix.colors.base03})";
-        font_color = "rgb(${config.lib.stylix.colors.base05})";
-        check_color = "rgb(${config.lib.stylix.colors.base0B})";
-        fail_color = "rgb(${config.lib.stylix.colors.base08})";
-        capslock_color = "rgb(${config.lib.stylix.colors.base09})";
-      }];
-
-      labels = [
-        {
-          text = "$TIME";
-          color = "rgb(${config.lib.stylix.colors.base05})";
-          font_family = "${config.stylix.fonts.monospace.name}";
-          font_size = 44;
-        }
-        {
-          text = "Welcome back!";
-          color = "rgb(${config.lib.stylix.colors.base04})";
-          font_family = "${config.stylix.fonts.monospace.name}";
-          font_size = 20;
-          valign = "top";
-          position.y = -30;
-        }
-      ];
     };
 
     wayland.windowManager.hyprland.settings.bind = [

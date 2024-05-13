@@ -60,8 +60,6 @@
 
     homes.modules = with inputs; [
       stylix.homeManagerModules.stylix
-      hyprlock.homeManagerModules.default
-      hyprpaper.homeManagerModules.default
       nix-flatpak.homeManagerModules.nix-flatpak
     ];
 

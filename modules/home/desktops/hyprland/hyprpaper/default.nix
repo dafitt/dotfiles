@@ -11,17 +11,20 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ inputs.hyprpaper.packages.${system}.default ];
+    home.packages = [ config.services.hyprpaper.package ];
 
     # https://github.com/hyprwm/hyprpaper/blob/main/nix/hm-module.nix
     services.hyprpaper = {
       enable = true;
-      ipc = false;
-      preloads = [ "${config.stylix.image}" ];
-      wallpapers = [ ",${config.stylix.image}" ];
+      settings = {
+        ipc = false;
+        splash = false;
+
+        preload = [ "${config.stylix.image}" ];
+        wallpaper = [ ",${config.stylix.image}" ];
+      };
     };
 
-    # fix for hyprpaper not starting
     systemd.user.services.hyprpaper.Install.WantedBy = mkForce [ "hyprland-session.target" ];
   };
 }

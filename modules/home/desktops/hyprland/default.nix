@@ -60,6 +60,7 @@ in
           key_press_enables_dpms = true;
           animate_manual_resizes = true;
           animate_mouse_windowdragging = true;
+          background_color = mkForce "rgb(${config.lib.stylix.colors.base01})";
         };
         decoration = {
           # https://wiki.hyprland.org/Configuring/Variables/#decoration
