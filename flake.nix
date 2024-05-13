@@ -14,19 +14,9 @@
 
     stylix.url = "github:danth/stylix"; # https://github.com/danth/stylix
 
-    #NOTE We use Hyprland from Nixpkgs, but must specify the version for plugins to follow. Update the version if Hyprland updates in Nixpkgs.
-    hyprland = { url = "github:hyprwm/Hyprland/tags/v0.39.1"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/Hyprland
-    hyprland-plugins = { url = "github:hyprwm/hyprland-plugins"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/hyprwm/hyprland-plugins
-    #TODO hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow/tags/v0.36.0"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/micha4w/Hypr-DarkWindow
-    #TODO hyprspace = { url = "github:KZDKM/Hyprspace"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/KZDKM/Hyprspace
-
-    hypridle = { url = "github:hyprwm/hypridle"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/hypridle
-    hyprlock = { url = "github:hyprwm/hyprlock"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/hyprlock
-    hyprpaper = { url = "github:hyprwm/hyprpaper"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/hyprpaper
-
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/wamserma/flake-programs-sqlite
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak/tags/v0.4.1"; # https://github.com/gmodena/nix-flatpak
+    nix-flatpak.url = "github:gmodena/nix-flatpak/tags/v0.4.1"; # https://github.com/gmodena/nix-flatpak/tags
   };
 
   # [Snowfall framework](https://snowfall.org/guides/lib/quickstart/)
