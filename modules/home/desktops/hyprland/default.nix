@@ -142,7 +142,7 @@ in
           "SUPER, ODIAERESIS, dpms, off"
           "SUPER, UDIAERESIS, exec, systemctl suspend" # quick-suspend
 
-          # Window Control
+          # Window control
           "SUPER, DELETE, exec, hyprctl kill" # kill a window by clicking it
           "SUPER, X, killactive," # close the active window
           "SUPER, P, pseudo," # dwindle
@@ -153,26 +153,22 @@ in
           "SUPER, A, fullscreen, 1" # maximize only
           "SUPER, V, togglefloating," # Allow a window to float
           "SUPER, B, pin,"
-
-          # Move focus with mainMod + arrow keys
           "SUPER, left, movefocus, l"
           "SUPER, right, movefocus, r"
           "SUPER, up, movefocus, u"
           "SUPER, down, movefocus, d"
           "SUPER, Tab, cyclenext,"
-          # move
           "SUPER_SHIFT, left, movewindow, l"
           "SUPER_SHIFT, right, movewindow, r"
           "SUPER_SHIFT, up, movewindow, u"
           "SUPER_SHIFT, down, movewindow, d"
           "SUPER_SHIFT, Tab, swapnext,"
-          # resize
-          "SUPER_CTRL, left, resizeactive, -100 0"
-          "SUPER_CTRL, right, resizeactive, 100 0"
-          "SUPER_CTRL, up, resizeactive, 0 -100"
-          "SUPER_CTRL, down, resizeactive, 0 100"
+          "SUPER_ALT, left, resizeactive, -100 0"
+          "SUPER_ALT, right, resizeactive, 100 0"
+          "SUPER_ALT, up, resizeactive, 0 -100"
+          "SUPER_ALT, down, resizeactive, 0 100"
 
-          # Switch workspaces with
+          # Workspace control
           "SUPER, 1, workspace, 1"
           "SUPER, 2, workspace, 2"
           "SUPER, 3, workspace, 3"
@@ -197,8 +193,6 @@ in
           "SUPER, code:86, workspace, +1" # Numpad +
           "SUPER, code:82, workspace, -1" # Numpad -
           "SUPER, backspace, workspace, previous"
-
-          # Move active window to a workspace
           "SUPER_SHIFT, 1, movetoworkspacesilent, 1"
           "SUPER_SHIFT, 2, movetoworkspacesilent, 2"
           "SUPER_SHIFT, 3, movetoworkspacesilent, 3"
@@ -223,6 +217,12 @@ in
           "SUPER_SHIFT, code:82, movetoworkspacesilent, -1" # Numpad -
           "SUPER, mouse_down, workspace, -1"
           "SUPER, mouse_up, workspace, +1"
+
+          # Monitor control
+          "SUPER_CTRL, left, movecurrentworkspacetomonitor, l"
+          "SUPER_CTRL, right, movecurrentworkspacetomonitor, r"
+          "SUPER_CTRL, up, movecurrentworkspacetomonitor, u"
+          "SUPER_CTRL, down, movecurrentworkspacetomonitor, d"
 
           # Screenshots
           ", PRINT, exec, ${getExe grimblast} copysave output ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN
