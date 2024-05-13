@@ -330,16 +330,16 @@
         "nix-filter": "nix-filter"
       },
       "locked": {
-        "lastModified": 1709113015,
-        "narHash": "sha256-7vZADY1ccbRTG9V/IgxKJodPpGgNdaORNItsbDwcarI=",
+        "lastModified": 1713251571,
+        "narHash": "sha256-8sVbc/1VIw3K2I5XD7YwbjZ813UPNE1A+LNxu5pAWBc=",
         "owner": "micha4w",
         "repo": "Hypr-DarkWindow",
-        "rev": "7eb7e04dea8cb92f22b7c2df4c78d4f29e28643d",
+        "rev": "e847f179adf4eab3517623e3d5209f531435a61a",
         "type": "github"
       },
       "original": {
         "owner": "micha4w",
-        "ref": "tags/v0.36.0",
+        "ref": "tags/v0.39.0",
         "repo": "Hypr-DarkWindow",
         "type": "github"
       }
@@ -631,15 +631,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1714853078,
-        "narHash": "sha256-sDzwTFLBPoopt7PvCZm0zUnst7oxJ5BgGaajdJnGHEs=",
+        "lastModified": 1713213176,
+        "narHash": "sha256-Kg7+iAukVpXKAa3Jd5FFNQy5e51ofGv1SKhkZwfqBf4=",
         "owner": "shezdy",
         "repo": "hyprsplit",
-        "rev": "4c5b85a659d33339e42e3f1fb02b09718520cf66",
+        "rev": "6b9db62fab91066bb678f14198771b8e8cc12a8f",
         "type": "github"
       },
       "original": {
         "owner": "shezdy",
+        "ref": "tags/v0.39.1",
         "repo": "hyprsplit",
         "type": "github"
       }
@@ -783,7 +784,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "hypr-darkwindow": "hypr-darkwindow",
-        "hyprcursor-phinger": "hyprcursor-phinger",
         "hypridle": "hypridle",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
