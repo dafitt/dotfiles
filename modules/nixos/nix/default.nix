@@ -42,7 +42,4 @@ with lib.dafitt;
 
   # repair command-not-found database
   programs.command-not-found.dbPath = inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
-
-  # Multitheaded and faster building (make)
-  environment.variables.MAKEFLAGS = "-j$(expr $(nproc) \+ 1)";
 }

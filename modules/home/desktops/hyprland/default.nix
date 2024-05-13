@@ -26,15 +26,6 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
 
-      systemd = {
-        # Same as default, but stop graphical-session too
-        extraCommands = [
-          "systemctl --user stop hyprland-session.target"
-          "systemctl --user stop graphical-session.target"
-          "systemctl --user start hyprland-session.target"
-        ];
-      };
-
       settings = {
         # [Variables](https://wiki.hyprland.org/Configuring/Variables/)
 
@@ -47,7 +38,7 @@ in
           border_size = 2;
           resize_on_border = true;
           layout = "dwindle";
-          allow_tearing = true;
+          #allow_tearing = true; #TODO wait for linux kernel >=6.8
         };
         dwindle = {
           # https://wiki.hyprland.org/Configuring/Dwindle-Layout/
@@ -277,7 +268,6 @@ in
           "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
           "${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
-          #"${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" # start polkit manually (isn't done automatically)
           "${pkgs.wluma}/bin/wluma"
         ];
 
@@ -302,17 +292,17 @@ in
 
     # Autostart Hyprland from tty
     programs.bash.profileExtra = ''
-      if [[ -z $DISPLAY && $(tty) =~ /dev/tty[1-4] && $XDG_SESSION_TYPE == tty ]]; then
+      if [[ -z $DISPLAY && $(tty) =~ /dev/tty[1-2] && $XDG_SESSION_TYPE == tty ]]; then
           exec Hyprland
       fi
     '';
     programs.zsh.loginExtra = ''
-      if [[ -z $DISPLAY && $(tty) =~ /dev/tty[1-4] && $XDG_SESSION_TYPE == tty ]]; then
+      if [[ -z $DISPLAY && $(tty) =~ /dev/tty[1-2] && $XDG_SESSION_TYPE == tty ]]; then
           exec Hyprland
       fi
     '';
     programs.fish.loginShellInit = ''
-      if test -z $DISPLAY; and tty | string match -r "/dev/tty[1-4]"; and test $XDG_SESSION_TYPE = tty
+      if test -z $DISPLAY; and tty | string match -r "/dev/tty[1-2]"; and test $XDG_SESSION_TYPE = tty
           exec Hyprland
       end
     '';

@@ -41,9 +41,8 @@ in
 
     systemd.user.services."polkit-gnome-authentication-agent-1" = {
       description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
+      wants = [ "hyprland-session.target" ];
+      after = [ "hyprland-session.target" ];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
@@ -51,9 +50,8 @@ in
         RestartSec = 1;
         TimeoutStopSec = 10;
       };
+      wantedBy = [ "hyprland-session.target" ];
     };
-
-    security.pam.services.swaylock = { }; # [swaylock fix](https://github.com/NixOS/nixpkgs/issues/158025)
 
     dafitt.displayManager.greetd.sessionPaths = [ "${config.programs.hyprland.package}/share/wayland-sessions" ];
   };
