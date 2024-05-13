@@ -15,7 +15,7 @@ in
     # https://github.com/gmodena/nix-flatpak?tab=readme-ov-file#getting-started
     services.flatpak = {
       enable = true;
-      #uninstallUnmanaged = true; # enable this for one activation for `error: No installed refs found for '<package>'`
+      #uninstallUnmanaged = true; # enable this for one activation if you get `error: No installed refs found for '<package>'`
 
       remotes = [
         { name = "flathub"; location = "https://dl.flathub.org/repo/flathub.flatpakrepo"; }
