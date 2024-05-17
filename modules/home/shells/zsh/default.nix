@@ -42,7 +42,7 @@ in
     };
 
     home.sessionVariables = {
-      PROMPT_EOL_MARK = ""; # remove the output of '%'
+      PROMPT_EOL_MARK = ""; # dont print '%'
     };
   };
 }

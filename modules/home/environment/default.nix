@@ -48,6 +48,8 @@ in
     home = {
       language.base = "en_US.UTF-8";
 
+      sessionPath = [ "$HOME/Desktop/binaries" ];
+
       shellAliases = {
         # skip an alias with #$ command ...
 
