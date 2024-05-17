@@ -10,10 +10,10 @@ with lib.dafitt;
   programs.git.enable = true;
 
   nix = {
-    package = pkgs.nix; # fixes error: nixVersions.unstable has been removed.
+    package = pkgs.nixVersions.latest;
 
     settings = {
-      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      experimental-features = [ "nix-command" "flakes" ];
       http-connections = 50;
       warn-dirty = false;
       log-lines = 50;
