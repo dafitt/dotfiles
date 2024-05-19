@@ -30,7 +30,6 @@ in
 
         # Terminal Bell
         enable_audio_bell = false;
-        visual_bell_duration = "1.0";
 
         # window layout
         window_border_width = "5px";
