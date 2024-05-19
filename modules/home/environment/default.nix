@@ -18,7 +18,6 @@ in
       duf # a better 'df'
       gnome.gnome-characters # character picker
       ncdu # disk usage analyzer with an ncurses interface
-      neofetch # quick system information tool
       pika-backup # Simple backups based on borg
       raider # file shredder
       tldr # simplified and community-driven man pages
@@ -68,7 +67,7 @@ in
         "....." = "cd ../../../..";
 
         # systemd
-        "systemctl" = "systemctl --no-pager --full";
+        systemctl = "systemctl --no-pager --full";
 
         # Colors
         grep = "grep --color=auto";
