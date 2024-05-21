@@ -18,5 +18,14 @@ in
   config = mkIf cfg.installExtraPackages {
     home.packages = with pkgs; [
     ];
+
+    services.flatpak = {
+      packages = [
+        { appId = "dev.geopjr.Collision"; origin = "flathub"; } # Hash checker for your files
+      ];
+      overrides = {
+        "dev.geopjr.Collision".Context.filesystems = [ "xdg-download:ro" ];
+      };
+    };
   };
 }
