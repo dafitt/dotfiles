@@ -100,7 +100,8 @@ in
 
           # [Peskyfox.js](https://github.com/yokoffing/Betterfox/blob/main/Peskyfox.js) overrides
           # DOWNLOADS
-          ''user_pref("browser.download.alwaysOpenPanel", false);'' # disable download panel opening on every downloadj
+          ''user_pref("browser.download.useDownloadDir", true);'' # dont ask where to download
+          ''user_pref("browser.download.alwaysOpenPanel", false);'' # disable download panel opening on every download
 
           # [Securefox.js](https://github.com/yokoffing/Betterfox/blob/main/Securefox.js) overrides
           # TRACKING PROTECTION
