@@ -33,6 +33,12 @@
     desktops.hyprland.pavucontrol.enable = desktops.hyprland.enable;
     desktops.hyprland.playerctl.enable = desktops.hyprland.enable;
     desktops.hyprland.plugins.enable = desktops.hyprland.enable;
+    desktops.hyprland.plugins.hypr-darkwindow.enable = false;
+    desktops.hyprland.plugins.hyprexpo.enable = false;
+    desktops.hyprland.plugins.hyprspace.enable = false;
+    desktops.hyprland.plugins.hyprsplit.enable = false;
+    desktops.hyprland.plugins.hyprtrails.enable = false;
+    desktops.hyprland.plugins.hyprwinwrap.enable = false;
     desktops.hyprland.pyprland.enable = desktops.hyprland.enable;
     desktops.hyprland.pyprland.magnify = desktops.hyprland.pyprland.enable;
     desktops.hyprland.swaybg.enable = false;
