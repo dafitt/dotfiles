@@ -33,6 +33,7 @@ in
             "--remember"
             "--remember-user-session"
             "--sessions ${concatStringsSep ":" cfg.sessionPaths}"
+            "--theme border=magenta;container=black;time=magenta;prompt=green;action=blue;button=yellow;text=cyan"
           ];
           user = "greeter";
         };
