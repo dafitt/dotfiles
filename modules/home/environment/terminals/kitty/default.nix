@@ -72,14 +72,10 @@ in
 
         new_tab
       '';
-      "kitty/wallpaper".text = ''
-        os_window_class wallpaper
+      "kitty/D".text = ''
+        os_window_class D
 
-        layout fat:mirrored=true;bias=60;full_size=1
         launch ${pkgs.btop}/bin/btop
-        launch ${pkgs.asciiquarium}/bin/asciiquarium
-        launch ${pkgs.peaclock}/bin/peaclock
-        launch ${pkgs.pipes}/bin/pipes.sh -f20 -s12 -t1
 
         new_tab
         launch --title "kitty" ${config.programs.kitty.package}/bin/kitten @
@@ -93,7 +89,7 @@ in
     home.sessionVariables.TERMINAL = mkIf isDefault "${getExe config.programs.kitty.package}";
 
     wayland.windowManager.hyprland.settings = {
-      exec-once = [ "[workspace name:D silent] ${config.programs.kitty.package}/bin/kitty --start-as=maximized --session wallpaper" ];
+      exec-once = [ "[workspace name:D silent] ${config.programs.kitty.package}/bin/kitty --start-as=maximized --session D" ];
       windowrulev2 = [
         "idleinhibit always, class:idleinhibitor, floating:1"
         "noborder, class:wallpaper"

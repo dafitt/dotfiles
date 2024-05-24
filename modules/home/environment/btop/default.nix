@@ -16,7 +16,12 @@ in
       settings = {
         # https://github.com/aristocratos/btop#configurability
         theme_background = false;
-        presets = "cpu:0:default";
+        presets = concatStringsSep " " [
+          "cpu:0:default"
+          "mem:0:default"
+          "net:0:default"
+          "proc:0:default"
+        ]; # for ricing
       };
     };
 

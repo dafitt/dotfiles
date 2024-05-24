@@ -41,6 +41,8 @@
     desktops.hyprland.plugins.hyprwinwrap.enable = false;
     desktops.hyprland.pyprland.enable = desktops.hyprland.enable;
     desktops.hyprland.pyprland.magnify = desktops.hyprland.pyprland.enable;
+    desktops.hyprland.ricing.enable = false;
+    desktops.hyprland.ricing.wallpaper.enable = desktops.hyprland.ricing.enable;
     desktops.hyprland.swaybg.enable = false;
     desktops.hyprland.swayosd.enable = desktops.hyprland.enable;
     desktops.hyprland.top.enable = desktops.hyprland.enable;
