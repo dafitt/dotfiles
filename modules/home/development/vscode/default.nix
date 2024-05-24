@@ -136,6 +136,7 @@ in
         "codesnap.showWindowControls" = false;
         "codesnap.transparentBackground" = true;
         "colorize.decoration_type" = "underline";
+        "githubPullRequests.remotes" = [ "origin" "upstream" "github" ];
         "gitlens.showWelcomeOnInstall" = false;
         "gitlens.showWhatsNewAfterUpgrades" = false;
         "gitlens.telemetry.enabled" = false;
