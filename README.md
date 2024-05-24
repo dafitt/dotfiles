@@ -57,17 +57,50 @@ My dotfiles are not perfekt and never will be (unfortunately), but they strive t
 On a new host machine:
 
 1. Install [NixOS](https://nixos.org/download/)
-2. `git clone https://github.com/dafitt/dotfiles.git`
-    1. Add a new system-configuration to _`/systems/<architecture>/<host>/default.nix`_ _(available `dafitt-nixos` options can be found at [/templates/system/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix))_
-    2. Copy, import and commit _`hardware-configuration.nix`_!
-    3. Set the correct `system.stateVersion`
-    4. Add a new home-configuration to _`homes/<architecture>/<user>[@<host>]/default.nix`_ _(available `dafitt-home` options can be found at [/templates/home/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix))_
-3. Remove some files for home-manager (or back them up): `rm ~/.config/user-dirs.dirs ~/.config/fish/config.fish ~/.config/hypr/hyprland.conf`
-4. `sudo nixos-rebuild boot --flake .#<host>`
+
+2. Dotfiles preparation: mandatory changes to my dotfiles
+
+    1. `git clone https://github.com/dafitt/dotfiles.git`
+
+    2. Add a new system-configuration to _`/systems/<architecture>/<host>/default.nix`_
+       _(available `dafitt-nixos` options can be found at [templates/system/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix))_
+
+    3. Copy and import _`hardware-configuration.nix`_!
+
+    4. Set the correct `system.stateVersion`
+
+    5. Add a new home-configuration to _`homes/<architecture>/<user>[@<host>]/default.nix`_
+       _(available `dafitt-home` options can be found at [templates/home/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix))_
+
+    6. Commit all changes:
+
+        ```
+        git add . && git commit -m "systems: added new host"
+        ```
+
+    7. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) for your first build
+
+3. System preparation
+
+    1. Remove (or save) some files for the Home-manager so that the first build is not interrupted:
+        ```
+        rm ~/.config/user-dirs.dirs ~/.config/mimeapps.list ~/.config/fish/config.fish ~/.config/hypr/hyprland.conf
+        ```
+
+4. Build
+
+    1. `nix-shell` and then `nix develop`
+
+    2. `sudo nixos-rebuild boot --flake .#<host>`
+
+    3. Check for home-manager errors `systemctl status home-manager-<user>.service` and resolve them if necessary
+
     - _NOTE First install: may take some time; especially flatpaks_
-    1. Check for home-manager errors `systemctl status home-manager-<user>.service` and resolve them if necessary
+
 5. `reboot`
+
 6. Personal imperative setup:
+
     1. Configure monitor setup with `nwg-displays`
     2. [Syncthing](https://localhost:8384/) setup
     3. firefox: Sync Login
