@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.environment.syncthing = with types; {
-    enable = mkBoolOpt config.dafitt.environment.enable "Enable syncthing, a tool to sync files with other devices";
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable syncthing, a tool to sync files with other devices.";
   };
 
   config = mkIf cfg.enable {

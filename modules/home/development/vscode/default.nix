@@ -9,7 +9,7 @@ in
   imports = [ ./mkMutable.nix ];
 
   options.dafitt.development.vscode = with types; {
-    enable = mkBoolOpt config.dafitt.development.enableSuite "Enable vscode";
+    enable = mkBoolOpt config.dafitt.development.enableSuite "Enable vscode.";
     autostart = mkBoolOpt true "Start vscode on login";
     defaultApplication = mkBoolOpt true "Set vscode as the default application for its mimetypes";
   };
@@ -292,7 +292,7 @@ in
       globalSnippets = {
         fixme = {
           body = [ "$LINE_COMMENT FIXME= $0" ];
-          description = "Insert a FIXME remark";
+          description = "Insert a FIXME remark.";
           prefix = [ "fixme" ];
         };
       };

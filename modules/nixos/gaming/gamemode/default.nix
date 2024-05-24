@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gaming.gamemode = with types; {
-    enable = mkBoolOpt config.dafitt.gaming.enableSuite "Enable the gamemode command";
+    enable = mkBoolOpt config.dafitt.gaming.enableSuite "Enable the gamemode command.";
   };
 
   config = mkIf cfg.enable {

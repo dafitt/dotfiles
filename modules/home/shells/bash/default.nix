@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.shells.bash = with types; {
-    enable = mkBoolOpt false "Enable bourne-again shell's configuration";
+    enable = mkBoolOpt false "Enable bourne-again shell's configuration.";
   };
 
   config = mkIf cfg.enable {

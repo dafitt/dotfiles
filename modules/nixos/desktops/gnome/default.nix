@@ -29,7 +29,7 @@ let
 in
 {
   options.dafitt.desktops.gnome = with types; {
-    enable = mkBoolOpt false "Enable the Gnome desktop environment";
+    enable = mkBoolOpt false "Enable the Gnome desktop environment.";
   };
 
   config = mkIf cfg.enable {

@@ -10,7 +10,7 @@ let
 in
 {
   options.dafitt.web.librewolf = with types; {
-    enable = mkBoolOpt (config.dafitt.web.enableSuite || isDefault) "Enable the librewolf web browser";
+    enable = mkBoolOpt (config.dafitt.web.enableSuite || isDefault) "Enable the librewolf web browser.";
   };
 
   config = mkIf cfg.enable {

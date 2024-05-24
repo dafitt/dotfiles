@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.appimage = with types; {
-    enable = mkBoolOpt false "Enable appimage support";
+    enable = mkBoolOpt false "Enable appimage support.";
   };
 
   config = mkIf cfg.enable {

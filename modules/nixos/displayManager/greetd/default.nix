@@ -7,9 +7,9 @@ let
 in
 {
   options.dafitt.displayManager.greetd = with types; {
-    enable = mkBoolOpt (config.dafitt.displayManager.enable == "greetd") "Enable greetd as the login/display manager";
+    enable = mkBoolOpt (config.dafitt.displayManager.enable == "greetd") "Enable greetd as the login/display manager.";
     sessionPaths = mkOption {
-      description = "List of paths to search for session files";
+      description = "List of paths to search for session files.";
       type = listOf str;
       default = [ ]; #NOTE Is set from the nixos/desktops-modules
       example = [

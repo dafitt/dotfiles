@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.plugins.hyprwinwrap = with types; {
-    enable = mkBoolOpt false "Enable hyprwinwrap hyprland plugin";
+    enable = mkBoolOpt false "Enable hyprwinwrap hyprland plugin.";
   };
 
   config = mkIf cfg.enable {

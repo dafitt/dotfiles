@@ -28,7 +28,7 @@ with lib;
   };
 
   systemd.services."wg-quick-DavidVPN-restart" = {
-    description = "restart DavidVPN"; # because of endpoint's dyndns
+    description = "restart DavidVPN."; # because of endpoint's dyndns
     wants = [ "network-online.target" ];
     after = [ "nss-lookup.target" ];
     serviceConfig = {

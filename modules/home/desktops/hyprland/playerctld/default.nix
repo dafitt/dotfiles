@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.playerctl = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable playerctl for hyprland";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable playerctl for hyprland.";
   };
 
   config = mkIf cfg.enable {

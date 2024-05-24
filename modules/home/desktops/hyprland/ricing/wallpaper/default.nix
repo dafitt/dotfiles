@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.ricing.wallpaper = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.ricing.enable "Enable wallpaper ricing";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.ricing.enable "Enable wallpaper ricing.";
   };
 
   config = mkIf cfg.enable {

@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.networking = with types; {
-    enable = mkOpt (nullOr (enum [ "connman" "networkmanager" ])) "networkmanager" "Which network manager to use";
+    enable = mkOpt (nullOr (enum [ "connman" "networkmanager" ])) "networkmanager" "Which network manager to use.";
   };
 
   config = {

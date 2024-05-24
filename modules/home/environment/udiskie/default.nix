@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.environment.udiskie = with types; {
-    enable = mkBoolOpt config.dafitt.environment.enable "Enable the udiskie mount helper";
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable the udiskie mount helper.";
   };
 
   config = mkIf cfg.enable {

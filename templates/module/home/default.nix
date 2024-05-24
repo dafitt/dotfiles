@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.MODULE = with types; {
-    enable = mkBoolOpt (osCfg.enable or false) "Enable MODULE";
+    enable = mkBoolOpt (osCfg.enable or false) "Enable MODULE.";
   };
 
   config = mkIf cfg.enable { };

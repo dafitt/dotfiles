@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gaming.steam = with types; {
-    enable = mkBoolOpt config.dafitt.gaming.enableSuite "Enable steam";
+    enable = mkBoolOpt config.dafitt.gaming.enableSuite "Enable steam.";
   };
 
   config = mkIf cfg.enable {

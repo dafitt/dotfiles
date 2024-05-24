@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.office.scribus = with types; {
-    enable = mkBoolOpt config.dafitt.office.enableSuite "Enable scribus";
+    enable = mkBoolOpt config.dafitt.office.enableSuite "Enable scribus.";
   };
 
   config = mkIf cfg.enable {

@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.shells.zsh = with types;{
-    enable = mkBoolOpt (osCfg.enable or false) "Enable zsh shell";
+    enable = mkBoolOpt (osCfg.enable or false) "Enable zsh shell.";
   };
 
   config = mkIf cfg.enable {

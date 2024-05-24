@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.hyprpaper = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable hyprpaper";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable hyprpaper.";
   };
 
   config = mkIf cfg.enable {

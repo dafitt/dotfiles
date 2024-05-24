@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.environment.fastfetch = with types; {
-    enable = mkBoolOpt config.dafitt.environment.enable "Enable fastfetch";
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable fastfetch.";
   };
 
   config = mkIf cfg.enable {

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.virtualization.virt-manager = with types; {
-    enable = mkBoolOpt false "Enable virt-manager, a graphical tool for managing virtual machines";
+    enable = mkBoolOpt false "Enable virt-manager, a graphical tool for managing virtual machines.";
   };
 
   config = mkIf cfg.enable {

@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.virtualizaion.virt-manager = with types; {
-    enable = mkBoolOpt (osCfg.enable or false) "Enable virt-manager";
+    enable = mkBoolOpt (osCfg.enable or false) "Enable virt-manager.";
   };
 
   config = mkIf cfg.enable {

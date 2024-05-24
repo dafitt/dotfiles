@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.printing = with types; {
-    enable = mkBoolOpt false "Enable the ability to print documents from your system";
+    enable = mkBoolOpt false "Enable the ability to print documents from your system.";
   };
 
   config = mkIf cfg.enable {

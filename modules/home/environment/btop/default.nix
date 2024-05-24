@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.environment.btop = with types; {
-    enable = mkBoolOpt config.dafitt.environment.enable "Enable a btop";
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable a btop.";
   };
 
   config = mkIf cfg.enable {

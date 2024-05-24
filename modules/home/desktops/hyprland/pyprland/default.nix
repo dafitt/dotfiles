@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.pyprland = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable pyprland an hyperland plugin system";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable pyprland an hyperland plugin system.";
     #scratchpads = mkBoolOpt cfg.enable "Enable the scratchpads plugin";
     magnify = mkBoolOpt cfg.enable "Enable the magnify plugin";
   };
@@ -18,7 +18,7 @@ in
 
     systemd.user.services.pyprland = {
       Unit = {
-        Description = "Helper tool for Hyprland";
+        Description = "helper tool for Hyprland.";
         PartOf = [ "hyprland-session.target" ];
         After = [ "hyprland-session.target" ];
         ConditionEnvironment = "WAYLAND_DISPLAY";

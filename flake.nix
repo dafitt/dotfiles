@@ -83,5 +83,5 @@
     };
   };
 
-  description = "Dafitt's desktop flake";
+  description = "Dafitt's desktop flake.";
 }

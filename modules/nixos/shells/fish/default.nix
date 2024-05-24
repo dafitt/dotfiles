@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.shells.fish = with types; {
-    enable = mkBoolOpt true "Enable fish shell";
+    enable = mkBoolOpt true "Enable fish shell.";
   };
 
   config = mkIf cfg.enable {

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.pavucontrol = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable the pavucontrol, PulseAudio Volume Control";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable the pavucontrol, PulseAudio Volume Control.";
   };
 
   config = mkIf cfg.enable {

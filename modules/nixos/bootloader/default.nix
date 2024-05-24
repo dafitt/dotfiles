@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.bootloader = with types;{
-    enable = mkOpt (nullOr (enum [ "grub" "systemd-boot" ])) "systemd-boot" "Which bootloader to use";
+    enable = mkOpt (nullOr (enum [ "grub" "systemd-boot" ])) "systemd-boot" "Which bootloader to use.";
   };
 
   config = {

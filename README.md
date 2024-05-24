@@ -421,7 +421,7 @@ Optionally:
 Check if your option is being set through `osCfg`. Like this:
 
 ```nix
-enable = mkBoolOpt (osCfg.enable or config.dafitt.gaming.enableSuite) "Enable steam";
+enable = mkBoolOpt (osCfg.enable or config.dafitt.gaming.enableSuite) "Enable steam.";
 ```
 
 If that is the case and `osCfg.enable` is not `null` then the `osCfg`-option will be preferred. Even if it is `false`.

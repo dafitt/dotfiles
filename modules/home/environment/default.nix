@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.environment = with types; {
-    enable = mkBoolOpt true "Enable my personal common environment (programs/services/variables) not paticular to any suite";
+    enable = mkBoolOpt true "Enable my personal common environment (programs/services/variables) not paticular to any suite.";
   };
 
   config = mkIf cfg.enable {

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland = with types; {
-    enable = mkBoolOpt true "Enable the Hyprland desktop environment";
+    enable = mkBoolOpt true "Enable the Hyprland desktop environment.";
   };
 
   config = mkIf cfg.enable {
@@ -45,7 +45,7 @@ in
     };
 
     systemd.user.services."polkit-gnome-authentication-agent-1" = {
-      description = "polkit-gnome-authentication-agent-1";
+      description = "polkit-gnome-authentication-agent-1.";
       wants = [ "hyprland-session.target" ];
       after = [ "hyprland-session.target" ];
       serviceConfig = {

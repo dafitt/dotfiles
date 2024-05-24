@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.development.nix-ld = with types; {
-    enable = mkBoolOpt config.dafitt.development.enableSuite "Allow running unpatched dynamic binaries on NixOS";
+    enable = mkBoolOpt config.dafitt.development.enableSuite "Allow running unpatched dynamic binaries on NixOS.";
   };
 
   config = mkIf cfg.enable {

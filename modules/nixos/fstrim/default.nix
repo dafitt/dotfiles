@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.fstrim = with types; {
-    enable = mkBoolOpt true "Enable fstrim, a utility to trim unused blocks on a filesystem periodically";
+    enable = mkBoolOpt true "Enable fstrim, a utility to trim unused blocks on a filesystem periodically.";
   };
 
   config = mkIf cfg.enable {

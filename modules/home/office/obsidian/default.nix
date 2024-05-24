@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.office.obsidian = with types; {
-    enable = mkBoolOpt config.dafitt.office.enableSuite "Enable obsidian";
+    enable = mkBoolOpt config.dafitt.office.enableSuite "Enable obsidian.";
   };
 
   config = mkIf cfg.enable {

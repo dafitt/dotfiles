@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.environment._1password = with types; {
-    enable = mkBoolOpt config.dafitt.environment.enable "Enable _1password";
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable _1password.";
   };
 
   config = mkIf cfg.enable {

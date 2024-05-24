@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.plugins = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable plugins for hyprland, which are not set to false by default";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable plugins for hyprland, which are not set to false by default.";
   };
 
   config = mkIf cfg.enable { };

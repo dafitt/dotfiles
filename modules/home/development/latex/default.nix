@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.development.latex = with types; {
-    enable = mkBoolOpt false "Enable latex editing"; # disabled by default because of very large download size (~6GB)
+    enable = mkBoolOpt false "Enable latex editing."; # disabled by default because of very large download size (~6GB)
   };
 
   config = mkIf cfg.enable {

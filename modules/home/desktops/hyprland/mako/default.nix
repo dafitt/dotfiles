@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.mako = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable mako for hyprland";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable mako for hyprland.";
   };
 
   config = mkIf cfg.enable {

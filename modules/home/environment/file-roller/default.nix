@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.environment.file-roller = with types; {
-    enable = mkBoolOpt config.dafitt.environment.enable "Enable the file-roller archive manager";
+    enable = mkBoolOpt config.dafitt.environment.enable "Enable the file-roller archive manager.";
     defaultApplication = mkBoolOpt true "Set file-roller as the default application for its mimetypes";
 
   };

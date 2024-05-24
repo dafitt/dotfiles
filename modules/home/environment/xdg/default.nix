@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.environment.xdg = with types; {
-    enable = mkBoolOpt true "Whether or not to set up basic xdg settings";
+    enable = mkBoolOpt true "Whether or not to set up basic xdg settings.";
   };
 
   config = mkIf cfg.enable {
