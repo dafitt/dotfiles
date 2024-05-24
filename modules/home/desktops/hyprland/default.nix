@@ -169,6 +169,7 @@ in
           "SUPER_ALT, up, resizeactive, 0 -100"
           "SUPER_ALT, down, resizeactive, 0 100"
 
+        ] ++ optionals (!config.dafitt.desktops.hyprland.plugins.hyprsplit.enable) [
           # Workspace control
           "SUPER, 1, workspace, 1"
           "SUPER, 2, workspace, 2"
@@ -194,6 +195,10 @@ in
           "SUPER, code:86, workspace, +1" # Numpad +
           "SUPER, code:82, workspace, -1" # Numpad -
           "SUPER, backspace, workspace, previous"
+          "SUPER, mouse_down, workspace, -1"
+          "SUPER, mouse_up, workspace, +1"
+
+          # Move active window to a workspace
           "SUPER_SHIFT, 1, movetoworkspacesilent, 1"
           "SUPER_SHIFT, 2, movetoworkspacesilent, 2"
           "SUPER_SHIFT, 3, movetoworkspacesilent, 3"
@@ -216,15 +221,15 @@ in
           "SUPER_SHIFT, code:91, movetoworkspacesilent, 10" # Numpad
           "SUPER_SHIFT, code:86, movetoworkspacesilent, +1" # Numpad +
           "SUPER_SHIFT, code:82, movetoworkspacesilent, -1" # Numpad -
-          "SUPER, mouse_down, workspace, -1"
-          "SUPER, mouse_up, workspace, +1"
 
+        ] ++ [
           # Monitor control
           "SUPER_CTRL, left, movecurrentworkspacetomonitor, l"
           "SUPER_CTRL, right, movecurrentworkspacetomonitor, r"
           "SUPER_CTRL, up, movecurrentworkspacetomonitor, u"
           "SUPER_CTRL, down, movecurrentworkspacetomonitor, d"
 
+        ] ++ [
           # Screenshots
           ", PRINT, exec, ${getExe grimblast} copysave output ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN
           "CONTROL, PRINT, exec, ${getExe grimblast} --notify --freeze copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA
