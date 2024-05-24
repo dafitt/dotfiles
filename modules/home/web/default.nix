@@ -9,13 +9,12 @@ in
 {
   options.dafitt.web = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or true) "Enable the web suite";
-    installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra web packages";
 
     default = mkOpt (nullOr (enum [ "epiphany" "firefox" "librewolf" ])) "firefox" "Which web browser is to be used primarily";
     autostart = mkBoolOpt true "Start the web browser on login";
   };
 
-  config = mkIf cfg.installExtraPackages {
+  config = mkIf cfg.enableSuite {
     home.packages = with pkgs; [
     ];
 

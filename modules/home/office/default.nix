@@ -9,10 +9,9 @@ in
 {
   options.dafitt.office = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the office suite";
-    installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra office packages";
   };
 
-  config = mkIf cfg.installExtraPackages {
+  config = mkIf cfg.enableSuite {
     home.packages = with pkgs; [
       cantarell-fonts
       hunspell # Spell checking

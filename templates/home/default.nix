@@ -50,7 +50,6 @@
     desktops.hyprland.wlsunset.enable = desktops.hyprland.enable;
 
     development.enableSuite = osCfg.enableSuite or false;
-    development.installExtraPackages = development.enableSuite;
     development.direnv.enable = !osCfg.enable or development.enableSuite;
     development.git.enable = development.enableSuite;
     development.latex.enable = false;
@@ -59,7 +58,6 @@
     development.vscode.defaultApplication = true;
 
     editing.enableSuite = osCfg.enableSuite or false;
-    editing.installExtraPackages = editing.enableSuite;
 
     environment.enable = true;
     environment._1password.enable = environment.enable;
@@ -91,16 +89,13 @@
     flatpak.enable = osCfg.enable or true;
 
     gaming.enableSuite = osCfg.enableSuite or false;
-    gaming.installExtraPackages = gaming.enableSuite;
     gaming.steam.enable = gaming.enableSuite;
 
     music.enableSuite = osCfg.enableSuite or false;
-    music.installExtraPackages = music.enableSuite;
 
     networking.connman.enable = osCfg.enable or false;
 
     office.enableSuite = osCfg.enableSuite or false;
-    office.installExtraPackages = office.enableSuite;
     office.evince.enable = office.enableSuite;
     office.evince.defaultApplication = true;
     office.obsidian.enable = office.enableSuite;
@@ -108,7 +103,6 @@
     office.thunderbird.enable = office.enableSuite;
 
     ricing.enableSuite = osCfg.enableSuite or false;
-    ricing.installExtraPackages = ricing.enableSuite;
 
     shells.bash.enable = false;
     shells.fish.enable = osCfg.enable or false;
@@ -116,14 +110,11 @@
     shells.zsh.enable = osCfg.enable or false;
 
     social.enableSuite = osCfg.enableSuite or false;
-    social.installExtraPackages = social.enableSuite;
 
     virtualizaion.enableSuite = osCfg.enableSuite or false;
-    virtualizaion.installExtraPackages = virtualizaion.enableSuite;
     virtualizaion.virt-manager.enable = osCfg.enable or false;
 
     web.enableSuite = osCfg.enableSuite or false;
-    web.installExtraPackages = web.enableSuite;
     web.default = "firefox"; # null or one of [ "epiphany" "firefox" "librewolf" ]
     web.autostart = true;
     web.epiphany.enable = web.enableSuite || web.default == "epiphany";

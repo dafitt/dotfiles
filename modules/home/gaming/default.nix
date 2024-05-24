@@ -9,10 +9,9 @@ in
 {
   options.dafitt.gaming = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the gaming suite";
-    installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra gaming packages";
   };
 
-  config = mkIf cfg.installExtraPackages {
+  config = mkIf cfg.enableSuite {
     home.packages = with pkgs; [
     ];
   };

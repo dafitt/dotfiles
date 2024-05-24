@@ -9,11 +9,11 @@ in
 {
   options.dafitt.music = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the music suite";
-    installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra music packages";
   };
 
-  config = mkIf cfg.installExtraPackages {
-    home.packages = with pkgs; [ ];
+  config = mkIf cfg.enableSuite {
+    home.packages = with pkgs; [
+    ];
 
     services.flatpak.packages = [
       "io.bassi.Amberol"

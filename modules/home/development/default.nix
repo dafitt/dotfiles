@@ -9,10 +9,9 @@ in
 {
   options.dafitt.development = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the development suite";
-    installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra development packages";
   };
 
-  config = mkIf cfg.installExtraPackages {
+  config = mkIf cfg.enableSuite {
     home.packages = with pkgs; [
       (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
       clang-tools # clangd for c/c++

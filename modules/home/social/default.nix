@@ -9,10 +9,9 @@ in
 {
   options.dafitt.social = with types; {
     enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the social suite";
-    installExtraPackages = mkBoolOpt cfg.enableSuite "Install extra social packages";
   };
 
-  config = mkIf cfg.installExtraPackages {
+  config = mkIf cfg.enableSuite {
     home.packages = with pkgs; [
     ];
 
