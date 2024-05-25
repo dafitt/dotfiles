@@ -22,7 +22,8 @@
     development.enableSuite = true;
     flatpak.enable = true;
     networking.enable = "connman";
-    syncthing.openFirewall = true;
+    networking.firewall.allowLocalsend = true;
+    networking.firewall.allowSyncthing = true;
     virtualization.virt-manager.enable = true;
   };
 }

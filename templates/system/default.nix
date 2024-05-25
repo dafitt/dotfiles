@@ -51,14 +51,14 @@
     locale.enable = true;
 
     networking.enable = "networkmanager"; # null or one of [ "connman" "networkmanager" ]
+    networking.firewall.allowLocalsend = false;
+    networking.firewall.allowSyncthing = false;
 
     printing.enable = false;
 
     security.doas.enable = false;
 
     shells.fish.enable = true;
-
-    syncthing.openFirewall = false;
 
     time.enable = true;
 

@@ -19,7 +19,8 @@
     flatpak.enable = true;
     fwupd.enable = true;
     gaming.enableSuite = true;
-    syncthing.openFirewall = true;
+    networking.firewall.allowLocalsend = true;
+    networking.firewall.allowSyncthing = true;
     virtualization.virt-manager.enable = true;
   };
 }
