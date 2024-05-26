@@ -19,7 +19,7 @@ in
       os_window_class wallpaper
 
       layout fat:bias=66;full_size=2;mirrored=true
-      launch ${pkgs.cava}/bin/cava
+      launch ${config.programs.cava.package}/bin/cava
       launch ${config.programs.btop.package}/bin/btop --preset 1
       launch ${pkgs.asciiquarium}/bin/asciiquarium
       launch ${pkgs.peaclock}/bin/peaclock

@@ -14,7 +14,6 @@ in
   config = mkIf cfg.enableSuite {
     home.packages = with pkgs; [
       asciiquarium # aquarium in your terminal
-      cava # console-based Audio Visualizer for Alsa
       cbonsai # grow bonsai trees in your terminal
       cowsay
       fortune
