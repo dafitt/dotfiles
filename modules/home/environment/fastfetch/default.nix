@@ -15,9 +15,7 @@ in
     programs.fastfetch = {
       enable = true;
       settings = {
-        logo = {
-          separate = true;
-        };
+        logo = { };
         display = {
           binaryPrefix = "si";
           color = {

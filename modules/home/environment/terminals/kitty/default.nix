@@ -64,7 +64,7 @@ in
       };
     };
 
-    #$ kitty --session
+    #$ kitty --session idleinhibitor
     xdg.configFile = {
       "kitty/idleinhibitor".text = ''
         os_window_class idleinhibitor
@@ -84,7 +84,7 @@ in
     } // optionalAttrs isDefault {
       bind = [
         "SUPER, RETURN, exec, ${getExe config.programs.kitty.package}"
-        "SUPER_ALT, T, exec, ${getExe config.programs.kitty.package}"
+        #"SUPER_ALT, T, exec, ${getExe config.programs.kitty.package}" # pyprland: scrachpad.kitty
       ];
     };
   };

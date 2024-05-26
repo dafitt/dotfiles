@@ -14,9 +14,6 @@ in
     home.packages = with pkgs; [ pavucontrol ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = [
-        "SUPER_ALT, A, exec, ${pkgs.pavucontrol}/bin/pavucontrol"
-      ];
       windowrulev2 = [
         "float, class:pavucontrol, title:^(Volume Control)$"
         "center, class:pavucontrol, title:^(Volume Control)$"

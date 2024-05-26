@@ -27,36 +27,38 @@ in
       #TODO when nix module is upstreamed move scratchpads configuration to its application module
       scratchpads.btop = {
         animation = "fromTop";
-        command = "${config.home.sessionVariables.TERMINAL} --class btop ${config.programs.btop.package}/bin/btop";
+        command = "${config.home.sessionVariables.TERMINAL} --class btop ${getExe config.programs.btop.package}";
         class = "btop";
         size = "90% 90%";
         margin = "2%";
         lazy = true;
       };
-      #scratchpads.term = {
-      #  animation = "fromTop";
-      #  command = "${config.home.sessionVariables.TERMINAL} --class dropterm";
-      #  class = "dropterm";
-      #  size = "75% 60%";
-      #  max_size = "100% 100%";
-      #  margin = 50;
-      #};
-      #scratchpads.volume = {
-      #  animation = "fromRight";
-      #  command = "pavucontrol";
-      #  class = "pavucontrol";
-      #  size = "40% 70%";
-      #  unfocus = "hide";
-      #  lazy = true;
-      #};
+      scratchpads.kitty = {
+        animation = "fromTop";
+        command = "${config.programs.kitty.package}/bin/kitty --class dropterm --hold ${getExe config.programs.fastfetch.package}";
+        class = "dropterm";
+        size = "90% 90%";
+        margin = "2%";
+        lazy = true;
+      };
+      scratchpads.pavucontrol = {
+        animation = "fromRight";
+        command = "${pkgs.pavucontrol}/bin/pavucontrol";
+        class = "pavucontrol";
+        size = "40% 70%";
+        margin = "2%";
+        unfocus = "hide";
+        lazy = true;
+      };
     };
 
     wayland.windowManager.hyprland.settings = {
       bind =
         optionals cfg.scratchpads [
-          "SUPER_ALT , P, exec, pypr toggle btop" #TODO upstream "*" support (hide all scratchpads with `ESC`)
-          #  "SUPER_ALT , T, exec, pypr toggle term"
-          #  "SUPER_ALT , A, exec, pypr toggle volume"
+          #TODO upstream "*" support (hide all scratchpads with `ESC`)
+          "SUPER_ALT , P, exec, pypr toggle btop"
+          "SUPER_ALT , T, exec, pypr toggle kitty"
+          "SUPER_ALT , A, exec, pypr toggle pavucontrol"
         ] ++
         optionals cfg.magnify [
           "SUPER, Z, exec, pypr zoom"
@@ -80,6 +82,7 @@ in
         ExecStart = "${pkgs.pyprland}/bin/pypr";
         ExecStop = "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/rm /tmp/.pypr-*/.pyprland.sock'";
         Restart = "always";
+        X-Restart-Triggers = [ "${config.xdg.configFile."hypr/pyprland.toml".source}" ];
       };
       Install = {
         WantedBy = [ "hyprland-session.target" ];

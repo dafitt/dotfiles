@@ -14,6 +14,7 @@ in
     dafitt.desktops.hyprland.plugins.hyprwinwrap.enable = true;
 
     # https://sw.kovidgoyal.net/kitty/overview/#startup-sessions
+    #$ kitty --session wallpaper
     xdg.configFile."kitty/wallpaper".text = ''
       os_window_class wallpaper
 
