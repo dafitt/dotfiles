@@ -72,27 +72,14 @@ in
 
         new_tab
       '';
-      "kitty/D".text = ''
-        os_window_class D
-
-        launch ${pkgs.btop}/bin/btop
-
-        new_tab
-        launch --title "kitty" ${config.programs.kitty.package}/bin/kitten @
-
-        new_tab
-        launch
-      '';
     };
 
     # this option is being used by other modules
     home.sessionVariables.TERMINAL = mkIf isDefault "${getExe config.programs.kitty.package}";
 
     wayland.windowManager.hyprland.settings = {
-      exec-once = [ "[workspace name:D silent] ${config.programs.kitty.package}/bin/kitty --start-as=maximized --session D" ];
       windowrulev2 = [
         "idleinhibit always, class:idleinhibitor, floating:1"
-        "noborder, class:wallpaper"
       ];
     } // optionalAttrs isDefault {
       bind = [

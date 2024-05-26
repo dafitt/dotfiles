@@ -24,15 +24,5 @@ in
         ]; # for ricing
       };
     };
-
-    wayland.windowManager.hyprland.settings = {
-      bind = [ "SUPER_ALT, P, exec, ${config.home.sessionVariables.TERMINAL} -e ${config.programs.btop.package}/bin/btop" ];
-      windowrulev2 = [
-        "float, title:^btop$, class:kitty" #TODO move to a scratchapd
-        "size 90% 90%, title:^btop$"
-        "minsize 800 530, title:^btop$"
-        "center, title:^btop$"
-      ];
-    };
   };
 }
