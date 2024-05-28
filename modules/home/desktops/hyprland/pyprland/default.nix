@@ -55,18 +55,18 @@ in
     wayland.windowManager.hyprland.settings = {
       bind =
         optionals cfg.scratchpads [
-          #TODO upstream "*" support (hide all scratchpads with `ESC`)
-          "SUPER_ALT , P, exec, pypr toggle btop"
-          "SUPER_ALT , T, exec, pypr toggle kitty"
-          "SUPER_ALT , A, exec, pypr toggle pavucontrol"
+          #TODO pypr>=2.3.5: ", Escape, exec, ${pkgs.pyprland}/bin/pypr hide '*'"
+          "SUPER_ALT, P, exec, ${pkgs.pyprland}/bin/pypr toggle btop"
+          "SUPER_ALT, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty"
+          "SUPER_ALT, A, exec, ${pkgs.pyprland}/bin/pypr toggle pavucontrol"
         ] ++
         optionals cfg.magnify [
-          "SUPER, Z, exec, pypr zoom"
-          "SUPER, minus, exec, pypr zoom --0.5"
-          "SUPER, plus, exec, pypr zoom ++0.5"
-          "SUPER_ALT, mouse_down, exec, pypr zoom ++0.5"
-          "SUPER_ALT, mouse_up, exec, pypr zoom --0.5"
-          "SUPER_ALT, mouse:274, exec, pypr zoom"
+          "SUPER, Z, exec, ${pkgs.pyprland}/bin/pypr zoom"
+          "SUPER, minus, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
+          "SUPER, plus, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
+          "SUPER_ALT, mouse_down, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
+          "SUPER_ALT, mouse_up, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
+          "SUPER_ALT, mouse:274, exec, ${pkgs.pyprland}/bin/pypr zoom"
         ];
     };
 

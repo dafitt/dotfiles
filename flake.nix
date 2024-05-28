@@ -27,6 +27,10 @@
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/wamserma/flake-programs-sqlite
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/tags/v0.4.1"; # https://github.com/gmodena/nix-flatpak/tags
+
+    # for development; see overlays/-git/default.nix
+    #$ nix flake lock --update-input <input>
+    pyprland.url = "github:hyprland-community/pyprland";
   };
 
   #NOTE uncomment and enter `nix develop` on your first build for faster build time
