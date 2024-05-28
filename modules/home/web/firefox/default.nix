@@ -102,6 +102,8 @@ in
           # DOWNLOADS
           ''user_pref("browser.download.useDownloadDir", true);'' # dont ask where to download
           ''user_pref("browser.download.alwaysOpenPanel", false);'' # disable download panel opening on every download
+          # TAB BEHAVIOR
+          ''user_pref("browser.link.open_newwindow.restriction", 0);''
 
           # [Securefox.js](https://github.com/yokoffing/Betterfox/blob/main/Securefox.js) overrides
           # TRACKING PROTECTION
@@ -155,6 +157,7 @@ in
           to-deepl
           ublock-origin
           undoclosetabbutton
+          user-agent-string-switcher
           youtube-recommended-videos
 
           # personal
