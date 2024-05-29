@@ -73,7 +73,7 @@ in
     #TODO upstream systemd service unit
     systemd.user.services.pyprland = {
       Unit = {
-        Description = "helper tool for Hyprland.";
+        Description = "helper tool for Hyprland";
         PartOf = [ "hyprland-session.target" ];
         After = [ "hyprland-session.target" ];
         ConditionEnvironment = "WAYLAND_DISPLAY";
@@ -85,9 +85,7 @@ in
         Restart = "always";
         X-Restart-Triggers = [ "${config.xdg.configFile."hypr/pyprland.toml".source}" ];
       };
-      Install = {
-        WantedBy = [ "hyprland-session.target" ];
-      };
+      Install.WantedBy = [ "hyprland-session.target" ];
     };
   };
 }

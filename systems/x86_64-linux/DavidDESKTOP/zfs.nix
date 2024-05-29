@@ -11,7 +11,7 @@
 
   # spin down hard drives
   systemd.services."hd-idle" = {
-    description = "external HD spin down daemon.";
+    description = "external HD spin down daemon";
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = ''${pkgs.hd-idle}/bin/hd-idle -i 0 \
