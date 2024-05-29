@@ -26,8 +26,20 @@ in
       launch ${pkgs.asciiquarium}/bin/asciiquarium
     '';
 
-    wayland.windowManager.hyprland.settings.exec-once = [
-      "${config.programs.kitty.package}/bin/kitty --session wallpaper --override background_opacity=0"
-    ];
+    systemd.user.services."hyprland-ricing-wallpaper" = {
+      Install.WantedBy = [ "hyprland-session.target" ];
+      Unit = {
+        ConditionEnvironment = "WAYLAND_DISPLAY";
+        Description = "ricing wallpaper";
+        After = [ "hyprland-session.target" ];
+        PartOf = [ "hyprland-session.target" ];
+        X-Restart-Triggers = [ "${config.xdg.configFile."kitty/wallpaper".source}" ];
+      };
+      Service = {
+        Environment = [ "PATH=/run/current-system/sw/bin" ];
+        ExecStart = "${config.programs.kitty.package}/bin/kitty --session wallpaper --override background_opacity=0";
+        Restart = "always";
+      };
+    };
   };
 }

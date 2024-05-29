@@ -18,7 +18,7 @@ in
         general = {
           sleep_timer = 60;
         };
-        smoothing.noise_reduction = 55;
+        smoothing.noise_reduction = 48;
         color = {
           gradient = 1;
           gradient_count = 8;
