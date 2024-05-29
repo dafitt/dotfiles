@@ -20,7 +20,7 @@ in
 
       layout fat:bias=66;full_size=2;mirrored=true
       launch ${config.programs.cava.package}/bin/cava
-      launch ${config.programs.btop.package}/bin/btop --preset 1
+      launch ${config.programs.btop.package}/bin/btop --preset 1 --update 3500
       launch ${pkgs.asciiquarium}/bin/asciiquarium
       launch ${pkgs.peaclock}/bin/peaclock
       launch ${pkgs.asciiquarium}/bin/asciiquarium
