@@ -24,5 +24,19 @@ in
         ]; # for ricing
       };
     };
+
+    wayland.windowManager.hyprland.settings = {
+      bind = optionals config.dafitt.desktops.hyprland.pyprland.enable
+        [ "SUPER_ALT, P, exec, ${pkgs.pyprland}/bin/pypr toggle btop" ];
+    };
+
+    dafitt.desktops.hyprland.pyprland.scratchpads.btop = {
+      animation = "fromTop";
+      command = "${config.home.sessionVariables.TERMINAL} --class btop ${getExe config.programs.btop.package}";
+      class = "btop";
+      size = "90% 90%";
+      margin = "2%";
+      lazy = true;
+    };
   };
 }

@@ -78,14 +78,22 @@ in
     home.sessionVariables.TERMINAL = mkIf isDefault "${getExe config.programs.kitty.package}";
 
     wayland.windowManager.hyprland.settings = {
+      bind = optionals isDefault
+        [ "SUPER, RETURN, exec, ${getExe config.programs.kitty.package}" ]
+      ++ optionals config.dafitt.desktops.hyprland.pyprland.enable
+        [ "SUPER_ALT, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty" ];
       windowrulev2 = [
         "idleinhibit always, class:idleinhibitor, floating:1"
       ];
-    } // optionalAttrs isDefault {
-      bind = [
-        "SUPER, RETURN, exec, ${getExe config.programs.kitty.package}"
-        #"SUPER_ALT, T, exec, ${getExe config.programs.kitty.package}" # pyprland: scrachpad.kitty
-      ];
+    };
+
+    dafitt.desktops.hyprland.pyprland.scratchpads.kitty = {
+      animation = "fromTop";
+      command = "${config.programs.kitty.package}/bin/kitty --class dropterm --hold ${getExe config.programs.fastfetch.package}";
+      class = "dropterm";
+      size = "90% 90%";
+      margin = "2%";
+      lazy = true;
     };
   };
 }
