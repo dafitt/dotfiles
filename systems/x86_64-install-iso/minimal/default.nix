@@ -1,3 +1,4 @@
+#nix-repl> install-isoConfigurations.minimal.config
 #$ nix build .#install-isoConfigurations.minimal
 
 { lib, ... }: with lib.dafitt; {

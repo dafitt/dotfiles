@@ -1,6 +1,8 @@
 # Check:
 #$ nix flake check
-#$ nix repl .#nixosConfigurations.<host>
+#$ nix repl
+#nix-repl> :lf .
+#nix-repl> nixosConfigurations.<host>.config
 
 # Build:
 #$ flake build-system [#<host>]

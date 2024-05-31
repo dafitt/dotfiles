@@ -1,3 +1,5 @@
+#nix-repl> nixosConfigurations.DavidTUX.config.snowfallorg.users.david.home.config
+
 { lib, ... }: with lib.dafitt; {
 
   dafitt = {

@@ -4,6 +4,8 @@
 # Memory: 64GB
 # Case: Dark Base 900 Orange
 
+#nix-repl> nixosConfigurations.DavidDESKTOP.config
+
 { lib, ... }: with lib.dafitt; {
   imports = [
     ./configuration.nix

@@ -9,6 +9,8 @@
 # Bluetooth: 5.1
 # Color: Storm Grey
 
+#nix-repl> nixosConfigurations.DavidLEGION.config
+
 { lib, ... }: with lib.dafitt; {
   imports = [
     ./configuration.nix

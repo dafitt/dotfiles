@@ -1,6 +1,9 @@
 # Check:
 #$ nix flake check
-#$ nix repl .#homeConfigurations.<user>[@<host>]
+#$ nix repl
+#nix-repl> :lf .
+#nix-repl> nixosConfigurations.<host>.config.snowfallorg.users.<user>.home.config
+#nix-repl> homeConfigurations.<user>[@<host>]
 
 # Build:
 #$ home-manager build .#<user>[@<host>]

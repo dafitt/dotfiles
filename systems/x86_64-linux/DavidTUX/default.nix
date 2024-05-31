@@ -1,3 +1,5 @@
+#nix-repl> nixosConfigurations.DavidTUX.config
+
 { lib, ... }: with lib.dafitt; {
   imports = [
     ./configuration.nix
