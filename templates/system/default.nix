@@ -31,9 +31,10 @@
     desktops.gnome.enable = false;
     desktops.hyprland.enable = true;
 
-    development.direnv.enable = false;
     development.enableSuite = false;
-    development.sshAgent.enable = false;
+    development.direnv.enable = development.enableSuite;
+    development.nix-ld.enable = development.enableSuite;
+    development.sshAgent.enable = development.enableSuite;
     development.wireshark.enable = false;
 
     displayManager.enable = "greetd"; # null or one of [ "gdm" "greetd" ]
