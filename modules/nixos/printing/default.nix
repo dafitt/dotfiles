@@ -16,13 +16,16 @@ in
     # Enable CUPS
     services.printing = {
       enable = true;
-      drivers = [ pkgs.foomatic-db-ppds ];
+      drivers = with pkgs; [
+        splix
+        #foomatic-db-ppds
+      ];
     };
 
     # Avahi’s service discovery facilities
     services.avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
     };
 
     # Graphical user interface for CUPS administration

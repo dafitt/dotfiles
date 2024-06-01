@@ -23,6 +23,7 @@
     gaming.enableSuite = true;
     networking.firewall.allowLocalsend = true;
     networking.firewall.allowSyncthing = true;
+    printing.enable = true;
     virtualization.virt-manager.enable = true;
   };
 }
