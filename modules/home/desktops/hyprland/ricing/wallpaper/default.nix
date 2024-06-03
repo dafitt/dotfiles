@@ -3,10 +3,10 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.ricing.wallpaper;
+  cfg = config.dafitt.desktops.hyprland.ricing.wallpaper;
 in
 {
-  options.dafitt.ricing.wallpaper = with types; {
+  options.dafitt.desktops.hyprland.ricing.wallpaper = with types; {
     enable = mkBoolOpt config.dafitt.desktops.hyprland.ricing.enable "Enable wallpaper ricing.";
   };
 
