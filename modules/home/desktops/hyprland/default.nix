@@ -21,8 +21,7 @@ in
     # current log $ cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
     # last log $ cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 1)/hyprland.log
 
-    # [Hyprland](https://github.com/hyprwm/Hyprland) is a highly customizable
-    # dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
+    # [Hyprland](https://github.com/hyprwm/Hyprland)
     wayland.windowManager.hyprland = {
       enable = true;
 
@@ -38,7 +37,6 @@ in
           border_size = 2;
           resize_on_border = true;
           layout = "dwindle";
-          #allow_tearing = true; #TODO wait for linux kernel >=6.8
         };
         dwindle = {
           # https://wiki.hyprland.org/Configuring/Dwindle-Layout/
@@ -285,7 +283,7 @@ in
           # https://wiki.hyprland.org/FAQ/
 
           # XDG Specifications
-          "XDG_CURRENT_DESKTOP=Hyprland"
+          "XDG_CURRENT_DESKTOP,Hyprland"
           "XDG_SESSION_TYPE,wayland"
           "XDG_SESSION_DESKTOP,Hyprland"
 
