@@ -3,12 +3,12 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.virtualizaion;
-  osCfg = osConfig.dafitt.virtualizaion or null;
+  cfg = config.dafitt.Virtualization;
+  osCfg = osConfig.dafitt.Virtualization or null;
 in
 {
-  options.dafitt.virtualizaion = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the virtualizaion suite";
+  options.dafitt.Virtualization = with types; {
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Virtualization suite";
   };
 
   config = mkIf cfg.enableSuite {

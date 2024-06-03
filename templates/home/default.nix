@@ -114,8 +114,8 @@
 
     Social.enableSuite = osCfg.enableSuite or false;
 
-    virtualizaion.enableSuite = osCfg.enableSuite or false;
-    virtualizaion.virt-manager.enable = osCfg.enable or false;
+    Virtualization.enableSuite = osCfg.enableSuite or false;
+    Virtualization.virt-manager.enable = osCfg.enable or Virtualization.enableSuite;
 
     Web.enableSuite = osCfg.enableSuite or false;
     Web.default = "firefox"; # null or one of [ "epiphany" "firefox" "librewolf" ]

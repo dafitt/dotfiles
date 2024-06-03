@@ -65,7 +65,8 @@
 
     time.enable = true;
 
-    Virtualization.virt-manager.enable = false;
+    Virtualization.enableSuite = false;
+    Virtualization.virt-manager.enable = Virtualization.enableSuite;
   };
 
   system.stateVersion = "23.11"; # move this line to hardware-configuration.nix

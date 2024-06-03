@@ -3,12 +3,12 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.virtualizaion.virt-manager;
-  osCfg = osConfig.dafitt.virtualizaion.virt-manager or null;
+  cfg = config.dafitt.Virtualization.virt-manager;
+  osCfg = osConfig.dafitt.Virtualization.virt-manager or null;
 in
 {
-  options.dafitt.virtualizaion.virt-manager = with types; {
-    enable = mkBoolOpt (osCfg.enable or false) "Enable virt-manager.";
+  options.dafitt.Virtualization.virt-manager = with types; {
+    enable = mkBoolOpt (osCfg.enable or config.dafitt.Virtualization.enableSuite) "Enable virt-manager.";
   };
 
   config = mkIf cfg.enable {
