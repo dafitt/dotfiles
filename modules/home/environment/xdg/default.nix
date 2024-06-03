@@ -18,7 +18,12 @@ in
         enable = true;
         createDirectories = true;
         extraConfig = {
+          XDG_BIN_HOME = "${config.home.homeDirectory}/.local/bin";
           XDG_SECRETS_DIR = "${config.home.homeDirectory}/.secrets";
+
+          # Make some programs "XDG" compliant.
+          LESSHISTFILE = "${config.xdg.cacheHome}/less.history";
+          WGETRC = "${config.xdg.cacheHome}/wgetrc";
         };
       };
     };
