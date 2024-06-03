@@ -132,9 +132,9 @@ in
       "x-scheme-handler/http"
       "x-scheme-handler/https"
       "x-scheme-handler/unknown"
+      "text/html"
       #"application/json"
       #"application/pdf"
-      #"text/html"
       #"text/xml"
     ]));
 
