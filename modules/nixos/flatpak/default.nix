@@ -18,16 +18,11 @@ in
     xdg.portal = {
       enable = true;
       extraPortals = mkIf (!config.services.xserver.desktopManager.gnome.enable) [ pkgs.xdg-desktop-portal-gtk ];
-
-      # [fix for flatpak open URLs with default browser](https://discourse.nixos.org/t/open-links-from-flatpak-via-host-firefox/15465/11)
-      # [Clicked links in desktop apps not opening browers](https://discourse.nixos.org/t/clicked-links-in-desktop-apps-not-opening-browers/29114/28?u=digitalrobot)
-      config.common.default = [ "gnome" ];
-
-      # fix file chooser on hyprland https://wiki.hyprland.org/useful-utilities/xdg-desktop-portal-hyprland/
-      config.hyprland = {
-        default = [ "hyprland" "gtk" ];
-        "org.freedesktop.impl.portal.FileChooser" = "gtk";
-      };
     };
+
+    # FIXME: flatpak weblinks are not opening at all
+    # [fix for flatpak open URLs with default browser](https://discourse.nixos.org/t/open-links-from-flatpak-via-host-firefox/15465/11)
+    # [Flatpak apps can't launch the default browser](https://github.com/NixOS/nixpkgs/issues/189851)
+    # [Clicked links in desktop apps not opening browers](https://discourse.nixos.org/t/clicked-links-in-desktop-apps-not-opening-browers/29114/28?u=digitalrobot)
   };
 }
