@@ -52,15 +52,15 @@
     desktops.hyprland.waybar.enable = desktops.hyprland.enable;
     desktops.hyprland.wlsunset.enable = desktops.hyprland.enable;
 
-    development.enableSuite = osCfg.enableSuite or false;
-    development.direnv.enable = !osCfg.enable or development.enableSuite;
-    development.git.enable = development.enableSuite;
-    development.latex.enable = false;
-    development.vscode.enable = development.enableSuite;
-    development.vscode.autostart = true;
-    development.vscode.defaultApplication = true;
+    Development.enableSuite = osCfg.enableSuite or false;
+    Development.direnv.enable = !osCfg.enable or Development.enableSuite;
+    Development.git.enable = Development.enableSuite;
+    Development.latex.enable = false;
+    Development.vscode.enable = Development.enableSuite;
+    Development.vscode.autostart = true;
+    Development.vscode.defaultApplication = true;
 
-    editing.enableSuite = osCfg.enableSuite or false;
+    Editing.enableSuite = osCfg.enableSuite or false;
 
     environment.enable = true;
     environment._1password.enable = environment.enable;
@@ -91,38 +91,38 @@
 
     flatpak.enable = osCfg.enable or true;
 
-    gaming.enableSuite = osCfg.enableSuite or false;
-    gaming.steam.enable = gaming.enableSuite;
+    Gaming.enableSuite = osCfg.enableSuite or false;
+    Gaming.steam.enable = Gaming.enableSuite;
 
-    music.enableSuite = osCfg.enableSuite or false;
+    Music.enableSuite = osCfg.enableSuite or false;
 
     networking.connman.enable = osCfg.enable or false;
 
-    office.enableSuite = osCfg.enableSuite or false;
-    office.evince.enable = office.enableSuite;
-    office.evince.defaultApplication = true;
-    office.obsidian.enable = office.enableSuite;
-    office.scribus.enable = office.enableSuite;
-    office.thunderbird.enable = office.enableSuite;
+    Office.enableSuite = osCfg.enableSuite or false;
+    Office.evince.enable = Office.enableSuite;
+    Office.evince.defaultApplication = true;
+    Office.obsidian.enable = Office.enableSuite;
+    Office.scribus.enable = Office.enableSuite;
+    Office.thunderbird.enable = Office.enableSuite;
 
-    ricing.enableSuite = osCfg.enableSuite or false;
+    Ricing.enableSuite = osCfg.enableSuite or false;
 
     shells.bash.enable = false;
     shells.fish.enable = osCfg.enable or false;
     shells.starship.enable = true;
     shells.zsh.enable = osCfg.enable or false;
 
-    social.enableSuite = osCfg.enableSuite or false;
+    Social.enableSuite = osCfg.enableSuite or false;
 
     virtualizaion.enableSuite = osCfg.enableSuite or false;
     virtualizaion.virt-manager.enable = osCfg.enable or false;
 
-    web.enableSuite = osCfg.enableSuite or false;
-    web.default = "firefox"; # null or one of [ "epiphany" "firefox" "librewolf" ]
-    web.autostart = true;
-    web.epiphany.enable = web.enableSuite || web.default == "epiphany";
-    web.firefox.enable = web.enableSuite || web.default == "firefox";
-    web.librewolf.enable = web.enableSuite || web.default == "librewolf";
+    Web.enableSuite = osCfg.enableSuite or false;
+    Web.default = "firefox"; # null or one of [ "epiphany" "firefox" "librewolf" ]
+    Web.autostart = true;
+    Web.epiphany.enable = Web.enableSuite || Web.default == "epiphany";
+    Web.firefox.enable = Web.enableSuite || Web.default == "firefox";
+    Web.librewolf.enable = Web.enableSuite || Web.default == "librewolf";
   };
 
   home.stateVersion = "23.11";

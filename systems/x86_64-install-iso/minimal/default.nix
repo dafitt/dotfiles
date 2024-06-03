@@ -6,7 +6,7 @@
   dafitt = {
     bootloader.systemd-boot.enable = true;
     desktops.hyprland.enable = true;
-    development.enableSuite = true;
+    Development.enableSuite = true;
     fwupd.enable = true;
   };
 

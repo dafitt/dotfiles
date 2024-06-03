@@ -21,7 +21,7 @@ with lib.dafitt;
       trusted-users = [ "root" ];
       allowed-users = [ "@wheel" config.dafitt.users.main.username ];
     }
-    // optionalAttrs config.dafitt.development.direnv.enable {
+    // optionalAttrs config.dafitt.Development.direnv.enable {
       keep-outputs = true;
       keep-derivations = true;
     };

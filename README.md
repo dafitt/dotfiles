@@ -376,21 +376,21 @@ My systems and homes are assembled using custom modules. Any custom module has a
     -   desktops/gnome
     -   desktops/hyprland
 -   Suites (disabled by default)
-    -   development
-    -   editing
-    -   gaming
-    -   music
-    -   office
-    -   ricing
-    -   social
-    -   virtualization
-    -   web
+    -   Development
+    -   Editing
+    -   Gaming
+    -   Music
+    -   Office
+    -   Ricing
+    -   Social
+    -   Virtualization
+    -   Web
 -   Firmly integrated, non-disableable
     -   stylix
 
 Modules in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command; [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _home-manager-<user>.service_).
 
-Some [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are automatically activated, if the sister module in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled e.g. `options.custom.gaming.enableSuite = mkBoolOpt (osConfig.custom.gaming.enableSuite or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
+Some [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are automatically activated, if the sister module in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled e.g. `options.custom.Gaming.enableSuite = mkBoolOpt (osConfig.custom.Gaming.enableSuite or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
 
 Last but no least, to keep things simple I put some very specific configuration directly into the systems themselves.
 
@@ -401,8 +401,8 @@ What you have to customize:
 -   [ ] [modules/nixos/time/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/time/default.nix): timezone
 -   [ ] [modules/nixos/locale/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/locale/default.nix): locale
 -   [ ] [modules/nixos/users/main/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/users/main/default.nix): username
--   [ ] [modules/home/office/thunderbird/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/office/thunderbird/default.nix)
--   [ ] [modules/home/web/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/37693f1b9fd4e4d8429506a882e9f9d14da31446/modules/home/web/firefox/default.nix#L168): searx search engine is a local instance/server, use a official one or setup your own
+-   [ ] [modules/home/Office/thunderbird/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/Office/thunderbird/default.nix)
+-   [ ] [modules/home/Web/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/37693f1b9fd4e4d8429506a882e9f9d14da31446/modules/home/Web/firefox/default.nix#L168): searx search engine is a local instance/server, use a official one or setup your own
 -   [ ] [systems/\<architecure\>/\<host\>/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix): obviously your own host-configuration
     -   [ ] `hardware-configuration.nix`
     -   [ ] maybe some host-specific `configuration.nix`: make sure to import it: `imports = [ ./configuration.nix ];`
@@ -421,7 +421,7 @@ Optionally:
 Check if your option is being set through `osCfg`. Like this:
 
 ```nix
-enable = mkBoolOpt (osCfg.enable or config.dafitt.gaming.enableSuite) "Enable steam.";
+enable = mkBoolOpt (osCfg.enable or config.dafitt.Gaming.enableSuite) "Enable steam.";
 ```
 
 If that is the case and `osCfg.enable` is not `null` then the `osCfg`-option will be preferred. Even if it is `false`.

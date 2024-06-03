@@ -21,11 +21,11 @@
 
   dafitt = {
     desktops.gnome.enable = true;
-    development.enableSuite = true;
+    Development.enableSuite = true;
     flatpak.enable = true;
     networking.enable = "connman";
     networking.firewall.allowLocalsend = true;
     networking.firewall.allowSyncthing = true;
-    virtualization.virt-manager.enable = true;
+    Virtualization.virt-manager.enable = true;
   };
 }

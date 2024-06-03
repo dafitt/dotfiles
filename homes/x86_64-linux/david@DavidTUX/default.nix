@@ -12,7 +12,7 @@
       primary = true;
     }];
 
-    development.enableSuite = true;
-    social.enableSuite = true;
+    Development.enableSuite = true;
+    Social.enableSuite = true;
   };
 }

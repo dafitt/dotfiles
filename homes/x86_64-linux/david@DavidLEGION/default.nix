@@ -12,12 +12,12 @@
       primary = true;
     }];
 
-    development.latex.enable = false;
+    Development.latex.enable = false;
     environment.filemanagers.yazi.enable = true;
     environment.launchers.rofi.enable = true;
-    gaming.steam.enable = true;
-    office.enableSuite = true;
-    social.enableSuite = true;
+    Gaming.steam.enable = true;
+    Office.enableSuite = true;
+    Social.enableSuite = true;
   };
 
   # [Hyprland - Tearing](https://wiki.hyprland.org/Configuring/Tearing/)

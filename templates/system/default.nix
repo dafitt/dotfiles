@@ -31,11 +31,11 @@
     desktops.gnome.enable = false;
     desktops.hyprland.enable = true;
 
-    development.enableSuite = false;
-    development.direnv.enable = development.enableSuite;
-    development.nix-ld.enable = development.enableSuite;
-    development.sshAgent.enable = development.enableSuite;
-    development.wireshark.enable = false;
+    Development.enableSuite = false;
+    Development.direnv.enable = Development.enableSuite;
+    Development.nix-ld.enable = Development.enableSuite;
+    Development.sshAgent.enable = Development.enableSuite;
+    Development.wireshark.enable = false;
 
     displayManager.enable = "greetd"; # null or one of [ "gdm" "greetd" ]
 
@@ -47,9 +47,9 @@
 
     fwupd.enable = false;
 
-    gaming.enableSuite = false;
-    gaming.gamemode = gaming.enableSuite;
-    gaming.gamescope = gaming.enableSuite;
+    Gaming.enableSuite = false;
+    Gaming.gamemode = Gaming.enableSuite;
+    Gaming.gamescope = Gaming.enableSuite;
 
     locale.enable = true;
 
@@ -65,7 +65,7 @@
 
     time.enable = true;
 
-    virtualization.virt-manager.enable = false;
+    Virtualization.virt-manager.enable = false;
   };
 
   system.stateVersion = "23.11"; # move this line to hardware-configuration.nix

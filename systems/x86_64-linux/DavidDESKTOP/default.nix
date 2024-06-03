@@ -17,13 +17,13 @@
   dafitt = {
     appimage.enable = true;
     desktops.gnome.enable = true;
-    development.enableSuite = true;
+    Development.enableSuite = true;
     flatpak.enable = true;
     fwupd.enable = true;
-    gaming.enableSuite = true;
+    Gaming.enableSuite = true;
     networking.firewall.allowLocalsend = true;
     networking.firewall.allowSyncthing = true;
     printing.enable = true;
-    virtualization.virt-manager.enable = true;
+    Virtualization.virt-manager.enable = true;
   };
 }
