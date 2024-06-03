@@ -125,5 +125,5 @@
     Web.librewolf.enable = Web.enableSuite || Web.default == "librewolf";
   };
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 }
