@@ -22,8 +22,6 @@ in
       pipes # animated pipes terminal screensaver
     ];
 
-    dafitt.desktops.hyprland = mkIf config.dafitt.desktops.hyprland.enable {
-      ricing.enable = true;
-    };
+    dafitt.desktops.hyprland.ricing.enable = mkIf config.dafitt.desktops.hyprland.enable true;
   };
 }
