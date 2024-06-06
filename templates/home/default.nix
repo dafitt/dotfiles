@@ -13,7 +13,8 @@
 #$ home-manager switch .#<user>[@<host>]
 #$ nix run .#homeConfigurations.<user>[@<host>].activationPackage
 
-{ lib, ... }: with lib.dafitt; {
+{ lib, pkgs, inputs, ... }: with lib.dafitt; {
+  imports = with inputs; [ ];
 
   dafitt = rec {
     #NOTE These values are the defaults
@@ -124,6 +125,11 @@
     Web.firefox.enable = Web.enableSuite || Web.default == "firefox";
     Web.librewolf.enable = Web.enableSuite || Web.default == "librewolf";
   };
+
+  home.packages = with pkgs; [
+  ];
+
+  # add device-specific home configuration here #
 
   home.stateVersion = "24.05";
 }

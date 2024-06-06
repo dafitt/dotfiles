@@ -1,8 +1,7 @@
 #nix-repl> nixosConfigurations.DavidTUX.config
 
-{ lib, inputs, ... }: with lib.dafitt; {
+{ lib, pkgs, inputs, ... }: with lib.dafitt; {
   imports = [
-    ./configuration.nix
     ./hardware-configuration.nix
 
     # [HARDWARE_MODULES](https://github.com/NixOS/nixos-hardware/blob/master/flake.nix)
@@ -21,4 +20,16 @@
     networking.firewall.allowLocalsend = true;
     networking.firewall.allowSyncthing = true;
   };
+
+  environment.systemPackages = with pkgs; [
+  ];
+
+  boot.loader.timeout = 10;
+
+  hardware.tuxedo-rs = {
+    enable = true;
+    tailor-gui.enable = true;
+  };
+
+  system.stateVersion = "23.05";
 }

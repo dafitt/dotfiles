@@ -1,7 +1,8 @@
 #nix-repl> install-isoConfigurations.minimal.config
 #$ nix build .#install-isoConfigurations.minimal
 
-{ lib, ... }: with lib.dafitt; {
+{ lib, pkgs, inputs, ... }: with lib.dafitt; {
+  imports = with inputs; [ ];
 
   dafitt = {
     bootloader.systemd-boot.enable = true;

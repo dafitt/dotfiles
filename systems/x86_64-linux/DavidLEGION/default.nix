@@ -11,9 +11,8 @@
 
 #nix-repl> nixosConfigurations.DavidLEGION.config
 
-{ lib, inputs, ... }: with lib.dafitt; {
+{ lib, pkgs, inputs, ... }: with lib.dafitt; {
   imports = with inputs; [
-    ./configuration.nix
     ./hardware-configuration.nix
     ./power-management.nix
     ./DavidVPN.nix
@@ -35,4 +34,12 @@
     networking.firewall.allowSyncthing = true;
     Virtualization.virt-manager.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+  ];
+
+  # Skip the boot selection menu. [space] to open it.
+  boot.loader.timeout = 0;
+
+  system.stateVersion = "23.05";
 }

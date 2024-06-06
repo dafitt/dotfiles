@@ -14,7 +14,7 @@
 #$ nixos-rebuild --flake .#<host> <test|switch|boot>
 #$ nix run .#nixosConfigurations.<host>.config.system.build.toplevel
 
-{ lib, inputs, ... }: with lib.dafitt; {
+{ lib, pkgs, inputs, ... }: with lib.dafitt; {
   imports = with inputs; [
     ./hardware-configuration.nix
 
@@ -72,5 +72,10 @@
     Virtualization.virt-manager.enable = Virtualization.enableSuite;
   };
 
-  system.stateVersion = "24.04"; # move this line to hardware-configuration.nix
+  environment.systemPackages = with pkgs; [
+  ];
+
+  # add device-specific nixos configuration here #
+
+  system.stateVersion = "24.04";
 }

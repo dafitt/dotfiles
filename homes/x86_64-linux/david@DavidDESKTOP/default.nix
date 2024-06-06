@@ -1,6 +1,7 @@
 #nix-repl> nixosConfigurations.DavidDESKTOP.config.snowfallorg.users.david.home.config
 
-{ lib, ... }: with lib.dafitt; {
+{ lib, pkgs, inputs, ... }: with lib.dafitt; {
+  imports = with inputs; [ ];
 
   dafitt = {
     desktops.hyprland.monitors = [{
