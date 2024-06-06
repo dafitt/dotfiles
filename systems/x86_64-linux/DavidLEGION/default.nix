@@ -36,6 +36,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    lact # Linux AMDGPU Controller
   ];
 
   # Skip the boot selection menu. [space] to open it.
