@@ -14,8 +14,13 @@
 #$ nixos-rebuild --flake .#<host> <test|switch|boot>
 #$ nix run .#nixosConfigurations.<host>.config.system.build.toplevel
 
-{ lib, ... }: with lib.dafitt; {
-  imports = [ ./hardware-configuration.nix ];
+{ lib, inputs, ... }: with lib.dafitt; {
+  imports = with inputs; [
+    ./hardware-configuration.nix
+
+    # [HARDWARE_MODULES](https://github.com/NixOS/nixos-hardware/blob/master/flake.nix)
+    #nixos-hardware.nixosModules.<HARDWARE_MODULE>
+  ];
 
   dafitt = rec {
     #NOTE These values are the defaults
@@ -42,8 +47,6 @@
     flatpak.enable = false;
 
     fonts.enable = true;
-
-    fstrim.enable = true;
 
     fwupd.enable = false;
 

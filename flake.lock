@@ -796,6 +796,22 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1717574423,
+        "narHash": "sha256-cz3P5MZffAHwL2IQaNzsqUBsJS+u0J/AAwArHMAcCa0=",
+        "owner": "nixos",
+        "repo": "nixos-hardware",
+        "rev": "d6c6cf6f5fead4057d8fb2d5f30aa8ac1727f177",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1708475490,
@@ -955,6 +971,7 @@
         "hyprsplit": "hyprsplit",
         "nix-flatpak": "nix-flatpak",
         "nixos-generators": "nixos-generators",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "programsdb": "programsdb",
