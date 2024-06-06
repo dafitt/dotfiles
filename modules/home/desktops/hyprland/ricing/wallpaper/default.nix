@@ -35,7 +35,10 @@ in
         X-Restart-Triggers = [ "${config.xdg.configFile."kitty/wallpaper".source}" ];
       };
       Service = {
-        Environment = [ "PATH=/run/current-system/sw/bin" ];
+        Environment = [
+          "PATH=/run/current-system/sw/bin"
+          "KITTY_DISABLE_WAYLAND=1" # https://github.com/hyprwm/hyprland-plugins/issues/177
+        ];
         ExecStart = "${config.programs.kitty.package}/bin/kitty --session wallpaper --override background_opacity=0";
         Restart = "always";
       };
