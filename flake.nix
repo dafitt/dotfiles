@@ -6,10 +6,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # https://github.com/NixOS/nixpkgs
     nur.url = "github:nix-community/NUR"; # https://github.com/nix-community/NUR
 
-    nixos-hardware.url = "github:nixos/nixos-hardware/master"; # https://github.com/NixOS/nixos-hardware
-
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/home-manager
     nixos-generators = { url = "github:nix-community/nixos-generators"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/nixos-generators
+    nixos-hardware.url = "github:nixos/nixos-hardware/master"; # https://github.com/NixOS/nixos-hardware
 
     snowfall-lib = { url = "github:snowfallorg/lib/dev"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/lib
     snowfall-flake = { url = "github:snowfallorg/flake"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/flake
