@@ -4,18 +4,6 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.users.main;
-
-  # profile picture
-  faceFileName = "face.png";
-  face = pkgs.stdenvNoCC.mkDerivation {
-    name = "face";
-    src = ./. + "/${faceFileName}";
-    dontUnpack = true;
-    installPhase = ''
-      cp $src $out
-    '';
-    passthru = { fileName = faceFileName; };
-  };
 in
 {
   options.dafitt.users.main = with types; {
@@ -47,8 +35,21 @@ in
       openssh.authorizedKeys.keyFiles = [ ];
     };
 
+    # profile picture
     snowfallorg.users.${cfg.username}.home.config = {
-      home.file.".face".source = face;
+      home.file.".face".source =
+        let
+          face_fileName = "face.png";
+        in
+        pkgs.stdenvNoCC.mkDerivation {
+          name = "face";
+          src = ./. + "/${face_fileName}";
+          dontUnpack = true;
+          installPhase = ''
+            cp $src $out
+          '';
+          passthru = { fileName = face_fileName; };
+        };
     };
 
     nix.settings.trusted-users = [ cfg.username ];
