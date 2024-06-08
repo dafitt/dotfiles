@@ -15,11 +15,11 @@
 
     stylix.url = "github:danth/stylix"; # https://github.com/danth/stylix
 
-    hyprland = { url = "github:hyprwm/Hyprland/tags/v0.40.0"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/Hyprland/tags
+    hyprland = { url = "github:hyprwm/Hyprland/v0.40.0"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/Hyprland/tags
     hyprland-plugins = { url = "github:hyprwm/hyprland-plugins"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/hyprwm/hyprland-plugins
-    hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow/tags/v0.40.0"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/micha4w/Hypr-DarkWindow/tags
+    hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow/v0.40.0"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/micha4w/Hypr-DarkWindow/tags
     hyprspace = { url = "github:KZDKM/Hyprspace"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/KZDKM/Hyprspace
-    hyprsplit = { url = "github:shezdy/hyprsplit/tags/v0.40.0"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/shezdy/hyprsplit/tags
+    hyprsplit = { url = "github:shezdy/hyprsplit/v0.40.0"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/shezdy/hyprsplit/tags
 
     hypridle = { url = "github:hyprwm/hypridle"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/hypridle
     hyprlock = { url = "github:hyprwm/hyprlock"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/hyprlock
@@ -27,7 +27,7 @@
 
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/wamserma/flake-programs-sqlite
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak/tags/v0.4.1"; # https://github.com/gmodena/nix-flatpak/tags
+    nix-flatpak.url = "github:gmodena/nix-flatpak/v0.4.1"; # https://github.com/gmodena/nix-flatpak/tags
 
     # for development; see overlays/-git/default.nix
     #$ nix flake lock --update-input <input>

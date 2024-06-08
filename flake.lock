@@ -375,7 +375,7 @@
       },
       "original": {
         "owner": "micha4w",
-        "ref": "tags/v0.40.0",
+        "ref": "v0.40.0",
         "repo": "Hypr-DarkWindow",
         "type": "github"
       }
@@ -454,7 +454,7 @@
       },
       "original": {
         "owner": "hyprwm",
-        "ref": "tags/v0.40.0",
+        "ref": "v0.40.0",
         "repo": "Hyprland",
         "type": "github"
       }
@@ -677,7 +677,7 @@
       },
       "original": {
         "owner": "shezdy",
-        "ref": "tags/v0.40.0",
+        "ref": "v0.40.0",
         "repo": "hyprsplit",
         "type": "github"
       }
@@ -733,7 +733,7 @@
       },
       "original": {
         "owner": "gmodena",
-        "ref": "tags/v0.4.1",
+        "ref": "v0.4.1",
         "repo": "nix-flatpak",
         "type": "github"
       }
