@@ -54,6 +54,9 @@
     Gaming.gamemode = Gaming.enableSuite;
     Gaming.gamescope = Gaming.enableSuite;
 
+    kernel.enable = true;
+    kernel.package = pkgs.linuxPackages_zen;
+
     locale.enable = true;
 
     networking.enable = "networkmanager"; # null or one of [ "connman" "networkmanager" ]

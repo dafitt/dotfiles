@@ -1,12 +1,17 @@
 { config, lib, pkgs, ... }: {
 
-  # activate zfs
-  networking.hostId = "389a4fde"; #$ head -c 8 /etc/machine-id
+  dafitt.kernel.package = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  # [Enable zfs](https://openzfs.github.io/openzfs-docs/Getting%20Started/NixOS/index.html#installation)
   boot.supportedFilesystems = [ "zfs" ];
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages; # latest compatible kernel
+  boot.zfs.forceImportRoot = false;
+  networking.hostId = "389a4fde"; #$ head -c 8 /etc/machine-id
+
+  # Configure zfs
   boot.zfs = {
-    forceImportRoot = false;
     extraPools = [ "DavidTANK" ];
+  };
+  services.zfs = {
+    autoScrub.enable = true; # recommended
   };
 
   # spin down hard drives
@@ -19,10 +24,6 @@
         -a /dev/disk/by-id/ata-MB4000GVYZK_ZC18DNEY -i 600
         '';
     };
-  };
-
-  services.zfs = {
-    autoScrub.enable = true; # recommended
   };
 
   # NFS
