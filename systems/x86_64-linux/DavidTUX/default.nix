@@ -1,7 +1,7 @@
 #nix-repl> nixosConfigurations.DavidTUX.config
 
 { lib, pkgs, inputs, ... }: with lib.dafitt; {
-  imports = [
+  imports = with inputs; [
     ./hardware-configuration.nix
 
     # [HARDWARE_MODULES](https://github.com/NixOS/nixos-hardware/blob/master/flake.nix)
