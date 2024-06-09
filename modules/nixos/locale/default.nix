@@ -6,7 +6,7 @@ let
   cfg = config.dafitt.locale;
 in
 {
-  options.dafitt.locale = {
+  options.dafitt.locale = with types; {
     enable = mkBoolOpt true "Whether or not to manage locale settings.";
   };
 

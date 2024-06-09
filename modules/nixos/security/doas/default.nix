@@ -6,7 +6,7 @@ let
   cfg = config.dafitt.security.doas;
 in
 {
-  options.dafitt.security.doas = {
+  options.dafitt.security.doas = with types;{
     enable = mkBoolOpt false "Whether or not to replace sudo with doas.";
   };
 
