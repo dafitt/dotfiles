@@ -287,6 +287,11 @@ in
         { "key" = "ctrl+shift+z"; "command" = "-extension.decrementPriority"; }
         # unset todo-txt
         { "key" = "ctrl+shift+a"; "command" = "-extension.incrementPriority"; }
+        # bracket-select: change select behaviour
+        { "key" = "alt+a"; "command" = "-bracket-select.select"; }
+        { "key" = "ctrl+a"; "command" = "bracket-select.select-include"; "when" = "editorTextFocus"; }
+        { "key" = "ctrl+shift+a"; "command" = "-editor.action.blockComment"; }
+        { "key" = "ctrl+shift+a"; "command" = "editor.action.selectAll"; }
       ];
 
       globalSnippets = {
@@ -342,6 +347,7 @@ in
 
         # Features / advancements #
         { name = "auto-add-brackets"; publisher = "aliariff"; version = "0.12.2"; sha256 = "sha256-DH1NfneJTMC7BmOP4IiUG8J7BQtwOj4/k5Qn62DkZ7Q="; }
+        { name = "bracket-select"; publisher = "chunsen"; version = "2.0.2"; sha256 = "sha256-2+42NJWAI0cz+RvmihO2v8J/ndAHvV3YqMExvnl46m4="; }
         { name = "better-comments"; publisher = "aaron-bond"; version = "3.0.2"; sha256 = "15w1ixvp6vn9ng6mmcmv9ch0ngx8m85i1yabxdfn6zx3ypq802c5"; }
         { name = "better-folding"; publisher = "MohammadBaqer"; version = "0.5.1"; sha256 = "vEZi+rBT8dxhi+sIPSXWpUiWmE29deWzKj7uN7T+4is="; }
         { name = "better-syntax"; publisher = "jeff-hykin"; version = "2.0.5"; sha256 = "sha256-D06msfuSOk+8hy2Amgn+d1aQoyjwotTqKzk1NS5AhnU="; }
@@ -353,24 +359,26 @@ in
       ];
     };
 
-    xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication (listToAttrs (map (mimeType: { name = mimeType; value = [ "code.desktop" ]; }) [
-      "application/x-shellscript"
-      "text/english"
-      "text/html"
-      "text/x-c"
-      "text/x-c++"
-      "text/x-c++hdr"
-      "text/x-c++src"
-      "text/x-chdr"
-      "text/x-csrc"
-      "text/x-java"
-      "text/x-makefile"
-      "text/x-moc"
-      "text/x-pascal"
-      "text/x-tcl"
-      "text/x-tex"
-      "text/xml"
-    ]));
+    xdg.mimeApps.defaultApplications = mkIf
+      cfg.defaultApplication
+      (listToAttrs (map (mimeType: { name = mimeType; value = [ "code.desktop" ]; }) [
+        "application/x-shellscript"
+        "text/english"
+        "text/html"
+        "text/x-c"
+        "text/x-c++"
+        "text/x-c++hdr"
+        "text/x-c++src"
+        "text/x-chdr"
+        "text/x-csrc"
+        "text/x-java"
+        "text/x-makefile"
+        "text/x-moc"
+        "text/x-pascal"
+        "text/x-tcl"
+        "text/x-tex"
+        "text/xml"
+      ]));
 
     wayland.windowManager.hyprland.settings = {
       bind = [ "SUPER_ALT, G, exec, ${getExe config.programs.vscode.package}" ];
