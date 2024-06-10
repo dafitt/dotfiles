@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enable {
     home.packages = [ config.services.hyprpaper.package ];
 
-    # https://github.com/hyprwm/hyprpaper/blob/main/nix/hm-module.nix
+    # https://wiki.hyprland.org/Hypr-Ecosystem/hyprpaper/
     services.hyprpaper = {
       enable = true;
       settings = {

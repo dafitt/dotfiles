@@ -20,6 +20,7 @@ in
         description = "The time in seconds after which the screen should be locked. 0 to disable.";
       };
       suspend = mkOption {
+        #TODO assertion: suspend must be greater than lock
         type = int;
         default = 600;
         description = "The time in seconds after which the system should be suspended. 0 to disable.";
@@ -28,27 +29,40 @@ in
   };
 
   config = mkIf cfg.enable {
-    # https://github.com/hyprwm/hypridle/blob/main/nix/hm-module.nix
+    # https://wiki.hyprland.org/Hypr-Ecosystem/hypridle/
     services.hypridle = {
       enable = true;
 
       settings = {
-        beforeSleepCmd = mkIf (hyprlockCfg.enable && cfg.sleepTriggersLock) "${getExe hyprlockCfg.package} --immediate"; # ??? "${pkgs.systemd}/bin/loginctl lock-session";
-        lockCmd = mkIf hyprlockCfg.enable "${getExe hyprlockCfg.package} --immediate";
+        general = {
+          # declaration for dbus events
+          before_sleep_cmd = mkIf (hyprlockCfg.enable && cfg.sleepTriggersLock) "${getExe hyprlockCfg.package} --immediate";
+          after_sleep_cmd = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on && ${pkgs.systemd}/bin/systemctl restart --user wlsunset.service";
+          lock_cmd = mkIf hyprlockCfg.enable "${getExe hyprlockCfg.package}";
+        };
 
-        listeners = [
+        listener = [
+          # screen dim brightness
+          {
+            timeout = if locking_enabled then (cfg.timeouts.lock / 2) else 180;
+            on-timeout = "brightnessctl - sd rgb:kbd_backlight set 10";
+            on-resume = "brightnessctl -rd rgb:kbd_backlight";
+          }
+          # lock
           (mkIf locking_enabled {
             timeout = cfg.timeouts.lock;
-            onTimeout = "${getExe hyprlockCfg.package}";
+            on-timeout = "${getExe hyprlockCfg.package}";
           })
+          # screen off
           {
-            timeout = if locking_enabled then (cfg.timeouts.lock + 10) else 360;
-            onTimeout = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms off";
-            onResume = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on && ${pkgs.systemd}/bin/systemctl restart --user wlsunset.service";
+            timeout = if locking_enabled then (cfg.timeouts.lock + config.programs.hyprlock.settings.general.grace) else 360;
+            on-timeout = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms off";
+            on-resume = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on && ${pkgs.systemd}/bin/systemctl restart --user wlsunset.service";
           }
+          # suspend
           (mkIf (cfg.timeouts.suspend > 0) {
             timeout = cfg.timeouts.suspend;
-            onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
+            on-timeout = "${pkgs.systemd}/bin/systemctl suspend";
           })
         ];
       };

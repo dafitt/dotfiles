@@ -35,6 +35,7 @@
 
     desktops.gnome.enable = false;
     desktops.hyprland.enable = true;
+    desktops.hyprland.hyprlock.allow = hyprlock_enabled;
 
     Development.enableSuite = false;
     Development.direnv.enable = Development.enableSuite;
