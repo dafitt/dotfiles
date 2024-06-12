@@ -19,13 +19,18 @@ in
     services.mako = {
       enable = true;
       anchor = "bottom-right";
-      margin = "0,48,48";
       borderRadius = hyprlandCfg.settings.decoration.rounding;
-      borderSize = hyprlandCfg.settings.general.border_size;
+      borderSize = hyprlandCfg.settings.general.border_size * 2;
       defaultTimeout = 5000;
       maxVisible = 10;
       format = "%a\\n%s\\n%b";
       sort = "+time";
+
+      # padding/margin (like css): "<top>,<right>,<bottom>,<left>"
+      extraConfig = ''
+        outer-margin=${toString (hyprlandCfg.settings.general.gaps_out * 3)}
+      '';
     };
+    # last notification #$ makoctl restore
   };
 }
