@@ -56,6 +56,7 @@
     Development.enableSuite = osCfg.enableSuite or false;
     Development.direnv.enable = !osCfg.enable or Development.enableSuite;
     Development.git.enable = Development.enableSuite;
+    Development.hyprland.enable = Development.enableSuite;
     Development.latex.enable = false;
     Development.vscode.enable = Development.enableSuite;
     Development.vscode.autostart = true;
