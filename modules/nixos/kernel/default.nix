@@ -4,6 +4,8 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.kernel;
+
+  zfs = builtins.hasAttr "zfs" config.boot.supportedFilesystems;
 in
 {
   options.dafitt.kernel = with types; {
@@ -11,7 +13,8 @@ in
     package = mkOption {
       type = raw;
       description = "Which linux kernel package to use.";
-      default = pkgs.linuxPackages_zen;
+      default =
+        if zfs then config.boot.zfs.package.latestCompatibleLinuxPackages else pkgs.linuxPackages_latest;
       example = ''
         <https://wiki.nixos.org/wiki/Linux_kernel#List_available_kernels>
         pkgs.linuxPackages_5_10;
