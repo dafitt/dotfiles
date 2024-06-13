@@ -45,8 +45,8 @@ in
           # screen dim brightness
           {
             timeout = if locking_enabled then (cfg.timeouts.lock / 2) else 180;
-            on-timeout = "brightnessctl - sd rgb:kbd_backlight set 10";
-            on-resume = "brightnessctl -rd rgb:kbd_backlight";
+            on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10";
+            on-resume = "${pkgs.brightnessctl}/bin/brightnessctl -r";
           }
           # lock
           (mkIf locking_enabled {
