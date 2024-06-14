@@ -16,7 +16,7 @@
     stylix.url = "github:danth/stylix"; # https://github.com/danth/stylix
 
     hyprland = { url = "github:hyprwm/Hyprland/v0.40.0"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/hyprwm/Hyprland/tags
-    hyprland-plugins = { url = "github:hyprwm/hyprland-plugins"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/hyprwm/hyprland-plugins
+    hyprland-plugins = { url = "github:hyprwm/hyprland-plugins/18daf37"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/hyprwm/hyprland-plugins/blob/main/hyprpm.toml
     hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow/v0.40.0"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/micha4w/Hypr-DarkWindow/tags
     hyprspace = { url = "github:KZDKM/Hyprspace"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/KZDKM/Hyprspace
     hyprsplit = { url = "github:shezdy/hyprsplit/v0.40.0"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/shezdy/hyprsplit/tags
