@@ -53,7 +53,7 @@ in
         modules-center = [ "custom/l" "clock" "custom/r" ];
         "clock" = {
           format = "{:%R  %Y·%m·%d}";
-          format-alt = "{:%R} ";
+          format-alt = " {:%R}";
           tooltip-format = "<tt>{calendar}</tt>";
           calendar = {
             mode = "month";
@@ -76,10 +76,39 @@ in
         };
 
         # modules right
-        modules-right = [ "custom/l" "tray" "custom/r" "custom/l" "backlight" "bluetooth" "network" "battery" "custom/_" "pulseaudio#microphone" "pulseaudio" "custom/r" ];
+        modules-right = [
+          "custom/l"
+          "tray"
+          "custom/r"
+          # system information
+          "custom/l"
+          "idle_inhibitor"
+          "custom/_"
+          "backlight"
+          "battery"
+          "bluetooth"
+          "network"
+          "pulseaudio#microphone"
+          "pulseaudio"
+          #"memory"
+          #"temperature"
+          #"cpu"
+          "custom/r"
+        ];
         "tray" = {
           icon-size = 18;
           spacing = 5;
+        };
+        # system information
+        "idle_inhibitor" = {
+          format = "{icon}";
+          format-icons = {
+            activated = "󰅶";
+            deactivated = "󰾪";
+          };
+          tooltip-format-activated = "Idle inhibitor: activated";
+          tooltip-format-deactivated = "Idle inhibitor: deactivated";
+          timeout = 120; # min
         };
         "backlight" = {
           device = "intel_backlight";
@@ -88,6 +117,18 @@ in
           on-scroll-up = "brightnessctl set 1%+";
           on-scroll-down = "brightnessctl set 1%-";
           min-length = 6;
+        };
+        "battery" = {
+          states = {
+            good = 75;
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = " {capacity}%";
+          format-plugged = " {capacity}%";
+          format-alt = "{icon} {time}";
+          format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
         };
         "bluetooth" = {
           format = "";
@@ -130,18 +171,48 @@ in
           scroll-step = 5;
           format-icons = { headphone = ""; hands-free = ""; headset = ""; phone = ""; portable = ""; car = ""; default = [ "" "" "" ]; };
         };
-        "battery" = {
-          states = {
-            good = 75;
-            warning = 30;
-            critical = 15;
-          };
-          format = "{icon} {capacity}%";
-          format-charging = " {capacity}%";
-          format-plugged = " {capacity}%";
-          format-alt = "{icon} {time}";
-          format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
-        };
+        #"memory" = {
+        #  format = " {}%";
+        #  tooltip = true;
+        #  on-click = "foot sh -c 'btop'";
+        #  interval = 2;
+        #};
+        #"temperature" = {
+        #  #thermal-zone = 2;
+        #  #hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+        #  critical-threshold = 40;
+        #  format-critical = "{icon} {temperatureC}°C";
+        #  format = "{icon} {temperatureC}°C";
+        #  format-icons = [ "" "" "" ];
+        #  interval = 2;
+        #};
+        #"cpu" = {
+        #  format = "󰻠 {usage}%";
+        #  tooltip = true;
+        #  on-click = "foot sh -c 'btop'";
+        #  interval = 2;
+        #};
+        # TODO notifications
+        #"custom/notification": {
+        #  "tooltip": false,
+        #  "format": "{icon}",
+        #  "format-icons": {
+        #    "dnd-notification": "<span foreground='white'><sup></sup></span>",
+        #    "dnd-none": "<span foreground='white'><sup></sup></span>",
+        #    "dnd-inhibited-notification": "<span foreground='white'><sup></sup></span>",
+        #    "dnd-inhibited-none": "<span foreground='white'><sup></sup></span>"
+        #  },
+        #  "return-type": "json",
+        #  "exec-if": "which swaync-client",
+        #  "exec": "swaync-client -swb",
+        #  "escape": true
+        #},
+        # TODO system state control
+        #"custom/power": {
+        #  "format": "",
+        #  "on-click": "wleave",
+        #  "tooltip": false
+        #},
 
         # modules for padding #
         "custom/l" = { format = " "; interval = "once"; tooltip = false; };
@@ -163,6 +234,9 @@ in
         }
       '' + (builtins.readFile ./modules.css);
     };
+
+    #TODO `dbus-update-activation-environment --systemd --all` fixes icons
+    systemd.user.services.waybar.Service.ExecStartPre = "${pkgs.dbus}/bin/dbus-update-activation-environment --all";
 
     # toggle waybar
     wayland.windowManager.hyprland.settings.bind = [ "SUPER, W, exec, ${pkgs.killall}/bin/killall -SIGUSR1 .waybar-wrapped" ];
