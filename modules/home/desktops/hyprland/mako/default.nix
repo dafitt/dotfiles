@@ -21,6 +21,7 @@ in
       anchor = "bottom-right";
       borderRadius = hyprlandCfg.settings.decoration.rounding;
       borderSize = hyprlandCfg.settings.general.border_size * 2;
+      borderColor = mkForce config.lib.stylix.colors.base0A;
       defaultTimeout = 5000;
       maxVisible = 10;
       format = "%a\\n%s\\n%b";

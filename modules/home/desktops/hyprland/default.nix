@@ -18,9 +18,6 @@ in
       hyprpicker # A wlroots-compatible Wayland color picker that does not suck
     ];
 
-    # current log $ cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
-    # last log $ cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 1)/hyprland.log
-
     # [Hyprland](https://github.com/hyprwm/Hyprland)
     wayland.windowManager.hyprland = {
       enable = true;
@@ -37,6 +34,7 @@ in
           border_size = 2;
           resize_on_border = true;
           layout = "dwindle";
+          "col.active_border" = mkForce "rgb(${config.lib.stylix.colors.base0A})";
         };
         dwindle = {
           # https://wiki.hyprland.org/Configuring/Dwindle-Layout/
@@ -62,8 +60,8 @@ in
         };
         decoration = {
           # https://wiki.hyprland.org/Configuring/Variables/#decoration
-          active_opacity = 0.93;
-          inactive_opacity = 0.93;
+          active_opacity = 0.92;
+          inactive_opacity = 0.92;
 
           rounding = 16;
 

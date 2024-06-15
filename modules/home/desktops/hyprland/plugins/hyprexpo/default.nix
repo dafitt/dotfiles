@@ -22,7 +22,7 @@ in
           hyprexpo {
             columns = 3
             gap_size = ${toString config.wayland.windowManager.hyprland.settings.general.gaps_in}
-            bg_col = rgb(${config.lib.stylix.colors.base06})
+            bg_col = rgb(${config.lib.stylix.colors.base04})
             workspace_method = center current # [center/first] [workspace] e.g. first 1 or center m+1
 
             enable_gesture = true # laptop touchpad, 4 fingers
