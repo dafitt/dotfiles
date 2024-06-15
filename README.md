@@ -14,17 +14,18 @@
             -   [Rollback](#rollback)
             -   [Code formatting](#code-formatting)
         -   [Hyprkeys](#hyprkeys)
-        -   [NixOS stable](#nixos-stable)
+        -   [NixOS stable branch](#nixos-stable-branch)
     -   [Structure](#structure)
         -   [You want to build from here?](#you-want-to-build-from-here)
     -   [Troubleshooting](#troubleshooting)
-        -   [Some options in homes/ and modules/home/ are not being applied with nixos-rebuild](#some-options-in-homes-and-moduleshome-are-not-being-applied-with-nixos-rebuild)
+        -   [Some options in modules/home/ or homes/ are not being applied with nixos-rebuild](#some-options-in-moduleshome-or-homes-are-not-being-applied-with-nixos-rebuild)
     -   [👀, 🏆 and ❤️](#--and-️)
 
 My dotfiles are not perfekt, but they strive to be:
 
 -   fully declarative 📝
 -   highly structured 🧱
+-   modular 🎛️
 -   suitable for everday use 📅
 -   a consistent environment that doesn't sacrifice its looks ✨
 
@@ -33,6 +34,7 @@ My dotfiles are not perfekt, but they strive to be:
 -   👥 Multiple hosts
 -   🧍 Standalone home
 -   ❄️🏗️ [Snowfall-lib structure](https://snowfall.org/reference/lib/#flake-structure)
+-   ❄️ almost every module can be disabled
 -   ❄️💲 [Snowfall-flake commands](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage)
 -   📦 [Declarative flatpaks](https://github.com/gmodena/nix-flatpak)
 -   📦 Appimage support
@@ -336,10 +338,10 @@ Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=r
 | <kbd>SUPER mouse:272</kbd>           | movewindow                    |                                                                                                 |
 | <kbd>SUPER mouse:273</kbd>           | resizewindow                  |                                                                                                 |
 
-### NixOS stable
+### NixOS stable branch
 
-If you want to use the [nixpkgs](https://github.com/NixOS/nixpkgs) stable branch, update the following inputs to `23.11` (as an example) in _[flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix)_ and rebuild the system. \
-ATTENTION! When the last release of [nixpkgs](https://github.com/NixOS/nixpkgs) is some time away, then you will likely need to refactor some changed options. So directly after a new release is the best time to switch.
+To use [nixpkgs](https://github.com/NixOS/nixpkgs) stable branch, update the following inputs to the latest release (`23.11` as an example) in _[flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix)_ and rebuild the system. \
+ATTENTION! When the last release of [nixpkgs](https://github.com/NixOS/nixpkgs) is some time away, then you will likely need to refactor some changed options. So directly after a new release should be the best time to switch.
 
 ```nix
 {
@@ -352,7 +354,7 @@ ATTENTION! When the last release of [nixpkgs](https://github.com/NixOS/nixpkgs) 
 }
 ```
 
-To still let specific packages follow nixos-unstable you can add a _`overlays/unstable/default.nix`_:
+To still let specific packages follow nixpkgs unstable while on the stable branch you can add a _`overlays/unstable/default.nix`_:
 
 ```shell
 { channels, ... }:
@@ -388,7 +390,7 @@ My systems and homes are assembled using custom modules. Any custom module has a
     -   Virtualization
     -   Web
 -   Firmly integrated, non-disableable
-    -   stylix
+    -   stylix (because of the usage of `config.lib.stylix.colors.base0X`)
 
 Modules in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command; [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _`home-manager-<user>.service`_).
 
@@ -418,7 +420,7 @@ Optionally:
 
 ## Troubleshooting
 
-### Some options in [homes/](https://github.com/dafitt/dotfiles/blob/main/homes) and [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are not being applied with nixos-rebuild
+### Some options in [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) or [homes/](https://github.com/dafitt/dotfiles/blob/main/homes) are not being applied with nixos-rebuild
 
 Check if your option is being set through `osCfg`. Like this:
 
@@ -428,7 +430,7 @@ enable = mkBoolOpt (osCfg.enable or config.dafitt.Gaming.enableSuite) "Enable st
 
 If that is the case and `osCfg.enable` is not `null` then the `osCfg`-option will be preferred. Even if it is `false`.
 
-To solve this set your option to `true` in [systems/](https://github.com/dafitt/dotfiles/blob/main/systems) and [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos).
+To solve this set your option to `true` in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) or [systems/](https://github.com/dafitt/dotfiles/blob/main/systems).
 
 ## 👀, 🏆 and ❤️
 
