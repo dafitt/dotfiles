@@ -25,7 +25,6 @@ in
       userSettings = {
 
         # Window
-        "window.autoDetectColorScheme" = true;
         "window.titleBarStyle" = "custom";
         "window.title" = "\${rootPath}/\${activeEditorShort}";
         "window.autoDetectHighContrast" = false;
