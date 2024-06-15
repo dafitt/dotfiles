@@ -130,6 +130,7 @@ in
         "code-runner.enableAppInsights" = false; # telemetry
         "code-runner.ignoreSelection" = true;
         "code-runner.runInTerminal" = true;
+        "codeium.enableCodeLens" = false; # no inline action button popup
         "codesnap.containerPadding" = "0em";
         "codesnap.roundedCorners" = false;
         "codesnap.showWindowControls" = false;
@@ -140,11 +141,11 @@ in
         "gitlens.showWhatsNewAfterUpgrades" = false;
         "gitlens.telemetry.enabled" = false;
         "intelephense.telemetry.enabled" = false;
+        "markdown-preview-enhanced.previewTheme" = "atom-dark.css";
+        "markdown-preview-github-styles.colorTheme" = "dark";
         "prettier.bracketSameLine" = true;
         "prettier.tabWidth" = 4;
         "redhat.telemetry.enabled" = false;
-        "markdown-preview-github-styles.colorTheme" = "dark";
-        "markdown-preview-enhanced.previewTheme" = "atom-dark.css";
         "todo-tree.general.tags" = [
           "FIXME"
           "TODO"
