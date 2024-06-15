@@ -34,7 +34,7 @@ in
         # window layout
         window_border_width = "5px";
         active_border_color = "none";
-        inactive_border_color = "#${config.lib.stylix.colors.base01}";
+        inactive_border_color = config.lib.stylix.colors.withHashtag.base01;
         inactive_text_alpha = "0.9";
         #draw_minimal_borders = false;
         #window_margin_width = 1;

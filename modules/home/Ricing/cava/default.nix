@@ -22,14 +22,14 @@ in
         color = {
           gradient = 1;
           gradient_count = 8;
-          gradient_color_1 = "'#${config.lib.stylix.colors.base00}'";
-          gradient_color_2 = "'#${config.lib.stylix.colors.base0D}'";
-          gradient_color_3 = "'#${config.lib.stylix.colors.base0C}'";
-          gradient_color_4 = "'#${config.lib.stylix.colors.base0B}'";
-          gradient_color_5 = "'#${config.lib.stylix.colors.base0B}'";
-          gradient_color_6 = "'#${config.lib.stylix.colors.base0A}'";
-          gradient_color_7 = "'#${config.lib.stylix.colors.base09}'";
-          gradient_color_8 = "'#${config.lib.stylix.colors.base08}'";
+          gradient_color_1 = "'${config.lib.stylix.colors.withHashtag.base00}'";
+          gradient_color_2 = "'${config.lib.stylix.colors.withHashtag.base0D}'";
+          gradient_color_3 = "'${config.lib.stylix.colors.withHashtag.base0C}'";
+          gradient_color_4 = "'${config.lib.stylix.colors.withHashtag.base0B}'";
+          gradient_color_5 = "'${config.lib.stylix.colors.withHashtag.base0B}'";
+          gradient_color_6 = "'${config.lib.stylix.colors.withHashtag.base0A}'";
+          gradient_color_7 = "'${config.lib.stylix.colors.withHashtag.base09}'";
+          gradient_color_8 = "'${config.lib.stylix.colors.withHashtag.base08}'";
         };
       };
     };

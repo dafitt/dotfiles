@@ -156,39 +156,39 @@ in
         "todo-tree.highlights.defaultHighlight" = {
           "icon" = "alert";
           "type" = "tag";
-          "foreground" = "#${config.lib.stylix.colors.base01}";
-          "background" = "#${config.lib.stylix.colors.base05}";
-          "iconColour" = "#${config.lib.stylix.colors.base05}";
+          "foreground" = config.lib.stylix.colors.withHashtag.base01;
+          "background" = config.lib.stylix.colors.withHashtag.base05;
+          "iconColour" = config.lib.stylix.colors.withHashtag.base05;
           "opacity" = 90;
         };
         "todo-tree.highlights.customHighlight" = {
           "FIXME" = {
             # FIXME test
             "icon" = "flame";
-            "foreground" = "#${config.lib.stylix.colors.base00}";
-            "background" = "#${config.lib.stylix.colors.base08}";
-            "iconColour" = "#${config.lib.stylix.colors.base08}";
+            "foreground" = config.lib.stylix.colors.withHashtag.base00;
+            "background" = config.lib.stylix.colors.withHashtag.base08;
+            "iconColour" = config.lib.stylix.colors.withHashtag.base08;
           };
           "TODO" = {
             # TODO test
             "icon" = "code";
-            "foreground" = "#${config.lib.stylix.colors.base00}";
-            "background" = "#${config.lib.stylix.colors.base09}";
-            "iconColour" = "#${config.lib.stylix.colors.base09}";
+            "foreground" = config.lib.stylix.colors.withHashtag.base00;
+            "background" = config.lib.stylix.colors.withHashtag.base09;
+            "iconColour" = config.lib.stylix.colors.withHashtag.base09;
           };
           "???" = {
             # ??? test
             "icon" = "question";
-            "foreground" = "#${config.lib.stylix.colors.base00}";
-            "background" = "#${config.lib.stylix.colors.base0D}";
-            "iconColour" = "#${config.lib.stylix.colors.base0D}";
+            "foreground" = config.lib.stylix.colors.withHashtag.base00;
+            "background" = config.lib.stylix.colors.withHashtag.base0D;
+            "iconColour" = config.lib.stylix.colors.withHashtag.base0D;
           };
           "REFACTOR" = {
             # REFACTOR test
             "icon" = "tools";
-            "foreground" = "#${config.lib.stylix.colors.base00}";
-            "background" = "#${config.lib.stylix.colors.base0E}";
-            "iconColour" = "#${config.lib.stylix.colors.base0E}";
+            "foreground" = config.lib.stylix.colors.withHashtag.base00;
+            "background" = config.lib.stylix.colors.withHashtag.base0E;
+            "iconColour" = config.lib.stylix.colors.withHashtag.base0E;
           };
           "[ ]" = {
             # [ ]
@@ -245,7 +245,7 @@ in
           {
             #NOTE test
             "tag" = "NOTE ";
-            "color" = "#${config.lib.stylix.colors.base06}";
+            "color" = config.lib.stylix.colors.withHashtag.base06;
             "strikethrough" = false;
             "underline" = false;
             "backgroundColor" = "transparent";

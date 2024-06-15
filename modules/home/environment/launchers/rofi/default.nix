@@ -52,12 +52,12 @@ in
       #mutable = true; # makes the file mutable for tweaking
       text = ''
         * {
-            background:     #${config.lib.stylix.colors.base02}FF; // base
-            background-alt: #${config.lib.stylix.colors.base03}FF; // base (lighter)
+            background:     ${config.lib.stylix.colors.withHashtag.base02}FF; // base
+            background-alt: ${config.lib.stylix.colors.withHashtag.base03}FF; // base (lighter)
             foreground:     #FFFFFFFF; // white
-            selected:       #${config.lib.stylix.colors.base0D}FF; // blue
-            active:         #${config.lib.stylix.colors.base0B}FF; // green
-            urgent:         #${config.lib.stylix.colors.base08}FF; // red
+            selected:       ${config.lib.stylix.colors.withHashtag.base0D}FF; // blue
+            active:         ${config.lib.stylix.colors.withHashtag.base0B}FF; // green
+            urgent:         ${config.lib.stylix.colors.withHashtag.base08}FF; // red
 
             border-colour:               var(selected);
             handle-colour:               var(selected);

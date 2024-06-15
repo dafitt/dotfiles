@@ -390,7 +390,7 @@ My systems and homes are assembled using custom modules. Any custom module has a
     -   Virtualization
     -   Web
 -   Firmly integrated, non-disableable
-    -   stylix (because of the usage of `config.lib.stylix.colors.base0X`)
+    -   stylix (because of the usage of `config.lib.stylix.colors`)
 
 Modules in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command; [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _`home-manager-<user>.service`_).
 
