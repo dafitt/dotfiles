@@ -7,19 +7,19 @@ let
 in
 {
   options.dafitt.desktops.hyprland.plugins.hyprsplit = with types; {
-    enable = mkBoolOpt false "Enable hyprsplit hyprland plugin.";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.plugins.enable "Enable hyprsplit hyprland plugin.";
   };
 
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
-      # https://github.com/micha4w/Hypr-DarkWindow
+      # https://github.com/shezdy/hyprsplit
       plugins = with pkgs; [ inputs.hyprsplit.packages.${system}.hyprsplit ];
 
       settings.bind = [
-        "bind = SUPER, D, split:swapactiveworkspaces, current +1"
+        "bind = SUPER, H, split:swapactiveworkspaces, current +1"
         "bind = SUPER, G, split:grabroguewindows"
 
-        # Switch workspaces
+        # Workspace control
         "SUPER, 1, split:workspace, 1"
         "SUPER, 2, split:workspace, 2"
         "SUPER, 3, split:workspace, 3"
@@ -30,7 +30,7 @@ in
         "SUPER, 8, split:workspace, 8"
         "SUPER, 9, split:workspace, 9"
         "SUPER, 0, split:workspace, 10"
-        "SUPER, D, split:workspace, name:D"
+        "SUPER, D, split:workspace, name:D" # desktop only
         "SUPER, code:87, split:workspace, 1" # Numpad
         "SUPER, code:88, split:workspace, 2" # Numpad
         "SUPER, code:89, split:workspace, 3" # Numpad
@@ -71,9 +71,6 @@ in
         "SUPER_SHIFT, code:86, split:movetoworkspacesilent, +1" # Numpad +
         "SUPER_SHIFT, code:82, split:movetoworkspacesilent, -1" # Numpad -
       ];
-
-      extraConfig = ''
-      '';
     };
   };
 }

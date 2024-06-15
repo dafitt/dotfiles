@@ -177,7 +177,7 @@ in
           "SUPER, 8, workspace, 8"
           "SUPER, 9, workspace, 9"
           "SUPER, 0, workspace, 10"
-          "SUPER, D, workspace, name:D"
+          "SUPER, D, workspace, name:D" # desktop only
           "SUPER, code:87, workspace, 1" # Numpad
           "SUPER, code:88, workspace, 2" # Numpad
           "SUPER, code:89, workspace, 3" # Numpad
