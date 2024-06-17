@@ -21,6 +21,7 @@ in
       settings = {
         general = {
           grace = 5;
+          no_fade_in = true;
         };
       };
 

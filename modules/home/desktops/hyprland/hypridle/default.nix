@@ -36,9 +36,9 @@ in
       settings = {
         general = {
           # declaration for dbus events
-          before_sleep_cmd = mkIf (hyprlockCfg.enable && cfg.sleepTriggersLock) "${getExe hyprlockCfg.package} --immediate";
+          before_sleep_cmd = mkIf (hyprlockCfg.enable && cfg.sleepTriggersLock) "${pkgs.systemd}/bin/loginctl lock-session";
           after_sleep_cmd = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on && ${pkgs.systemd}/bin/systemctl restart --user wlsunset.service";
-          lock_cmd = mkIf hyprlockCfg.enable "${getExe hyprlockCfg.package}";
+          lock_cmd = mkIf hyprlockCfg.enable "${pkgs.procps}/bin/pidof hyprlock || ${hyprlockCfg.package}/bin/hyprlock --immediate";
         };
 
         listener = [
@@ -51,7 +51,7 @@ in
           # lock
           (mkIf locking_enabled {
             timeout = cfg.timeouts.lock;
-            on-timeout = "${getExe hyprlockCfg.package}";
+            on-timeout = "${pkgs.systemd}/bin/loginctl lock-session";
           })
           # screen off
           {
@@ -67,5 +67,6 @@ in
         ];
       };
     };
+    # disable temporarily #$ systemctl stop --user hypridle
   };
 }
