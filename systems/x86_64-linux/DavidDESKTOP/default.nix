@@ -6,7 +6,10 @@
 
 #nix-repl> nixosConfigurations.DavidDESKTOP.config
 
-{ lib, pkgs, inputs, ... }: with lib.dafitt; {
+{ options, config, lib, pkgs, inputs, ... }:
+
+with lib;
+with lib.dafitt; {
   imports = with inputs; [
     ./hardware-configuration.nix
     ./zfs.nix
