@@ -16,8 +16,8 @@ in
       plugins = with pkgs; [ inputs.hyprsplit.packages.${system}.hyprsplit ];
 
       settings.bind = [
-        "bind = SUPER, H, split:swapactiveworkspaces, current +1"
-        "bind = SUPER, G, split:grabroguewindows"
+        "SUPER, H, split:swapactiveworkspaces, current +1"
+        "SUPER, G, split:grabroguewindows"
 
         # Workspace control
         "SUPER, 1, split:workspace, 1"
