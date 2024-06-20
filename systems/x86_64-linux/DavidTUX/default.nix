@@ -1,6 +1,6 @@
 #nix-repl> nixosConfigurations.DavidTUX.config
 
-{ options, config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 with lib;
 with lib.dafitt; {

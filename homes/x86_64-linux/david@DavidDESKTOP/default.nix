@@ -1,6 +1,6 @@
 #nix-repl> nixosConfigurations.DavidDESKTOP.config.snowfallorg.users.david.home.config
 
-{ options, config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 with lib;
 with lib.dafitt; {

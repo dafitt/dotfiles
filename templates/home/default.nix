@@ -13,7 +13,7 @@
 #$ home-manager switch .#<user>[@<host>]
 #$ nix run .#homeConfigurations.<user>[@<host>].activationPackage
 
-{ options, config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 with lib;
 with lib.dafitt; {

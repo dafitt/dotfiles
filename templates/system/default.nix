@@ -14,7 +14,7 @@
 #$ nixos-rebuild --flake .#<host> <test|switch|boot>
 #$ nix run .#nixosConfigurations.<host>.config.system.build.toplevel
 
-{ options, config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 with lib;
 with lib.dafitt; {
