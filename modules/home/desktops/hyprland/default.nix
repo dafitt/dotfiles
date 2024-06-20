@@ -165,7 +165,7 @@ in
           "SUPER_ALT, up, resizeactive, 0 -100"
           "SUPER_ALT, down, resizeactive, 0 100"
 
-        ] ++ optionals (!config.dafitt.desktops.hyprland.plugins.hyprsplit.enable) [
+        ] ++ optionals (!any (config: config.enable) [ cfg.plugins.hyprsplit cfg.plugins.hyprnome ]) [
           # Workspace control
           "SUPER, 1, workspace, 1"
           "SUPER, 2, workspace, 2"

@@ -73,4 +73,8 @@ in
       ];
     };
   };
+
+  # code traces:
+  # - modules/home/desktops/hyprland/default.nix: bind
+  # - modules/home/desktops/hyprland/plugins/default.nix: assertions
 }
