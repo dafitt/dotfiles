@@ -20,8 +20,8 @@ in
         description = "The time in seconds after which the screen should be locked. 0 to disable.";
       };
       suspend = mkOption {
-        #TODO assertion: suspend must be greater than lock
         type = int;
+        apply = v: assert v >= cfg.timeouts.lock || v == 0; v;
         default = 600;
         description = "The time in seconds after which the system should be suspended. 0 to disable.";
       };
