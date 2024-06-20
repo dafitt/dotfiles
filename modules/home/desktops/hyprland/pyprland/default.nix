@@ -10,7 +10,6 @@ in
     enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable pyprland an hyperland plugin system.";
 
     scratchpads = mkOption {
-      type = attrsOf anything;
       description = ''
         Scratchpads configuration.
 
@@ -22,7 +21,7 @@ in
         };
         ```
       '';
-      default = { };
+      type = attrsOf anything;
       example = {
         btop = {
           animation = "fromTop";
@@ -42,6 +41,7 @@ in
           lazy = true;
         };
       };
+      default = { };
     };
   };
 

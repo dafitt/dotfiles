@@ -11,20 +11,20 @@ in
       type = listOf (submodule {
         options = {
           enable = mkOption {
-            type = bool;
-            default = true;
-            example = false;
             description = "Can be switched off here.";
+            type = bool;
+            example = false;
+            default = true;
           };
           name = mkOption {
+            description = "Get the name with 'wlr-randr'.";
             type = str;
             example = "DP-1";
-            description = "Get the name with 'wlr-randr'.";
           };
           primary = mkOption {
+            description = "Define one primary monitor.";
             type = bool;
             default = false;
-            description = "Define one primary monitor.";
           };
           width = mkOption {
             type = addCheck int (n: n >= 0);
@@ -36,41 +36,39 @@ in
           };
           refreshRate = mkOption {
             type = addCheck int (n: n >= 0);
-            default = 60;
             example = 144;
+            default = 60;
           };
           vrr = mkOption {
-            type = addCheck int (n: n >= 0 && n <= 2);
-            default = 0;
             description = ''
               Controls the VRR (Adaptive Sync) of your monitors.
               0 - off
               1 - on
               2 - fullscreen only
             '';
+            type = addCheck int (n: n >= 0 && n <= 2);
+            default = 0;
           };
           bitdepth = mkOption {
-            type = enum [ 8 10 ];
-            default = 8;
             description = ''
               The bit depth of the monitor. Can be either 8 or 10.
               NOTE: Colors registered in Hyprland (e.g. the border color) do not support 10 bit.
               NOTE: Some applications do not support screen capture with 10 bit enabled.
             '';
+            type = enum [ 8 10 ];
+            default = 8;
           };
           x = mkOption {
+            description = "The x-coordinate of the monitor.";
             type = int;
             default = 0;
-            description = "The x-coordinate of the monitor.";
           };
           y = mkOption {
+            description = "The y-coordinate of the monitor.";
             type = int;
             default = 0;
-            description = "The y-coordinate of the monitor.";
           };
           transform = mkOption {
-            type = addCheck int (n: n >= 0 && n <= 7);
-            default = 0;
             description = ''
               Controls the transformation of your monitors.
               0 - normal (no transforms)
@@ -82,16 +80,18 @@ in
               6 - flipped + 180 degrees
               7 - flipped + 270 degrees
             '';
+            type = addCheck int (n: n >= 0 && n <= 7);
+            default = 0;
           };
           mirror = mkOption {
+            description = "Mirror a monitor. e.g. 'DP-1'.";
             type = nullOr str;
             default = null;
-            description = "Mirror a monitor. e.g. 'DP-1'.";
           };
           workspace = mkOption {
+            description = "The workspace assigned to the monitor.";
             type = nullOr str;
             default = null;
-            description = "The workspace assigned to the monitor.";
           };
         };
       });

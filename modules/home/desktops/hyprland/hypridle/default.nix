@@ -15,15 +15,15 @@ in
     sleepTriggersLock = mkBoolOpt true "Whether or not to lock before going to sleep";
     timeouts = {
       lock = mkOption {
+        description = "The time in seconds after which the screen should be locked. 0 to disable.";
         type = int;
         default = 360;
-        description = "The time in seconds after which the screen should be locked. 0 to disable.";
       };
       suspend = mkOption {
+        description = "The time in seconds after which the system should be suspended. 0 to disable.";
         type = int;
         apply = v: assert v >= cfg.timeouts.lock || v == 0; v;
         default = 600;
-        description = "The time in seconds after which the system should be suspended. 0 to disable.";
       };
     };
   };

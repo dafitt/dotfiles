@@ -11,13 +11,13 @@ in
     sessionPaths = mkOption {
       description = "List of paths to search for session files.";
       type = listOf str;
-      default = [ ]; #NOTE Is set from the nixos/desktops-modules
       example = [
         "${config.services.xserver.displayManager.sessionData.desktops}/share/xsessions"
         "${config.services.xserver.displayManager.sessionData.desktops}/share/wayland-sessions"
         "/run/current-system/sw/share/xsessions"
         "/run/current-system/sw/share/wayland-sessions"
       ];
+      default = [ ]; #NOTE Is set from the nixos/desktops-modules
     };
   };
 
