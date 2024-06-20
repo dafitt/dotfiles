@@ -30,6 +30,14 @@ in
       # padding/margin (like css): "<top>,<right>,<bottom>,<left>"
       extraConfig = ''
         outer-margin=${toString (hyprlandCfg.settings.general.gaps_out * 3)}
+
+        [urgency=low]
+        border-color=${config.lib.stylix.colors.withHashtag.base0D}
+        text-color=${config.lib.stylix.colors.withHashtag.base0D}
+
+        [urgency=high]
+        border-color=${config.lib.stylix.colors.withHashtag.base08}
+        text-color=${config.lib.stylix.colors.withHashtag.base08}
       '';
     };
     # last notification #$ makoctl restore
