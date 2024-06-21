@@ -68,5 +68,8 @@ with lib.dafitt; {
 
   security.sudo.wheelNeedsPassword = false;
 
+  #$ ssh-keyscan
+  programs.ssh.knownHosts."minisforumhm80.schallernetz.lan".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ8HMHua73rLpiJOQRjVbfMhzWMFi9F9a1xpqUt4nLhD";
+
   system.stateVersion = "23.11";
 }
