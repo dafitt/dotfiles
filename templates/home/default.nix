@@ -119,6 +119,8 @@ with lib.dafitt; {
 
     Social.enableSuite = osCfg.enableSuite or false;
 
+    systemd.enable = true;
+
     Virtualization.enableSuite = osCfg.enableSuite or false;
     Virtualization.virt-manager.enable = osCfg.enable or Virtualization.enableSuite;
 

@@ -73,6 +73,8 @@ with lib.dafitt; {
 
     shells.fish.enable = true;
 
+    systemd.enable = true;
+
     time.enable = true;
 
     Virtualization.enableSuite = false;
