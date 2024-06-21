@@ -11,9 +11,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.locate = {
-      enable = true;
-      interval = "never";
-    };
+    services.locate.enable = true;
   };
 }
