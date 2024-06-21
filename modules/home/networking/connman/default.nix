@@ -12,13 +12,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    # GTK GUI for Connman
-    home.packages = with pkgs; [
-      connman-gtk
-      connman-ncurses
-      connman-notify
-    ];
-
     wayland.windowManager.hyprland.settings = {
       bind = optionals config.dafitt.desktops.hyprland.pyprland.enable
         [ "SUPER_ALT, N, exec, ${pkgs.pyprland}/bin/pypr toggle connman" ];
