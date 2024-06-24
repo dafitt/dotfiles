@@ -53,10 +53,5 @@ in
     };
 
     nix.settings.trusted-users = [ cfg.username ];
-    security.doas.extraRules.extraRules = [{
-      users = [ cfg.username ];
-      noPass = true;
-      keepEnv = true;
-    }];
   };
 }

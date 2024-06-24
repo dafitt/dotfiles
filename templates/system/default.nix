@@ -69,7 +69,7 @@ with lib.dafitt; {
 
     printing.enable = false;
 
-    security.doas.enable = false;
+    security.certificateFiles.enable = false;
 
     shells.fish.enable = true;
 
