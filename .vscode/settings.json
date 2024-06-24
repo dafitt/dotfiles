@@ -29,4 +29,6 @@
         "**/modules/nixos/**/default.nix": "nixos/${dirname}/.nix",
         "**/templates/**/default.nix": "template/${dirname}/.nix"
     }
+
+    //"editor.rulers": [80, 100, 120]
 }
