@@ -149,6 +149,7 @@ in
         "todo-tree.general.tags" = [
           "FIXME"
           "TODO"
+          "TEST"
           "REFACTOR"
           "???"
           "[ ]"
@@ -176,6 +177,20 @@ in
             "background" = config.lib.stylix.colors.withHashtag.base09;
             "iconColour" = config.lib.stylix.colors.withHashtag.base09;
           };
+          "TEST" = {
+            # TEST test
+            "icon" = "beaker";
+            "foreground" = config.lib.stylix.colors.withHashtag.base00;
+            "background" = config.lib.stylix.colors.withHashtag.base0A;
+            "iconColour" = config.lib.stylix.colors.withHashtag.base0A;
+          };
+          "REFACTOR" = {
+            # REFACTOR test
+            "icon" = "tools";
+            "foreground" = config.lib.stylix.colors.withHashtag.base00;
+            "background" = config.lib.stylix.colors.withHashtag.base0C;
+            "iconColour" = config.lib.stylix.colors.withHashtag.base0C;
+          };
           "???" = {
             # ??? test
             "icon" = "question";
@@ -183,15 +198,8 @@ in
             "background" = config.lib.stylix.colors.withHashtag.base0D;
             "iconColour" = config.lib.stylix.colors.withHashtag.base0D;
           };
-          "REFACTOR" = {
-            # REFACTOR test
-            "icon" = "tools";
-            "foreground" = config.lib.stylix.colors.withHashtag.base00;
-            "background" = config.lib.stylix.colors.withHashtag.base0E;
-            "iconColour" = config.lib.stylix.colors.withHashtag.base0E;
-          };
           "[ ]" = {
-            # [ ]
+            # [ ] test
             "icon" = "tasklist";
           };
         };
