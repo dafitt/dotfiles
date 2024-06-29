@@ -21,14 +21,14 @@ in
       (pkgs.formats.toml { }).generate "config.toml" {
         timer = {
           idle_timeout = 240;
-          long_break_duration = 240;
+          long_break_duration = 300;
           long_break_timeout = 3840;
-          short_break_duration = 120;
+          short_break_duration = 20;
           short_break_timeout = 1200;
         };
         notification = {
           show_progress_bar = false;
-          minimum_update_delay = 1;
+          minimum_update_delay = 2;
         };
       };
 
