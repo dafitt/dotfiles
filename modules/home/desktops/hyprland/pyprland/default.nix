@@ -57,6 +57,7 @@ in
         "scratchpads" # https://hyprland-community.github.io/pyprland/scratchpads.html
         "toggle_dpms" # https://hyprland-community.github.io/pyprland/toggle_dpms.html
         "toggle_special" # https://hyprland-community.github.io/pyprland/toggle_special.html
+        "workspaces_follow_focus" # https://hyprland-community.github.io/pyprland/workspaces_follow_focus.html
       ];
 
       scratchpads = cfg.scratchpads;
