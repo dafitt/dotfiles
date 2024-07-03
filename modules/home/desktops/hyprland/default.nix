@@ -44,10 +44,6 @@ in
           default_split_ratio = 1.25; # 0.1 - 1.9
           no_gaps_when_only = 1; # without border
         };
-        master = {
-          # https://wiki.hyprland.org/Configuring/Master-Layout/
-          new_is_master = false;
-        };
         misc = {
           # https://wiki.hyprland.org/Configuring/Variables/#misc
           disable_autoreload = true;
