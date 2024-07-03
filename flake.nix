@@ -15,11 +15,9 @@
 
     stylix.url = "github:danth/stylix"; # https://github.com/danth/stylix
 
-    #FIXME hyprland(flake input) and kitty(nixpkgs) are conflicting and Hyprland crashes when launching kitty
-    hyprland = { url = "git+https://github.com/hyprwm/Hyprland?ref=v0.41.2&submodules=1"; }; # https://github.com/hyprwm/Hyprland/tags
-    hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow/v0.41.1"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/micha4w/Hypr-DarkWindow/tags
-    hyprspace = { url = "github:KZDKM/Hyprspace"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/KZDKM/Hyprspace/blob/main/hyprpm.toml
-    hyprsplit = { url = "github:shezdy/hyprsplit/v0.41.2"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/shezdy/hyprsplit/tags
+    hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow"; }; # https://github.com/micha4w/Hypr-DarkWindow
+    hyprspace = { url = "github:KZDKM/Hyprspace"; }; # https://github.com/KZDKM/Hyprspace
+    hyprsplit = { url = "github:shezdy/hyprsplit"; }; # https://github.com/shezdy/hyprsplit
 
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/wamserma/flake-programs-sqlite
 

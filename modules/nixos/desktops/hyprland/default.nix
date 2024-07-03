@@ -13,6 +13,7 @@ in
   config = mkIf cfg.enable {
     programs.hyprland.enable = true;
 
+    # used by plugins
     nix.settings = {
       substituters = [
         "https://hyprland.cachix.org"

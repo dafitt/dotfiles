@@ -41,7 +41,7 @@ My dotfiles are not perfekt, but they strive to be:
 
 | Operating System 💻 | [NixOS](https://nixos.org/)                                                                                                                                    |
 | ------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|   Window manager 🪟 | [Hyprland](https://hyprland.org/), [Gnome](https://www.gnome.org/) (as a fallback if things go wrong)                                                          |
+|   Window manager 🪟 | [Hyprland](https://hyprland.org/) with plugins, [Gnome](https://www.gnome.org/) (as a fallback if things go wrong)                                             |
 |    Login manager 🔒 | greetd, gdm, tty                                                                                                                                               |
 |  Session locking 🔒 | [hyprlock](https://github.com/hyprwm/hyprlock)                                                                                                                 |
 |         Terminal ⌨️ | [kitty](https://sw.kovidgoyal.net/kitty/)                                                                                                                      |
@@ -80,7 +80,7 @@ On a new host machine:
         git add . && git commit -m "systems: added new host"
         ```
 
-    7. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) for your first build
+    7. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time
 
 3. System preparation
 
@@ -390,7 +390,7 @@ My systems and homes are assembled using custom modules. Any custom module has a
     -   Virtualization
     -   Web
 -   Firmly integrated, non-disableable
-    -   stylix (because of the usage of `config.lib.stylix.colors`)
+    -   stylix (because of extensive usage of `config.lib.stylix.colors`)
 
 Modules in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command; [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _`home-manager-<user>.service`_).
 
