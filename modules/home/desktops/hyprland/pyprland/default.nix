@@ -85,7 +85,7 @@ in
       Service = {
         Type = "simple";
         ExecStart = "${pkgs.pyprland}/bin/pypr";
-        ExecStop = "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/rm /run/user/%U/hypr/*/.pyprland.sock'";
+        ExecStop = "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/rm $XDG_RUNTIME_DIR/hypr/*/.pyprland.sock'";
         Restart = "on-failure";
         X-Restart-Triggers = [ "${config.xdg.configFile."hypr/pyprland.toml".source}" ];
       };
