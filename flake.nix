@@ -15,7 +15,7 @@
 
     stylix.url = "github:danth/stylix"; # https://github.com/danth/stylix
 
-    # plugins make a lot of build problems
+    #FIXME hyprland(flake input) and kitty(nixpkgs) are conflicting and Hyprland crashes when launching kitty
     hyprland = { url = "git+https://github.com/hyprwm/Hyprland?ref=v0.41.2&submodules=1"; }; # https://github.com/hyprwm/Hyprland/tags
     hyprland-plugins = { url = "github:hyprwm/hyprland-plugins/135de7b"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/hyprwm/hyprland-plugins/blob/main/hyprpm.toml
     hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow/v0.41.1"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/micha4w/Hypr-DarkWindow/tags
@@ -70,12 +70,10 @@
 
     systems.modules.nixos = with inputs; [
       stylix.nixosModules.stylix
-      hyprland.nixosModules.default
     ];
 
     homes.modules = with inputs; [
       stylix.homeManagerModules.stylix
-      hyprland.homeManagerModules.default
       nix-flatpak.homeManagerModules.nix-flatpak
     ];
 

@@ -16,6 +16,7 @@ with lib.dafitt; {
       primary = true;
     }];
 
+    desktops.hyprland.plugins.enable = false;
     Development.latex.enable = false;
     environment.filemanagers.yazi.enable = true;
     environment.launchers.rofi.enable = true;
