@@ -55,6 +55,7 @@ in
       pyprland.plugins = [
         "magnify" # https://hyprland-community.github.io/pyprland/magnify.html
         "scratchpads" # https://hyprland-community.github.io/pyprland/scratchpads.html
+        "toggle_dpms" # https://hyprland-community.github.io/pyprland/toggle_dpms.html
         "toggle_special" # https://hyprland-community.github.io/pyprland/toggle_special.html
       ];
 
@@ -72,6 +73,8 @@ in
         "SUPER_ALT, mouse:274, exec, ${pkgs.pyprland}/bin/pypr zoom"
         # scratchpads
         ", Escape, exec, ${pkgs.pyprland}/bin/pypr hide '*'"
+        # toggle_dpms
+        "SUPER, ODIAERESIS, exec, ${pkgs.pyprland}/bin/pypr toggle_dpms"
         # toggle_special (minimize windows)
         "SUPER, Y, exec, ${pkgs.pyprland}/bin/pypr toggle_special minimized" # move
         "SUPER_SHIFT, Y, togglespecialworkspace, minimized" # show

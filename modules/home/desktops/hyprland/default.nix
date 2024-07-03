@@ -132,7 +132,6 @@ in
           "SUPER_CONTROL, R, exec, hyprctl reload && forcerendererreload"
           "SUPER_CONTROL, ADIAERESIS, exec, poweroff" # quick-poweroff
           "SUPER_CONTROL, ODIAERESIS, exec, poweroff --reboot" # quick-reboot
-          "SUPER, ODIAERESIS, dpms, off"
           "SUPER, UDIAERESIS, exec, systemctl suspend" # quick-suspend
 
           # Window control
