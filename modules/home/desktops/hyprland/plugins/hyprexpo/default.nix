@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, inputs, ... }:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.dafitt;
@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       # https://github.com/hyprwm/hyprland-plugins/tree/main/hyprexpo
-      plugins = with pkgs; [ inputs.hyprland-plugins.packages.${system}.hyprexpo ];
+      plugins = with pkgs; [ hyprlandPlugins.hyprexpo ];
 
       settings.bind = [ "SUPER, acute, hyprexpo:expo, toggle" ]; # can be: toggle, off/disable or on/enable
 

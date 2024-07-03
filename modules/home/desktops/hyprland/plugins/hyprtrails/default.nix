@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, inputs, ... }:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.dafitt;
@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       # https://github.com/hyprwm/hyprland-plugins/tree/main/hyprtrails
-      plugins = with pkgs; [ inputs.hyprland-plugins.packages.${system}.hyprtrails ];
+      plugins = with pkgs; [ hyprlandPlugins.hyprtrails ];
 
       extraConfig = ''
         plugin {

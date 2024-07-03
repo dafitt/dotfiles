@@ -16,7 +16,6 @@ with lib.dafitt; {
       primary = true;
     }];
 
-    desktops.hyprland.plugins.enable = false;
     Development.enableSuite = true;
     Social.enableSuite = true;
   };

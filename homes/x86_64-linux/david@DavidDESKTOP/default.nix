@@ -19,14 +19,13 @@ with lib.dafitt; {
     desktops.hyprland.hypridle.sleepTriggersLock = false;
     desktops.hyprland.hypridle.timeouts.lock = 0;
     desktops.hyprland.hypridle.timeouts.suspend = 0;
-    desktops.hyprland.plugins.enable = false;
     Editing.enableSuite = true;
     environment.bedtime.enable = true;
     environment.filemanagers.yazi.enable = true;
     environment.launchers.rofi.enable = true;
     Music.enableSuite = true;
     Office.enableSuite = true;
-    #Ricing.enableSuite = true;
+    #Ricing.enableSuite = true; # TODO fixme modules/home/desktops/hyprland/ricing/wallpaper/default.nix
     Social.enableSuite = true;
     Web.enableSuite = true;
   };

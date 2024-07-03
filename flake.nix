@@ -17,7 +17,6 @@
 
     #FIXME hyprland(flake input) and kitty(nixpkgs) are conflicting and Hyprland crashes when launching kitty
     hyprland = { url = "git+https://github.com/hyprwm/Hyprland?ref=v0.41.2&submodules=1"; }; # https://github.com/hyprwm/Hyprland/tags
-    hyprland-plugins = { url = "github:hyprwm/hyprland-plugins/135de7b"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/hyprwm/hyprland-plugins/blob/main/hyprpm.toml
     hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow/v0.41.1"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/micha4w/Hypr-DarkWindow/tags
     hyprspace = { url = "github:KZDKM/Hyprspace"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/KZDKM/Hyprspace/blob/main/hyprpm.toml
     hyprsplit = { url = "github:shezdy/hyprsplit/v0.41.2"; inputs.hyprland.follows = "hyprland"; }; # https://github.com/shezdy/hyprsplit/tags
@@ -28,7 +27,7 @@
 
     # for development; see overlays/-git/default.nix
     #$ nix flake lock --update-input <input>
-    pyprland.url = "github:hyprland-community/pyprland";
+    pyprland.url = "github:hyprland-community/pyprland"; # https://github.com/hyprland-community/pyprland
   };
 
   #NOTE uncomment and enter `nix develop` on your first build for faster build time
