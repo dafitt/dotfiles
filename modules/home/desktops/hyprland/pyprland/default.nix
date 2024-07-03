@@ -53,8 +53,9 @@ in
     xdg.configFile."hypr/pyprland.toml".source = (pkgs.formats.toml { }).generate "pyprland.toml" {
       # https://github.com/hyprland-community/pyprland/wiki/Getting-started
       pyprland.plugins = [
-        "magnify" # https://github.com/hyprland-community/pyprland/wiki/magnify
-        "scratchpads" #https://github.com/hyprland-community/pyprland/wiki/scratchpads
+        "magnify" # https://hyprland-community.github.io/pyprland/magnify.html
+        "scratchpads" # https://hyprland-community.github.io/pyprland/scratchpads.html
+        "toggle_special" # https://hyprland-community.github.io/pyprland/toggle_special.html
       ];
 
       scratchpads = cfg.scratchpads;
@@ -70,7 +71,10 @@ in
         "SUPER_ALT, mouse_up, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
         "SUPER_ALT, mouse:274, exec, ${pkgs.pyprland}/bin/pypr zoom"
         # scratchpads
-        #TODO pypr>=2.3.5: ", Escape, exec, ${pkgs.pyprland}/bin/pypr hide '*'"
+        ", Escape, exec, ${pkgs.pyprland}/bin/pypr hide '*'"
+        # toggle_special (minimize windows)
+        "SUPER, Y, exec, ${pkgs.pyprland}/bin/pypr toggle_special minimized" # move
+        "SUPER_SHIFT, Y, togglespecialworkspace, minimized" # show
       ];
     };
 
