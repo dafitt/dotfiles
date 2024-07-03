@@ -40,6 +40,7 @@ in
         };
         "workbench.editor.defaultBinaryEditor" = "hexEditor.hexedit";
         "workbench.editor.showTabs" = "multiple";
+        "workbench.list.mouseWheelScrollSensitivity" = 0.2;
         "workbench.startupEditor" = "none";
         "workbench.statusBar.visible" = true;
         "workbench.tree.expandMode" = "doubleClick";
@@ -67,11 +68,13 @@ in
         "editor.minimap.showSlider" = "always";
         "editor.minimap.side" = "left";
         "editor.minimap.size" = "fill";
+        "editor.mouseWheelScrollSensitivity" = 0.2;
         "editor.renderLineHighlightOnlyWhenFocus" = true;
         #"editor.rulers" = [ 80 ];
         "editor.scrollBeyondLastLine" = false;
-        "editor.stickyScroll.enabled" = true;
+        "editor.smoothScrolling" = true;
         "editor.stickyScroll.defaultModel" = "indentationModel";
+        "editor.stickyScroll.enabled" = true;
         "editor.wordWrap" = "off";
         "files.insertFinalNewline" = true;
         "files.trimFinalNewlines" = true;
@@ -119,6 +122,7 @@ in
         "telemetry.telemetryLevel" = "off";
         "terminal.integrated.gpuAcceleration" = "on";
         "terminal.integrated.hideOnStartup" = "always";
+        "terminal.integrated.mouseWheelScrollSensitivity" = 0.1;
         "update.mode" = "none";
         "update.showReleaseNotes" = false;
         "zenMode.fullScreen" = false;
