@@ -23,8 +23,6 @@ in
       # https://github.com/Alexays/Waybar/wiki/Configuration
       settings = [{
 
-        #TODO primary monitor only ``` (lib.find (monitor: monitor.primary)  config.wayland.windowManager.hyprland.monitors;).name
-
         layer = "top";
         position = "bottom";
 
@@ -234,9 +232,6 @@ in
         }
       '' + (builtins.readFile ./modules.css);
     };
-
-    #TODO `dbus-update-activation-environment --systemd --all` fixes icons
-    systemd.user.services.waybar.Service.ExecStartPre = "${pkgs.dbus}/bin/dbus-update-activation-environment --all";
 
     # toggle waybar
     wayland.windowManager.hyprland.settings.bind = [ "SUPER, W, exec, ${pkgs.killall}/bin/killall -SIGUSR1 .waybar-wrapped" ];
