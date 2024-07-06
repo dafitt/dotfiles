@@ -222,9 +222,9 @@ in
         ] ++ [
           # Screenshots
           ", PRINT, exec, ${getExe grimblast} copysave output ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN
-          "CONTROL, PRINT, exec, ${getExe grimblast} --notify --freeze copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA
+          "SUPER, PRINT, exec, ${getExe grimblast} --notify --freeze copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA
           "ALT, PRINT, exec, ${getExe grimblast} --notify --freeze --cursor save output - | ${getExe satty} --filename - --fullscreen --output-filename ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN | EDIT
-          "ALT_CONTROL, PRINT, exec, ${getExe grimblast} --freeze save area - | ${getExe satty} --filename - --output-filename ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA | EDIT
+          "SUPER_ALT, PRINT, exec, ${getExe grimblast} --freeze save area - | ${getExe satty} --filename - --output-filename ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA | EDIT
 
           # some small helper programs
           "SUPER_ALT, U, exec, ${gnome.gnome-characters}/bin/gnome-characters"

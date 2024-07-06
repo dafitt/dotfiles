@@ -197,8 +197,8 @@ flake option github:dafitt/dotfiles --pick
 | ------------------------------------ | ----------------------------- | ----------------------------------------------------------------------------------------------- |
 | <kbd>SUPER_ALT G</kbd>               | exec                          | codium                                                                                          |
 | <kbd>SUPER_ALT M</kbd>               | exec                          | thunderbird                                                                                     |
-| <kbd>SUPER_ALT B</kbd>               | exec                          | firefox                                                                                         |
-| <kbd>SUPER_ALT O</kbd>               | exec                          | pypr toggle bluetooth                                                                           |
+| <kbd>SUPER_ALT W</kbd>               | exec                          | firefox                                                                                         |
+| <kbd>SUPER_ALT B</kbd>               | exec                          | pypr toggle bluetooth                                                                           |
 | <kbd>SUPER_CONTROL Q</kbd>           | exit                          |                                                                                                 |
 | <kbd>SUPER_CONTROL R</kbd>           | exec                          | hyprctl reload && forcerendererreload                                                           |
 | <kbd>SUPER_CONTROL ADIAERESIS</kbd>  | exec                          | poweroff                                                                                        |
@@ -281,9 +281,9 @@ flake option github:dafitt/dotfiles --pick
 | <kbd>SUPER_CTRL up</kbd>             | movecurrentworkspacetomonitor | u                                                                                               |
 | <kbd>SUPER_CTRL down</kbd>           | movecurrentworkspacetomonitor | d                                                                                               |
 | <kbd>PRINT</kbd>                     | exec                          | grimblast copysave output /home/david/Pictures/$(date +'%F-%T\_%N.png')                         |
-| <kbd>CONTROL PRINT</kbd>             | exec                          | grimblast --notify --freeze copysave area /home/david/Pictures/$(date +'%F-%T\_%N.png')         |
+| <kbd>SUPER PRINT</kbd>               | exec                          | grimblast --notify --freeze copysave area /home/david/Pictures/$(date +'%F-%T\_%N.png')         |
 | <kbd>ALT PRINT</kbd>                 | exec                          | satty --filename - --fullscreen --output-filename /home/david/Pictures/$(date +'%F-%T\_%N.png') |
-| <kbd>ALT_CONTROL PRINT</kbd>         | exec                          | satty --filename - --output-filename /home/david/Pictures/$(date +'%F-%T\_%N.png')              |
+| <kbd>SUPER_ALT PRINT</kbd>           | exec                          | satty --filename - --output-filename /home/david/Pictures/$(date +'%F-%T\_%N.png')              |
 | <kbd>SUPER_ALT U</kbd>               | exec                          | gnome-characters                                                                                |
 | <kbd>SUPER_ALT K</kbd>               | exec                          | wl-copy                                                                                         |
 | <kbd>XF86Calculator</kbd>            | exec                          | gnome-calculator                                                                                |
