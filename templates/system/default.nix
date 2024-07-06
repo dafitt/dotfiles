@@ -34,6 +34,8 @@ with lib.dafitt; {
 
     battery.enable = false;
 
+    bluetooth.enable = false;
+
     bootloader.enable = "systemd-boot"; # null or one of [ "grub" "systemd-boot" ]
 
     desktops.gnome.enable = false;

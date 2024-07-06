@@ -22,6 +22,8 @@ with lib.dafitt; {
   dafitt = rec {
     #NOTE These values are the defaults
 
+    bluetooth.enable = osCfg.enable or false;
+
     desktops.gnome.enable = osCfg.enable or false;
 
     desktops.hyprland.enable = osCfg.enable or false;

@@ -24,6 +24,7 @@ with lib.dafitt; {
 
   dafitt = {
     appimage.enable = true;
+    bluetooth.enable = true;
     desktops.gnome.enable = true;
     Development.enableSuite = true;
     flatpak.enable = true;
