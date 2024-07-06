@@ -14,7 +14,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
       bind = optionals config.dafitt.desktops.hyprland.pyprland.enable
-        [ "SUPER_ALT, O, exec, ${pkgs.pyprland}/bin/pypr toggle bluetooth" ];
+        [ "SUPER_ALT, B, exec, ${pkgs.pyprland}/bin/pypr toggle bluetooth" ];
       windowrulev2 = [ "float, class:io.github.kaii_lb.Overskride" ];
     };
 

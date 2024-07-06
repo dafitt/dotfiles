@@ -204,11 +204,14 @@ Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=r
 
 | Keybind                              | Dispatcher                    | Command                                                                                         |
 | ------------------------------------ | ----------------------------- | ----------------------------------------------------------------------------------------------- |
+| <kbd>SUPER_ALT G</kbd>               | exec                          | codium                                                                                          |
+| <kbd>SUPER_ALT M</kbd>               | exec                          | thunderbird                                                                                     |
+| <kbd>SUPER_ALT B</kbd>               | exec                          | firefox                                                                                         |
+| <kbd>SUPER_ALT O</kbd>               | exec                          | pypr toggle bluetooth                                                                           |
 | <kbd>SUPER_CONTROL Q</kbd>           | exit                          |                                                                                                 |
 | <kbd>SUPER_CONTROL R</kbd>           | exec                          | hyprctl reload && forcerendererreload                                                           |
 | <kbd>SUPER_CONTROL ADIAERESIS</kbd>  | exec                          | poweroff                                                                                        |
 | <kbd>SUPER_CONTROL ODIAERESIS</kbd>  | exec                          | poweroff --reboot                                                                               |
-| <kbd>SUPER ODIAERESIS</kbd>          | dpms                          | off                                                                                             |
 | <kbd>SUPER UDIAERESIS</kbd>          | exec                          | systemctl suspend                                                                               |
 | <kbd>SUPER DELETE</kbd>              | exec                          | hyprctl kill                                                                                    |
 | <kbd>SUPER X</kbd>                   | killactive                    |                                                                                                 |
@@ -258,6 +261,8 @@ Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=r
 | <kbd>SUPER code:86</kbd>             | workspace                     | +1                                                                                              |
 | <kbd>SUPER code:82</kbd>             | workspace                     | -1                                                                                              |
 | <kbd>SUPER backspace</kbd>           | workspace                     | previous                                                                                        |
+| <kbd>SUPER mouse_down</kbd>          | workspace                     | -1                                                                                              |
+| <kbd>SUPER mouse_up</kbd>            | workspace                     | +1                                                                                              |
 | <kbd>SUPER_SHIFT 1</kbd>             | movetoworkspacesilent         | 1                                                                                               |
 | <kbd>SUPER_SHIFT 2</kbd>             | movetoworkspacesilent         | 2                                                                                               |
 | <kbd>SUPER_SHIFT 3</kbd>             | movetoworkspacesilent         | 3                                                                                               |
@@ -280,8 +285,6 @@ Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=r
 | <kbd>SUPER_SHIFT code:91</kbd>       | movetoworkspacesilent         | 10                                                                                              |
 | <kbd>SUPER_SHIFT code:86</kbd>       | movetoworkspacesilent         | +1                                                                                              |
 | <kbd>SUPER_SHIFT code:82</kbd>       | movetoworkspacesilent         | -1                                                                                              |
-| <kbd>SUPER mouse_down</kbd>          | workspace                     | -1                                                                                              |
-| <kbd>SUPER mouse_up</kbd>            | workspace                     | +1                                                                                              |
 | <kbd>SUPER_CTRL left</kbd>           | movecurrentworkspacetomonitor | l                                                                                               |
 | <kbd>SUPER_CTRL right</kbd>          | movecurrentworkspacetomonitor | r                                                                                               |
 | <kbd>SUPER_CTRL up</kbd>             | movecurrentworkspacetomonitor | u                                                                                               |
@@ -295,7 +298,7 @@ Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=r
 | <kbd>XF86Calculator</kbd>            | exec                          | gnome-calculator                                                                                |
 | <kbd>SUPER_ALT V</kbd>               | exec                          | wl-copy'                                                                                        |
 | <kbd>SUPER L</kbd>                   | exec                          | hyprlock                                                                                        |
-| <kbd>SUPER_ALT A</kbd>               | exec                          | pavucontrol                                                                                     |
+| <kbd>SUPER_ALT A</kbd>               | exec                          | pypr toggle pavucontrol                                                                         |
 | <kbd>XF86AudioPlay</kbd>             | exec                          | playerctl play-pause                                                                            |
 | <kbd>XF86AudioPause</kbd>            | exec                          | playerctl play-pause                                                                            |
 | <kbd>XF86AudioStop</kbd>             | exec                          | playerctl stop                                                                                  |
@@ -306,27 +309,32 @@ Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=r
 | <kbd>ALT XF86AudioNext</kbd>         | exec                          | playerctld shift                                                                                |
 | <kbd>ALT XF86AudioPrev</kbd>         | exec                          | playerctld unshift                                                                              |
 | <kbd>ALT XF86AudioPlay</kbd>         | exec                          | systemctl --user restart playerctld                                                             |
+| <kbd>SUPER O</kbd>                   | invertactivewindow            |                                                                                                 |
+| <kbd>SUPER acute</kbd>               | hyprexpo:expo                 | toggle                                                                                          |
+| <kbd>SUPER E</kbd>                   | exec                          | pypr expose                                                                                     |
 | <kbd>SUPER Z</kbd>                   | exec                          | pypr zoom                                                                                       |
 | <kbd>SUPER minus</kbd>               | exec                          | pypr zoom --0.5                                                                                 |
 | <kbd>SUPER plus</kbd>                | exec                          | pypr zoom ++0.5                                                                                 |
 | <kbd>SUPER_ALT mouse_down</kbd>      | exec                          | pypr zoom ++0.5                                                                                 |
 | <kbd>SUPER_ALT mouse_up</kbd>        | exec                          | pypr zoom --0.5                                                                                 |
+| <kbd>SUPER_ALT mouse:274</kbd>       | exec                          | pypr zoom                                                                                       |
+| <kbd>SUPER ODIAERESIS</kbd>          | exec                          | pypr toggle_dpms                                                                                |
+| <kbd>SUPER Y</kbd>                   | exec                          | pypr toggle_special minimized                                                                   |
+| <kbd>SUPER_SHIFT Y</kbd>             | togglespecialworkspace        | minimized                                                                                       |
 | <kbd>XF86AudioMute</kbd>             | exec                          | swayosd-client --output-volume mute-toggle                                                      |
 | <kbd>ALT XF86AudioMute</kbd>         | exec                          | swayosd-client --input-volume mute-toggle                                                       |
 | <kbd>XF86AudioMicMute</kbd>          | exec                          | swayosd-client --input-volume mute-toggle                                                       |
 | <kbd>Caps_Lock</kbd>                 | exec                          | swayosd-client --caps-lock                                                                      |
-| <kbd>SUPER_ALT P</kbd>               | exec                          | btop                                                                                            |
 | <kbd>SUPER W</kbd>                   | exec                          | killall -SIGUSR1 .waybar-wrapped                                                                |
-| <kbd>SUPER_ALT G</kbd>               | exec                          | codium                                                                                          |
 | <kbd>SUPER_ALT PERIOD</kbd>          | exec                          | 1password                                                                                       |
+| <kbd>SUPER_ALT P</kbd>               | exec                          | pypr toggle btop                                                                                |
 | <kbd>SUPER_ALT E</kbd>               | exec                          | micro                                                                                           |
 | <kbd>SUPER_ALT F</kbd>               | exec                          | nautilus                                                                                        |
 | <kbd>SUPER SPACE</kbd>               | exec                          | fuzzel                                                                                          |
 | <kbd>SUPER_ALT Z</kbd>               | exec                          | xdg-open https://localhost:8384                                                                 |
 | <kbd>SUPER RETURN</kbd>              | exec                          | kitty                                                                                           |
-| <kbd>SUPER_ALT T</kbd>               | exec                          | kitty                                                                                           |
-| <kbd>SUPER_ALT M</kbd>               | exec                          | thunderbird                                                                                     |
-| <kbd>SUPER_ALT B</kbd>               | exec                          | firefox                                                                                         |
+| <kbd>SUPER_ALT T</kbd>               | exec                          | pypr toggle kitty                                                                               |
+| <kbd>SUPER_ALT N</kbd>               | exec                          | pypr toggle networkmanager                                                                      |
 | <kbd>XF86KbdBrightnessUp</kbd>       | exec                          | light -s sysfs/leds/kbd_backlight -A 10                                                         |
 | <kbd>XF86KbdBrightnessDown</kbd>     | exec                          | light -s sysfs/leds/kbd_backlight -U 10                                                         |
 | <kbd>XF86AudioRaiseVolume</kbd>      | execr                         | swayosd-client --output-volume raise                                                            |

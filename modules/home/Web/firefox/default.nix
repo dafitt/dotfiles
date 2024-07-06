@@ -315,7 +315,7 @@ in
     ]));
 
     wayland.windowManager.hyprland.settings = mkIf isDefault {
-      bind = [ "SUPER_ALT, B, exec, ${getExe config.programs.firefox.package}" ];
+      bind = [ "SUPER_ALT, W, exec, ${getExe config.programs.firefox.package}" ];
       exec-once = mkIf WebCfg.autostart [ "[workspace 1 silent] ${getExe config.programs.firefox.package}" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:firefox, title:(Youtube)"

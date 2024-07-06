@@ -139,7 +139,7 @@ in
     ]));
 
     wayland.windowManager.hyprland.settings = mkIf isDefault {
-      bind = [ "SUPER_ALT, B, exec, ${config.programs.librewolf.package}/bin/librewolf" ];
+      bind = [ "SUPER_ALT, W, exec, ${config.programs.librewolf.package}/bin/librewolf" ];
       exec-once = mkIf WebCfg.autostart [ "[workspace 1 silent] ${config.programs.librewolf.package}/bin/librewolf" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:librewolf, title:(Youtube)"

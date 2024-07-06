@@ -18,7 +18,7 @@ in
     home.packages = with pkgs; [ epiphany ];
 
     wayland.windowManager.hyprland.settings = mkIf isDefault {
-      bind = [ "SUPER_ALT, B, exec, ${getExe pkgs.epiphany}" ];
+      bind = [ "SUPER_ALT, W, exec, ${getExe pkgs.epiphany}" ];
       exec-once = mkIf WebCfg.autostart [ "[workspace 1 silent] ${getExe pkgs.epiphany}" ];
     };
   };
