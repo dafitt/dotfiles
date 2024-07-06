@@ -5,14 +5,16 @@
 -   [My daily driver's Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-daily-drivers-snowfall️-nixos️-desktop-flake)
     -   [Programs and Features](#programs-and-features)
     -   [Installation](#installation)
+        -   [On a new host machine](#on-a-new-host-machine)
     -   [Usage](#usage)
         -   [Flake](#flake)
             -   [Shell environment](#shell-environment)
             -   [Overview](#overview)
-            -   [Build and switching](#build-and-switching)
-            -   [Updating](#updating)
+            -   [Build and switch configuration](#build-and-switch-configuration)
+            -   [Update flake inputs](#update-flake-inputs)
             -   [Rollback](#rollback)
             -   [Code formatting](#code-formatting)
+            -   [snowfallorg/flake](#snowfallorgflake)
         -   [Hyprkeys](#hyprkeys)
         -   [NixOS stable branch](#nixos-stable-branch)
     -   [Structure](#structure)
@@ -56,7 +58,7 @@ My dotfiles are not perfekt, but they strive to be:
 
 ## Installation
 
-On a new host machine:
+### On a new host machine
 
 1. Install [NixOS](https://nixos.org/download/)
 
@@ -123,36 +125,20 @@ Some basic flake commands
 ```shell
 nix-shell shell.nix # only when on legacy-nix: enables flakes & git (works only locally)
 
-nix shell github:snowfallorg/flake # optional: for the shorter `flake` commands
-
-flake dev github:dafitt/dotfiles#default
-# or
 nix develop github:dafitt/dotfiles#default
 ```
 
 #### Overview
 
-Show flake outputs:
-
 ```shell
-flake show github:dafitt/dotfiles
-# or
 nix flake show github:dafitt/dotfiles
 ```
 
-Explore flake options:
-
-```shell
-flake option github:dafitt/dotfiles --pick
-```
-
-#### Build and switching
+#### Build and switch configuration
 
 NixOS & Home-manager:
 
 ```shell
-flake switch
-# or
 nixos-rebuild switch --flake .#<host>
 ```
 
@@ -162,14 +148,10 @@ Home-manager standalone:
 home-manager switch --flake .#<user>@<host>
 ```
 
-#### Updating
-
-Flake inputs:
+#### Update flake inputs
 
 ```shell
 nix flake update --commit-lock-file
-# or
-flake update
 
 # specific input
 nix flake lock --update-input [input]
@@ -177,15 +159,9 @@ nix flake lock --update-input [input]
 
 #### Rollback
 
-NixOS confituration:
+NixOS confituration: `sudo nixos-rebuild switch --rollback`
 
-```shell
-sudo nixos-rebuild switch --rollback
-```
-
-Home-manager standalone:
-
-see [Home-manager documentation](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)
+Home-manager standalone: [Home-manager documentation](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)
 
 #### Code formatting
 
@@ -193,7 +169,22 @@ see [Home-manager documentation](https://nix-community.github.io/home-manager/in
 nix fmt [./folder] [./file.nix]
 ```
 
-Further commands: [snowfallorg/flake](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage)
+#### snowfallorg/flake
+
+[snowfallorg/flake](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage) provides some faster to type commands:
+
+```shell
+nix shell github:snowfallorg/flake
+
+flake dev
+flake test
+flake switch
+flake update
+
+# Explore flake
+flake show github:dafitt/dotfiles
+flake option github:dafitt/dotfiles --pick
+```
 
 ### Hyprkeys
 
@@ -414,11 +405,14 @@ What you have to customize:
 -   [ ] [modules/nixos/locale/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/locale/default.nix): locale
 -   [ ] [modules/nixos/users/main/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/users/main/default.nix): username
 -   [ ] [modules/home/Office/thunderbird/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/Office/thunderbird/default.nix)
--   [ ] [modules/home/Web/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/37693f1b9fd4e4d8429506a882e9f9d14da31446/modules/home/Web/firefox/default.nix#L168): searx search engine is my own local instance/server, use a official one or setup your own
+-   [ ] [modules/home/Web/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/37693f1b9fd4e4d8429506a882e9f9d14da31446/modules/home/Web/firefox/default.nix#L168):
+    -   the default searx search engine is my own local instance/server, use a official one or setup your own
+    -   custom firefox plugins
 -   [ ] [systems/\<architecure\>/\<host\>/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix): obviously your own host-configuration
     -   [ ] `hardware-configuration.nix`
     -   [ ] maybe some host-specific `configuration.nix`: make sure to import it: `imports = [ ./configuration.nix ];`
 -   [ ] [homes/\<architecure\>/\<user\>[@\<host\>]/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix): obviously your own home-configuration
+-   [ ] [modules/nixos/security/certificateFiles/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/security/certificateFiles/default.nix): change list of root ssl certificate agent files or disable this module
 
 Optionally:
 
