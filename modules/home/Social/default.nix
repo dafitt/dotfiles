@@ -16,7 +16,6 @@ in
     ];
 
     services.flatpak.packages = [
-      "de.shorsh.discord-screenaudio"
       "io.github.spacingbat3.webcord"
       "org.gnome.Fractal"
       "org.signal.Signal"
