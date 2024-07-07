@@ -16,7 +16,7 @@ in
   config = mkIf cfg.enable {
     # The file manager for GNOME
     home.packages = with pkgs; [
-      gnome.nautilus
+      nautilus
       nautilus-open-any-terminal
     ];
 
@@ -55,8 +55,8 @@ in
     };
 
     wayland.windowManager.hyprland.settings = mkIf isDefault {
-      bind = [ "SUPER_ALT, F, exec, ${pkgs.gnome.nautilus}/bin/nautilus" ];
-      exec-once = mkIf filemanagersCfg.autostart [ "[workspace 2 silent] ${pkgs.gnome.nautilus}/bin/nautilus" ];
+      bind = [ "SUPER_ALT, F, exec, ${pkgs.nautilus}/bin/nautilus" ];
+      exec-once = mkIf filemanagersCfg.autostart [ "[workspace 2 silent] ${pkgs.nautilus}/bin/nautilus" ];
     };
   };
 }

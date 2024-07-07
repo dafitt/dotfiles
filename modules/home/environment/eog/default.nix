@@ -13,7 +13,7 @@ in
 
   config = mkIf cfg.enable {
     # GNOME image viewer
-    home.packages = with pkgs; [ gnome.eog ];
+    home.packages = with pkgs; [ eog ];
 
     dconf.settings = {
       "org/gnome/eog/ui" = {

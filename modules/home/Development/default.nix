@@ -19,7 +19,7 @@ in
       fira-code-symbols # the ligatures aviable as symbols
       gcc # gnu c compiler
       gnome.gnome-nettool
-      gnome.gucharmap # to search unicode characters
+      gucharmap # to search unicode characters
       gnumake # makefile
       httpie # a modern command line HTTP client
       mtr # better traceroute

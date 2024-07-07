@@ -12,10 +12,10 @@ in
 
   config = mkIf cfg.enable {
 
-    home.packages = with pkgs; [ gnome.gnome-calculator ];
+    home.packages = with pkgs; [ gnome-calculator ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = [ ", XF86Calculator, exec, ${pkgs.gnome.gnome-calculator}/bin/gnome-calculator" ];
+      bind = [ ", XF86Calculator, exec, ${pkgs.gnome-calculator}/bin/gnome-calculator" ];
       windowrulev2 = [
         "float, class:org.gnome.Calculator, title:Calculator"
         "keepaspectratio, class:org.gnome.Calculator, title:Calculator"

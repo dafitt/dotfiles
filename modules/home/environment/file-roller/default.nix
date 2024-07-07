@@ -14,7 +14,7 @@ in
 
   config = mkIf cfg.enable {
     # GNOME's archive manager
-    home.packages = with pkgs; [ gnome.file-roller ];
+    home.packages = with pkgs; [ file-roller ];
 
     xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication (listToAttrs (map (mimeType: { name = mimeType; value = [ "org.gnome.FileRoller.desktop" ]; }) [
       "application/arj"

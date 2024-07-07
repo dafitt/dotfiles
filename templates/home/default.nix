@@ -43,7 +43,8 @@ with lib.dafitt; {
     desktops.hyprland.playerctl.enable = desktops.hyprland.enable;
     desktops.hyprland.plugins.enable = desktops.hyprland.enable;
     desktops.hyprland.plugins.hypr-darkwindow.enable = false;
-    desktops.hyprland.plugins.hyprexpo.enable = false;
+    desktops.hyprland.plugins.hyprexpo.enable = desktops.hyprland.plugins.enable;
+    desktops.hyprland.plugins.hyprnome.enable = false;
     desktops.hyprland.plugins.hyprspace.enable = false;
     desktops.hyprland.plugins.hyprsplit.enable = false;
     desktops.hyprland.plugins.hyprtrails.enable = false;
