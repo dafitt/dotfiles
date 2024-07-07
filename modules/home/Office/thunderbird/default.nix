@@ -11,42 +11,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    accounts.email.accounts = {
-      "Posteo" = {
-        realName = "David Schaller";
-        address = "david.schaller@posteo.net";
-        userName = "david.schaller@posteo.net";
-        primary = true;
-        signature = {
-          text = ''
-            Mit freundlichen Grüßen / Kind regards
-            David Schaller
-          '';
-          showSignature = "append";
-        };
-
-        imap = {
-          host = "posteo.de";
-          port = 993;
-        };
-        smtp = {
-          host = "posteo.de";
-          port = 465;
-        };
-        #thunderbird.enable = true;
-      };
-    };
-
     # A full-featured e-mail client
     # https://www.thunderbird.net/
     programs.thunderbird = {
       enable = true;
-      package = pkgs.thunderbird;
-
-      profiles."david" = {
-        isDefault = true;
-        #! profile settings are syncing manually
-      };
+      profiles."main".isDefault = true;
     };
 
     wayland.windowManager.hyprland.settings = {
