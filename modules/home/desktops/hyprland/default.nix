@@ -158,6 +158,14 @@ in
           "SUPER_ALT, right, resizeactive, 100 0"
           "SUPER_ALT, up, resizeactive, 0 -100"
           "SUPER_ALT, down, resizeactive, 0 100"
+          # Window groups
+          "SUPER_CONTROL, G, togglegroup,"
+          "SUPER, G, changegroupactive, f"
+          "SUPER_SHIFT, G, changegroupactive, f"
+          "SUPER_SHIFT_CONTROL, left, movewindoworgroup, l"
+          "SUPER_SHIFT_CONTROL, right, movewindoworgroup, r"
+          "SUPER_SHIFT_CONTROL, up, movewindoworgroup, u"
+          "SUPER_SHIFT_CONTROL, down, movewindoworgroup, d"
 
         ] ++ optionals (!any (config: config.enable) [ cfg.plugins.hyprsplit cfg.plugins.hyprnome ]) [
           # Workspace control
