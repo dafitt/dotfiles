@@ -163,7 +163,6 @@ in
           youtube-recommended-videos
 
           # personal
-          github-file-icons
           musescore-downloader
           onepassword-password-manager
           steam-database
