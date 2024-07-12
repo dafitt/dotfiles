@@ -186,7 +186,7 @@ flake show github:dafitt/dotfiles
 flake option github:dafitt/dotfiles --pick
 ```
 
-### Hyprkeys
+### [Hyprkeys](https://github.com/hyprland-community/Hyprkeys)
 
 <kbd>SUPER_CONTROL</kbd> - System and Hyprland control \
 <kbd>SUPER</kbd> - Window control \
