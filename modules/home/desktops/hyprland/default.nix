@@ -120,6 +120,7 @@ in
         binds = {
           # https://wiki.hyprland.org/Configuring/Variables/#binds
           workspace_back_and_forth = true;
+          allow_workspace_cycles = true;
           scroll_event_delay = 150;
         };
 
