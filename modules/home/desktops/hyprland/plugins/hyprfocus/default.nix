@@ -15,7 +15,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       # https://github.com/pyt0xic/hyprfocus
-      plugins = with pkgs; [ hyprlandPlugins.hyprfocus ];
+      plugins = [ pkgs.hyprlandPlugins.hyprfocus ];
 
       settings = {
         # borderless experience:

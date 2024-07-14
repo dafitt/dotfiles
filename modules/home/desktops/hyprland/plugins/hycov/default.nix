@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       # https://github.com/DreamMaoMao/hycov
-      plugins = with pkgs; [ hyprlandPlugins.hycov ];
+      plugins = [ pkgs.hyprlandPlugins.hycov ];
 
       settings.bind = [
         "SUPER, tab, hycov:toggleoverview"

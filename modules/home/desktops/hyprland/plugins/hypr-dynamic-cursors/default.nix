@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       # https://github.com/VirtCode/hypr-dynamic-cursors
-      plugins = with pkgs; [ hyprlandPlugins.hypr-dynamic-cursors ];
+      plugins = [ pkgs.hyprlandPlugins.hypr-dynamic-cursors ];
 
       extraConfig = ''
         plugin:dynamic-cursors {

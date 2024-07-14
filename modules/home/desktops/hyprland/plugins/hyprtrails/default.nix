@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       # https://github.com/hyprwm/hyprland-plugins/tree/main/hyprtrails
-      plugins = with pkgs; [ hyprlandPlugins.hyprtrails ];
+      plugins = [ pkgs.hyprlandPlugins.hyprtrails ];
 
       extraConfig = ''
         plugin:hyprtrails {
