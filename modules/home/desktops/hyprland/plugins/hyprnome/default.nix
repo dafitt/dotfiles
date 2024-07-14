@@ -24,7 +24,7 @@ in
     };
   };
 
-  # code traces:
+  # code traces in:
   # - modules/home/desktops/hyprland/default.nix: bind
   # - modules/home/desktops/hyprland/plugins/default.nix: assertions
 }

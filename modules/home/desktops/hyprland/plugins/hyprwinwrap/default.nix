@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.plugins.hyprwinwrap = with types; {
-    enable = mkBoolOpt false "Enable hyprwinwrap hyprland plugin.";
+    enable = mkBoolOpt false "Enable the hyprwinwrap hyprland plugin.";
   };
 
   config = mkIf cfg.enable {
@@ -16,10 +16,8 @@ in
       plugins = with pkgs; [ hyprlandPlugins.hyprwinwrap ];
 
       extraConfig = ''
-        plugin {
-          hyprwinwrap {
-            class = wallpaper
-          }
+        plugin:hyprwinwrap {
+          class = wallpaper
         }
       '';
     };
