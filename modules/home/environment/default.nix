@@ -17,6 +17,7 @@ in
       clapper # a simple and modern GNOME media player
       duf # a better 'df'
       gnome.gnome-characters # character picker
+      libnotify # sends desktop notifications to a notification daemon
       localsend # open source cross-platform alternative to AirDrop
       ncdu # disk usage analyzer with an ncurses interface
       pika-backup # Simple backups based on borg

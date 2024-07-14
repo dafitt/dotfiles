@@ -3,17 +3,15 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.desktops.hyprland.mako;
+  cfg = config.dafitt.desktops.hyprland.notifications.mako;
   hyprlandCfg = config.wayland.windowManager.hyprland;
 in
 {
-  options.dafitt.desktops.hyprland.mako = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable mako for hyprland.";
+  options.dafitt.desktops.hyprland.notifications.mako = with types; {
+    enable = mkBoolOpt false "Enable mako for hyprland.";
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ pkgs.libnotify ];
-
     # notification daemon
     #$ man 5 mako
     services.mako = {

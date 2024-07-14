@@ -37,7 +37,8 @@ with lib.dafitt; {
     desktops.hyprland.hypridle.timeouts.suspend = 600;
     desktops.hyprland.hyprlock.enable = desktops.hyprland.enable;
     desktops.hyprland.hyprpaper.enable = desktops.hyprland.enable;
-    desktops.hyprland.mako.enable = desktops.hyprland.enable;
+    desktops.hyprland.notifications.hyprnotify.enable = desktops.hyprland.enable;
+    desktops.hyprland.notifications.mako.enable = false;
     desktops.hyprland.nwg-displays.enable = desktops.hyprland.enable;
     desktops.hyprland.pavucontrol.enable = desktops.hyprland.enable;
     desktops.hyprland.playerctl.enable = desktops.hyprland.enable;
