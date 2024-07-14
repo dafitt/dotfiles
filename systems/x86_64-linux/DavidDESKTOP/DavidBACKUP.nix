@@ -24,6 +24,7 @@
     };
   };
 
+  #$ nix shell nixpkgs#expect --command watch -cn1 unbuffer systemctl status --no-pager borgbackup-job-DavidBACKUP.service
   services.borgbackup.jobs."DavidBACKUP" = rec {
     repo = "/mnt/DavidBACKUP/DavidBACKUP-repo";
     encryption.mode = "repokey-blake2";
