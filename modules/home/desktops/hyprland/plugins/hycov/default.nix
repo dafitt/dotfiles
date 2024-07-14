@@ -26,7 +26,6 @@ in
 
           # alt-mode
           enable_alt_release_exit = 1
-          alt_toggle_auto_next = 1
           alt_replace_key = Super_L
         }
       '';
