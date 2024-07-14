@@ -45,6 +45,7 @@ with lib.dafitt; {
     desktops.hyprland.plugins.hypr-darkwindow.enable = false;
     desktops.hyprland.plugins.hyprexpo.enable = desktops.hyprland.plugins.enable;
     desktops.hyprland.plugins.hyprnome.enable = false;
+    desktops.hyprland.plugins.hypr-dynamic-cursors = false;
     desktops.hyprland.plugins.hyprspace.enable = false;
     desktops.hyprland.plugins.hyprsplit.enable = false;
     desktops.hyprland.plugins.hyprtrails.enable = false;
