@@ -123,7 +123,7 @@ in
           scroll_event_delay = 150;
         };
 
-        bind = with pkgs; with inputs; [
+        bind = with pkgs; [
           # https://wiki.hyprland.org/Configuring/Binds/
           # https://wiki.hyprland.org/Configuring/Dispatchers/
 
@@ -148,7 +148,8 @@ in
           "SUPER, right, movefocus, r"
           "SUPER, up, movefocus, u"
           "SUPER, down, movefocus, d"
-          "SUPER, Tab, cyclenext,"
+          (mkIf (!cfg.plugins.hycov.enable) "SUPER, Tab, cyclenext,")
+          "SUPER, Tab, cyclenext, prev"
           "SUPER_SHIFT, left, swapwindow, l"
           "SUPER_SHIFT, right, swapwindow, r"
           "SUPER_SHIFT, up, swapwindow, u"
