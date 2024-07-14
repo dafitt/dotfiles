@@ -19,7 +19,7 @@ in
         createDirectories = true;
         extraConfig = {
           XDG_BIN_HOME = "${config.home.homeDirectory}/.local/bin";
-          XDG_SECRETS_DIR = "${config.home.homeDirectory}/.secrets";
+          XDG_SECRET_HOME = "${config.home.homeDirectory}/.local/secrets";
 
           # Make some programs "XDG" compliant.
           LESSHISTFILE = "${config.xdg.cacheHome}/less.history";
