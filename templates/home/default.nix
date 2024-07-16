@@ -94,6 +94,7 @@ with lib.dafitt; {
     environment.launchers.rofi.enalbe = desktops.hyprland.enable && environment.launchers.default == "rofi";
     environment.mpv.enable = environment.enable;
     environment.mpv.defaultApplication = true;
+    environment.passwordManager.default = "bitwarden"; # null or one of [ "_1password" "bitwarden" ]
     environment.syncthing.enable = environment.enable;
     environment.terminals.default = "kitty"; # one of [ "kitty" ]
     environment.terminals.kitty.enable = environment.terminals.default == "kitty";
