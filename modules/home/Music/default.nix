@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.Music = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Music suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Music suite.";
   };
 
   config = mkIf cfg.enableSuite {
@@ -16,8 +16,9 @@ in
     ];
 
     services.flatpak.packages = [
-      "io.bassi.Amberol"
+      "de.haeckerfelix.Shortwave"
       "dev.aunetx.deezer"
+      "io.bassi.Amberol"
     ];
   };
 }
