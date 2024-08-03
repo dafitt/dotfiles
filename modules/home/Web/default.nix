@@ -20,7 +20,8 @@ in
 
     services.flatpak = {
       packages = [
-        { appId = "dev.geopjr.Collision"; origin = "flathub"; } # Hash checker for your files
+        "dev.geopjr.Collision" # Hash checker for your files.
+        "de.haeckerfelix.Fragments" # An easy to use BitTorrent client.
       ];
       overrides = {
         "dev.geopjr.Collision".Context.filesystems = [ "xdg-download:ro" ];
