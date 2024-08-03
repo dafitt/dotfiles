@@ -7,15 +7,6 @@ with lib.dafitt; {
   imports = with inputs; [ ];
 
   dafitt = {
-    desktops.hyprland.monitors = [{
-      name = "DP-1";
-      width = 2560;
-      height = 1440;
-      refreshRate = 120;
-      workspace = "1";
-      primary = true;
-    }];
-
     desktops.hyprland.hypridle.sleepTriggersLock = false;
     desktops.hyprland.hypridle.timeouts.lock = 0;
     desktops.hyprland.hypridle.timeouts.suspend = 0;

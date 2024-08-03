@@ -222,7 +222,7 @@ in
           "SUPER_SHIFT, code:86, movetoworkspacesilent, +1" # Numpad +
           "SUPER_SHIFT, code:82, movetoworkspacesilent, -1" # Numpad -
 
-        ] ++ [
+        ] ++ optionals (!cfg.plugins.hyprsplit.enable) [
           # Monitor control
           "SUPER_CTRL, left, movecurrentworkspacetomonitor, l"
           "SUPER_CTRL, right, movecurrentworkspacetomonitor, r"
