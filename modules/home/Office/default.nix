@@ -26,9 +26,8 @@ in
     ];
 
     services.flatpak.packages = [
-      "de.bund.ausweisapp.ausweisapp2"
-      "com.github.rajsolai.textsnatcher"
-      "org.x.Warpinator"
+      "com.github.rajsolai.textsnatcher" # Snatch Text with just a Drag
+      "de.bund.ausweisapp.ausweisapp2" # Official authentication app for German ID card and residence permit
     ];
 
     fonts.fontconfig.enable = true; # discover fonts and configurations installed through home.packages and nix-env
