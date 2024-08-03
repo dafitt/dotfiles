@@ -17,7 +17,9 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = [ "SUPER_ALT, PERIOD, exec, ${pkgs.bitwarden-desktop}/bin/bitwarden" ];
-      windowrulev2 = [ ];
+      windowrulev2 = [
+        "float, class:Bitwarden, title:Bitwarden"
+      ];
     };
   };
 }
