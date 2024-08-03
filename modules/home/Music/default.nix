@@ -16,9 +16,10 @@ in
     ];
 
     services.flatpak.packages = [
-      "de.haeckerfelix.Shortwave"
-      "dev.aunetx.deezer"
-      "io.bassi.Amberol"
+      "de.haeckerfelix.Shortwave" # Listen to internet radio
+      "dev.aunetx.deezer" # Online music streaming service
+      "io.bassi.Amberol" # Plays music, and nothing else
+      "io.github.seadve.Mousai" # Identify songs in seconds
     ];
   };
 }
