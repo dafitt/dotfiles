@@ -114,6 +114,7 @@ in
         "keyboard.dispatch" = "keyCode"; # use correct keycodes
         "search.followSymlinks" = false;
         "search.quickOpen.includeHistory" = false;
+        "search.quickOpen.history.filterSortOrder" = "recency";
         "search.searchOnType" = false;
         "security.workspace.trust.enabled" = false;
         "security.workspace.trust.untrustedFiles" = "open";
