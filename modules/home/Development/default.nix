@@ -30,8 +30,9 @@ in
     ];
 
     services.flatpak.packages = [
+      "com.belmoussaoui.ashpd.demo" # Play with portals
+      "io.gitlab.liferooter.TextPieces" # Developer's scratchpad
       "nl.hjdskes.gcolor3"
-      "com.belmoussaoui.ashpd.demo"
     ];
 
     programs.firefox.profiles.${config.home.username}.extensions = with pkgs.nur.repos.rycee.firefox-addons; [
