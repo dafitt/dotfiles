@@ -16,6 +16,7 @@ in
     ];
 
     services.flatpak.packages = [
+      "com.rafaelmardojai.Blanket" # Listen to ambient sounds
       "de.haeckerfelix.Shortwave" # Listen to internet radio
       "dev.aunetx.deezer" # Online music streaming service
       "io.bassi.Amberol" # Plays music, and nothing else
