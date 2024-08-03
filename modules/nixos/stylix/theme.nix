@@ -11,7 +11,9 @@ with lib.dafitt;
     # [explore themes](https://github.com/tinted-theming/base16-schemes)
     # [explore themes grafical](https://vimcolorschemes.com/tinted-theming/base16-vim)
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    #$ use colors with ${config.lib.stylix.colors.base00}
+    # use colors with
+    #$ ${config.lib.stylix.colors.base00}
+    #$ ${config.lib.stylix.colors.withHashtag.base00}
 
     override = {
       # [cattppuccin-mocha](https://github.com/catppuccin/base16/blob/main/base16/mocha.yaml) but less blue in the background
