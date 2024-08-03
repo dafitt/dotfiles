@@ -13,6 +13,8 @@ with lib.dafitt; {
     # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/profiles/installation-device.nix
   ];
 
+  isoImage.squashfsCompression = "zstd -3";
+
   dafitt = {
     bootloader.enable = null;
     desktops.hyprland.enable = true;
