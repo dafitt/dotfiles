@@ -8,10 +8,10 @@ let
 in
 {
   options.dafitt.Web = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or true) "Enable the Web suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or true) "Enable the Web suite.";
 
-    default = mkOpt (nullOr (enum [ "epiphany" "firefox" "librewolf" ])) "firefox" "Which web browser is to be used primarily";
-    autostart = mkBoolOpt true "Start the web browser on login";
+    default = mkOpt (nullOr (enum [ "epiphany" "firefox" "librewolf" ])) "firefox" "Which web browser is to be used primarily.";
+    autostart = mkBoolOpt true "Start the web browser on login.";
   };
 
   config = mkIf cfg.enableSuite {

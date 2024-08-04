@@ -9,7 +9,7 @@ in
   options.dafitt.APPLICATION = with types; {
     enable = mkBoolOpt false "Enable APPLICATION.";
     autostart = mkBoolOpt false "Start APPLICATION on login";
-    defaultApplication = mkBoolOpt true "Set APPLICATION as the default application for its mimetypes";
+    defaultApplication = mkBoolOpt true "Set APPLICATION as the default application for its mimetypes.";
   };
 
   config = mkIf cfg.enable {

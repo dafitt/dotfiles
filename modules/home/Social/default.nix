@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.Social = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Social suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Social suite.";
   };
 
   config = mkIf cfg.enableSuite {

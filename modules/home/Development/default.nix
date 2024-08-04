@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.Development = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Development suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Development suite.";
   };
 
   config = mkIf cfg.enableSuite {

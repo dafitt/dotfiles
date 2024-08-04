@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.Office = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Office suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Office suite.";
   };
 
   config = mkIf cfg.enableSuite {

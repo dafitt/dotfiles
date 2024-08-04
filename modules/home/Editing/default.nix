@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.Editing = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Editing suite";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Editing suite.";
   };
 
   config = mkIf cfg.enableSuite {

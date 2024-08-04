@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.Virtualization = with types; {
-    enableSuite = mkBoolOpt false "Enable the Virtualization suite";
+    enableSuite = mkBoolOpt false "Enable the Virtualization suite.";
   };
 
   config = mkIf cfg.enableSuite {

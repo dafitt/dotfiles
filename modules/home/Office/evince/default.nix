@@ -8,7 +8,7 @@ in
 {
   options.dafitt.Office.evince = with types; {
     enable = mkBoolOpt config.dafitt.Office.enableSuite "Enable evince.";
-    defaultApplication = mkBoolOpt true "Set evince as the default application for its mimetypes";
+    defaultApplication = mkBoolOpt true "Set evince as the default application for its mimetypes.";
   };
 
   config = mkIf cfg.enable {
