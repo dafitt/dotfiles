@@ -18,12 +18,20 @@ in
         enabled-extensions = [ "forge@jmmaranan.com" ];
       };
       "org/gnome/shell/extensions/forge" = {
+        auto-split-enabled = true;
+        float-always-on-top-enabled = true;
+        focus-border-toggle = false;
+        move-pointer-focus-enabled = false;
+        preview-hint-enabled = false;
+        quick-settings-enabled = true;
         stacked-tiling-mode-enabled = false;
         tabbed-tiling-mode-enabled = false;
         window-gap-hidden-on-single = true;
+        window-gap-size = 6;
       };
       "org/gnome/shell/extensions/forge/keybindings" = {
         focus-border-toggle = [ "<Control><Super>b" ];
+        mod-mask-mouse-tile = "Super";
         window-focus-down = [ "<Super>Down" ];
         window-focus-left = [ "<Super>Left" ];
         window-focus-right = [ "<Super>Right" ];
@@ -33,6 +41,16 @@ in
         window-move-right = [ "<Shift><Super>Right" ];
         window-move-up = [ "<Shift><Super>Up" ];
         window-resize-bottom-increase = [ "<Control><Super>Up" ];
+        window-swap-down = [ "<Shift><Super>Down" ];
+        window-swap-left = [ "<Shift><Super>Left" ];
+        window-swap-right = [ "<Shift><Super>Right" ];
+        window-swap-up = [ "<Shift><Super>Up" ];
+        window-toggle-always-float = [ "<Shift><Super>v" ];
+        window-toggle-float = [ "<Super>v" ];
+      };
+      "org/gnome/mutter/keybindings" = {
+        toggle-tiled-left = [ ];
+        toggle-tiled-right = [ ];
       };
     };
   };
