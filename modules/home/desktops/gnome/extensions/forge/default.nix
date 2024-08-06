@@ -19,6 +19,7 @@ in
       };
       "org/gnome/shell/extensions/forge" = {
         auto-split-enabled = true;
+        dnd-center-layout = "swap";
         float-always-on-top-enabled = true;
         focus-border-toggle = false;
         move-pointer-focus-enabled = false;
