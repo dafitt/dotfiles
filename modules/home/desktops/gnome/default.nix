@@ -18,6 +18,7 @@ in
     ];
 
     dconf.settings = {
+      #$ dconf watch /
       "org/gnome/desktop/input-sources" = {
         sources = [ [ "xkb" "de" ] ];
       };
@@ -25,10 +26,23 @@ in
         tap-to-click = true;
         two-finger-scrolling-enabled = true;
       };
+      "org/gnome/desktop/notifications" = {
+        show-in-lock-screen = false;
+      };
+      "org/gnome/desktop/privacy" = {
+        recent-files-max-age = 1; # File History
+        remove-old-temp-files = true;
+        remove-old-trash-files = true;
+      };
+      "org/gnome/desktop/a11y" = {
+        always-show-universal-access-status = true;
+      };
+
+      # Window manager
       "org/gnome/mutter" = {
-        dynamic-workspaces = true;
+        dynamic-workspaces = false;
+        num-workspaces = 10;
         edge-tiling = true;
-        num-workspaces = 6;
         workspaces-only-on-primary = true;
       };
       "org/gnome/desktop/wm/preferences" = {
@@ -95,8 +109,8 @@ in
       "org/gnome/gnome-session" = {
         auto-save-session = true;
         logout-prompt = false;
+        idle-delay = 0;
       };
-      "org/gnome/session" = { idle-delay = 0; };
     };
   };
 }

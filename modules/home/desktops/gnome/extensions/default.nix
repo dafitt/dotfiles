@@ -14,8 +14,9 @@ in
     home.packages = with pkgs; [ gnome-extension-manager ];
 
     dconf.settings = {
-
       "org/gnome/shell" = {
+        disable-user-extensions = false;
+
         favorite-apps = [
           "librewolf.desktop"
           "org.wezfurlong.wezterm.desktop"
