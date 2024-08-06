@@ -8,70 +8,16 @@ let
 in
 {
   options.dafitt.desktops.gnome = with types; {
-    enable = mkBoolOpt (osCfg.enable or false) "Enable Gnome configuration.";
+    enable = mkBoolOpt (osCfg.enable or false) "Enable Gnome home configuration.";
   };
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      gnome-extension-manager
       dconf-editor
       gnome-tweaks
-    ] ++ (with pkgs.gnomeExtensions; [
-      forge
-    ]);
+    ];
 
     dconf.settings = {
-
-      # Extensions
-      "org/gnome/shell" = {
-        enabled-extensions = [
-          "apps-menu@gnome-shell-extensions.gcampax.github.com"
-          "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
-          "forge@jmmaranan.com"
-          "native-window-placement@gnome-shell-extensions.gcampax.github.com"
-        ];
-        favorite-apps = [
-          "librewolf.desktop"
-          "org.wezfurlong.wezterm.desktop"
-          "org.gnome.Nautilus.desktop"
-          "org.gnome.Calendar.desktop"
-          "obsidian.desktop"
-          "transmission-gtk.desktop"
-          "caprine.desktop"
-          "teams-for-linux.desktop"
-          "discord.desktop"
-          "spotify.desktop"
-          "com.usebottles.bottles.desktop"
-          "org.gnome.Software.desktop"
-        ];
-      };
-      "org/gnome/shell/extensions/forge" = {
-        stacked-tiling-mode-enabled = false;
-        tabbed-tiling-mode-enabled = false;
-        window-gap-hidden-on-single = true;
-      };
-      "org/gnome/shell/extensions/forge/keybindings" = {
-        focus-border-toggle = [ "<Control><Super>b" ];
-        window-focus-down = [ "<Super>Down" ];
-        window-focus-left = [ "<Super>Left" ];
-        window-focus-right = [ "<Super>Right" ];
-        window-focus-up = [ "<Super>Up" ];
-        window-move-down = [ "<Shift><Super>Down" ];
-        window-move-left = [ "<Shift><Super>Left" ];
-        window-move-right = [ "<Shift><Super>Right" ];
-        window-move-up = [ "<Shift><Super>Up" ];
-        window-resize-bottom-increase = [ "<Control><Super>Up" ];
-      };
-      "org/gnome/shell/extensions/auto-move-windows" = {
-        application-list = [
-          "librewolf.desktop:1"
-          "org.gnome.Nautilus.desktop:2"
-          "md.obsidian.Obsidian.desktop:3"
-          "code.desktop:4"
-        ];
-      };
-
-      # Desktop settings
       "org/gnome/desktop/input-sources" = {
         sources = [ [ "xkb" "de" ] ];
       };
@@ -124,6 +70,7 @@ in
         move-to-monitor-right = [ ];
         move-to-monitor-up = [ ];
         unmaximize = [ ];
+        toggle-overview = [ "<Shift><Super>y" ];
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         binding = "<Super>Return";
