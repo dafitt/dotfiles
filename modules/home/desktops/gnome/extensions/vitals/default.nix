@@ -13,10 +13,6 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs.gnomeExtensions; [ vitals ];
 
-    dconf.settings = {
-      "org/gnome/shell" = {
-        enabled-extensions = [ "Vitals@CoreCoding.com" ];
-      };
-    };
+    dconf.settings = { };
   };
 }

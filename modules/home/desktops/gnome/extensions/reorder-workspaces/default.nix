@@ -14,9 +14,6 @@ in
     home.packages = with pkgs.gnomeExtensions; [ reorder-workspaces ];
 
     dconf.settings = {
-      "org/gnome/shell" = {
-        enabled-extensions = [ "reorder-workspaces@jer.dev" ];
-      };
       "org/gnome/shell/extensions/reorder-workspaces" = {
         move-workspace-prev = [ "<Shift><Super>Page_Down" ];
         move-workspace-next = [ "<Shift><Super>Page_Up" ];

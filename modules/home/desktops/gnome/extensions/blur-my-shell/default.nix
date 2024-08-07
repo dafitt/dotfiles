@@ -13,10 +13,6 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs.gnomeExtensions; [ blur-my-shell ];
 
-    dconf.settings = {
-      "org/gnome/shell" = {
-        enabled-extensions = [ "blur-my-shell@aunetx" ];
-      };
-    };
+    dconf.settings = { };
   };
 }

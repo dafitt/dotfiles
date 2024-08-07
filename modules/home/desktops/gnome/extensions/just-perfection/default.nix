@@ -14,9 +14,6 @@ in
     home.packages = with pkgs.gnomeExtensions; [ just-perfection ];
 
     dconf.settings = {
-      "org/gnome/shell" = {
-        enabled-extensions = [ "just-perfection-desktop@just-perfection" ];
-      };
       "org/gnome/shell/extensions/just-perfection" = {
         #top-panel-position = 1; # bottom
         animation = 4;

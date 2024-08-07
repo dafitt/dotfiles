@@ -14,9 +14,6 @@ in
     home.packages = with pkgs.gnomeExtensions; [ ];
 
     dconf.settings = {
-      "org/gnome/shell" = {
-        enabled-extensions = [ "auto-move-windows@gnome-shell-extensions.gcampax.github.com" ];
-      };
       "org/gnome/shell/extensions/auto-move-windows" = {
         application-list = [
           "librewolf.desktop:1"

@@ -14,9 +14,6 @@ in
     home.packages = with pkgs.gnomeExtensions; [ forge ];
 
     dconf.settings = {
-      "org/gnome/shell" = {
-        enabled-extensions = [ "forge@jmmaranan.com" ];
-      };
       "org/gnome/shell/extensions/forge" = {
         auto-split-enabled = false;
         dnd-center-layout = "swap";
