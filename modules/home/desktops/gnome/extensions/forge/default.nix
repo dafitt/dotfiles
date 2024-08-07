@@ -18,7 +18,7 @@ in
         enabled-extensions = [ "forge@jmmaranan.com" ];
       };
       "org/gnome/shell/extensions/forge" = {
-        auto-split-enabled = true;
+        auto-split-enabled = false;
         dnd-center-layout = "swap";
         float-always-on-top-enabled = true;
         focus-border-toggle = false;
@@ -33,7 +33,8 @@ in
       "org/gnome/shell/extensions/forge/keybindings" = {
         con-split-vertical = [ ];
         focus-border-toggle = [ "<Control><Super>b" ];
-        mod-mask-mouse-tile = "Super";
+        prefs-open = [ "<Control><Super>Period" ];
+        prefs-tiling-toggle = [ "<Control><Super>w" ];
         window-focus-down = [ "<Super>Down" ];
         window-focus-left = [ "<Super>Left" ];
         window-focus-right = [ "<Super>Right" ];
@@ -43,11 +44,11 @@ in
         window-move-right = [ "<Shift><Super>Right" ];
         window-move-up = [ "<Shift><Super>Up" ];
         window-resize-bottom-increase = [ "<Control><Super>Up" ];
-        window-swap-down = [ "<Shift><Super>Down" ];
+        window-swap-down = [ ];
         window-swap-last-active = [ ];
-        window-swap-left = [ "<Shift><Super>Left" ];
-        window-swap-right = [ "<Shift><Super>Right" ];
-        window-swap-up = [ "<Shift><Super>Up" ];
+        window-swap-left = [ ];
+        window-swap-right = [ ];
+        window-swap-up = [ ];
         window-toggle-always-float = [ "<Shift><Super>v" ];
         window-toggle-float = [ "<Super>v" ];
       };
