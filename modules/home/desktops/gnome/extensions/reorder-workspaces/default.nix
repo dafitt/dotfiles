@@ -15,8 +15,12 @@ in
 
     dconf.settings = {
       "org/gnome/shell/extensions/reorder-workspaces" = {
-        move-workspace-prev = [ "<Shift><Super>Page_Down" ];
-        move-workspace-next = [ "<Shift><Super>Page_Up" ];
+        move-workspace-prev = [ "<Shift><Super>Page_Up" ];
+        move-workspace-next = [ "<Shift><Super>Page_Down" ];
+      };
+      "org/gnome/desktop/wm/keybindings" = {
+        move-to-workspace-left = [ ];
+        move-to-workspace-right = [ ];
       };
     };
   };

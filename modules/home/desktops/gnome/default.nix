@@ -51,7 +51,7 @@ in
         workspaces-only-on-primary = true;
       };
       "org/gnome/desktop/wm/preferences" = {
-        num-workspaces = 5;
+        num-workspaces = 10;
         resize-with-right-button = true;
         focus-mode = "sloppy";
         visual-bell = true;
