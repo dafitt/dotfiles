@@ -37,6 +37,11 @@ in
       "org/gnome/desktop/a11y" = {
         always-show-universal-access-status = true;
       };
+      "org/gnome/gnome-session" = {
+        auto-save-session = true;
+        logout-prompt = false;
+        idle-delay = 0;
+      };
 
       # Window manager
       "org/gnome/mutter" = {
@@ -53,13 +58,15 @@ in
       };
       "org/gnome/desktop/wm/keybindings" = {
         close = [ "<Super>x" ];
+        focus-active-notification = [ ];
         maximize = [ ];
-        toggle-maximized = [ "<Super>a" ];
-        toggle-fullscreen = [ "<Super>f" ];
-        toggle-above = [ "<Super>b" ];
         minimize = [ "<Super>y" ];
-        show-desktop = [ "<Super>d" ];
+        move-to-monitor-down = [ ];
+        move-to-monitor-left = [ ];
+        move-to-monitor-right = [ ];
+        move-to-monitor-up = [ ];
         move-to-workspace-1 = [ "<Shift><Super>1" ];
+        move-to-workspace-10 = [ "<Shift><Super>0" ];
         move-to-workspace-2 = [ "<Shift><Super>2" ];
         move-to-workspace-3 = [ "<Shift><Super>3" ];
         move-to-workspace-4 = [ "<Shift><Super>4" ];
@@ -68,8 +75,9 @@ in
         move-to-workspace-7 = [ "<Shift><Super>7" ];
         move-to-workspace-8 = [ "<Shift><Super>8" ];
         move-to-workspace-9 = [ "<Shift><Super>9" ];
-        move-to-workspace-10 = [ "<Shift><Super>0" ];
+        show-desktop = [ "<Super>d" ];
         switch-to-workspace-1 = [ "<Super>1" ];
+        switch-to-workspace-10 = [ "<Super>0" ];
         switch-to-workspace-2 = [ "<Super>2" ];
         switch-to-workspace-3 = [ "<Super>3" ];
         switch-to-workspace-4 = [ "<Super>4" ];
@@ -78,18 +86,12 @@ in
         switch-to-workspace-7 = [ "<Super>7" ];
         switch-to-workspace-8 = [ "<Super>8" ];
         switch-to-workspace-9 = [ "<Super>9" ];
-        switch-to-workspace-10 = [ "<Super>0" ];
-        move-to-monitor-down = [ ];
-        move-to-monitor-left = [ ];
-        move-to-monitor-right = [ ];
-        move-to-monitor-up = [ ];
-        unmaximize = [ ];
+        toggle-above = [ "<Super>b" ];
+        toggle-fullscreen = [ "<Super>f" ];
+        toggle-maximized = [ "<Super>a" ];
+        toggle-message-tray = [ "<Super>n" ];
         toggle-overview = [ "<Shift><Super>y" ];
-      };
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-        binding = "<Super>Return";
-        command = "kitty";
-        name = "Terminal";
+        unmaximize = [ ];
       };
       "org/gnome/shell/keybindings" = {
         switch-to-application-1 = [ ];
@@ -106,10 +108,23 @@ in
       "org/gnome/shell/window-switcher" = {
         current-workspace-only = false;
       };
-      "org/gnome/gnome-session" = {
-        auto-save-session = true;
-        logout-prompt = false;
-        idle-delay = 0;
+
+      # custom keybindings
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings" = {
+        custom-keybindings = [
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1"
+        ];
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        binding = "<Super>Return";
+        command = "kgx";
+        name = "Terminal";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        binding = "<Super><Alt>b";
+        command = config.dafitt.Web.default;
+        name = "Browser";
       };
     };
   };

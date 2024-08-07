@@ -31,6 +31,7 @@ in
         window-gap-size = 6;
       };
       "org/gnome/shell/extensions/forge/keybindings" = {
+        con-split-vertical = [ ];
         focus-border-toggle = [ "<Control><Super>b" ];
         mod-mask-mouse-tile = "Super";
         window-focus-down = [ "<Super>Down" ];
@@ -43,6 +44,7 @@ in
         window-move-up = [ "<Shift><Super>Up" ];
         window-resize-bottom-increase = [ "<Control><Super>Up" ];
         window-swap-down = [ "<Shift><Super>Down" ];
+        window-swap-last-active = [ ];
         window-swap-left = [ "<Shift><Super>Left" ];
         window-swap-right = [ "<Shift><Super>Right" ];
         window-swap-up = [ "<Shift><Super>Up" ];
