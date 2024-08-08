@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.displayManager = with types; {
-    enable = mkOpt (nullOr (enum [ "gdm" "greetd" ])) "greetd" "Which display/login manager to use.";
+    enable = mkOpt (nullOr (enum [ "gdm" "greetd" ])) "gdm" "Which display/login manager to use.";
   };
 
   config = {

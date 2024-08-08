@@ -29,7 +29,6 @@ with lib.dafitt; {
     bluetooth.enable = true;
     desktops.gnome.enable = true;
     Development.enableSuite = true;
-    displayManager.enable = "gdm";
     flatpak.enable = true;
     fwupd.enable = true;
     Gaming.enableSuite = true;
