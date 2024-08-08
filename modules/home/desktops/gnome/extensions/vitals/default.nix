@@ -13,6 +13,10 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs.gnomeExtensions; [ vitals ];
 
-    dconf.settings = { };
+    dconf.settings = {
+      "org/gnome/shell/extensions/vitals" = {
+        icon-style = 1; # GNOME
+      };
+    };
   };
 }
