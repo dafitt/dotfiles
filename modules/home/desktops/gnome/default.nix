@@ -19,9 +19,6 @@ in
 
     dconf.settings = {
       #$ dconf watch /
-      "org/gnome/desktop/input-sources" = {
-        sources = [ [ "xkb" "de" ] ];
-      };
       "org/gnome/desktop/peripherals/touchpad" = {
         tap-to-click = true;
         two-finger-scrolling-enabled = true;
@@ -104,6 +101,10 @@ in
         switch-to-application-8 = [ ];
         switch-to-application-9 = [ ];
         toggle-application-view = [ ];
+      };
+      "org/gnome/settings-daemon/plugins/media-keys" = {
+        logout = [ "<Control><Super>q" ];
+        volume-step = 2;
       };
       "org/gnome/shell/window-switcher" = {
         current-workspace-only = false;
