@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.environment.ianny = with types; {
-    enable = mkBoolOpt config.dafitt.environment.enable ''Enable ianny,
+    enable = mkBoolOpt false ''Enable ianny,
       a desktop utility that helps preventing repetitive strain injuries
       by keeping track of usage patterns and periodically informing the
       user to take breaks.'';
