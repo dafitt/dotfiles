@@ -22,6 +22,7 @@ in
         scale-width = 0.5;
         shortcut-search = [ "<Super>space" ];
       };
+      "org/gnome/desktop/wm/keybindings" = { switch-input-source-backward = [ ]; };
     };
   };
 }

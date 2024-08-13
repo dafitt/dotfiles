@@ -18,6 +18,7 @@ in
       "org/gnome/shell/extensions/aztaskbar" = {
         favorites = false;
         icon-size = 24;
+        main-panel-height = (config.lib.gvariant.mkTuple [ false 40 ]);
         middle-click-action = "RAISE";
         override-panel-clock-format = (config.lib.gvariant.mkTuple [ true "%F :: %A :: %R" ]);
         position-offset = 3;

@@ -15,12 +15,12 @@ in
 
     dconf.settings = {
       "org/gnome/shell/extensions/forge" = {
-        auto-split-enabled = false;
+        auto-split-enabled = true;
         dnd-center-layout = "swap";
         float-always-on-top-enabled = true;
         focus-border-toggle = false;
         move-pointer-focus-enabled = false;
-        preview-hint-enabled = false;
+        preview-hint-enabled = true;
         quick-settings-enabled = true;
         stacked-tiling-mode-enabled = false;
         tabbed-tiling-mode-enabled = false;

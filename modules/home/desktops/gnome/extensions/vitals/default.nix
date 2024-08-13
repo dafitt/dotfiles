@@ -16,6 +16,7 @@ in
     dconf.settings = {
       "org/gnome/shell/extensions/vitals" = {
         icon-style = 1; # GNOME
+        update-time = 3;
       };
     };
   };

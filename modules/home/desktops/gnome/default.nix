@@ -19,9 +19,13 @@ in
 
     dconf.settings = {
       #$ dconf watch /
+      "org/gnome/desktop/input-sources" = {
+        sources = [ (config.lib.gvariant.mkTuple [ "xkb" "de+nodeadkeys" ]) ]; # TODO depend on locale
+      };
       "org/gnome/desktop/peripherals/touchpad" = {
         tap-to-click = true;
         two-finger-scrolling-enabled = true;
+        natural-scroll = false;
       };
       "org/gnome/desktop/notifications" = {
         show-in-lock-screen = false;
