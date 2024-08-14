@@ -110,6 +110,7 @@ with lib.dafitt; {
     Music.enableSuite = osCfg.enableSuite or false;
 
     networking.connman.enable = osCfg.enable or false;
+    networking.networkmanager.enable = osCfg.enable or false;
 
     Office.enableSuite = osCfg.enableSuite or false;
     Office.evince.enable = Office.enableSuite;

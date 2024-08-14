@@ -7,10 +7,6 @@ let
   enabledSubModules = filter (n: cfg.${n}.enable or false) (attrNames cfg);
 in
 {
-  options.dafitt.networking = with types; {
-    enable = mkOpt (nullOr (enum [ "connman" "networkmanager" ])) "networkmanager" "Which network manager to use.";
-  };
-
   config = {
     assertions = [{
       assertion = length enabledSubModules <= 1;
