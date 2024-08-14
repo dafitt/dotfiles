@@ -25,7 +25,6 @@ in
       "org/gnome/desktop/peripherals/touchpad" = {
         tap-to-click = true;
         two-finger-scrolling-enabled = true;
-        natural-scroll = false;
       };
       "org/gnome/desktop/notifications" = {
         show-in-lock-screen = false;
@@ -54,7 +53,7 @@ in
       "org/gnome/desktop/wm/preferences" = {
         num-workspaces = 10;
         resize-with-right-button = true;
-        focus-mode = "sloppy";
+        focus-mode = "mouse";
         visual-bell = true;
       };
       "org/gnome/desktop/wm/keybindings" = {
