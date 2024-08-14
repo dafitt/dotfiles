@@ -33,7 +33,6 @@ with lib.dafitt; {
     desktops.gnome.enable = true;
     Development.enableSuite = true;
     flatpak.enable = true;
-    networking.enable = "connman";
     networking.firewall.allowLocalsend = true;
     networking.firewall.allowSyncthing = true;
     Virtualization.virt-manager.enable = true;

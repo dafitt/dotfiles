@@ -19,7 +19,6 @@ with lib.dafitt; {
     battery.enable = true;
     bootloader.enable = "grub";
     flatpak.enable = true;
-    networking.enable = "connman";
     networking.firewall.allowLocalsend = true;
     networking.firewall.allowSyncthing = true;
   };
