@@ -25,6 +25,21 @@ with lib.dafitt; {
     bluetooth.enable = osCfg.enable or false;
 
     desktops.gnome.enable = osCfg.enable or false;
+    desktops.gnome.extensions.enable = desktops.gnome.enable;
+    desktops.gnome.extensions.app-icons-taskbar.enable = desktops.gnome.extensions.enable;
+    desktops.gnome.extensions.appindicator.enable = desktops.gnome.extensions.enable;
+    desktops.gnome.extensions.arcmenu.enable = desktops.gnome.extensions.enable;
+    desktops.gnome.extensions.auto-move-windows.enable = false;
+    desktops.gnome.extensions.blur-my-shell.enable = desktops.gnome.extensions.enable;
+    desktops.gnome.extensions.forge.enable = desktops.gnome.extensions.enable;
+    desktops.gnome.extensions.just-perfection.enable = desktops.gnome.extensions.enable;
+    desktops.gnome.extensions.native-window-placement.enable = desktops.gnome.extensions.enable;
+    desktops.gnome.extensions.openweather.enable = desktops.gnome.extensions.enable;
+    desktops.gnome.extensions.paperwm.enable = desktops.gnome.extensions.enable;
+    desktops.gnome.extensions.reorder-workspaces.enable = desktops.gnome.extensions.enable;
+    desktops.gnome.extensions.rounded-window-corners.enable = false;
+    desktops.gnome.extensions.search-light.enable = desktops.gnome.extensions.enable;
+    desktops.gnome.extensions.vitals.enable = desktops.gnome.extensions.enable;
 
     desktops.hyprland.enable = osCfg.enable or false;
     desktops.hyprland.monitors = [ ]; # modules/home/desktops/hyprland/monitors/default.nix
