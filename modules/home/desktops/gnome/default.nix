@@ -42,6 +42,10 @@ in
         logout-prompt = false;
         idle-delay = 0;
       };
+      "org/gnome/settings-daemon/plugins/color" = {
+        night-light-enabled = true;
+      };
+
 
       # Window manager
       "org/gnome/mutter" = {
