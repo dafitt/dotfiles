@@ -28,14 +28,17 @@ in
     services.flatpak.packages = [
       "com.github.rajsolai.textsnatcher" # Snatch Text with just a Drag
       "de.bund.ausweisapp.ausweisapp2" # Official authentication app for German ID card and residence permit
+      "md.obsidian.Obsidian"
       "org.gustavoperedo.FontDownloader" # Install fonts from online sources
     ];
 
+    programs.zathura.enable = true; # pdf reader
+
+
     fonts.fontconfig.enable = true; # discover fonts and configurations installed through home.packages and nix-env
 
-    # pdf reader
-    programs.zathura = {
-      enable = true;
-    };
+    wayland.windowManager.hyprland.settings.exec-once = [
+      "[workspace 3 silent;noinitialfocus] ${pkgs.flatpak}/bin/flatpak run md.obsidian.Obsidian"
+    ];
   };
 }
