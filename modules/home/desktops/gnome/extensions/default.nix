@@ -18,5 +18,7 @@ in
         disable-user-extensions = false;
       };
     };
+
+    # NOTE extensions must still be enabled manually.
   };
 }

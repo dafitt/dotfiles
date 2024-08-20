@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
 
-  # automount on plugin
+  # automount DavidBACKUP on plugin
   # https://unix.stackexchange.com/questions/716214/unmount-mount-drive-when-its-disconnected-connected-automatically/716597#716597
   services.udev.extraRules = ''KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_FS_LABEL}=="DavidBACKUP", ACTION=="add", RUN+="${pkgs.systemd}/bin/systemctl restart mnt-DavidBACKUP.mount"'';
   systemd.mounts = [{
