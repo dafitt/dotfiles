@@ -17,6 +17,7 @@ in
       "org/gnome/shell/extensions/vitals" = {
         icon-style = 1; # GNOME
         update-time = 3;
+        menu-centered = true;
       };
     };
   };
