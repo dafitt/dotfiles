@@ -28,6 +28,7 @@ with lib.dafitt; {
     appimage.enable = true;
     bluetooth.enable = true;
     desktops.gnome.enable = true;
+    desktops.hyprland.enable = true;
     Development.enableSuite = true;
     flatpak.enable = true;
     fwupd.enable = true;
