@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enable {
     services.flatpak.enable = true;
 
-    environment.systemPackages = with pkgs; [ gnome.gnome-software ];
+    environment.systemPackages = with pkgs; [ gnome-software ];
 
     xdg.portal = {
       enable = true;

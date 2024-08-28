@@ -237,7 +237,7 @@ in
           "SUPER_ALT, PRINT, exec, ${getExe grimblast} --freeze save area - | ${getExe satty} --filename - --output-filename ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA | EDIT
 
           # some small helper programs
-          "SUPER_ALT, U, exec, ${gnome.gnome-characters}/bin/gnome-characters"
+          "SUPER_ALT, U, exec, ${gnome-characters}/bin/gnome-characters"
           "SUPER_ALT, K, exec, ${getExe hyprpicker} | ${wl-clipboard-rs}/bin/wl-copy"
         ];
 

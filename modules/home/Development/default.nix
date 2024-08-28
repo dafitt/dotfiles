@@ -18,7 +18,7 @@ in
       dig # tool for DNS
       fira-code-symbols # the ligatures aviable as symbols
       gcc # gnu c compiler
-      gnome.gnome-nettool
+      gnome-nettool
       gucharmap # to search unicode characters
       gnumake # makefile
       httpie # a modern command line HTTP client
