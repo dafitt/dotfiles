@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }: {
-
   # [Enable zfs](https://openzfs.github.io/openzfs-docs/Getting%20Started/NixOS/index.html#installation)
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = false;

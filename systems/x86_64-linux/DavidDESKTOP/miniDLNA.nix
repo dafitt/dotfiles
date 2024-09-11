@@ -1,7 +1,6 @@
 {
   #$ sudo nixos-container start minidlna
   #$ sudo nixos-container root-login minidlna
-
   containers.minidlna = {
     autoStart = false;
 
@@ -19,7 +18,6 @@
     };
 
     config = { config, lib, pkgs, ... }: {
-
       services.minidlna = {
         enable = true;
 

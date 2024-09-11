@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }: {
 
   services = {
-
     # Better scheduling for CPU cycles
     system76-scheduler.settings.cfsProfiles.enable = true;
 
