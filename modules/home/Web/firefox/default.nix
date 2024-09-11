@@ -182,10 +182,10 @@ in
 
             "Searx" = {
               #NOTE This is a local server!
-              iconUpdateURL = "https://searx.schallernetz.lan/favicon.ico";
+              iconUpdateURL = "https://searx.schallernetz.de/favicon.ico";
               definedAliases = [ "@searx" "@sx" ];
               urls = [{
-                template = "https://searx.schallernetz.lan/search";
+                template = "https://searx.schallernetz.de/search";
                 params = [{
                   name = "q";
                   value = "{searchTerms}";
