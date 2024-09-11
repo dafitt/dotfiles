@@ -28,7 +28,6 @@ My dotfiles are not perfekt, but they strive to be:
 -   fully declarative 📝
 -   highly structured 🧱
 -   modular 🎛️
--   suitable for everday use 📅
 -   a consistent environment that doesn't sacrifice its looks ✨
 
 ## Programs and Features
@@ -43,8 +42,8 @@ My dotfiles are not perfekt, but they strive to be:
 
 | Operating System 💻 | [NixOS](https://nixos.org/)                                                                                                                                    |
 | ------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|   Window manager 🪟 | [Hyprland](https://hyprland.org/) with plugins, [Gnome](https://www.gnome.org/) (as a fallback if things go wrong)                                             |
-|    Login manager 🔒 | greetd, gdm, tty                                                                                                                                               |
+|   Window manager 🪟 | [Gnome](https://www.gnome.org/) with extensions, [Hyprland](https://hyprland.org/) with plugins                                                                |
+|    Login manager 🔒 | gdm, greetd, tty                                                                                                                                               |
 |  Session locking 🔒 | [hyprlock](https://github.com/hyprwm/hyprlock)                                                                                                                 |
 |         Terminal ⌨️ | [kitty](https://sw.kovidgoyal.net/kitty/)                                                                                                                      |
 |            Shell 🐚 | [fish](https://fishshell.com/)                                                                                                                                 |
