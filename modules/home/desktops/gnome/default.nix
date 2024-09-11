@@ -58,7 +58,7 @@ in
       "org/gnome/desktop/wm/preferences" = {
         num-workspaces = 10;
         resize-with-right-button = true;
-        focus-mode = "mouse";
+        focus-mode = "sloppy";
         visual-bell = true;
       };
       "org/gnome/desktop/wm/keybindings" = {

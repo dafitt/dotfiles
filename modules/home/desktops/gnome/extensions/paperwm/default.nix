@@ -17,6 +17,7 @@ in
       "org/gnome/shell/extensions/paperwm" = {
         selection-border-size = 0;
         window-gap = 8;
+        horizontal-margin = 0;
         vertical-margin = 0;
         vertical-margin-bottom = 0;
         show-workspace-indicator = false;
