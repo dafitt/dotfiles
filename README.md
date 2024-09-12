@@ -29,11 +29,12 @@ My dotfiles are not perfekt, but they strive to be:
 -   fully declarative 📝
 -   highly structured 🧱
 -   modular 🎛️
--   a consistent environment that doesn't sacrifice its looks ✨
+-   a consistent look'n'feel ✨
+-   KISS (keep it stupid simple)🥴
 
 ## Notes
 
-This flake can and will radically change as I learn and discover new things.
+This flake can and will radically change as I learn, discover new things and have new ideas.
 
 ## Programs and Features
 
