@@ -35,7 +35,7 @@ in
   config = mkIf cfg.enable {
     services.xserver.desktopManager.gnome.enable = true;
 
-    services.udev.packages = [ pkgs.gnome.gnome-settings-daemon ];
+    services.udev.packages = [ pkgs.gnome-settings-daemon ];
 
     dafitt.displayManager.greetd.sessionPaths = [ "${custom-gnome-session}/share/wayland-sessions" ];
   };
