@@ -60,7 +60,7 @@ with lib.dafitt; {
     desktops.hyprland.pavucontrol.enable = desktops.hyprland.enable;
     desktops.hyprland.playerctl.enable = desktops.hyprland.enable;
     desktops.hyprland.plugins.enable = desktops.hyprland.enable;
-    desktops.hyprland.plugins.hycov.enable = desktops.hyprland.plugins.enable;
+    desktops.hyprland.plugins.hycov.enable = false; # discontinued
     desktops.hyprland.plugins.hypr-darkwindow.enable = false;
     desktops.hyprland.plugins.hypr-dynamic-cursors = false;
     desktops.hyprland.plugins.hyprexpo.enable = desktops.hyprland.plugins.enable;
