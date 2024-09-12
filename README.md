@@ -372,7 +372,7 @@ with channels.unstable; {
 
 I use [snowfall-lib](https://github.com/snowfallorg/lib), so every _`default.nix`_ is automatically imported.
 
-My systems and homes are assembled using custom modules. Any custom module has at least one option which name matches the folder: `config.dafitt.<myModule>.enable`. Keep in mind some modules are enabled by default some are not. Special modules:
+My systems and homes are assembled using custom modules. Any custom module has at least one enable option which name matches the folder: `config.dafitt.<myModule>.enable`. Keep in mind some modules are enabled by default some are not. Special modules:
 
 -   Desktops
     -   desktops/gnome
@@ -392,9 +392,9 @@ My systems and homes are assembled using custom modules. Any custom module has a
 
 Modules in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command; [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _`home-manager-<user>.service`_).
 
-Some [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are automatically activated, if the sister module in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled e.g. `options.custom.Gaming.enableSuite = mkBoolOpt (osConfig.custom.Gaming.enableSuite or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
+Some [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are automatically activated, if the sister module in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled. E.g. `options.dafitt.Gaming.enableSuite = mkBoolOpt (osConfig.dafitt.Gaming.enableSuite or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
 
-Last but no least, to keep things simple I put some very specific configuration directly into the systems themselves.
+To keep things simple I put hardware/system dependent configurations directly into [systems/](https://github.com/dafitt/dotfiles/blob/main/systems) themselves.
 
 ### You want to build from here?
 

@@ -17,9 +17,9 @@ with lib.dafitt; {
     }];
 
     Development.latex.enable = false;
-    environment.filemanagers.yazi.enable = true;
-    environment.launchers.rofi.enable = true;
+    filemanagers.yazi.enable = true;
     Gaming.steam.enable = true;
+    launchers.rofi.enable = true;
     Office.enableSuite = true;
     Social.enableSuite = true;
   };

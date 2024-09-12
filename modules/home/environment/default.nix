@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.environment = with types; {
-    enable = mkBoolOpt true "Enable my personal common environment (programs/services/variables) not paticular to any suite.";
+    enable = mkBoolOpt true "Enable my personal (shell) environment (programs/services/variables).";
   };
 
   config = mkIf cfg.enable {
@@ -20,7 +20,6 @@ in
       libnotify # sends desktop notifications to a notification daemon
       localsend # open source cross-platform alternative to AirDrop
       ncdu # disk usage analyzer with an ncurses interface
-      pika-backup # Simple backups based on borg
       raider # file shredder
       tldr # simplified and community-driven man pages
       tree # a directory listing program

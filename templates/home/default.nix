@@ -22,6 +22,8 @@ with lib.dafitt; {
   dafitt = rec {
     #NOTE These values are the defaults
 
+    bedtime.enable = false;
+
     bluetooth.enable = osCfg.enable or false;
 
     desktops.gnome.enable = osCfg.enable or false;
@@ -89,38 +91,40 @@ with lib.dafitt; {
 
     Editing.enableSuite = osCfg.enableSuite or false;
 
+    editors.default = "micro"; # null or one of [ "micro" ]
+    editors.micro.enable = editors.default == "micro";
+
     environment.enable = true;
-    environment._1password.enable = environment.enable;
-    environment.bedtime.enable = environment.enable;
-    environment.editors.default = "micro"; # null or one of [ "micro" ]
-    environment.editors.micro.enable = environment.enable && environment.editor.default == "micro";
-    environment.eog.enable = environment.enable;
-    environment.eog.defaultApplication = true;
-    environment.file-roller.defaultApplication = true;
-    environment.file-roller.enable = environment.enable;
-    environment.filemanagers.default = "natuilus"; # null or one of [ "nautilus" "pcmanfm" "yazi" ]
-    environment.filemanagers.autostart = true;
-    environment.filemanagers.natuilus.enable = environment.enable && environment.filemanagers.default == "natuilus";
-    environment.filemanagers.pcmanfm.enable = environment.enable && environment.filemanagers.default == "pcmanfm";
-    environment.filemanagers.yazi.enable = environment.enable && environment.filemanagers.default == "yazi";
-    environment.imv.enable = environment.enable;
-    environment.launchers.default = "fuzzel"; # null or one of [ "fuzzel" "rofi" ]
-    environment.launchers.fuzzel.enalbe = desktops.hyprland.enable && environment.launchers.default == "fuzzel";
-    environment.launchers.rofi.enalbe = desktops.hyprland.enable && environment.launchers.default == "rofi";
-    environment.mpv.enable = environment.enable;
-    environment.mpv.defaultApplication = true;
-    environment.passwordManager.default = "bitwarden"; # null or one of [ "_1password" "bitwarden" ]
-    environment.syncthing.enable = environment.enable;
-    environment.terminals.default = "kitty"; # one of [ "kitty" ]
-    environment.terminals.kitty.enable = environment.terminals.default == "kitty";
-    environment.udiskie.enable = environment.enable;
-    environment.xdg.enable = true;
-    environment.xdg.mimeApps.enable = true;
+
+    eog.enable = true;
+    eog.defaultApplication = true;
+
+    fastfetch.enable = true;
+
+    file-roller.enable = true;
+    file-roller.defaultApplication = true;
+
+    filemanagers.default = "natuilus"; # null or one of [ "nautilus" "pcmanfm" "yazi" ]
+    filemanagers.autostart = true;
+    filemanagers.natuilus.enable = filemanagers.default == "natuilus";
+    filemanagers.pcmanfm.enable = filemanagers.default == "pcmanfm";
+    filemanagers.yazi.enable = filemanagers.default == "yazi";
 
     flatpak.enable = osCfg.enable or true;
 
     Gaming.enableSuite = osCfg.enableSuite or false;
     Gaming.steam.enable = Gaming.enableSuite;
+
+    ianny.enable = false;
+
+    imv.enable = true;
+
+    launchers.default = "fuzzel"; # null or one of [ "fuzzel" "rofi" ]
+    launchers.fuzzel.enalbe = desktops.hyprland.enable && launchers.default == "fuzzel";
+    launchers.rofi.enalbe = desktops.hyprland.enable && launchers.default == "rofi";
+
+    mpv.enable = true;
+    mpv.defaultApplication = true;
 
     Music.enableSuite = osCfg.enableSuite or false;
 
@@ -134,6 +138,10 @@ with lib.dafitt; {
     Office.scribus.enable = Office.enableSuite;
     Office.thunderbird.enable = Office.enableSuite;
 
+    passwordManager.default = "bitwarden"; # null or one of [ "_1password" "bitwarden" ]
+    passwordManager._1password.enable = passwordManager.default == "_1password";
+    passwordManager.bitwarden.enable = passwordManager.default == "bitwarden";
+
     Ricing.enableSuite = osCfg.enableSuite or false;
 
     shells.bash.enable = false;
@@ -143,7 +151,14 @@ with lib.dafitt; {
 
     Social.enableSuite = osCfg.enableSuite or false;
 
+    syncthing.enable = true;
+
     systemd.enable = true;
+
+    terminals.default = "kitty"; # one of [ "kitty" ]
+    terminals.kitty.enable = terminals.default == "kitty";
+
+    udiskie.enable = true;
 
     Virtualization.enableSuite = osCfg.enableSuite or false;
     Virtualization.virt-manager.enable = osCfg.enable or Virtualization.enableSuite;
@@ -154,6 +169,9 @@ with lib.dafitt; {
     Web.epiphany.enable = Web.enableSuite || Web.default == "epiphany";
     Web.firefox.enable = Web.enableSuite || Web.default == "firefox";
     Web.librewolf.enable = Web.enableSuite || Web.default == "librewolf";
+
+    xdg.enable = true;
+    xdg.mimeApps.enable = true;
   };
 
   home.packages = with pkgs; [
