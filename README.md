@@ -3,6 +3,7 @@
 ![Hyprland-ricing](https://github.com/dafitt/dotfiles/assets/50248238/380705a7-4bd5-4431-81fe-ab04195e19f0)
 
 -   [My daily driver's Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-daily-drivers-snowfall️-nixos️-desktop-flake)
+    -   [Notes](#notes)
     -   [Programs and Features](#programs-and-features)
     -   [Installation](#installation)
         -   [On a new host machine](#on-a-new-host-machine)
@@ -29,6 +30,10 @@ My dotfiles are not perfekt, but they strive to be:
 -   highly structured 🧱
 -   modular 🎛️
 -   a consistent environment that doesn't sacrifice its looks ✨
+
+## Notes
+
+This flake can and will radically change as I learn and discover new things.
 
 ## Programs and Features
 
