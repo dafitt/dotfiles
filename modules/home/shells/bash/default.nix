@@ -1,13 +1,14 @@
-{ options, config, lib, pkgs, ... }:
+{ options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.shells.bash;
+  osCfg = osConfig.dafitt.shells.bash or null;
 in
 {
   options.dafitt.shells.bash = with types; {
-    enable = mkBoolOpt false "Enable bourne-again shell's configuration.";
+    enable = mkBoolOpt (osCfg.enable or false) "Enable bourne-again shell's configuration.";
   };
 
   config = mkIf cfg.enable {

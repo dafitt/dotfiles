@@ -4,10 +4,12 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.shells.fish;
+
+  isDefault = config.dafitt.shells.default == "fish";
 in
 {
   options.dafitt.shells.fish = with types; {
-    enable = mkBoolOpt true "Enable fish shell.";
+    enable = mkBoolOpt isDefault "Enable fish shell.";
   };
 
   config = mkIf cfg.enable {
