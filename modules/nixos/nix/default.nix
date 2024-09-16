@@ -29,7 +29,7 @@ with lib.dafitt;
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 3w";
+      options = "--delete-older-than 30d";
     };
 
     # disable nix-channel, we use flakes instead.
