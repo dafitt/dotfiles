@@ -1,16 +1,13 @@
 # Check:
 #$ nix flake check
-#$ nix repl
-#nix-repl> :lf .
+#$ nixos-rebuild repl --fast --flake .#<host>
 #nix-repl> nixosConfigurations.<host>.config
 
 # Build:
-#$ flake build-system [#<host>]
-#$ nixos-rebuild build --fast --flake .#<host> --show-trace
+#$ nixos-rebuild build --fast --flake .#<host>
 #$ nix build .#nixosConfigurations.<host>.config.system.build.toplevel
 
 # Activate:
-#$ flake <test|switch|boot> [#<host>]
 #$ nixos-rebuild --flake .#<host> <test|switch|boot>
 #$ nix run .#nixosConfigurations.<host>.config.system.build.toplevel
 

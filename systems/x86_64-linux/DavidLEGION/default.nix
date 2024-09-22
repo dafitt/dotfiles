@@ -9,8 +9,6 @@
 # Bluetooth: 5.1
 # Color: Storm Grey
 
-#nix-repl> nixosConfigurations.DavidLEGION.config
-
 { config, lib, pkgs, inputs, ... }:
 
 with lib;

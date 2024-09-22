@@ -4,8 +4,6 @@
 # Memory: 64GB
 # Case: Dark Base 900 Orange
 
-#nix-repl> nixosConfigurations.DavidDESKTOP.config
-
 { config, lib, pkgs, inputs, ... }:
 
 with lib;

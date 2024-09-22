@@ -1,5 +1,3 @@
-#nix-repl> nixosConfigurations.DavidTUX.config
-
 { config, lib, pkgs, inputs, ... }:
 
 with lib;

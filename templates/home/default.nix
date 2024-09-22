@@ -1,7 +1,6 @@
 # Check:
 #$ nix flake check
-#$ nix repl
-#nix-repl> :lf .
+#$ nixos-rebuild repl --fast --flake .#<host>
 #nix-repl> nixosConfigurations.<host>.config.snowfallorg.users.<user>.home.config
 #nix-repl> homeConfigurations.<user>[@<host>]
 
