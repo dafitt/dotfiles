@@ -88,6 +88,10 @@ in
         "[jsonc]" = {
           "editor.tabSize" = 2;
         };
+        "[nft]" = {
+          "editor.formatOnSave" = true;
+          "editor.defaultFormatter" = "omBratteng.nftables";
+        };
         "[nix]" = {
           "editor.defaultFormatter" = "jnoortheen.nix-ide";
           "editor.insertSpaces" = true;
@@ -344,12 +348,15 @@ in
         # https://marketplace.visualstudio.com/
 
         # Basic language support #
+        { name = "vscode-assorted-languages"; publisher = "edwinkofler"; version = "0.31.1"; sha256 = "sha256-dC6l9vtuCpZM1GsrfDweZsVfsjop8wTqY+Ly5dw0Jwg="; }
         # desktop files
         { name = "linux-desktop-file"; publisher = "nico-castell"; version = "0.0.21"; sha256 = "0d2pfby72qczljzw1dk2rsqkqharl2sbq3g31zylz0rx73cvxb72"; }
         # json
         { name = "fix-all-json"; publisher = "zardoy"; version = "0.1.5"; sha256 = "nkp5wdUPy+lUmc4Yg3b+NNosQgCPr6/sVad+j4Ln7Uo="; }
         # markdown
         { name = "markdown-preview-github-styles"; publisher = "bierner"; version = "2.0.4"; sha256 = "sha256-jJulxvjMNsqQqmsb5szQIAUuLWuHw824Caa0KArjUVw="; }
+        # nftables
+        { name = "nftables"; publisher = "ombratteng"; version = "0.7.0"; sha256 = "sha256-nxs1C3MA+9dQylJs9RLQJ35SRZNanIWeYAaeVVzs2Fo="; }
         # shell
         { name = "haltarys-shellman"; publisher = "Haltarys"; version = "5.7.1"; sha256 = "0gw0nd5yhq7d08mf7k78zz8xaj23qlirip3amx2jmqjav1fbz46m"; }
         # todo-txt
