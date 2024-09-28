@@ -4,6 +4,27 @@
         "gruntfuggly.todo-tree",
         "aaron-bond.better-comments",
         "kamikillerto.vscode-colorize",
-        "tamasfe.even-better-toml"
+        "tamasfe.even-better-toml",
+        "stylix.stylix",
+        "haltarys.haltarys-shellman",
+        "foxundermoon.shell-format",
+        "ibm.output-colorizer",
+        "ombratteng.nftables",
+        "bierner.markdown-preview-github-styles",
+        "yzhang.markdown-all-in-one",
+        "nico-castell.linux-desktop-file",
+        "kylinideteam.gitlens",
+        "codezombiech.gitignore",
+        "codeinklingon.git-worktree-menu",
+        "tombonnike.vscode-status-bar-format-toggle",
+        "zardoy.fix-all-json",
+        "carlocardella.vscode-filesystemtoolbox",
+        "adpyke.codesnap",
+        "codeium.codeium",
+        "formulahendry.code-runner",
+        "jeff-hykin.better-syntax",
+        "mohammadbaqer.better-folding",
+        "aliariff.auto-add-brackets",
+        "edwinkofler.vscode-assorted-languages"
     ]
 }

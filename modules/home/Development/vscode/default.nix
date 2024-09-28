@@ -369,7 +369,6 @@ in
         { name = "better-folding"; publisher = "MohammadBaqer"; version = "0.5.1"; sha256 = "vEZi+rBT8dxhi+sIPSXWpUiWmE29deWzKj7uN7T+4is="; }
         { name = "better-syntax"; publisher = "jeff-hykin"; version = "2.0.5"; sha256 = "sha256-D06msfuSOk+8hy2Amgn+d1aQoyjwotTqKzk1NS5AhnU="; }
         { name = "bracket-padder"; publisher = "viablelab"; version = "0.3.0"; sha256 = "sha256-5DfEaG8vRYcpebeBcWidaySaOgMdrDT8DiS1TmpetKg="; }
-        { name = "bracket-select2"; publisher = "jhasse"; version = "2.1.1"; sha256 = "sha256-1t5y9C6793l7YPihmNFqlEjo//MpQqOwnrKhjGecn90="; }
         { name = "vscode-filesystemtoolbox"; publisher = "carlocardella"; version = "1.5.0"; sha256 = "0wfbqglpfh4afkp6ykibzhznf6s3is23k5jwiipfr4jcmjki5kbc"; }
         { name = "vscode-status-bar-format-toggle"; publisher = "tombonnike"; version = "3.1.1"; sha256 = "mZymHbdJ7HD6acBPomwxKyatDfkDPAA0PaZpPU+nViQ="; }
         #{ name = "codeium"; publisher = "codeium"; version = "1.9.30"; sha256 = "sha256-0LkScGTeC269Tbf6JbdpkvEspqPwJlnh0v0tc+l1jHk="; }
