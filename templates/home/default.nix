@@ -75,6 +75,7 @@ with lib.dafitt; {
     desktops.hyprland.ricing.wallpaper.enable = desktops.hyprland.ricing.enable;
     desktops.hyprland.swaybg.enable = false;
     desktops.hyprland.swayosd.enable = desktops.hyprland.enable;
+    desktops.hyprland.udiskie.enable = desktops.hyprland.enable;
     desktops.hyprland.top.enable = desktops.hyprland.enable;
     desktops.hyprland.waybar.enable = desktops.hyprland.enable;
     desktops.hyprland.wlsunset.enable = desktops.hyprland.enable;
@@ -156,8 +157,6 @@ with lib.dafitt; {
 
     terminals.default = "kitty"; # one of [ "kitty" ]
     terminals.kitty.enable = terminals.default == "kitty";
-
-    udiskie.enable = true;
 
     Virtualization.enableSuite = osCfg.enableSuite or false;
     Virtualization.virt-manager.enable = osCfg.enable or Virtualization.enableSuite;

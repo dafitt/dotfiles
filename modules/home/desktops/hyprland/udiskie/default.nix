@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.udiskie;
+  cfg = config.dafitt.desktops.hyprland.udiskie;
 in
 {
-  options.dafitt.udiskie = with types; {
-    enable = mkBoolOpt true "Enable the udiskie mount helper.";
+  options.dafitt.desktops.hyprland.udiskie = with types; {
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable the udiskie mount helper.";
   };
 
   config = mkIf cfg.enable {
