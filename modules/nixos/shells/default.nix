@@ -4,11 +4,10 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.shells;
+  enabledSubModules = filter (n: cfg.${n}.enable or false) (attrNames cfg);
 in
 {
   options.dafitt.shells = with types; {
-    default = mkOpt (nullOr str) "fish" "Which default shell to set. The string needs to match the package name.";
+    default = mkOpt (nullOr (enum [ "bash" "fish" ])) "fish" "Which default shell to set.";
   };
-
-  config.users.defaultUserShell = mkIf (cfg.default != null) pkgs.${cfg.default}; #TODO add option config.programs.fish.package; upstream to nixpkgs
 }

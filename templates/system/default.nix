@@ -70,7 +70,8 @@ with lib.dafitt; {
 
     security.certificateFiles.enable = false;
 
-    shells.fish.enable = true;
+    shells.default = "fish"; # null or one of [ "bash" "fish" ]
+    shells.fish.enable = shells.default == "fish";
 
     systemd.enable = true;
 
