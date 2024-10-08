@@ -16,13 +16,12 @@ in
       example = ''
         <https://wiki.nixos.org/wiki/Linux_kernel#List_available_kernels>
         pkgs.linuxPackages_5_10;
-        pkgs.linuxPackages;
+        pkgs.linuxPackages; # LTS kernel
         pkgs.linuxPackages_latest;
         pkgs.linuxPackages_zen;
-        config.boot.zfs.package.latestCompatibleLinuxPackages;
       '';
       default =
-        if zfs then config.boot.zfs.package.latestCompatibleLinuxPackages else pkgs.linuxPackages_latest;
+        if zfs then pkgs.linuxPackages else pkgs.linuxPackages_latest;
     };
   };
 
