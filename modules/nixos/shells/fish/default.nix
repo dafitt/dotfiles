@@ -14,15 +14,7 @@ in
 
   config = mkMerge [
     (mkIf cfg.enable {
-      programs.fish = {
-        enable = true;
-        # also use objects provided by other packages
-        vendor = {
-          completions.enable = true;
-          config.enable = true;
-          functions.enable = true;
-        };
-      };
+      programs.fish.enable = true;
     })
     (mkIf isDefault {
       # https://wiki.nixos.org/wiki/Fish#Setting_fish_as_your_shell
