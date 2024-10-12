@@ -181,7 +181,6 @@ in
             #"Amazon.com".metaData.hidden = true;
 
             "Searx" = {
-              #NOTE This is a local server!
               iconUpdateURL = "https://searx.schallernetz.de/favicon.ico";
               definedAliases = [ "@searx" "@sx" ];
               urls = [{
