@@ -29,6 +29,7 @@ in
       "com.github.rajsolai.textsnatcher" # Snatch Text with just a Drag
       "de.bund.ausweisapp.ausweisapp2" # Official authentication app for German ID card and residence permit
       "md.obsidian.Obsidian"
+      "org.gnome.Evolution" # Manage your email, contacts and schedule
       "org.gustavoperedo.FontDownloader" # Install fonts from online sources
     ];
 
