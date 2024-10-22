@@ -28,8 +28,8 @@ with lib.dafitt;
 
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
+      dates = "monthly";
+      options = "--delete-older-than +12";
     };
 
     # disable nix-channel, we use flakes instead.
