@@ -21,7 +21,6 @@ in
       packages = [
         "com.valvesoftware.Steam"
         "com.valvesoftware.SteamLink"
-        "com.valvesoftware.Steam.CompatibilityTool.Boxtron"
         "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
         "com.valvesoftware.Steam.Utility.protontricks"
         "com.valvesoftware.Steam.Utility.steamtinkerlaunch"
@@ -31,8 +30,8 @@ in
       ];
       overrides = {
         "com.valvesoftware.Steam".Environment = {
-          ENABLE_VKBASALT = "1";
-          MANGOHUD = "1";
+          #ENABLE_VKBASALT = "1";
+          #MANGOHUD = "1";
         };
       };
     };
