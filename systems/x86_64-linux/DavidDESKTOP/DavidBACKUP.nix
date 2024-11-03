@@ -20,7 +20,7 @@
     };
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = ''${pkgs.bash}/bin/bash -c "chown david:users /mnt/DavidBACKUP"'';
+      ExecStart = "${pkgs.coreutils}/bin/chown david:users /mnt/DavidBACKUP";
     };
   };
 
@@ -28,7 +28,7 @@
   services.borgbackup.jobs."DavidBACKUP" = rec {
     repo = "/mnt/DavidBACKUP/DavidBACKUP-repo";
     encryption.mode = "repokey-blake2";
-    encryption.passCommand = "cat /home/david/.local/secrets/DavidBACKUP.key";
+    encryption.passCommand = "${pkgs.coreutils}/bin/cat /home/david/.local/secrets/DavidBACKUP.key";
     compression = "auto,zstd";
     user = "david";
     group = "users";
