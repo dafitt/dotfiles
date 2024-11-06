@@ -30,7 +30,7 @@ in
       bat.enable = true;
       eza = {
         enable = true;
-        icons = true;
+        icons = "auto";
         git = true;
       };
       fzf = {
