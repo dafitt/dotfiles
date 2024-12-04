@@ -301,12 +301,11 @@ in
         { "key" = "ctrl+shift+z"; "command" = "-extension.decrementPriority"; }
         # unset todo-txt
         { "key" = "ctrl+shift+a"; "command" = "-extension.incrementPriority"; }
-        # bracket-select: change select behaviour
+        # bracket-select: change bracket-select shortcut
         { "key" = "alt+a"; "command" = "-bracket-select.select"; }
         { "key" = "alt+z"; "command" = "-bracket-select.undo-select"; }
-        { "key" = "ctrl+a"; "command" = "bracket-select.select-include"; "when" = "editorTextFocus"; }
         { "key" = "ctrl+shift+a"; "command" = "-editor.action.blockComment"; }
-        { "key" = "ctrl+shift+a"; "command" = "editor.action.selectAll"; }
+        { "key" = "ctrl+shift+a"; "command" = "bracket-select.select-include"; "when" = "editorTextFocus"; }
       ];
 
       globalSnippets = {
