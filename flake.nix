@@ -7,7 +7,7 @@
     hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow"; }; # https://github.com/micha4w/Hypr-DarkWindow
     hyprspace = { url = "github:KZDKM/Hyprspace"; }; # https://github.com/KZDKM/Hyprspace
     hyprsplit = { url = "github:shezdy/hyprsplit"; }; # https://github.com/shezdy/hyprsplit
-    nix-flatpak.url = "github:gmodena/nix-flatpak/v0.4.1"; # https://github.com/gmodena/nix-flatpak/tags
+    nix-flatpak.url = "github:gmodena/nix-flatpak/v0.5.2"; # https://github.com/gmodena/nix-flatpak/tags
     nixos-generators = { url = "github:nix-community/nixos-generators"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/nixos-generators
     nixos-hardware.url = "github:nixos/nixos-hardware/master"; # https://github.com/NixOS/nixos-hardware
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # https://github.com/NixOS/nixpkgs
@@ -55,7 +55,7 @@
     };
 
     overlays = with inputs; [
-      nur.overlay
+      nur.overlays.default
     ];
 
     systems.modules.nixos = with inputs; [

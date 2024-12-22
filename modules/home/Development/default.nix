@@ -13,7 +13,8 @@ in
 
   config = mkIf cfg.enableSuite {
     home.packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
+      nerd-fonts.fira-code
+      nerd-fonts.fira-mono
       clang-tools # clangd for c/c++
       dig # tool for DNS
       fira-code-symbols # the ligatures aviable as symbols

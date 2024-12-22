@@ -20,18 +20,12 @@ in
     environment.systemPackages = with pkgs; [ ];
 
     fonts.packages = with pkgs; [
-      (nerdfonts.override {
-        # https://www.nerdfonts.com/font-downloads
-        # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/data/fonts/nerdfonts/shas.nix
-        fonts = [
-          "JetBrainsMono"
-          "NerdFontsSymbolsOnly"
-          "Noto"
-          "Ubuntu"
-          "UbuntuMono"
-          "UbuntuSans"
-        ];
-      })
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
+      nerd-fonts.noto
+      nerd-fonts.ubuntu
+      nerd-fonts.ubuntu-mono
+      nerd-fonts.ubuntu-sans
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
