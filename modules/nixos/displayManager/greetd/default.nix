@@ -8,32 +8,23 @@ in
 {
   options.dafitt.displayManager.greetd = with types; {
     enable = mkBoolOpt (config.dafitt.displayManager.enable == "greetd") "Whether to enable greetd as the login/display manager.";
-    sessionPaths = mkOption {
-      description = "List of paths to search for session files.";
-      type = listOf str;
-      example = [
-        "${config.services.xserver.displayManager.sessionData.desktops}/share/xsessions"
-        "${config.services.xserver.displayManager.sessionData.desktops}/share/wayland-sessions"
-        "/run/current-system/sw/share/xsessions"
-        "/run/current-system/sw/share/wayland-sessions"
-      ];
-      default = [ ]; #NOTE Is set from the nixos/desktops-modules
-    };
   };
 
   config = mkIf cfg.enable {
     services.greetd = {
       enable = true;
-      settings = {
-        default_session = {
+      settings = rec {
+        default_session = tuigreet_session;
+
+        tuigreet_session = {
           command = concatStringsSep " " [
             #$ nix run nixpkgs#greetd.tuigreet -- --help
             (getExe pkgs.greetd.tuigreet)
             "--time"
             "--remember"
             "--remember-user-session"
-            "--sessions ${concatStringsSep ":" cfg.sessionPaths}"
-            "--theme border=magenta;container=black;time=magenta;prompt=green;action=blue;button=yellow;text=cyan"
+            "--sessions '${concatStringsSep ":" config.dafitt.displayManager.sessionPaths}'"
+            "--theme 'border=magenta;container=black;time=magenta;prompt=green;action=blue;button=yellow;text=cyan'"
           ];
           user = "greeter";
         };

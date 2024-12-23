@@ -5,21 +5,21 @@ with lib.dafitt;
 let
   cfg = config.dafitt.desktops.gnome;
 
-  custom-gnome-session = with pkgs; stdenv.mkDerivation rec {
-    name = "custom-gnome-session";
+  backup-gnome-session = with pkgs; stdenv.mkDerivation rec {
+    name = "backup-gnome-session";
     dontUnpack = true;
 
+    backup-gnome-session_wayland-startScript = writeShellScriptBin "backup-gnome-session_wayland-startScript" ''
+      export XDG_SESSION_TYPE=wayland
+      ${pkgs.dbus}/bin/dbus-run-session ${pkgs.gnome-session}/bin/gnome-session
+    '';
+
     desktopFile = makeDesktopItem {
-      name = "gnome";
-      desktopName = "GNOME";
-      exec = "${custom-gnome-session_wayland-startScript}/bin/custom-gnome-session_wayland-startScript";
+      name = "gnome-backup-session";
+      desktopName = "GNOME (backup)";
+      exec = "${backup-gnome-session_wayland-startScript}/bin/backup-gnome-session_wayland-startScript";
       terminal = true;
     };
-
-    custom-gnome-session_wayland-startScript = writeShellScriptBin "custom-gnome-session_wayland-startScript" ''
-      export XDG_SESSION_TYPE=wayland
-      ${pkgs.dbus}/bin/dbus-run-session ${pkgs.gnome.gnome-session}/bin/gnome-session
-    '';
 
     installPhase = ''
       mkdir -p $out/share/wayland-sessions
@@ -37,6 +37,6 @@ in
 
     services.udev.packages = [ pkgs.gnome-settings-daemon ];
 
-    dafitt.displayManager.greetd.sessionPaths = [ "${custom-gnome-session}/share/wayland-sessions" ];
+    dafitt.displayManager.sessionPaths = [ "${backup-gnome-session}/share/wayland-sessions" ];
   };
 }

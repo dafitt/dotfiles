@@ -64,7 +64,5 @@ in
       };
       wantedBy = [ "hyprland-session.target" ];
     };
-
-    dafitt.displayManager.greetd.sessionPaths = [ "${config.programs.hyprland.package}/share/wayland-sessions" ];
   };
 }
