@@ -7,11 +7,11 @@ let
 in
 {
   options.dafitt.batteryOptimization = with types; {
-    enable = mkBoolOpt false "Whether or not to enable battery optimizations and utils.";
+    enable = mkBoolOpt false "Enable battery optimizations and utils.";
   };
 
   config = mkIf cfg.enable {
-    # Better scheduling for CPU cycles - thanks System76!!!
+    # Better scheduling for CPU cycles
     services.system76-scheduler.settings.cfsProfiles.enable = true;
 
     # Enable TLP (better than gnomes internal power manager)
