@@ -7,20 +7,20 @@ let
 in
 {
   options.dafitt.audio = with types; {
-    enable = mkBoolOpt true "Enable audio through pipewire.";
+    enable = mkBoolOpt true "Enable audio with the pipewire sound server.";
   };
 
   config = mkIf cfg.enable {
-    hardware.pulseaudio.enable = false;
+    # https://wiki.nixos.org/wiki/PipeWire
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
-      wireplumber.enable = true;
-      jack.enable = true;
       pulse.enable = true;
+      jack.enable = true;
     };
-    programs.noisetorch.enable = true;
+
+    programs.noisetorch.enable = true; # creates a virtual microphone that suppresses noise in any application
   };
 }
