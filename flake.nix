@@ -14,7 +14,7 @@
     nur.url = "github:nix-community/NUR"; # https://github.com/nix-community/NUR
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/wamserma/flake-programs-sqlite
     snowfall-flake = { url = "github:snowfallorg/flake"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/flake
-    snowfall-lib = { url = "github:snowfallorg/lib/dev"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/lib
+    snowfall-lib = { url = "github:snowfallorg/lib"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/lib
     stylix.url = "github:danth/stylix"; # https://github.com/danth/stylix
 
     # for development; see overlays/-git/default.nix
