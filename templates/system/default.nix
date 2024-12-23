@@ -68,8 +68,6 @@ with lib.dafitt; {
 
     printing.enable = false;
 
-    security.certificateFiles.enable = false;
-
     shells.default = "fish"; # null or one of [ "bash" "fish" ]
     shells.fish.enable = shells.default == "fish";
 

@@ -2,28 +2,28 @@
 
 ![Hyprland-ricing](https://github.com/dafitt/dotfiles/assets/50248238/380705a7-4bd5-4431-81fe-ab04195e19f0)
 
--   [My daily driver's Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-daily-drivers-snowfall️-nixos️-desktop-flake)
-    -   [Notes](#notes)
-    -   [Programs and Features](#programs-and-features)
-    -   [Installation](#installation)
-        -   [On a new host machine](#on-a-new-host-machine)
-    -   [Usage](#usage)
-        -   [Flake](#flake)
-            -   [Shell environment](#shell-environment)
-            -   [Overview](#overview)
-            -   [Build and switch configuration](#build-and-switch-configuration)
-            -   [Update flake inputs](#update-flake-inputs)
-            -   [Rollback](#rollback)
-            -   [Code formatting](#code-formatting)
-            -   [snowfallorg/flake](#snowfallorgflake)
-        -   [Hyprkeys](#hyprkeys)
-        -   [NixOS stable branch](#nixos-stable-branch)
-    -   [Structure](#structure)
-        -   [You want to build from here?](#you-want-to-build-from-here)
-    -   [Troubleshooting](#troubleshooting)
-        -   [Some options in modules/home/ or homes/ are not being applied with nixos-rebuild](#some-options-in-moduleshome-or-homes-are-not-being-applied-with-nixos-rebuild)
-        -   [Unable to see fonts](#unable-to-see-fonts)
-    -   [👀, 🏆 and ❤️](#--and-️)
+- [My daily driver's Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-daily-drivers-snowfall️-nixos️-desktop-flake)
+  - [Notes](#notes)
+  - [Programs and Features](#programs-and-features)
+  - [Installation](#installation)
+    - [On a new host machine](#on-a-new-host-machine)
+  - [Usage](#usage)
+    - [Flake](#flake)
+      - [Shell environment](#shell-environment)
+      - [Overview](#overview)
+      - [Build and switch configuration](#build-and-switch-configuration)
+      - [Update flake inputs](#update-flake-inputs)
+      - [Rollback](#rollback)
+      - [Code formatting](#code-formatting)
+      - [snowfallorg/flake](#snowfallorgflake)
+    - [Hyprkeys](#hyprkeys)
+    - [NixOS stable branch](#nixos-stable-branch)
+  - [Structure](#structure)
+    - [You want to build from here?](#you-want-to-build-from-here)
+  - [Troubleshooting](#troubleshooting)
+    - [Some options in modules/home/ or homes/ are not being applied with nixos-rebuild](#some-options-in-moduleshome-or-homes-are-not-being-applied-with-nixos-rebuild)
+    - [Unable to see fonts](#unable-to-see-fonts)
+  - [👀, 🏆 and ❤️](#--and-️)
 
 My dotfiles are not perfekt, but they strive to be:
 
@@ -418,7 +418,6 @@ What you have to customize:
     -   [ ] `hardware-configuration.nix`
     -   [ ] maybe some host-specific `configuration.nix`: make sure to import it: `imports = [ ./configuration.nix ];`
 -   [ ] [homes/\<architecure\>/\<user\>[@\<host\>]/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix): obviously your own home-configuration
--   [ ] [modules/nixos/security/certificateFiles/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/security/certificateFiles/default.nix): change list of root ssl certificate agent files or disable this module
 
 Optionally:
 
