@@ -25,7 +25,7 @@ with lib.dafitt; {
   dafitt = rec {
     #NOTE These values are the defaults
 
-    appimage.enable = false;
+    appimage.enable = true;
 
     audio.enable = true;
 

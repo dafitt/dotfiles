@@ -45,7 +45,6 @@ This flake can and will radically change as I learn, discover new things and hav
 -   ❄️ almost every module can be disabled
 -   ❄️💲 [Snowfall-flake commands](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage)
 -   📦 [Declarative flatpaks](https://github.com/gmodena/nix-flatpak)
--   📦 Appimage support
 
 | Operating System 💻 | [NixOS](https://nixos.org/)                                                                                                                                    |
 | ------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
