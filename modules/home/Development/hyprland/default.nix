@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.Development.hyprland = with types; {
-    enable = mkBoolOpt config.dafitt.Development.enableSuite "Enable hyprland development.";
+    enable = mkBoolOpt config.dafitt.Development.enableSuite "Whether to enable hyprland development.";
   };
 
   config = mkIf cfg.enable {

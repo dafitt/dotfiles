@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.networking.networkmanager = with types; {
-    enable = mkBoolOpt (config.dafitt.networking.enable == "networkmanager") "Enable networking through NetworkManager.";
+    enable = mkBoolOpt (config.dafitt.networking.enable == "networkmanager") "Whether to enable networking through NetworkManager.";
   };
 
   config = mkIf cfg.enable {

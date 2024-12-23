@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.Development.wireshark = with types; {
-    enable = mkBoolOpt false "Enable wireshark, a network protocol analyzer.";
+    enable = mkBoolOpt false "Whether to enable wireshark, a network protocol analyzer.";
   };
 
   config = mkIf cfg.enable {

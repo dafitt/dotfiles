@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.cliphist = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable cliphist for hyprland.";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Whether to enable cliphist for hyprland.";
   };
 
   config = mkIf cfg.enable {

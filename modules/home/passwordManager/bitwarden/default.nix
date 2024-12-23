@@ -10,7 +10,7 @@ let
 in
 {
   options.dafitt.passwordManager.bitwarden = with types; {
-    enable = mkBoolOpt isDefault "Enable bitwarden.";
+    enable = mkBoolOpt isDefault "Whether to enable bitwarden.";
   };
 
   config = mkIf cfg.enable {

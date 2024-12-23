@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.gnome.extensions.openweather = with types; {
-    enable = mkBoolOpt false "Enable Gnome extension 'openweather'.";
+    enable = mkBoolOpt false "Whether to enable Gnome extension 'openweather'.";
   };
 
   config = mkIf cfg.enable {

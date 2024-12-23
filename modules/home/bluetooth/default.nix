@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.bluetooth = with types;{
-    enable = mkBoolOpt (osCfg.enable or false) "Enable a gui for bluetooth.";
+    enable = mkBoolOpt (osCfg.enable or false) "Whether to enable a gui for bluetooth.";
   };
 
   config = mkIf cfg.enable {

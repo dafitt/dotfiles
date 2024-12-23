@@ -10,7 +10,7 @@ let
 in
 {
   options.dafitt.filemanagers.pcmanfm = with types; {
-    enable = mkBoolOpt isDefault "Enable pcmanfm file manager.";
+    enable = mkBoolOpt isDefault "Whether to enable pcmanfm file manager.";
   };
 
   config = mkIf cfg.enable {

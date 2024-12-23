@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.desktops.gnome = with types; {
-    enable = mkBoolOpt (osCfg.enable or false) "Enable Gnome home configuration.";
+    enable = mkBoolOpt (osCfg.enable or false) "Whether to enable Gnome home configuration.";
   };
 
   config = mkIf cfg.enable {

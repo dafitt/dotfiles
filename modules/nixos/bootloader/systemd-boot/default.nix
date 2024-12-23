@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.bootloader.systemd-boot = with types; {
-    enable = mkBoolOpt (config.dafitt.bootloader.enable == "systemd-boot") "Whether or not to enable booting by systemd-boot.";
+    enable = mkBoolOpt (config.dafitt.bootloader.enable == "systemd-boot") "Whether to enable booting by systemd-boot.";
   };
 
   config = mkIf cfg.enable {

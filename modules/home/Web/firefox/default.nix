@@ -17,7 +17,7 @@ let
 in
 {
   options.dafitt.Web.firefox = with types; {
-    enable = mkBoolOpt (config.dafitt.Web.enableSuite || isDefault) "Enable the firefox web browser.";
+    enable = mkBoolOpt (config.dafitt.Web.enableSuite || isDefault) "Whether to enable the firefox web browser.";
   };
 
   config = mkIf cfg.enable {

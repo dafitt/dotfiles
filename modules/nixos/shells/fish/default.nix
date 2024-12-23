@@ -9,7 +9,7 @@ let
 in
 {
   options.dafitt.shells.fish = with types; {
-    enable = mkBoolOpt isDefault "Enable fish shell.";
+    enable = mkBoolOpt isDefault "Whether to enable fish shell.";
   };
 
   config = mkMerge [

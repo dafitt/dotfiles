@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.gnome.extensions.paperwm = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.gnome.extensions.enable "Enable Gnome extension 'paperwm'.";
+    enable = mkBoolOpt config.dafitt.desktops.gnome.extensions.enable "Whether to enable Gnome extension 'paperwm'.";
   };
 
   config = mkIf cfg.enable {

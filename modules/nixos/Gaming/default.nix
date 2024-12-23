@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.Gaming = with types; {
-    enableSuite = mkBoolOpt false "Enable the Gaming suite";
+    enableSuite = mkBoolOpt false "Whether to enable the Gaming suite";
   };
 
   config = mkIf cfg.enableSuite {

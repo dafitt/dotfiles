@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland = with types; {
-    enable = mkBoolOpt false "Enable the Hyprland desktop environment.";
+    enable = mkBoolOpt false "Whether to enable the Hyprland desktop environment.";
   };
 
   config = mkIf cfg.enable {

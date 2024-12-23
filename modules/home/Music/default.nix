@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.Music = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Music suite.";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Whether to enable the Music suite.";
   };
 
   config = mkIf cfg.enableSuite {

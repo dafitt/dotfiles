@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.Ricing = with types; {
-    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Enable the Ricing suite.";
+    enableSuite = mkBoolOpt (osCfg.enableSuite or false) "Whether to enable the Ricing suite.";
   };
 
   config = mkIf cfg.enableSuite {

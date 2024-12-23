@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.Gaming.gamescope = with types; {
-    enable = mkBoolOpt config.dafitt.Gaming.enableSuite "Enable the gamescope command.";
+    enable = mkBoolOpt config.dafitt.Gaming.enableSuite "Whether to enable the gamescope command.";
   };
 
   config = mkIf cfg.enable {

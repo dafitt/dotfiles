@@ -9,7 +9,7 @@ in
 {
   options.dafitt.desktops.hyprland.plugins.hyprfocus = with types;
     {
-      enable = mkBoolOpt false "Enable the hyprfocus hyprland plugin.";
+      enable = mkBoolOpt false "Whether to enable the hyprfocus hyprland plugin.";
     };
 
   config = mkIf cfg.enable {

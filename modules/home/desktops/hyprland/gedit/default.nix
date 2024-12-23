@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.gedit = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable gedit for hyprland.";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Whether to enable gedit for hyprland.";
   };
 
   config = mkIf cfg.enable {

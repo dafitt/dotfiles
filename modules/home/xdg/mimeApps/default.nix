@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.xdg.mimeApps = with types; {
-    enable = mkBoolOpt false "Whether or not to set default applications for mime types.";
+    enable = mkBoolOpt false "Whether to set default applications for mime types.";
   };
 
   config = mkIf cfg.enable {

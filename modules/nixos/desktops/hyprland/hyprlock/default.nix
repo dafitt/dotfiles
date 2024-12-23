@@ -12,7 +12,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.hyprlock = with types; {
-    allow = mkBoolOpt hyprlock_enabled "Whether or not to allow hyprlock to unlock the screen.";
+    allow = mkBoolOpt hyprlock_enabled "Whether to allow hyprlock to unlock the screen.";
   };
 
   config = {

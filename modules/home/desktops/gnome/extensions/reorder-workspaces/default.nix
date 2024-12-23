@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.gnome.extensions.reorder-workspaces = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.gnome.extensions.enable "Enable Gnome extension 'reorder-workspaces'.";
+    enable = mkBoolOpt config.dafitt.desktops.gnome.extensions.enable "Whether to enable Gnome extension 'reorder-workspaces'.";
   };
 
   config = mkIf cfg.enable {

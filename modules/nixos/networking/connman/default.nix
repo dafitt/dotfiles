@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.networking.connman = with types; {
-    enable = mkBoolOpt (config.dafitt.networking.enable == "connman") "Enable networking through connman.";
+    enable = mkBoolOpt (config.dafitt.networking.enable == "connman") "Whether to enable networking through connman.";
   };
 
   config = mkIf cfg.enable {

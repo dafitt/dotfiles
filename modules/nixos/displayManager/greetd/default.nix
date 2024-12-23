@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.displayManager.greetd = with types; {
-    enable = mkBoolOpt (config.dafitt.displayManager.enable == "greetd") "Enable greetd as the login/display manager.";
+    enable = mkBoolOpt (config.dafitt.displayManager.enable == "greetd") "Whether to enable greetd as the login/display manager.";
     sessionPaths = mkOption {
       description = "List of paths to search for session files.";
       type = listOf str;

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.plugins.hycov = with types; {
-    enable = mkBoolOpt false "Enable the hycov hyprland plugin. ATTENTION: Discontinued!";
+    enable = mkBoolOpt false "Whether to enable the hycov hyprland plugin. ATTENTION: Discontinued!";
   };
 
   config = mkIf cfg.enable {

@@ -7,6 +7,6 @@ let
 in
 {
   options.dafitt.Development = with types; {
-    enableSuite = mkBoolOpt false "Enable the Development suite.";
+    enableSuite = mkBoolOpt false "Whether to enable the Development suite.";
   };
 }

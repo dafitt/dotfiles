@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.Gaming.ratbagd = with types; {
-    enable = mkBoolOpt config.dafitt.Gaming.enableSuite "Enable ratbagd, a DBus daemon to configure gaming mice.";
+    enable = mkBoolOpt config.dafitt.Gaming.enableSuite "Whether to enable ratbagd, a DBus daemon to configure gaming mice.";
   };
 
   config = mkIf cfg.enable {

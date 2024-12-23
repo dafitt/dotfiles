@@ -10,7 +10,7 @@ let
 in
 {
   options.dafitt.filemanagers.yazi = with types; {
-    enable = mkBoolOpt isDefault "Enable the yazi terminal file manager.";
+    enable = mkBoolOpt isDefault "Whether to enable the yazi terminal file manager.";
   };
 
   config = mkIf cfg.enable {

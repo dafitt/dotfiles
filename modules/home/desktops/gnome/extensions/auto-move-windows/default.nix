@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.gnome.extensions.auto-move-windows = with types; {
-    enable = mkBoolOpt false "Enable Gnome extension 'auto-move-windows'.";
+    enable = mkBoolOpt false "Whether to enable Gnome extension 'auto-move-windows'.";
   };
 
   config = mkIf cfg.enable {

@@ -10,7 +10,7 @@ let
 in
 {
   options.dafitt.filemanagers.natuilus = with types; {
-    enable = mkBoolOpt isDefault "Enable natuilus file manager.";
+    enable = mkBoolOpt isDefault "Whether to enable natuilus file manager.";
   };
 
   config = mkIf cfg.enable {

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.shells.starship = with types; {
-    enable = mkBoolOpt true "Enable the starship prompt.";
+    enable = mkBoolOpt true "Whether to enable the starship prompt.";
   };
 
   config = mkIf cfg.enable {

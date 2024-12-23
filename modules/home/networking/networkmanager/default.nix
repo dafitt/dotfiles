@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.networking.networkmanager = with types;{
-    enable = mkBoolOpt (osCfg.enable or false) "Enable a gui for networkmanager.";
+    enable = mkBoolOpt (osCfg.enable or false) "Whether to enable a gui for networkmanager.";
   };
 
   config = mkIf cfg.enable {

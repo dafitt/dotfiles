@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.btop = with types; {
-    enable = mkBoolOpt true "Enable btop.";
+    enable = mkBoolOpt true "Whether to enable btop.";
   };
 
   config = mkIf cfg.enable {

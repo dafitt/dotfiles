@@ -9,7 +9,7 @@ let
 in
 {
   options.dafitt.bedtime = with types; {
-    enable = mkBoolOpt false "Whether or not to tell you to go to sleep at night by muting sound.";
+    enable = mkBoolOpt false "Whether to tell you to go to sleep at night by muting sound.";
   };
 
   config = mkIf cfg.enable {

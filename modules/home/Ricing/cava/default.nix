@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.Ricing.cava = with types; {
-    enable = mkBoolOpt config.dafitt.Ricing.enableSuite "Enable cava, a console-based Audio Visualizer.";
+    enable = mkBoolOpt config.dafitt.Ricing.enableSuite "Whether to enable cava, a console-based Audio Visualizer.";
   };
 
   config = mkIf cfg.enable {

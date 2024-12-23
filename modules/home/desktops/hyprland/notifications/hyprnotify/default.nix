@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.notifications.hyprnotify = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable hyprnotify for hyprland.";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Whether to enable hyprnotify for hyprland.";
   };
 
   config = mkIf cfg.enable {

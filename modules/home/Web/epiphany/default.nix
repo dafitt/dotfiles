@@ -10,7 +10,7 @@ let
 in
 {
   options.dafitt.Web.epiphany = with types; {
-    enable = mkBoolOpt (config.dafitt.Web.enableSuite || isDefault) "Enable the epiphany Web browser.";
+    enable = mkBoolOpt (config.dafitt.Web.enableSuite || isDefault) "Whether to enable the epiphany Web browser.";
   };
 
   config = mkIf cfg.enable {

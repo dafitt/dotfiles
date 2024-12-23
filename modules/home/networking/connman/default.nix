@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.networking.connman = with types;{
-    enable = mkBoolOpt (osCfg.enable or false) "Enable a gui for connman.";
+    enable = mkBoolOpt (osCfg.enable or false) "Whether to enable a gui for connman.";
   };
 
   config = mkIf cfg.enable {

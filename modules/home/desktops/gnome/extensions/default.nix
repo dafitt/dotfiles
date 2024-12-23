@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.gnome.extensions = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.gnome.enable "Enable Gnome extensions.";
+    enable = mkBoolOpt config.dafitt.desktops.gnome.enable "Whether to enable Gnome extensions.";
   };
 
   config = mkIf cfg.enable {

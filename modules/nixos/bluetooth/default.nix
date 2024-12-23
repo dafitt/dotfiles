@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.bluetooth = with types; {
-    enable = mkBoolOpt false "Enable bluetooth.";
+    enable = mkBoolOpt false "Whether to enable bluetooth.";
   };
 
   config = mkIf cfg.enable {

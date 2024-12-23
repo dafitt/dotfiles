@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.plugins.hyprtrails = with types; {
-    enable = mkBoolOpt false "Enable the hyprtrails hyprland plugin.";
+    enable = mkBoolOpt false "Whether to enable the hyprtrails hyprland plugin.";
   };
 
   config = mkIf cfg.enable {

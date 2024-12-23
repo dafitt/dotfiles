@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.plugins.hyprnome = with types; {
-    enable = mkBoolOpt false "Enable hyprnome, GNOME-like workspace switching in Hyprland.";
+    enable = mkBoolOpt false "Whether to enable hyprnome, GNOME-like workspace switching in Hyprland.";
   };
 
   config = mkIf cfg.enable {

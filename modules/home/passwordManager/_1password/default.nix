@@ -10,7 +10,7 @@ let
 in
 {
   options.dafitt.passwordManager._1password = with types; {
-    enable = mkBoolOpt isDefault "Enable _1password.";
+    enable = mkBoolOpt isDefault "Whether to enable _1password.";
   };
 
   config = mkIf cfg.enable {

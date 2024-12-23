@@ -10,7 +10,7 @@ let
 in
 {
   options.dafitt.terminals.kitty = with types; {
-    enable = mkBoolOpt isDefault "Enable the kitty terminal emulator.";
+    enable = mkBoolOpt isDefault "Whether to enable the kitty terminal emulator.";
   };
 
   config = mkIf cfg.enable {

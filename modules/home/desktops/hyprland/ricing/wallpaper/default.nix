@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.ricing.wallpaper = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.ricing.enable "Enable wallpaper ricing.";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.ricing.enable "Whether to enable wallpaper ricing.";
   };
 
   # FIXME launching kitty with this module enabled crashes Hyprland

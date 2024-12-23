@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.desktops.hyprland.plugins.hyprexpo = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.plugins.enable "Enable the hyprexpo hyprland plugin.";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.plugins.enable "Whether to enable the hyprexpo hyprland plugin.";
   };
 
   config = mkIf cfg.enable {

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.Development.git = with types; {
-    enable = mkBoolOpt config.dafitt.Development.enableSuite "Enable git.";
+    enable = mkBoolOpt config.dafitt.Development.enableSuite "Whether to enable git.";
   };
 
   config = mkIf cfg.enable {

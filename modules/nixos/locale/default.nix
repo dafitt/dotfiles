@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.locale = with types; {
-    enable = mkBoolOpt true "Whether or not to manage locale settings.";
+    enable = mkBoolOpt true "Whether to manage locale settings.";
   };
 
   config = mkIf cfg.enable {

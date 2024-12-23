@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.Development.sshAgent = with types; {
-    enable = mkBoolOpt config.dafitt.Development.enableSuite "Enable sshAgent.";
+    enable = mkBoolOpt config.dafitt.Development.enableSuite "Whether to enable sshAgent.";
   };
 
   config = mkIf cfg.enable {

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.Development.direnv = with types; {
-    enable = mkBoolOpt config.dafitt.Development.enableSuite "Enable direnv.";
+    enable = mkBoolOpt config.dafitt.Development.enableSuite "Whether to enable direnv.";
   };
 
   config = mkIf cfg.enable {

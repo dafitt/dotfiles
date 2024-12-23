@@ -11,8 +11,8 @@ let
 in
 {
   options.dafitt.desktops.hyprland.hypridle = with types; {
-    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Enable hypridle.";
-    sleepTriggersLock = mkBoolOpt true "Whether or not to lock before going to sleep";
+    enable = mkBoolOpt config.dafitt.desktops.hyprland.enable "Whether to enable hypridle.";
+    sleepTriggersLock = mkBoolOpt true "Whether to lock before going to sleep";
     timeouts = {
       lock = mkOption {
         description = "The time in seconds after which the screen should be locked. 0 to disable.";

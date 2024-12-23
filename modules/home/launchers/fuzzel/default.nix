@@ -10,7 +10,7 @@ let
 in
 {
   options.dafitt.launchers.fuzzel = with types; {
-    enable = mkBoolOpt (config.dafitt.desktops.hyprland.enable && isDefault) "Enable the application launcher fuzzel.";
+    enable = mkBoolOpt (config.dafitt.desktops.hyprland.enable && isDefault) "Whether to enable the application launcher fuzzel.";
   };
 
   config = mkIf cfg.enable {

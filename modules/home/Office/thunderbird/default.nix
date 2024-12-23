@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.Office.thunderbird = with types; {
-    enable = mkBoolOpt false "Enable thunderbird.";
+    enable = mkBoolOpt false "Whether to enable thunderbird.";
   };
 
   config = mkIf cfg.enable {
