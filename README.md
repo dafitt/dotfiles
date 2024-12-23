@@ -19,6 +19,7 @@
     - [Hyprkeys](#hyprkeys)
     - [NixOS stable branch](#nixos-stable-branch)
   - [Structure](#structure)
+    - [Modules](#modules)
     - [You want to build from here?](#you-want-to-build-from-here)
   - [Troubleshooting](#troubleshooting)
     - [Some options in modules/home/ or homes/ are not being applied with nixos-rebuild](#some-options-in-moduleshome-or-homes-are-not-being-applied-with-nixos-rebuild)
@@ -65,33 +66,35 @@ This flake can and will radically change as I learn, discover new things and hav
 
 ### On a new host machine
 
-1. Install [NixOS](https://nixos.org/download/)
+1. Install [NixOS](https://nixos.org/download/) and enable the (experimental) nix feature [flakes](https://wiki.nixos.org/wiki/Flakes).
 
 2. Dotfiles preparation: mandatory changes to my dotfiles
 
     1. `git clone https://github.com/dafitt/dotfiles.git`
 
-    2. Add a new system-configuration to _`/systems/<architecture>/<host>/default.nix`_
+    2. Read and understand my dotfiles' structure and code.
+
+    3. Add a **your** (new) system-configuration to _`/systems/<architecture>/<host>/default.nix`_
        _(available `dafitt-nixos` options can be found at [templates/system/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix))_
 
-    3. Copy and import _`hardware-configuration.nix`_!
+    4. Copy and import _`hardware-configuration.nix`_!
 
-    4. Set the correct `system.stateVersion`
+    5. Set the correct `system.stateVersion`
 
-    5. Add a new home-configuration to _`homes/<architecture>/<user>[@<host>]/default.nix`_
+    6. Add a new home-configuration to _`homes/<architecture>/<user>[@<host>]/default.nix`_
        _(available `dafitt-home` options can be found at [templates/home/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix))_
 
-    6. Commit all changes:
+    7. Commit all changes:
 
         ```
         git add . && git commit -m "systems: added new host"
         ```
 
-    7. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time
+    8. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time
 
 3. System preparation
 
-    1. Remove (or save) some files for the Home-manager so that the first build is not interrupted:
+    1. (precaution) Remove (or save) some files for the Home-manager so that the first build is not interrupted:
         ```
         rm ~/.config/user-dirs.dirs ~/.config/mimeapps.list ~/.config/fish/config.fish ~/.config/hypr/hyprland.conf
         ```
@@ -164,9 +167,9 @@ nix flake lock --update-input [input]
 
 #### Rollback
 
-NixOS confituration: `sudo nixos-rebuild switch --rollback`
+NixOS: `sudo nixos-rebuild switch --rollback`
 
-Home-manager standalone: [Home-manager documentation](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)
+Home-manager standalone: [see Home-manager documentation](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)
 
 #### Code formatting
 
@@ -197,6 +200,8 @@ flake option github:dafitt/dotfiles --pick
 <kbd>SUPER</kbd> - Window control \
 <kbd>SUPER_ALT</kbd> - Applications \
 <kbd>SHIFT</kbd> - reverse, grab, move
+
+<details><summary>keybind table</summary>
 
 | Keybind                              | Dispatcher                    | Command                                                                                         |
 | ------------------------------------ | ----------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -342,6 +347,8 @@ flake option github:dafitt/dotfiles --pick
 | <kbd>SUPER mouse:272</kbd>           | movewindow                    |                                                                                                 |
 | <kbd>SUPER mouse:273</kbd>           | resizewindow                  |                                                                                                 |
 
+</details>
+
 ### NixOS stable branch
 
 To use [nixpkgs](https://github.com/NixOS/nixpkgs) stable branch, update the following inputs to the latest release (`23.11` as an example) in _[flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix)_ and rebuild the system. \
@@ -376,6 +383,8 @@ with channels.unstable; {
 
 ## Structure
 
+### Modules
+
 I use [snowfall-lib](https://github.com/snowfallorg/lib), so every _`default.nix`_ is automatically imported.
 
 My systems and homes are assembled using custom modules. Any custom module has at least one enable option which name matches the folder: `config.dafitt.<myModule>.enable`. Keep in mind some modules are enabled by default some are not. Special modules:
@@ -383,24 +392,20 @@ My systems and homes are assembled using custom modules. Any custom module has a
 -   Desktops
     -   desktops/gnome
     -   desktops/hyprland
--   Suites (disabled by default)
-    -   Development
-    -   Editing
-    -   Gaming
-    -   Music
-    -   Office
-    -   Ricing
-    -   Social
-    -   Virtualization
-    -   Web
 -   Firmly integrated, non-disableable
     -   stylix (because of extensive usage of `config.lib.stylix.colors`)
 
-Modules in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command; [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _`home-manager-<user>.service`_).
+Modules in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command.
 
-Some [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are automatically activated, if the sister module in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled. E.g. `options.dafitt.suiteGaming.enable = mkBoolOpt (osConfig.dafitt.suiteGaming.enable or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
+Modules in [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are built with `home-manager` (standalone) **and** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on. This is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _`home-manager-<user>.service`_. [snowfall-lib](https://github.com/snowfallorg/lib) will create the user if it doesn't exist yet.
 
-To keep things simple I put hardware/system dependent configurations directly into [systems/](https://github.com/dafitt/dotfiles/blob/main/systems) themselves.
+Some [home-modules](https://github.com/dafitt/dotfiles/blob/main/modules/home) in my dotfiles are automatically activated, if the sister module in [nixos-modules](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled. See this line in [modules/home/suiteGaming/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/suiteGaming/default.nix#L11) for example:
+
+```nix
+options.dafitt.suiteGaming.enable = mkBoolOpt (osConfig.dafitt.suiteGaming.enable or false) "...
+```
+
+The special attribute set `osConfig` which contains all the nixos-configuration is only present when building with `nixos-rebuild`.
 
 ### You want to build from here?
 
@@ -409,8 +414,7 @@ What you have to customize:
 -   [ ] [modules/nixos/time/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/time/default.nix): timezone
 -   [ ] [modules/nixos/locale/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/locale/default.nix): locale
 -   [ ] [modules/nixos/users/main/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/users/main/default.nix): username
--   [ ] [modules/home/Office/thunderbird/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/Office/thunderbird/default.nix)
--   [ ] [modules/home/Web/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/37693f1b9fd4e4d8429506a882e9f9d14da31446/modules/home/Web/firefox/default.nix#L168):
+-   [ ] [modules/home/browsers/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/d60f8b464f1713ccb022d3d24558d5f4631ad123/modules/home/browsers/firefox/default.nix#L183):
     -   the default searx search engine is my own local instance/server, use a official one or setup your own
     -   custom firefox plugins
 -   [ ] [systems/\<architecure\>/\<host\>/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix): obviously your own host-configuration
