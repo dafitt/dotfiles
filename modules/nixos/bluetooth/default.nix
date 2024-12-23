@@ -11,10 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    hardware.bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
+    hardware.bluetooth.enable = true;
 
     # GUI
     environment.systemPackages = with pkgs; [ overskride ];
