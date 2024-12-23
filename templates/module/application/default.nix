@@ -18,13 +18,6 @@ in
 
     programs.APPLICATION.enable = true;
 
-    xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication (listToAttrs (map (mimeType: { name = mimeType; value = [ "APPLICATION.desktop" ]; }) [
-      #$ ls /run/current-system/sw/share/applications
-
-      #$ xdg-mime query filetype
-      #"application/mimetype"
-    ]));
-
     wayland.windowManager.hyprland.settings = {
       exec = [ ];
       exec-once = mkIf cfg.autostart [ ];

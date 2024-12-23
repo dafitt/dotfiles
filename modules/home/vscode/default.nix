@@ -375,27 +375,6 @@ in
       ];
     };
 
-    xdg.mimeApps.defaultApplications = mkIf
-      cfg.defaultApplication
-      (listToAttrs (map (mimeType: { name = mimeType; value = [ "code.desktop" ]; }) [
-        "application/x-shellscript"
-        "text/english"
-        "text/html"
-        "text/x-c"
-        "text/x-c++"
-        "text/x-c++hdr"
-        "text/x-c++src"
-        "text/x-chdr"
-        "text/x-csrc"
-        "text/x-java"
-        "text/x-makefile"
-        "text/x-moc"
-        "text/x-pascal"
-        "text/x-tcl"
-        "text/x-tex"
-        "text/xml"
-      ]));
-
     wayland.windowManager.hyprland.settings = {
       bind = [ "SUPER_ALT, G, exec, ${getExe config.programs.vscode.package}" ];
       exec-once = mkIf cfg.autostart [ "[workspace 4 silent] ${getExe config.programs.vscode.package}" ];

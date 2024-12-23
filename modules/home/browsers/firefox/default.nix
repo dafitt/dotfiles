@@ -295,24 +295,6 @@ in
       };
     };
 
-    xdg.mimeApps.defaultApplications = mkIf isDefault (listToAttrs (map (mimeType: { name = mimeType; value = [ "firefox.desktop" ]; }) [
-      "application/x-extension-htm"
-      "application/x-extension-html"
-      "application/x-extension-shtml"
-      "application/x-extension-xht"
-      "application/x-extension-xhtml"
-      "application/xhtml+xml"
-      "x-scheme-handler/about"
-      "x-scheme-handler/ftp"
-      "x-scheme-handler/http"
-      "x-scheme-handler/https"
-      "x-scheme-handler/unknown"
-      "text/html"
-      #"application/json"
-      #"application/pdf"
-      #"text/xml"
-    ]));
-
     wayland.windowManager.hyprland.settings = mkIf isDefault {
       bind = [ "SUPER_ALT, W, exec, ${getExe config.programs.firefox.package}" ];
       exec-once = mkIf browsersCfg.autostart [ "[workspace 1 silent] ${getExe config.programs.firefox.package}" ];

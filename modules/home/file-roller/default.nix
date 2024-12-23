@@ -15,40 +15,5 @@ in
   config = mkIf cfg.enable {
     # GNOME's archive manager
     home.packages = with pkgs; [ file-roller ];
-
-    xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication (listToAttrs (map (mimeType: { name = mimeType; value = [ "org.gnome.FileRoller.desktop" ]; }) [
-      "application/arj"
-      "application/bz2"
-      "application/bzip2"
-      "application/x-bzip2"
-      "application/x-compress"
-      "application/x-gzip"
-      "application/x-tar"
-      "application/zip"
-      "application/x-zip"
-      "application/x-7z-compressed"
-      "application/x-rar"
-      "application/x-rar-compressed"
-      "application/x-tar"
-      "application/x-gtar"
-      "application/x-ustar"
-      "application/x-cpio"
-      "application/x-shar"
-      "application/x-lha"
-      "application/x-lzh"
-      "application/x-lzma"
-      "application/x-lzop"
-      "application/x-war"
-      "application/x-java-archive"
-      "application/x-deb"
-      "application/x-rpm"
-      "application/x-iso9660-image"
-      "application/x-ms-installer"
-      "application/x-msi"
-      "application/x-apple-diskimage"
-      "application/x-apple-disk-image"
-      "application/x-xz"
-      "application/x-zstd"
-    ]));
   };
 }

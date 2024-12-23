@@ -129,7 +129,6 @@ with lib.dafitt; {
     vscode.defaultApplication = true;
     vscode.enable = false;
     xdg.enable = true;
-    xdg.mimeApps.enable = false;
   };
 
   home.packages = with pkgs; [

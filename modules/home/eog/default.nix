@@ -26,23 +26,5 @@ in
         active-plugins = [ "reload" "fullscreen" ];
       };
     };
-
-    xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication (listToAttrs (map (mimeType: { name = mimeType; value = [ "org.gnome.eog.desktop" ]; }) [
-      "image/bmp"
-      "image/gif"
-      "image/jpeg"
-      "image/png"
-      "image/svg+xml"
-      "image/tiff"
-      "image/x-xcf"
-      "image/x-icns"
-      "image/x-psd"
-      "image/x-tga"
-      "image/x-pcx"
-      "image/vnd.djvu"
-      "image/vnd.microsoft.icon"
-      "image/vnd.wap.wbmp"
-      "image/vnd.xiff"
-    ]));
   };
 }
