@@ -398,7 +398,7 @@ My systems and homes are assembled using custom modules. Any custom module has a
 
 Modules in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command; [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) with `home-manager` (standalone) **or** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on (this is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _`home-manager-<user>.service`_).
 
-Some [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are automatically activated, if the sister module in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled. E.g. `options.dafitt.Gaming.enableSuite = mkBoolOpt (osConfig.dafitt.Gaming.enableSuite or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
+Some [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are automatically activated, if the sister module in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled. E.g. `options.dafitt.suiteGaming.enable = mkBoolOpt (osConfig.dafitt.suiteGaming.enable or false) "...`. The special attribute set `osConfig` is only present when building with `nixos-rebuild`.
 
 To keep things simple I put hardware/system dependent configurations directly into [systems/](https://github.com/dafitt/dotfiles/blob/main/systems) themselves.
 
@@ -431,7 +431,7 @@ Optionally:
 Check if your option is being set through `osCfg`. Like this:
 
 ```nix
-enable = mkBoolOpt (osCfg.enable or config.dafitt.Gaming.enableSuite) "Whether to enable steam.";
+enable = mkBoolOpt (osCfg.enable or config.dafitt.suiteGaming.enable) "Whether to enable steam.";
 ```
 
 If that is the case and `osCfg.enable` is not `null` then the `osCfg`-option will be preferred. Even if it is `false`.

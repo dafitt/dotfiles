@@ -24,59 +24,33 @@ with lib.dafitt; {
 
   dafitt = rec {
     #NOTE These values are the defaults
-
     appimage.enable = true;
-
     audio.enable = true;
-
     batteryOptimization.enable = false;
-
     bluetooth.enable = false;
-
     bootloader.enable = "systemd-boot"; # null or one of [ "grub" "systemd-boot" ]
-
     desktops.gnome.enable = false;
     desktops.hyprland.enable = true;
     desktops.hyprland.hyprlock.allow = hyprlock_enabled;
-
-    Development.enableSuite = false;
-    Development.direnv.enable = Development.enableSuite;
-    Development.nix-ld.enable = Development.enableSuite;
-    Development.sshAgent.enable = Development.enableSuite;
-    Development.wireshark.enable = false;
-
     displayManager.enable = "greetd"; # null or one of [ "gdm" "greetd" ]
-
     flatpak.enable = false;
-
     fonts.enable = true;
-
     fwupd.enable = false;
-
-    Gaming.enableSuite = false;
-    Gaming.gamemode = Gaming.enableSuite;
-    Gaming.gamescope = Gaming.enableSuite;
-
     kernel.enable = true;
-    kernel.package = pkgs.linuxPackages_zen;
-
+    kernel.package = if zfs then pkgs.linuxPackages else pkgs.linuxPackages_latest;
     locale.enable = true;
-
     networking.enable = "networkmanager"; # null or one of [ "connman" "networkmanager" ]
     networking.firewall.allowLocalsend = false;
     networking.firewall.allowSyncthing = false;
-
     printing.enable = false;
-
     shells.default = "fish"; # null or one of [ "bash" "fish" ]
     shells.fish.enable = shells.default == "fish";
-
+    suiteDevelopment.enable = false;
+    suiteGaming.enable = false;
+    suiteVirtualization.enable = false;
     systemd.enable = true;
-
     time.enable = true;
-
-    Virtualization.enableSuite = false;
-    Virtualization.virt-manager.enable = Virtualization.enableSuite;
+    users.guest.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

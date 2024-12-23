@@ -4,7 +4,9 @@
 
 with lib;
 with lib.dafitt; {
-  imports = with inputs; [ ];
+  imports = with inputs; [
+    ../../user-configurations/david.nix
+  ];
 
   dafitt = {
     desktops.hyprland.monitors = [{
@@ -16,12 +18,12 @@ with lib.dafitt; {
       primary = true;
     }];
 
-    Development.latex.enable = false;
     filemanagers.yazi.enable = true;
-    Gaming.steam.enable = true;
+    latex.enable = false;
     launchers.rofi.enable = true;
-    Office.enableSuite = true;
-    Social.enableSuite = true;
+    steam.enable = true;
+    suiteOffice.enable = true;
+    suiteSocial.enable = true;
   };
 
   # [Hyprland - Tearing](https://wiki.hyprland.org/Configuring/Tearing/)

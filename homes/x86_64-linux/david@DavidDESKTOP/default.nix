@@ -4,7 +4,9 @@
 
 with lib;
 with lib.dafitt; {
-  imports = with inputs; [ ];
+  imports = with inputs; [
+    ../../user-configurations/david.nix
+  ];
 
   dafitt = {
     desktops.hyprland.hypridle.sleepTriggersLock = false;
@@ -12,14 +14,14 @@ with lib.dafitt; {
     desktops.hyprland.hypridle.timeouts.suspend = 0;
 
     bedtime.enable = true;
-    Editing.enableSuite = true;
     filemanagers.yazi.enable = true;
     launchers.rofi.enable = true;
-    Music.enableSuite = true;
-    Office.enableSuite = true;
-    #Ricing.enableSuite = true; # TODO fixme modules/home/desktops/hyprland/ricing/wallpaper/default.nix
-    Social.enableSuite = true;
-    Web.enableSuite = true;
+    suiteEditing.enable = true;
+    suiteMusic.enable = true;
+    suiteOffice.enable = true;
+    #suiteRicing.enable = true; # TODO fixme modules/home/desktops/hyprland/ricing/wallpaper/default.nix
+    suiteSocial.enable = true;
+    suiteWeb.enable = true;
   };
 
   # [Hyprland - Tearing](https://wiki.hyprland.org/Configuring/Tearing/)

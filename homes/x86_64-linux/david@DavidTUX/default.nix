@@ -4,7 +4,9 @@
 
 with lib;
 with lib.dafitt; {
-  imports = with inputs; [ ];
+  imports = with inputs; [
+    ../../user-configurations/david.nix
+  ];
 
   dafitt = {
     desktops.hyprland.monitors = [{
@@ -16,7 +18,7 @@ with lib.dafitt; {
       primary = true;
     }];
 
-    Development.enableSuite = true;
-    Social.enableSuite = true;
+    suiteDevelopment.enable = true;
+    suiteSocial.enable = true;
   };
 }

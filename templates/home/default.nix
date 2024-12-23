@@ -20,18 +20,20 @@ with lib.dafitt; {
 
   dafitt = rec {
     #NOTE These values are the defaults
-
     bedtime.enable = false;
-
     bluetooth.enable = osCfg.enable or false;
-
+    browsers.autostart = true;
+    browsers.default = "firefox"; # null or one of [ "epiphany" "firefox" "librewolf" ]
+    browsers.epiphany.enable = browsers.default == "epiphany";
+    browsers.firefox.enable = browsers.default == "firefox";
+    browsers.librewolf.enable = browsers.default == "librewolf";
     desktops.gnome.enable = osCfg.enable or false;
-    desktops.gnome.extensions.enable = desktops.gnome.enable;
     desktops.gnome.extensions.app-icons-taskbar.enable = desktops.gnome.extensions.enable;
     desktops.gnome.extensions.appindicator.enable = desktops.gnome.extensions.enable;
     desktops.gnome.extensions.arcmenu.enable = desktops.gnome.extensions.enable;
     desktops.gnome.extensions.auto-move-windows.enable = false;
     desktops.gnome.extensions.blur-my-shell.enable = desktops.gnome.extensions.enable;
+    desktops.gnome.extensions.enable = desktops.gnome.enable;
     desktops.gnome.extensions.forge.enable = desktops.gnome.extensions.enable;
     desktops.gnome.extensions.just-perfection.enable = desktops.gnome.extensions.enable;
     desktops.gnome.extensions.native-window-placement.enable = desktops.gnome.extensions.enable;
@@ -41,11 +43,9 @@ with lib.dafitt; {
     desktops.gnome.extensions.rounded-window-corners.enable = false;
     desktops.gnome.extensions.search-light.enable = desktops.gnome.extensions.enable;
     desktops.gnome.extensions.vitals.enable = desktops.gnome.extensions.enable;
-
-    desktops.hyprland.enable = osCfg.enable or false;
-    desktops.hyprland.monitors = [ ]; # modules/home/desktops/hyprland/monitors/default.nix
     desktops.hyprland.calculator.enable = desktops.hyprland.enable;
     desktops.hyprland.cliphist.enable = desktops.hyprland.enable;
+    desktops.hyprland.enable = osCfg.enable or false;
     desktops.hyprland.gedit.enable = desktops.hyprland.enable;
     desktops.hyprland.hypridle.enable = desktops.hyprland.enable;
     desktops.hyprland.hypridle.sleepTriggersLock = true;
@@ -53,6 +53,7 @@ with lib.dafitt; {
     desktops.hyprland.hypridle.timeouts.suspend = 600;
     desktops.hyprland.hyprlock.enable = desktops.hyprland.enable;
     desktops.hyprland.hyprpaper.enable = desktops.hyprland.enable;
+    desktops.hyprland.monitors = [ ]; # modules/home/desktops/hyprland/monitors/default.nix
     desktops.hyprland.notifications.hyprnotify.enable = desktops.hyprland.enable;
     desktops.hyprland.notifications.mako.enable = false;
     desktops.hyprland.nwg-displays.enable = desktops.hyprland.enable;
@@ -75,101 +76,60 @@ with lib.dafitt; {
     desktops.hyprland.ricing.wallpaper.enable = desktops.hyprland.ricing.enable;
     desktops.hyprland.swaybg.enable = false;
     desktops.hyprland.swayosd.enable = desktops.hyprland.enable;
-    desktops.hyprland.udiskie.enable = desktops.hyprland.enable;
     desktops.hyprland.top.enable = desktops.hyprland.enable;
+    desktops.hyprland.udiskie.enable = desktops.hyprland.enable;
     desktops.hyprland.waybar.enable = desktops.hyprland.enable;
     desktops.hyprland.wlsunset.enable = desktops.hyprland.enable;
-
-    Development.enableSuite = osCfg.enableSuite or false;
-    Development.direnv.enable = !osCfg.enable or Development.enableSuite;
-    Development.git.enable = Development.enableSuite;
-    Development.hyprland.enable = Development.enableSuite;
-    Development.latex.enable = false;
-    Development.vscode.enable = Development.enableSuite;
-    Development.vscode.autostart = true;
-    Development.vscode.defaultApplication = true;
-
-    Editing.enableSuite = osCfg.enableSuite or false;
-
     editors.default = "micro"; # null or one of [ "micro" ]
     editors.micro.enable = editors.default == "micro";
-
     environment.enable = true;
-
-    eog.enable = true;
     eog.defaultApplication = true;
-
+    eog.enable = true;
     fastfetch.enable = true;
-
-    file-roller.enable = true;
     file-roller.defaultApplication = true;
-
-    filemanagers.default = "natuilus"; # null or one of [ "nautilus" "pcmanfm" "yazi" ]
+    file-roller.enable = true;
     filemanagers.autostart = true;
+    filemanagers.default = "natuilus"; # null or one of [ "nautilus" "pcmanfm" "yazi" ]
     filemanagers.natuilus.enable = filemanagers.default == "natuilus";
     filemanagers.pcmanfm.enable = filemanagers.default == "pcmanfm";
     filemanagers.yazi.enable = filemanagers.default == "yazi";
-
     flatpak.enable = osCfg.enable or true;
-
-    Gaming.enableSuite = osCfg.enableSuite or false;
-    Gaming.steam.enable = Gaming.enableSuite;
-
+    suiteGaming.enable = osCfg.enable or false;
+    steam.enable = false;
     ianny.enable = false;
-
     imv.enable = true;
-
+    latex.enable = false;
     launchers.default = "fuzzel"; # null or one of [ "fuzzel" "rofi" ]
     launchers.fuzzel.enalbe = desktops.hyprland.enable && launchers.default == "fuzzel";
     launchers.rofi.enalbe = desktops.hyprland.enable && launchers.default == "rofi";
-
-    mpv.enable = true;
     mpv.defaultApplication = true;
-
-    Music.enableSuite = osCfg.enableSuite or false;
-
+    mpv.enable = true;
     networking.connman.enable = osCfg.enable or false;
     networking.networkmanager.enable = osCfg.enable or false;
-
-    Office.enableSuite = osCfg.enableSuite or false;
-    Office.evince.enable = Office.enableSuite;
-    Office.evince.defaultApplication = true;
-    Office.obsidian.enable = Office.enableSuite;
-    Office.scribus.enable = Office.enableSuite;
-    Office.thunderbird.enable = Office.enableSuite;
-
-    passwordManager.default = "bitwarden"; # null or one of [ "_1password" "bitwarden" ]
     passwordManager._1password.enable = passwordManager.default == "_1password";
     passwordManager.bitwarden.enable = passwordManager.default == "bitwarden";
-
-    Ricing.enableSuite = osCfg.enableSuite or false;
-
+    passwordManager.default = "bitwarden"; # null or one of [ "_1password" "bitwarden" ]
     shells.bash.enable = false;
     shells.fish.enable = osCfg.enable or false;
     shells.starship.enable = true;
     shells.zsh.enable = osCfg.enable or false;
-
-    Social.enableSuite = osCfg.enableSuite or false;
-
+    suiteDevelopment.enable = osCfg.enable or false;
+    suiteEditing.enable = osCfg.enable or false;
+    suiteMusic.enable = osCfg.enable or false;
+    suiteOffice.enable = osCfg.enable or false;
+    suiteRicing.enable = osCfg.enable or false;
+    suiteSocial.enable = osCfg.enable or false;
+    suiteVirtualization.enable = osCfg.enable or false;
+    suiteWeb.enable = osCfg.enable or false;
     syncthing.enable = true;
-
     systemd.enable = true;
-
     terminals.default = "kitty"; # one of [ "kitty" ]
     terminals.kitty.enable = terminals.default == "kitty";
-
-    Virtualization.enableSuite = osCfg.enableSuite or false;
-    Virtualization.virt-manager.enable = osCfg.enable or Virtualization.enableSuite;
-
-    Web.enableSuite = osCfg.enableSuite or false;
-    Web.default = "firefox"; # null or one of [ "epiphany" "firefox" "librewolf" ]
-    Web.autostart = true;
-    Web.epiphany.enable = Web.enableSuite || Web.default == "epiphany";
-    Web.firefox.enable = Web.enableSuite || Web.default == "firefox";
-    Web.librewolf.enable = Web.enableSuite || Web.default == "librewolf";
-
+    vscode.autostart = true;
+    vscode.defaultApplication = true;
+    vscode.enable = false;
     xdg.enable = true;
-    xdg.mimeApps.enable = true;
+    xdg.mimeApps.enable = false;
   };
 
   home.packages = with pkgs; [

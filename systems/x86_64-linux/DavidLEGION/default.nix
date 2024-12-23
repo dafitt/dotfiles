@@ -29,11 +29,11 @@ with lib.dafitt; {
   dafitt = {
     bluetooth.enable = true;
     desktops.gnome.enable = true;
-    Development.enableSuite = true;
     flatpak.enable = true;
     networking.firewall.allowLocalsend = true;
     networking.firewall.allowSyncthing = true;
-    Virtualization.virt-manager.enable = true;
+    suiteDevelopment.enable = true;
+    suiteVirtualization.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

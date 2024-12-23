@@ -18,7 +18,7 @@ with lib.dafitt; {
   dafitt = {
     bootloader.enable = null;
     desktops.hyprland.enable = true;
-    Development.enableSuite = true;
+    suiteDevelopment.enable = true;
     displayManager.enable = null;
     fwupd.enable = true;
     kernel.package = config.boot.zfs.package.latestCompatibleLinuxPackages;

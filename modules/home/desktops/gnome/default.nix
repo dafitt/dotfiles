@@ -132,7 +132,7 @@ in
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
         binding = "<Super><Alt>b";
-        command = config.dafitt.Web.default ? "";
+        command = config.dafitt.browsers.default ? "";
         name = "Browser";
       };
     };

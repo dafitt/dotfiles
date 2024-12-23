@@ -26,14 +26,14 @@ with lib.dafitt; {
     bluetooth.enable = true;
     desktops.gnome.enable = true;
     desktops.hyprland.enable = true;
-    Development.enableSuite = true;
     flatpak.enable = true;
     fwupd.enable = true;
-    Gaming.enableSuite = true;
     networking.firewall.allowLocalsend = true;
     networking.firewall.allowSyncthing = true;
     printing.enable = true;
-    Virtualization.virt-manager.enable = true;
+    suiteDevelopment.enable = true;
+    suiteGaming.enable = true;
+    suiteVirtualization.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
