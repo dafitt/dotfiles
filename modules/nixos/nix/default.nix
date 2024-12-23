@@ -19,7 +19,7 @@ with lib.dafitt;
       log-lines = 50;
       auto-optimise-store = true;
       trusted-users = [ "root" ];
-      allowed-users = [ "@wheel" config.dafitt.users.main.username ];
+      allowed-users = [ "@wheel" ];
     }
     // optionalAttrs config.dafitt.Development.direnv.enable {
       keep-outputs = true;
