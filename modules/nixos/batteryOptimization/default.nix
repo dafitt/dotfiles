@@ -3,10 +3,10 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.battery;
+  cfg = config.dafitt.batteryOptimization;
 in
 {
-  options.dafitt.battery = with types; {
+  options.dafitt.batteryOptimization = with types; {
     enable = mkBoolOpt false "Whether or not to enable battery optimizations and utils.";
   };
 

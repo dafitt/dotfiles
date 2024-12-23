@@ -29,7 +29,7 @@ with lib.dafitt; {
 
     audio.enable = true;
 
-    battery.enable = false;
+    batteryOptimization.enable = false;
 
     bluetooth.enable = false;
 
