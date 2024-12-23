@@ -11,7 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    # https://nixos.wiki/wiki/Printing
+    # https://wiki.nixos.org/wiki/Printing
 
     # Enable CUPS
     services.printing = {

@@ -65,7 +65,7 @@
 
     udev.enable = true;
     udev.extraRules = lib.mkMerge [
-      # [diable wakeup](https://nixos.wiki/wiki/Power_Management#System_Immediately_wakes_up_from_suspend)
+      # [diable wakeup](https://wiki.nixos.org/wiki/Power_Management#System_Immediately_wakes_up_from_suspend)
       #$ cat /proc/acpi/wakeup
       ''ACTION=="add", SUBSYSTEM=="pci", DRIVER=="pcieport", ATTR{power/wakeup}="disabled"''
       # diable wakeup: USB XHC0 (Keyboard)

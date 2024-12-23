@@ -1,6 +1,6 @@
 { channels, inputs, ... }:
 
-# https://nixos.wiki/wiki/Overlays
+# https://wiki.nixos.org/wiki/Overlays
 # final: nixpkgs with your overlay applied
 # prev: nixpkgs without your overlay
 final: prev: {

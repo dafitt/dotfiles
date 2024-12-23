@@ -11,7 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    # To update various firmware see https://nixos.wiki/wiki/Fwupd
+    # To update various firmware see https://wiki.nixos.org/wiki/Fwupd
     services.fwupd.enable = true;
   };
 }

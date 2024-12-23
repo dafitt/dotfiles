@@ -11,7 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    # https://nixos.wiki/wiki/Appimage
+    # https://wiki.nixos.org/wiki/Appimage
     environment.systemPackages = with pkgs; [ appimage-run ];
 
     boot.binfmt.registrations.appimage = {
