@@ -22,6 +22,7 @@
         -   [You want to build from here?](#you-want-to-build-from-here)
     -   [Troubleshooting](#troubleshooting)
         -   [Some options in modules/home/ or homes/ are not being applied with nixos-rebuild](#some-options-in-moduleshome-or-homes-are-not-being-applied-with-nixos-rebuild)
+        -   [Unable to see fonts](#unable-to-see-fonts)
     -   [👀, 🏆 and ❤️](#--and-️)
 
 My dotfiles are not perfekt, but they strive to be:
@@ -438,6 +439,14 @@ enable = mkBoolOpt (osCfg.enable or config.dafitt.Gaming.enableSuite) "Enable st
 If that is the case and `osCfg.enable` is not `null` then the `osCfg`-option will be preferred. Even if it is `false`.
 
 To solve this set your option to `true` in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) or [systems/](https://github.com/dafitt/dotfiles/blob/main/systems).
+
+### Unable to see fonts
+
+Manually reload the fontconfig cache using
+
+```shell
+fc-cache -r
+```
 
 ## 👀, 🏆 and ❤️
 
