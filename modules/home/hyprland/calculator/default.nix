@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.calculator = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable "Whether to enable a calculator for hyprland.";
+    enable = mkBoolOpt false "Whether to enable a calculator for hyprland.";
   };
 
   config = mkIf cfg.enable {

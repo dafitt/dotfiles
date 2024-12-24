@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.swayosd = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable "Whether to enable swayosd for hyprland.";
+    enable = mkBoolOpt false "Whether to enable swayosd for hyprland.";
   };
 
   config = mkIf cfg.enable {

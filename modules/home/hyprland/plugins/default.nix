@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.plugins = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable "Whether to enable plugins for hyprland, which are not set to false by default.";
+    enable = mkBoolOpt false "Whether to enable plugins for hyprland, which are not set to false by default.";
   };
 
   config = mkIf cfg.enable {

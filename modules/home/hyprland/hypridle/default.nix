@@ -11,7 +11,7 @@ let
 in
 {
   options.dafitt.hyprland.hypridle = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable "Whether to enable hypridle.";
+    enable = mkBoolOpt false "Whether to enable hypridle.";
     sleepTriggersLock = mkBoolOpt true "Whether to lock before going to sleep";
     timeouts = {
       lock = mkOption {

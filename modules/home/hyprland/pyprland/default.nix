@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.pyprland = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable "Whether to enable pyprland an hyperland plugin system.";
+    enable = mkBoolOpt false "Whether to enable pyprland an hyperland plugin system.";
 
     scratchpads = mkOption {
       description = ''

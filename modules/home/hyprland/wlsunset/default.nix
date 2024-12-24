@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.wlsunset = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable "Whether to enable the wlsunset, automatic adjustment for screen color temperature.";
+    enable = mkBoolOpt false "Whether to enable the wlsunset, automatic adjustment for screen color temperature.";
   };
 
   config = mkIf cfg.enable {

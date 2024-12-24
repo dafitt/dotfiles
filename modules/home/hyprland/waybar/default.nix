@@ -7,10 +7,10 @@ let
 in
 {
   options.dafitt.hyprland.waybar = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable;
+    enable = mkBoolOpt false "Whether to enable waybar.";
   };
 
-  config = {
+  config = mkIf cfg.enable {
     dafitt.hyprland.swayosd.enable = true;
 
     programs.waybar = {

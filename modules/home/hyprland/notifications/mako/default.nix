@@ -5,10 +5,12 @@ with lib.dafitt;
 let
   cfg = config.dafitt.hyprland.notifications.mako;
   hyprlandCfg = config.wayland.windowManager.hyprland;
+
+  isDefault = config.dafitt.hyprland.notifications.enable == "mako";
 in
 {
   options.dafitt.hyprland.notifications.mako = with types; {
-    enable = mkBoolOpt false "Whether to enable mako for hyprland.";
+    enable = mkBoolOpt (isDefault && config.dafitt.hyprland.enable) "Whether to enable mako for hyprland.";
   };
 
   config = mkIf cfg.enable {

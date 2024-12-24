@@ -9,6 +9,8 @@ in
 {
   options.dafitt.hyprland = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Whether to enable the Hyprland desktop.";
+
+    smartGaps = mkBoolOpt false "Whether to enable smart gaps workspace rules (no gaps when only one window on workspace).";
   };
 
   config = mkIf cfg.enable {
@@ -42,7 +44,6 @@ in
           force_split = 2;
           preserve_split = true; # you probably want this
           default_split_ratio = 1.25; # 0.1 - 1.9
-          no_gaps_when_only = 1; # without border
         };
         misc = {
           # https://wiki.hyprland.org/Configuring/Variables/#misc
@@ -64,10 +65,12 @@ in
           dim_inactive = true;
           dim_strength = .1;
 
-          shadow_range = 16;
-          shadow_render_power = 2;
-          "col.shadow" = mkForce "rgba(${config.lib.stylix.colors.base01}E5)";
-          "col.shadow_inactive" = "rgba(00000000)";
+          shadow = {
+            range = 16;
+            render_power = 2;
+            color = mkForce "rgba(${config.lib.stylix.colors.base01}E5)";
+            color_inactive = "rgba(00000000)";
+          };
 
           blurls = [
             # blurring layerSurfaces
@@ -255,6 +258,8 @@ in
           ", XF86KbdBrightnessDown, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -U 10"
         ];
 
+        workspace = [ ];
+
         windowrulev2 = [
           # https://wiki.hyprland.org/Configuring/Window-Rules/
           # https://regex101.com/
@@ -292,6 +297,17 @@ in
           # QT
           "QT_AUTO_SCREEN_SCALE_FACTOR,1" # enable automatic scaling
           "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        ];
+      } // optionalAttrs cfg.smartGaps {
+        workspace = [
+          "w[tv1], gapsout:0, gapsin:0"
+          "f[1], gapsout:0, gapsin:0"
+        ];
+        windowrulev2 = [
+          "bordersize 0, floating:0, onworkspace:w[tv1]"
+          "rounding 0, floating:0, onworkspace:w[tv1]"
+          "bordersize 0, floating:0, onworkspace:f[1]"
+          "rounding 0, floating:0, onworkspace:f[1]"
         ];
       };
     };

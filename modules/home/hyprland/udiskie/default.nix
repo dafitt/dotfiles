@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.udiskie = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable "Whether to enable the udiskie mount helper.";
+    enable = mkBoolOpt false "Whether to enable the udiskie mount helper.";
   };
 
   config = mkIf cfg.enable {

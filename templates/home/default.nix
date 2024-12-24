@@ -68,8 +68,9 @@ with lib.dafitt; {
     hyprland.hyprlock.enable = hyprland.enable;
     hyprland.hyprpaper.enable = hyprland.enable;
     hyprland.monitors = [ ]; # modules/home/desktops/hyprland/monitors/default.nix
-    hyprland.notifications.hyprnotify.enable = hyprland.enable;
-    hyprland.notifications.mako.enable = false;
+    hyprland.notifications.enable = null; # null or one of [ "hyprnotify" "mako" ]
+    hyprland.notifications.hyprnotify.enable = hyprland.notifications.enable = "hyprnotify";
+    hyprland.notifications.mako.enable = hyprland.notifications.enable = "mako";
     hyprland.nwg-displays.enable = hyprland.enable;
     hyprland.pavucontrol.enable = hyprland.enable;
     hyprland.playerctl.enable = hyprland.enable;

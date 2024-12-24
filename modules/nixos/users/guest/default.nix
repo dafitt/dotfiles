@@ -10,7 +10,7 @@ in
     enable = mkBoolOpt true "Whether to enable user 'guest'.";
   };
 
-  config = {
+  config = mkIf cfg.enable {
     users.users."guest" = {
       isNormalUser = true;
       description = "Guest Account";

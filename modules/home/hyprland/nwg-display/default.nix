@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.hyprland.nwg-displays = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable ''
+    enable = mkBoolOpt false ''
       Enable nwg-displays, to adjust the screen layout and resolution.
       Declarative configuration through `config.dafitt.hyprland.monitors` overrides specific monitor configuraition!
     '';
@@ -21,7 +21,7 @@ in
     ];
 
     home.activation = {
-      touchNwgdisplaysFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+      touchNwgdisplayFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
         touch -a $HOME/.config/hypr/monitors.conf
         touch -a $HOME/.config/hypr/workspaces.conf
       '';

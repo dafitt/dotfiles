@@ -5,10 +5,12 @@ with lib.dafitt;
 let
   cfg = config.dafitt.hyprland.notifications.hyprnotify;
   hyprlandCfg = config.wayland.windowManager.hyprland;
+
+  isDefault = config.dafitt.hyprland.notifications.enable == "hyprnotify";
 in
 {
   options.dafitt.hyprland.notifications.hyprnotify = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable "Whether to enable hyprnotify for hyprland.";
+    enable = mkBoolOpt (isDefault && config.dafitt.hyprland.enable) "Whether to enable hyprnotify for hyprland.";
   };
 
   config = mkIf cfg.enable {
