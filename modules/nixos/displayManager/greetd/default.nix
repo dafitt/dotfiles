@@ -24,7 +24,7 @@ in
             "--remember"
             "--remember-user-session"
             "--sessions '${concatStringsSep ":" config.dafitt.displayManager.sessionPaths}'"
-            "--theme 'border=magenta;container=black;time=magenta;prompt=green;action=blue;button=yellow;text=cyan'"
+            "--theme 'border=red;container=black;time=white;prompt=green;action=magenta;button=magenta;text=cyan'"
           ];
           user = "greeter";
         };
