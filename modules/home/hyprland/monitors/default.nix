@@ -18,8 +18,8 @@ in
           };
           name = mkOption {
             type = str;
-            description = "Get the name with 'wlr-randr'.";
-            example = "DP-1";
+            description = "Get the name with `hyprctl monitors all` or `wlr-randr`.";
+            example = "desc:Microstep MSI MAG271CQP 0x3030424C";
           };
           primary = mkOption {
             type = bool;
@@ -85,8 +85,9 @@ in
           };
           mirror = mkOption {
             type = nullOr str;
-            description = "Mirror a monitor. e.g. 'DP-1'.";
+            description = "Mirror a monitor.";
             default = null;
+            example = "DP-1";
           };
           workspace = mkOption {
             type = nullOr str;

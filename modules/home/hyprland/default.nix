@@ -57,8 +57,8 @@ in
         };
         decoration = {
           # https://wiki.hyprland.org/Configuring/Variables/#decoration
-          active_opacity = 0.92;
-          inactive_opacity = 0.92;
+          active_opacity = 0.95;
+          inactive_opacity = 0.95;
 
           rounding = 16;
 
@@ -298,6 +298,8 @@ in
           "QT_AUTO_SCREEN_SCALE_FACTOR,1" # enable automatic scaling
           "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         ];
+
+        monitor = [ ", preferred, auto, 1" ];
       } // optionalAttrs cfg.smartGaps {
         workspace = [
           "w[tv1], gapsout:0, gapsin:0"
