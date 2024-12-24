@@ -29,13 +29,13 @@ with lib.dafitt; {
     batteryOptimization.enable = false;
     bluetooth.enable = false;
     bootloader.enable = "systemd-boot"; # null or one of [ "grub" "systemd-boot" ]
-    desktops.gnome.enable = false;
-    desktops.hyprland.enable = true;
-    desktops.hyprland.hyprlock.allow = hyprlock_enabled;
     displayManager.enable = "greetd"; # null or one of [ "gdm" "greetd" ]
     flatpak.enable = false;
     fonts.enable = true;
     fwupd.enable = false;
+    gnome.enable = false;
+    hyprland.enable = true;
+    hyprland.hyprlock.allow = hyprlock_enabled;
     kernel.enable = true;
     kernel.package = if zfs then pkgs.linuxPackages else pkgs.linuxPackages_latest;
     locale.enable = true;

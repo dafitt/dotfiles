@@ -1,0 +1,14 @@
+{ options, config, lib, pkgs, ... }:
+
+with lib;
+with lib.dafitt;
+let
+  cfg = config.dafitt.hyprland.ricing;
+in
+{
+  options.dafitt.hyprland.ricing = with types; {
+    enable = mkBoolOpt false "Whether to enable some hyprland ricing, at the cost of battery usage.";
+  };
+
+  config = mkIf cfg.enable { };
+}

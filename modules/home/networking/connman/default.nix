@@ -13,12 +13,12 @@ in
 
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
-      bind = optionals config.dafitt.desktops.hyprland.pyprland.enable
+      bind = optionals config.dafitt.hyprland.pyprland.enable
         [ "SUPER_ALT, N, exec, ${pkgs.pyprland}/bin/pypr toggle connman" ];
       windowrulev2 = [ "float, class:connman-gtk" ];
     };
 
-    dafitt.desktops.hyprland.pyprland.scratchpads.connman = {
+    dafitt.hyprland.pyprland.scratchpads.connman = {
       animation = "fromRight";
       command = "${pkgs.connman-gtk}/bin/connman-gtk";
       class = "connman-gtk";

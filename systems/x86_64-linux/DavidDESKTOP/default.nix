@@ -24,10 +24,10 @@ with lib.dafitt; {
 
   dafitt = {
     bluetooth.enable = true;
-    desktops.gnome.enable = true;
-    desktops.hyprland.enable = true;
     flatpak.enable = true;
     fwupd.enable = true;
+    gnome.enable = true;
+    hyprland.enable = true;
     networking.firewall.allowLocalsend = true;
     networking.firewall.allowSyncthing = true;
     printing.enable = true;

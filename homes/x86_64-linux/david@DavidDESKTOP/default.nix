@@ -9,12 +9,11 @@ with lib.dafitt; {
   ];
 
   dafitt = {
-    desktops.hyprland.hypridle.sleepTriggersLock = false;
-    desktops.hyprland.hypridle.timeouts.lock = 0;
-    desktops.hyprland.hypridle.timeouts.suspend = 0;
-
     bedtime.enable = true;
     filemanagers.yazi.enable = true;
+    hyprland.hypridle.sleepTriggersLock = false;
+    hyprland.hypridle.timeouts.lock = 0;
+    hyprland.hypridle.timeouts.suspend = 0;
     launchers.rofi.enable = true;
     suiteEditing.enable = true;
     suiteMusic.enable = true;

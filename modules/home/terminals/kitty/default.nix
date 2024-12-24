@@ -80,14 +80,14 @@ in
     wayland.windowManager.hyprland.settings = {
       bind = optionals isDefault
         [ "SUPER, RETURN, exec, ${getExe config.programs.kitty.package}" ]
-      ++ optionals config.dafitt.desktops.hyprland.pyprland.enable
+      ++ optionals config.dafitt.hyprland.pyprland.enable
         [ "SUPER_ALT, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty" ];
       windowrulev2 = [
         "idleinhibit always, class:idleinhibitor, floating:1"
       ];
     };
 
-    dafitt.desktops.hyprland.pyprland.scratchpads.kitty = {
+    dafitt.hyprland.pyprland.scratchpads.kitty = {
       animation = "fromTop";
       command = "${config.programs.kitty.package}/bin/kitty --class dropterm --hold ${getExe config.programs.fastfetch.package}";
       class = "dropterm";

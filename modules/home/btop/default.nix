@@ -26,11 +26,11 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = optionals config.dafitt.desktops.hyprland.pyprland.enable
+      bind = optionals config.dafitt.hyprland.pyprland.enable
         [ "SUPER_ALT, P, exec, ${pkgs.pyprland}/bin/pypr toggle btop" ];
     };
 
-    dafitt.desktops.hyprland.pyprland.scratchpads.btop = {
+    dafitt.hyprland.pyprland.scratchpads.btop = {
       animation = "fromTop";
       command = "${config.home.sessionVariables.TERMINAL} --class btop ${getExe config.programs.btop.package}";
       class = "btop";

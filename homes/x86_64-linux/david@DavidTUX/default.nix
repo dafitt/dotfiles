@@ -9,7 +9,7 @@ with lib.dafitt; {
   ];
 
   dafitt = {
-    desktops.hyprland.monitors = [{
+    hyprland.monitors = [{
       name = "eDP-1";
       width = 1920;
       height = 1080;

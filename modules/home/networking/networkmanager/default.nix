@@ -13,12 +13,12 @@ in
 
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
-      bind = optionals config.dafitt.desktops.hyprland.pyprland.enable
+      bind = optionals config.dafitt.hyprland.pyprland.enable
         [ "SUPER_ALT, N, exec, ${pkgs.pyprland}/bin/pypr toggle networkmanager" ];
       windowrulev2 = [ "float, class:nm-connection-editor" ];
     };
 
-    dafitt.desktops.hyprland.pyprland.scratchpads.networkmanager = {
+    dafitt.hyprland.pyprland.scratchpads.networkmanager = {
       animation = "fromRight";
       command = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
       class = "nm-connection-editor";

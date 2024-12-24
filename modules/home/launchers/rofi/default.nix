@@ -10,7 +10,7 @@ let
 in
 {
   options.dafitt.launchers.rofi = with types; {
-    enable = mkBoolOpt (config.dafitt.desktops.hyprland.enable && isDefault) "Whether to enable the application launcher rofi.";
+    enable = mkBoolOpt (config.dafitt.hyprland.enable && isDefault) "Whether to enable the application launcher rofi.";
   };
 
   config = mkIf cfg.enable {
