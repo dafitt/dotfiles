@@ -317,6 +317,14 @@ in
           ];
         };
       };
+
+      xdg.desktopEntries."org.gnome.Settings" = {
+        name = "GNOME Settings";
+        comment = "GNOME Control Center";
+        icon = "org.gnome.Settings";
+        exec = "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome-control-center}/bin/gnome-control-center";
+        categories = [ "X-Preferences" ];
+      };
     })
     (mkIf cfg.ttyAutostart {
       programs.bash.profileExtra = ''
