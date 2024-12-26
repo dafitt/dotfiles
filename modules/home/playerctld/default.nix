@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.hyprland.playerctl;
+  cfg = config.dafitt.playerctld;
 in
 {
-  options.dafitt.hyprland.playerctl = with types; {
-    enable = mkBoolOpt false "Whether to enable playerctl for hyprland.";
+  options.dafitt.playerctld = with types; {
+    enable = mkBoolOpt false "Whether to enable playerctld.";
   };
 
   config = mkIf cfg.enable {

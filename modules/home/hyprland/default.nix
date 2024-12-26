@@ -16,6 +16,10 @@ in
 
   config = mkMerge [
     (mkIf cfg.enable {
+      dafitt = {
+        playerctld.enable = true;
+      };
+
       home.packages = with pkgs; with inputs; [
         grimblast # A helper for screenshots within Hyprland, based on grimshot
         hyprkeys # A simple, fast and scriptable keybind inspection utility

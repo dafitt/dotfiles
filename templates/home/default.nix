@@ -73,7 +73,6 @@ with lib.dafitt; {
     hyprland.notifications.mako.enable = hyprland.notifications.enable = "mako";
     hyprland.nwg-displays.enable = hyprland.enable;
     hyprland.pavucontrol.enable = hyprland.enable;
-    hyprland.playerctl.enable = hyprland.enable;
     hyprland.plugins.enable = hyprland.enable;
     hyprland.plugins.hycov.enable = false; # discontinued
     hyprland.plugins.hypr-darkwindow.enable = false;
@@ -108,6 +107,7 @@ with lib.dafitt; {
     passwordManager._1password.enable = passwordManager.default == "_1password";
     passwordManager.bitwarden.enable = passwordManager.default == "bitwarden";
     passwordManager.default = "bitwarden"; # null or one of [ "_1password" "bitwarden" ]
+    playerctld.enable = false;
     shells.bash.enable = false;
     shells.fish.enable = osCfg.enable or false;
     shells.starship.enable = true;
