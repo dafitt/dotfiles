@@ -51,8 +51,10 @@ in
       };
     };
 
+    security.polkit.enable = true;
     systemd.user.services."polkit-gnome-authentication-agent-1" = {
       description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "hyprland-session.target" ];
       wants = [ "hyprland-session.target" ];
       after = [ "hyprland-session.target" ];
       serviceConfig = {
@@ -62,7 +64,6 @@ in
         RestartSec = 1;
         TimeoutStopSec = 10;
       };
-      wantedBy = [ "hyprland-session.target" ];
     };
   };
 }

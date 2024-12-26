@@ -63,8 +63,8 @@ in
           };
           decoration = {
             # https://wiki.hyprland.org/Configuring/Variables/#decoration
-            active_opacity = 0.95;
-            inactive_opacity = 0.95;
+            #active_opacity = 0.97;
+            #inactive_opacity = 0.97;
 
             rounding = 16;
 
@@ -78,11 +78,9 @@ in
               color_inactive = "rgba(00000000)";
             };
 
-            blurls = [
-              # blurring layerSurfaces
-              "launcher"
-              "lockscreen"
-            ];
+            blur = {
+              xray = true;
+            };
           };
           animations = {
             # https://wiki.hyprland.org/Configuring/Animations/
@@ -106,6 +104,27 @@ in
               "workspaces, 1, 6, default"
             ];
           };
+
+          windowrulev2 = [
+            # https://wiki.hyprland.org/Configuring/Window-Rules/
+            # https://regex101.com/
+            #$ hyprctl clients
+            "opacity 1 0.7, floating:1, title:(.)+, xwayland:0" # make inactive floating windows (with titles) more transparent
+            "bordercolor rgb(${config.lib.stylix.colors.base09}), xwayland:1" # other border color for xwayland windows
+
+            "float, title:(A|a)lert"
+            "float, title:(S|s)etup"
+            "float, title:(P|p)rogress"
+            "float, class:nm-connection-editor"
+
+            "noblur, title:.*" # Disables blur for windows. Substantially improves performance.
+          ];
+          layerrule = [
+            "xray 1, .*"
+            "blur, launcher"
+            "ignorealpha 0.5, launcher"
+          ];
+          workspace = [ ];
 
           input = {
             # https://wiki.hyprland.org/Configuring/Variables/#input
@@ -281,25 +300,10 @@ in
             ", XF86MonBrightnessDown, exec, ${pkgs.light}/bin/light -A 5"
           ];
 
-          workspace = [ ];
-
-          windowrulev2 = [
-            # https://wiki.hyprland.org/Configuring/Window-Rules/
-            # https://regex101.com/
-            #$ hyprctl clients
-            "opacity 1 0.7, floating:1, title:(.)+, xwayland:0" # make inactive floating windows (with titles) more transparent
-            "bordercolor rgb(${config.lib.stylix.colors.base09}), xwayland:1" # other border color for xwayland windows
-
-            "float, title:(A|a)lert"
-            "float, title:(S|s)etup"
-            "float, title:(P|p)rogress"
-            "float, class:nm-connection-editor"
-          ];
-
           # only on launch
           exec-once = [
             # [Some of my apps take a really long time to open…?](https://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open)
-            "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+            "sleep 1 && ${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
             "${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
             "${pkgs.wluma}/bin/wluma"
