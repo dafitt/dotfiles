@@ -241,15 +241,20 @@ in
             "SUPER_CTRL, down, movecurrentworkspacetomonitor, d"
 
           ] ++ [
+            # some small helper programs
+            "SUPER_ALT, U, exec, ${gnome-characters}/bin/gnome-characters"
+            "SUPER_ALT, K, exec, ${getExe hyprpicker} | ${wl-clipboard-rs}/bin/wl-copy"
+
+            # Audio
+            ", XF86AudioMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+            "ALT, XF86AudioMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+            ", XF86AudioMicMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
             # Screenshots
             ", PRINT, exec, ${getExe grimblast} copysave output ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN
             "SUPER, PRINT, exec, ${getExe grimblast} --notify --freeze copysave area ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA
             "ALT, PRINT, exec, ${getExe grimblast} --notify --freeze --cursor save output - | ${getExe satty} --filename - --fullscreen --output-filename ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN | EDIT
             "SUPER_ALT, PRINT, exec, ${getExe grimblast} --freeze save area - | ${getExe satty} --filename - --output-filename ${config.xdg.userDirs.pictures}/$(date +'%F-%T_%N.png')" # SELECT AREA | EDIT
-
-            # some small helper programs
-            "SUPER_ALT, U, exec, ${gnome-characters}/bin/gnome-characters"
-            "SUPER_ALT, K, exec, ${getExe hyprpicker} | ${wl-clipboard-rs}/bin/wl-copy"
           ];
 
           # Bind: mouse binds
@@ -261,9 +266,19 @@ in
 
           # Bind: repeat while holding
           binde = [
-            # Media Keys
+            # Audio
+            ", XF86AudioRaiseVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2.5%+"
+            ", XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2.5%-"
+            "ALT, XF86AudioRaiseVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 2.5%+"
+            "ALT, XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 2.5%-"
+
+            # Keyboard
             ", XF86KbdBrightnessUp, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -A 10"
             ", XF86KbdBrightnessDown, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -U 10"
+
+            # Monitor
+            ", XF86MonBrightnessUp, exec, ${pkgs.light}/bin/light -U 5"
+            ", XF86MonBrightnessDown, exec, ${pkgs.light}/bin/light -A 5"
           ];
 
           workspace = [ ];
