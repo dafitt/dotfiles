@@ -37,8 +37,6 @@ in
 
     programs.zathura.enable = true; # pdf reader
 
-    wayland.windowManager.hyprland.settings.
-
     fonts.fontconfig.enable = true; # discover fonts and configurations installed through home.packages and nix-env
 
     wayland.windowManager.hyprland.settings = {
