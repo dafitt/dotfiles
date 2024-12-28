@@ -31,11 +31,17 @@ in
         move-up = [ "<Shift><Super>Up" ];
         new-window = [ "<Super>n" ];
         paper-toggle-fullscreen = [ "" ];
+        switch-down-workspace = [ "" ];
         switch-monitor-down = [ "<Control><Super>Down" ];
         switch-monitor-left = [ "<Control><Super>Left" ];
         switch-monitor-right = [ "<Control><Super>Right" ];
         switch-monitor-up = [ "<Control><Super>Up" ];
+        switch-up-workspace = [ "" ];
         toggle-maximize-width = [ "" ];
+      };
+      "org/gnome/desktop/wm/keybindings/switch-to-workspace-right" = {
+        switch-to-workspace-right = [ "<Super>Page_Down" ];
+        switch-to-workspace-left = [ "<Super>Page_Up" ];
       };
     };
   };
