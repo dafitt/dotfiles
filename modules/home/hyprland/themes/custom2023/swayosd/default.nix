@@ -3,10 +3,10 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.hyprland.swayosd;
+  cfg = config.dafitt.hyprland.themes.custom2023.swayosd;
 in
 {
-  options.dafitt.hyprland.swayosd = with types; {
+  options.dafitt.hyprland.themes.custom2023.swayosd = with types; {
     enable = mkBoolOpt false "Whether to enable swayosd for hyprland.";
   };
 

@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.hyprland.gedit;
+  cfg = config.dafitt.gedit;
 in
 {
-  options.dafitt.hyprland.gedit = with types; {
-    enable = mkBoolOpt false "Whether to enable gedit for hyprland.";
+  options.dafitt.gedit = with types; {
+    enable = mkBoolOpt true "Whether to enable gedit.";
   };
 
   config = mkIf cfg.enable {

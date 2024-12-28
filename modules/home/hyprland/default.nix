@@ -17,6 +17,8 @@ in
   config = mkMerge [
     (mkIf cfg.enable {
       dafitt = {
+        gnome-calculator.enable = true;
+        hyprland.themes.hyprpanel.enable = true;
         playerctld.enable = true;
       };
 
@@ -307,6 +309,7 @@ in
             "${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
             "${pkgs.wluma}/bin/wluma"
+            "${pkgs.udiskie}/bin/udiskie --no-automount --tray &"
           ];
 
           # on each reload

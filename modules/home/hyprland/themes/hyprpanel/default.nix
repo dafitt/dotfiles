@@ -7,10 +7,8 @@ let
   hyprlandCfg = config.wayland.windowManager.hyprland;
 in
 {
-  #imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
-
   options.dafitt.hyprland.themes.hyprpanel = with types; {
-    enable = mkBoolOpt true "Whether to enable the hyprpanel theme.";
+    enable = mkBoolOpt false "Whether to enable the hyprpanel theme.";
   };
 
   config = mkIf cfg.enable {
