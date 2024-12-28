@@ -18,7 +18,12 @@ in
     (mkIf cfg.enable {
       dafitt = {
         gnome-calculator.enable = true;
+        hyprland.cliphist.enable = true;
+        hyprland.hypridle.enable = true;
+        hyprland.hyprlock.enable = true;
+        hyprland.pyprland.enable = true;
         hyprland.themes.hyprpanel.enable = true;
+        hyprland.wlsunset.enable = true;
         playerctld.enable = true;
       };
 

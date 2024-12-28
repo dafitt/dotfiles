@@ -10,5 +10,7 @@ in
     enable = mkBoolOpt false "Whether to enable some hyprland ricing, at the cost of battery usage.";
   };
 
-  config = mkIf cfg.enable { };
+  config = mkIf cfg.enable {
+    dafitt.hyprland.ricing.wallpaper.enable = true;
+  };
 }

@@ -9,7 +9,7 @@ in
 {
   options.dafitt.hyprland.nwg-displays = with types; {
     enable = mkBoolOpt false ''
-      Enable nwg-displays, to adjust the screen layout and resolution.
+      Whether to enable nwg-displays, to adjust the screen layout and resolution for hyprland.
       Declarative configuration through `config.dafitt.hyprland.monitors` overrides specific monitor configuraition!
     '';
   };

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.cliphist = with types; {
-    enable = mkBoolOpt false "Whether to enable cliphist for hyprland.";
+    enable = mkEnableOption "cliphist for hyprland";
   };
 
   config = mkIf cfg.enable {

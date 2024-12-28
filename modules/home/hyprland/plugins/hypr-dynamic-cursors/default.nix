@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.plugins.hypr-dynamic-cursors = with types; {
-    enable = mkBoolOpt false "Whether to enable the hypr-dynamic-cursors hyprland plugin.";
+    enable = mkEnableOption "hypr-dynamic-cursors";
   };
 
   config = mkIf cfg.enable {

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.plugins.hyprexpo = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.plugins.enable "Whether to enable the hyprexpo hyprland plugin.";
+    enable = mkEnableOption "hyprexpo";
   };
 
   config = mkIf cfg.enable {

@@ -7,10 +7,9 @@ let
   hyprlandCfg = config.wayland.windowManager.hyprland;
 in
 {
-  options.dafitt.hyprland.plugins.hyprfocus = with types;
-    {
-      enable = mkBoolOpt false "Whether to enable the hyprfocus hyprland plugin.";
-    };
+  options.dafitt.hyprland.plugins.hyprfocus = with types; {
+    enable = mkEnableOption "hyprfocus";
+  };
 
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
