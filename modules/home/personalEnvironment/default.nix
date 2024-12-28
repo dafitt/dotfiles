@@ -3,10 +3,10 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.environment;
+  cfg = config.dafitt.personalEnvironment;
 in
 {
-  options.dafitt.environment = with types; {
+  options.dafitt.personalEnvironment = with types; {
     enable = mkBoolOpt true "Whether to enable my personal (shell) environment (programs/services/variables).";
   };
 
