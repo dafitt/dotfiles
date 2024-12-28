@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.Gaming;
-  osCfg = osConfig.dafitt.Gaming or null;
+  cfg = config.dafitt.suiteGaming;
+  osCfg = osConfig.dafitt.suiteGaming or null;
 in
 {
-  options.dafitt.Gaming = with types; {
+  options.dafitt.suiteGaming = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Whether to enable the Gaming suite.";
   };
 
