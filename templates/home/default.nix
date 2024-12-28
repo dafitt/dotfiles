@@ -18,118 +18,203 @@ with lib;
 with lib.dafitt; {
   imports = with inputs; [ ];
 
-  dafitt = rec {
-    #NOTE These values are the defaults
-    bedtime.enable = false;
-    bluetooth.enable = osCfg.enable or false;
-    browsers.autostart = true;
-    browsers.default = "firefox"; # null or one of [ "epiphany" "firefox" "librewolf" ]
-    browsers.epiphany.enable = browsers.default == "epiphany";
-    browsers.firefox.enable = browsers.default == "firefox";
-    browsers.librewolf.enable = browsers.default == "librewolf";
-    editors.default = "micro"; # null or one of [ "micro" ]
-    editors.micro.enable = editors.default == "micro";
-    environment.enable = true;
-    eog.defaultApplication = true;
-    eog.enable = true;
-    fastfetch.enable = true;
-    file-roller.defaultApplication = true;
-    file-roller.enable = true;
-    filemanagers.autostart = true;
-    filemanagers.default = "natuilus"; # null or one of [ "nautilus" "pcmanfm" "yazi" ]
-    filemanagers.natuilus.enable = filemanagers.default == "natuilus";
-    filemanagers.pcmanfm.enable = filemanagers.default == "pcmanfm";
-    filemanagers.yazi.enable = filemanagers.default == "yazi";
-    flatpak.enable = osCfg.enable or true;
-    gnome.enable = osCfg.enable or false;
-    gnome.extensions.app-icons-taskbar.enable = gnome.extensions.enable;
-    gnome.extensions.appindicator.enable = gnome.extensions.enable;
-    gnome.extensions.arcmenu.enable = gnome.extensions.enable;
-    gnome.extensions.auto-move-windows.enable = false;
-    gnome.extensions.blur-my-shell.enable = gnome.extensions.enable;
-    gnome.extensions.enable = gnome.enable;
-    gnome.extensions.forge.enable = gnome.extensions.enable;
-    gnome.extensions.just-perfection.enable = gnome.extensions.enable;
-    gnome.extensions.native-window-placement.enable = gnome.extensions.enable;
-    gnome.extensions.openweather.enable = gnome.extensions.enable;
-    gnome.extensions.paperwm.enable = gnome.extensions.enable;
-    gnome.extensions.reorder-workspaces.enable = gnome.extensions.enable;
-    gnome.extensions.rounded-window-corners.enable = false;
-    gnome.extensions.search-light.enable = gnome.extensions.enable;
-    gnome.extensions.vitals.enable = gnome.extensions.enable;
-    hyprland.calculator.enable = hyprland.enable;
-    hyprland.cliphist.enable = hyprland.enable;
-    hyprland.enable = osCfg.enable or false;
-    hyprland.gedit.enable = hyprland.enable;
-    hyprland.hypridle.enable = hyprland.enable;
-    hyprland.hypridle.sleepTriggersLock = true;
-    hyprland.hypridle.timeouts.lock = 360;
-    hyprland.hypridle.timeouts.suspend = 600;
-    hyprland.hyprlock.enable = hyprland.enable;
-    hyprland.hyprpaper.enable = hyprland.enable;
-    hyprland.monitors = [ ]; # modules/home/desktops/hyprland/monitors/default.nix
-    hyprland.notifications.enable = null; # null or one of [ "hyprnotify" "mako" ]
-    hyprland.notifications.hyprnotify.enable = hyprland.notifications.enable = "hyprnotify";
-    hyprland.notifications.mako.enable = hyprland.notifications.enable = "mako";
-    hyprland.nwg-displays.enable = hyprland.enable;
-    hyprland.pavucontrol.enable = hyprland.enable;
-    hyprland.plugins.enable = hyprland.enable;
-    hyprland.plugins.hycov.enable = false; # discontinued
-    hyprland.plugins.hypr-darkwindow.enable = false;
-    hyprland.plugins.hypr-dynamic-cursors = false;
-    hyprland.plugins.hyprexpo.enable = hyprland.plugins.enable;
-    hyprland.plugins.hyprfocus.enable = false;
-    hyprland.plugins.hyprnome.enable = false;
-    hyprland.plugins.hyprspace.enable = false;
-    hyprland.plugins.hyprsplit.enable = false;
-    hyprland.plugins.hyprtrails.enable = false;
-    hyprland.plugins.hyprwinwrap.enable = false;
-    hyprland.pyprland.enable = hyprland.enable;
-    hyprland.pyprland.scratchpads = { }; # modules/home/desktops/hyprland/pyprland/default.nix
-    hyprland.ricing.enable = false;
-    hyprland.ricing.wallpaper.enable = hyprland.ricing.enable;
-    hyprland.swaybg.enable = false;
-    hyprland.swayosd.enable = hyprland.enable;
-    hyprland.top.enable = hyprland.enable;
-    hyprland.udiskie.enable = hyprland.enable;
-    hyprland.waybar.enable = hyprland.enable;
-    hyprland.wlsunset.enable = hyprland.enable;
-    ianny.enable = false;
-    imv.enable = true;
-    latex.enable = false;
-    launchers.default = "fuzzel"; # null or one of [ "fuzzel" "rofi" ]
-    launchers.fuzzel.enalbe = hyprland.enable && launchers.default == "fuzzel";
-    launchers.rofi.enalbe = hyprland.enable && launchers.default == "rofi";
-    mpv.defaultApplication = true;
-    mpv.enable = true;
-    networking.connman.enable = osCfg.enable or false;
-    networking.networkmanager.enable = osCfg.enable or false;
-    passwordManager._1password.enable = passwordManager.default == "_1password";
-    passwordManager.bitwarden.enable = passwordManager.default == "bitwarden";
-    passwordManager.default = "bitwarden"; # null or one of [ "_1password" "bitwarden" ]
-    playerctld.enable = false;
-    shells.bash.enable = false;
-    shells.fish.enable = osCfg.enable or false;
-    shells.starship.enable = true;
-    shells.zsh.enable = osCfg.enable or false;
-    steam.enable = false;
-    suiteDevelopment.enable = osCfg.enable or false;
-    suiteEditing.enable = osCfg.enable or false;
-    suiteGaming.enable = osCfg.enable or false;
-    suiteMusic.enable = osCfg.enable or false;
-    suiteOffice.enable = osCfg.enable or false;
-    suiteRicing.enable = osCfg.enable or false;
-    suiteSocial.enable = osCfg.enable or false;
-    suiteVirtualization.enable = osCfg.enable or false;
-    suiteWeb.enable = osCfg.enable or false;
-    syncthing.enable = true;
-    systemd.enable = true;
-    terminals.default = "kitty"; # one of [ "kitty" ]
-    terminals.kitty.enable = terminals.default == "kitty";
-    vscode.autostart = true;
-    vscode.defaultApplication = true;
-    vscode.enable = false;
-    xdg.enable = true;
+  dafitt = {
+    #NOTE These are the defaults that were taken from
+    #$ nixos-rebuild --flake .#defaults repl
+    #> :p config.snowfallorg.users.david.home.config.dafitt
+
+    bedtime = { enable = false; };
+    bluetooth = { enable = false; };
+    browsers = {
+      autostart = true;
+      default = "firefox";
+      epiphany = { enable = false; };
+      firefox = { enable = true; };
+      librewolf = { enable = false; };
+    };
+    btop = { enable = true; };
+    cava = { enable = false; };
+    editors = {
+      default = "micro";
+      micro = { enable = true; };
+    };
+    eog = {
+      defaultApplication = true;
+      enable = true;
+    };
+    fastfetch = { enable = true; };
+    file-roller = {
+      defaultApplication = true;
+      enable = true;
+    };
+    filemanagers = {
+      autostart = true;
+      default = "nautilus";
+      natuilus = { enable = true; };
+      pcmanfm = { enable = false; };
+      yazi = { enable = false; };
+    };
+    flatpak = { enable = false; };
+    gedit = { enable = true; };
+    gnome = {
+      enable = false;
+      extensions = {
+        app-icons-taskbar = { enable = false; };
+        appindicator = { enable = false; };
+        arcmenu = { enable = false; };
+        auto-move-windows = { enable = false; };
+        blur-my-shell = { enable = false; };
+        enable = false;
+        forge = { enable = false; };
+        just-perfection = { enable = false; };
+        native-window-placement = { enable = false; };
+        openweather = { enable = false; };
+        paperwm = { enable = false; };
+        reorder-workspaces = { enable = false; };
+        rounded-window-corners = { enable = false; };
+        search-light = { enable = false; };
+        vitals = { enable = false; };
+      };
+    };
+    gnome-calculator = { enable = false; };
+    hyprland = {
+      cliphist = { enable = false; };
+      enable = false;
+      hypridle = {
+        enable = false;
+        sleepTriggersLock = true;
+        timeouts = {
+          lock = 360;
+          suspend = 600;
+        };
+      };
+      hyprlock = { enable = false; };
+      monitors = [ ];
+      nwg-displays = { enable = false; };
+      plugins = {
+        enable = false;
+        hycov = { enable = false; };
+        hypr-darkwindow = { enable = false; };
+        hypr-dynamic-cursors = { enable = false; };
+        hyprexpo = { enable = false; };
+        hyprfocus = { enable = false; };
+        hyprnome = { enable = false; };
+        hyprspace = { enable = false; };
+        hyprsplit = { enable = false; };
+        hyprtrails = { enable = false; };
+        hyprwinwrap = { enable = false; };
+      };
+      pyprland = {
+        enable = false;
+        scratchpads = {
+          btop = {
+            animation = "fromTop";
+            class = "btop";
+            command = "/nix/store/sd4fvqvmgvvmmrk5q1l8lcsmzcfiqs2c-kitty-0.37.0/bin/kitty --class btop /nix/store/8gab83bb1vn2v6haibhzfx549rplm8ps-btop-1.4.0/bin/btop";
+            lazy = true;
+            margin = "2%";
+            size = "90% 90%";
+          };
+          kitty = {
+            animation = "fromTop";
+            class = "dropterm";
+            command = "/nix/store/sd4fvqvmgvvmmrk5q1l8lcsmzcfiqs2c-kitty-0.37.0/bin/kitty --class dropterm --hold /nix/store/6pqn4fnrcdy46dcsgf2r1pw7cffx7lfd-fastfetch-2.31.0/bin/fastfetch";
+            lazy = true;
+            margin = "2%";
+            size = "90% 90%";
+          };
+          networkmanager = {
+            animation = "fromRight";
+            class = "nm-connection-editor";
+            command = "/nix/store/5r61rdwcnpgqzjxz28p7bfx6qnz7y0zp-network-manager-applet-1.36.0/bin/nm-connection-editor";
+            lazy = true;
+            margin = "2%";
+            size = "40% 70%";
+          };
+          pavucontrol = {
+            animation = "fromRight";
+            class = "pavucontrol";
+            command = "/nix/store/mn9nzv78nwxkdq5clflcx748k5jcw01x-pavucontrol-6.1/bin/pavucontrol";
+            lazy = true;
+            margin = "2%";
+            size = "40% 70%";
+            unfocus = "hide";
+          };
+        };
+      };
+      ricing = {
+        enable = false;
+        wallpaper = { enable = false; };
+      };
+      smartGaps = false;
+      themes = {
+        custom2023 = {
+          enable = false;
+          notifications = {
+            hyprnotify = { enable = false; };
+            mako = { enable = false; };
+          };
+          swayosd = { enable = false; };
+          waybar = { enable = false; };
+        };
+        hyprpanel = { enable = false; };
+      };
+      ttyAutostart = true;
+      wlsunset = { enable = false; };
+    };
+    ianny = { enable = false; };
+    imv = { enable = true; };
+    latex = { enable = false; };
+    launchers = {
+      default = "fuzzel";
+      fuzzel = { enable = false; };
+      rofi = { enable = false; };
+    };
+    mpv = {
+      defaultApplication = true;
+      enable = true;
+    };
+    networking = {
+      connman = { enable = false; };
+      networkmanager = { enable = true; };
+    };
+    passwordManager = {
+      _1password = { enable = false; };
+      bitwarden = { enable = true; };
+      default = "bitwarden";
+    };
+    pavucontrol = { enable = true; };
+    personalEnvironment = { enable = true; };
+    playerctld = { enable = false; };
+    shells = {
+      bash = { enable = false; };
+      fish = { enable = true; };
+      starship = { enable = true; };
+      zsh = { enable = false; };
+    };
+    steam = { enable = false; };
+    suiteDevelopment = { enable = false; };
+    suiteEditing = { enable = false; };
+    suiteGaming = { enable = false; };
+    suiteMusic = { enable = false; };
+    suiteOffice = { enable = false; };
+    suiteRicing = { enable = false; };
+    suiteSocial = { enable = false; };
+    suiteVirtualization = { enable = false; };
+    suiteWeb = { enable = true; };
+    syncthing = { enable = true; };
+    systemd = { enable = true; };
+    terminals = {
+      default = "kitty";
+      kitty = { enable = true; };
+    };
+    vscode = {
+      autostart = true;
+      defaultApplication = true;
+      enable = false;
+      mkMutable = false;
+    };
+    xdg = { enable = true; };
   };
 
   home.packages = with pkgs; [

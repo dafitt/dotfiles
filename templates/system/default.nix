@@ -23,34 +23,68 @@ with lib.dafitt; {
   ];
 
   dafitt = rec {
-    #NOTE These values are the defaults
-    appimage.enable = true;
-    audio.enable = true;
-    batteryOptimization.enable = false;
-    bluetooth.enable = false;
-    bootloader.enable = "systemd-boot"; # null or one of [ "grub" "systemd-boot" ]
-    displayManager.enable = "greetd"; # null or one of [ "gdm" "greetd" ]
-    flatpak.enable = false;
-    fonts.enable = true;
-    fwupd.enable = false;
-    gnome.enable = false;
-    hyprland.enable = true;
-    hyprland.hyprlock.allow = hyprlock_enabled;
-    kernel.enable = true;
-    kernel.package = if zfs then pkgs.linuxPackages else pkgs.linuxPackages_latest;
-    locale.enable = true;
-    networking.enable = "networkmanager"; # null or one of [ "connman" "networkmanager" ]
-    networking.firewall.allowLocalsend = false;
-    networking.firewall.allowSyncthing = false;
-    printing.enable = false;
-    shells.default = "fish"; # null or one of [ "bash" "fish" ]
-    shells.fish.enable = shells.default == "fish";
-    suiteDevelopment.enable = false;
-    suiteGaming.enable = false;
-    suiteVirtualization.enable = false;
-    systemd.enable = true;
-    time.enable = true;
-    users.guest.enable = true;
+    #NOTE These are the defaults that were taken from
+    #$ nixos-rebuild --flake .#defaults repl
+    #> :p config.dafitt
+
+    appimage = { enable = true; };
+    audio = { enable = true; };
+    batteryOptimization = { enable = false; };
+    bluetooth = { enable = false; };
+    bootloader = {
+      enable = "systemd-boot";
+      grub = { enable = false; };
+      systemd-boot = { enable = true; };
+    };
+    displayManager = {
+      enable = "greetd";
+      gdm = { enable = false; };
+      greetd = { enable = true; };
+      sessionPaths = [
+        "/nix/store/9pgg2wwp4g90z0jsq7y09rpmiyrvr00x-bash-session.desktop/share/applications"
+        "/nix/store/35rd09ksrlb37pyyv23g76kwybqil9nf-desktops/share/xsessions"
+        "/nix/store/35rd09ksrlb37pyyv23g76kwybqil9nf-desktops/share/wayland-sessions"
+      ];
+    };
+    flatpak = { enable = false; };
+    fonts = {
+      enable = true;
+      fonts = [ ];
+    };
+    fwupd = { enable = false; };
+    gnome = { enable = false; };
+    hyprland = {
+      enable = false;
+      hyprlock = { allow = false; };
+    };
+    kernel = {
+      enable = true;
+      package = pkgs.linuxPackages_latest;
+    };
+    locale = { enable = true; };
+    locate = { enable = true; };
+    networking = {
+      connman = { enable = false; };
+      enable = "networkmanager";
+      firewall = {
+        allowLocalsend = false;
+        allowSyncthing = false;
+      };
+      networkmanager = { enable = true; };
+    };
+    printing = { enable = false; };
+    shells = {
+      default = "fish";
+      fish = { enable = true; };
+    };
+    suiteDevelopment = { enable = false; };
+    suiteGaming = { enable = false; };
+    suiteVirtualization = { enable = false; };
+    systemd = { enable = true; };
+    time = { enable = true; };
+    users = {
+      guest = { enable = true; };
+    };
   };
 
   environment.systemPackages = with pkgs; [
