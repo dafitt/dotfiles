@@ -119,10 +119,11 @@ in
       };
 
       # custom keybindings
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings" = {
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings" = mkAfter {
         custom-keybindings = [
-          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0"
-          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
         ];
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -132,8 +133,13 @@ in
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
         binding = "<Super><Alt>b";
-        command = config.dafitt.browsers.default ? "";
+        command = if config.dafitt.browsers.default != null then config.dafitt.browsers.default else "";
         name = "Browser";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+        binding = "<Super><Alt>f";
+        command = if config.dafitt.filemanagers.default != null then config.dafitt.filemanagers.default else "";
+        name = "Files";
       };
     };
   };
