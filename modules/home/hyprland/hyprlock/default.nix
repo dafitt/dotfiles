@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.hyprland.hyprlock = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable "Whether to enable screenlocking.";
+    enable = mkEnableOption "hyprlock, screenlocking";
   };
 
   config = mkIf cfg.enable {

@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.hyprland.pavucontrol;
+  cfg = config.dafitt.pavucontrol;
 in
 {
-  options.dafitt.hyprland.pavucontrol = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable "Whether to enable the pavucontrol, PulseAudio Volume Control.";
+  options.dafitt.pavucontrol = with types; {
+    enable = mkBoolOpt true "Whether to enable the pavucontrol, PulseAudio Volume Control.";
   };
 
   config = mkIf cfg.enable {

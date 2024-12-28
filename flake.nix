@@ -5,6 +5,7 @@
   inputs = {
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/home-manager
     hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow"; }; # https://github.com/micha4w/Hypr-DarkWindow
+    hyprpanel = { url = "github:jas-singhfsu/hyprpanel"; inputs.nixpkgs.follows = "nixpkgs"; };
     hyprspace = { url = "github:KZDKM/Hyprspace"; }; # https://github.com/KZDKM/Hyprspace
     hyprsplit = { url = "github:shezdy/hyprsplit"; }; # https://github.com/shezdy/hyprsplit
     nix-flatpak.url = "github:gmodena/nix-flatpak/v0.5.2"; # https://github.com/gmodena/nix-flatpak/tags
@@ -56,6 +57,7 @@
 
     overlays = with inputs; [
       nur.overlays.default
+      hyprpanel.overlay
     ];
 
     systems.modules.nixos = with inputs; [
@@ -65,6 +67,7 @@
     homes.modules = with inputs; [
       stylix.homeManagerModules.stylix
       nix-flatpak.homeManagerModules.nix-flatpak
+      hyprpanel.homeManagerModules.hyprpanel
     ];
 
     templates = import ./templates { };

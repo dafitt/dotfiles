@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.plugins.hypr-darkwindow = with types; {
-    enable = mkBoolOpt false "Whether to enable the hypr-darkwindow hyprland plugin.";
+    enable = mkEnableOption "hypr-darkwindow";
   };
 
   config = mkIf cfg.enable {

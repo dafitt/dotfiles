@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.plugins.hyprsplit = with types; {
-    enable = mkBoolOpt false "Whether to enable the hyprsplit hyprland plugin.";
+    enable = mkEnableOption "hyprsplit";
   };
 
   config = mkIf cfg.enable {

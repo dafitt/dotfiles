@@ -3,15 +3,15 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.hyprland.waybar;
+  cfg = config.dafitt.hyprland.themes.custom2023.waybar;
 in
 {
-  options.dafitt.hyprland.waybar = with types; {
-    enable = mkBoolOpt config.dafitt.hyprland.enable;
+  options.dafitt.hyprland.themes.custom2023.waybar = with types; {
+    enable = mkBoolOpt false "Whether to enable waybar.";
   };
 
-  config = {
-    dafitt.hyprland.swayosd.enable = true;
+  config = mkIf cfg.enable {
+    dafitt.hyprland.themes.custom2023.swayosd.enable = true;
 
     programs.waybar = {
       enable = true;

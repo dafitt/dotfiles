@@ -1,16 +1,11 @@
-{ options, config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 with lib;
-with lib.dafitt;
 let
-  cfg = config.dafitt.hyprland.notifications;
+  cfg = config.dafitt.hyprland.themes;
   enabledSubModules = filter (n: cfg.${n}.enable or false) (attrNames cfg);
 in
 {
-  options.dafitt.hyprland.notifications = with types; {
-    enable = mkOpt (nullOr (enum [ "connman" "networkmanager" ])) "networkmanager" "Which network manager to use.";
-  };
-
   config = {
     assertions = [{
       assertion = length enabledSubModules <= 1;

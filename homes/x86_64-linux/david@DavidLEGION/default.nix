@@ -9,16 +9,8 @@ with lib.dafitt; {
   ];
 
   dafitt = {
-    hyprland.monitors = [{
-      name = "eDP-2";
-      width = 1920; # 16:10
-      height = 1200;
-      refreshRate = 165;
-      workspace = "1";
-      primary = true;
-    }];
-
     filemanagers.yazi.enable = true;
+    hyprland.monitors = [{ name = "eDP-2"; primary = true; width = 1920; height = 1200; refreshRate = 165; vrr = 1; workspace = "1"; }];
     latex.enable = false;
     launchers.rofi.enable = true;
     steam.enable = true;

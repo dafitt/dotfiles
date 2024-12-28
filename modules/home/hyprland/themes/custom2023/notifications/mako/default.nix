@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.hyprland.notifications.mako;
+  cfg = config.dafitt.hyprland.themes.custom2023.notifications.mako;
   hyprlandCfg = config.wayland.windowManager.hyprland;
 in
 {
-  options.dafitt.hyprland.notifications.mako = with types; {
+  options.dafitt.hyprland.themes.custom2023.notifications.mako = with types; {
     enable = mkBoolOpt false "Whether to enable mako for hyprland.";
   };
 

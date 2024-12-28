@@ -11,19 +11,19 @@ in
       type = listOf (submodule {
         options = {
           enable = mkOption {
-            description = "Can be switched off here.";
             type = bool;
-            example = false;
+            description = "Can be switched off here.";
             default = true;
+            example = false;
           };
           name = mkOption {
-            description = "Get the name with 'wlr-randr'.";
             type = str;
-            example = "DP-1";
+            description = "Get the name with `hyprctl monitors all` or `wlr-randr`.";
+            example = "desc:Microstep MSI MAG271CQP 0x3030424C";
           };
           primary = mkOption {
-            description = "Define one primary monitor.";
             type = bool;
+            description = "Define one primary monitor.";
             default = false;
           };
           width = mkOption {
@@ -40,35 +40,36 @@ in
             default = 60;
           };
           vrr = mkOption {
+            type = addCheck int (n: n >= 0 && n <= 2);
             description = ''
               Controls the VRR (Adaptive Sync) of your monitors.
               0 - off
               1 - on
               2 - fullscreen only
             '';
-            type = addCheck int (n: n >= 0 && n <= 2);
             default = 0;
           };
           bitdepth = mkOption {
+            type = enum [ 8 10 ];
             description = ''
               The bit depth of the monitor. Can be either 8 or 10.
               NOTE: Colors registered in Hyprland (e.g. the border color) do not support 10 bit.
               NOTE: Some applications do not support screen capture with 10 bit enabled.
             '';
-            type = enum [ 8 10 ];
             default = 8;
           };
           x = mkOption {
-            description = "The x-coordinate of the monitor.";
             type = int;
+            description = "The x-coordinate of the monitor.";
             default = 0;
           };
           y = mkOption {
-            description = "The y-coordinate of the monitor.";
             type = int;
+            description = "The y-coordinate of the monitor.";
             default = 0;
           };
           transform = mkOption {
+            type = addCheck int (n: n >= 0 && n <= 7);
             description = ''
               Controls the transformation of your monitors.
               0 - normal (no transforms)
@@ -80,23 +81,23 @@ in
               6 - flipped + 180 degrees
               7 - flipped + 270 degrees
             '';
-            type = addCheck int (n: n >= 0 && n <= 7);
             default = 0;
           };
           mirror = mkOption {
-            description = "Mirror a monitor. e.g. 'DP-1'.";
             type = nullOr str;
+            description = "Mirror a monitor.";
             default = null;
+            example = "DP-1";
           };
           workspace = mkOption {
-            description = "The workspace assigned to the monitor.";
             type = nullOr str;
+            description = "The workspace assigned to the monitor.";
             default = null;
           };
         };
       });
       default = [ ];
-      description = "Configuration for your hyprland monitors.";
+      description = "Declarative configuration for your hyprland monitors.";
       example = [
         { name = "DP-0"; primary = true; width = 2560; height = 1440; refreshRate = 144; }
         { name = "DP-1"; primary = false; width = 1920; height = 1080; refreshRate = 120; vrr = 1; bitdepth = 10; x = 2560; y = 0; transform = 0; mirror = null; workspace = "8"; }
@@ -137,9 +138,11 @@ in
             transform = if m.transform != 0 then ",transform,${toString m.transform}" else "";
             mirror = if m.mirror != null then ",mirror,${m.mirror}" else "";
           in
-          "${m.name},${if m.enable then
-            "${resolution},${position},1${transform}${vrr}${bitdepth}${mirror}"
-          else "disable"}"
+          "${m.name},${
+            if m.enable
+            then "${resolution},${position},1${transform}${vrr}${bitdepth}${mirror}"
+            else "disable"
+          }"
         )
         (cfg.monitors);
   };
