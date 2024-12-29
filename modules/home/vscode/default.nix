@@ -339,7 +339,6 @@ in
 
         # Features / advancements #
         adpyke.codesnap
-        eamodio.gitlens
         formulahendry.code-runner
         github.vscode-pull-request-github
         gruntfuggly.todo-tree
