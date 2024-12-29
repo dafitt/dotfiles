@@ -7,6 +7,10 @@ let
 in
 {
   options.dafitt.terminals = with types;{
-    default = mkOpt (enum [ "kitty" ]) "kitty" "Which terminal emulator is to be used primarily"; # at least one terminal should always be enabled
+    default = mkOption {
+      type = nullOr (enum [ "kitty" ]);
+      default = null;
+      description = "Which terminal emulator is to be used primarily.";
+    };
   };
 }

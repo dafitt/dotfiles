@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.fastfetch = with types; {
-    enable = mkBoolOpt true "Whether to enable fastfetch.";
+    enable = mkEnableOption "fastfetch";
   };
 
   config = mkIf cfg.enable {

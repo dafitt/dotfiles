@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.flatpak = with types; {
-    enable = mkBoolOpt false "Whether to enable flatpak support.";
+    enable = mkEnableOption "flatpak support";
   };
 
   config = mkIf cfg.enable {

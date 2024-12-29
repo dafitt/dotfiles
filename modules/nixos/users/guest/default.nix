@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.users.guest = with types; {
-    enable = mkBoolOpt true "Whether to enable user 'guest'.";
+    enable = mkEnableOption "user 'guest'";
   };
 
   config = mkIf cfg.enable {

@@ -9,6 +9,7 @@ in
 {
   options.dafitt.MODULE = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Whether to enable MODULE.";
+    #enable = mkEnableOption "MODULE";
   };
 
   config = mkIf cfg.enable { };

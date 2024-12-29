@@ -7,6 +7,10 @@ let
 in
 {
   options.dafitt.launchers = with types;{
-    default = mkOpt (nullOr (enum [ "fuzzel" "rofi" ])) "fuzzel" "Which application launcher is to be used primarily";
+    default = mkOption {
+      type = nullOr (enum [ "fuzzel" "rofi" ]);
+      default = null;
+      description = "Which application launcher is to be used primarily.";
+    };
   };
 }

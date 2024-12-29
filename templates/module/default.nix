@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.MODULE = with types; {
-    enable = mkBoolOpt false "Whether to enable MODULE.";
+    enable = mkEnableOption "MODULE";
   };
 
   config = mkIf cfg.enable { };

@@ -8,6 +8,10 @@ let
 in
 {
   options.dafitt.shells = with types; {
-    default = mkOpt (nullOr (enum [ "bash" "fish" ])) "fish" "Which default shell to set.";
+    default = mkOption {
+      type = nullOr (enum [ "bash" "fish" ]);
+      default = null;
+      description = "Which shell is to be used primarily.";
+    };
   };
 }

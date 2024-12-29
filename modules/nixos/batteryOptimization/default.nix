@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.batteryOptimization = with types; {
-    enable = mkBoolOpt false "Whether to enable battery optimizations and utils.";
+    enable = mkEnableOption "battery optimizations and utils";
   };
 
   config = mkIf cfg.enable {

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.ricing = with types; {
-    enable = mkBoolOpt false "Whether to enable some hyprland ricing, at the cost of battery usage.";
+    enable = mkEnableOption "some hyprland ricing, at the cost of battery usage";
   };
 
   config = mkIf cfg.enable {

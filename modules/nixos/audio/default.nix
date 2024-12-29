@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.audio = with types; {
-    enable = mkBoolOpt true "Whether to enable audio with the pipewire sound server.";
+    enable = mkEnableOption "audio with the pipewire sound server";
   };
 
   config = mkIf cfg.enable {

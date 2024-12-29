@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gedit = with types; {
-    enable = mkBoolOpt true "Whether to enable gedit.";
+    enable = mkEnableOption "gedit";
   };
 
   config = mkIf cfg.enable {

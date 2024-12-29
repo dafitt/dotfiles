@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.personalEnvironment = with types; {
-    enable = mkBoolOpt true "Whether to enable my personal (shell) environment (programs/services/variables).";
+    enable = mkEnableOption "my personal (shell) environment (programs/services/variables)";
   };
 
   config = mkIf cfg.enable {

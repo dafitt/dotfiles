@@ -7,7 +7,12 @@ let
 in
 {
   options.dafitt.browsers = with types; {
-    default = mkOpt (nullOr (enum [ "epiphany" "firefox" "librewolf" ])) "firefox" "Which web browser is to be used primarily.";
     autostart = mkBoolOpt true "Start the web browser on login.";
+
+    default = mkOption {
+      type = nullOr (enum [ "epiphany" "firefox" "librewolf" ]);
+      default = null;
+      description = "Which web browser is to be used primarily.";
+    };
   };
 }

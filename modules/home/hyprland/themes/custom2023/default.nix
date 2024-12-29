@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.hyprland.themes.custom2023 = with types; {
-    enable = mkBoolOpt false "Whether to enable the custom2023 theme.";
+    enable = mkEnableOption "the custom2023 theme";
   };
 
   config = mkIf cfg.enable {

@@ -7,10 +7,10 @@ let
 in
 {
   options.dafitt.ianny = with types; {
-    enable = mkBoolOpt false ''Enable ianny,
+    enable = mkEnableOption ''ianny,
       a desktop utility that helps preventing repetitive strain injuries
       by keeping track of usage patterns and periodically informing the
-      user to take breaks.'';
+      user to take breaks'';
   };
 
   config = mkIf cfg.enable {

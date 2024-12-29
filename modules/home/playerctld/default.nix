@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.playerctld = with types; {
-    enable = mkBoolOpt false "Whether to enable playerctld.";
+    enable = mkEnableOption "playerctld";
   };
 
   config = mkIf cfg.enable {

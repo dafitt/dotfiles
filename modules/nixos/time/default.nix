@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.time = with types; {
-    enable = mkBoolOpt true "Whether to configure timezone information.";
+    enable = mkEnableOption "configuring timezone";
   };
 
   config = mkIf cfg.enable {

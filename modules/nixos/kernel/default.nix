@@ -9,7 +9,7 @@ let
 in
 {
   options.dafitt.kernel = with types; {
-    enable = mkBoolOpt true "Whether to change the linux kernel.";
+    enable = mkEnableOption "configuring the linux kernel";
     package = mkOption {
       description = "Which linux kernel package to use.";
       type = raw;

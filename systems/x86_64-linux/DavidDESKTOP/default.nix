@@ -23,6 +23,8 @@ with lib.dafitt; {
   ];
 
   dafitt = {
+    enable = true;
+
     bluetooth.enable = true;
     flatpak.enable = true;
     fwupd.enable = true;

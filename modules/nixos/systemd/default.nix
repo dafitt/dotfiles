@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.systemd = with types; {
-    enable = mkBoolOpt true "Whether to enable systemd configuration.";
+    enable = mkEnableOption "systemd configuration";
   };
 
   config = mkIf cfg.enable {

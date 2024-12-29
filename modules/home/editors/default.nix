@@ -7,6 +7,10 @@ let
 in
 {
   options.dafitt.editors = with types;{
-    default = mkOpt (nullOr (enum [ "micro" ])) "micro" "Which terminal editor is to be used primarily";
+    default = mkOption {
+      type = nullOr (enum [ "micro" ]);
+      default = null;
+      description = "Which terminal editor is to be used primarily.";
+    };
   };
 }

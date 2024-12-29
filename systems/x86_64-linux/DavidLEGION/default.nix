@@ -27,6 +27,8 @@ with lib.dafitt; {
   ];
 
   dafitt = {
+    enable = true;
+
     bluetooth.enable = true;
     displayManager.gdm.enable = true;
     displayManager.greetd.enable = false;

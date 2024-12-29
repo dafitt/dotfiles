@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.imv = with types; {
-    enable = mkBoolOpt true "Whether to enable imv terminal image viewer.";
+    enable = mkEnableOption "imv terminal image viewer";
   };
 
   config = mkIf cfg.enable {

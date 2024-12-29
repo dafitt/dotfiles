@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.fwupd = with types; {
-    enable = mkBoolOpt false "Whether to enable fwupd, a tool to update firmware on Linux.";
+    enable = mkEnableOption "fwupd, a tool to update firmware on Linux";
   };
 
   config = mkIf cfg.enable {

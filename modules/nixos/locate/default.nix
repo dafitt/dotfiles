@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.locate = with types; {
-    enable = mkBoolOpt true "Whether to enable locate, a utility to list files in databases that match a pattern.";
+    enable = mkEnableOption "locate, a utility to list files in databases that match a pattern";
   };
 
   config = mkIf cfg.enable {

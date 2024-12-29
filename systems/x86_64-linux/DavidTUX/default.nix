@@ -14,6 +14,8 @@ with lib.dafitt; {
   ];
 
   dafitt = {
+    enable = true;
+
     batteryOptimization.enable = true;
     bootloader.enable = "grub";
     flatpak.enable = true;

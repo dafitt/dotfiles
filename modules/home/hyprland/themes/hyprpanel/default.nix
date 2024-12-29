@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.hyprland.themes.hyprpanel = with types; {
-    enable = mkBoolOpt false "Whether to enable the hyprpanel theme.";
+    enable = mkEnableOption "the hyprpanel theme";
   };
 
   config = mkIf cfg.enable {

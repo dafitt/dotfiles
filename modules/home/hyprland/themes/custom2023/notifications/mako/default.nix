@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.hyprland.themes.custom2023.notifications.mako = with types; {
-    enable = mkBoolOpt false "Whether to enable mako for hyprland.";
+    enable = mkEnableOption "mako for hyprland";
   };
 
   config = mkIf cfg.enable {

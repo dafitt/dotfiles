@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.themes.custom2023.swayosd = with types; {
-    enable = mkBoolOpt false "Whether to enable swayosd for hyprland.";
+    enable = mkEnableOption "swayosd for hyprland";
   };
 
   config = mkIf cfg.enable {

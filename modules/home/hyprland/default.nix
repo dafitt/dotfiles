@@ -10,7 +10,7 @@ in
   options.dafitt.hyprland = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Whether to enable the Hyprland desktop.";
 
-    smartGaps = mkBoolOpt false "Whether to enable smart gaps workspace rules (no gaps when only one window on workspace).";
+    smartGaps = mkEnableOption "smart gaps workspace rules (no gaps when only one window on workspace)";
     ttyAutostart = mkBoolOpt true "Whether to autostart Hyprland from a tty after login.";
   };
 

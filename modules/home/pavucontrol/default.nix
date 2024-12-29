@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.pavucontrol = with types; {
-    enable = mkBoolOpt true "Whether to enable the pavucontrol, PulseAudio Volume Control.";
+    enable = mkEnableOption "the pavucontrol, PulseAudio Volume Control";
   };
 
   config = mkIf cfg.enable {

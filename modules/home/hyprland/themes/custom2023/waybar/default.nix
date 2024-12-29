@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.hyprland.themes.custom2023.waybar = with types; {
-    enable = mkBoolOpt false "Whether to enable waybar.";
+    enable = mkEnableOption "waybar";
   };
 
   config = mkIf cfg.enable {

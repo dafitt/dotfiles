@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.hyprland.themes.custom2023.notifications.hyprnotify = with types; {
-    enable = mkBoolOpt false "Whether to enable hyprnotify for hyprland.";
+    enable = mkEnableOption "hyprnotify for hyprland";
   };
 
   config = mkIf cfg.enable {

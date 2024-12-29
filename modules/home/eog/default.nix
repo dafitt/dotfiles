@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.eog = with types; {
-    enable = mkBoolOpt true "Whether to enable eog image viewer.";
+    enable = mkEnableOption "eog image viewer";
     defaultApplication = mkBoolOpt true "Set eog as the default application for its mimetypes.";
   };
 

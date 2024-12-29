@@ -3,11 +3,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.shells.starship;
+  cfg = config.dafitt.starship;
 in
 {
-  options.dafitt.shells.starship = with types; {
-    enable = mkBoolOpt true "Whether to enable the starship prompt.";
+  options.dafitt.starship = with types; {
+    enable = mkEnableOption "the starship prompt";
   };
 
   config = mkIf cfg.enable {

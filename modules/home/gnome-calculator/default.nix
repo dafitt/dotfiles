@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gnome-calculator = with types; {
-    enable = mkBoolOpt false "Whether to enable gnome-calculator.";
+    enable = mkEnableOption "gnome-calculator";
   };
 
   config = mkIf cfg.enable {
