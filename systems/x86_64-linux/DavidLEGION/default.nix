@@ -28,6 +28,8 @@ with lib.dafitt; {
 
   dafitt = {
     bluetooth.enable = true;
+    displayManager.gdm.enable = true;
+    displayManager.greetd.enable = false;
     flatpak.enable = true;
     gnome.enable = true;
     networking.firewall.allowLocalsend = true;
