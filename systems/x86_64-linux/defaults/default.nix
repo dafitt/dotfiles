@@ -1,4 +1,11 @@
 #$ nixos-rebuild --flake .#defaults repl
 #> :p config.dafitt
 
-{ system.stateVersion = "24.11"; }
+{
+  fileSystems."/" = {
+    device = "/dev/null";
+    fsType = "ext4";
+  };
+
+  system.stateVersion = "24.11";
+}
