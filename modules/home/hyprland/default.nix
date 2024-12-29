@@ -25,6 +25,7 @@ in
         hyprland.themes.hyprpanel.enable = true;
         hyprland.wlsunset.enable = true;
         playerctld.enable = true;
+        stylix.enable = true;
       };
 
       home.packages = with pkgs; with inputs; [

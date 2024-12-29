@@ -11,6 +11,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    dafitt.stylix.enable = true;
+
     wayland.windowManager.hyprland = {
       # https://github.com/KZDKM/Hyprspace
       plugins = with pkgs; [ inputs.hyprspace.packages.${system}.default ];

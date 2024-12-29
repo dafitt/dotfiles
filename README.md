@@ -387,13 +387,7 @@ with channels.unstable; {
 
 I use [snowfall-lib](https://github.com/snowfallorg/lib), so every _`default.nix`_ is automatically imported.
 
-My systems and homes are assembled using custom modules. Any custom module has at least one enable option which name matches the folder: `config.dafitt.<myModule>.enable`. Keep in mind some modules are enabled by default some are not. Special modules:
-
--   Desktops
-    -   desktops/gnome
-    -   desktops/hyprland
--   Firmly integrated, non-disableable
-    -   stylix (because of extensive usage of `config.lib.stylix.colors`)
+My systems and homes are assembled using custom modules. Any custom module has at least one enable option which name matches the folder: `config.dafitt.<myModule>.enable`.
 
 Modules in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command.
 

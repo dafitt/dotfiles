@@ -11,6 +11,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    dafitt.stylix.enable = true;
+
     # GNOME's former text editor
     home.packages = with pkgs; [ gedit ];
 

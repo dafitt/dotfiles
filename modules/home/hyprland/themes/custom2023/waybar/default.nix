@@ -12,6 +12,7 @@ in
 
   config = mkIf cfg.enable {
     dafitt.hyprland.themes.custom2023.swayosd.enable = true;
+    dafitt.stylix.enable = true;
 
     programs.waybar = {
       enable = true;

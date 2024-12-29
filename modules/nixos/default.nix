@@ -17,12 +17,13 @@ in
       fonts.enable = true;
       gnome.enable = true;
       kernel.enable = true;
+      locale.enable = true;
       locate.enable = true;
+      shells.default = "fish";
+      stylix.enable = true;
       systemd.enable = true;
       time.enable = true;
       users.guest.enable = true;
-      locale.enable = true;
-      shells.default = "fish";
     };
   };
 }

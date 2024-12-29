@@ -12,6 +12,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    dafitt.stylix.enable = true;
+
     home.packages = [ config.programs.hyprlock.package ];
 
     # https://wiki.hyprland.org/Hypr-Ecosystem/hyprlock/

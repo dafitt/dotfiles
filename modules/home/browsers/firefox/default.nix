@@ -21,6 +21,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    dafitt.stylix.enable = true;
+
     programs.firefox = {
       enable = true;
       profiles.${config.home.username} = {

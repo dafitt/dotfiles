@@ -14,6 +14,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    dafitt.stylix.enable = true;
+
     # Application launcher for wlroots based Wayland compositors
     # https://codeberg.org/dnkl/fuzzel
     programs.fuzzel = {

@@ -11,6 +11,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    dafitt.stylix.enable = true;
+
     programs.cava = {
       enable = true;
       settings = {

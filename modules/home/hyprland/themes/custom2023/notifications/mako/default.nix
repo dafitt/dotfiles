@@ -12,6 +12,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    dafitt.stylix.enable = true;
+
     # notification daemon
     #$ man 5 mako
     services.mako = {

@@ -11,6 +11,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    dafitt.stylix.enable = true;
+
     wayland.windowManager.hyprland = {
       # https://github.com/hyprwm/hyprland-plugins/tree/main/hyprtrails
       plugins = [ pkgs.hyprlandPlugins.hyprtrails ];

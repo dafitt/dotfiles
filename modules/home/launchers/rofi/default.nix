@@ -14,6 +14,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    dafitt.stylix.enable = true;
+
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
