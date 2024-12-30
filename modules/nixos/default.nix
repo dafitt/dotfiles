@@ -17,6 +17,7 @@ in
       bootloader.systemd-boot.enable = true;
       fonts.enable = true;
       gnome.enable = true;
+      home-manager.enable = true;
       kernel.enable = true;
       locale.enable = true;
       locate.enable = true;
