@@ -26,6 +26,7 @@ with lib.dafitt; {
     enable = true;
 
     bluetooth.enable = true;
+    displayManager.greetd.enable = true;
     flatpak.enable = true;
     fwupd.enable = true;
     gnome.enable = true;

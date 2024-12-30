@@ -17,7 +17,6 @@ with lib.dafitt; {
 
   dafitt = {
     bootloader.enable = null;
-    displayManager.enable = null;
     fwupd.enable = true;
     hyprland.enable = true;
     kernel.package = config.boot.zfs.package.latestCompatibleLinuxPackages;

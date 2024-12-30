@@ -18,6 +18,7 @@ with lib.dafitt; {
 
     batteryOptimization.enable = true;
     bootloader.enable = "grub";
+    displayManager.gdm.enable = true;
     flatpak.enable = true;
     hyprland.enable = true;
     networking.firewall.allowLocalsend = true;

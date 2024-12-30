@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.displayManager.greetd = with types; {
-    enable = mkBoolOpt (config.dafitt.displayManager.enable == "greetd") "Whether to enable greetd as the login/display manager.";
+    enable = mkEnableOption "greetd as the login/display manager";
   };
 
   config = mkIf cfg.enable {

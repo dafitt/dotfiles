@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.displayManager.gdm = with types; {
-    enable = mkBoolOpt (config.dafitt.displayManager.enable == "gdm") "Whether to enable gdm as the login/display manager.";
+    enable = mkEnableOption "gdm as the login/display manager";
   };
 
   config = mkIf cfg.enable {
