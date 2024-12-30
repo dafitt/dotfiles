@@ -23,6 +23,7 @@ in
       locate.enable = true;
       networking.firewall.allowSyncthing = true;
       networking.networkmanager.enable = true;
+      nix.enable = true;
       shells.default = "fish";
       stylix.enable = true;
       systemd.enable = true;
