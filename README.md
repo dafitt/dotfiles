@@ -92,14 +92,7 @@ This flake can and will radically change as I learn, discover new things and hav
 
     8. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time
 
-3. System preparation
-
-    1. (precaution) Remove (or save) some files for the Home-manager so that the first build is not interrupted:
-        ```
-        rm ~/.config/user-dirs.dirs ~/.config/mimeapps.list ~/.config/fish/config.fish ~/.config/hypr/hyprland.conf
-        ```
-
-4. Build
+3. Build
 
     1. `nix-shell` and then `nix develop`
 
@@ -107,11 +100,11 @@ This flake can and will radically change as I learn, discover new things and hav
 
     3. Check for home-manager errors `systemctl status home-manager-<user>.service` and resolve them if necessary
 
-    - _NOTE First install: may take some time; especially flatpaks_
+    - _NOTE: First install may take some time; especially with flatpaks enabled._
 
-5. `reboot`
+4. `reboot`
 
-6. Personal imperative setup:
+5. Personal imperative setup:
 
     1. Configure monitor setup with `nwg-displays`
     2. [Syncthing](https://localhost:8384/) setup
