@@ -1,5 +1,6 @@
 { channels, inputs, ... }:
 
+# https://snowfall.org/guides/lib/overlays/
 # https://wiki.nixos.org/wiki/Overlays
 # final: nixpkgs with your overlay applied
 # prev: nixpkgs without your overlay
@@ -13,6 +14,6 @@ final: prev: {
 
   # package override
   PACKAGE_OVERRIDE_OPTION = prev.PACKAGE_OVERRIDE_OPTION.override { x11Support = false; };
-  PACKAGE_OVERRIDE_ATTRS = prev.PACKAGE_OVERRIDE_ATTRS.overrideAttrs (old: { src = prev.fetchFromGitHub { }; });
+  PACKAGE_OVERRIDE_ATTRS = prev.PACKAGE_OVERRIDE_ATTRS.overrideAttrs (oldAttrs: { src = prev.fetchFromGitHub { }; });
   PACKAGE_OVERRIDE_EXTEDND = prev.PACKAGE_OVERRIDE_EXTEDND.extend (final': prev': { });
 }
