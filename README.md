@@ -95,11 +95,11 @@ This flake can and will radically change as I learn, discover new things and hav
 
 3. Build
 
-    1. `nix-shell` and then `nix develop`
+    1. Enter `nix-shell` and then `nix develop`
 
     2. `sudo nixos-rebuild boot --flake .#<host>`
 
-    3. Check for home-manager errors `systemctl status home-manager-<user>.service` and resolve them if necessary
+    3. Check for home-manager errors with `systemctl status home-manager-<user>.service` and resolve them if necessary
 
     - _NOTE: First install may take some time; especially with flatpaks enabled._
 
