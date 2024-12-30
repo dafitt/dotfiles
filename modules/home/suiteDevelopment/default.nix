@@ -13,6 +13,7 @@ in
 
   config = mkIf cfg.enable {
     dafitt = {
+      vscode.autostart = true;
       vscode.enable = true;
     };
 

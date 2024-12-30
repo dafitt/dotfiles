@@ -56,5 +56,8 @@ in
       bind = [ "SUPER_ALT, F, exec, ${pkgs.pcmanfm}/bin/pcmanfm" ];
       exec-once = mkIf filemanagersCfg.autostart [ "[workspace 2 silent] ${pkgs.pcmanfm}/bin/pcmanfm" ];
     };
+
+    # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
+    xdg.autoStart.packages = mkIf filemanagersCfg.autostart [ pkgs.pcmanfm ];
   };
 }

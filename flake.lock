@@ -1620,7 +1620,8 @@
         "pyprland": "pyprland",
         "snowfall-flake": "snowfall-flake",
         "snowfall-lib": "snowfall-lib_2",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "xdg-autostart": "xdg-autostart"
       }
     },
     "snowfall-flake": {
@@ -1980,6 +1981,21 @@
         "repo": "wlroots",
         "rev": "50eae512d9cecbf0b3b1898bb1f0b40fa05fe19b",
         "type": "gitlab"
+      }
+    },
+    "xdg-autostart": {
+      "locked": {
+        "lastModified": 1723314998,
+        "narHash": "sha256-BwP56CHfU3P7ZHr2SzAEjF3uveiN1dZ5hFHTzRLS/WI=",
+        "owner": "Zocker1999NET",
+        "repo": "home-manager-xdg-autostart",
+        "rev": "4d1def4a330d6812fe18be140781e94003c3cc0a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Zocker1999NET",
+        "repo": "home-manager-xdg-autostart",
+        "type": "github"
       }
     },
     "xdph": {

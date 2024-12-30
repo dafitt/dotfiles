@@ -8,15 +8,16 @@
     hyprpanel = { url = "github:jas-singhfsu/hyprpanel"; inputs.nixpkgs.follows = "nixpkgs"; };
     hyprspace = { url = "github:KZDKM/Hyprspace"; }; # https://github.com/KZDKM/Hyprspace
     hyprsplit = { url = "github:shezdy/hyprsplit"; }; # https://github.com/shezdy/hyprsplit
-    nix-flatpak.url = "github:gmodena/nix-flatpak/v0.5.2"; # https://github.com/gmodena/nix-flatpak/tags
+    nix-flatpak = { url = "github:gmodena/nix-flatpak/v0.5.2"; }; # https://github.com/gmodena/nix-flatpak/tags
     nixos-generators = { url = "github:nix-community/nixos-generators"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/nixos-generators
-    nixos-hardware.url = "github:nixos/nixos-hardware/master"; # https://github.com/NixOS/nixos-hardware
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # https://github.com/NixOS/nixpkgs
-    nur.url = "github:nix-community/NUR"; # https://github.com/nix-community/NUR
+    nixos-hardware = { url = "github:nixos/nixos-hardware/master"; }; # https://github.com/NixOS/nixos-hardware
+    nixpkgs = { url = "github:nixos/nixpkgs/nixos-unstable"; }; # https://github.com/NixOS/nixpkgs
+    nur = { url = "github:nix-community/NUR"; }; # https://github.com/nix-community/NUR
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/wamserma/flake-programs-sqlite
     snowfall-flake = { url = "github:snowfallorg/flake"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/flake
     snowfall-lib = { url = "github:snowfallorg/lib"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/lib
-    stylix.url = "github:danth/stylix"; # https://github.com/danth/stylix
+    stylix = { url = "github:danth/stylix"; }; # https://github.com/danth/stylix
+    xdg-autostart = { url = "github:Zocker1999NET/home-manager-xdg-autostart"; }; # https://github.com/Zocker1999NET/home-manager-xdg-autostart
 
     # for development; see overlays/-git/default.nix
     pyprland.url = "github:hyprland-community/pyprland"; # https://github.com/hyprland-community/pyprland
@@ -65,9 +66,10 @@
     ];
 
     homes.modules = with inputs; [
-      stylix.homeManagerModules.stylix
-      nix-flatpak.homeManagerModules.nix-flatpak
       hyprpanel.homeManagerModules.hyprpanel
+      nix-flatpak.homeManagerModules.nix-flatpak
+      stylix.homeManagerModules.stylix
+      xdg-autostart.homeManagerModules.xdg-autostart
     ];
 
     templates = import ./templates { };

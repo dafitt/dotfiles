@@ -305,5 +305,8 @@ in
         "float, class:firefox, title:^Extension: \(NoScript\) - NoScript"
       ];
     };
+
+    # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
+    xdg.autoStart.packages = mkIf browsersCfg.autostart [ config.programs.firefox.package ];
   };
 }

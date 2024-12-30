@@ -21,5 +21,8 @@ in
       bind = [ "SUPER_ALT, W, exec, ${getExe pkgs.epiphany}" ];
       exec-once = mkIf browsersCfg.autostart [ "[workspace 1 silent] ${getExe pkgs.epiphany}" ];
     };
+
+    # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
+    xdg.autoStart.packages = mkIf browsersCfg.autostart [ pkgs.epiphany ];
   };
 }

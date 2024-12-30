@@ -44,5 +44,14 @@ in
       bind = [ "SUPER_ALT, F, exec, ${config.programs.yazi.package}/bin/yazi" ];
       exec-once = mkIf filemanagersCfg.autostart [ "[workspace 2 silent] ${config.programs.yazi.package}/bin/yazi" ];
     };
+
+    # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
+    xdg.autoStart.desktopItems = mkIf filemanagersCfg.autostart {
+      yazi = pkgs.makeDesktopItem {
+        name = "yazi";
+        desktopName = "Files";
+        exec = "${config.programs.yazi.package}/bin/yazi";
+      };
+    };
   };
 }

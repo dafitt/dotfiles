@@ -130,5 +130,8 @@ in
         #TODO no fullscreen
       ];
     };
+
+    # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
+    xdg.autoStart.packages = mkIf browsersCfg.autostart [ config.programs.librewolf.package ];
   };
 }

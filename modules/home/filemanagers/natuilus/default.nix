@@ -58,5 +58,14 @@ in
       bind = [ "SUPER_ALT, F, exec, ${pkgs.nautilus}/bin/nautilus" ];
       exec-once = mkIf filemanagersCfg.autostart [ "[workspace 2 silent] ${pkgs.nautilus}/bin/nautilus" ];
     };
+
+    # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
+    xdg.autoStart.desktopItems = mkIf filemanagersCfg.autostart {
+      nautilus = pkgs.makeDesktopItem {
+        name = "nautilus";
+        desktopName = "Files";
+        exec = "${pkgs.nautilus}/bin/nautilus";
+      };
+    };
   };
 }

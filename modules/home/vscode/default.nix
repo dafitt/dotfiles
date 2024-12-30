@@ -10,7 +10,7 @@ in
 
   options.dafitt.vscode = with types; {
     enable = mkEnableOption "vscode";
-    autostart = mkBoolOpt true "Start vscode on login";
+    autostart = mkBoolOpt false "Start vscode on login";
   };
 
   config = mkIf cfg.enable {
@@ -377,5 +377,8 @@ in
       bind = [ "SUPER_ALT, G, exec, ${getExe config.programs.vscode.package}" ];
       exec-once = mkIf cfg.autostart [ "[workspace 4 silent] ${getExe config.programs.vscode.package}" ];
     };
+
+    # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
+    xdg.autoStart.packages = mkIf cfg.autostart [ config.programs.vscode.package ];
   };
 }
