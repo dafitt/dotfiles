@@ -11,7 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs.gnomeExtensions; [ rounded-window-corners ];
+    home.packages = with pkgs.gnomeExtensions; [ rounded-window-corners-reborn ];
 
     dconf.settings = { };
   };
