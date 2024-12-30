@@ -7,6 +7,9 @@
     -   [Programs and Features](#programs-and-features)
     -   [Installation](#installation)
         -   [On a new host machine](#on-a-new-host-machine)
+    -   [Configuration](#configuration)
+        -   [NixOS stable branch](#nixos-stable-branch)
+        -   [You want to build from here?](#you-want-to-build-from-here)
     -   [Usage](#usage)
         -   [Flake](#flake)
             -   [Shell environment](#shell-environment)
@@ -17,10 +20,8 @@
             -   [Code formatting](#code-formatting)
             -   [snowfallorg/flake](#snowfallorgflake)
         -   [Hyprkeys](#hyprkeys)
-        -   [NixOS stable branch](#nixos-stable-branch)
     -   [Structure](#structure)
         -   [Modules](#modules)
-        -   [You want to build from here?](#you-want-to-build-from-here)
     -   [Troubleshooting](#troubleshooting)
         -   [Some options in modules/home/ or homes/ are not being applied with nixos-rebuild](#some-options-in-moduleshome-or-homes-are-not-being-applied-with-nixos-rebuild)
         -   [Unable to see fonts](#unable-to-see-fonts)
@@ -114,6 +115,60 @@ This flake can and will radically change as I learn, discover new things and hav
         3. Sidebery
     4. pavucontrol: Set standard audio output
     5. vscode: codeium plugin
+
+## Configuration
+
+### NixOS stable branch
+
+To use [nixpkgs](https://github.com/NixOS/nixpkgs) stable branch, update the following inputs to the latest release (`23.11` as an example) in _[flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix)_ and rebuild the system. \
+ATTENTION! When the last release of [nixpkgs](https://github.com/NixOS/nixpkgs) is some time away, then you will likely need to refactor some changed options. So directly after a new release should be the best time to switch.
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager = { url = "github:nix-community/home-manager/release-23.11"; inputs.nixpkgs.follows = "nixpkgs"; };
+    stylix.url = "github:danth/stylix/release-23.11";
+  };
+}
+```
+
+To still let specific packages follow nixpkgs unstable while on the stable branch you can add a _`overlays/unstable/default.nix`_:
+
+```shell
+{ channels, ... }:
+
+final: prev:
+with channels.unstable; {
+  # packages to get from inputs.unstable
+  inherit
+    gamescope
+    lutris
+    vscodium
+    ;
+}
+```
+
+### You want to build from here?
+
+What you have to customize:
+
+-   [ ] [modules/nixos/time/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/time/default.nix): timezone
+-   [ ] [modules/nixos/locale/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/locale/default.nix): locale
+-   [ ] [modules/home/browsers/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/d60f8b464f1713ccb022d3d24558d5f4631ad123/modules/home/browsers/firefox/default.nix#L183):
+    -   the default searx search engine is my own local instance/server, use a official one or setup your own
+    -   custom firefox plugins
+-   [ ] [systems/\<architecure\>/\<host\>/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix): your own host-configuration
+    -   [ ] `hardware-configuration.nix`
+    -   [ ] maybe some host-specific `configuration.nix`: make sure to import it: `imports = [ ./configuration.nix ];`
+-   [ ] [homes/\<architecure\>/\<user\>[@\<host\>]/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix): your own user with your home-configuration
+
+Optionally:
+
+-   [ ] [modules/home/desktops/hyprland/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/desktops/hyprland/default.nix): familiar keybindings
+-   [ ] [modules/home/stylix/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/stylix/default.nix): custom base16 theme / icon theme
+-   [ ] Packages and programs you need
 
 ## Usage
 
@@ -342,38 +397,6 @@ flake option github:dafitt/dotfiles --pick
 
 </details>
 
-### NixOS stable branch
-
-To use [nixpkgs](https://github.com/NixOS/nixpkgs) stable branch, update the following inputs to the latest release (`23.11` as an example) in _[flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix)_ and rebuild the system. \
-ATTENTION! When the last release of [nixpkgs](https://github.com/NixOS/nixpkgs) is some time away, then you will likely need to refactor some changed options. So directly after a new release should be the best time to switch.
-
-```nix
-{
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = { url = "github:nix-community/home-manager/release-23.11"; inputs.nixpkgs.follows = "nixpkgs"; };
-    stylix.url = "github:danth/stylix/release-23.11";
-  };
-}
-```
-
-To still let specific packages follow nixpkgs unstable while on the stable branch you can add a _`overlays/unstable/default.nix`_:
-
-```shell
-{ channels, ... }:
-
-final: prev:
-with channels.unstable; {
-  # packages to get from inputs.unstable
-  inherit
-    gamescope
-    lutris
-    vscodium
-    ;
-}
-```
-
 ## Structure
 
 ### Modules
@@ -393,26 +416,6 @@ options.dafitt.suiteGaming.enable = mkBoolOpt (osConfig.dafitt.suiteGaming.enabl
 ```
 
 The special attribute set `osConfig` which contains all the nixos-configuration is only present when building with `nixos-rebuild`.
-
-### You want to build from here?
-
-What you have to customize:
-
--   [ ] [modules/nixos/time/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/time/default.nix): timezone
--   [ ] [modules/nixos/locale/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/locale/default.nix): locale
--   [ ] [modules/home/browsers/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/d60f8b464f1713ccb022d3d24558d5f4631ad123/modules/home/browsers/firefox/default.nix#L183):
-    -   the default searx search engine is my own local instance/server, use a official one or setup your own
-    -   custom firefox plugins
--   [ ] [systems/\<architecure\>/\<host\>/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix): your own host-configuration
-    -   [ ] `hardware-configuration.nix`
-    -   [ ] maybe some host-specific `configuration.nix`: make sure to import it: `imports = [ ./configuration.nix ];`
--   [ ] [homes/\<architecure\>/\<user\>[@\<host\>]/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix): your own user with your home-configuration
-
-Optionally:
-
--   [ ] [modules/home/desktops/hyprland/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/desktops/hyprland/default.nix): familiar keybindings
--   [ ] [modules/home/stylix/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/stylix/default.nix): custom base16 theme / icon theme
--   [ ] Packages and programs you need
 
 ## Troubleshooting
 
