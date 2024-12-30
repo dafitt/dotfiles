@@ -2,29 +2,29 @@
 
 ![Hyprland-ricing](https://github.com/dafitt/dotfiles/assets/50248238/380705a7-4bd5-4431-81fe-ab04195e19f0)
 
-- [My daily driver's Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-daily-drivers-snowfall️-nixos️-desktop-flake)
-  - [Notes](#notes)
-  - [Programs and Features](#programs-and-features)
-  - [Installation](#installation)
-    - [On a new host machine](#on-a-new-host-machine)
-  - [Usage](#usage)
-    - [Flake](#flake)
-      - [Shell environment](#shell-environment)
-      - [Overview](#overview)
-      - [Build and switch configuration](#build-and-switch-configuration)
-      - [Update flake inputs](#update-flake-inputs)
-      - [Rollback](#rollback)
-      - [Code formatting](#code-formatting)
-      - [snowfallorg/flake](#snowfallorgflake)
-    - [Hyprkeys](#hyprkeys)
-    - [NixOS stable branch](#nixos-stable-branch)
-  - [Structure](#structure)
-    - [Modules](#modules)
-    - [You want to build from here?](#you-want-to-build-from-here)
-  - [Troubleshooting](#troubleshooting)
-    - [Some options in modules/home/ or homes/ are not being applied with nixos-rebuild](#some-options-in-moduleshome-or-homes-are-not-being-applied-with-nixos-rebuild)
-    - [Unable to see fonts](#unable-to-see-fonts)
-  - [👀, 🏆 and ❤️](#--and-️)
+-   [My daily driver's Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-daily-drivers-snowfall️-nixos️-desktop-flake)
+    -   [Notes](#notes)
+    -   [Programs and Features](#programs-and-features)
+    -   [Installation](#installation)
+        -   [On a new host machine](#on-a-new-host-machine)
+    -   [Usage](#usage)
+        -   [Flake](#flake)
+            -   [Shell environment](#shell-environment)
+            -   [Overview](#overview)
+            -   [Build and switch configuration](#build-and-switch-configuration)
+            -   [Update flake inputs](#update-flake-inputs)
+            -   [Rollback](#rollback)
+            -   [Code formatting](#code-formatting)
+            -   [snowfallorg/flake](#snowfallorgflake)
+        -   [Hyprkeys](#hyprkeys)
+        -   [NixOS stable branch](#nixos-stable-branch)
+    -   [Structure](#structure)
+        -   [Modules](#modules)
+        -   [You want to build from here?](#you-want-to-build-from-here)
+    -   [Troubleshooting](#troubleshooting)
+        -   [Some options in modules/home/ or homes/ are not being applied with nixos-rebuild](#some-options-in-moduleshome-or-homes-are-not-being-applied-with-nixos-rebuild)
+        -   [Unable to see fonts](#unable-to-see-fonts)
+    -   [👀, 🏆 and ❤️](#--and-️)
 
 My dotfiles are not perfekt, but they strive to be:
 
@@ -407,14 +407,13 @@ What you have to customize:
 
 -   [ ] [modules/nixos/time/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/time/default.nix): timezone
 -   [ ] [modules/nixos/locale/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/locale/default.nix): locale
--   [ ] [modules/nixos/users/main/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/users/main/default.nix): username
 -   [ ] [modules/home/browsers/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/d60f8b464f1713ccb022d3d24558d5f4631ad123/modules/home/browsers/firefox/default.nix#L183):
     -   the default searx search engine is my own local instance/server, use a official one or setup your own
     -   custom firefox plugins
--   [ ] [systems/\<architecure\>/\<host\>/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix): obviously your own host-configuration
+-   [ ] [systems/\<architecure\>/\<host\>/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix): your own host-configuration
     -   [ ] `hardware-configuration.nix`
     -   [ ] maybe some host-specific `configuration.nix`: make sure to import it: `imports = [ ./configuration.nix ];`
--   [ ] [homes/\<architecure\>/\<user\>[@\<host\>]/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix): obviously your own home-configuration
+-   [ ] [homes/\<architecure\>/\<user\>[@\<host\>]/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix): your own user with your home-configuration
 
 Optionally:
 
