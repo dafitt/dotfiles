@@ -16,10 +16,11 @@ in
     dconf.settings = {
       "org/gnome/shell/extensions/auto-move-windows" = {
         application-list = [
-          "librewolf.desktop:1"
-          "org.gnome.Nautilus.desktop:2"
+          "code.desktop:2"
+          "codium.desktop:2"
           "md.obsidian.Obsidian.desktop:3"
-          "code.desktop:4"
+          "com.logseq.Logseq.desktop:3"
+          "org.gnome.Nautilus.desktop:4"
         ];
       };
     };
