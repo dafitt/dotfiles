@@ -23,7 +23,7 @@ with lib.dafitt; {
   ];
 
   dafitt = {
-    enable = true;
+    enableDefaults = true;
 
     bluetooth.enable = true;
     displayManager.greetd.enable = true;

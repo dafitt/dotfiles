@@ -14,7 +14,7 @@ with lib.dafitt; {
   ];
 
   dafitt = {
-    enable = true;
+    enableDefaults = true;
 
     batteryOptimization.enable = true;
     bootloader.grub.enable = true;

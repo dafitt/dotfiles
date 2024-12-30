@@ -7,10 +7,10 @@ let
 in
 {
   options.dafitt = with types; {
-    enable = mkBoolOpt (osConfig.dafitt.enable or false) "Whether to enable dafitt defaults.";
+    enableDefaults = mkBoolOpt (osConfig.dafitt.enableDefaults or false) "Whether to enable dafitt defaults.";
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf cfg.enableDefaults {
     dafitt = mkDefault {
       browsers.default = "firefox";
       btop.enable = true;

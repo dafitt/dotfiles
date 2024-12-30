@@ -7,10 +7,10 @@ let
 in
 {
   options.dafitt = with types; {
-    enable = mkEnableOption "dafitt defaults";
+    enableDefaults = mkEnableOption "dafitt defaults";
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf cfg.enableDefaults {
     dafitt = mkDefault {
       appimage.enable = true;
       audio.enable = true;

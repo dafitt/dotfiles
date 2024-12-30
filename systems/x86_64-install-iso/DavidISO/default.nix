@@ -16,6 +16,8 @@ with lib.dafitt; {
   isoImage.squashfsCompression = "zstd -3";
 
   dafitt = {
+    enableDefaults = true;
+
     bootloader.enable = null;
     fwupd.enable = true;
     hyprland.enable = true;
