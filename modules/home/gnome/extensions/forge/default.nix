@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gnome.extensions.forge = with types; {
-    enable = mkBoolOpt config.dafitt.gnome.extensions.enable "Whether to enable Gnome extension 'forge'.";
+    enable = mkEnableOption "GNOME extension 'forge'";
   };
 
   config = mkIf cfg.enable {

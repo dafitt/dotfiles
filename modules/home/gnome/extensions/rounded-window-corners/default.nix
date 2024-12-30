@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gnome.extensions.rounded-window-corners = with types; {
-    enable = mkEnableOption "Gnome extension 'rounded-window-corners'";
+    enable = mkEnableOption "GNOME extension 'rounded-window-corners'";
   };
 
   config = mkIf cfg.enable {

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gnome.extensions.appindicator = with types; {
-    enable = mkBoolOpt config.dafitt.gnome.extensions.enable "Whether to enable Gnome extension 'appindicator'.";
+    enable = mkEnableOption "GNOME extension 'appindicator'";
   };
 
   config = mkIf cfg.enable {

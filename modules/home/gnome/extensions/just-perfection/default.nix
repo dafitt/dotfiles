@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gnome.extensions.just-perfection = with types; {
-    enable = mkBoolOpt config.dafitt.gnome.extensions.enable "Whether to enable Gnome extension 'just-perfection'.";
+    enable = mkEnableOption "GNOME extension 'just-perfection'";
   };
 
   config = mkIf cfg.enable {

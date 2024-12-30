@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gnome.extensions.search-light = with types; {
-    enable = mkBoolOpt config.dafitt.gnome.extensions.enable "Whether to enable Gnome extension 'search-light'.";
+    enable = mkEnableOption "GNOME extension 'search-light'";
   };
 
   config = mkIf cfg.enable {

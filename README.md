@@ -49,7 +49,7 @@ This flake can and will radically change as I learn, discover new things and hav
 
 | Operating System 💻 | [NixOS](https://nixos.org/)                                                                                                                                    |
 | ------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|   Window manager 🪟 | [Gnome](https://www.gnome.org/) with extensions, [Hyprland](https://hyprland.org/) with plugins                                                                |
+|   Window manager 🪟 | [GNOME](https://www.gnome.org/) with extensions, [Hyprland](https://hyprland.org/) with plugins                                                                |
 |    Login manager 🔒 | gdm, greetd, tty                                                                                                                                               |
 |  Session locking 🔒 | [hyprlock](https://github.com/hyprwm/hyprlock)                                                                                                                 |
 |         Terminal ⌨️ | [kitty](https://sw.kovidgoyal.net/kitty/)                                                                                                                      |

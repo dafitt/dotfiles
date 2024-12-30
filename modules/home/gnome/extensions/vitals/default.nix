@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gnome.extensions.vitals = with types; {
-    enable = mkBoolOpt config.dafitt.gnome.extensions.enable "Whether to enable Gnome extension 'vitals'.";
+    enable = mkEnableOption "GNOME extension 'vitals'";
   };
 
   config = mkIf cfg.enable {

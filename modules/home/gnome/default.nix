@@ -8,10 +8,12 @@ let
 in
 {
   options.dafitt.gnome = with types; {
-    enable = mkBoolOpt (osCfg.enable or false) "Whether to enable Gnome home configuration.";
+    enable = mkBoolOpt (osCfg.enable or false) "Whether to enable GNOME home configuration.";
   };
 
   config = mkIf cfg.enable {
+    dafitt.gnome.extensions.enable = mkDefault true;
+
     home.packages = with pkgs; [
       dconf-editor
       gnome-tweaks

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gnome.extensions.app-icons-taskbar = with types; {
-    enable = mkBoolOpt config.dafitt.gnome.extensions.enable "Whether to enable Gnome extension 'app-icons-taskbar'.";
+    enable = mkEnableOption "GNOME extension 'app-icons-taskbar'";
   };
 
   config = mkIf cfg.enable {

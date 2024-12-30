@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gnome.extensions = with types; {
-    enable = mkBoolOpt config.dafitt.gnome.enable "Whether to enable Gnome extensions.";
+    enable = mkEnableOption "GNOME extensions";
   };
 
   config = mkIf cfg.enable {
@@ -19,6 +19,19 @@ in
       };
     };
 
-    # NOTE extensions must still be enabled manually.
+    dafitt.gnome.extensions = mkDefault {
+      app-icons-taskbar.enable = true;
+      appindicator.enable = true;
+      arcmenu.enable = true;
+      auto-move-windows.enable = true;
+      blur-my-shell.enable = true;
+      just-perfection.enable = true;
+      native-window-placement.enable = true;
+      paperwm.enable = true;
+      reorder-workspaces.enable = true;
+      search-light.enable = true;
+      vitals.enable = true;
+      # NOTE extensions must still be enabled manually.
+    };
   };
 }

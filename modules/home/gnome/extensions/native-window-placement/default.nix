@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gnome.extensions.native-window-placement = with types; {
-    enable = mkBoolOpt config.dafitt.gnome.extensions.enable "Whether to enable Gnome extension 'native-window-placement'.";
+    enable = mkEnableOption "GNOME extension 'native-window-placement'";
   };
 
   config = mkIf cfg.enable {

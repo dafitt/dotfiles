@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gnome.extensions.blur-my-shell = with types; {
-    enable = mkBoolOpt config.dafitt.gnome.extensions.enable "Whether to enable Gnome extension 'blur-my-shell'.";
+    enable = mkEnableOption "GNOME extension 'blur-my-shell'";
   };
 
   config = mkIf cfg.enable {

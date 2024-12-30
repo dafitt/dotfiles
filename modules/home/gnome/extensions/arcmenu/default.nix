@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.gnome.extensions.arcmenu = with types; {
-    enable = mkBoolOpt config.dafitt.gnome.extensions.enable "Whether to enable Gnome extension 'arcmenu'.";
+    enable = mkEnableOption "GNOME extension 'arcmenu'";
   };
 
   config = mkIf cfg.enable {
