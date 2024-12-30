@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.fonts = with types; {
-    enable = mkEnableOption "configuring fonts";
+    enable = mkEnableOption "fonts configuration";
     fonts = mkOpt (listOf package) [ ] "Custom font packages to install.";
   };
 

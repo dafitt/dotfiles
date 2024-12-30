@@ -9,7 +9,7 @@ let
 in
 {
   options.dafitt.kernel = with types; {
-    enable = mkEnableOption "configuring the linux kernel";
+    enable = mkEnableOption "linux kernel configuration";
     package = mkOption {
       description = "Which linux kernel package to use.";
       type = raw;
