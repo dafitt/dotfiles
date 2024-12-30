@@ -2,6 +2,8 @@
 #> :p config.dafitt
 
 {
+  dafitt.bootloader.systemd-boot.enable = true;
+
   fileSystems."/" = {
     device = "/dev/null";
     fsType = "ext4";

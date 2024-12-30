@@ -10,7 +10,7 @@ in
     default = mkOption {
       type = nullOr (enum [ "fuzzel" "rofi" ]);
       default = null;
-      description = "Which application launcher is to be used primarily.";
+      description = "Which application launcher will be used primarily.";
     };
   };
 }

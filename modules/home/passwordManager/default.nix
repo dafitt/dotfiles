@@ -7,6 +7,10 @@ let
 in
 {
   options.dafitt.passwordManager = with types;{
-    default = mkOpt (nullOr (enum [ "_1password" "bitwarden" ])) "bitwarden" "Which application launcher is to be used primarily";
+    default = mkOption {
+      type = nullOr (enum [ "_1password" "bitwarden" ]);
+      default = null;
+      description = "Which password manager will be used primarily.";
+    };
   };
 }

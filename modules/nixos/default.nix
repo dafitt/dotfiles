@@ -11,14 +11,17 @@ in
   };
 
   config = mkIf cfg.enable {
-    dafitt = {
+    dafitt = mkDefault {
       appimage.enable = true;
       audio.enable = true;
+      bootloader.systemd-boot.enable = true;
       fonts.enable = true;
       gnome.enable = true;
       kernel.enable = true;
       locale.enable = true;
       locate.enable = true;
+      networking.firewall.allowSyncthing = true;
+      networking.networkmanager.enable = true;
       shells.default = "fish";
       stylix.enable = true;
       systemd.enable = true;

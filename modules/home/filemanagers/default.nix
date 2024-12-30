@@ -12,7 +12,7 @@ in
     default = mkOption {
       type = nullOr (enum [ "nautilus" "pcmanfm" "yazi" ]);
       default = null;
-      description = "Which file manager is to be used primarily.";
+      description = "Which file manager will be used primarily.";
     };
   };
 }

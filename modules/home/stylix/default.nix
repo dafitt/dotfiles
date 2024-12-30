@@ -4,7 +4,7 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.stylix;
-  osCfg = osConfig.dafitt.stylix;
+  osCfg = osConfig.dafitt.stylix or null;
 in
 {
   imports = [ ../../nixos/stylix/theme.nix ];

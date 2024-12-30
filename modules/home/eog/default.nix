@@ -8,7 +8,6 @@ in
 {
   options.dafitt.eog = with types; {
     enable = mkEnableOption "eog image viewer";
-    defaultApplication = mkBoolOpt true "Set eog as the default application for its mimetypes.";
   };
 
   config = mkIf cfg.enable {

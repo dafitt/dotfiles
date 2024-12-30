@@ -10,7 +10,7 @@ in
     default = mkOption {
       type = nullOr (enum [ "kitty" ]);
       default = null;
-      description = "Which terminal emulator is to be used primarily.";
+      description = "Which terminal emulator will be used primarily.";
     };
   };
 }

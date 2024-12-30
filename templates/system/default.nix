@@ -27,28 +27,23 @@ with lib.dafitt; {
     #$ nixos-rebuild --flake .#defaults repl
     #> :p config.dafitt
 
-    appimage = { enable = true; };
-    audio = { enable = true; };
+    appimage = { enable = false; };
+    audio = { enable = false; };
     batteryOptimization = { enable = false; };
     bluetooth = { enable = false; };
     bootloader = {
-      enable = "systemd-boot";
       grub = { enable = false; };
       systemd-boot = { enable = true; };
     };
     displayManager = {
-      enable = "greetd";
       gdm = { enable = false; };
-      greetd = { enable = true; };
-      sessionPaths = [
-        "/nix/store/9pgg2wwp4g90z0jsq7y09rpmiyrvr00x-bash-session.desktop/share/applications"
-        "/nix/store/35rd09ksrlb37pyyv23g76kwybqil9nf-desktops/share/xsessions"
-        "/nix/store/35rd09ksrlb37pyyv23g76kwybqil9nf-desktops/share/wayland-sessions"
-      ];
+      greetd = { enable = false; };
+      sessionPaths = [ ];
     };
+    enable = false;
     flatpak = { enable = false; };
     fonts = {
-      enable = true;
+      enable = false;
       fonts = [ ];
     };
     fwupd = { enable = false; };
@@ -58,32 +53,32 @@ with lib.dafitt; {
       hyprlock = { allow = false; };
     };
     kernel = {
-      enable = true;
+      enable = false;
       package = pkgs.linuxPackages_latest;
     };
-    locale = { enable = true; };
-    locate = { enable = true; };
+    locale = { enable = false; };
+    locate = { enable = false; };
     networking = {
       connman = { enable = false; };
-      enable = "networkmanager";
       firewall = {
         allowLocalsend = false;
         allowSyncthing = false;
       };
-      networkmanager = { enable = true; };
+      networkmanager = { enable = false; };
     };
     printing = { enable = false; };
     shells = {
-      default = "fish";
-      fish = { enable = true; };
+      default = null;
+      fish = { enable = false; };
     };
+    stylix = { enable = false; };
     suiteDevelopment = { enable = false; };
     suiteGaming = { enable = false; };
     suiteVirtualization = { enable = false; };
-    systemd = { enable = true; };
-    time = { enable = true; };
+    systemd = { enable = false; };
+    time = { enable = false; };
     users = {
-      guest = { enable = true; };
+      guest = { enable = false; };
     };
   };
 

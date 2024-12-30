@@ -7,8 +7,8 @@ let
 in
 {
   options.dafitt.networking.firewall = with types; {
-    allowLocalsend = mkBoolOpt false "Allow localsend protocol ports.";
-    allowSyncthing = mkBoolOpt false "Allow syncthing protocol ports.";
+    allowLocalsend = mkEnableOption "localsend protocol ports";
+    allowSyncthing = mkEnableOption "syncthing protocol ports";
   };
 
   config = {

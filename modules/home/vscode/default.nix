@@ -11,7 +11,6 @@ in
   options.dafitt.vscode = with types; {
     enable = mkEnableOption "vscode";
     autostart = mkBoolOpt true "Start vscode on login";
-    defaultApplication = mkBoolOpt true "Set vscode as the default application for its mimetypes.";
   };
 
   config = mkIf cfg.enable {

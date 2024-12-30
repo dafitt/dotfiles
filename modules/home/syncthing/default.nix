@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, ... }:
+{ options, config, lib, pkgs, osConfig ? { }, ... }:
 
 with lib;
 with lib.dafitt;
@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.syncthing = with types; {
-    enable = mkEnableOption "syncthing, a tool to sync files with other devices";
+    enable = mkBoolOpt (osConfig.dafitt.networking.firewall.allowSyncthing or false) "Whether to enable syncthing, a tool to sync files with other devices.";
   };
 
   config = mkIf cfg.enable {

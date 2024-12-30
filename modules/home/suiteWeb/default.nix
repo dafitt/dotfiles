@@ -8,7 +8,7 @@ let
 in
 {
   options.dafitt.suiteWeb = with types; {
-    enable = mkBoolOpt (osCfg.enable or true) "Whether to enable the Web suite.";
+    enable = mkBoolOpt (osCfg.enable or false) "Whether to enable the Web suite.";
   };
 
   config = mkIf cfg.enable {

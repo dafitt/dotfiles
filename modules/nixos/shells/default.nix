@@ -11,7 +11,7 @@ in
     default = mkOption {
       type = nullOr (enum [ "bash" "fish" ]);
       default = null;
-      description = "Which shell is to be used primarily.";
+      description = "Which shell will be used primarily.";
     };
   };
 }

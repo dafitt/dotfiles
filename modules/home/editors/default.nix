@@ -10,7 +10,7 @@ in
     default = mkOption {
       type = nullOr (enum [ "micro" ]);
       default = null;
-      description = "Which terminal editor is to be used primarily.";
+      description = "Which terminal editor will be used primarily.";
     };
   };
 }

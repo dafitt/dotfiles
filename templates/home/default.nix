@@ -27,35 +27,34 @@ with lib.dafitt; {
     bluetooth = { enable = false; };
     browsers = {
       autostart = true;
-      default = "firefox";
+      default = null;
       epiphany = { enable = false; };
-      firefox = { enable = true; };
+      firefox = { enable = false; };
       librewolf = { enable = false; };
     };
-    btop = { enable = true; };
+    btop = { enable = false; };
     cava = { enable = false; };
     editors = {
-      default = "micro";
-      micro = { enable = true; };
+      default = null;
+      micro = { enable = false; };
     };
+    enable = false;
     eog = {
-      defaultApplication = true;
-      enable = true;
+      enable = false;
     };
-    fastfetch = { enable = true; };
+    fastfetch = { enable = false; };
     file-roller = {
-      defaultApplication = true;
-      enable = true;
+      enable = false;
     };
     filemanagers = {
       autostart = true;
-      default = "nautilus";
-      natuilus = { enable = true; };
+      default = null;
+      natuilus = { enable = false; };
       pcmanfm = { enable = false; };
       yazi = { enable = false; };
     };
     flatpak = { enable = false; };
-    gedit = { enable = true; };
+    gedit = { enable = false; };
     gnome = {
       enable = false;
       extensions = {
@@ -107,22 +106,6 @@ with lib.dafitt; {
       pyprland = {
         enable = false;
         scratchpads = {
-          btop = {
-            animation = "fromTop";
-            class = "btop";
-            command = "/nix/store/sd4fvqvmgvvmmrk5q1l8lcsmzcfiqs2c-kitty-0.37.0/bin/kitty --class btop /nix/store/8gab83bb1vn2v6haibhzfx549rplm8ps-btop-1.4.0/bin/btop";
-            lazy = true;
-            margin = "2%";
-            size = "90% 90%";
-          };
-          kitty = {
-            animation = "fromTop";
-            class = "dropterm";
-            command = "/nix/store/sd4fvqvmgvvmmrk5q1l8lcsmzcfiqs2c-kitty-0.37.0/bin/kitty --class dropterm --hold /nix/store/6pqn4fnrcdy46dcsgf2r1pw7cffx7lfd-fastfetch-2.31.0/bin/fastfetch";
-            lazy = true;
-            margin = "2%";
-            size = "90% 90%";
-          };
           networkmanager = {
             animation = "fromRight";
             class = "nm-connection-editor";
@@ -130,15 +113,6 @@ with lib.dafitt; {
             lazy = true;
             margin = "2%";
             size = "40% 70%";
-          };
-          pavucontrol = {
-            animation = "fromRight";
-            class = "pavucontrol";
-            command = "/nix/store/mn9nzv78nwxkdq5clflcx748k5jcw01x-pavucontrol-6.1/bin/pavucontrol";
-            lazy = true;
-            margin = "2%";
-            size = "40% 70%";
-            unfocus = "hide";
           };
         };
       };
@@ -163,36 +137,36 @@ with lib.dafitt; {
       wlsunset = { enable = false; };
     };
     ianny = { enable = false; };
-    imv = { enable = true; };
+    imv = { enable = false; };
     latex = { enable = false; };
     launchers = {
-      default = "fuzzel";
+      default = null;
       fuzzel = { enable = false; };
       rofi = { enable = false; };
     };
     mpv = {
-      defaultApplication = true;
-      enable = true;
+      enable = false;
     };
     networking = {
       connman = { enable = false; };
-      networkmanager = { enable = true; };
+      networkmanager = { enable = false; };
     };
     passwordManager = {
       _1password = { enable = false; };
-      bitwarden = { enable = true; };
-      default = "bitwarden";
+      bitwarden = { enable = false; };
+      default = null;
     };
-    pavucontrol = { enable = true; };
-    personalEnvironment = { enable = true; };
+    pavucontrol = { enable = false; };
+    personalEnvironment = { enable = false; };
     playerctld = { enable = false; };
     shells = {
       bash = { enable = false; };
-      fish = { enable = true; };
-      starship = { enable = true; };
+      fish = { enable = false; };
       zsh = { enable = false; };
     };
+    starship = { enable = false; };
     steam = { enable = false; };
+    stylix = { enable = false; };
     suiteDevelopment = { enable = false; };
     suiteEditing = { enable = false; };
     suiteGaming = { enable = false; };
@@ -201,20 +175,19 @@ with lib.dafitt; {
     suiteRicing = { enable = false; };
     suiteSocial = { enable = false; };
     suiteVirtualization = { enable = false; };
-    suiteWeb = { enable = true; };
-    syncthing = { enable = true; };
-    systemd = { enable = true; };
+    suiteWeb = { enable = false; };
+    syncthing = { enable = false; };
+    systemd = { enable = false; };
     terminals = {
-      default = "kitty";
-      kitty = { enable = true; };
+      default = null;
+      kitty = { enable = false; };
     };
     vscode = {
       autostart = true;
-      defaultApplication = true;
       enable = false;
       mkMutable = false;
     };
-    xdg = { enable = true; };
+    xdg = { enable = false; };
   };
 
   home.packages = with pkgs; [

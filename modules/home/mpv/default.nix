@@ -8,7 +8,6 @@ in
 {
   options.dafitt.mpv = with types; {
     enable = mkEnableOption "mpv, a free, open source, and cross-platform media player";
-    defaultApplication = mkBoolOpt true "Set mpv as the default application for its mimetypes";
   };
 
   config = mkIf cfg.enable {

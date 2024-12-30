@@ -17,7 +17,8 @@ with lib.dafitt; {
     enable = true;
 
     batteryOptimization.enable = true;
-    bootloader.enable = "grub";
+    bootloader.grub.enable = true;
+    bootloader.systemd-boot.enable = false;
     displayManager.gdm.enable = true;
     flatpak.enable = true;
     hyprland.enable = true;

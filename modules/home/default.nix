@@ -11,7 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    dafitt = {
+    dafitt = mkDefault {
       browsers.default = "firefox";
       btop.enable = true;
       editors.default = "micro";
@@ -24,9 +24,11 @@ in
       imv.enable = true;
       launchers.default = "fuzzel";
       mpv.enable = true;
+      passwordManager.default = "bitwarden";
       pavucontrol.enable = true;
       personalEnvironment.enable = true;
       starship.enable = true;
+      suiteWeb.enable = true;
       syncthing.enable = true;
       systemd.enable = true;
       terminals.default = "kitty";

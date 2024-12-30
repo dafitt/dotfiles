@@ -8,7 +8,6 @@ in
 {
   options.dafitt.file-roller = with types; {
     enable = mkEnableOption "the file-roller archive manager";
-    defaultApplication = mkBoolOpt true "Set file-roller as the default application for its mimetypes.";
 
   };
 

@@ -12,7 +12,7 @@ in
     default = mkOption {
       type = nullOr (enum [ "epiphany" "firefox" "librewolf" ]);
       default = null;
-      description = "Which web browser is to be used primarily.";
+      description = "Which web browser will be used primarily.";
     };
   };
 }

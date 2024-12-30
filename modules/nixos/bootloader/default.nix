@@ -7,9 +7,7 @@ let
   enabledSubModules = filter (n: cfg.${n}.enable or false) (attrNames cfg);
 in
 {
-  options.dafitt.bootloader = with types;{
-    enable = mkOpt (nullOr (enum [ "grub" "systemd-boot" ])) "systemd-boot" "Which bootloader to use.";
-  };
+  options.dafitt.bootloader = with types;{ };
 
   config = {
     assertions = [{
