@@ -14,7 +14,7 @@ let
 in
 {
   options.dafitt.browsers.firefox = with types; {
-    enable = mkEnableOption "firefox browser";
+    enable = mkEnableOption "browser 'firefox'";
 
     autostart = mkBoolOpt false "Whether to autostart at user login."; # disabled because of sideberry plugin
     configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";

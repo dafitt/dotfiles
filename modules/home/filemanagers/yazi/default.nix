@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.filemanagers.yazi = with types; {
-    enable = mkEnableOption "yazi terminal file manager";
+    enable = mkEnableOption "terminal file manager 'yazi'";
 
     autostart = mkBoolOpt true "Whether to autostart at user login.";
     configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";

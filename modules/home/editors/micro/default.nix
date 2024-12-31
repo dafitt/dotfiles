@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.editors.micro = with types; {
-    enable = mkEnableOption "micro terminal text editor";
+    enable = mkEnableOption "terminal text editor 'micro'";
 
     configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
     configureVariables = mkBoolOpt false "Whether to configure variables.";

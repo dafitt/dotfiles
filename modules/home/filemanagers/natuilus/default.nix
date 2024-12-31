@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.filemanagers.nautilus = with types; {
-    enable = mkEnableOption "nautilus file manager";
+    enable = mkEnableOption "file manager 'nautilus'";
 
     autostart = mkBoolOpt true "Whether to autostart at user login.";
     configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";

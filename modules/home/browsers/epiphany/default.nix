@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.browsers.epiphany = with types; {
-    enable = mkEnableOption "epiphany browser";
+    enable = mkEnableOption "browser 'epiphany'";
 
     autostart = mkBoolOpt true "Whether to autostart at user login.";
     configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";

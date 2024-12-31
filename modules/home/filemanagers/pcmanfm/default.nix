@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.filemanagers.pcmanfm = with types; {
-    enable = mkEnableOption "pcmanfm file manager";
+    enable = mkEnableOption "file manager 'pcmanfm'";
 
     autostart = mkBoolOpt true "Whether to autostart at user login.";
     configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";

@@ -7,7 +7,7 @@ let
 in
 {
   options.dafitt.browsers.librewolf = with types; {
-    enable = mkEnableOption "librewolf browser";
+    enable = mkEnableOption "browser 'librewolf'";
 
     autostart = mkBoolOpt true "Whether to autostart at user login.";
     configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
