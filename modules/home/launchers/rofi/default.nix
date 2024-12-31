@@ -4,13 +4,12 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.launchers.rofi;
-  launchersCfg = config.dafitt.launchers;
-
-  isDefault = launchersCfg.default == "rofi";
 in
 {
   options.dafitt.launchers.rofi = with types; {
-    enable = mkBoolOpt (config.dafitt.hyprland.enable && isDefault) "Whether to enable the application launcher rofi.";
+    enable = mkEnableOption "application launcher 'rofi'";
+
+    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
   };
 
   config = mkIf cfg.enable {
@@ -348,8 +347,8 @@ in
       '';
     };
 
-    wayland.windowManager.hyprland.settings = mkIf isDefault {
-      bind = [ "SUPER, SPACE, exec, ${config.programs.rofi.package}/bin/rofi -show drun" ];
+    wayland.windowManager.hyprland.settings = {
+      bind = mkIf cfg.configureKeybindings [ "SUPER, SPACE, exec, ${config.programs.rofi.package}/bin/rofi -show drun" ];
     };
   };
 }

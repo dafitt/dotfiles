@@ -4,13 +4,12 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.launchers.fuzzel;
-  launchersCfg = config.dafitt.launchers;
-
-  isDefault = launchersCfg.default == "fuzzel";
 in
 {
   options.dafitt.launchers.fuzzel = with types; {
-    enable = mkBoolOpt (config.dafitt.hyprland.enable && isDefault) "Whether to enable the application launcher fuzzel.";
+    enable = mkEnableOption "application launcher 'fuzzel'";
+
+    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
   };
 
   config = mkIf cfg.enable {
@@ -36,8 +35,8 @@ in
       };
     };
 
-    wayland.windowManager.hyprland.settings = mkIf isDefault {
-      bind = [ "SUPER, SPACE, exec, ${config.programs.fuzzel.package}/bin/fuzzel" ];
+    wayland.windowManager.hyprland.settings = {
+      bind = mkIf cfg.configureKeybindings [ "SUPER, SPACE, exec, ${config.programs.fuzzel.package}/bin/fuzzel" ];
     };
   };
 }

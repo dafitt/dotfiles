@@ -17,6 +17,8 @@ in
   config = mkMerge [
     (mkIf cfg.enable {
       dafitt = {
+        stylix.enable = true;
+      } // (mkDefault {
         gnome-calculator.enable = true;
         hyprland.cliphist.enable = true;
         hyprland.hypridle.enable = true;
@@ -24,9 +26,9 @@ in
         hyprland.pyprland.enable = true;
         hyprland.themes.hyprpanel.enable = true;
         hyprland.wlsunset.enable = true;
+        launchers.default = "fuzzel";
         playerctld.enable = true;
-        stylix.enable = true;
-      };
+      });
 
       home.packages = with pkgs; with inputs; [
         grimblast # A helper for screenshots within Hyprland, based on grimshot
