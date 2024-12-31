@@ -4,13 +4,13 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.browsers.librewolf;
-  browsersCfg = config.dafitt.browsers;
-
-  isDefault = browsersCfg.default == "librewolf";
 in
 {
   options.dafitt.browsers.librewolf = with types; {
-    enable = mkBoolOpt isDefault "Whether to enable the librewolf web browser.";
+    enable = mkEnableOption "librewolf browser";
+
+    autostart = mkBoolOpt true "Whether to autostart at user login.";
+    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
   };
 
   config = mkIf cfg.enable {
@@ -120,9 +120,9 @@ in
       };
     };
 
-    wayland.windowManager.hyprland.settings = mkIf isDefault {
-      bind = [ "SUPER_ALT, W, exec, ${config.programs.librewolf.package}/bin/librewolf" ];
-      exec-once = mkIf browsersCfg.autostart [ "[workspace 1 silent] ${config.programs.librewolf.package}/bin/librewolf" ];
+    wayland.windowManager.hyprland.settings = {
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, W, exec, ${config.programs.librewolf.package}/bin/librewolf" ];
+      exec-once = mkIf cfg.autostart [ "[workspace 1 silent] ${config.programs.librewolf.package}/bin/librewolf" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:librewolf, title:(Youtube)"
         "float, class:librewolf, title:^Extension: \(NoScript\) - NoScript"
@@ -132,6 +132,6 @@ in
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
-    xdg.autoStart.packages = mkIf browsersCfg.autostart [ config.programs.librewolf.package ];
+    xdg.autoStart.packages = mkIf cfg.autostart [ config.programs.librewolf.package ];
   };
 }

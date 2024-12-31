@@ -4,9 +4,6 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.browsers.firefox;
-  browsersCfg = config.dafitt.browsers;
-
-  isDefault = browsersCfg.default == "firefox";
 
   betterfox = pkgs.fetchFromGitHub {
     owner = "yokoffing";
@@ -17,7 +14,10 @@ let
 in
 {
   options.dafitt.browsers.firefox = with types; {
-    enable = mkBoolOpt isDefault "Whether to enable the firefox web browser.";
+    enable = mkEnableOption "firefox browser";
+
+    autostart = mkBoolOpt false "Whether to autostart at user login."; # disabled because of sideberry plugin
+    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
   };
 
   config = mkIf cfg.enable {
@@ -297,9 +297,9 @@ in
       };
     };
 
-    wayland.windowManager.hyprland.settings = mkIf isDefault {
-      bind = [ "SUPER_ALT, W, exec, ${getExe config.programs.firefox.package}" ];
-      exec-once = mkIf browsersCfg.autostart [ "[workspace 1 silent] ${getExe config.programs.firefox.package}" ];
+    wayland.windowManager.hyprland.settings = {
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, W, exec, ${getExe config.programs.firefox.package}" ];
+      exec-once = mkIf cfg.autostart [ "[workspace 1 silent] ${getExe config.programs.firefox.package}" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:firefox, title:(Youtube)"
         "float, class:firefox, title:^Extension: \(NoScript\) - NoScript"
@@ -307,6 +307,6 @@ in
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
-    xdg.autoStart.packages = mkIf browsersCfg.autostart [ config.programs.firefox.package ];
+    xdg.autoStart.packages = mkIf cfg.autostart [ config.programs.firefox.package ];
   };
 }
