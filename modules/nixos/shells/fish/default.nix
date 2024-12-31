@@ -4,19 +4,19 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.shells.fish;
-
-  isDefault = config.dafitt.shells.default == "fish";
 in
 {
   options.dafitt.shells.fish = with types; {
-    enable = mkBoolOpt isDefault "Whether to enable fish shell.";
+    enable = mkEnableOption "shell 'fish'";
+
+    configureAsDefault = mkBoolOpt false "Whether to configure as the default shell.";
   };
 
   config = mkMerge [
     (mkIf cfg.enable {
       programs.fish.enable = true;
     })
-    (mkIf isDefault {
+    (mkIf cfg.configureAsDefault {
       # https://wiki.nixos.org/wiki/Fish#Setting_fish_as_your_shell
       programs.bash = {
         interactiveShellInit = ''
