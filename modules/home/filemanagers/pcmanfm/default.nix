@@ -4,13 +4,13 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.filemanagers.pcmanfm;
-  filemanagersCfg = config.dafitt.filemanagers;
-
-  isDefault = filemanagersCfg.default == "pcmanfm";
 in
 {
   options.dafitt.filemanagers.pcmanfm = with types; {
-    enable = mkBoolOpt isDefault "Whether to enable pcmanfm file manager.";
+    enable = mkEnableOption "pcmanfm file manager";
+
+    autostart = mkBoolOpt true "Whether to autostart at user login.";
+    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
   };
 
   config = mkIf cfg.enable {
@@ -52,12 +52,12 @@ in
       common_bg=0
     '';
 
-    wayland.windowManager.hyprland.settings = mkIf isDefault {
-      bind = [ "SUPER_ALT, F, exec, ${pkgs.pcmanfm}/bin/pcmanfm" ];
-      exec-once = mkIf filemanagersCfg.autostart [ "[workspace 2 silent] ${pkgs.pcmanfm}/bin/pcmanfm" ];
+    wayland.windowManager.hyprland.settings = {
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, F, exec, ${pkgs.pcmanfm}/bin/pcmanfm" ];
+      exec-once = mkIf cfg.autostart [ "[workspace 2 silent] ${pkgs.pcmanfm}/bin/pcmanfm" ];
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
-    xdg.autoStart.packages = mkIf filemanagersCfg.autostart [ pkgs.pcmanfm ];
+    xdg.autoStart.packages = mkIf cfg.autostart [ pkgs.pcmanfm ];
   };
 }

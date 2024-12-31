@@ -3,14 +3,14 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.filemanagers.natuilus;
-  filemanagersCfg = config.dafitt.filemanagers;
-
-  isDefault = filemanagersCfg.default == "nautilus";
+  cfg = config.dafitt.filemanagers.nautilus;
 in
 {
-  options.dafitt.filemanagers.natuilus = with types; {
-    enable = mkBoolOpt isDefault "Whether to enable natuilus file manager.";
+  options.dafitt.filemanagers.nautilus = with types; {
+    enable = mkEnableOption "nautilus file manager";
+
+    autostart = mkBoolOpt true "Whether to autostart at user login.";
+    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
   };
 
   config = mkIf cfg.enable {
@@ -54,13 +54,13 @@ in
       };
     };
 
-    wayland.windowManager.hyprland.settings = mkIf isDefault {
-      bind = [ "SUPER_ALT, F, exec, ${pkgs.nautilus}/bin/nautilus" ];
-      exec-once = mkIf filemanagersCfg.autostart [ "[workspace 2 silent] ${pkgs.nautilus}/bin/nautilus" ];
+    wayland.windowManager.hyprland.settings = {
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, F, exec, ${pkgs.nautilus}/bin/nautilus" ];
+      exec-once = mkIf cfg.autostart [ "[workspace 2 silent] ${pkgs.nautilus}/bin/nautilus" ];
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
-    xdg.autoStart.desktopItems = mkIf filemanagersCfg.autostart {
+    xdg.autoStart.desktopItems = mkIf cfg.autostart {
       nautilus = pkgs.makeDesktopItem {
         name = "nautilus";
         desktopName = "Files";

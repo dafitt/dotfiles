@@ -4,13 +4,13 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.filemanagers.yazi;
-  filemanagersCfg = config.dafitt.filemanagers;
-
-  isDefault = filemanagersCfg.default == "yazi";
 in
 {
   options.dafitt.filemanagers.yazi = with types; {
-    enable = mkBoolOpt isDefault "Whether to enable the yazi terminal file manager.";
+    enable = mkEnableOption "yazi terminal file manager";
+
+    autostart = mkBoolOpt true "Whether to autostart at user login.";
+    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
   };
 
   config = mkIf cfg.enable {
@@ -40,13 +40,13 @@ in
       };
     };
 
-    wayland.windowManager.hyprland.settings = mkIf isDefault {
-      bind = [ "SUPER_ALT, F, exec, ${config.programs.yazi.package}/bin/yazi" ];
-      exec-once = mkIf filemanagersCfg.autostart [ "[workspace 2 silent] ${config.programs.yazi.package}/bin/yazi" ];
+    wayland.windowManager.hyprland.settings = {
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, F, exec, ${config.programs.yazi.package}/bin/yazi" ];
+      exec-once = mkIf cfg.autostart [ "[workspace 2 silent] ${config.programs.yazi.package}/bin/yazi" ];
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
-    xdg.autoStart.desktopItems = mkIf filemanagersCfg.autostart {
+    xdg.autoStart.desktopItems = mkIf cfg.autostart {
       yazi = pkgs.makeDesktopItem {
         name = "yazi";
         desktopName = "Files";
