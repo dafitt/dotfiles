@@ -4,13 +4,13 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.terminals.kitty;
-  terminalsCfg = config.dafitt.terminals;
-
-  isDefault = terminalsCfg.default == "kitty";
 in
 {
   options.dafitt.terminals.kitty = with types; {
-    enable = mkBoolOpt isDefault "Whether to enable the kitty terminal emulator.";
+    enable = mkEnableOption "terminal emulator 'kitty'";
+
+    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+    configureVariables = mkBoolOpt false "Whether to configure variables.";
   };
 
   config = mkIf cfg.enable {
@@ -75,10 +75,10 @@ in
     };
 
     # this option is being used by other modules
-    home.sessionVariables.TERMINAL = mkIf isDefault "${getExe config.programs.kitty.package}";
+    home.sessionVariables.TERMINAL = mkIf cfg.configureVariables "${getExe config.programs.kitty.package}";
 
     wayland.windowManager.hyprland.settings = {
-      bind = optionals isDefault
+      bind = optionals cfg.configureKeybindings
         [ "SUPER, RETURN, exec, ${getExe config.programs.kitty.package}" ]
       ++ optionals config.dafitt.hyprland.pyprland.enable
         [ "SUPER_ALT, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty" ];
