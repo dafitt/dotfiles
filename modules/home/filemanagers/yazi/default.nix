@@ -26,13 +26,14 @@ in
     # https://github.com/sxyazi/yazi/blob/main/assets/yazi.desktop
     xdg.desktopEntries.yazi = {
       name = "Yazi";
-      icon = ./logo.png;
       genericName = "File Manager";
       comment = "Blazing fast terminal file manager written in Rust, based on async I/O";
+      icon = ./logo.png;
       exec = ''${config.programs.yazi.package}/bin/yazi %u'';
       terminal = true;
-      mimeType = [ "inode/directory" ];
+      type = "Application";
       categories = [ "Utility" "Core" "System" "FileTools" "FileManager" "ConsoleOnly" ];
+      mimeType = [ "inode/directory" ];
 
       settings = {
         TryExec = ''${config.programs.yazi.package}/bin/yazi'';

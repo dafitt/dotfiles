@@ -31,7 +31,6 @@ final: prev: {
       postInstall = oldAttrs.postInstall + ''
         mkdir -p $out/share/applications
         ln -s ${desktopFile}/share/applications/* $out/share/applications
-        #install -Dvm444 $src/assets/logo-only.svg $out/share/branding/syncthing.svg
       '';
     });
 }
