@@ -28,7 +28,7 @@ in
       name = "Yazi";
       genericName = "File Manager";
       comment = "Blazing fast terminal file manager written in Rust, based on async I/O";
-      icon = ./logo.png;
+      icon = "yazi.svg";
       exec = ''${config.programs.yazi.package}/bin/yazi %u'';
       terminal = true;
       type = "Application";
