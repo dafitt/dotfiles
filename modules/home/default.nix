@@ -24,7 +24,7 @@ in
       imv.enable = true;
       launchers.default = "fuzzel";
       mpv.enable = true;
-      passwordManager.default = "bitwarden";
+      passwordManagers.default = "bitwarden";
       pavucontrol.enable = true;
       personalEnvironment.enable = true;
       starship.enable = true;

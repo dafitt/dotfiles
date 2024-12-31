@@ -151,7 +151,7 @@ with lib.dafitt; {
       connman = { enable = false; };
       networkmanager = { enable = false; };
     };
-    passwordManager = {
+    passwordManagers = {
       _1password = { enable = false; };
       bitwarden = { enable = false; };
       default = null;

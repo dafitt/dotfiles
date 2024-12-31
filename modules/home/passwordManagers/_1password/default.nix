@@ -3,14 +3,13 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.passwordManager._1password;
-  passwordManagerCfg = config.dafitt.passwordManager;
-
-  isDefault = passwordManagerCfg.default == "_1password";
+  cfg = config.dafitt.passwordManagers._1password;
 in
 {
-  options.dafitt.passwordManager._1password = with types; {
-    enable = mkBoolOpt isDefault "Whether to enable _1password.";
+  options.dafitt.passwordManagers._1password = with types; {
+    enable = mkEnableOption "password manager '_1password'";
+
+    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
   };
 
   config = mkIf cfg.enable {
@@ -19,7 +18,7 @@ in
     home.packages = with pkgs; [ _1password-gui ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = [ "SUPER_ALT, PERIOD, exec, ${pkgs._1password-gui}/bin/1password" ];
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, PERIOD, exec, ${pkgs._1password-gui}/bin/1password" ];
       windowrulev2 = [
         "float, class:1Password, title:1Password"
         "size 650 620, class:1Password, title:1Password"
