@@ -4,13 +4,13 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.editors.micro;
-  editorsCfg = config.dafitt.editors;
-
-  isDefault = editorsCfg.default == "micro";
 in
 {
   options.dafitt.editors.micro = with types; {
-    enable = mkBoolOpt isDefault "Whether to enable the micro terminal text editor.";
+    enable = mkEnableOption "micro terminal text editor";
+
+    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+    configureVariables = mkBoolOpt false "Whether to configure variables.";
   };
 
   config = mkIf cfg.enable {
@@ -50,10 +50,10 @@ in
       };
     };
 
-    home.sessionVariables.EDITOR = mkIf isDefault "${pkgs.micro}/bin/micro"; #TODO upstream programs.micro.package = pkgs.micro;
+    home.sessionVariables.EDITOR = mkIf cfg.configureVariables "${pkgs.micro}/bin/micro"; #TODO upstream programs.micro.package = pkgs.micro;
 
-    wayland.windowManager.hyprland.settings = mkIf isDefault {
-      bind = [ "SUPER_ALT, E, exec, ${config.home.sessionVariables.TERMINAL} -e ${pkgs.micro}/bin/micro" ];
+    wayland.windowManager.hyprland.settings = {
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, E, exec, ${config.home.sessionVariables.TERMINAL} -e ${pkgs.micro}/bin/micro" ];
     };
   };
 }
