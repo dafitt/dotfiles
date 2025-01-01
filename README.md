@@ -9,6 +9,7 @@
         -   [On a new host machine](#on-a-new-host-machine)
     -   [Configuration](#configuration)
         -   [NixOS stable branch](#nixos-stable-branch)
+        -   [Importing my modules](#importing-my-modules)
         -   [You want to build from here?](#you-want-to-build-from-here)
     -   [Usage](#usage)
         -   [Flake](#flake)
@@ -149,6 +150,32 @@ with channels.unstable; {
     ;
 }
 ```
+
+### Importing my modules
+
+You can try using my modules through importing them:
+
+```nix
+# flake.nix
+inputs = {
+  dafitt = { url = "github:dafitt/dotfiles"; inputs.nixpkgs.follows = "nixpkgs"; };
+};
+
+outputs = { nixpkgs, ... }@inputs: {
+  nixosConfigurations."<host>" = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    modules = [
+      # e.g.
+      inputs.dafitt.nixosModules."gnome"
+      inputs.dafitt.nixosModules."bootloader/systemd"
+      inputs.dafitt.homeManagerModules."stylix"
+      inputs.dafitt.homeManagerModules."browsers/firefox"
+    ];
+  };
+};
+```
+
+But it is certainly better to simply copy them into your dotfiles and adapt them to your needs.
 
 ### You want to build from here?
 
