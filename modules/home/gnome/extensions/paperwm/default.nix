@@ -15,12 +15,13 @@ in
 
     dconf.settings = {
       "org/gnome/shell/extensions/paperwm" = {
-        selection-border-size = 0;
-        window-gap = 8;
+        default-focus-mode = 0;
         horizontal-margin = 0;
+        selection-border-size = 0;
+        show-workspace-indicator = false;
         vertical-margin = 0;
         vertical-margin-bottom = 0;
-        show-workspace-indicator = false;
+        window-gap = 8;
       };
       "org/gnome/shell/extensions/paperwm/keybindings" = {
         barf-out = [ "<Shift><Super>o" ];
