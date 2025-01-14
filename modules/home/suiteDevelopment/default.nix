@@ -39,6 +39,7 @@ in
       "com.belmoussaoui.ashpd.demo" # Play with portals
       "io.gitlab.liferooter.TextPieces" # Developer's scratchpad
       "nl.hjdskes.gcolor3"
+      "org.gnome.meld" # Compare and merge your files
     ];
 
     programs.direnv.enable = true;

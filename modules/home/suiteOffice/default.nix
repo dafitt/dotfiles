@@ -32,6 +32,7 @@ in
       "de.bund.ausweisapp.ausweisapp2" # Official authentication app for German ID card and residence permit
       "md.obsidian.Obsidian"
       "org.gnome.Evolution" # Manage your email, contacts and schedule
+      "org.gnome.meld" # Compare and merge your files
       "org.gustavoperedo.FontDownloader" # Install fonts from online sources
     ];
 
