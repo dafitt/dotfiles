@@ -20,6 +20,7 @@ in
       libnotify # sends desktop notifications to a notification daemon
       localsend # open source cross-platform alternative to AirDrop
       ncdu # disk usage analyzer with an ncurses interface
+      numbat # high precision scientific calculator with full support for physical units
       raider # file shredder
       tldr # simplified and community-driven man pages
       tree # a directory listing program
