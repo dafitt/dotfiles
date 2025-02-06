@@ -23,14 +23,5 @@ in
         package = pkgs.papirus-icon-theme.override { color = "black"; };
       };
     };
-
-    qt = {
-      # https://github.com/nix-community/home-manager/blob/master/modules/misc/qt.nix
-      #TODO wait for https://github.com/danth/stylix/pull/142
-      enable = true;
-      platformTheme.name = "adwaita";
-      style.name = "adwaita-dark";
-      style.package = pkgs.adwaita-qt;
-    };
   };
 }
