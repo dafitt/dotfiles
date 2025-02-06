@@ -28,24 +28,14 @@ in
         { origin = "flathub"; appId = "com.github.tchx84.Flatseal"; }
         { origin = "flathub"; appId = "io.github.giantpinkrobots.flatsweep"; }
         { origin = "flathub"; appId = "io.github.flattool.Warehouse"; }
-      ] ++ lib.optionals config.gtk.enable [
-        { origin = "flathub"; appId = "org.gtk.Gtk3theme.adw-gtk3"; }
-        { origin = "flathub"; appId = "org.gtk.Gtk3theme.adw-gtk3-dark"; }
-        { origin = "flathub"; appId = "org.kde.KStyle.Adwaita//6.8"; }
       ];
 
       overrides = {
         global = {
           # [Metadata keywords](https://docs.flatpak.org/en/latest/flatpak-command-reference.html?highlight=override#flatpak-metadata)
-          Environment = {
-            XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
-          };
+          Environment = { };
+          Context.filesystems = [ ];
         };
-        # template for overrides:
-        #"com.github.tchx84.Flatseal" = {
-        #  Context.filesystems = [ ];
-        #  Environment = { VARIABLE = ""; };
-        #};
       };
     };
 
