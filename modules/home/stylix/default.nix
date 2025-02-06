@@ -15,12 +15,14 @@ in
 
   config = mkIf cfg.enable {
     # https://stylix.danth.me/options/hm.html
-    stylix.enable = true;
+    stylix = {
+      enable = true;
 
-    gtk = {
       iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme.override { color = "black"; };
+        enable = true;
+        light = "Papirus";
+        dark = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme.override { color = "paleorange"; };
       };
     };
   };
