@@ -38,7 +38,8 @@ in
     services.flatpak.packages = [
       "com.belmoussaoui.ashpd.demo" # Play with portals
       "io.gitlab.liferooter.TextPieces" # Developer's scratchpad
-      "nl.hjdskes.gcolor3"
+      "me.iepure.devtoolbox" # Dev tools at your fingertips
+      "nl.hjdskes.gcolor3" # Choose colors from the picker or the screen
       "org.gnome.meld" # Compare and merge your files
     ];
 
