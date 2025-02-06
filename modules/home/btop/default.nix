@@ -16,6 +16,7 @@ in
       settings = {
         # https://github.com/aristocratos/btop#configurability
         theme_background = false;
+        update_ms = 100;
         presets = concatStringsSep " " [
           "cpu:0:default"
           "mem:0:default"
