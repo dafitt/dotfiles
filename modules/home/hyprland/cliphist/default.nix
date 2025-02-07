@@ -19,7 +19,7 @@ in
     # https://github.com/sentriz/cliphist
     services.cliphist = {
       enable = true;
-      systemdTarget = "hyprland-session.target";
+      systemdTargets = "hyprland-session.target";
     };
 
     # simple cliphist selector
