@@ -29,8 +29,9 @@ in
 
     services.flatpak.packages = [
       "com.github.rajsolai.textsnatcher" # Snatch Text with just a Drag
+      "com.logseq.Logseq" # Connect your notes and knowledge
       "de.bund.ausweisapp.ausweisapp2" # Official authentication app for German ID card and residence permit
-      "md.obsidian.Obsidian"
+      "md.obsidian.Obsidian" # Markdown-based knowledge base
       "org.gnome.Evolution" # Manage your email, contacts and schedule
       "org.gnome.meld" # Compare and merge your files
       "org.gustavoperedo.FontDownloader" # Install fonts from online sources
@@ -42,7 +43,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       exec-once = [
-        "[workspace 3 silent;noinitialfocus] ${pkgs.flatpak}/bin/flatpak run md.obsidian.Obsidian"
+        "[workspace 3 silent;noinitialfocus] ${pkgs.flatpak}/bin/flatpak run com.logseq.Logseq"
       ];
       windowrulev2 = [
         "float, class:scribus, title:(New Document)"
