@@ -23,7 +23,6 @@ in
       app-icons-taskbar.enable = true;
       appindicator.enable = true;
       arcmenu.enable = true;
-      auto-move-windows.enable = true;
       blur-my-shell.enable = true;
       just-perfection.enable = true;
       native-window-placement.enable = true;
