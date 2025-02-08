@@ -26,10 +26,6 @@ in
       nerd-fonts.ubuntu
       nerd-fonts.ubuntu-mono
       nerd-fonts.ubuntu-sans
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      noto-fonts-emoji
     ] ++ cfg.fonts;
   };
 }
