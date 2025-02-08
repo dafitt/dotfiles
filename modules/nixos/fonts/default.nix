@@ -8,7 +8,6 @@ in
 {
   options.dafitt.fonts = with types; {
     enable = mkEnableOption "fonts configuration";
-    fonts = mkOpt (listOf package) [ ] "Custom font packages to install.";
   };
 
   config = mkIf cfg.enable {
@@ -26,6 +25,6 @@ in
       nerd-fonts.ubuntu
       nerd-fonts.ubuntu-mono
       nerd-fonts.ubuntu-sans
-    ] ++ cfg.fonts;
+    ];
   };
 }
