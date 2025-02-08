@@ -14,6 +14,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    dafitt.stylix.enable = true;
+
     # A modern, hackable, featureful, OpenGL based terminal emulator
     # https://github.com/kovidgoyal/kitty
     programs.kitty = {
@@ -36,13 +38,8 @@ in
         active_border_color = "none";
         inactive_border_color = config.lib.stylix.colors.withHashtag.base01;
         inactive_text_alpha = "0.9";
-        #draw_minimal_borders = false;
-        #window_margin_width = 1;
         window_padding_width = 5;
         confirm_os_window_close = 0;
-
-        # Color scheme
-        #background_opacity = lib.mkDefault "0.85";
 
         # Advanced
         update_check_interval = 0;
