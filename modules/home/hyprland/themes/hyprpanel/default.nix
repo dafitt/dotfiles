@@ -30,10 +30,10 @@ in
       };
       theme = "catppuccin_mocha_vivid";
       settings = {
+        bar.clock.format = "%Y-%m-%d  %R";
         bar.launcher.autoDetectIcon = true;
         bar.workspaces.reverse_scroll = true;
         bar.workspaces.show_icons = true;
-        menus.clock.time.hideSeconds = true;
         menus.clock.time.military = true;
         menus.clock.weather.unit = "metric";
         menus.dashboard.directories.enabled = false;
@@ -44,8 +44,8 @@ in
         theme.bar.menus.buttons.radius = "${toString hyprlandCfg.settings.decoration.rounding}px";
         theme.bar.outer_spacing = "${toString hyprlandCfg.settings.general.gaps_out}px";
         theme.bar.transparent = true;
-        theme.font.name = "CaskaydiaCove NF";
-        theme.font.size = "16px";
+        theme.font.name = config.stylix.fonts.serif.name;
+        theme.font.size = "${toString config.stylix.fonts.sizes.desktop}px";
       };
     };
 
