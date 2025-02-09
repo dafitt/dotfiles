@@ -33,12 +33,16 @@ in
       overrides = {
         global = {
           # [Metadata keywords](https://docs.flatpak.org/en/latest/flatpak-command-reference.html?highlight=override#flatpak-metadata)
+
           Environment = { };
-          Context.filesystems = [
-            "/nix/store:ro" # Fixes cursor theme in flatpaks
-          ];
+          Context.filesystems = [ ];
         };
       };
+    };
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; # Fixes OpenURI and cursor theme
     };
 
     home.shellAliases = {
