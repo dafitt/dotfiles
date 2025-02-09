@@ -38,7 +38,7 @@ in
         menus.clock.weather.unit = "metric";
         menus.dashboard.directories.enabled = false;
         menus.dashboard.stats.enable_gpu = true;
-        theme.bar.buttons.radius = "${toString hyprlandCfg.settings.decoration.rounding}px";
+        theme.bar.buttons.radius = "${toString (hyprlandCfg.settings.decoration.rounding / 2)}px";
         theme.bar.menus.border.radius = "${toString hyprlandCfg.settings.decoration.rounding}px";
         theme.bar.menus.border.size = "${toString hyprlandCfg.settings.general.border_size}px";
         theme.bar.menus.buttons.radius = "${toString hyprlandCfg.settings.decoration.rounding}px";
