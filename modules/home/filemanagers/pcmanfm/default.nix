@@ -9,8 +9,9 @@ in
   options.dafitt.filemanagers.pcmanfm = with types; {
     enable = mkEnableOption "file manager 'pcmanfm'";
 
-    autostart = mkBoolOpt true "Whether to autostart at user login.";
+    autostart = mkBoolOpt false "Whether to autostart at user login.";
     configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+    workspace = mkOpt int 3 "Which workspace is mainly to be used for this application.";
   };
 
   config = mkIf cfg.enable {
@@ -54,7 +55,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, F, exec, ${pkgs.pcmanfm}/bin/pcmanfm" ];
-      exec-once = mkIf cfg.autostart [ "[workspace 2 silent] ${pkgs.pcmanfm}/bin/pcmanfm" ];
+      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${pkgs.pcmanfm}/bin/pcmanfm" ];
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart

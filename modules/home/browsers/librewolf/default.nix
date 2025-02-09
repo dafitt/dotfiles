@@ -9,8 +9,9 @@ in
   options.dafitt.browsers.librewolf = with types; {
     enable = mkEnableOption "browser 'librewolf'";
 
-    autostart = mkBoolOpt true "Whether to autostart at user login.";
+    autostart = mkBoolOpt false "Whether to autostart at user login.";
     configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+    workspace = mkOpt int 1 "Which workspace is mainly to be used for this application.";
   };
 
   config = mkIf cfg.enable {
@@ -122,7 +123,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, W, exec, ${config.programs.librewolf.package}/bin/librewolf" ];
-      exec-once = mkIf cfg.autostart [ "[workspace 1 silent] ${config.programs.librewolf.package}/bin/librewolf" ];
+      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${config.programs.librewolf.package}/bin/librewolf" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:librewolf, title:(Youtube)"
         "float, class:librewolf, title:^Extension: \(NoScript\) - NoScript"

@@ -9,8 +9,9 @@ in
   options.dafitt.filemanagers.yazi = with types; {
     enable = mkEnableOption "terminal file manager 'yazi'";
 
-    autostart = mkBoolOpt true "Whether to autostart at user login.";
+    autostart = mkBoolOpt false "Whether to autostart at user login.";
     configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+    workspace = mkOpt int 3 "Which workspace is mainly to be used for this application.";
   };
 
   config = mkIf cfg.enable {
@@ -43,7 +44,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, F, exec, ${config.programs.yazi.package}/bin/yazi" ];
-      exec-once = mkIf cfg.autostart [ "[workspace 2 silent] ${config.programs.yazi.package}/bin/yazi" ];
+      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${config.programs.yazi.package}/bin/yazi" ];
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart

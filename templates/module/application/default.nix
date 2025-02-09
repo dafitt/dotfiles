@@ -8,8 +8,10 @@ in
 {
   options.dafitt.APPLICATION = with types; {
     enable = mkBoolOpt false "Whether to enable APPLICATION.";
+
     autostart = mkBoolOpt false "Start APPLICATION on login";
     defaultApplication = mkBoolOpt true "Set APPLICATION as the default application for its mimetypes.";
+    workspace = mkOpt int 5 "Which workspace is mainly to be used for this application.";
   };
 
   config = mkIf cfg.enable {
@@ -20,7 +22,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       exec = [ ];
-      exec-once = mkIf cfg.autostart [ ];
+      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.APPLICATION}" ];
       binds = [ ];
       windowrulev2 = [ ];
     };

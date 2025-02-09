@@ -18,6 +18,7 @@ in
 
     autostart = mkBoolOpt false "Whether to autostart at user login."; # disabled because of sideberry plugin
     configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+    workspace = mkOpt int 1 "Which workspace is mainly to be used for this application.";
   };
 
   config = mkIf cfg.enable {
@@ -299,7 +300,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, W, exec, ${getExe config.programs.firefox.package}" ];
-      exec-once = mkIf cfg.autostart [ "[workspace 1 silent] ${getExe config.programs.firefox.package}" ];
+      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${getExe config.programs.firefox.package}" ];
       windowrulev2 = [
         "idleinhibit fullscreen, class:firefox, title:(Youtube)"
         "float, class:firefox, title:^Extension: \(NoScript\) - NoScript"

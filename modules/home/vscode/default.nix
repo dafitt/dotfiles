@@ -10,7 +10,9 @@ in
 
   options.dafitt.vscode = with types; {
     enable = mkEnableOption "vscode";
+
     autostart = mkBoolOpt false "Start vscode on login";
+    workspace = mkOpt int 2 "Which workspace is mainly to be used for this application.";
   };
 
   config = mkIf cfg.enable {
@@ -375,7 +377,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = [ "SUPER_ALT, G, exec, ${getExe config.programs.vscode.package}" ];
-      exec-once = mkIf cfg.autostart [ "[workspace 4 silent] ${getExe config.programs.vscode.package}" ];
+      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${getExe config.programs.vscode.package}" ];
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
