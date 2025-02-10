@@ -18,7 +18,6 @@ in
     # https://hyprpanel.com/configuration/settings.html
     programs.hyprpanel = {
       enable = true;
-      hyprland.enable = true;
       overwrite.enable = true;
 
       layout."bar.layouts" = {
@@ -53,6 +52,8 @@ in
       bind = [
         "SUPER, W, exec, hyprpanel toggleWindow bar-0"
       ];
+      exec-once = [ "${pkgs.hyprpanel}/bin/hyprpanel" ];
+      exec = [ "${pkgs.hyprpanel}/bin/hyprpanel --quit; ${pkgs.hyprpanel}/bin/hyprpanel" ];
     };
   };
 }
