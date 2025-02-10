@@ -20,9 +20,14 @@ in
 
       iconTheme = {
         enable = true;
-        light = "Papirus";
-        dark = "Papirus-Dark";
+
+        # FIXME https://github.com/vinceliuice/Fluent-icon-theme/issues/96
+        #package = pkgs.fluent-icon-theme;
+        #dark = "Fluent-dark";
+        #light = "Fluent-light";
         package = pkgs.papirus-icon-theme.override { color = "paleorange"; };
+        dark = "Papirus-Dark";
+        light = "Papirus";
       };
     };
 
