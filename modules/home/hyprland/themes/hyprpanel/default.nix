@@ -15,7 +15,7 @@ in
     home.packages = [ pkgs.hyprpanel ];
 
     # https://github.com/Jas-SinghFSU/HyprPanel/blob/master/nix/module.nix#L65
-    # https://hyprpanel.com/configuration/panel.html
+    # https://hyprpanel.com/configuration/settings.html
     programs.hyprpanel = {
       enable = true;
       hyprland.enable = true;
