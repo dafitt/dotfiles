@@ -150,9 +150,16 @@ in
               tap-and-drag = true;
             };
           };
+          cursor = {
+            warp_on_change_workspace = 1;
+            zoom_rigid = true;
+            hide_on_key_press = true;
+            warp_back_after_non_mouse_input = true;
+          };
           gestures = {
             # https://wiki.hyprland.org/Configuring/Variables/#gestures
             workspace_swipe = true;
+            workspace_swipe_forever = true;
           };
 
           binds = {
