@@ -28,6 +28,7 @@ in
       pavucontrol.enable = true;
       personalEnvironment.enable = true;
       starship.enable = true;
+      stylix.enable = true;
       suiteWeb.enable = true;
       syncthing.enable = true;
       systemd.enable = true;
