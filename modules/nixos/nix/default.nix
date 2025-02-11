@@ -22,16 +22,19 @@ in
 
       settings = {
         experimental-features = [ "nix-command" "flakes" ];
-        http-connections = 50;
-        warn-dirty = false;
-        log-lines = 50;
-        auto-optimise-store = true;
-        trusted-users = [ "root" ];
         allowed-users = [ "@wheel" ];
-      }
-      // optionalAttrs config.programs.direnv.enable {
-        keep-outputs = true;
+        trusted-users = [ "root" ];
+
+        auto-optimise-store = true;
+        connect-timeout = 5;
+        http-connections = 50;
+        log-lines = 50; # more log lines in case of error
+        min-free = 1 * (1024 * 1024 * 1024); # GiB # start garbage collector
+        max-free = 50 * (1024 * 1024 * 1024); # GiB # until
+        warn-dirty = false;
+      } // optionalAttrs config.programs.direnv.enable {
         keep-derivations = true;
+        keep-outputs = true;
       };
 
       gc = {
