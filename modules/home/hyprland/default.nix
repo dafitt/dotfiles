@@ -174,7 +174,7 @@ in
             # https://wiki.hyprland.org/Configuring/Dispatchers/
 
             "SUPER_CONTROL, Q, exit," # Exit Hyprland all together (force quit Hyprland)
-            "SUPER_CONTROL, R, exec, hyprctl reload && forcerendererreload"
+            "SUPER_CONTROL, R, exec, hyprctl reload; forcerendererreload"
             "SUPER_CONTROL, ADIAERESIS, exec, poweroff" # quick-poweroff
             "SUPER_CONTROL, ODIAERESIS, exec, poweroff --reboot" # quick-reboot
             "SUPER, UDIAERESIS, exec, systemctl suspend" # quick-suspend
@@ -182,14 +182,17 @@ in
             # Window control
             "SUPER, DELETE, exec, hyprctl kill" # kill a window by clicking it
             "SUPER, X, killactive," # close the active window
+            "SUPER_SHIFT, X, forcekillactive," # kill the active window
             "SUPER, P, pseudo," # dwindle
-            "SUPER, S, togglesplit," # dwindle
+            "SUPER, R, togglesplit," # dwindle
             "SUPER, H, swapnext,"
             "SUPER_SHIFT, H, swapnext, prev"
             "SUPER, F, fullscreen,"
             "SUPER, A, fullscreen, 1" # maximize only
             "SUPER, V, togglefloating," # Allow a window to float
-            "SUPER, B, pin,"
+            "SUPER, Z, alterzorder, top" # floating only
+            "SUPER_SHIFT, Z, alterzorder, bottom" # floating only
+            "SUPER, B, pin," # floating only
             "SUPER, left, movefocus, l"
             "SUPER, right, movefocus, r"
             "SUPER, up, movefocus, u"
@@ -218,32 +221,32 @@ in
 
           ] ++ optionals (!any (config: config.enable) [ cfg.plugins.hyprsplit cfg.plugins.hyprnome ]) [
             # Workspace control
-            "SUPER, 1, workspace, 1"
-            "SUPER, 2, workspace, 2"
-            "SUPER, 3, workspace, 3"
-            "SUPER, 4, workspace, 4"
-            "SUPER, 5, workspace, 5"
-            "SUPER, 6, workspace, 6"
-            "SUPER, 7, workspace, 7"
-            "SUPER, 8, workspace, 8"
-            "SUPER, 9, workspace, 9"
-            "SUPER, 0, workspace, 10"
-            "SUPER, D, workspace, name:D" # desktop only
-            "SUPER, code:87, workspace, 1" # Numpad
-            "SUPER, code:88, workspace, 2" # Numpad
-            "SUPER, code:89, workspace, 3" # Numpad
-            "SUPER, code:83, workspace, 4" # Numpad
-            "SUPER, code:84, workspace, 5" # Numpad
-            "SUPER, code:85, workspace, 6" # Numpad
-            "SUPER, code:79, workspace, 7" # Numpad
-            "SUPER, code:80, workspace, 8" # Numpad
-            "SUPER, code:81, workspace, 9" # Numpad
-            "SUPER, code:91, workspace, 10" # Numpad
-            "SUPER, code:86, workspace, +1" # Numpad +
-            "SUPER, code:82, workspace, -1" # Numpad -
-            "SUPER, backspace, workspace, previous"
-            "SUPER, mouse_down, workspace, -1"
-            "SUPER, mouse_up, workspace, +1"
+            "SUPER, 1, focusworkspaceoncurrentmonitor, 1"
+            "SUPER, 2, focusworkspaceoncurrentmonitor, 2"
+            "SUPER, 3, focusworkspaceoncurrentmonitor, 3"
+            "SUPER, 4, focusworkspaceoncurrentmonitor, 4"
+            "SUPER, 5, focusworkspaceoncurrentmonitor, 5"
+            "SUPER, 6, focusworkspaceoncurrentmonitor, 6"
+            "SUPER, 7, focusworkspaceoncurrentmonitor, 7"
+            "SUPER, 8, focusworkspaceoncurrentmonitor, 8"
+            "SUPER, 9, focusworkspaceoncurrentmonitor, 9"
+            "SUPER, 0, focusworkspaceoncurrentmonitor, 10"
+            "SUPER, D, focusworkspaceoncurrentmonitor, name:D" # desktop only
+            "SUPER, code:87, focusworkspaceoncurrentmonitor, 1" # Numpad
+            "SUPER, code:88, focusworkspaceoncurrentmonitor, 2" # Numpad
+            "SUPER, code:89, focusworkspaceoncurrentmonitor, 3" # Numpad
+            "SUPER, code:83, focusworkspaceoncurrentmonitor, 4" # Numpad
+            "SUPER, code:84, focusworkspaceoncurrentmonitor, 5" # Numpad
+            "SUPER, code:85, focusworkspaceoncurrentmonitor, 6" # Numpad
+            "SUPER, code:79, focusworkspaceoncurrentmonitor, 7" # Numpad
+            "SUPER, code:80, focusworkspaceoncurrentmonitor, 8" # Numpad
+            "SUPER, code:81, focusworkspaceoncurrentmonitor, 9" # Numpad
+            "SUPER, code:91, focusworkspaceoncurrentmonitor, 10" # Numpad
+            "SUPER, code:86, focusworkspaceoncurrentmonitor, +1" # Numpad +
+            "SUPER, code:82, focusworkspaceoncurrentmonitor, -1" # Numpad -
+            "SUPER, backspace, focusworkspaceoncurrentmonitor, previous"
+            "SUPER, mouse_down, focusworkspaceoncurrentmonitor, -1"
+            "SUPER, mouse_up, focusworkspaceoncurrentmonitor, +1"
 
             # Move active window to a workspace
             "SUPER_SHIFT, 1, movetoworkspacesilent, 1"
