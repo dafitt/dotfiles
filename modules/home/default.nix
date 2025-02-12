@@ -22,7 +22,6 @@ in
       flatpak.enable = true;
       gedit.enable = true;
       imv.enable = true;
-      launchers.default = "fuzzel";
       mpv.enable = true;
       passwordManagers.default = "bitwarden";
       pavucontrol.enable = true;

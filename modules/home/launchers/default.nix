@@ -11,6 +11,7 @@ in
       type = nullOr (enum [
         "fuzzel"
         "rofi"
+        "walker"
       ]);
       default = null;
       description = "Which application launcher will be used primarily.";
@@ -23,6 +24,10 @@ in
       configureKeybindings = true;
     };
     rofi = mkIf (cfg.default == "rofi") {
+      enable = true;
+      configureKeybindings = true;
+    };
+    walker = mkIf (cfg.default == "walker") {
       enable = true;
       configureKeybindings = true;
     };

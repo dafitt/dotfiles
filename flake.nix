@@ -17,6 +17,7 @@
     snowfall-flake = { url = "github:snowfallorg/flake"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/flake
     snowfall-lib = { url = "github:snowfallorg/lib"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/lib
     stylix = { url = "github:danth/stylix"; }; # https://github.com/danth/stylix
+    walker = { url = "github:abenz1267/walker"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/abenz1267/walker
     xdg-autostart = { url = "github:Zocker1999NET/home-manager-xdg-autostart"; }; # https://github.com/Zocker1999NET/home-manager-xdg-autostart
 
     # for development; see overlays/-git/default.nix
@@ -26,12 +27,16 @@
   #NOTE uncomment and enter `nix develop` on your first build for faster build time
   #nixConfig = {
   #  extra-substituters = [
-  #    "https://hyprland.cachix.org"
   #    "https://hyprland-community.cachix.org"
+  #    "https://hyprland.cachix.org"
+  #    "https://walker-git.cachix.org"
+  #    "https://walker.cachix.org"
   #  ];
   #  extra-trusted-public-keys = [
-  #    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
   #    "hyprland-community.cachix.org-1:5dTHY+TjAJjnQs23X+vwMQG4va7j+zmvkTKoYuSXnmE="
+  #    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+  #    "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
+  #    "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
   #  ];
   #};
 
@@ -69,6 +74,7 @@
       hyprpanel.homeManagerModules.hyprpanel
       nix-flatpak.homeManagerModules.nix-flatpak
       stylix.homeManagerModules.stylix
+      walker.homeManagerModules.default
       xdg-autostart.homeManagerModules.xdg-autostart
     ];
 
