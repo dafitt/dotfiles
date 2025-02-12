@@ -389,6 +389,15 @@ in
         Install.WantedBy = [ "hyprland-session.target" ];
       };
 
+      xdg.configFile."hypr/application-style.conf" = {
+        text = config.lib.generators.toHyprconf {
+          attrs = {
+            # https://wiki.hyprland.org/Hypr-Ecosystem/hyprland-qt-support/
+            roundness = 2;
+          };
+        };
+      };
+
       xdg.desktopEntries."org.gnome.Settings" = {
         name = "GNOME Settings";
         comment = "GNOME Control Center";
