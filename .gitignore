@@ -8,3 +8,7 @@ result-*
 
 # fonts
 *.ttf
+
+# links
+*.link
+*.ln
