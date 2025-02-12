@@ -97,21 +97,31 @@ in
             enabled = true;
 
             bezier = [
-              # Bezier are Curves used in animations
+              # Used in animation `CURVE`
               # "NAME,X0,Y0,X1,Y1"
-              "overshot, 0.05, 0.9, 0.1, 1.05"
-              "smoothOut, 0.36, 0, 0.66, -0.56"
-              "smoothIn, 0.25, 1, 0.5, 1"
+              # https://www.cssportal.com/css-cubic-bezier-generator/
+              "ease,.25,.1,.25,1"
+              "easeIn,.42,0,1,1"
+              "easeInOut,.58,.28,.52,.95"
+              "easeInOutBack,.68,-.55,.265,1.55"
+              "easeInOutQuart,.77,0,.175,1"
+              "easeOut,0,0,.58,1"
+              "easeOutBack,.175,.885,.32,1.275"
+              "easeOutCirc,.075,.82,.165,1"
+              "easeOutCubic,.215,.61,.355,1"
+              "easeOutExpo,.19,1,.22,1"
+              "easeOutQuad,.25,.46,.45,.94"
+              "easeOutQuart,.165,.84,.44,1"
+              "easeOutQuint,.23,1,.32,1"
+              "easeOutSine,.39,.575,.565,1"
+              "linear,0,0,1,1"
             ];
             animation = [
               # "NAME,ONOFF,SPEED,CURVE,STYLE"
-              "windows, 1, 5, overshot, slide"
-              "windowsOut, 1, 5, overshot, slide"
-              #"windowsMove, 1, 4, default"
-              "border, 1, 10, default"
-              "fade, 1, 5, smoothIn"
-              "fadeDim, 1, 5, smoothIn"
-              "workspaces, 1, 6, default"
+              "global,      1,  5, easeOutExpo"
+              "windows,     1,  5, easeOutExpo, popin"
+              "layers,      1,  5, easeOutExpo, slide"
+              "workspaces,  1,  7.5, easeOutExpo, slidefade 5%"
             ];
           };
 
