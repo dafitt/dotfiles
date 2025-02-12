@@ -35,6 +35,7 @@ in
         hyprkeys # A simple, fast and scriptable keybind inspection utility
         hyprpicker # A wlroots-compatible Wayland color picker that does not suck
         hyprsysteminfo # A tiny qt6/qml application to display information about the running system
+        waypaper # GUI wallpaper setter for Wayland-based window managers
       ];
 
       # [Hyprland](https://github.com/hyprwm/Hyprland)
