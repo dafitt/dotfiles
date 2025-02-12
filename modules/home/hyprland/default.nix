@@ -362,6 +362,22 @@ in
         };
       };
 
+      systemd.user.services."polkit-hyprpolkitagent" = {
+        # It is required for GUI applications to be able to request elevated privileges.
+        Unit = {
+          Description = "Hyprland Polkit authentication agent";
+          Documentation = "https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent/";
+          PartOf = [ "hyprland-session.target" ];
+        };
+        Service = {
+          ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+          Restart = "always";
+          RestartSec = 2;
+          TimeoutStopSec = 10;
+        };
+        Install.WantedBy = [ "hyprland-session.target" ];
+      };
+
       xdg.desktopEntries."org.gnome.Settings" = {
         name = "GNOME Settings";
         comment = "GNOME Control Center";
