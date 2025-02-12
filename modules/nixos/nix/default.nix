@@ -21,9 +21,10 @@ in
       package = pkgs.nixVersions.latest;
 
       settings = {
+        #$ man nix.conf
         experimental-features = [ "nix-command" "flakes" ];
         allowed-users = [ "@wheel" ];
-        trusted-users = [ "root" ];
+        trusted-users = [ "@wheel" ];
 
         auto-optimise-store = true;
         connect-timeout = 5;
