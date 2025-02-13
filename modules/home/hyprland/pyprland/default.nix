@@ -72,8 +72,6 @@ in
         "SUPER_ALT, mouse_down, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
         "SUPER_ALT, mouse_up, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
         "SUPER_ALT, mouse:274, exec, ${pkgs.pyprland}/bin/pypr zoom"
-        # toggle_dpms
-        "SUPER, ODIAERESIS, exec, ${pkgs.pyprland}/bin/pypr toggle_dpms"
         # toggle_special (minimize windows)
         "SUPER, Y, exec, ${pkgs.pyprland}/bin/pypr toggle_special minimized" # move
         "SUPER_SHIFT, Y, togglespecialworkspace, minimized" # show

@@ -192,6 +192,7 @@ in
             "SUPER_CONTROL, ADIAERESIS, exec, poweroff" # quick-poweroff
             "SUPER_CONTROL, ODIAERESIS, exec, poweroff --reboot" # quick-reboot
             "SUPER, UDIAERESIS, exec, systemctl suspend" # quick-suspend
+            "SUPER, ODIAERESIS, exec, sleep 0.5 && hyprctl dispatch dpms off" # screen off
 
             # Window control
             "SUPER, DELETE, exec, hyprctl kill" # kill a window by clicking it
