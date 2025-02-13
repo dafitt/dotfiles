@@ -33,6 +33,7 @@ in
       # All options from the config.json can be used here.
       config = {
         # https://github.com/abenz1267/walker/blob/master/internal/config/config.default.toml
+        app_launch_prefix = "uwsm app -- ";
         disable_click_to_close = true;
         search.placeholder = host;
         ui.fullscreen = true;

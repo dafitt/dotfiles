@@ -22,6 +22,7 @@ in
       settings = {
         main = {
           # [settings](https://man.archlinux.org/man/fuzzel.ini.5.en)
+          launch-prefix = "uwsm app -- ";
           terminal = config.home.sessionVariables.TERMINAL;
           font = lib.mkForce "${config.stylix.fonts.serif.name}:size=16";
           letter-spacing = 1;

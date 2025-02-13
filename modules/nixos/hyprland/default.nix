@@ -11,7 +11,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.hyprland.enable = true;
+    programs.hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
 
     # used by plugins
     nix.settings = {

@@ -41,6 +41,7 @@ in
       # [Hyprland](https://github.com/hyprwm/Hyprland)
       wayland.windowManager.hyprland = {
         enable = true;
+        systemd.enable = false; # conflicts with UWSM
 
         settings = {
           # [Variables](https://wiki.hyprland.org/Configuring/Variables/)
@@ -186,7 +187,7 @@ in
             # https://wiki.hyprland.org/Configuring/Binds/
             # https://wiki.hyprland.org/Configuring/Dispatchers/
 
-            "SUPER_CONTROL, Q, exit," # Exit Hyprland all together (force quit Hyprland)
+            "SUPER_CONTROL, Q, exec, uwsm stop" # Exit Hyprland all together
             "SUPER_CONTROL, R, exec, hyprctl reload; forcerendererreload"
             "SUPER_CONTROL, ADIAERESIS, exec, poweroff" # quick-poweroff
             "SUPER_CONTROL, ODIAERESIS, exec, poweroff --reboot" # quick-reboot
@@ -346,20 +347,6 @@ in
           # on each reload
           exec = [ ];
 
-          # https://wiki.hyprland.org/Configuring/Environment-variables/
-          env = [
-            # https://wiki.hyprland.org/FAQ/
-
-            # XDG Specifications
-            "XDG_CURRENT_DESKTOP,Hyprland"
-            "XDG_SESSION_TYPE,wayland"
-            "XDG_SESSION_DESKTOP,Hyprland"
-
-            # QT
-            "QT_AUTO_SCREEN_SCALE_FACTOR,1" # enable automatic scaling
-            "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-          ];
-
           monitor = [ ", preferred, auto, 1" ];
         } // optionalAttrs cfg.smartGaps {
           workspace = [
@@ -391,6 +378,15 @@ in
         Install.WantedBy = [ "hyprland-session.target" ];
       };
 
+      # https://wiki.hyprland.org/Configuring/Environment-variables/
+      xdg.configFile."uwsm/env-hyprland" = {
+        text = '''';
+      };
+
+      xdg.configFile."uwsm/env" = {
+        text = '''';
+      };
+
       xdg.configFile."hypr/application-style.conf" = {
         text = config.lib.generators.toHyprconf {
           attrs = {
@@ -410,18 +406,18 @@ in
     })
     (mkIf cfg.ttyAutostart {
       programs.bash.profileExtra = ''
-        if [[ -z $DISPLAY && $(tty) =~ /dev/tty[1-2] && $XDG_SESSION_TYPE == tty ]]; then
-            exec Hyprland
+        if uwsm check may-start && uwsm select; then
+          exec systemd-cat -t uwsm_start uwsm start default
         fi
       '';
       programs.zsh.loginExtra = ''
-        if [[ -z $DISPLAY && $(tty) =~ /dev/tty[1-2] && $XDG_SESSION_TYPE == tty ]]; then
-            exec Hyprland
+        if uwsm check may-start && uwsm select; then
+          exec systemd-cat -t uwsm_start uwsm start default
         fi
       '';
       programs.fish.loginShellInit = ''
-        if test -z $DISPLAY; and tty | string match -r "/dev/tty[1-2]"; and test $XDG_SESSION_TYPE = tty
-            exec Hyprland
+        if uwsm check may-start && uwsm select
+          systemd-cat -t uwsm_start uwsm start default
         end
       '';
     })
