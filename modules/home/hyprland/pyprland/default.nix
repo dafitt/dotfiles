@@ -86,8 +86,8 @@ in
     systemd.user.services.pyprland = {
       Unit = {
         Description = "helper tool for Hyprland";
-        PartOf = [ "hyprland-session.target" ];
-        After = [ "hyprland-session.target" ];
+        PartOf = [ "wayland-session@Hyprland.target" ];
+        After = [ "wayland-session@Hyprland.target" ];
         ConditionEnvironment = "WAYLAND_DISPLAY";
       };
       Service = {
@@ -96,7 +96,7 @@ in
         Restart = "on-failure";
         X-Restart-Triggers = [ "${config.xdg.configFile."hypr/pyprland.toml".source}" ];
       };
-      Install.WantedBy = [ "hyprland-session.target" ];
+      Install.WantedBy = [ "wayland-session@Hyprland.target" ];
     };
   };
 }

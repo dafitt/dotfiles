@@ -368,7 +368,7 @@ in
         Unit = {
           Description = "Hyprland Polkit authentication agent";
           Documentation = "https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent/";
-          PartOf = [ "hyprland-session.target" ];
+          PartOf = [ "wayland-session@Hyprland.target" ];
         };
         Service = {
           ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
@@ -376,7 +376,7 @@ in
           RestartSec = 2;
           TimeoutStopSec = 10;
         };
-        Install.WantedBy = [ "hyprland-session.target" ];
+        Install.WantedBy = [ "wayland-session@Hyprland.target" ];
       };
 
       # https://wiki.hyprland.org/Configuring/Environment-variables/

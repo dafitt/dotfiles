@@ -18,7 +18,7 @@ in
       enable = true;
       systemd = {
         enable = true;
-        target = "hyprland-session.target";
+        target = "wayland-session@Hyprland.target";
       };
 
       # https://github.com/Alexays/Waybar/wiki/Configuration

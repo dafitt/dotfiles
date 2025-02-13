@@ -15,14 +15,14 @@ in
     systemd.user.services.hyprnotify = {
       Unit = {
         Description = "DBus Implementation for 'hyprctl notify'";
-        PartOf = [ "hyprland-session.target" ];
-        After = [ "hyprland-session.target" ];
+        PartOf = [ "wayland-session@Hyprland.target" ];
+        After = [ "wayland-session@Hyprland.target" ];
         ConditionEnvironment = "WAYLAND_DISPLAY";
       };
       Service = {
         ExecStart = "${pkgs.hyprnotify}/bin/hyprnotify";
       };
-      Install.WantedBy = [ "hyprland-session.target" ];
+      Install.WantedBy = [ "wayland-session@Hyprland.target" ];
     };
   };
 }

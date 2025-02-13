@@ -31,8 +31,8 @@ in
       Unit = {
         Description = "ricing wallpaper";
         ConditionEnvironment = "WAYLAND_DISPLAY";
-        After = [ "hyprland-session.target" ];
-        PartOf = [ "hyprland-session.target" ];
+        After = [ "wayland-session@Hyprland.target" ];
+        PartOf = [ "wayland-session@Hyprland.target" ];
         X-Restart-Triggers = [ "${config.xdg.configFile."kitty/wallpaper".source}" ];
       };
       Service = {
@@ -43,7 +43,7 @@ in
         ExecStart = "${config.programs.kitty.package}/bin/kitty --session wallpaper --override background_opacity=0";
         Restart = "always";
       };
-      Install.WantedBy = [ "hyprland-session.target" ];
+      Install.WantedBy = [ "wayland-session@Hyprland.target" ];
     };
   };
 }
