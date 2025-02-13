@@ -35,7 +35,9 @@ in
           # [Metadata keywords](https://docs.flatpak.org/en/latest/flatpak-command-reference.html?highlight=override#flatpak-metadata)
 
           Environment = { };
-          Context.filesystems = [ ];
+          Context.filesystems = [
+            "/nix/store:ro"
+          ];
         };
       };
     };
