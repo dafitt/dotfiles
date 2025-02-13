@@ -380,11 +380,11 @@ in
       };
 
       # https://wiki.hyprland.org/Configuring/Environment-variables/
-      xdg.configFile."uwsm/env-hyprland" = {
+      #` export KEY=VAL
+      xdg.configFile."uwsm/env" = {
         text = '''';
       };
-
-      xdg.configFile."uwsm/env" = {
+      xdg.configFile."uwsm/env-hyprland" = {
         text = '''';
       };
 
