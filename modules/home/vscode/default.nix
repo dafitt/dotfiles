@@ -376,11 +376,8 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = [ "SUPER_ALT, G, exec, ${getExe config.programs.vscode.package}" ];
-      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${getExe config.programs.vscode.package}" ];
+      bind = [ "SUPER_ALT, G, exec, uwsm app -- ${getExe config.programs.vscode.package}" ];
+      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.vscode.package}" ];
     };
-
-    # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
-    xdg.autoStart.packages = mkIf cfg.autostart [ config.programs.vscode.package ];
   };
 }

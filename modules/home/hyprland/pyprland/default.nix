@@ -25,7 +25,7 @@ in
       example = {
         btop = {
           animation = "fromTop";
-          command = "${config.home.sessionVariables.TERMINAL} --class btop ${getExe config.programs.btop.package}";
+          command = "uwsm app -- ${config.home.sessionVariables.TERMINAL} --class btop ${getExe config.programs.btop.package}";
           class = "btop";
           size = "90% 90%";
           margin = "2%";
@@ -33,7 +33,7 @@ in
         };
         pavucontrol = {
           animation = "fromRight";
-          command = "${pkgs.pavucontrol}/bin/pavucontrol";
+          command = "uwsm app -- ${pkgs.pavucontrol}/bin/pavucontrol";
           class = "pavucontrol";
           size = "40% 70%";
           margin = "2%";

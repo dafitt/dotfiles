@@ -25,7 +25,7 @@ in
     # simple cliphist selector
     wayland.windowManager.hyprland.settings = {
       bind = [
-        "SUPER_ALT, V, exec, ${pkgs.kitty}/bin/kitty --class=clipboard -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'"
+        "SUPER_ALT, V, exec, uwsm app -- ${pkgs.kitty}/bin/kitty --class=clipboard -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'"
       ];
       windowrulev2 = [
         "float, class:clipboard"

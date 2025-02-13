@@ -34,7 +34,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = [ "SUPER_ALT, Z, exec, xdg-open https://localhost:8384" ];
-      exec-once = [ "${pkgs.syncthing}/bin/syncthing serve --no-browser" ];
+      exec-once = [ "uwsm app -- ${pkgs.syncthing}/bin/syncthing serve --no-browser" ];
     };
   };
 }

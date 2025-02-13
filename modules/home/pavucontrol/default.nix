@@ -25,7 +25,7 @@ in
 
     dafitt.hyprland.pyprland.scratchpads.pavucontrol = {
       animation = "fromRight";
-      command = "${pkgs.pavucontrol}/bin/pavucontrol";
+      command = "uwsm app -- ${pkgs.pavucontrol}/bin/pavucontrol";
       class = "pavucontrol";
       size = "40% 70%";
       margin = "2%";

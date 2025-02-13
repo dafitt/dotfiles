@@ -52,7 +52,7 @@ in
     home.sessionVariables.EDITOR = mkIf cfg.configureVariables "${pkgs.micro}/bin/micro"; #TODO upstream programs.micro.package = pkgs.micro;
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, E, exec, ${config.home.sessionVariables.TERMINAL} -e ${pkgs.micro}/bin/micro" ];
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, E, exec, uwsm app -- ${config.home.sessionVariables.TERMINAL} -e ${pkgs.micro}/bin/micro" ];
     };
   };
 }

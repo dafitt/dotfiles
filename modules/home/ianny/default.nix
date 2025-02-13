@@ -45,6 +45,6 @@ in
       Install.WantedBy = [ "graphical-session.target" ];
     };
 
-    #wayland.windowManager.hyprland.settings.exec-once = [ "${pkgs.ianny}/bin/ianny" ];
+    #wayland.windowManager.hyprland.settings.exec-once = [ "uwsm app -- ${pkgs.ianny}/bin/ianny" ];
   };
 }

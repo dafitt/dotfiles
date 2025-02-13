@@ -77,7 +77,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.configureKeybindings
-        [ "SUPER, RETURN, exec, ${getExe config.programs.kitty.package}" ]
+        [ "SUPER, RETURN, exec, uwsm app -- ${getExe config.programs.kitty.package}" ]
       ++ optionals config.dafitt.hyprland.pyprland.enable
         [ "SUPER_ALT, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty" ];
       windowrulev2 = [
@@ -87,7 +87,7 @@ in
 
     dafitt.hyprland.pyprland.scratchpads.kitty = {
       animation = "fromTop";
-      command = "${config.programs.kitty.package}/bin/kitty --class dropterm --hold ${getExe config.programs.fastfetch.package}";
+      command = "uwsm app -- ${config.programs.kitty.package}/bin/kitty --class dropterm --hold ${getExe config.programs.fastfetch.package}";
       class = "dropterm";
       size = "90% 90%";
       margin = "2%";

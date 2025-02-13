@@ -338,11 +338,11 @@ in
           # only on launch
           exec-once = [
             # [Some of my apps take a really long time to open…?](https://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open)
-            "sleep 1 && ${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-            "${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+            #"sleep 1 && ${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+            #"${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
-            "${pkgs.wluma}/bin/wluma"
-            "${pkgs.udiskie}/bin/udiskie --no-automount --tray &"
+            "uwsm app -- ${pkgs.wluma}/bin/wluma"
+            "uwsm app -- ${pkgs.udiskie}/bin/udiskie --no-automount --tray &"
           ];
 
           # on each reload

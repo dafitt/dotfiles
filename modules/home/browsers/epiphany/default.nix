@@ -19,7 +19,7 @@ in
     home.packages = with pkgs; [ epiphany ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, W, exec, ${getExe pkgs.epiphany}" ];
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, W, exec, uwsm app -- ${getExe pkgs.epiphany}" ];
       exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.epiphany}" ];
     };
 

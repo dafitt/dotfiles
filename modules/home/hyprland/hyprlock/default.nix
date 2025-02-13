@@ -93,7 +93,7 @@ in
     };
 
     wayland.windowManager.hyprland.settings.bind = [
-      "SUPER, L, exec, ${getExe config.programs.hyprlock.package}" # Lock the screen
+      "SUPER, L, exec, uwsm app -- ${getExe config.programs.hyprlock.package}" # Lock the screen
     ];
   };
 }

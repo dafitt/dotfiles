@@ -52,8 +52,8 @@ in
       bind = [
         "SUPER, W, exec, hyprpanel toggleWindow bar-0"
       ];
-      exec-once = [ "${pkgs.hyprpanel}/bin/hyprpanel" ];
-      exec = [ "${pkgs.hyprpanel}/bin/hyprpanel --quit; ${pkgs.hyprpanel}/bin/hyprpanel" ];
+      exec-once = [ "uwsm app -- ${pkgs.hyprpanel}/bin/hyprpanel" ];
+      exec = [ "${pkgs.hyprpanel}/bin/hyprpanel --quit; uwsm app -- ${pkgs.hyprpanel}/bin/hyprpanel" ];
     };
   };
 }

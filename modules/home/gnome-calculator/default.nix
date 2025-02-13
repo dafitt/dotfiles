@@ -14,7 +14,7 @@ in
     home.packages = with pkgs; [ gnome-calculator ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = [ ", XF86Calculator, exec, ${pkgs.gnome-calculator}/bin/gnome-calculator" ];
+      bind = [ ", XF86Calculator, exec, uwsm app -- ${pkgs.gnome-calculator}/bin/gnome-calculator" ];
       windowrulev2 = [
         "float, class:org.gnome.Calculator, title:Calculator"
         "keepaspectratio, class:org.gnome.Calculator, title:Calculator"

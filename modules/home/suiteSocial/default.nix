@@ -24,8 +24,6 @@ in
     ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = [ ];
-      exec-once = [ ];
       windowrulev2 = [
         "float, class:whatsapp-desktop-linux, title:WhatsApp"
       ];

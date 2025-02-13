@@ -56,8 +56,8 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, F, exec, ${pkgs.nautilus}/bin/nautilus" ];
-      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${pkgs.nautilus}/bin/nautilus" ];
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, F, exec, uwsm app -- uwsm app -- ${pkgs.nautilus}/bin/nautilus" ];
+      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] uwsm app -- ${pkgs.nautilus}/bin/nautilus" ];
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart

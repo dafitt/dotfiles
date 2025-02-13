@@ -20,7 +20,7 @@ in
 
     dafitt.hyprland.pyprland.scratchpads.bluetooth = {
       animation = "fromRight";
-      command = "${pkgs.overskride}/bin/overskride";
+      command = "uwsm app -- ${pkgs.overskride}/bin/overskride";
       class = "io.github.kaii_lb.Overskride";
       size = "40% 70%";
       margin = "2%";

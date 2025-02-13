@@ -20,7 +20,7 @@ in
 
     dafitt.hyprland.pyprland.scratchpads.connman = {
       animation = "fromRight";
-      command = "${pkgs.connman-gtk}/bin/connman-gtk";
+      command = "uwsm app -- ${pkgs.connman-gtk}/bin/connman-gtk";
       class = "connman-gtk";
       size = "40% 70%";
       margin = "2%";

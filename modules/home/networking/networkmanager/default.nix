@@ -20,7 +20,7 @@ in
 
     dafitt.hyprland.pyprland.scratchpads.networkmanager = {
       animation = "fromRight";
-      command = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
+      command = "uwsm app -- ${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
       class = "nm-connection-editor";
       size = "40% 70%";
       margin = "2%";

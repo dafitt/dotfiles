@@ -43,8 +43,8 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, F, exec, ${config.programs.yazi.package}/bin/yazi" ];
-      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${config.programs.yazi.package}/bin/yazi" ];
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, F, exec, uwsm app -- ${config.programs.yazi.package}/bin/yazi" ];
+      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] uwsm app -- ${config.programs.yazi.package}/bin/yazi" ];
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart

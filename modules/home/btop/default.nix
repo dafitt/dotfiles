@@ -33,7 +33,7 @@ in
 
     dafitt.hyprland.pyprland.scratchpads.btop = {
       animation = "fromTop";
-      command = "${config.home.sessionVariables.TERMINAL} --class btop ${getExe config.programs.btop.package} --update 3000";
+      command = "uwsm app -- ${config.home.sessionVariables.TERMINAL} --class btop ${getExe config.programs.btop.package} --update 3000";
       class = "btop";
       size = "90% 90%";
       margin = "2%";
