@@ -16,7 +16,7 @@ in
       plugins = [ pkgs.hyprlandPlugins.hycov ];
 
       settings.bind = [
-        "SUPER, tab, hycov:toggleoverview"
+        "SUPER, TAB, hycov:toggleoverview"
         "SUPER, E, hycov:toggleoverview, forceall"
       ];
 

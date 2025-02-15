@@ -208,31 +208,31 @@ in
             "SUPER, Z, alterzorder, top" # floating only
             "SUPER_SHIFT, Z, alterzorder, bottom" # floating only
             "SUPER, B, pin," # floating only
-            "SUPER, left, movefocus, l"
-            "SUPER, right, movefocus, r"
-            "SUPER, up, movefocus, u"
-            "SUPER, down, movefocus, d"
+            "SUPER, LEFT, movefocus, l"
+            "SUPER, RIGHT, movefocus, r"
+            "SUPER, UP, movefocus, u"
+            "SUPER, DOWN, movefocus, d"
             (mkIf (!cfg.plugins.hycov.enable) "SUPER, Tab, cyclenext,")
             "SUPER, Tab, cyclenext, prev"
-            "SUPER_SHIFT, left, swapwindow, l"
-            "SUPER_SHIFT, right, swapwindow, r"
-            "SUPER_SHIFT, up, swapwindow, u"
-            "SUPER_SHIFT, down, swapwindow, d"
+            "SUPER_SHIFT, LEFT, swapwindow, l"
+            "SUPER_SHIFT, RIGHT, swapwindow, r"
+            "SUPER_SHIFT, UP, swapwindow, u"
+            "SUPER_SHIFT, DOWN, swapwindow, d"
             "SUPER_SHIFT, Tab, swapnext,"
-            "SUPER_ALT, plus, resizeactive, 100 0"
-            "SUPER_ALT, minus, resizeactive, -100 0"
-            "SUPER_ALT, right, resizeactive, 100 0"
-            "SUPER_ALT, left, resizeactive, -100 0"
-            "SUPER_ALT, down, resizeactive, 0 100"
-            "SUPER_ALT, up, resizeactive, 0 -100"
+            "SUPER_ALT, PLUS, resizeactive, 100 0"
+            "SUPER_ALT, MINUS, resizeactive, -100 0"
+            "SUPER_ALT, RIGHT, resizeactive, 100 0"
+            "SUPER_ALT, LEFT, resizeactive, -100 0"
+            "SUPER_ALT, DOWN, resizeactive, 0 100"
+            "SUPER_ALT, UP, resizeactive, 0 -100"
             # Window groups
-            "SUPER_CONTROL, G, togglegroup,"
+            "SUPER_CONTROL, G, togglegroUP,"
             "SUPER, G, changegroupactive, f"
             "SUPER_SHIFT, G, changegroupactive, f"
-            "SUPER_SHIFT_CONTROL, left, movewindoworgroup, l"
-            "SUPER_SHIFT_CONTROL, right, movewindoworgroup, r"
-            "SUPER_SHIFT_CONTROL, up, movewindoworgroup, u"
-            "SUPER_SHIFT_CONTROL, down, movewindoworgroup, d"
+            "SUPER_SHIFT_CONTROL, LEFT, movewindoworgroUP, l"
+            "SUPER_SHIFT_CONTROL, RIGHT, movewindoworgroUP, r"
+            "SUPER_SHIFT_CONTROL, UP, movewindoworgroUP, u"
+            "SUPER_SHIFT_CONTROL, DOWN, movewindoworgroUP, d"
 
           ] ++ optionals (!any (config: config.enable) [ cfg.plugins.hyprsplit cfg.plugins.hyprnome ]) [
             # Workspace control
@@ -260,8 +260,8 @@ in
             "SUPER, code:86, focusworkspaceoncurrentmonitor, +1" # Numpad +
             "SUPER, code:82, focusworkspaceoncurrentmonitor, -1" # Numpad -
             "SUPER, backspace, focusworkspaceoncurrentmonitor, previous"
-            "SUPER, mouse_down, focusworkspaceoncurrentmonitor, -1"
-            "SUPER, mouse_up, focusworkspaceoncurrentmonitor, +1"
+            "SUPER, mouse_DOWN, focusworkspaceoncurrentmonitor, -1"
+            "SUPER, mouse_UP, focusworkspaceoncurrentmonitor, +1"
 
             # Move active window to a workspace
             "SUPER_SHIFT, 1, movetoworkspacesilent, 1"
@@ -289,10 +289,10 @@ in
 
           ] ++ optionals (!cfg.plugins.hyprsplit.enable) [
             # Monitor control
-            "SUPER_CTRL, left, movecurrentworkspacetomonitor, l"
-            "SUPER_CTRL, right, movecurrentworkspacetomonitor, r"
-            "SUPER_CTRL, up, movecurrentworkspacetomonitor, u"
-            "SUPER_CTRL, down, movecurrentworkspacetomonitor, d"
+            "SUPER_CTRL, LEFT, movecurrentworkspacetomonitor, l"
+            "SUPER_CTRL, RIGHT, movecurrentworkspacetomonitor, r"
+            "SUPER_CTRL, UP, movecurrentworkspacetomonitor, u"
+            "SUPER_CTRL, DOWN, movecurrentworkspacetomonitor, d"
 
           ] ++ [
             # some small helper programs
@@ -328,12 +328,12 @@ in
             "ALT, XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 2.5%-"
 
             # Keyboard
-            ", XF86KbdBrightnessUp, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -A 10"
-            ", XF86KbdBrightnessDown, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -U 10"
+            ", XF86KbdBrightnessUP, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -A 10"
+            ", XF86KbdBrightnessDOWN, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -U 10"
 
             # Monitor
-            ", XF86MonBrightnessUp, exec, ${pkgs.light}/bin/light -U 5"
-            ", XF86MonBrightnessDown, exec, ${pkgs.light}/bin/light -A 5"
+            ", XF86MonBrightnessUP, exec, ${pkgs.light}/bin/light -U 5"
+            ", XF86MonBrightnessDOWN, exec, ${pkgs.light}/bin/light -A 5"
           ];
 
           # only on launch

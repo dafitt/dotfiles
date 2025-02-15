@@ -17,7 +17,7 @@ in
       # https://github.com/KZDKM/Hyprspace
       plugins = with pkgs; [ inputs.hyprspace.packages.${system}.default ];
 
-      settings.bind = [ "SUPER, asciicircum, overview:toggle, " ];
+      settings.bind = [ "SUPER, ASCIICIRCUM, overview:toggle, " ];
 
       settings.plugin.overview = {
         # behaviour

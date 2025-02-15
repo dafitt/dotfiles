@@ -67,8 +67,8 @@ in
       bind = [
         # magnify
         "SUPER, Z, exec, ${pkgs.pyprland}/bin/pypr zoom"
-        "SUPER, minus, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
-        "SUPER, plus, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
+        "SUPER, MINUS, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
+        "SUPER, PLUS, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
         "SUPER_ALT, mouse_down, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
         "SUPER_ALT, mouse_up, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
         "SUPER_ALT, mouse:274, exec, ${pkgs.pyprland}/bin/pypr zoom"
@@ -78,7 +78,7 @@ in
       ];
       bindn = [
         # scratchpads
-        ", Escape, exec, ${pkgs.pyprland}/bin/pypr hide '*'"
+        ", ESCAPE, exec, ${pkgs.pyprland}/bin/pypr hide '*'"
       ];
     };
 
