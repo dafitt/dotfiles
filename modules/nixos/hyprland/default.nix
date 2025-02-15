@@ -13,6 +13,8 @@ in
   config = mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
+
+      # https://wiki.hyprland.org/Useful-Utilities/Systemd-start/
       withUWSM = true;
     };
 
