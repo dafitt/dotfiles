@@ -296,8 +296,9 @@ in
 
           ] ++ [
             # some small helper programs
-            "SUPER_ALT, U, exec, ${gnome-characters}/bin/gnome-characters"
-            "SUPER_ALT, K, exec, ${getExe hyprpicker} | ${wl-clipboard-rs}/bin/wl-copy"
+            "SUPER_ALT, U, exec, uwsm app -- ${gnome-characters}/bin/gnome-characters"
+            "SUPER_ALT, K, exec, uwsm app -- ${getExe hyprpicker} | ${wl-clipboard-rs}/bin/wl-copy"
+            "SUPER_ALT, SPACE, exec, uwsm app -- ${getExe nwg-drawer} -ovl"
 
             # Audio
             ", XF86AudioMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
