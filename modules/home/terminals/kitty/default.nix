@@ -21,7 +21,6 @@ in
     programs.kitty = {
       enable = true;
 
-      font.size = mkForce (config.stylix.fonts.sizes.terminal + 2);
       settings = {
         # https://sw.kovidgoyal.net/kitty/conf/
 

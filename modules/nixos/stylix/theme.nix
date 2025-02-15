@@ -48,9 +48,9 @@ with lib.dafitt;
       };
       sizes = {
         applications = 12; # used by applications
-        desktop = 11; # used in window titles/bars/widgets elements of the desktop
+        desktop = 14; # used in window titles/bars/widgets elements of the desktop
         popups = 14; # for notifications/popups and in general overlay elements of the desktop
-        terminal = 12; # for terminals/text editors
+        terminal = 14; # for terminals/text editors
       };
     };
   };

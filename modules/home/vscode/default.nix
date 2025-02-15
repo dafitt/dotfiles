@@ -29,7 +29,6 @@ in
         "window.titleBarStyle" = "custom";
         "window.title" = "\${rootPath}/\${activeEditorShort}";
         "window.autoDetectHighContrast" = false;
-        "window.zoomLevel" = 1;
 
         # Workbench
         "workbench.colorCustomizations" = {
