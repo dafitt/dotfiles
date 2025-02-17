@@ -15,6 +15,8 @@ with lib.dafitt; {
     hyprland.hypridle.timeouts.lock = 0;
     hyprland.hypridle.timeouts.suspend = 0;
     hyprland.monitors = [{ name = "desc:Microstep MSI MAG271CQP 0x3030424C"; primary = true; width = 2560; height = 1440; refreshRate = 144; }];
+    hyprland.plugins.hypr-dynamic-cursors.enable = true;
+    hyprland.plugins.hypr-dynamic-cursors.mode = "rotate";
     launchers.rofi.enable = true;
     suiteEditing.enable = true;
     suiteMusic.enable = true;
