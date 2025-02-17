@@ -13,6 +13,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       # https://github.com/micha4w/Hypr-DarkWindow
+      #TODO upstream: add to nixpkgs
       plugins = with pkgs; [ inputs.hypr-darkwindow.packages.${system}.Hypr-DarkWindow ];
 
       settings.bind = [ "SUPER, O, invertactivewindow, " ];
