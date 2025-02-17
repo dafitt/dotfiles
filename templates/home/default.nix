@@ -92,7 +92,6 @@ with lib.dafitt; {
       nwg-displays = { enable = false; };
       plugins = {
         enable = false;
-        hycov = { enable = false; };
         hypr-darkwindow = { enable = false; };
         hypr-dynamic-cursors = { enable = false; };
         hyprexpo = { enable = false; };

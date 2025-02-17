@@ -212,7 +212,7 @@ in
             "SUPER, RIGHT, movefocus, r"
             "SUPER, UP, movefocus, u"
             "SUPER, DOWN, movefocus, d"
-            (mkIf (!cfg.plugins.hycov.enable) "SUPER, Tab, cyclenext,")
+            "SUPER, Tab, cyclenext,"
             "SUPER, Tab, cyclenext, prev"
             "SUPER_SHIFT, LEFT, swapwindow, l"
             "SUPER_SHIFT, RIGHT, swapwindow, r"
