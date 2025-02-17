@@ -27,7 +27,6 @@ in
           right = [ "bluetooth" "network" "volume" "battery" "dashboard" ];
         };
       };
-      theme = "catppuccin_mocha_vivid";
       settings = {
         bar.bluetooth.label = false;
         bar.clock.format = "%Y-%m-%d  %R";
@@ -48,6 +47,9 @@ in
         theme.bar.transparent = true;
         theme.font.name = config.stylix.fonts.serif.name;
         theme.font.size = "${toString config.stylix.fonts.sizes.desktop}px";
+        theme.osd.location = "bottom";
+        theme.osd.margins = "80px";
+        theme.osd.orientation = "horizontal";
       };
 
       override =
