@@ -19,16 +19,13 @@ in
 
       settings.bind = [ "SUPER, ACUTE, hyprexpo:expo, toggle" ]; # can be: toggle, off/disable or on/enable
 
+      # https://github.com/hyprwm/hyprland-plugins/tree/main/hyprexpo#config
       extraConfig = ''
         plugin:hyprexpo {
-          columns = 3
+          workspace_method = first 1
+          gesture_positive = true
           gap_size = ${toString config.wayland.windowManager.hyprland.settings.general.gaps_in}
           bg_col = rgb(${config.lib.stylix.colors.base04})
-          workspace_method = center current # [center/first] [workspace] e.g. first 1 or center m+1
-
-          enable_gesture = true # laptop touchpad, 4 fingers
-          gesture_distance = 300 # how far is the "max"
-          gesture_positive = false # positive = swipe down. Negative = swipe up.
         }
       '';
     };

@@ -23,6 +23,7 @@ in
         hyprland.cliphist.enable = true;
         hyprland.hypridle.enable = true;
         hyprland.hyprlock.enable = true;
+        hyprland.plugins.hyprexpo.enable = true;
         hyprland.pyprland.enable = true;
         hyprland.themes.hyprpanel.enable = true;
         hyprland.wlsunset.enable = true;
