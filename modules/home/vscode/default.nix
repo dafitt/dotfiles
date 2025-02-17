@@ -137,6 +137,9 @@ in
         "code-runner.ignoreSelection" = true;
         "code-runner.runInTerminal" = true;
         "codeium.enableCodeLens" = false; # no inline action button popup
+        "codeium.enableConfig" = {
+          "nix" = true;
+        };
         "codesnap.containerPadding" = "0em";
         "codesnap.roundedCorners" = false;
         "codesnap.showWindowControls" = false;
