@@ -33,6 +33,7 @@ with lib.dafitt; {
     displayManager.gdm.enable = true;
     flatpak.enable = true;
     gnome.enable = true;
+    hyprland.enable = true;
     networking.firewall.allowLocalsend = true;
     networking.firewall.allowSyncthing = true;
     suiteDevelopment.enable = true;

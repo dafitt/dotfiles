@@ -10,7 +10,7 @@ with lib.dafitt; {
 
   dafitt = {
     filemanagers.yazi.enable = true;
-    hyprland.monitors = [{ name = "eDP-2"; primary = true; width = 1920; height = 1200; refreshRate = 165; vrr = 1; workspace = "1"; }];
+    hyprland.monitors = [{ name = "eDP-2"; primary = true; width = 2560; height = 1600; refreshRate = 165; scale = 1.25; vrr = 1; }];
     latex.enable = false;
     launchers.rofi.enable = true;
     steam.enable = true;
