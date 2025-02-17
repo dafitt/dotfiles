@@ -26,6 +26,7 @@
     -   [Troubleshooting](#troubleshooting)
         -   [Some options in modules/home/ or homes/ are not being applied with nixos-rebuild](#some-options-in-moduleshome-or-homes-are-not-being-applied-with-nixos-rebuild)
         -   [Unable to see fonts](#unable-to-see-fonts)
+        -   [bluetoothd: Failed to set mode: Failed (0x03)](#bluetoothd-failed-to-set-mode-failed-0x03)
     -   [👀, 🏆 and ❤️](#--and-️)
 
 My dotfiles are not perfekt, but they strive to be:
@@ -473,6 +474,13 @@ Manually reload the fontconfig cache using
 
 ```shell
 fc-cache -r
+```
+
+### bluetoothd: Failed to set mode: Failed (0x03)
+
+```shell
+rfkill list
+sudo rfkill unblock bluetooth
 ```
 
 ## 👀, 🏆 and ❤️
