@@ -39,6 +39,37 @@ in
             example = 144;
             default = 60;
           };
+          x = mkOption {
+            type = int;
+            description = "The x-coordinate of the monitor.";
+            default = 0;
+          };
+          y = mkOption {
+            type = int;
+            description = "The y-coordinate of the monitor.";
+            default = 0;
+          };
+          scale = mkOption {
+            type = addCheck float (n: n > 0);
+            example = 1.25;
+            description = "The scale of the monitor.";
+            default = 1.0;
+          };
+          transform = mkOption {
+            type = addCheck int (n: n >= 0 && n <= 7);
+            description = ''
+              Controls the transformation of your monitors.
+              0 - normal (no transforms)
+              1 - 90 degrees
+              2 - 180 degrees
+              3 - 270 degrees
+              4 - flipped
+              5 - flipped + 90 degrees
+              6 - flipped + 180 degrees
+              7 - flipped + 270 degrees
+            '';
+            default = 0;
+          };
           vrr = mkOption {
             type = addCheck int (n: n >= 0 && n <= 2);
             description = ''
@@ -57,31 +88,6 @@ in
               NOTE: Some applications do not support screen capture with 10 bit enabled.
             '';
             default = 8;
-          };
-          x = mkOption {
-            type = int;
-            description = "The x-coordinate of the monitor.";
-            default = 0;
-          };
-          y = mkOption {
-            type = int;
-            description = "The y-coordinate of the monitor.";
-            default = 0;
-          };
-          transform = mkOption {
-            type = addCheck int (n: n >= 0 && n <= 7);
-            description = ''
-              Controls the transformation of your monitors.
-              0 - normal (no transforms)
-              1 - 90 degrees
-              2 - 180 degrees
-              3 - 270 degrees
-              4 - flipped
-              5 - flipped + 90 degrees
-              6 - flipped + 180 degrees
-              7 - flipped + 270 degrees
-            '';
-            default = 0;
           };
           mirror = mkOption {
             type = nullOr str;
@@ -133,14 +139,15 @@ in
           let
             resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
             position = "${toString m.x}x${toString m.y}";
+            scale = ",${toString m.scale}";
+            transform = if m.transform != 0 then ",transform,${toString m.transform}" else "";
             vrr = if m.vrr != 0 then ",vrr,${toString m.vrr}" else "";
             bitdepth = if m.bitdepth != 8 then ",bitdepth,${toString m.bitdepth}" else "";
-            transform = if m.transform != 0 then ",transform,${toString m.transform}" else "";
             mirror = if m.mirror != null then ",mirror,${m.mirror}" else "";
           in
           "${m.name},${
             if m.enable
-            then "${resolution},${position},1${transform}${vrr}${bitdepth}${mirror}"
+            then "${resolution},${position}${scale}${transform}${vrr}${bitdepth}${mirror}"
             else "disable"
           }"
         )
