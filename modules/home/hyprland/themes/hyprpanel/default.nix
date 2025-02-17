@@ -29,8 +29,10 @@ in
       };
       theme = "catppuccin_mocha_vivid";
       settings = {
+        bar.bluetooth.label = false;
         bar.clock.format = "%Y-%m-%d  %R";
         bar.launcher.autoDetectIcon = true;
+        bar.network.label = false;
         bar.workspaces.reverse_scroll = true;
         bar.workspaces.show_icons = true;
         menus.clock.time.military = true;
