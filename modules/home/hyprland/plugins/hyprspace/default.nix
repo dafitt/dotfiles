@@ -15,7 +15,7 @@ in
 
     wayland.windowManager.hyprland = {
       # https://github.com/KZDKM/Hyprspace
-      plugins = with pkgs; [ inputs.hyprspace.packages.${system}.default ];
+      plugins = [ pkgs.hyprlandPlugins.hyprspace ];
 
       settings.bind = [ "SUPER, ASCIICIRCUM, overview:toggle, " ];
 

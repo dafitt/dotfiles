@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       # https://github.com/donovanglover/hyprnome
-      plugins = with pkgs; [ hyprnome ];
+      plugins = [ pkgs.hyprnome ];
 
       settings.bind = [
         "SUPER, 1, exec, ${pkgs.hyprnome}/bin/hyprnome --previous"

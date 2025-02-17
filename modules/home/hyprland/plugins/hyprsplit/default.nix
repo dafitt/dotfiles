@@ -13,7 +13,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       # https://github.com/shezdy/hyprsplit
-      plugins = with pkgs; [ inputs.hyprsplit.packages.${system}.hyprsplit ];
+      plugins = [ pkgs.hyprlandPlugins.hyprsplit ];
 
       settings.bind = [
         "SUPER, H, split:swapactiveworkspaces, current +1"
