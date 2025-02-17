@@ -12,6 +12,7 @@ in
 
   config = mkIf cfg.enable {
     dafitt.stylix.enable = true;
+    dafitt.hyprland.plugins.hyprexpo.enable = false;
 
     wayland.windowManager.hyprland = {
       # https://github.com/KZDKM/Hyprspace
@@ -19,6 +20,7 @@ in
 
       settings.bind = [ "SUPER, ASCIICIRCUM, overview:toggle, " ];
 
+      # https://github.com/KZDKM/Hyprspace?tab=readme-ov-file#configuration
       settings.plugin.overview = {
         # behaviour
         exitOnSwitch = true;
