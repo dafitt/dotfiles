@@ -385,9 +385,12 @@ in
       xdg.configFile."uwsm/env" = {
         text = '''';
       };
-      xdg.configFile."uwsm/env-hyprland" = {
-        text = '''';
-      };
+      xdg.configFile."uwsm/env-hyprland".text =
+        let
+          hyprlandEnvList = config.wayland.windowManager.hyprland.settings.env;
+          modifiedHyprlandEnvVars = builtins.map (x: "export ${lib.replaceStrings [ "," "=" ] [ "=" "=" ] x}") hyprlandEnvList;
+        in
+        builtins.concatStringsSep "\n" modifiedHyprlandEnvVars;
 
       xdg.configFile."hypr/application-style.conf" = {
         text = config.lib.generators.toHyprconf {
