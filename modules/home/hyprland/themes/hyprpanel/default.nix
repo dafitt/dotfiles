@@ -33,8 +33,9 @@ in
         bar.clock.format = "%Y-%m-%d  %R";
         bar.launcher.autoDetectIcon = true;
         bar.network.label = false;
+        bar.workspaces.ignored = "^-\d\d?$";
         bar.workspaces.reverse_scroll = true;
-        bar.workspaces.show_icons = true;
+        bar.workspaces.show_numbered = true;
         menus.clock.time.military = true;
         menus.clock.weather.unit = "metric";
         menus.dashboard.directories.enabled = false;
