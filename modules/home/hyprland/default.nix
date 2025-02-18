@@ -19,8 +19,8 @@ in
       dafitt = {
         stylix.enable = true;
       } // (mkDefault {
+        clipboardManagers.default = "cliphist";
         gnome-calculator.enable = true;
-        hyprland.cliphist.enable = true;
         hyprland.hypridle.enable = true;
         hyprland.hyprlock.enable = true;
         hyprland.plugins.hyprexpo.enable = true;
