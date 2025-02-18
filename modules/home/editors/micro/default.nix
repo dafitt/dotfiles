@@ -49,10 +49,10 @@ in
       };
     };
 
-    home.sessionVariables.EDITOR = mkIf cfg.configureVariables "${pkgs.micro}/bin/micro"; #TODO upstream programs.micro.package = pkgs.micro;
+    home.sessionVariables.EDITOR = mkIf cfg.configureVariables (getExe pkgs.micro); #TODO upstream programs.micro.package = pkgs.micro;
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, E, exec, uwsm app -- ${config.home.sessionVariables.TERMINAL} -e ${pkgs.micro}/bin/micro" ];
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, E, exec, uwsm app -- ${getExe pkgs.kitty} -e ${pkgs.micro}/bin/micro" ];
     };
   };
 }

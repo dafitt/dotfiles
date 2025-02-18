@@ -72,7 +72,7 @@ in
     };
 
     # this option is being used by other modules
-    home.sessionVariables.TERMINAL = mkIf cfg.configureVariables "${getExe config.programs.kitty.package}";
+    home.sessionVariables.TERMINAL = mkIf cfg.configureVariables (getExe config.programs.kitty.package);
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.configureKeybindings

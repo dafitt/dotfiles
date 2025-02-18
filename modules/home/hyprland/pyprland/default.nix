@@ -25,7 +25,7 @@ in
       example = {
         btop = {
           animation = "fromTop";
-          command = "uwsm app -- ${config.home.sessionVariables.TERMINAL} --class btop ${getExe config.programs.btop.package}";
+          command = "uwsm app -- ${getExe pkgs.kitty} --class btop ${getExe config.programs.btop.package}";
           class = "btop";
           size = "90% 90%";
           margin = "2%";
