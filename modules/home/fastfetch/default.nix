@@ -17,7 +17,7 @@ in
       settings = {
         logo = { };
         display = {
-          binaryPrefix = "si";
+          size.binaryPrefix = "si";
           color = {
             title = "green";
             keys = "yellow";
