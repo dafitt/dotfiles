@@ -22,14 +22,18 @@ in
 
       layout."bar.layouts" = {
         "0" = {
+          # https://hyprpanel.com/configuration/modules.html
           left = [ "workspaces" "windowtitle" ];
           middle = [ "systray" "notifications" "clock" "media" ];
-          right = [ "bluetooth" "network" "volume" "battery" "dashboard" ];
+          right = [ "bluetooth" "network" "volume" "hypridle" "battery" "dashboard" ];
         };
       };
       settings = {
         bar.bluetooth.label = false;
         bar.clock.format = "%Y-%m-%d  %R";
+        bar.customModules.hypridle.label = false;
+        bar.customModules.hypridle.offIcon = ""; # swapped icons
+        bar.customModules.hypridle.onIcon = ""; # swapped icons
         bar.launcher.autoDetectIcon = true;
         bar.network.label = false;
         bar.workspaces.ignored = "^-\\\\d\\\\d?$"; # -> "^-\\d\\d?$"
