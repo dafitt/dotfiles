@@ -8,8 +8,8 @@ let
   betterfox = pkgs.fetchFromGitHub {
     owner = "yokoffing";
     repo = "Betterfox";
-    rev = "116.1";
-    hash = "sha256-Ai8Szbrk/4FhGhS4r5gA2DqjALFRfQKo2a/TwWCIA6g=";
+    rev = "135.0"; # https://github.com/yokoffing/Betterfox/releases
+    hash = "sha256-5fD8ffAyIgQYJ0Z/bMEpqf17YghVQNaK+giZ1Tyk6/Q=";
   };
 in
 {
@@ -66,14 +66,10 @@ in
           # Disable some useless stuff
           #
           "app.normandy.first_run" = false; # disable first run intro
-          "extensions.pocket.enabled" = false; # disable pocket, save links, send tabs
           "extensions.shield-recipe-client.enabled" = false;
-          "browser.aboutConfig.showWarning" = false; # disable warning when opening about:config
-          "browser.shell.checkDefaultBrowser" = false; # do not check if default browser
           "middlemouse.paste" = false; # disable middle click paste
           "dom.push.connection.enabled" = false;
           "device.sensors.enabled" = false; # This isn't a phone
-          "geo.enabled" = false; # Disable geolocation alltogether
 
           # disable the "new tab page" feature and show a blank tab instead
           "browser.newtabpage.enabled" = false;
@@ -81,12 +77,7 @@ in
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
           "browser.newtab.url" = "about:blank";
 
-          # don't predict network requests
-          "network.predictor.enabled" = false;
-          "browser.urlbar.speculativeConnect.enabled" = false;
-
           # Extensions are managed with Nix, so don't update.
-          "extensions.update.autoUpdateDefault" = false;
           "extensions.update.enabled" = false;
         };
 
@@ -98,10 +89,10 @@ in
           (builtins.readFile "${betterfox}/Peskyfox.js")
           (builtins.readFile "${betterfox}/Securefox.js")
 
+          # Additional settings #
           # [Fastfox.js](https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js) overrides
           # GFX RENDERING TWEAKS
           ''user_pref("gfx.webrender.all", true);''
-
           # [Peskyfox.js](https://github.com/yokoffing/Betterfox/blob/main/Peskyfox.js) overrides
           # DOWNLOADS
           ''user_pref("browser.download.useDownloadDir", true);'' # dont ask where to download
@@ -110,34 +101,22 @@ in
           ''user_pref("browser.link.open_newwindow.restriction", 0);''
           # UNCATEGORIZED
           ''user_pref("browser.backspace_action", 0);''
-
           # [Securefox.js](https://github.com/yokoffing/Betterfox/blob/main/Securefox.js) overrides
-          # TRACKING PROTECTION
-          ''user_pref("privacy.donottrackheader.enabled", true);''
-          ''user_pref("privacy.trackingprotection.enabled", true);''
-          ''user_pref("privacy.trackingprotection.socialtracking.enabled", true);''
-          ''user_pref("beacon.enabled", false);'' # No bluetooth location BS in my webbrowser please
-          ''user_pref("dom.battery.enabled", false);'' # you don't need to see my battery...
           # CONTAINERS
           ''user_pref("privacy.userContext.enabled", true);''
-          # PASSWORDS
-          ''user_pref("signon.rememberSignons", false);''
-          ''user_pref("signon.autofillForms", false);''
-          ''user_pref("browser.contentblocking.report.lockwise.enabled", false);'' # don't use firefox password manger
-          # ADDRESS + CREDIT CARD MANAGER
-          ''user_pref("extensions.formautofill.creditCards.enabled", false);'' # don't auto-fill credit card information
           # MOZILLA
-          ''user_pref("identity.fxaccounts.enabled", true);'' # eanble Firefox Sync
           ''user_pref("webchannel.allowObject.urlWhitelist", "https://content.cdn.mozilla.net https://install.mozilla.org https://accounts.firefox.com");'' # fix for cannot sign in to firefox sync account
           ''user_pref("dom.push.enabled", false);'' # no notifications, really...
-          # TELEMETRY
-          ''user_pref("extensions.webcompat-reporter.enabled", false);'' # don't report compability problems to mozilla
-          ''user_pref("browser.urlbar.eventTelemetry.enabled", false);'' # (default)
-          # PLUGINS
-          ''user_pref("browser.eme.ui.enabled", false);''
-          ''user_pref("media.eme.enabled", false);''
-          # DETECTION
-          ''user_pref("extensions.abuseReport.enabled", false);'' # don't show 'report abuse' in extensions
+
+          # Optional Hardening #
+          # https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening#password-credit-card-and-address-management
+          # Password, credit card, and address management
+          ''user_pref("signon.rememberSignons", false);''
+          ''user_pref("extensions.formautofill.addresses.enabled", false);''
+          ''user_pref("extensions.formautofill.creditCards.enabled", false);''
+          # Block embedded social posts on webpages
+          ''user_pref("urlclassifier.trackingSkipURLs", "");''
+          ''user_pref("urlclassifier.features.socialtracking.skipURLs", "");''
         ];
 
         #userChrome = ''
@@ -145,7 +124,7 @@ in
         #  #TabsToolbar { visibility: collapse; }
         #'';
 
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           # https://nur.nix-community.org/repos/rycee/
           # privacy and convenience
           clearurls # alternative: link-cleaner
