@@ -48,7 +48,6 @@ in
 
         "${config.services.displayManager.sessionData.desktops}/share/xsessions"
         "${config.services.displayManager.sessionData.desktops}/share/wayland-sessions"
-        #NOTE More paths are set from the nixos/desktops-modules
       ];
     })
   ];
