@@ -18,18 +18,20 @@ in
     };
 
     home.packages = with pkgs; [
-      nerd-fonts.fira-code
-      nerd-fonts.fira-mono
       clang-tools # clangd for c/c++
       dig # tool for DNS
       fira-code-symbols # the ligatures aviable as symbols
       gcc # gnu c compiler
       gnome-nettool
-      gucharmap # to search unicode characters
       gnumake # makefile
+      gucharmap # to search unicode characters
       httpie # a modern command line HTTP client
       mtr # better traceroute
+      nerd-fonts.fira-code
+      nerd-fonts.fira-mono
       nil # nix language server
+      nix-prefetch # Prefetch any fetcher function call, e.g. package sources
+      nix-prefetch-github # Prefetch sources from github
       nixpkgs-fmt # nix code formatter
       wev # tool for keyboard input
       yed # Drawing flowcharts
