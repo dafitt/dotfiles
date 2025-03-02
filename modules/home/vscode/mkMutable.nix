@@ -7,35 +7,27 @@ with lib.dafitt;
 let
   # Path logic from:
   # https://github.com/nix-community/home-manager/blob/3876cc613ac3983078964ffb5a0c01d00028139e/modules/programs/vscode.nix
-  cfg = config.programs.vscode;
-
-  vscodePname = cfg.package.pname;
-
-  configDir = {
+  configDirName = {
     "vscode" = "Code";
     "vscode-insiders" = "Code - Insiders";
     "vscodium" = "VSCodium";
-  }.${vscodePname};
+  }.${config.programs.vscode.package.pname};
 
-  userDir =
+  configUserDirPath =
     if pkgs.stdenv.hostPlatform.isDarwin then
-      "Library/Application Support/${configDir}/User"
+      "Library/Application Support/${configDirName}/User"
     else
-      "${config.xdg.configHome}/${configDir}/User";
+      "${config.xdg.configHome}/${configDirName}/User";
 
-  configFilePath = "${userDir}/settings.json";
-  tasksFilePath = "${userDir}/tasks.json";
-  keybindingsFilePath = "${userDir}/keybindings.json";
-
-  snippetDir = "${userDir}/snippets";
-
-  pathsToMakeWritable = lib.flatten [
-    (lib.optional (cfg.profile.default.userTasks != { }) tasksFilePath)
-    (lib.optional (cfg.profile.default.userSettings != { }) configFilePath)
-    (lib.optional (cfg.profile.default.keybindings != { }) keybindingsFilePath)
-    (lib.optional (cfg.profile.default.globalSnippets != { }) "${snippetDir}/global.code-snippets")
-    (lib.mapAttrsToList (language: _: "${snippetDir}/${language}.json") cfg.profile.default.languageSnippets)
-  ];
+  snippetDir = "${configUserDirPath}/snippets";
+  pathsToMakeWritable = lib.flatten
+    (with config.programs.vscode.profiles.default; [
+      (lib.optional (userSettings != { }) "${configUserDirPath}/settings.json")
+      (lib.optional (keybindings != { }) "${configUserDirPath}/keybindings.json")
+      (lib.optional (userTasks != { }) "${configUserDirPath}/tasks.json")
+      (lib.optional (globalSnippets != { }) "${snippetDir}/global.code-snippets")
+      (lib.mapAttrsToList (language: _: "${snippetDir}/${language}.json") languageSnippets)
+    ]);
 in
 {
   options.dafitt.vscode = with types; {

@@ -33,7 +33,6 @@ in
   config = {
     home.activation.mutableFileGeneration =
       let
-
         allFiles = (builtins.concatLists (map
           (attrPath: builtins.attrValues (lib.getAttrFromPath attrPath config))
           fileOptionAttrPaths));
@@ -57,7 +56,6 @@ in
         command = ''
           echo "Copying mutable home files for $HOME"
         '' + lib.concatLines (map toCommand mutableFiles);
-
       in
       (config.lib.dag.entryAfter [ "linkGeneration" ] command);
   };
