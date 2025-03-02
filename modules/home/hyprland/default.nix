@@ -351,6 +351,8 @@ in
           exec = [ ];
 
           monitor = [ ", preferred, auto, 1" ];
+
+          env = [ ];
         } // optionalAttrs cfg.smartGaps {
           workspace = [
             "w[tv1], gapsout:0, gapsin:0"
