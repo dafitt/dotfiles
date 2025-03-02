@@ -30,11 +30,11 @@ let
   snippetDir = "${userDir}/snippets";
 
   pathsToMakeWritable = lib.flatten [
-    (lib.optional (cfg.userTasks != { }) tasksFilePath)
-    (lib.optional (cfg.userSettings != { }) configFilePath)
-    (lib.optional (cfg.keybindings != { }) keybindingsFilePath)
-    (lib.optional (cfg.globalSnippets != { }) "${snippetDir}/global.code-snippets")
-    (lib.mapAttrsToList (language: _: "${snippetDir}/${language}.json") cfg.languageSnippets)
+    (lib.optional (cfg.profile.default.userTasks != { }) tasksFilePath)
+    (lib.optional (cfg.profile.default.userSettings != { }) configFilePath)
+    (lib.optional (cfg.profile.default.keybindings != { }) keybindingsFilePath)
+    (lib.optional (cfg.profile.default.globalSnippets != { }) "${snippetDir}/global.code-snippets")
+    (lib.mapAttrsToList (language: _: "${snippetDir}/${language}.json") cfg.profile.default.languageSnippets)
   ];
 in
 {
