@@ -328,13 +328,11 @@ in
             "ALT, XF86AudioRaiseVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 2.5%+"
             "ALT, XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 2.5%-"
 
-            # Keyboard
-            ", XF86KbdBrightnessUP, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -A 10"
-            ", XF86KbdBrightnessDOWN, exec, ${pkgs.light}/bin/light -s sysfs/leds/kbd_backlight -U 10"
-
-            # Monitor
-            ", XF86MonBrightnessUP, exec, ${pkgs.light}/bin/light -U 5"
-            ", XF86MonBrightnessDOWN, exec, ${pkgs.light}/bin/light -A 5"
+            # Brightness
+            ", XF86MonBrightnessUp, exec, ${getExe pkgs.brightnessctl} --exponent s 10%+"
+            ", XF86MonBrightnessDown, exec, ${getExe pkgs.brightnessctl} --exponent s 10%-"
+            ", XF86KbdBrightnessUp, exec, ${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%+"
+            ", XF86KbdBrightnessDown, exec, ${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%-"
           ];
 
           # only on launch
