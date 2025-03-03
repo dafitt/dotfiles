@@ -307,10 +307,16 @@ in
             ", XF86AudioMicMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
             # Screenshots
-            ", PRINT, exec, ${getExe grimblast} copysave output ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN
-            "SUPER, PRINT, exec, ${getExe grimblast} --notify --freeze copysave area ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')" # SELECT AREA
-            "ALT, PRINT, exec, ${getExe grimblast} --notify --freeze --cursor save output - | ${getExe satty} --filename - --fullscreen --output-filename ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')" # QUICK FULLSCREEN | EDIT
-            "SUPER_ALT, PRINT, exec, ${getExe grimblast} --freeze save area - | ${getExe satty} --filename - --output-filename ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')" # SELECT AREA | EDIT
+            # quick fullscreen | copy save
+            ", PRINT, exec, ${getExe grimblast} copysave output ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
+            # select area | copy save
+            "SUPER, PRINT, exec, ${getExe grimblast} --notify --freeze copysave area ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
+            # quick fullscreen | edit | save
+            "ALT, PRINT, exec, ${getExe grimblast} --notify --freeze --cursor save output - | ${getExe satty} --filename - --fullscreen --output-filename ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
+            # select area | edit | save
+            "SUPER_ALT, PRINT, exec, ${getExe grimblast} --freeze save area - | ${getExe satty} --filename - --output-filename ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
+            # select area | ocr | copy
+            "SUPER, T, exec, ${getExe grimblast} --freeze save area - | ${getExe tesseract} - - -l deu+eng | ${wl-clipboard-rs}/bin/wl-copy"
           ];
 
           # Bind: mouse binds
@@ -329,8 +335,8 @@ in
             "ALT, XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 2.5%-"
 
             # Brightness
-            ", XF86MonBrightnessUp, exec, ${getExe pkgs.brightnessctl} --exponent s 10%+"
-            ", XF86MonBrightnessDown, exec, ${getExe pkgs.brightnessctl} --exponent s 10%-"
+            ", XF86MonBrightnessUp, exec, ${getExe pkgs.brightnessctl} --exponent s 5%+"
+            ", XF86MonBrightnessDown, exec, ${getExe pkgs.brightnessctl} --exponent s 5%-"
             ", XF86KbdBrightnessUp, exec, ${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%+"
             ", XF86KbdBrightnessDown, exec, ${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%-"
           ];
