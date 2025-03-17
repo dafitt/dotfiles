@@ -23,6 +23,7 @@ in
 
   config = mkIf cfg.enable {
     dafitt.stylix.enable = true;
+    stylix.targets.firefox.profileNames = [ config.home.username ];
 
     programs.firefox = {
       enable = true;
@@ -130,12 +131,11 @@ in
           clearurls # alternative: link-cleaner
           cookie-autodelete
           darkreader
-          enhancer-for-youtube
+          #enhancer-for-youtube
           fastforwardteam
           i-dont-care-about-cookies
           localcdn
           privacy-badger
-          return-youtube-dislikes
           sidebery
           sponsorblock
           switchyomega
@@ -143,12 +143,9 @@ in
           ublock-origin
           undoclosetabbutton
           user-agent-string-switcher
-          youtube-recommended-videos
 
           # personal
           musescore-downloader
-          onepassword-password-manager
-          steam-database
           violentmonkey
         ];
 

@@ -28,8 +28,9 @@ with lib.dafitt;
     polarity = "dark"; # for epiphany, flatpaks
 
     cursor = {
-      package = pkgs.phinger-cursors;
       name = "phinger-cursors-light";
+      package = pkgs.phinger-cursors;
+      size = 32;
     };
 
     fonts = rec {

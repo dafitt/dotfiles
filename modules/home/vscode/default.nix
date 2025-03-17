@@ -20,6 +20,9 @@ in
       xdg-utils # xdg-open to open hyperlinks
     ];
 
+    dafitt.stylix.enable = true;
+    stylix.targets.vscode.profileNames = [ "default" ];
+
     programs.vscode = {
       enable = true;
       package = pkgs.vscodium;
