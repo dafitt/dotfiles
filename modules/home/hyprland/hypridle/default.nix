@@ -38,9 +38,9 @@ in
       settings = {
         general = {
           # declaration for dbus events
+          lock_cmd = mkIf hyprlockCfg.enable "${pkgs.procps}/bin/pidof hyprlock || uwsm app -- ${hyprlockCfg.package}/bin/hyprlock --immediate";
           before_sleep_cmd = mkIf (hyprlockCfg.enable && cfg.sleepTriggersLock) "${pkgs.systemd}/bin/loginctl lock-session";
           after_sleep_cmd = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on && ${pkgs.systemd}/bin/systemctl restart --user wlsunset.service";
-          lock_cmd = mkIf hyprlockCfg.enable "${pkgs.procps}/bin/pidof hyprlock || ${hyprlockCfg.package}/bin/hyprlock --immediate";
         };
 
         listener = [
