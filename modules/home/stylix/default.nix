@@ -21,13 +21,12 @@ in
       iconTheme = {
         enable = true;
 
-        # FIXME https://github.com/vinceliuice/Fluent-icon-theme/issues/96
-        #package = pkgs.fluent-icon-theme;
-        #dark = "Fluent-dark";
-        #light = "Fluent-light";
         package = pkgs.papirus-icon-theme.override { color = "paleorange"; };
         dark = "Papirus-Dark";
         light = "Papirus";
+        #package = pkgs.fluent-icon-theme.override { colorVariants = [ "orange" ]; };
+        #dark = "Fluent-orange-dark";
+        #light = "Fluent-orange-light";
       };
     };
 
