@@ -9,7 +9,6 @@ with lib.dafitt; {
   ];
 
   dafitt = {
-    bedtime.enable = true;
     filemanagers.yazi.enable = true;
     hyprland.hypridle.sleepTriggersLock = false;
     hyprland.hypridle.timeouts.lock = 0;
