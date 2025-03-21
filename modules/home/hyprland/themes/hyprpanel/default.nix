@@ -423,7 +423,7 @@ in
           "theme.bar.buttons.modules.cava.icon" = base02;
           "theme.bar.buttons.modules.cava.icon_background" = base0C;
           "theme.bar.buttons.modules.cava.border" = base0C;
-          #* Modifications in regex:
+          #* Own Theme Modifications:
           #* (text.*)base07;$ -> $1base05;
           #* (border.*)base01;$ -> $1base02;
           #* (osd\.bar_container.*)base00;$ -> $1base02;
