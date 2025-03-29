@@ -20,7 +20,6 @@ in
       file-roller.enable = true;
       filemanagers.default = "nautilus";
       flatpak.enable = true;
-      gedit.enable = true;
       imv.enable = true;
       mpv.enable = true;
       passwordManagers.default = "bitwarden";

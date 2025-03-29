@@ -54,7 +54,6 @@ with lib.dafitt; {
       yazi = { enable = false; };
     };
     flatpak = { enable = false; };
-    gedit = { enable = false; };
     gnome = {
       enable = false;
       extensions = {

@@ -17,6 +17,7 @@ in
       clapper # a simple and modern GNOME media player
       duf # a better 'df'
       gnome-characters # character picker
+      gnome-text-editor
       libnotify # sends desktop notifications to a notification daemon
       localsend # open source cross-platform alternative to AirDrop
       ncdu # disk usage analyzer with an ncurses interface
