@@ -36,7 +36,7 @@ in
       };
     };
 
-    wayland.windowManager.hyprland.settings.windowrulev2 = [
+    wayland.windowManager.hyprland.settings.windowrule = [
       "bordercolor rgb(1887d8), class:steam"
       "float, class:steam, title:(Friends List)|(Settings)"
     ];

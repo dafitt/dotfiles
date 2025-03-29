@@ -79,7 +79,7 @@ in
         [ "SUPER, RETURN, exec, uwsm app -- ${getExe config.programs.kitty.package}" ]
       ++ optionals config.dafitt.hyprland.pyprland.enable
         [ "SUPER_ALT, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty" ];
-      windowrulev2 = [
+      windowrule = [
         "idleinhibit always, class:idleinhibitor, floating:1"
       ];
     };

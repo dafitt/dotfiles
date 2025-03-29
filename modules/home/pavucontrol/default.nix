@@ -16,7 +16,7 @@ in
     wayland.windowManager.hyprland.settings = {
       bind = optionals config.dafitt.hyprland.pyprland.enable
         [ "SUPER_ALT, A, exec, ${pkgs.pyprland}/bin/pypr toggle pavucontrol" ];
-      windowrulev2 = [
+      windowrule = [
         "float, class:pavucontrol, title:^(Volume Control)$"
         "center, class:pavucontrol, title:^(Volume Control)$"
         #"size 800 600, class:pavucontrol, title:^(Volume Control)$"

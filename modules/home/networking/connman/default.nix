@@ -15,7 +15,7 @@ in
     wayland.windowManager.hyprland.settings = {
       bind = optionals config.dafitt.hyprland.pyprland.enable
         [ "SUPER_ALT, N, exec, ${pkgs.pyprland}/bin/pypr toggle connman" ];
-      windowrulev2 = [ "float, class:connman-gtk" ];
+      windowrule = [ "float, class:connman-gtk" ];
     };
 
     dafitt.hyprland.pyprland.scratchpads.connman = {

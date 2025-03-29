@@ -20,7 +20,7 @@ in
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.configureKeybindings [ ];
       exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${pkgs.MODULE}" ];
-      windowrulev2 = [ ];
+      windowrule = [ ];
     };
   };
 }

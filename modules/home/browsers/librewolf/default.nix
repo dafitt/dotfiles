@@ -124,7 +124,7 @@ in
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, W, exec, uwsm app -- ${config.programs.librewolf.package}/bin/librewolf" ];
       exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] uwsm app -- ${config.programs.librewolf.package}/bin/librewolf" ];
-      windowrulev2 = [
+      windowrule = [
         "idleinhibit fullscreen, class:librewolf, title:(Youtube)"
         "float, class:librewolf, title:^Extension: \(NoScript\) - NoScript"
         #FIXME initial title is librewolf

@@ -45,7 +45,7 @@ in
       exec-once = [
         "[workspace 3 silent;noinitialfocus] uwsm app -- ${pkgs.flatpak}/bin/flatpak run com.logseq.Logseq"
       ];
-      windowrulev2 = [
+      windowrule = [
         "float, class:scribus, title:(New Document)"
       ];
     };

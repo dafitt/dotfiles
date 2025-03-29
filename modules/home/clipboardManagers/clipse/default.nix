@@ -22,7 +22,7 @@ in
         "SUPER_ALT, V, exec, uwsm app -- ${getExe pkgs.kitty} --class=clipse -e ${getExe pkgs.clipse}"
       ];
       exec-once = [ "uwsm app -- ${getExe pkgs.clipse} -listen" ];
-      windowrulev2 = [
+      windowrule = [
         "float, class:(clipse)"
         "size 622 652, class:(clipse)"
         "center, class:(clipse)"

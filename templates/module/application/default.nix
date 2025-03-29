@@ -24,7 +24,7 @@ in
       exec = [ ];
       exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.APPLICATION}" ];
       binds = [ ];
-      windowrulev2 = [ ];
+      windowrule = [ ];
     };
   };
 }

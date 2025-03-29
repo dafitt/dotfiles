@@ -17,7 +17,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, PERIOD, exec, uwsm app -- ${pkgs.bitwarden-desktop}/bin/bitwarden" ];
-      windowrulev2 = [
+      windowrule = [
         "float, class:Bitwarden, title:Bitwarden"
       ];
     };

@@ -15,7 +15,7 @@ in
     wayland.windowManager.hyprland.settings = {
       bind = optionals config.dafitt.hyprland.pyprland.enable
         [ "SUPER_ALT, B, exec, ${pkgs.pyprland}/bin/pypr toggle bluetooth" ];
-      windowrulev2 = [ "float, class:io.github.kaii_lb.Overskride" ];
+      windowrule = [ "float, class:io.github.kaii_lb.Overskride" ];
     };
 
     dafitt.hyprland.pyprland.scratchpads.bluetooth = {

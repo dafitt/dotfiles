@@ -15,7 +15,7 @@ in
     wayland.windowManager.hyprland.settings = {
       bind = optionals config.dafitt.hyprland.pyprland.enable
         [ "SUPER_ALT, N, exec, ${pkgs.pyprland}/bin/pypr toggle networkmanager" ];
-      windowrulev2 = [ "float, class:nm-connection-editor" ];
+      windowrule = [ "float, class:nm-connection-editor" ];
     };
 
     dafitt.hyprland.pyprland.scratchpads.networkmanager = {

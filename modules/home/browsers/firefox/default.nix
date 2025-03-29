@@ -250,7 +250,7 @@ in
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, W, exec, uwsm app -- ${getExe config.programs.firefox.package}" ];
       exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.firefox.package}" ];
-      windowrulev2 = [
+      windowrule = [
         "idleinhibit fullscreen, class:firefox, title:(Youtube)"
         "float, class:firefox, title:^Extension: \(NoScript\) - NoScript"
       ];

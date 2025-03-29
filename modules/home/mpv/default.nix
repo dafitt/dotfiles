@@ -15,7 +15,7 @@ in
     programs.mpv.enable = true;
 
     wayland.windowManager.hyprland.settings = {
-      windowrulev2 = [
+      windowrule = [
         "idleinhibit focus, class:mpv" #
       ];
     };
