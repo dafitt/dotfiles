@@ -41,7 +41,7 @@ in
       gc = {
         automatic = true;
         dates = "monthly";
-        options = "--delete-older-than +12";
+        options = "--delete-older-than 45d";
       };
 
       # disable nix-channel, we use flakes instead.
