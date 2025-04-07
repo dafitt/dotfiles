@@ -26,7 +26,6 @@ in
         default-folder-viewer = "list-view";
         show-create-link = true;
         show-delete-permanently = true;
-        show-image-thumbnails = "never";
       };
       "org/gnome/nautilus/icon-view" = {
         captions = [ "size" "none" "none" ];
