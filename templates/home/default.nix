@@ -39,9 +39,6 @@ with lib.dafitt; {
       micro = { enable = false; };
     };
     enable = false;
-    eog = {
-      enable = false;
-    };
     fastfetch = { enable = false; };
     file-roller = {
       enable = false;

@@ -20,6 +20,7 @@ in
       gnome-text-editor
       libnotify # sends desktop notifications to a notification daemon
       localsend # open source cross-platform alternative to AirDrop
+      loupe # image viewer
       ncdu # disk usage analyzer with an ncurses interface
       numbat # high precision scientific calculator with full support for physical units
       raider # file shredder

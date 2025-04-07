@@ -15,7 +15,6 @@ in
       browsers.default = "firefox";
       btop.enable = true;
       editors.default = "micro";
-      eog.enable = true;
       fastfetch.enable = true;
       file-roller.enable = true;
       filemanagers.default = "nautilus";
