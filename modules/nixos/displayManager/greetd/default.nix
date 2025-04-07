@@ -16,6 +16,7 @@ in
       settings = rec {
         default_session = tuigreet_session;
 
+        # https://github.com/apognu/tuigreet
         tuigreet_session = {
           command = concatStringsSep " " [
             #$ nix run nixpkgs#greetd.tuigreet -- --help
@@ -24,7 +25,7 @@ in
             "--remember"
             "--remember-user-session"
             "--sessions '${concatStringsSep ":" config.dafitt.displayManager.sessionPaths}'"
-            "--theme 'border=red;container=black;time=white;prompt=green;action=magenta;button=magenta;text=cyan'"
+            "--theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'"
           ];
           user = "greeter";
         };
