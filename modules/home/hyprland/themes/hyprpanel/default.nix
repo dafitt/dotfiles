@@ -20,15 +20,15 @@ in
       enable = true;
       overwrite.enable = true;
 
-      layout."bar.layouts" = {
-        "0" = {
-          # https://hyprpanel.com/configuration/modules.html
-          left = [ "workspaces" "windowtitle" ];
-          middle = [ "systray" "notifications" "clock" "media" ];
-          right = [ "bluetooth" "network" "volume" "hypridle" "battery" "dashboard" ];
-        };
-      };
       settings = {
+        layout."bar.layouts" = {
+          "0" = {
+            # https://hyprpanel.com/configuration/modules.html
+            left = [ "workspaces" "windowtitle" ];
+            middle = [ "systray" "notifications" "clock" "media" ];
+            right = [ "bluetooth" "network" "volume" "hypridle" "battery" "dashboard" ];
+          };
+        };
         bar.bluetooth.label = false;
         bar.clock.format = "%Y-%m-%d  %R";
         bar.customModules.hypridle.label = false;
@@ -42,7 +42,7 @@ in
         menus.clock.time.military = true;
         menus.clock.weather.unit = "metric";
         menus.dashboard.directories.enabled = false;
-        menus.dashboard.stats.enable_gpu = true;
+        menus.dashboard.stats.enabled = false;
         theme.bar.buttons.radius = "${toString (hyprlandCfg.settings.decoration.rounding / 2)}px";
         theme.bar.menus.border.radius = "${toString hyprlandCfg.settings.decoration.rounding}px";
         theme.bar.menus.border.size = "${toString hyprlandCfg.settings.general.border_size}px";
