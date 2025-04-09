@@ -12,6 +12,7 @@ in
 
     smartGaps = mkEnableOption "smart gaps workspace rules (no gaps when only one window on workspace)";
     ttyAutostart = mkBoolOpt true "Whether to autostart Hyprland from a tty after login.";
+    ttyAutostartNumbers = mkOpt str "2" "TTY numbers on where to autostart from after login. Bash strings [] syntax.";
   };
 
   config = mkMerge [
@@ -190,9 +191,9 @@ in
 
             "SUPER_CONTROL, Q, exec, uwsm stop" # Exit Hyprland all together
             "SUPER_CONTROL, R, exec, hyprctl reload; forcerendererreload"
-            "SUPER_CONTROL, ADIAERESIS, exec, poweroff" # quick-poweroff
-            "SUPER_CONTROL, ODIAERESIS, exec, poweroff --reboot" # quick-reboot
-            "SUPER, UDIAERESIS, exec, systemctl suspend" # quick-suspend
+            "SUPER_CONTROL, ADIAERESIS, exec, ${systemd}/bin/systemctl poweroff" # quick-poweroff
+            "SUPER_CONTROL, ODIAERESIS, exec, ${systemd}/bin/systemctl reboot" # quick-reboot
+            "SUPER, UDIAERESIS, exec, ${systemd}/bin/systemctl suspend" # quick-suspend
             "SUPER, ODIAERESIS, exec, sleep 0.5 && hyprctl dispatch dpms off" # screen off
 
             # Window control
@@ -419,20 +420,21 @@ in
     })
     (mkIf cfg.ttyAutostart {
       programs.bash.profileExtra = ''
-        if uwsm check may-start && uwsm select; then
+        if [[ $(tty) =~ /dev/tty[${cfg.ttyAutostartNumbers}] ]] && uwsm check may-start && uwsm select; then
           exec systemd-cat -t uwsm_start uwsm start default
         fi
       '';
       programs.zsh.loginExtra = ''
-        if uwsm check may-start && uwsm select; then
+        if [[ $(tty) =~ /dev/tty[${cfg.ttyAutostartNumbers}] ]] && uwsm check may-start && uwsm select; then
           exec systemd-cat -t uwsm_start uwsm start default
         fi
       '';
       programs.fish.loginShellInit = ''
-        if uwsm check may-start && uwsm select
+        if tty | string match -r "/dev/tty[${cfg.ttyAutostartNumbers}]" && uwsm check may-start && uwsm select
           systemd-cat -t uwsm_start uwsm start default
         end
       '';
-    })
+    }
+    )
   ];
 }
