@@ -36,7 +36,7 @@ in
         bar.customModules.hypridle.onIcon = ""; # swapped icons
         bar.launcher.autoDetectIcon = true;
         bar.network.label = false;
-        bar.workspaces.ignored = "^-\\\\d\\\\d?$"; # -> "^-\\d\\d?$"
+        bar.workspaces.ignored = "^-\\d\\d?$"; # -> "^-\d\d?$"
         bar.workspaces.reverse_scroll = true;
         bar.workspaces.show_numbered = true;
         menus.clock.time.military = true;
@@ -430,10 +430,25 @@ in
         };
     };
 
+    systemd.user.services.hyprpanel = {
+      Unit = {
+        Description = "hyprpanel";
+        After = "wayland-session@Hyprland.target";
+        PartOf = "wayland-session@Hyprland.target";
+      };
+      Install.WantedBy = [ "wayland-session@Hyprland.target" ];
+      Service = {
+        Type = "simple";
+        ExecStart = "${pkgs.hyprpanel}/bin/hyprpanel";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+
     wayland.windowManager.hyprland.settings = {
       bind = [ "SUPER, W, exec, hyprpanel toggleWindow bar-0" ];
-      exec-once = [ "uwsm app -- ${pkgs.hyprpanel}/bin/hyprpanel" ];
-      exec = [ "${pkgs.hyprpanel}/bin/hyprpanel --quit; uwsm app -- ${pkgs.hyprpanel}/bin/hyprpanel" ];
+      exec = [ "${pkgs.systemd}/bin/systemctl --user restart hyprpanel.service" ];
     };
   };
 }

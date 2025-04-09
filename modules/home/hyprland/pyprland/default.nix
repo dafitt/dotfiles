@@ -90,13 +90,13 @@ in
         After = [ "wayland-session@Hyprland.target" ];
         ConditionEnvironment = "WAYLAND_DISPLAY";
       };
+      Install.WantedBy = [ "wayland-session@Hyprland.target" ];
       Service = {
         ExecStart = "${pkgs.pyprland}/bin/pypr";
         ExecStop = "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/rm $XDG_RUNTIME_DIR/hypr/*/.pyprland.sock'";
         Restart = "on-failure";
         X-Restart-Triggers = [ "${config.xdg.configFile."hypr/pyprland.toml".source}" ];
       };
-      Install.WantedBy = [ "wayland-session@Hyprland.target" ];
     };
   };
 }
