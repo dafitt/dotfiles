@@ -53,12 +53,16 @@ in
 
       sessionPath = [ "$HOME/Desktop/binaries" ];
 
+      sessionVariables = {
+        SYSTEMD_LESS = "j.25MqRFSWK#.25";
+      };
+
       shellAliases = {
         # skip an alias with #$ command ...
 
         # I don't like the default but my hand just types it
         top = "$TOP";
-        cat = "bat --paging=never";
+        cat = "bat --pager='less -qRFM'";
         df = "duf";
         du = "ncdu -r -x";
         tree = "eza -T";
@@ -69,9 +73,6 @@ in
         "..." = "cd ../..";
         "...." = "cd ../../..";
         "....." = "cd ../../../..";
-
-        # systemd
-        systemctl = "systemctl --no-pager --full";
 
         # Colors
         grep = "grep --color=auto";
