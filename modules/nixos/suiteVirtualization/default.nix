@@ -10,17 +10,5 @@ in
     enable = mkEnableOption "the Virtualization suite";
   };
 
-  config = mkIf cfg.enable {
-    virtualisation = {
-      # kvm hypervisor
-      libvirtd = {
-        enable = true;
-        onBoot = "ignore";
-        onShutdown = "shutdown";
-      };
-      spiceUSBRedirection.enable = true;
-    };
-
-    programs.virt-manager.enable = true;
-  };
+  config = mkIf cfg.enable { };
 }

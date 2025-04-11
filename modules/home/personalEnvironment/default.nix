@@ -29,6 +29,10 @@ in
       xfce.thunar # for the bulk renamer
     ];
 
+    services.flatpak.packages = [
+      { origin = "flathub"; appId = "com.usebottles.bottles"; } # Run Windows software on Linux
+    ];
+
     programs = {
       bat.enable = true;
       eza = {

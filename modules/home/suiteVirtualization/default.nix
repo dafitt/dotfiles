@@ -12,17 +12,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      bottles # run Windows software on Linux
-      spice-gtk # Needed for USB redirection in kvm-VMs.
-      virt-manager
-      win-virtio # windows drivers
-    ];
-
-    # virt-manager settings
-    dconf.settings."org/virt-manager/virt-manager/connections" = {
-      autoconnect = [ "qemu:///system" ];
-      uris = [ "qemu:///system" ];
+    dafitt = {
+      quickemu.enable = true;
     };
+
+    home.packages = with pkgs; [
+      gparted # Graphical disk partitioning tool
+    ];
   };
 }
