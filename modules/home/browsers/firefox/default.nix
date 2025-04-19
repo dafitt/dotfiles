@@ -131,7 +131,6 @@ in
           clearurls # alternative: link-cleaner
           cookie-autodelete
           darkreader
-          #enhancer-for-youtube
           fastforwardteam
           i-dont-care-about-cookies
           localcdn
@@ -139,7 +138,6 @@ in
           sidebery
           sponsorblock
           switchyomega
-          to-deepl
           ublock-origin
           undoclosetabbutton
           user-agent-string-switcher
