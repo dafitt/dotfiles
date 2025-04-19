@@ -189,7 +189,7 @@ in
             # https://wiki.hyprland.org/Configuring/Binds/
             # https://wiki.hyprland.org/Configuring/Dispatchers/
 
-            "SUPER_CONTROL, Q, exec, uwsm stop" # Exit Hyprland all together
+            "SUPER_CONTROL, Q, exec, hyprctl dispatch exit" # Exit Hyprland all together
             "SUPER_CONTROL, R, exec, hyprctl reload; forcerendererreload"
             "SUPER_CONTROL, ADIAERESIS, exec, ${systemd}/bin/systemctl poweroff" # quick-poweroff
             "SUPER_CONTROL, ODIAERESIS, exec, ${systemd}/bin/systemctl reboot" # quick-reboot
@@ -359,6 +359,11 @@ in
           monitor = [ ", preferred, auto, 1" ];
 
           env = [ ];
+
+          exec-shutdown = [
+            ''hyprctl --batch $(hyprctl -j clients | ${getExe pkgs.jq} -j '.[] | "dispatch closewindow address:\(.address); "')'' # close all windows
+            "uwsm stop"
+          ];
         } // optionalAttrs cfg.smartGaps {
           workspace = [
             "w[tv1], gapsout:0, gapsin:0"
