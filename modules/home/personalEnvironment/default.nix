@@ -55,7 +55,7 @@ in
     home = {
       language.base = "en_US.UTF-8";
 
-      sessionPath = [ "$HOME/Desktop/binaries" ];
+      sessionPath = [ "$HOME/.path" ];
 
       sessionVariables = {
         SYSTEMD_LESS = "j.25MqRFSWK#.25";
