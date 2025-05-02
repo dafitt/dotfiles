@@ -20,9 +20,6 @@ in
     services.flatpak = {
       packages = [
         "com.valvesoftware.Steam"
-        "com.valvesoftware.SteamLink"
-        "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
-        "com.valvesoftware.Steam.Utility.protontricks"
         "com.valvesoftware.Steam.Utility.steamtinkerlaunch"
         "org.freedesktop.Platform.VulkanLayer.gamescope//23.08"
         "org.freedesktop.Platform.VulkanLayer.MangoHud//23.08" # toggle HUD with Shift_R+F12

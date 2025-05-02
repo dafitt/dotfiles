@@ -39,7 +39,7 @@ in
         WINE_FULLSCREEN_FSR = "1";
         WLR_RENDERER = "vulkan";
       };
-      args = [ "--hdr-enabled" ];
+      args = [ ];
     };
 
     services.ratbagd.enable = true; # a DBus daemon to configure gaming mice
