@@ -146,18 +146,18 @@ in
 
         search = {
           force = true;
-          default = "searx";
+          default = "ddg";
           order = [ "ddg" "searx" "kagi" "youtube" "nix-packages" "nixos-options" "home-manager" "github" "hackernews" ];
 
           engines = {
             "bing".metaData.hidden = true;
+            "ddg".metaData.alias = "@d";
             "google".metaData.hidden = true;
-            #"amazon".metaData.hidden = true;
 
             "searx" = {
               name = "Searx";
               icon = "https://searx.schallernetz.de/favicon.ico";
-              definedAliases = [ "@searx" "@sx" ];
+              definedAliases = [ "@searx" "@sx" "@s" ];
               urls = [{
                 template = "https://searx.schallernetz.de/search";
                 params = [{ name = "q"; value = "{searchTerms}"; }];
@@ -212,7 +212,7 @@ in
             };
             "home-manager-options" = {
               name = "Home Manager Options";
-              definedAliases = [ "@home-manager-options" "@hmopt" "@hm" ];
+              definedAliases = [ "@home-manager-options" "@hmopt" "@hm" "@ho" ];
               urls = [{
                 template = "https://home-manager-options.extranix.com/";
                 params = [
