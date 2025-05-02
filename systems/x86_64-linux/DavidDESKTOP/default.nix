@@ -28,7 +28,7 @@ with lib.dafitt; {
     bluetooth.enable = true;
     displayManager.greetd.enable = true;
     flatpak.enable = true;
-    gnome.enable = true;
+    gnome.enable = false;
     hyprland.enable = true;
     networking.firewall.allowLocalsend = true;
     networking.firewall.allowSyncthing = true;
