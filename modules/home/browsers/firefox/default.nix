@@ -120,10 +120,11 @@ in
           ''user_pref("urlclassifier.features.socialtracking.skipURLs", "");''
         ];
 
-        #userChrome = ''
-        #  /* Completely hide tabs */
-        #  #TabsToolbar { visibility: collapse; }
-        #'';
+        userChrome = ''
+          /* hide tabs title bar, if a sidebar is used */
+          #main-window[titlepreface*="Vtabs"] #TabsToolbar { visibility: collapse; }
+          #main-window[titlepreface*="Vtabs"] #sidebar-header { display: none; }
+        '';
 
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           # https://nur.nix-community.org/repos/rycee/
