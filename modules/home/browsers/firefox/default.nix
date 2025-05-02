@@ -8,7 +8,7 @@ let
   betterfox = pkgs.fetchFromGitHub {
     owner = "yokoffing";
     repo = "Betterfox";
-    rev = "135.0"; # https://github.com/yokoffing/Betterfox/releases
+    rev = "137.0"; # https://github.com/yokoffing/Betterfox/tags
     hash = "sha256-5fD8ffAyIgQYJ0Z/bMEpqf17YghVQNaK+giZ1Tyk6/Q=";
   };
 in
