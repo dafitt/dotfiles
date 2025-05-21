@@ -25,6 +25,7 @@
         "jeff-hykin.better-syntax",
         "mohammadbaqer.better-folding",
         "aliariff.auto-add-brackets",
-        "edwinkofler.vscode-assorted-languages"
+        "edwinkofler.vscode-assorted-languages",
+        "editorconfig.editorconfig"
     ]
 }
