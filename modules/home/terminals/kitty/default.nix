@@ -59,6 +59,10 @@ in
         "kitty_mod+up" = "next_window";
         "kitty_mod+down" = "previous_window";
       };
+
+      actionAliases = {
+        "ssh" = "kitten ssh";
+      };
     };
 
     #$ kitty --session idleinhibitor
