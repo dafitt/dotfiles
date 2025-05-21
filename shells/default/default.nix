@@ -1,7 +1,6 @@
 { pkgs, inputs, ... }:
 
-#$ flake dev
-#$ nix develop
+#$ nix develop .#default
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; with inputs; [
     git
