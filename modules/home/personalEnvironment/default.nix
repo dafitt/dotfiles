@@ -12,21 +12,28 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      broot # an interactive tree view with fuzzy search, balanced BFS descent and customizable commands
-      calc # a calculator
-      clapper # a simple and modern GNOME media player
-      duf # a better 'df'
+      broot # interactive tree view with fuzzy search, balanced BFS descent and customizable commands
+      calc
+      clapper # simple and modern GNOME media player
+      dua # interactive `du`
+      duf # better `df`
+      dust # better `du`
+      fd # better `find`
+      gitui
       gnome-characters # character picker
       gnome-text-editor
+      hyperfine # benchmarking tool
       libnotify # sends desktop notifications to a notification daemon
       localsend # open source cross-platform alternative to AirDrop
       loupe # image viewer
       ncdu # disk usage analyzer with an ncurses interface
       numbat # high precision scientific calculator with full support for physical units
       raider # file shredder
+      ripgrep # better `grep`
       tldr # simplified and community-driven man pages
-      tree # a directory listing program
+      tokei # lines of code counter
       xfce.thunar # for the bulk renamer
+      wiki-tui # wikipedia in a terminal
     ];
 
     services.flatpak.packages = [
@@ -34,22 +41,19 @@ in
     ];
 
     programs = {
-      bat.enable = true;
+      bat.enable = true; # better `cat`
       eza = {
-        enable = true;
+        enable = true; # better `ls`
         icons = "auto";
         git = true;
       };
       fzf = {
-        enable = true;
+        enable = true; # fuzzy finder
         enableBashIntegration = true;
         enableZshIntegration = true;
       };
-      hstr.enable = true;
-      lsd = {
-        enable = true;
-        enableAliases = true; # ls, ll, la, lt ...
-      };
+      hstr.enable = true; # history search
+      zoxide.enable = true; # better `cd`
     };
 
     home = {
@@ -68,18 +72,15 @@ in
         top = "$TOP";
         cat = "bat --pager='less -qRFM'";
         df = "duf";
-        du = "ncdu -r -x";
         tree = "eza -T";
         fdisk = "gdisk";
+        du = "dust";
+        grep = "rg";
+        cd = "z";
 
         # Navigation;
         ".." = "cd ..";
         "..." = "cd ../..";
-        "...." = "cd ../../..";
-        "....." = "cd ../../../..";
-
-        # Colors
-        grep = "grep --color=auto";
 
         # rsync
         rsync-copy = "rsync --archive --progress -zvh";

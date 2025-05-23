@@ -29,6 +29,7 @@ in
       systemd.enable = true;
       time.enable = true;
       users.guest.enable = true;
+      uutils.enable = true;
     };
   };
 }
