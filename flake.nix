@@ -12,7 +12,6 @@
     nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; }; # https://github.com/NixOS/nixpkgs
     nur = { url = "github:nix-community/NUR"; }; # https://github.com/nix-community/NUR
     programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/wamserma/flake-programs-sqlite
-    snowfall-flake = { url = "github:snowfallorg/flake"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/flake
     snowfall-lib = { url = "github:snowfallorg/lib"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/lib
     stylix = { url = "github:danth/stylix"; }; # https://github.com/danth/stylix
     walker = { url = "github:abenz1267/walker"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/abenz1267/walker
