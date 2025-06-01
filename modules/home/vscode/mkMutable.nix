@@ -23,7 +23,7 @@ let
   pathsToMakeWritable = lib.flatten
     (with config.programs.vscode.profiles.default; [
       (lib.optional (userSettings != { }) "${configUserDirPath}/settings.json")
-      (lib.optional (keybindings != { }) "${configUserDirPath}/keybindings.json")
+      (lib.optional (keybindings != [ ]) "${configUserDirPath}/keybindings.json")
       (lib.optional (userTasks != { }) "${configUserDirPath}/tasks.json")
       (lib.optional (globalSnippets != { }) "${snippetDir}/global.code-snippets")
       (lib.mapAttrsToList (language: _: "${snippetDir}/${language}.json") languageSnippets)
