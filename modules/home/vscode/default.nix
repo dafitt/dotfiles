@@ -46,7 +46,7 @@ in
           "workbench.startupEditor" = "none";
           "workbench.statusBar.visible" = true;
           "workbench.tree.expandMode" = "doubleClick";
-          "workbench.tree.indent" = 24;
+          "workbench.tree.indent" = 12;
           # Editor
           "diffEditor.codeLens" = true;
           "diffEditor.diffAlgorithm" = "advanced";
