@@ -438,11 +438,12 @@ in
       };
       Install.WantedBy = [ "wayland-session@Hyprland.target" ];
       Service = {
-        Type = "simple";
-        ExecStart = "${pkgs.hyprpanel}/bin/hyprpanel";
+        ExecStart = ''${getExe pkgs.hyprpanel}'';
+        ExecReload = ''${getExe pkgs.hyprpanel} restart'';
+        ExecStop = ''${getExe pkgs.hyprpanel} quit'';
         Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
+        KillMode = "mixed";
+        Nice = "19";
       };
     };
 
