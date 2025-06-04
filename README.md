@@ -69,43 +69,39 @@ This flake can and will radically change as I learn, discover new things and hav
 
 ### On a new host machine
 
-1. Install [NixOS](https://nixos.org/download/) and enable the (experimental) nix feature [flakes](https://wiki.nixos.org/wiki/Flakes).
+1. Install [NixOS](https://nixos.org/download/) and enable the (experimental) nix feature [flakes](https://wiki.nixos.org/wiki/Flakes#Enabling_flakes).
 
-2. Dotfiles preparation: mandatory changes to my dotfiles
+2. **Dotfiles preparation** (mandatory changes to my dotfiles):
 
-    1. `git clone https://github.com/dafitt/dotfiles.git`
+    1. `git clone https://github.com/dafitt/dotfiles.git`.
+    2. `cd dotfiles`.
+    3. Read and understand my dotfiles' structure and code.
 
-    2. Read and understand my dotfiles' structure and code.
+    4. Add a (**your**) new system-configuration to _`/systems/<architecture>/<host>/default.nix`_.  
+       _Available `dafitt-nixos` options can be found at [templates/system/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix)._
 
-    3. Add a **your** (new) system-configuration to _`/systems/<architecture>/<host>/default.nix`_
-       _(available `dafitt-nixos` options can be found at [templates/system/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix))_
+    5. Copy and import _`hardware-configuration.nix`_.
 
-    4. Copy and import _`hardware-configuration.nix`_!
+    6. Set the correct current `system.stateVersion`.
 
-    5. Set the correct `system.stateVersion`
+    7. Add a (**your**) new home-configuration to _`homes/<architecture>/<user>[@<host>]/default.nix`_  
+       _Available `dafitt-home` options can be found at [templates/home/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix)._
 
-    6. Add a new home-configuration to _`homes/<architecture>/<user>[@<host>]/default.nix`_
-       _(available `dafitt-home` options can be found at [templates/home/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix))_
-
-    7. Commit all changes:
-
+    8. Commit all changes:
         ```
-        git add . && git commit -m "systems: added new host"
+        git add . && git commit -m "systems: added <host>"
         ```
 
-    8. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time
+    9. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time.
 
-3. Build
+3. Build:
 
-    1. Enter `nix-shell` and then `nix develop`
-
+    1. Enter `nix-shell` and then `nix develop .#default`
     2. `sudo nixos-rebuild boot --flake .#<host>`
-
     3. Check for home-manager errors with `systemctl status home-manager-<user>.service` and resolve them if necessary
-
     - _NOTE: First install may take some time; especially with flatpaks enabled._
 
-4. `reboot`
+4. `reboot`.
 
 5. Personal imperative setup:
 
@@ -117,6 +113,36 @@ This flake can and will radically change as I learn, discover new things and hav
         3. Sidebery
     4. pavucontrol: Set standard audio output
     5. vscode: codeium plugin
+
+### Only in a new home environment
+
+1. Install [nix](https://nixos.org/download/) and enable the (experimental) nix feature [flakes](https://wiki.nixos.org/wiki/Flakes#Other_Distros,_without_Home_Manager).
+
+2. **Dotfiles preparation** (mandatory changes to my dotfiles):
+
+    1. `git clone https://github.com/dafitt/dotfiles.git`.
+    2. `cd dotfiles`.
+    3. Read and understand my dotfiles' structure and code.
+
+    4. Set the correct current `system.stateVersion`.
+
+    5. Add a (**your**) new home-configuration to _`homes/<architecture>/<user>[@<host>]/default.nix`_  
+       _Available `dafitt-home` options can be found at [templates/home/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix)._
+
+    6. Commit all changes:
+        ```
+        git add . && git commit -m "homes: added <user>[@<host>]"
+        ```
+
+    7. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time.
+    
+3. Build:
+
+    1. Enter `nix develop .#default`'s shell.  
+       Alternative: `nix run home-manager -- --flake .#<user>[@<host>] switch`.
+    2. `home-manager --flake .#<user>[@<host>] switch`.
+    3. Check for home-manager errors with `systemctl status home-manager-<user>.service` and resolve them if necessary.
+    - _NOTE: First install may take some time; especially with flatpaks enabled._
 
 ## Configuration
 
