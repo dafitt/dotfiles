@@ -43,7 +43,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       exec-once = [
-        "[workspace 3 silent;noinitialfocus] uwsm app -- ${pkgs.flatpak}/bin/flatpak run com.logseq.Logseq"
+        "[workspace 7 silent;noinitialfocus] uwsm app -- ${pkgs.flatpak}/bin/flatpak run com.logseq.Logseq"
       ];
       windowrule = [
         "float, class:scribus, title:(New Document)"
