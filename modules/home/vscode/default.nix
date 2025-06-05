@@ -123,6 +123,9 @@ in
           "security.workspace.trust.enabled" = false;
           "security.workspace.trust.untrustedFiles" = "open";
           "telemetry.telemetryLevel" = "off";
+          "terminal.integrated.commandsToSkipShell" = [
+            "-workbench.action.quickOpenView"
+          ];
           "terminal.integrated.gpuAcceleration" = "on";
           "terminal.integrated.hideOnStartup" = "always";
           "update.mode" = "none";
