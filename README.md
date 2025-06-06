@@ -148,16 +148,16 @@ This flake can and will radically change as I learn, discover new things and hav
 
 ### NixOS stable branch
 
-To use [nixpkgs](https://github.com/NixOS/nixpkgs) stable branch, update the following inputs to the latest release (`23.11` as an example) in _[flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix)_ and rebuild the system. \
-ATTENTION! When the last release of [nixpkgs](https://github.com/NixOS/nixpkgs) is some time away, then you will likely need to refactor some changed options. So directly after a new release should be the best time to switch.
+To use [nixpkgs](https://github.com/NixOS/nixpkgs) stable branch, update the following inputs to the latest release (`25.05` as an example) in _[flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix)_ and rebuild the system. \
+ATTENTION! When the latest release of [nixpkgs](https://github.com/NixOS/nixpkgs) is some time away, then you will likely need to refactor some breaking changed options. See the backward incompatibilities [in the release notes](https://github.com/NixOS/nixpkgs/blob/nixos-unstable/nixos/doc/manual/release-notes/rl-2505.section.md#backward-incompatibilities-sec-release-2505-incompatibilities) for those. Directly after a new release should be the best time to switch.
 
 ```nix
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = { url = "github:nix-community/home-manager/release-23.11"; inputs.nixpkgs.follows = "nixpkgs"; };
-    stylix.url = "github:danth/stylix/release-23.11";
+    home-manager = { url = "github:nix-community/home-manager/release-25.05"; inputs.nixpkgs.follows = "nixpkgs"; };
+    stylix.url = "github:danth/stylix/release-25.05";
   };
 }
 ```
@@ -466,13 +466,13 @@ flake option github:dafitt/dotfiles --pick
 
 I use [snowfall-lib](https://github.com/snowfallorg/lib), so every _`default.nix`_ is automatically imported.
 
-My systems and homes are assembled using custom modules. Any custom module has at least one enable option which name matches the folder: `config.dafitt.<myModule>.enable`.
+My systems and homes are assembled using custom modules `config.dafitt.<myModule>`. Any custom module has at least one enable option `config.dafitt.<myModule>.enable` which name matches the folder _`modules/<nixos|home>/<myModule>/`_.
 
 Modules in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command.
 
 Modules in [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are built with `home-manager` (standalone) **and** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on. This is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _`home-manager-<user>.service`_. [snowfall-lib](https://github.com/snowfallorg/lib) will create the user if it doesn't exist yet.
 
-Some [home-modules](https://github.com/dafitt/dotfiles/blob/main/modules/home) in my dotfiles are automatically activated, if the sister module in [nixos-modules](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled. See this line in [modules/home/suiteGaming/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/suiteGaming/default.nix#L11) for example:
+Some [home-modules](https://github.com/dafitt/dotfiles/blob/main/modules/home) in my dotfiles are automatically activated, if the twin module in [nixos-modules](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled. See this line in [modules/home/suiteGaming/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/suiteGaming/default.nix#L11) for example:
 
 ```nix
 options.dafitt.suiteGaming.enable = mkBoolOpt (osConfig.dafitt.suiteGaming.enable or false) "...
