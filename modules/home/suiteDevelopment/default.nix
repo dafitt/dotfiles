@@ -13,8 +13,10 @@ in
 
   config = mkIf cfg.enable {
     dafitt = {
-      vscode.autostart = true;
+      starship.enable = true;
+      shells.fish.enable = true;
       vscode.enable = true;
+      vscode.autostart = true;
     };
 
     home.packages = with pkgs; [
