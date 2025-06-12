@@ -481,7 +481,7 @@ To solve this set your option to `true` in [modules/nixos/](https://github.com/d
 Manually reload the fontconfig cache using
 
 ```shell
-fc-cache -r
+fc-cache -r [-f]
 ```
 
 ### bluetoothd: Failed to set mode: Failed (0x03)
