@@ -11,6 +11,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    dafitt.steam.enable = true;
+
     environment.systemPackages = with pkgs; [
       piper # GUI for ratbagd
     ];
