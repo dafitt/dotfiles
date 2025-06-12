@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, inputs, osConfig ? { }, ... }:
+{ config, lib, pkgs, inputs, osConfig ? { }, ... }:
 
 with lib;
 with lib.dafitt;
