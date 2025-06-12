@@ -11,6 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    # TODO enable gui pkgs seperately
     home.packages = with pkgs; [
       broot # interactive tree view with fuzzy search, balanced BFS descent and customizable commands
       calc

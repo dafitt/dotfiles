@@ -9,8 +9,7 @@ with lib.dafitt; {
 
   dafitt = {
     filemanagers.yazi.enable = true;
-    # hyprland.enable = true;
-    # hyprland.hypridle.enable = false;
+    personalEnvironment.enable = true;
     suiteDevelopment.enable = true;
   };
 
