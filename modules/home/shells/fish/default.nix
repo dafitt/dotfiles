@@ -60,6 +60,15 @@ in
             commandline -f up-line
           end
         '';
+
+        almostontop = {
+          onEvent = "fish_preexec";
+          body = ''
+            clear -x
+            fish_prompt
+            echo $argv[1] | fish_indent --ansi
+          '';
+        };
       };
 
       # https://github.com/jorgebucaran/awsm.fish#readme
