@@ -9,6 +9,7 @@
 with lib;
 with lib.dafitt; {
   imports = with inputs; [
+    ./disk-configuration.nix
     ./hardware-configuration.nix
 
     ./DavidBACKUP.nix
@@ -52,23 +53,13 @@ with lib.dafitt; {
       options = [
         # [options](https://man.archlinux.org/man/mount.8#COMMAND-LINE_OPTIONS)
         "defaults"
-        #"user"
-        #"nofail"
-        "x-gvfs-show"
-        "X-mount.mkdir" # create directory if not existing
-      ];
-    };
-    "/mnt/file" = {
-      label = "FILE";
-      options = [
-        "defaults"
-        "user"
-        "nofail"
         "x-gvfs-show"
         "X-mount.mkdir" # create directory if not existing
       ];
     };
   };
+
+  services.btrfs.autoScrub.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
 
