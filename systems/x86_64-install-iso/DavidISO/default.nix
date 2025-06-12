@@ -21,7 +21,6 @@ with lib.dafitt; {
     bootloader.enable = null;
     fwupd.enable = true;
     hyprland.enable = true;
-    kernel.package = config.boot.zfs.package.latestCompatibleLinuxPackages;
     networking.enable = null;
     suiteDevelopment.enable = true;
     #TODO autologin main user?
