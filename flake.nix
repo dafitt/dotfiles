@@ -3,6 +3,7 @@
   #$ nix flake update [--commit-lock-file]
   #$ nix flake update <input>
   inputs = {
+    disko = { url = "github:nix-community/disko/latest"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/disko
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/home-manager
     hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow"; }; # https://github.com/micha4w/Hypr-DarkWindow
     hyprpanel = { url = "github:jas-singhfsu/hyprpanel"; inputs.nixpkgs.follows = "nixpkgs"; };

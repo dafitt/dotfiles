@@ -16,6 +16,7 @@
       nix
       home-manager
       git
+      disko
     ];
   };
 }
