@@ -29,7 +29,6 @@ in
       suiteWeb.enable = true;
       syncthing.enable = true;
       systemd.enable = true;
-      terminals.default = "kitty";
       xdg.enable = true;
     };
   };
