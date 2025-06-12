@@ -21,7 +21,6 @@ in
       kernel.enable = true;
       locale.enable = true;
       locate.enable = true;
-      networking.firewall.allowSyncthing = true;
       networking.networkmanager.enable = true;
       nix.enable = true;
       shells.default = "fish";
