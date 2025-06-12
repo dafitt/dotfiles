@@ -11,10 +11,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; with inputs; [
-      snowfall-flake.packages.${system}.default
-    ];
-
     programs.git.enable = true;
 
     nix = {

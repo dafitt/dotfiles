@@ -6,6 +6,5 @@ pkgs.mkShell {
     git
     nix
     home-manager.packages.${system}.default
-    snowfall-flake.packages.${system}.default
   ];
 }
