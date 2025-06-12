@@ -30,6 +30,7 @@ with lib.dafitt; {
     flatpak.enable = true;
     gnome.enable = false;
     hyprland.enable = true;
+    kernel.package = pkgs.linuxPackages_6_6;
     networking.firewall.allowLocalsend = true;
     networking.firewall.allowSyncthing = true;
     printing.enable = true;
