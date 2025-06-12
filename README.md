@@ -19,7 +19,6 @@
             -   [Update flake inputs](#update-flake-inputs)
             -   [Rollback](#rollback)
             -   [Code formatting](#code-formatting)
-            -   [snowfallorg/flake](#snowfallorgflake)
         -   [Hyprkeys](#hyprkeys)
     -   [Structure](#structure)
         -   [Modules](#modules)
@@ -277,23 +276,6 @@ Home-manager standalone: [see Home-manager documentation](https://nix-community.
 
 ```shell
 nix fmt [./folder] [./file.nix]
-```
-
-#### snowfallorg/flake
-
-[snowfallorg/flake](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage) provides some faster to type commands:
-
-```shell
-nix shell github:snowfallorg/flake
-
-flake dev
-flake test
-flake switch
-flake update
-
-# Explore flake
-flake show github:dafitt/dotfiles
-flake option github:dafitt/dotfiles --pick
 ```
 
 ### [Hyprkeys](https://github.com/hyprland-community/Hyprkeys)
