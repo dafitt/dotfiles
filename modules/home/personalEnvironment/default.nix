@@ -76,10 +76,6 @@ in
         top = "$TOP";
         tree = "eza -T";
 
-        # Navigation;
-        ".." = "cd ..";
-        "..." = "cd ../..";
-
         # rsync
         rsync-copy = "rsync --archive --progress -zvh";
         rsync-move = "rsync --archive --progress -zvh --remove-source-files";
