@@ -11,7 +11,7 @@ in
       type = nullOr (enum [
         "kitty"
       ]);
-      default = null;
+      default = "kitty";
       description = "Which terminal emulator will be used primarily.";
     };
   };
