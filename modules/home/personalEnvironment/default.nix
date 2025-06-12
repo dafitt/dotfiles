@@ -14,7 +14,6 @@ in
     # TODO enable gui pkgs seperately
     home.packages = with pkgs; [
       broot # interactive tree view with fuzzy search, balanced BFS descent and customizable commands
-      calc
       clapper # simple and modern GNOME media player
       dua # interactive `du`
       duf # better `df`
@@ -67,14 +66,15 @@ in
         # skip an alias with #$ command ...
 
         # I don't like the default but my hand just types it
-        top = "$TOP";
+        calc = "numbat";
         cat = "bat --pager='less -qRFM'";
-        df = "duf";
-        tree = "eza -T";
-        fdisk = "gdisk";
-        du = "dust";
-        grep = "rg";
         cd = "z";
+        df = "duf";
+        du = "dust";
+        fdisk = "gdisk";
+        grep = "rg";
+        top = "$TOP";
+        tree = "eza -T";
 
         # Navigation;
         ".." = "cd ..";
