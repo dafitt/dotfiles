@@ -25,6 +25,7 @@ in
       nix.enable = true;
       shells.default = "fish";
       stylix.enable = true;
+      sudo.enable = true;
       systemd.enable = true;
       time.enable = true;
       users.guest.enable = true;
