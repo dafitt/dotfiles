@@ -70,7 +70,7 @@
     homes.modules = with inputs; [
       hyprpanel.homeManagerModules.hyprpanel
       nix-flatpak.homeManagerModules.nix-flatpak
-      stylix.homeManagerModules.stylix
+      stylix.homeModules.stylix
       walker.homeManagerModules.default
       xdg-autostart.homeManagerModules.xdg-autostart
     ];

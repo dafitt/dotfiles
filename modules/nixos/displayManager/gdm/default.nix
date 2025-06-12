@@ -11,12 +11,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.xserver.enable = true;
-    services.xserver.displayManager = {
-      gdm = {
-        enable = true;
-        wayland = true;
-      };
+    services.displayManager.gdm = {
+      enable = true;
+      wayland = true;
     };
 
     programs.dconf.profiles.gdm.databases = [{
