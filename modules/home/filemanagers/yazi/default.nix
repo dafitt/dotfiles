@@ -22,6 +22,12 @@ in
       enableFishIntegration = true;
       enableNushellIntegration = true;
       enableZshIntegration = true;
+
+      keymap = {
+        mgr.append_keymap = [
+          { run = "tab_close"; on = "T"; }
+        ];
+      };
     };
 
     # https://github.com/sxyazi/yazi/blob/main/assets/yazi.desktop
