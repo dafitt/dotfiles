@@ -32,6 +32,7 @@ in
       nerd-fonts.fira-code
       nerd-fonts.fira-mono
       nil # nix language server
+      nix-converter # nix <-> json/yaml/toml converter
       nix-prefetch # Prefetch any fetcher function call, e.g. package sources
       nix-prefetch-github # Prefetch sources from github
       nixpkgs-fmt # nix code formatter
