@@ -19,10 +19,8 @@ in
       duf # better `df`
       dust # better `du`
       fd # better `find`
-      gitui
       gnome-characters # character picker
       gnome-text-editor
-      hyperfine # benchmarking tool
       libnotify # sends desktop notifications to a notification daemon
       localsend # open source cross-platform alternative to AirDrop
       loupe # image viewer
@@ -31,9 +29,8 @@ in
       raider # file shredder
       ripgrep # better `grep`
       tldr # simplified and community-driven man pages
-      tokei # lines of code counter
-      xfce.thunar # for the bulk renamer
       wiki-tui # wikipedia in a terminal
+      xfce.thunar # for the bulk renamer
     ];
 
     services.flatpak.packages = [

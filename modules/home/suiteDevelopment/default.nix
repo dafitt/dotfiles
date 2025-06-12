@@ -24,10 +24,12 @@ in
       dig # tool for DNS
       fira-code-symbols # the ligatures aviable as symbols
       gcc # gnu c compiler
+      gitui # TUI for Git written in Rust
       gnome-nettool
       gnumake # makefile
       gucharmap # to search unicode characters
       httpie # a modern command line HTTP client
+      hyperfine # benchmarking tool
       mtr # better traceroute
       nerd-fonts.fira-code
       nerd-fonts.fira-mono
@@ -36,6 +38,8 @@ in
       nix-prefetch # Prefetch any fetcher function call, e.g. package sources
       nix-prefetch-github # Prefetch sources from github
       nixpkgs-fmt # nix code formatter
+      tldr # simplified and community-driven man pages
+      tokei # lines of code counter
       wev # tool for keyboard input
       yed # Drawing flowcharts
     ];
