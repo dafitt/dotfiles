@@ -8,6 +8,7 @@ with lib.dafitt; {
   ];
 
   dafitt = {
+    editors.default = "micro";
     filemanagers.yazi.enable = true;
     personalEnvironment.enable = true;
     suiteDevelopment.enable = true;

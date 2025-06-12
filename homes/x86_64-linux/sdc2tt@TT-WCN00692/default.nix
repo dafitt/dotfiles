@@ -8,10 +8,13 @@ with lib.dafitt; {
   ];
 
   dafitt = {
-    filemanagers.yazi.enable = true;
+    enableDefaults = true;
+    flatpak.enable = false;
     hyprland.enable = true;
-    personalEnvironment.enable = true;
+    passwordManagers.default = null;
     suiteDevelopment.enable = true;
+    syncthing.enable = false;
+    xdg.enable = false;
   };
 
   stylix.iconTheme.package = mkForce pkgs.papirus-icon-theme;
