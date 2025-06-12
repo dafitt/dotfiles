@@ -22,7 +22,6 @@ in
       imv.enable = true;
       mpv.enable = true;
       passwordManagers.default = "bitwarden";
-      pavucontrol.enable = true;
       personalEnvironment.enable = true;
       starship.enable = true;
       stylix.enable = true;
