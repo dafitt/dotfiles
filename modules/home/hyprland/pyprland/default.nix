@@ -85,17 +85,23 @@ in
     #TODO upstream systemd service unit
     systemd.user.services.pyprland = {
       Unit = {
-        Description = "helper tool for Hyprland";
+        Description = "Scratchpads & many goodies for Hyprland";
+        Documentation = "https://github.com/hyprland-community/pyprland";
         PartOf = [ "wayland-session@Hyprland.target" ];
         After = [ "wayland-session@Hyprland.target" ];
         ConditionEnvironment = "WAYLAND_DISPLAY";
+        X-Reload-Triggers = [ "${config.xdg.configFile."hypr/pyprland.toml".source}" ];
       };
       Install.WantedBy = [ "wayland-session@Hyprland.target" ];
-      Service = {
-        ExecStart = "${pkgs.pyprland}/bin/pypr";
-        ExecStop = "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/rm $XDG_RUNTIME_DIR/hypr/*/.pyprland.sock'";
+      Service = with pkgs; {
+        ExecStart = getExe pyprland;
+        ExecReload = "${getExe pyprland} reload";
+        ExecStop = "${getExe pyprland} exit";
+        ExecStopPost = pkgs.writeShellScript "pyprland-cleanup" ''
+          rm -f ''${XDG_RUNTIME_DIR}/hypr/''${HYPRLAND_INSTANCE_SIGNATURE}/.pyprland.sock
+        '';
         Restart = "on-failure";
-        X-Restart-Triggers = [ "${config.xdg.configFile."hypr/pyprland.toml".source}" ];
+        Nice = "19";
       };
     };
   };
