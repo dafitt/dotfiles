@@ -439,7 +439,6 @@ in
           systemd-cat -t uwsm_start uwsm start default
         end
       '';
-    }
-    )
+    })
   ];
 }
