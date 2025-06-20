@@ -1,34 +1,37 @@
 {
-    "[nix]": {
-        "editor.defaultFormatter": "jnoortheen.nix-ide",
-        "editor.tabSize": 2
-    },
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide",
+    "editor.tabSize": 2
+  },
 
-    // with language server
-    "nix.enableLanguageServer": false, // disable this, when nil is NOT installed on your system
-    "nix.serverPath": "nil",
-    "nix.serverSettings": {
-        "nil": {
-            "diagnostics": {
-                //"ignored": ["unused_binding", "unused_with"]
-            },
-            "formatting": {
-                "command": ["nixpkgs-fmt"]
-            }
-        }
-    },
-    // without language server
-    "nix.formatterPath": ["nixpkgs-fmt"],
-    //"nix.formatterPath": ["nix", "fmt", "--", "-"],
-
-    "todo-tree.general.tags": ["FIXME", "TODO", "REFACTOR", "???"],
-
-    "workbench.editor.customLabels.patterns": {
-        "**/default.nix": "${dirname}/.nix",
-        "**/modules/home/**/default.nix": "home/${dirname}/.nix",
-        "**/modules/nixos/**/default.nix": "nixos/${dirname}/.nix",
-        "**/templates/**/default.nix": "template/${dirname}/.nix"
+  // with language server
+  "nix.enableLanguageServer": false, // disable this, when nil is NOT installed on your system
+  "nix.serverPath": "nil",
+  "nix.serverSettings": {
+    "nil": {
+      "diagnostics": {
+        //"ignored": ["unused_binding", "unused_with"]
+      },
+      "formatting": {
+        "command": ["nixpkgs-fmt"]
+      }
     }
+  },
+  // without language server
+  "nix.formatterPath": ["nixpkgs-fmt"],
+  //"nix.formatterPath": ["nix", "fmt", "--", "-"],
 
-    //"editor.rulers": [80, 100, 120]
+  "todo-tree.general.tags": ["FIXME", "TODO", "REFACTOR", "???"],
+
+  "workbench.editor.customLabels.patterns": {
+    "**/default.nix": "${dirname}",
+    "**/*.nix": "${filename}",
+    "**/homes/**/*.nix": "home/${dirname}/${filename}",
+    "**/modules/home/**/*.nix": "module/home/${dirname}",
+    "**/modules/nixos/**/*.nix": "module/nixos/${dirname}",
+    "**/systems/**/*.nix": "system/${dirname}/${filename}",
+    "**/templates/**/*.nix": "template/${dirname}"
+  }
+
+  //"editor.rulers": [80, 100, 120]
 }
