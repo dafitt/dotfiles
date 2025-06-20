@@ -17,6 +17,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [ MODULE ];
+
+    programs.MODULE.enable = true;
+
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.configureKeybindings [ ];
       exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${pkgs.MODULE}" ];

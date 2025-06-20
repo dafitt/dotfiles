@@ -10,5 +10,9 @@ in
     enable = mkEnableOption "MODULE";
   };
 
-  config = mkIf cfg.enable { };
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ MODULE ];
+
+    programs.MODULE.enable = true;
+  };
 }
