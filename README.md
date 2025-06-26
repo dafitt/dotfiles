@@ -497,6 +497,20 @@ rfkill list
 sudo rfkill unblock bluetooth
 ```
 
+### Application won't open with Home-manager standalone
+
+- ["Using Nix on non-NixOS distros, it's common to see GL application errors"](https://github.com/nix-community/nixGL?tab=readme-ov-file#motivation) - [NixGL](https://github.com/nix-community/nixGL):
+
+    ```shell
+    nix run --impure github:nix-community/nixGL -- <PROGRAM>
+    ```
+
+- Try to also install the program with the underlining distro. E.g. Debian: 
+
+    ```shell
+    sudo apt install <PROGRAM>
+    ```
+
 ## 👀, 🏆 and ❤️
 
 -   [Vimjoyer - Youtube](https://www.youtube.com/@vimjoyer)
