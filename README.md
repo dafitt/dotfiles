@@ -134,8 +134,14 @@ This flake can and will radically change as I learn, discover new things and hav
         ```
 
     7. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time.
-    
-3. Build:
+
+3. System Requirements (Installation depending on your Distribution):
+
+    - `dafitt.flatpak.enable`: [Flatpak](https://flatpak.org/setup/)
+    - `dafitt.hyprland.enable`: [Hyprland](https://wiki.hypr.land/Getting-Started/Installation/)
+    - `dafitt.gnome.enable`: GNOME
+
+4. Build:
 
     1. Enter `nix develop .#default`'s shell.  
        Alternative: `nix run home-manager -- --flake .#<user>[@<host>] switch`.
