@@ -12,9 +12,14 @@ with lib.dafitt; {
     filemanagers.yazi.enable = true;
     personalEnvironment.enable = true;
     suiteDevelopment.enable = true;
+    browsers.default = "firefox";
+    flatpak.enable = true;
   };
 
-  stylix.targets.gtk.enable = false;
-  stylix.targets.gnome.enable = false;
+  stylix.autoEnable = false;
   stylix.iconTheme.package = mkForce pkgs.papirus-icon-theme;
+  stylix.targets.gtk.enable = true;
+  stylix.targets.gnome.enable = true;
+  stylix.targets.fish.enable = true;
+  stylix.targets.vscode.enable = true;
 }
