@@ -16,6 +16,12 @@ with lib.dafitt; {
     flatpak.enable = true;
   };
 
+  services.flatpak.packages = [
+    "com.github.rajsolai.textsnatcher" # Snatch Text with just a Drag
+    "com.logseq.Logseq" # Connect your notes and knowledge
+    "org.gnome.meld" # Compare and merge your files
+  ];
+
   stylix.autoEnable = false;
   stylix.iconTheme.package = mkForce pkgs.papirus-icon-theme;
   stylix.targets.gtk.enable = true;
