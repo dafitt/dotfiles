@@ -34,6 +34,7 @@ in
     # https://wiki.hyprland.org/Hypr-Ecosystem/hypridle/
     services.hypridle = {
       enable = true;
+      systemdTarget = "wayland-session@Hyprland.target";
 
       settings = {
         general = {
