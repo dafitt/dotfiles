@@ -28,6 +28,7 @@
     "edwinkofler.vscode-assorted-languages",
     "editorconfig.editorconfig",
     "jeff-hykin.better-nix-syntax",
-    "bbenoist.nix"
+    "bbenoist.nix",
+    "maattdd.gitless"
   ]
 }
