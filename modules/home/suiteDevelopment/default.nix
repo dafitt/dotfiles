@@ -12,11 +12,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    dafitt = {
+    dafitt = mkDefault {
       starship.enable = true;
       shells.fish.enable = true;
       vscode.enable = true;
       vscode.autostart = true;
+      zed-editor.enable = true;
     };
 
     home.packages = with pkgs; [
