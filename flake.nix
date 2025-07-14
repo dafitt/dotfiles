@@ -7,6 +7,7 @@
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/home-manager
     hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow"; }; # https://github.com/micha4w/Hypr-DarkWindow
     nix-flatpak = { url = "github:gmodena/nix-flatpak/v0.5.2"; }; # https://github.com/gmodena/nix-flatpak/tags
+    nixGL = { url = "github:nix-community/nixGL"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/nixGL
     nixos-generators = { url = "github:nix-community/nixos-generators"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/nixos-generators
     nixos-hardware = { url = "github:NixOS/nixos-hardware/master"; }; # https://github.com/NixOS/nixos-hardware
     nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; }; # https://github.com/NixOS/nixpkgs
@@ -60,6 +61,7 @@
 
     overlays = with inputs; [
       nur.overlays.default
+      nixGL.overlays.default
     ];
 
     systems.modules.nixos = with inputs; [
