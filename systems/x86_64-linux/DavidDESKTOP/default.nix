@@ -14,7 +14,6 @@ with lib.dafitt; {
 
     ./DavidBACKUP.nix
     ./miniDLNA.nix
-    ./zfs.nix
 
     # [HARDWARE_MODULES](https://github.com/NixOS/nixos-hardware/blob/master/flake.nix)
     nixos-hardware.nixosModules.common-cpu-amd

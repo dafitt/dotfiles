@@ -1,4 +1,6 @@
 {
+  imports = [ ./disk-DavidTANK.nix ];
+
   disko.devices.disk = {
     "root" = {
       type = "disk";
@@ -58,31 +60,6 @@
     #    subvolumes = {
     #      "DavidGAMES" = {
     #        mountpoint = "/mnt/DavidGAMES";
-    #        mountOptions = [
-    #          "compress=zstd"
-    #          # [options](https://man.archlinux.org/man/mount.8#FILESYSTEM-INDEPENDENT_MOUNT_OPTIONS)
-    #          "defaults"
-    #          "x-gvfs-show"
-    #        ];
-    #      };
-    #    };
-    #  };
-    #};
-    #"DavidTANK" = {
-    #  type = "disk";
-    #  device = "/dev/disk/by-id/...";
-    #  content = {
-    #    type = "btrfs";
-    #    extraArgs = [
-    #      "--force"
-    #      "--label DavidTANK"
-    #      "--data raid1"
-    #      "--metadata raid1"
-    #      "/dev/disk/by-id/..."
-    #    ];
-    #    subvolumes = {
-    #      "DavidARCHIVE" = {
-    #        mountpoint = "/mnt/DavidARCHIVE";
     #        mountOptions = [
     #          "compress=zstd"
     #          # [options](https://man.archlinux.org/man/mount.8#FILESYSTEM-INDEPENDENT_MOUNT_OPTIONS)
