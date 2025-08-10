@@ -38,7 +38,8 @@ in
       nix-converter # nix <-> json/yaml/toml converter
       nix-prefetch # Prefetch any fetcher function call, e.g. package sources
       nix-prefetch-github # Prefetch sources from github
-      nixpkgs-fmt # nix code formatter
+      nixd # nix language server
+      nixpkgs-fmt # nix formatter
       tldr # simplified and community-driven man pages
       tokei # lines of code counter
       wev # tool for keyboard input
