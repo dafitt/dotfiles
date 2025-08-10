@@ -39,23 +39,12 @@ with lib.dafitt; {
   };
 
   environment.systemPackages = with pkgs; [
+    disko
     lact # Linux AMDGPU Controller
   ];
 
   # Skip the boot selection menu. [space] to open it.
   boot.loader.timeout = 0;
-
-  fileSystems = {
-    "/mnt/games" = {
-      label = "GAMES"; # [How to write a label](https://wiki.archlinux.org/title/persistent_block_device_naming#by-label)
-      options = [
-        # [options](https://man.archlinux.org/man/mount.8#COMMAND-LINE_OPTIONS)
-        "defaults"
-        "x-gvfs-show"
-        "X-mount.mkdir" # create directory if not existing
-      ];
-    };
-  };
 
   services.btrfs.autoScrub.enable = true;
 

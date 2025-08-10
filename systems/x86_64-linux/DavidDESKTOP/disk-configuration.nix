@@ -1,5 +1,8 @@
 {
-  imports = [ ./disk-DavidTANK.nix ];
+  imports = [
+    ./disk-DavidTANK.nix
+    ./disk-DavidGAMES.nix
+  ];
 
   disko.devices.disk = {
     "root" = {
@@ -48,27 +51,5 @@
         };
       };
     };
-    #"DavidGAMES" = {
-    #  type = "disk";
-    #  device = "/dev/disk/by-id/ata-Samsung_SSD_840_EVO_1TB_S1D9NSAFB17608A";
-    #  content = {
-    #    type = "btrfs";
-    #    extraArgs = [
-    #      "--force"
-    #      "--label DavidGAMES"
-    #    ];
-    #    subvolumes = {
-    #      "DavidGAMES" = {
-    #        mountpoint = "/mnt/DavidGAMES";
-    #        mountOptions = [
-    #          "compress=zstd"
-    #          # [options](https://man.archlinux.org/man/mount.8#FILESYSTEM-INDEPENDENT_MOUNT_OPTIONS)
-    #          "defaults"
-    #          "x-gvfs-show"
-    #        ];
-    #      };
-    #    };
-    #  };
-    #};
   };
 }
