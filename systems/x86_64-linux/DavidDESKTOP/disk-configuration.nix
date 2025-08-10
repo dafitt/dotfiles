@@ -30,15 +30,15 @@
                 "--label root"
               ];
               subvolumes = {
-                "root" = {
+                "@" = {
                   mountpoint = "/";
                   mountOptions = [ "compress=zstd" ];
                 };
-                "nix" = {
+                "@nix" = {
                   mountpoint = "/nix";
                   mountOptions = [ "compress=zstd" "noatime" ];
                 };
-                "home" = {
+                "@home" = {
                   mountpoint = "/home";
                   mountOptions = [ "compress=zstd" ];
                 };
