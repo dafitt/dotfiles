@@ -34,13 +34,17 @@
     group = "users";
 
     paths = [
-      "/DavidTANK/Archive"
+      "/DavidARCHIVE"
       "/home/david/Sync"
       "/home/david/Desktop"
       "/home/david/Documents"
       "/home/david/Pictures"
       "/home/david/Videos"
       "/home/david/Templates"
+    ];
+    exclude = [
+      ".venv"
+      "*.pyc"
     ];
     prune.keep = {
       within = "1m";
@@ -54,7 +58,7 @@
   };
   systemd.services."borgbackup-job-DavidBACKUP" = {
     unitConfig = {
-      RequiresMountsFor = [ "/DavidTANK" "/mnt/DavidBACKUP" ]; # autofail
+      RequiresMountsFor = [ "/DavidARCHIVE" "/mnt/DavidBACKUP" ]; # autofail
     };
     serviceConfig = {
       ReadWritePaths = [ "/mnt/DavidBACKUP" ];
