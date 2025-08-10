@@ -30,11 +30,11 @@ let
     ]);
 in
 {
-  options.dafitt.vscode = with types; {
-    mkMutable = mkBoolOpt config.dafitt.vscode.enable "Whether to make vscode settings mutable.";
+  options.dafitt.gditors.vscode = with types; {
+    mkMutable = mkBoolOpt config.dafitt.gditors.vscode.enable "Whether to make vscode settings mutable.";
   };
 
-  config = mkIf config.dafitt.vscode.mkMutable {
+  config = mkIf config.dafitt.gditors.vscode.mkMutable {
     home.file = lib.genAttrs pathsToMakeWritable (_: {
       force = true;
       mutable = true;

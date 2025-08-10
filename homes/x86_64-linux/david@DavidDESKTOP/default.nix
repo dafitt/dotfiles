@@ -22,7 +22,6 @@ with lib.dafitt; {
     #suiteRicing.enable = true; # TODO fixme modules/home/desktops/hyprland/ricing/wallpaper/default.nix
     suiteSocial.enable = true;
     suiteWeb.enable = true;
-    zed-editor.enable = true;
   };
 
   # [Hyprland - Tearing](https://wiki.hyprland.org/Configuring/Tearing/)

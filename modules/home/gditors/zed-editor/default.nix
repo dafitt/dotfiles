@@ -3,13 +3,14 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.zed-editor;
+  cfg = config.dafitt.gditors.zed-editor;
 in
 {
-  options.dafitt.zed-editor = with types; {
+  options.dafitt.gditors.zed-editor = with types; {
     enable = mkEnableOption "zed-editor";
 
     autostart = mkBoolOpt false "Start zed-editor on login";
+    configureKeybindings = mkBoolOpt false "Configure keybindings for zed-editor";
     workspace = mkOpt int 2 "Which workspace is mainly to be used for this application.";
   };
 
@@ -342,7 +343,7 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      #bind = [ "SUPER_ALT, G, exec, uwsm app -- ${getExe config.programs.zed-editor.package}" ];
+      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, G, exec, uwsm app -- ${getExe config.programs.zed-editor.package}" ];
       exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.zed-editor.package}" ];
     };
   };

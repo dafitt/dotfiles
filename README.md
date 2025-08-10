@@ -115,7 +115,6 @@ This flake can and will radically change as I learn, discover new things and hav
       2. 1Password
       3. Sidebery
    4. pavucontrol: Set standard audio output
-   5. vscode: codeium plugin
 
 ### Only in a new home environment
 

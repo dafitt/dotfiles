@@ -13,11 +13,11 @@ in
 
   config = mkIf cfg.enable {
     dafitt = mkDefault {
+      gditors.default = "zed-editor";
+      gditors.vscode.enable = true;
+      gditors.zed-editor.enable = true;
       starship.enable = true;
       shells.fish.enable = true;
-      vscode.enable = true;
-      vscode.autostart = true;
-      zed-editor.enable = true;
     };
 
     home.packages = with pkgs; [
