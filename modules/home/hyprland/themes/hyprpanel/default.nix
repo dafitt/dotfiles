@@ -20,13 +20,11 @@ in
       enable = true;
 
       settings = {
-        layout."bar.layouts" = {
-          "0" = {
-            # https://hyprpanel.com/configuration/modules.html
-            left = [ "workspaces" "windowtitle" ];
-            middle = [ "systray" "notifications" "clock" "media" ];
-            right = [ "bluetooth" "network" "volume" "hypridle" "battery" "dashboard" ];
-          };
+        bar.layouts."0" = {
+          # https://hyprpanel.com/configuration/modules.html
+          left = [ "workspaces" "windowtitle" ];
+          middle = [ "systray" "notifications" "clock" "media" ];
+          right = [ "bluetooth" "network" "volume" "hypridle" "battery" "dashboard" ];
         };
         bar.bluetooth.label = false;
         bar.clock.format = "%Y-%m-%d  %R";
@@ -42,17 +40,18 @@ in
         menus.clock.weather.unit = "metric";
         menus.dashboard.directories.enabled = false;
         menus.dashboard.stats.enabled = false;
-        theme.bar.buttons.radius = "${toString (hyprlandCfg.settings.decoration.rounding / 2)}px";
-        theme.bar.menus.border.radius = "${toString hyprlandCfg.settings.decoration.rounding}px";
-        theme.bar.menus.border.size = "${toString hyprlandCfg.settings.general.border_size}px";
-        theme.bar.menus.buttons.radius = "${toString hyprlandCfg.settings.decoration.rounding}px";
-        theme.bar.outer_spacing = "${toString hyprlandCfg.settings.general.gaps_out}px";
-        theme.bar.transparent = true;
-        theme.font.name = config.stylix.fonts.serif.name;
-        theme.font.size = "${toString config.stylix.fonts.sizes.desktop}px";
-        theme.osd.location = "bottom";
-        theme.osd.margins = "80px";
-        theme.osd.orientation = "horizontal";
+        "theme.bar.buttons.radius" = "${toString (hyprlandCfg.settings.decoration.rounding / 2)}px";
+        "theme.bar.floating" = true;
+        "theme.bar.menus.border.radius" = "${toString hyprlandCfg.settings.decoration.rounding}px";
+        "theme.bar.menus.border.size" = "${toString hyprlandCfg.settings.general.border_size}px";
+        "theme.bar.menus.buttons.radius" = "${toString hyprlandCfg.settings.decoration.rounding}px";
+        "theme.bar.outer_spacing" = "${toString hyprlandCfg.settings.general.gaps_out}px";
+        "theme.bar.transparent" = true;
+        "theme.font.name" = config.stylix.fonts.serif.name;
+        "theme.font.size" = "${toString config.stylix.fonts.sizes.desktop}px";
+        "theme.osd.location" = "bottom";
+        "theme.osd.margins" = "80px";
+        "theme.osd.orientation" = "horizontal";
       }
       // (with config.lib.stylix.colors.withHashtag; {
         # Color Theme
