@@ -4,13 +4,6 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.browsers.firefox;
-
-  betterfox = pkgs.fetchFromGitHub {
-    owner = "yokoffing";
-    repo = "Betterfox";
-    rev = "137.0"; # https://github.com/yokoffing/Betterfox/tags
-    hash = "sha256-oK8nP7mZ8Q6TNgCY/E7D5E28e7qaBHfE4tbdus7vusU=";
-  };
 in
 {
   options.dafitt.browsers.firefox = with types; {
@@ -82,15 +75,14 @@ in
           "extensions.update.enabled" = false;
         };
 
-        extraConfig = builtins.concatStringsSep "\n" [
-          #
-          # [Betterfox](https://github.com/yokoffing/Betterfox)
-          #
-          (builtins.readFile "${betterfox}/Fastfox.js")
-          (builtins.readFile "${betterfox}/Peskyfox.js")
-          (builtins.readFile "${betterfox}/Securefox.js")
+        # https://github.com/HeitorAugustoLN/betterfox-nix
+        betterfox = {
+          enable = true;
+          enableAllSections = true;
+        };
 
-          # Additional settings #
+        extraConfig = concatStringsSep "\n" [
+          # Additional optional betterfox settings #
           # [Fastfox.js](https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js) overrides
           # GFX RENDERING TWEAKS
           ''user_pref("gfx.webrender.all", true);''

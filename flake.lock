@@ -104,6 +104,26 @@
         "type": "github"
       }
     },
+    "betterfox": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1753621875,
+        "narHash": "sha256-O5I31+tgYCGh/ve88Y+pBpmLW3pEQzgD8xStZYTWRCI=",
+        "owner": "HeitorAugustoLN",
+        "repo": "betterfox-nix",
+        "rev": "3229dd5fb180e1fe0ea228fdcc8d56a6978ccf50",
+        "type": "github"
+      },
+      "original": {
+        "owner": "HeitorAugustoLN",
+        "repo": "betterfox-nix",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -1025,6 +1045,7 @@
     },
     "root": {
       "inputs": {
+        "betterfox": "betterfox",
         "disko": "disko",
         "home-manager": "home-manager",
         "hypr-darkwindow": "hypr-darkwindow",
