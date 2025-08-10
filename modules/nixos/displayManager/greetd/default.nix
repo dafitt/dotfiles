@@ -19,8 +19,8 @@ in
         # https://github.com/apognu/tuigreet
         tuigreet_session = {
           command = concatStringsSep " " [
-            #$ nix run nixpkgs#greetd.tuigreet -- --help
-            (getExe pkgs.greetd.tuigreet)
+            #$ nix run nixpkgs#tuigreet -- --help
+            (getExe pkgs.tuigreet)
             "--time"
             "--remember"
             "--remember-user-session"
