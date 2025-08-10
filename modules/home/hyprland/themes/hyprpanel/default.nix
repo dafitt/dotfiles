@@ -53,7 +53,8 @@ in
         theme.osd.location = "bottom";
         theme.osd.margins = "80px";
         theme.osd.orientation = "horizontal";
-      } // (with config.lib.stylix.colors.withHashtag; mkDefault {
+      }
+      // (with config.lib.stylix.colors.withHashtag; {
         # Color Theme
         #TODO upstream themes{default,switch,vivid,...} to stylix
         theme.bar.menus.menu.notifications.scrollbar.color = base07;
