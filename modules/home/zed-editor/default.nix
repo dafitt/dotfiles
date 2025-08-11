@@ -29,6 +29,15 @@ in
         title_bar.show_branch_icon = true;
       };
 
+      userKeymaps = [
+        {
+          context = "Editor";
+          bindings = {
+            "ctrl-#" = "editor::ToggleComments";
+          };
+        }
+      ];
+
       themes."myStylix" = with config.lib.stylix.colors.withHashtag;
         {
           name = "Stylix";
