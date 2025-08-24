@@ -6,7 +6,7 @@ let
   cfg = config.dafitt.passwordManagers;
 in
 {
-  options.dafitt.passwordManagers = with types;{
+  options.dafitt.passwordManagers = with types; {
     default = mkOption {
       type = nullOr (enum [
         "_1password"

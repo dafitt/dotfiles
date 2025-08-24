@@ -1,4 +1,10 @@
-{ config, lib, pkgs, osConfig ? { }, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  osConfig ? { },
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -73,15 +79,21 @@ in
 
       # https://github.com/jorgebucaran/awsm.fish#readme
       # https://search.nixos.org/packages?query=fishPlugins
-      plugins = map (n: { name = n; src = pkgs.fishPlugins.${n}.src; }) [
-        "autopair" # https://github.com/jorgebucaran/autopair.fish
-        "bass" # https://github.com/edc/bass
-        "done" # https://github.com/franciscolourenco/done
-        "fzf" # https://github.com/jethrokuan/fzf
-        "grc"
-        "puffer" # https://github.com/nickeb96/puffer-fish
-        "sponge" # https://github.com/meaningful-ooo/sponge
-      ];
+      plugins =
+        map
+          (n: {
+            name = n;
+            src = pkgs.fishPlugins.${n}.src;
+          })
+          [
+            "autopair" # https://github.com/jorgebucaran/autopair.fish
+            "bass" # https://github.com/edc/bass
+            "done" # https://github.com/franciscolourenco/done
+            "fzf" # https://github.com/jethrokuan/fzf
+            "grc"
+            "puffer" # https://github.com/nickeb96/puffer-fish
+            "sponge" # https://github.com/meaningful-ooo/sponge
+          ];
     };
 
     home.sessionVariables = {

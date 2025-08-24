@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -24,7 +29,10 @@ in
       suspend = mkOption {
         description = "The time in seconds after which the system should be suspended. 0 to disable.";
         type = int;
-        apply = v: assert v >= cfg.timeouts.lock || v == 0; v;
+        apply =
+          v:
+          assert v >= cfg.timeouts.lock || v == 0;
+          v;
         default = 600;
       };
     };
@@ -40,7 +48,9 @@ in
         general = {
           # declaration for dbus events
           lock_cmd = mkIf hyprlockCfg.enable "${pkgs.procps}/bin/pidof hyprlock || uwsm app -- ${hyprlockCfg.package}/bin/hyprlock --immediate";
-          before_sleep_cmd = mkIf (hyprlockCfg.enable && cfg.sleepTriggersLock) "${pkgs.systemd}/bin/loginctl lock-session";
+          before_sleep_cmd = mkIf (
+            hyprlockCfg.enable && cfg.sleepTriggersLock
+          ) "${pkgs.systemd}/bin/loginctl lock-session";
           after_sleep_cmd = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on && ${pkgs.systemd}/bin/systemctl restart --user wlsunset.service";
         };
 
@@ -58,7 +68,11 @@ in
           })
           # screen off
           {
-            timeout = if locking_enabled then (cfg.timeouts.lock + config.programs.hyprlock.settings.general.grace) else 360;
+            timeout =
+              if locking_enabled then
+                (cfg.timeouts.lock + config.programs.hyprlock.settings.general.grace)
+              else
+                360;
             on-timeout = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms off";
             on-resume = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on && ${pkgs.systemd}/bin/systemctl restart --user wlsunset.service";
           }

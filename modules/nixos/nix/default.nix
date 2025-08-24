@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -18,7 +24,10 @@ in
 
       settings = {
         #$ man nix.conf
-        experimental-features = [ "nix-command" "flakes" ];
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
         allowed-users = [ "@wheel" ];
         trusted-users = [ "@wheel" ];
 
@@ -29,7 +38,8 @@ in
         min-free = 1 * (1024 * 1024 * 1024); # GiB # start garbage collector
         max-free = 50 * (1024 * 1024 * 1024); # GiB # until
         warn-dirty = false;
-      } // optionalAttrs config.programs.direnv.enable {
+      }
+      // optionalAttrs config.programs.direnv.enable {
         keep-derivations = true;
         keep-outputs = true;
       };

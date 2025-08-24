@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -348,7 +353,9 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER, SPACE, exec, ${config.programs.rofi.package}/bin/rofi -show drun" ];
+      bind = mkIf cfg.configureKeybindings [
+        "SUPER, SPACE, exec, ${config.programs.rofi.package}/bin/rofi -show drun"
+      ];
     };
   };
 }

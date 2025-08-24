@@ -1,4 +1,10 @@
-{ config, lib, pkgs, osConfig ? { }, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  osConfig ? { },
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -17,8 +23,17 @@ in
     programs.bash = {
       enable = true;
 
-      historyControl = [ "erasedups" "ignoredups" "ignorespace" ];
-      historyIgnore = [ "ls" "cd" "rm" "exit" ];
+      historyControl = [
+        "erasedups"
+        "ignoredups"
+        "ignorespace"
+      ];
+      historyIgnore = [
+        "ls"
+        "cd"
+        "rm"
+        "exit"
+      ];
       shellOptions = [
         "autocd"
 

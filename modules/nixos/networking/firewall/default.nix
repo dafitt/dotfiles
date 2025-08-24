@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -12,12 +17,18 @@ in
   };
 
   config = {
-    networking.firewall = { } // optionalAttrs cfg.allowLocalsend {
-      allowedTCPPorts = [ 53317 ];
-      allowedUDPPorts = [ 53317 ];
-    } // optionalAttrs cfg.allowSyncthing {
-      allowedTCPPorts = [ 22000 ];
-      allowedUDPPorts = [ 22000 21027 ];
-    };
+    networking.firewall =
+      { }
+      // optionalAttrs cfg.allowLocalsend {
+        allowedTCPPorts = [ 53317 ];
+        allowedUDPPorts = [ 53317 ];
+      }
+      // optionalAttrs cfg.allowSyncthing {
+        allowedTCPPorts = [ 22000 ];
+        allowedUDPPorts = [
+          22000
+          21027
+        ];
+      };
   };
 }

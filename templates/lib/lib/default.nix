@@ -1,3 +1,4 @@
 { lib, ... }:
 
-with lib; rec { }
+with lib;
+rec { }

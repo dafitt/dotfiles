@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -14,8 +19,9 @@ in
     home.packages = with pkgs; [ pavucontrol ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = optionals config.dafitt.hyprland.pyprland.enable
-        [ "SUPER_ALT, A, exec, ${pkgs.pyprland}/bin/pypr toggle pavucontrol" ];
+      bind = optionals config.dafitt.hyprland.pyprland.enable [
+        "SUPER_ALT, A, exec, ${pkgs.pyprland}/bin/pypr toggle pavucontrol"
+      ];
       windowrule = [
         "float, class:pavucontrol, title:^(Volume Control)$"
         "center, class:pavucontrol, title:^(Volume Control)$"

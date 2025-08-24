@@ -6,7 +6,7 @@ let
   cfg = config.dafitt.launchers;
 in
 {
-  options.dafitt.launchers = with types;{
+  options.dafitt.launchers = with types; {
     default = mkOption {
       type = nullOr (enum [
         "fuzzel"

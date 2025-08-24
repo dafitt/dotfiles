@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -16,7 +21,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       windowrule = [
-        "idleinhibit focus, class:mpv" #
+        "idleinhibit focus, class:mpv"
       ];
     };
   };

@@ -9,10 +9,17 @@
 # Bluetooth: 5.1
 # Color: Storm Grey
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
-with lib.dafitt; {
+with lib.dafitt;
+{
   imports = with inputs; [
     ./hardware-configuration.nix
     ./power-management.nix
@@ -48,7 +55,8 @@ with lib.dafitt; {
   boot.loader.timeout = 0;
 
   #$ ssh-keyscan
-  programs.ssh.knownHosts."minisforumhm80.schallernetz.lan".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ8HMHua73rLpiJOQRjVbfMhzWMFi9F9a1xpqUt4nLhD";
+  programs.ssh.knownHosts."minisforumhm80.schallernetz.lan".publicKey =
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ8HMHua73rLpiJOQRjVbfMhzWMFi9F9a1xpqUt4nLhD";
 
   system.stateVersion = "23.05";
 }

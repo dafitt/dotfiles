@@ -1,4 +1,11 @@
-{ config, lib, pkgs, inputs, osConfig ? { }, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  osConfig ? { },
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -27,8 +34,14 @@ in
         barf-out = [ "<Shift><Super>o" ];
         barf-out-active = [ "<Super>o" ];
         move-down = [ "<Shift><Super>Down" ];
-        move-left = [ "<Shift><Super>comma" "<Shift><Super>Left" ];
-        move-right = [ "<Shift><Super>period" "<Shift><Super>Right" ];
+        move-left = [
+          "<Shift><Super>comma"
+          "<Shift><Super>Left"
+        ];
+        move-right = [
+          "<Shift><Super>period"
+          "<Shift><Super>Right"
+        ];
         move-up = [ "<Shift><Super>Up" ];
         new-window = [ "<Super>n" ];
         paper-toggle-fullscreen = [ "" ];

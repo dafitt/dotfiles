@@ -6,7 +6,7 @@ let
   cfg = config.dafitt.editors;
 in
 {
-  options.dafitt.editors = with types;{
+  options.dafitt.editors = with types; {
     default = mkOption {
       type = nullOr (enum [
         "micro"

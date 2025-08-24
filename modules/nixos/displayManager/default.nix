@@ -1,13 +1,19 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.displayManager;
-  enabledSubModules = filter (n: cfg.${n}.enable or false) (subtractLists [
-    "sessionPaths"
-  ]
-    (attrNames cfg));
+  enabledSubModules = filter (n: cfg.${n}.enable or false) (
+    subtractLists [
+      "sessionPaths"
+    ] (attrNames cfg)
+  );
 in
 {
   options.dafitt.displayManager = with types; {
@@ -21,11 +27,13 @@ in
         "${config.services.displayManager.sessionData.desktops}/share/xsessions"
         "${config.services.displayManager.sessionData.desktops}/share/wayland-sessions"
 
-        "${(pkgs.makeDesktopItem {
-          name = "xorg-session";
-          desktopName = "Xorg";
-          exec = "${pkgs.xorg.xinit}/bin/startx";
-        })}/share/applications"
+        "${
+          (pkgs.makeDesktopItem {
+            name = "xorg-session";
+            desktopName = "Xorg";
+            exec = "${pkgs.xorg.xinit}/bin/startx";
+          })
+        }/share/applications"
       ];
       default = [ ];
     };
@@ -33,18 +41,22 @@ in
 
   config = mkMerge [
     {
-      assertions = [{
-        assertion = length enabledSubModules <= 1;
-        message = "${toString ./.}: Only one submodule can be enabled. Currently enabled: ${concatStringsSep ", " enabledSubModules}";
-      }];
+      assertions = [
+        {
+          assertion = length enabledSubModules <= 1;
+          message = "${toString ./.}: Only one submodule can be enabled. Currently enabled: ${concatStringsSep ", " enabledSubModules}";
+        }
+      ];
     }
     (mkIf (length enabledSubModules > 0) {
       dafitt.displayManager.sessionPaths = [
-        "${(pkgs.makeDesktopItem {
-        name = "bash-session";
-        desktopName = "bash";
-        exec = getExe pkgs.bash;
-      })}/share/applications"
+        "${
+          (pkgs.makeDesktopItem {
+            name = "bash-session";
+            desktopName = "bash";
+            exec = getExe pkgs.bash;
+          })
+        }/share/applications"
 
         "${config.services.displayManager.sessionData.desktops}/share/xsessions"
         "${config.services.displayManager.sessionData.desktops}/share/wayland-sessions"

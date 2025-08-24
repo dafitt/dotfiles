@@ -1,4 +1,10 @@
-{ config, lib, pkgs, osConfig ? { }, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  osConfig ? { },
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -18,16 +24,31 @@ in
       #uninstallUnmanaged = true; # enable this for one activation if you get `error: No installed refs found for '<package>'`
 
       remotes = [
-        { name = "flathub"; location = "https://dl.flathub.org/repo/flathub.flatpakrepo"; }
-        { name = "flathub-beta"; location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo"; }
+        {
+          name = "flathub";
+          location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+        }
+        {
+          name = "flathub-beta";
+          location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
+        }
       ];
 
       #$ flatpak list
       #$ journalctl --user -eu flatpak-managed-install.service
       packages = [
-        { origin = "flathub"; appId = "com.github.tchx84.Flatseal"; }
-        { origin = "flathub"; appId = "io.github.giantpinkrobots.flatsweep"; }
-        { origin = "flathub"; appId = "io.github.flattool.Warehouse"; }
+        {
+          origin = "flathub";
+          appId = "com.github.tchx84.Flatseal";
+        }
+        {
+          origin = "flathub";
+          appId = "io.github.giantpinkrobots.flatsweep";
+        }
+        {
+          origin = "flathub";
+          appId = "io.github.flattool.Warehouse";
+        }
       ];
 
       overrides = {

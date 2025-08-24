@@ -2,10 +2,17 @@
 
 #$ nix build .#install-isoConfigurations.DavidISO
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
-with lib.dafitt; {
+with lib.dafitt;
+{
   imports = with inputs; [
     # automatically applied by inputs.nixos-generators:
     # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -27,8 +32,9 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = optionals config.dafitt.hyprland.pyprland.enable
-        [ "SUPER_ALT, P, exec, ${pkgs.pyprland}/bin/pypr toggle btop" ];
+      bind = optionals config.dafitt.hyprland.pyprland.enable [
+        "SUPER_ALT, P, exec, ${pkgs.pyprland}/bin/pypr toggle btop"
+      ];
     };
 
     dafitt.hyprland.pyprland.scratchpads.btop = {

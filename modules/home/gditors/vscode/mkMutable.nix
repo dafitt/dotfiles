@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 # https://gist.github.com/piousdeer/b29c272eaeba398b864da6abf6cb5daa
 # This makes vscode settings/keybindings/tasks/snippets writable
@@ -7,11 +12,13 @@ with lib.dafitt;
 let
   # Path logic from:
   # https://github.com/nix-community/home-manager/blob/3876cc613ac3983078964ffb5a0c01d00028139e/modules/programs/vscode.nix
-  configDirName = {
-    "vscode" = "Code";
-    "vscode-insiders" = "Code - Insiders";
-    "vscodium" = "VSCodium";
-  }.${config.programs.vscode.package.pname};
+  configDirName =
+    {
+      "vscode" = "Code";
+      "vscode-insiders" = "Code - Insiders";
+      "vscodium" = "VSCodium";
+    }
+    .${config.programs.vscode.package.pname};
 
   configUserDirPath =
     if pkgs.stdenv.hostPlatform.isDarwin then
@@ -20,14 +27,16 @@ let
       "${config.xdg.configHome}/${configDirName}/User";
 
   snippetDir = "${configUserDirPath}/snippets";
-  pathsToMakeWritable = lib.flatten
-    (with config.programs.vscode.profiles.default; [
+  pathsToMakeWritable = lib.flatten (
+    with config.programs.vscode.profiles.default;
+    [
       (lib.optional (userSettings != { }) "${configUserDirPath}/settings.json")
       (lib.optional (keybindings != [ ]) "${configUserDirPath}/keybindings.json")
       (lib.optional (userTasks != { }) "${configUserDirPath}/tasks.json")
       (lib.optional (globalSnippets != { }) "${snippetDir}/global.code-snippets")
       (lib.mapAttrsToList (language: _: "${snippetDir}/${language}.json") languageSnippets)
-    ]);
+    ]
+  );
 in
 {
   options.dafitt.gditors.vscode = with types; {

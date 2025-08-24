@@ -6,7 +6,7 @@ let
   cfg = config.dafitt.filemanagers;
 in
 {
-  options.dafitt.filemanagers = with types;{
+  options.dafitt.filemanagers = with types; {
     default = mkOption {
       type = nullOr (enum [
         "nautilus"

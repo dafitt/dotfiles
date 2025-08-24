@@ -1,4 +1,10 @@
-{ config, lib, pkgs, osConfig ? { }, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  osConfig ? { },
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -63,15 +69,22 @@ in
       enable = true;
 
       extraConfig = {
-        init = { defaultBranch = "main"; };
-        pull = { rebase = true; };
-        core = { whitespace = "trailing-space,space-before-tab"; };
+        init = {
+          defaultBranch = "main";
+        };
+        pull = {
+          rebase = true;
+        };
+        core = {
+          whitespace = "trailing-space,space-before-tab";
+        };
       };
     };
 
-    programs.firefox.profiles.${config.home.username}.extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-      github-file-icons
-    ];
+    programs.firefox.profiles.${config.home.username}.extensions =
+      with pkgs.nur.repos.rycee.firefox-addons; [
+        github-file-icons
+      ];
 
     # Enable hyprland debug logs
     # https://wiki.hyprland.org/Configuring/Variables/#debug

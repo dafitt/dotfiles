@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -6,9 +11,9 @@ let
   cfg = config.dafitt.hyprland.hyprlock;
 
   # true, if any user has home module `dafitt.hyprland.hyprlock` enabled
-  hyprlock_enabled = any
-    (user: config.snowfallorg.users.${user}.home.config.dafitt.hyprland.hyprlock.enable)
-    (attrNames config.snowfallorg.users);
+  hyprlock_enabled = any (
+    user: config.snowfallorg.users.${user}.home.config.dafitt.hyprland.hyprlock.enable
+  ) (attrNames config.snowfallorg.users);
 in
 {
   options.dafitt.hyprland.hyprlock = with types; {

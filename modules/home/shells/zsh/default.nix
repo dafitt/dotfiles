@@ -1,4 +1,10 @@
-{ config, lib, pkgs, osConfig ? { }, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  osConfig ? { },
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -7,7 +13,7 @@ let
   osCfg = osConfig.dafitt.shells.zsh or null;
 in
 {
-  options.dafitt.shells.zsh = with types;{
+  options.dafitt.shells.zsh = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Whether to enable zsh shell.";
   };
 
@@ -22,7 +28,12 @@ in
       history = {
         expireDuplicatesFirst = true;
         ignoreAllDups = true;
-        ignorePatterns = [ "ls" "cd" "rm" "exit" ];
+        ignorePatterns = [
+          "ls"
+          "cd"
+          "rm"
+          "exit"
+        ];
         ignoreSpace = true;
       };
       historySubstringSearch.enable = true;

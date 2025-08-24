@@ -1,4 +1,10 @@
-{ config, lib, pkgs, osConfig ? { }, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  osConfig ? { },
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -7,7 +13,8 @@ let
 in
 {
   options.dafitt = with types; {
-    enableDefaults = mkBoolOpt (osConfig.dafitt.enableDefaults or false) "Whether to enable dafitt defaults.";
+    enableDefaults = mkBoolOpt (osConfig.dafitt.enableDefaults or false
+    ) "Whether to enable dafitt defaults.";
   };
 
   config = mkIf cfg.enableDefaults {

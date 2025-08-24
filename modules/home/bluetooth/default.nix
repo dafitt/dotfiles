@@ -1,4 +1,10 @@
-{ config, lib, pkgs, osConfig ? { }, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  osConfig ? { },
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -7,14 +13,15 @@ let
   osCfg = osConfig.dafitt.bluetooth or null;
 in
 {
-  options.dafitt.bluetooth = with types;{
+  options.dafitt.bluetooth = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Whether to enable a gui for bluetooth.";
   };
 
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
-      bind = optionals config.dafitt.hyprland.pyprland.enable
-        [ "SUPER_ALT, B, exec, ${pkgs.pyprland}/bin/pypr toggle bluetooth" ];
+      bind = optionals config.dafitt.hyprland.pyprland.enable [
+        "SUPER_ALT, B, exec, ${pkgs.pyprland}/bin/pypr toggle bluetooth"
+      ];
       windowrule = [ "float, class:io.github.kaii_lb.Overskride" ];
     };
 

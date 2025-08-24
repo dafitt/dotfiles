@@ -4,10 +4,17 @@
 # Memory: 64GB
 # Case: Dark Base 900 Orange
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
-with lib.dafitt; {
+with lib.dafitt;
+{
   imports = with inputs; [
     ./disk-configuration.nix
     ./hardware-configuration.nix
@@ -51,7 +58,8 @@ with lib.dafitt; {
   security.sudo-rs.wheelNeedsPassword = false;
 
   #$ ssh-keyscan
-  programs.ssh.knownHosts."minisforumhm80.schallernetz.lan".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ8HMHua73rLpiJOQRjVbfMhzWMFi9F9a1xpqUt4nLhD";
+  programs.ssh.knownHosts."minisforumhm80.schallernetz.lan".publicKey =
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ8HMHua73rLpiJOQRjVbfMhzWMFi9F9a1xpqUt4nLhD";
 
   system.stateVersion = "23.11";
 }

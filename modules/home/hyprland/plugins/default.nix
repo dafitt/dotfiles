@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -15,9 +20,15 @@ in
       hyprexpo.enable = true;
     };
 
-    assertions = [{
-      assertion = (count (option: option.enable) [ cfg.hyprsplit cfg.hyprnome ]) < 2;
-      message = "Only one of [ hyprsplit hyprnome ] in dafitt.hyprland.plugins can be enabled at a time. Because they alter keybindings in a different way.";
-    }];
+    assertions = [
+      {
+        assertion =
+          (count (option: option.enable) [
+            cfg.hyprsplit
+            cfg.hyprnome
+          ]) < 2;
+        message = "Only one of [ hyprsplit hyprnome ] in dafitt.hyprland.plugins can be enabled at a time. Because they alter keybindings in a different way.";
+      }
+    ];
   };
 }

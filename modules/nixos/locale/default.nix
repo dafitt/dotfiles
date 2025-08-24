@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -32,6 +37,9 @@ in
     };
 
     console.keyMap = mkDefault "de-latin1-nodeadkeys";
-    services.xserver.xkb = mkDefault { layout = "de"; variant = "nodeadkeys"; };
+    services.xserver.xkb = mkDefault {
+      layout = "de";
+      variant = "nodeadkeys";
+    };
   };
 }

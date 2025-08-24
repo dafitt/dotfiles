@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -148,7 +153,11 @@ in
           "codesnap.showWindowControls" = false;
           "codesnap.transparentBackground" = true;
           "colorize.decoration_type" = "underline";
-          "githubPullRequests.remotes" = [ "origin" "upstream" "github" ];
+          "githubPullRequests.remotes" = [
+            "origin"
+            "upstream"
+            "github"
+          ];
           "gitlens.showWelcomeOnInstall" = false;
           "gitlens.showWhatsNewAfterUpgrades" = false;
           "gitlens.telemetry.enabled" = false;
@@ -277,41 +286,117 @@ in
 
         keybindings = [
           # insert line above and below
-          { "key" = "shift+enter"; "command" = "editor.action.insertLineBefore"; "when" = "editorTextFocus && !editorReadonly"; }
-          { "key" = "ctrl+enter"; "command" = "editor.action.insertLineAfter"; "when" = "editorTextFocus && !editorReadonly"; }
+          {
+            "key" = "shift+enter";
+            "command" = "editor.action.insertLineBefore";
+            "when" = "editorTextFocus && !editorReadonly";
+          }
+          {
+            "key" = "ctrl+enter";
+            "command" = "editor.action.insertLineAfter";
+            "when" = "editorTextFocus && !editorReadonly";
+          }
           # sort lines
-          { "key" = "ctrl+numpad3"; "command" = "editor.action.sortLinesAscending"; "when" = "editorTextFocus && !editorReadonly"; }
-          { "key" = "ctrl+numpad9"; "command" = "editor.action.sortLinesDescending"; "when" = "editorTextFocus && !editorReadonly"; }
+          {
+            "key" = "ctrl+numpad3";
+            "command" = "editor.action.sortLinesAscending";
+            "when" = "editorTextFocus && !editorReadonly";
+          }
+          {
+            "key" = "ctrl+numpad9";
+            "command" = "editor.action.sortLinesDescending";
+            "when" = "editorTextFocus && !editorReadonly";
+          }
           # indent line
-          { "key" = "tab"; "command" = "editor.action.indentLines"; "when" = "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !suggestWidgetHasFocusedSuggestion && !inSnippetMode && !atEndOfWord && !inlineSuggestionVisible"; }
+          {
+            "key" = "tab";
+            "command" = "editor.action.indentLines";
+            "when" =
+              "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !suggestWidgetHasFocusedSuggestion && !inSnippetMode && !atEndOfWord && !inlineSuggestionVisible";
+          }
           # copy line down
-          { "key" = "ctrl+alt+l"; "command" = "editor.action.copyLinesDownAction"; "when" = "editorTextFocus && !editorReadonly"; }
+          {
+            "key" = "ctrl+alt+l";
+            "command" = "editor.action.copyLinesDownAction";
+            "when" = "editorTextFocus && !editorReadonly";
+          }
           # toggle comments
-          { "key" = "ctrl+/"; "command" = "editor.action.commentLine"; "when" = "editorTextFocus && !editorReadonly"; }
-          { "key" = "ctrl+shift+/"; "command" = "editor.action.blockComment"; "when" = "editorTextFocus && !editorReadonly"; }
+          {
+            "key" = "ctrl+/";
+            "command" = "editor.action.commentLine";
+            "when" = "editorTextFocus && !editorReadonly";
+          }
+          {
+            "key" = "ctrl+shift+/";
+            "command" = "editor.action.blockComment";
+            "when" = "editorTextFocus && !editorReadonly";
+          }
           # save all files
-          { "key" = "ctrl+shift+s"; "command" = "workbench.action.files.saveFiles"; }
+          {
+            "key" = "ctrl+shift+s";
+            "command" = "workbench.action.files.saveFiles";
+          }
           # file: save without formatting
-          { "key" = "ctrl+shift+s"; "command" = "-workbench.action.files.saveAs"; }
-          { "key" = "ctrl+shift+s"; "command" = "workbench.action.files.saveWithoutFormatting"; }
+          {
+            "key" = "ctrl+shift+s";
+            "command" = "-workbench.action.files.saveAs";
+          }
+          {
+            "key" = "ctrl+shift+s";
+            "command" = "workbench.action.files.saveWithoutFormatting";
+          }
           # zen mode
-          { "key" = "ctrl+alt+z"; "command" = "workbench.action.toggleZenMode"; "when" = "!isAuxiliaryWindowFocusedContext"; }
+          {
+            "key" = "ctrl+alt+z";
+            "command" = "workbench.action.toggleZenMode";
+            "when" = "!isAuxiliaryWindowFocusedContext";
+          }
           # vscode settings: change keybinding expression
-          { "key" = "ctrl+e"; "command" = "keybindings.editor.defineWhenExpression"; "when" = "inKeybindings && keybindingFocus"; }
+          {
+            "key" = "ctrl+e";
+            "command" = "keybindings.editor.defineWhenExpression";
+            "when" = "inKeybindings && keybindingFocus";
+          }
           # code runner: run current file
-          { "key" = "ctrl+e ctrl+e"; "command" = "code-runner.run"; "when" = "editorTextFocus && !editorReadonly && resourceExtname != .sql"; }
+          {
+            "key" = "ctrl+e ctrl+e";
+            "command" = "code-runner.run";
+            "when" = "editorTextFocus && !editorReadonly && resourceExtname != .sql";
+          }
           # unsets
           # unset ctrl-l for line selection
-          { "key" = "ctrl+l"; "command" = "-workbench.action.chat.clear"; }
+          {
+            "key" = "ctrl+l";
+            "command" = "-workbench.action.chat.clear";
+          }
           # unset ctrl-shift-z for redo
-          { "key" = "ctrl+shift+z"; "command" = "-extension.decrementPriority"; }
+          {
+            "key" = "ctrl+shift+z";
+            "command" = "-extension.decrementPriority";
+          }
           # unset todo-txt
-          { "key" = "ctrl+shift+a"; "command" = "-extension.incrementPriority"; }
+          {
+            "key" = "ctrl+shift+a";
+            "command" = "-extension.incrementPriority";
+          }
           # bracket-select: change bracket-select shortcut
-          { "key" = "alt+a"; "command" = "-bracket-select.select"; }
-          { "key" = "alt+z"; "command" = "-bracket-select.undo-select"; }
-          { "key" = "ctrl+shift+a"; "command" = "-editor.action.blockComment"; }
-          { "key" = "ctrl+shift+a"; "command" = "bracket-select.select-include"; "when" = "editorTextFocus"; }
+          {
+            "key" = "alt+a";
+            "command" = "-bracket-select.select";
+          }
+          {
+            "key" = "alt+z";
+            "command" = "-bracket-select.undo-select";
+          }
+          {
+            "key" = "ctrl+shift+a";
+            "command" = "-editor.action.blockComment";
+          }
+          {
+            "key" = "ctrl+shift+a";
+            "command" = "bracket-select.select-include";
+            "when" = "editorTextFocus";
+          }
         ];
 
         globalSnippets = {
@@ -323,68 +408,140 @@ in
         };
         languageSnippets = { };
 
-        extensions = with pkgs.vscode-extensions; [
-          # https://search.nixos.org/packages#?type=packages&query=vscode-extensions.
+        extensions =
+          with pkgs.vscode-extensions;
+          [
+            # https://search.nixos.org/packages#?type=packages&query=vscode-extensions.
 
-          # Basic language Support #
-          esbenp.prettier-vscode
-          # gitignore
-          codezombiech.gitignore
-          # markdown
-          yzhang.markdown-all-in-one
-          # nix
-          bbenoist.nix
-          jnoortheen.nix-ide
-          jeff-hykin.better-nix-syntax
-          # pdf
-          tomoki1207.pdf
-          # shell
-          foxundermoon.shell-format
-          # svg
-          jock.svg # svg
-          # toml
-          tamasfe.even-better-toml
-          # markdown
-          bierner.markdown-preview-github-styles
+            # Basic language Support #
+            esbenp.prettier-vscode
+            # gitignore
+            codezombiech.gitignore
+            # markdown
+            yzhang.markdown-all-in-one
+            # nix
+            bbenoist.nix
+            jnoortheen.nix-ide
+            jeff-hykin.better-nix-syntax
+            # pdf
+            tomoki1207.pdf
+            # shell
+            foxundermoon.shell-format
+            # svg
+            jock.svg # svg
+            # toml
+            tamasfe.even-better-toml
+            # markdown
+            bierner.markdown-preview-github-styles
 
-          # Features / advancements #
-          aaron-bond.better-comments
-          adpyke.codesnap
-          formulahendry.code-runner
-          github.vscode-pull-request-github
-          gruntfuggly.todo-tree
-          ibm.output-colorizer
-        ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          # https://marketplace.visualstudio.com/
+            # Features / advancements #
+            aaron-bond.better-comments
+            adpyke.codesnap
+            formulahendry.code-runner
+            github.vscode-pull-request-github
+            gruntfuggly.todo-tree
+            ibm.output-colorizer
+          ]
+          ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+            # https://marketplace.visualstudio.com/
 
-          # Basic language support #
-          { name = "vscode-assorted-languages"; publisher = "edwinkofler"; version = "0.31.1"; sha256 = "sha256-dC6l9vtuCpZM1GsrfDweZsVfsjop8wTqY+Ly5dw0Jwg="; }
-          # desktop files
-          { name = "linux-desktop-file"; publisher = "nico-castell"; version = "0.0.21"; sha256 = "0d2pfby72qczljzw1dk2rsqkqharl2sbq3g31zylz0rx73cvxb72"; }
-          # json
-          { name = "fix-all-json"; publisher = "zardoy"; version = "0.1.5"; sha256 = "nkp5wdUPy+lUmc4Yg3b+NNosQgCPr6/sVad+j4Ln7Uo="; }
-          # nftables
-          { name = "nftables"; publisher = "ombratteng"; version = "0.7.0"; sha256 = "sha256-nxs1C3MA+9dQylJs9RLQJ35SRZNanIWeYAaeVVzs2Fo="; }
-          # shell
-          { name = "haltarys-shellman"; publisher = "Haltarys"; version = "5.7.1"; sha256 = "0gw0nd5yhq7d08mf7k78zz8xaj23qlirip3amx2jmqjav1fbz46m"; }
-          # todo-txt
-          { name = "todotxt-mode"; publisher = "davraamides"; version = "1.4.32"; sha256 = "sha256-HICvHLL9mCKyQqEZYfOb+q8tmSS4NzxkuLle8MdEA2Y="; }
+            # Basic language support #
+            {
+              name = "vscode-assorted-languages";
+              publisher = "edwinkofler";
+              version = "0.31.1";
+              sha256 = "sha256-dC6l9vtuCpZM1GsrfDweZsVfsjop8wTqY+Ly5dw0Jwg=";
+            }
+            # desktop files
+            {
+              name = "linux-desktop-file";
+              publisher = "nico-castell";
+              version = "0.0.21";
+              sha256 = "0d2pfby72qczljzw1dk2rsqkqharl2sbq3g31zylz0rx73cvxb72";
+            }
+            # json
+            {
+              name = "fix-all-json";
+              publisher = "zardoy";
+              version = "0.1.5";
+              sha256 = "nkp5wdUPy+lUmc4Yg3b+NNosQgCPr6/sVad+j4Ln7Uo=";
+            }
+            # nftables
+            {
+              name = "nftables";
+              publisher = "ombratteng";
+              version = "0.7.0";
+              sha256 = "sha256-nxs1C3MA+9dQylJs9RLQJ35SRZNanIWeYAaeVVzs2Fo=";
+            }
+            # shell
+            {
+              name = "haltarys-shellman";
+              publisher = "Haltarys";
+              version = "5.7.1";
+              sha256 = "0gw0nd5yhq7d08mf7k78zz8xaj23qlirip3amx2jmqjav1fbz46m";
+            }
+            # todo-txt
+            {
+              name = "todotxt-mode";
+              publisher = "davraamides";
+              version = "1.4.32";
+              sha256 = "sha256-HICvHLL9mCKyQqEZYfOb+q8tmSS4NzxkuLle8MdEA2Y=";
+            }
 
-          # Features / advancements #
-          { name = "auto-add-brackets"; publisher = "aliariff"; version = "0.12.2"; sha256 = "sha256-DH1NfneJTMC7BmOP4IiUG8J7BQtwOj4/k5Qn62DkZ7Q="; }
-          { name = "bracket-select"; publisher = "chunsen"; version = "2.0.2"; sha256 = "sha256-2+42NJWAI0cz+RvmihO2v8J/ndAHvV3YqMExvnl46m4="; }
-          { name = "better-folding"; publisher = "MohammadBaqer"; version = "0.5.1"; sha256 = "vEZi+rBT8dxhi+sIPSXWpUiWmE29deWzKj7uN7T+4is="; }
-          { name = "better-syntax"; publisher = "jeff-hykin"; version = "2.1.0"; sha256 = "0dppmkrk92q57xjcqfriwg2zs7pw9mp9xpxv6zxsj81lbfshiwc2"; }
-          { name = "bracket-padder"; publisher = "viablelab"; version = "0.3.0"; sha256 = "sha256-5DfEaG8vRYcpebeBcWidaySaOgMdrDT8DiS1TmpetKg="; }
-          { name = "vscode-filesystemtoolbox"; publisher = "carlocardella"; version = "1.5.0"; sha256 = "0wfbqglpfh4afkp6ykibzhznf6s3is23k5jwiipfr4jcmjki5kbc"; }
-          { name = "vscode-status-bar-format-toggle"; publisher = "tombonnike"; version = "3.1.1"; sha256 = "mZymHbdJ7HD6acBPomwxKyatDfkDPAA0PaZpPU+nViQ="; }
-        ];
+            # Features / advancements #
+            {
+              name = "auto-add-brackets";
+              publisher = "aliariff";
+              version = "0.12.2";
+              sha256 = "sha256-DH1NfneJTMC7BmOP4IiUG8J7BQtwOj4/k5Qn62DkZ7Q=";
+            }
+            {
+              name = "bracket-select";
+              publisher = "chunsen";
+              version = "2.0.2";
+              sha256 = "sha256-2+42NJWAI0cz+RvmihO2v8J/ndAHvV3YqMExvnl46m4=";
+            }
+            {
+              name = "better-folding";
+              publisher = "MohammadBaqer";
+              version = "0.5.1";
+              sha256 = "vEZi+rBT8dxhi+sIPSXWpUiWmE29deWzKj7uN7T+4is=";
+            }
+            {
+              name = "better-syntax";
+              publisher = "jeff-hykin";
+              version = "2.1.0";
+              sha256 = "0dppmkrk92q57xjcqfriwg2zs7pw9mp9xpxv6zxsj81lbfshiwc2";
+            }
+            {
+              name = "bracket-padder";
+              publisher = "viablelab";
+              version = "0.3.0";
+              sha256 = "sha256-5DfEaG8vRYcpebeBcWidaySaOgMdrDT8DiS1TmpetKg=";
+            }
+            {
+              name = "vscode-filesystemtoolbox";
+              publisher = "carlocardella";
+              version = "1.5.0";
+              sha256 = "0wfbqglpfh4afkp6ykibzhznf6s3is23k5jwiipfr4jcmjki5kbc";
+            }
+            {
+              name = "vscode-status-bar-format-toggle";
+              publisher = "tombonnike";
+              version = "3.1.1";
+              sha256 = "mZymHbdJ7HD6acBPomwxKyatDfkDPAA0PaZpPU+nViQ=";
+            }
+          ];
       };
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, G, exec, uwsm app -- ${getExe config.programs.vscode.package}" ];
-      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.vscode.package}" ];
+      bind = mkIf cfg.configureKeybindings [
+        "SUPER_ALT, G, exec, uwsm app -- ${getExe config.programs.vscode.package}"
+      ];
+      exec-once = mkIf cfg.autostart [
+        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.vscode.package}"
+      ];
     };
   };
 }

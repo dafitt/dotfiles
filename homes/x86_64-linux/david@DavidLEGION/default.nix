@@ -1,16 +1,33 @@
 #nix-repl> nixosConfigurations.DavidLEGION.config.snowfallorg.users.david.home.config
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
-with lib.dafitt; {
+with lib.dafitt;
+{
   imports = with inputs; [
     ../../user-configurations/david.nix
   ];
 
   dafitt = {
     filemanagers.yazi.enable = true;
-    hyprland.monitors = [{ name = "eDP-2"; primary = true; width = 2560; height = 1600; refreshRate = 165; scale = 1.25; vrr = 1; }];
+    hyprland.monitors = [
+      {
+        name = "eDP-2";
+        primary = true;
+        width = 2560;
+        height = 1600;
+        refreshRate = 165;
+        scale = 1.25;
+        vrr = 1;
+      }
+    ];
     latex.enable = false;
     launchers.rofi.enable = true;
     steam.enable = true;

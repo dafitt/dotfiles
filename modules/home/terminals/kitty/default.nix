@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -79,10 +84,13 @@ in
     home.sessionVariables.TERMINAL = mkIf cfg.configureVariables (getExe config.programs.kitty.package);
 
     wayland.windowManager.hyprland.settings = {
-      bind = optionals cfg.configureKeybindings
-        [ "SUPER, RETURN, exec, uwsm app -- ${getExe config.programs.kitty.package}" ]
-      ++ optionals config.dafitt.hyprland.pyprland.enable
-        [ "SUPER_ALT, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty" ];
+      bind =
+        optionals cfg.configureKeybindings [
+          "SUPER, RETURN, exec, uwsm app -- ${getExe config.programs.kitty.package}"
+        ]
+        ++ optionals config.dafitt.hyprland.pyprland.enable [
+          "SUPER_ALT, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty"
+        ];
       windowrule = [
         "idleinhibit always, class:idleinhibitor, floating:1"
       ];

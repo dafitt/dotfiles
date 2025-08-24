@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -32,7 +38,8 @@ in
         panelColor = config.wayland.windowManager.hyprland.settings.decoration."col.shadow";
         workspaceActiveBackground = "rgb(${config.lib.stylix.colors.base02})";
         workspaceActiveBorder = config.wayland.windowManager.hyprland.settings.general."col.active_border";
-        workspaceInactiveBorder = config.wayland.windowManager.hyprland.settings.general."col.inactive_border";
+        workspaceInactiveBorder =
+          config.wayland.windowManager.hyprland.settings.general."col.inactive_border";
         workspaceBorderSize = config.wayland.windowManager.hyprland.settings.general.border_size;
       };
     };

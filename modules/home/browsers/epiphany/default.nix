@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -20,7 +25,9 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, W, exec, uwsm app -- ${getExe pkgs.epiphany}" ];
-      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.epiphany}" ];
+      exec-once = mkIf cfg.autostart [
+        "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.epiphany}"
+      ];
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart

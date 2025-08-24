@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -19,7 +24,13 @@ in
         PreferredTechnologies=ethernet,wifi
       '';
 
-      networkInterfaceBlacklist = [ "vmnet" "vboxnet" "virbr" "ifb" "ve" ];
+      networkInterfaceBlacklist = [
+        "vmnet"
+        "vboxnet"
+        "virbr"
+        "ifb"
+        "ve"
+      ];
     };
 
     # GTK GUI for Connman

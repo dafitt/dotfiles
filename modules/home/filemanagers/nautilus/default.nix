@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -28,7 +33,11 @@ in
         show-delete-permanently = true;
       };
       "org/gnome/nautilus/icon-view" = {
-        captions = [ "size" "none" "none" ];
+        captions = [
+          "size"
+          "none"
+          "none"
+        ];
       };
       "org/gnome/nautilus/list-view" = {
         default-column-order = [
@@ -46,7 +55,13 @@ in
           "detailed_type"
           "where"
         ];
-        default-visible-columns = [ "name" "type" "size" "date_modified" "permissions" ];
+        default-visible-columns = [
+          "name"
+          "type"
+          "size"
+          "date_modified"
+          "permissions"
+        ];
         default-zoom-level = "small";
       };
       "com/github/stunkymonkey/nautilus-open-any-terminal" = {
@@ -55,8 +70,12 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, F, exec, uwsm app -- uwsm app -- ${pkgs.nautilus}/bin/nautilus" ];
-      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] uwsm app -- ${pkgs.nautilus}/bin/nautilus" ];
+      bind = mkIf cfg.configureKeybindings [
+        "SUPER_ALT, F, exec, uwsm app -- uwsm app -- ${pkgs.nautilus}/bin/nautilus"
+      ];
+      exec-once = mkIf cfg.autostart [
+        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${pkgs.nautilus}/bin/nautilus"
+      ];
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart

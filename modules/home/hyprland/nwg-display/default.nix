@@ -1,5 +1,10 @@
 # https://github.com/nwg-piotr/nwg-displays
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;

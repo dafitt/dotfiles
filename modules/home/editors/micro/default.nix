@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -41,8 +46,32 @@ in
       terminal = true;
       startupNotify = false;
       type = "Application";
-      categories = [ "Utility" "TextEditor" "Development" ];
-      mimeType = [ "text/plain" "text/x-chdr" "text/x-csrc" "text/x-c++hdr" "text/x-c++src" "text/x-java" "text/x-dsrc" "text/x-pascal" "text/x-perl" "text/x-python" "application/x-php" "application/x-httpd-php3" "application/x-httpd-php4" "application/x-httpd-php5" "application/xml" "text/html" "text/css" "text/x-sql" "text/x-diff" ];
+      categories = [
+        "Utility"
+        "TextEditor"
+        "Development"
+      ];
+      mimeType = [
+        "text/plain"
+        "text/x-chdr"
+        "text/x-csrc"
+        "text/x-c++hdr"
+        "text/x-c++src"
+        "text/x-java"
+        "text/x-dsrc"
+        "text/x-pascal"
+        "text/x-perl"
+        "text/x-python"
+        "application/x-php"
+        "application/x-httpd-php3"
+        "application/x-httpd-php4"
+        "application/x-httpd-php5"
+        "application/xml"
+        "text/html"
+        "text/css"
+        "text/x-sql"
+        "text/x-diff"
+      ];
 
       settings = {
         Keywords = "text;editor;syntax;terminal;";
@@ -52,7 +81,9 @@ in
     home.sessionVariables.EDITOR = mkIf cfg.configureVariables (getExe config.programs.micro.package);
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, E, exec, uwsm app -- ${getExe pkgs.kitty} -e ${pkgs.micro}/bin/micro" ];
+      bind = mkIf cfg.configureKeybindings [
+        "SUPER_ALT, E, exec, uwsm app -- ${getExe pkgs.kitty} -e ${pkgs.micro}/bin/micro"
+      ];
     };
   };
 }

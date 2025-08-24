@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -9,7 +14,11 @@ in
   options.dafitt.hyprland.plugins.hypr-dynamic-cursors = with types; {
     enable = mkEnableOption "hypr-dynamic-cursors";
 
-    mode = mkOpt (enum [ "rotate" "tilt" "stretch" ]) "stretch" "Cursor rotation mode.";
+    mode = mkOpt (enum [
+      "rotate"
+      "tilt"
+      "stretch"
+    ]) "stretch" "Cursor rotation mode.";
   };
 
   config = mkIf cfg.enable {

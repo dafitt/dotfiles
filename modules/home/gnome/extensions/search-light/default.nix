@@ -1,4 +1,11 @@
-{ config, lib, pkgs, inputs, osConfig ? { }, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  osConfig ? { },
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -11,8 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs.gnomeExtensions; [ search-light ]
-      ++ [ pkgs.imagemagick ];
+    home.packages = with pkgs.gnomeExtensions; [ search-light ] ++ [ pkgs.imagemagick ];
 
     dconf.settings = {
       "org/gnome/shell/extensions/search-light" = {
@@ -22,7 +28,9 @@ in
         scale-width = 0.5;
         shortcut-search = [ "<Super>space" ];
       };
-      "org/gnome/desktop/wm/keybindings" = { switch-input-source-backward = [ ]; };
+      "org/gnome/desktop/wm/keybindings" = {
+        switch-input-source-backward = [ ];
+      };
     };
   };
 }

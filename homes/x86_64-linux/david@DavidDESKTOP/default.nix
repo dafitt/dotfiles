@@ -1,9 +1,16 @@
 #nix-repl> nixosConfigurations.DavidDESKTOP.config.snowfallorg.users.david.home.config
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
-with lib.dafitt; {
+with lib.dafitt;
+{
   imports = with inputs; [
     ../../user-configurations/david.nix
   ];
@@ -13,7 +20,15 @@ with lib.dafitt; {
     hyprland.hypridle.sleepTriggersLock = false;
     hyprland.hypridle.timeouts.lock = 0;
     hyprland.hypridle.timeouts.suspend = 0;
-    hyprland.monitors = [{ name = "desc:Microstep MSI MAG271CQP 0x3030424C"; primary = true; width = 2560; height = 1440; refreshRate = 144; }];
+    hyprland.monitors = [
+      {
+        name = "desc:Microstep MSI MAG271CQP 0x3030424C";
+        primary = true;
+        width = 2560;
+        height = 1440;
+        refreshRate = 144;
+      }
+    ];
     hyprland.plugins.hypr-dynamic-cursors.enable = true;
     launchers.rofi.enable = true;
     suiteEditing.enable = true;

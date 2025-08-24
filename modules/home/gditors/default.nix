@@ -6,7 +6,7 @@ let
   cfg = config.dafitt.gditors;
 in
 {
-  options.dafitt.gditors = with types;{
+  options.dafitt.gditors = with types; {
     default = mkOption {
       type = nullOr (enum [
         "vscode"

@@ -6,7 +6,7 @@ let
   cfg = config.dafitt.terminals;
 in
 {
-  options.dafitt.terminals = with types;{
+  options.dafitt.terminals = with types; {
     default = mkOption {
       type = nullOr (enum [
         "kitty"

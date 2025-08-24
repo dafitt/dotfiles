@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -13,9 +18,18 @@ in
   config = mkIf cfg.enable {
     services.flatpak = {
       packages = [
-        { appId = "app.gummi.gummi"; origin = "flathub"; } # simple and fast LaTeX editor
-        { appId = "org.texstudio.TeXstudio"; origin = "flathub"; } # more feature-rich LaTeX editor
-        { appId = "fyi.zoey.TeX-Match"; origin = "flathub"; } # find LaTeX symbols by sketching
+        {
+          appId = "app.gummi.gummi";
+          origin = "flathub";
+        } # simple and fast LaTeX editor
+        {
+          appId = "org.texstudio.TeXstudio";
+          origin = "flathub";
+        } # more feature-rich LaTeX editor
+        {
+          appId = "fyi.zoey.TeX-Match";
+          origin = "flathub";
+        } # find LaTeX symbols by sketching
       ];
       overrides = {
         "app.gummi.gummi".Context.filesystems = [ "home" ];

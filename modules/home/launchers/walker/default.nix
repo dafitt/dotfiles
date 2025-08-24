@@ -1,4 +1,10 @@
-{ config, lib, pkgs, host, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  host,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -59,7 +65,9 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER, SPACE, exec, ${config.programs.walker.package}/bin/walker" ];
+      bind = mkIf cfg.configureKeybindings [
+        "SUPER, SPACE, exec, ${config.programs.walker.package}/bin/walker"
+      ];
     };
   };
 }

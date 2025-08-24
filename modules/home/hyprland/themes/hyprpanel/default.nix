@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -22,9 +28,24 @@ in
       settings = {
         bar.layouts."0" = {
           # https://hyprpanel.com/configuration/modules.html
-          left = [ "workspaces" "windowtitle" ];
-          middle = [ "systray" "notifications" "clock" "media" ];
-          right = [ "bluetooth" "network" "volume" "hypridle" "battery" "dashboard" ];
+          left = [
+            "workspaces"
+            "windowtitle"
+          ];
+          middle = [
+            "systray"
+            "notifications"
+            "clock"
+            "media"
+          ];
+          right = [
+            "bluetooth"
+            "network"
+            "volume"
+            "hypridle"
+            "battery"
+            "dashboard"
+          ];
         };
         bar.bluetooth.label = false;
         bar.clock.format = "%Y-%m-%d  %R";

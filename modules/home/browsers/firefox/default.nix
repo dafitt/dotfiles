@@ -1,4 +1,11 @@
-{ config, lib, pkgs, host, osConfig ? { }, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  host,
+  osConfig ? { },
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -140,7 +147,17 @@ in
         search = {
           force = true;
           default = "ddg";
-          order = [ "ddg" "searx" "kagi" "youtube" "nix-packages" "nixos-options" "home-manager" "github" "hackernews" ];
+          order = [
+            "ddg"
+            "searx"
+            "kagi"
+            "youtube"
+            "nix-packages"
+            "nixos-options"
+            "home-manager"
+            "github"
+            "hackernews"
+          ];
 
           engines = {
             "bing".metaData.hidden = true;
@@ -150,87 +167,179 @@ in
             "searx" = {
               name = "Searx";
               icon = "https://searx.schallernetz.de/favicon.ico";
-              definedAliases = [ "@searx" "@sx" "@s" ];
-              urls = [{
-                template = "https://searx.schallernetz.de/search";
-                params = [{ name = "q"; value = "{searchTerms}"; }];
-              }];
+              definedAliases = [
+                "@searx"
+                "@sx"
+                "@s"
+              ];
+              urls = [
+                {
+                  template = "https://searx.schallernetz.de/search";
+                  params = [
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
             };
             "kagi" = {
               name = "Kagi";
               icon = "https://kagi.com/favicon.ico";
-              definedAliases = [ "@kagi" "@kg" ];
-              urls = [{
-                template = "https://kagi.com/search";
-                params = [{ name = "q"; value = "{searchTerms}"; }];
-              }];
+              definedAliases = [
+                "@kagi"
+                "@kg"
+              ];
+              urls = [
+                {
+                  template = "https://kagi.com/search";
+                  params = [
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
             };
             "youtube" = {
               icon = "https://youtube.com/favicon.ico";
-              definedAliases = [ "@youtube" "@yt" ];
-              urls = [{
-                template = "https://www.youtube.com/results";
-                params = [{ name = "search_query"; value = "{searchTerms}"; }];
-              }];
+              definedAliases = [
+                "@youtube"
+                "@yt"
+              ];
+              urls = [
+                {
+                  template = "https://www.youtube.com/results";
+                  params = [
+                    {
+                      name = "search_query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
             };
             "nix-packages" = {
               name = "Nix Packages";
-              definedAliases = [ "@nix-packages" "@nixpkgs" "@np" ];
-              urls = [{
-                template = "https://search.nixos.org/packages";
-                params = [
-                  { name = "type"; value = "packages"; }
-                  { name = "query"; value = "{searchTerms}"; }
-                ];
-              }];
+              definedAliases = [
+                "@nix-packages"
+                "@nixpkgs"
+                "@np"
+              ];
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             };
             "nixos-wiki" = {
               name = "NixOS Wiki";
-              definedAliases = [ "@nixos-wiki" "@nixoswiki" "@nw" ];
-              urls = [{ template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; }];
+              definedAliases = [
+                "@nixos-wiki"
+                "@nixoswiki"
+                "@nw"
+              ];
+              urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
               icon = "https://wiki.nixos.org/favicon.ico";
             };
             "nixos-options" = {
               name = "NixOS Options";
-              definedAliases = [ "@nixos-options" "@nixosopt" "@no" ];
-              urls = [{
-                template = "https://search.nixos.org/options";
-                params = [
-                  { name = "channel"; value = "${osConfig.system.stateVersion or config.home.stateVersion or "unstable"}"; }
-                  { name = "query"; value = "{searchTerms}"; }
-                ];
-              }];
+              definedAliases = [
+                "@nixos-options"
+                "@nixosopt"
+                "@no"
+              ];
+              urls = [
+                {
+                  template = "https://search.nixos.org/options";
+                  params = [
+                    {
+                      name = "channel";
+                      value = "${osConfig.system.stateVersion or config.home.stateVersion or "unstable"}";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             };
             "home-manager-options" = {
               name = "Home Manager Options";
-              definedAliases = [ "@home-manager-options" "@hmopt" "@hm" "@ho" ];
-              urls = [{
-                template = "https://home-manager-options.extranix.com/";
-                params = [
-                  { name = "release"; value = "release-${config.home.stateVersion}"; }
-                  { name = "query"; value = "{searchTerms}"; }
-                ];
-              }];
+              definedAliases = [
+                "@home-manager-options"
+                "@hmopt"
+                "@hm"
+                "@ho"
+              ];
+              urls = [
+                {
+                  template = "https://home-manager-options.extranix.com/";
+                  params = [
+                    {
+                      name = "release";
+                      value = "release-${config.home.stateVersion}";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             };
             "github" = {
               name = "GitHub";
-              definedAliases = [ "@github" "@gh" ];
-              urls = [{
-                template = "https://github.com/search";
-                params = [{ name = "q"; value = "{searchTerms}"; }];
-              }];
+              definedAliases = [
+                "@github"
+                "@gh"
+              ];
+              urls = [
+                {
+                  template = "https://github.com/search";
+                  params = [
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
               icon = "https://github.com/favicon.ico";
             };
             "hackernews" = {
               name = "Hacker News";
-              definedAliases = [ "@hackernews" "@hn" ];
-              urls = [{
-                template = "https://hn.algolia.com/";
-                params = [{ name = "query"; value = "{searchTerms}"; }];
-              }];
+              definedAliases = [
+                "@hackernews"
+                "@hn"
+              ];
+              urls = [
+                {
+                  template = "https://hn.algolia.com/";
+                  params = [
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
               icon = "https://hn.algolia.com/favicon.ico";
             };
           };
@@ -239,8 +348,12 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, W, exec, uwsm app -- ${getExe config.programs.firefox.package}" ];
-      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.firefox.package}" ];
+      bind = mkIf cfg.configureKeybindings [
+        "SUPER_ALT, W, exec, uwsm app -- ${getExe config.programs.firefox.package}"
+      ];
+      exec-once = mkIf cfg.autostart [
+        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.firefox.package}"
+      ];
       windowrule = [
         "idleinhibit fullscreen, class:firefox, title:(Youtube)"
         "float, class:firefox, title:^Extension: \(NoScript\) - NoScript"

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -16,7 +21,9 @@ in
     home.packages = with pkgs; [ bitwarden-desktop ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, PERIOD, exec, uwsm app -- ${pkgs.bitwarden-desktop}/bin/bitwarden" ];
+      bind = mkIf cfg.configureKeybindings [
+        "SUPER_ALT, PERIOD, exec, uwsm app -- ${pkgs.bitwarden-desktop}/bin/bitwarden"
+      ];
       windowrule = [
         "float, class:Bitwarden, title:Bitwarden"
       ];

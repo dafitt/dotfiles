@@ -6,7 +6,7 @@ let
   cfg = config.dafitt.clipboardManagers;
 in
 {
-  options.dafitt.clipboardManagers = with types;{
+  options.dafitt.clipboardManagers = with types; {
     default = mkOption {
       type = nullOr (enum [
         "cliphist"

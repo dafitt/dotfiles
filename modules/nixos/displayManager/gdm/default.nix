@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -16,10 +21,12 @@ in
       wayland = true;
     };
 
-    programs.dconf.profiles.gdm.databases = [{
-      settings = {
-        "org/gnome/desktop/peripherals/touchpad".tap-to-click = true;
-      };
-    }];
+    programs.dconf.profiles.gdm.databases = [
+      {
+        settings = {
+          "org/gnome/desktop/peripherals/touchpad".tap-to-click = true;
+        };
+      }
+    ];
   };
 }

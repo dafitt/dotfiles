@@ -12,10 +12,17 @@
 #$ home-manager switch .#<user>[@<host>]
 #$ nix run .#homeConfigurations.<user>[@<host>].activationPackage
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
-with lib.dafitt; {
+with lib.dafitt;
+{
   imports = with inputs; [ ];
 
   dafitt = {
@@ -23,57 +30,115 @@ with lib.dafitt; {
     #$ nixos-rebuild --flake .#defaults repl
     #> :p config.snowfallorg.users.david.home.config.dafitt
 
-    bedtime = { enable = false; };
-    bluetooth = { enable = false; };
+    bedtime = {
+      enable = false;
+    };
+    bluetooth = {
+      enable = false;
+    };
     browsers = {
       autostart = true;
       default = null;
-      epiphany = { enable = false; };
-      firefox = { enable = false; };
-      librewolf = { enable = false; };
+      epiphany = {
+        enable = false;
+      };
+      firefox = {
+        enable = false;
+      };
+      librewolf = {
+        enable = false;
+      };
     };
-    btop = { enable = false; };
-    cava = { enable = false; };
+    btop = {
+      enable = false;
+    };
+    cava = {
+      enable = false;
+    };
     editors = {
       default = null;
-      micro = { enable = false; };
+      micro = {
+        enable = false;
+      };
     };
     enable = false;
-    fastfetch = { enable = false; };
+    fastfetch = {
+      enable = false;
+    };
     file-roller = {
       enable = false;
     };
     filemanagers = {
       autostart = true;
       default = null;
-      natuilus = { enable = false; };
-      pcmanfm = { enable = false; };
-      yazi = { enable = false; };
+      natuilus = {
+        enable = false;
+      };
+      pcmanfm = {
+        enable = false;
+      };
+      yazi = {
+        enable = false;
+      };
     };
-    flatpak = { enable = false; };
+    flatpak = {
+      enable = false;
+    };
     gnome = {
       enable = false;
       extensions = {
-        app-icons-taskbar = { enable = false; };
-        appindicator = { enable = false; };
-        arcmenu = { enable = false; };
-        auto-move-windows = { enable = false; };
-        blur-my-shell = { enable = false; };
+        app-icons-taskbar = {
+          enable = false;
+        };
+        appindicator = {
+          enable = false;
+        };
+        arcmenu = {
+          enable = false;
+        };
+        auto-move-windows = {
+          enable = false;
+        };
+        blur-my-shell = {
+          enable = false;
+        };
         enable = false;
-        forge = { enable = false; };
-        just-perfection = { enable = false; };
-        native-window-placement = { enable = false; };
-        openweather = { enable = false; };
-        paperwm = { enable = false; };
-        reorder-workspaces = { enable = false; };
-        rounded-window-corners = { enable = false; };
-        search-light = { enable = false; };
-        vitals = { enable = false; };
+        forge = {
+          enable = false;
+        };
+        just-perfection = {
+          enable = false;
+        };
+        native-window-placement = {
+          enable = false;
+        };
+        openweather = {
+          enable = false;
+        };
+        paperwm = {
+          enable = false;
+        };
+        reorder-workspaces = {
+          enable = false;
+        };
+        rounded-window-corners = {
+          enable = false;
+        };
+        search-light = {
+          enable = false;
+        };
+        vitals = {
+          enable = false;
+        };
       };
     };
-    gnome-calculator = { enable = false; };
+    gnome-calculator = {
+      enable = false;
+    };
     hyprland = {
-      cliphist = { enable = false; };
+      cliphist = {
+        enable = false;
+      };
       enable = false;
       hypridle = {
         enable = false;
@@ -83,20 +148,42 @@ with lib.dafitt; {
           suspend = 600;
         };
       };
-      hyprlock = { enable = false; };
+      hyprlock = {
+        enable = false;
+      };
       monitors = [ ];
-      nwg-displays = { enable = false; };
+      nwg-displays = {
+        enable = false;
+      };
       plugins = {
         enable = false;
-        hypr-darkwindow = { enable = false; };
-        hypr-dynamic-cursors = { enable = false; };
-        hyprexpo = { enable = false; };
-        hyprfocus = { enable = false; };
-        hyprnome = { enable = false; };
-        hyprspace = { enable = false; };
-        hyprsplit = { enable = false; };
-        hyprtrails = { enable = false; };
-        hyprwinwrap = { enable = false; };
+        hypr-darkwindow = {
+          enable = false;
+        };
+        hypr-dynamic-cursors = {
+          enable = false;
+        };
+        hyprexpo = {
+          enable = false;
+        };
+        hyprfocus = {
+          enable = false;
+        };
+        hyprnome = {
+          enable = false;
+        };
+        hyprspace = {
+          enable = false;
+        };
+        hyprsplit = {
+          enable = false;
+        };
+        hyprtrails = {
+          enable = false;
+        };
+        hyprwinwrap = {
+          enable = false;
+        };
       };
       pyprland = {
         enable = false;
@@ -113,76 +200,152 @@ with lib.dafitt; {
       };
       ricing = {
         enable = false;
-        wallpaper = { enable = false; };
+        wallpaper = {
+          enable = false;
+        };
       };
       smartGaps = false;
       themes = {
         custom2023 = {
           enable = false;
           notifications = {
-            hyprnotify = { enable = false; };
-            mako = { enable = false; };
+            hyprnotify = {
+              enable = false;
+            };
+            mako = {
+              enable = false;
+            };
           };
-          swayosd = { enable = false; };
-          waybar = { enable = false; };
+          swayosd = {
+            enable = false;
+          };
+          waybar = {
+            enable = false;
+          };
         };
-        hyprpanel = { enable = false; };
+        hyprpanel = {
+          enable = false;
+        };
       };
       ttyAutostart = true;
-      wlsunset = { enable = false; };
+      wlsunset = {
+        enable = false;
+      };
     };
-    ianny = { enable = false; };
-    imv = { enable = false; };
-    latex = { enable = false; };
+    ianny = {
+      enable = false;
+    };
+    imv = {
+      enable = false;
+    };
+    latex = {
+      enable = false;
+    };
     launchers = {
       default = null;
-      fuzzel = { enable = false; };
-      rofi = { enable = false; };
+      fuzzel = {
+        enable = false;
+      };
+      rofi = {
+        enable = false;
+      };
     };
     mpv = {
       enable = false;
     };
     networking = {
-      connman = { enable = false; };
-      networkmanager = { enable = false; };
+      connman = {
+        enable = false;
+      };
+      networkmanager = {
+        enable = false;
+      };
     };
     passwordManagers = {
-      _1password = { enable = false; };
-      bitwarden = { enable = false; };
+      _1password = {
+        enable = false;
+      };
+      bitwarden = {
+        enable = false;
+      };
       default = null;
     };
-    pavucontrol = { enable = false; };
-    personalEnvironment = { enable = false; };
-    playerctld = { enable = false; };
-    shells = {
-      bash = { enable = false; };
-      fish = { enable = false; };
-      zsh = { enable = false; };
+    pavucontrol = {
+      enable = false;
     };
-    starship = { enable = false; };
-    steam = { enable = false; };
-    stylix = { enable = false; };
-    suiteDevelopment = { enable = false; };
-    suiteEditing = { enable = false; };
-    suiteGaming = { enable = false; };
-    suiteMusic = { enable = false; };
-    suiteOffice = { enable = false; };
-    suiteRicing = { enable = false; };
-    suiteSocial = { enable = false; };
-    suiteVirtualization = { enable = false; };
-    suiteWeb = { enable = false; };
-    syncthing = { enable = false; };
-    systemd = { enable = false; };
+    personalEnvironment = {
+      enable = false;
+    };
+    playerctld = {
+      enable = false;
+    };
+    shells = {
+      bash = {
+        enable = false;
+      };
+      fish = {
+        enable = false;
+      };
+      zsh = {
+        enable = false;
+      };
+    };
+    starship = {
+      enable = false;
+    };
+    steam = {
+      enable = false;
+    };
+    stylix = {
+      enable = false;
+    };
+    suiteDevelopment = {
+      enable = false;
+    };
+    suiteEditing = {
+      enable = false;
+    };
+    suiteGaming = {
+      enable = false;
+    };
+    suiteMusic = {
+      enable = false;
+    };
+    suiteOffice = {
+      enable = false;
+    };
+    suiteRicing = {
+      enable = false;
+    };
+    suiteSocial = {
+      enable = false;
+    };
+    suiteVirtualization = {
+      enable = false;
+    };
+    suiteWeb = {
+      enable = false;
+    };
+    syncthing = {
+      enable = false;
+    };
+    systemd = {
+      enable = false;
+    };
     terminals = {
       default = null;
-      kitty = { enable = false; };
+      kitty = {
+        enable = false;
+      };
     };
     vscode = {
       autostart = true;
       enable = false;
       mkMutable = false;
     };
-    xdg = { enable = false; };
+    xdg = {
+      enable = false;
+    };
   };
 
   home.packages = with pkgs; [

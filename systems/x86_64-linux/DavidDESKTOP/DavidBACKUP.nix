@@ -1,17 +1,25 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
 
   # automount DavidBACKUP on plugin
   # https://unix.stackexchange.com/questions/716214/unmount-mount-drive-when-its-disconnected-connected-automatically/716597#716597
   services.udev.extraRules = ''KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_FS_LABEL}=="DavidBACKUP", ACTION=="add", RUN+="${pkgs.systemd}/bin/systemctl restart mnt-DavidBACKUP.mount"'';
-  systemd.mounts = [{
-    unitConfig = {
-      Description = "disk with label DavidBACKUP";
-      Wants = [ "mnt-DavidBACKUP.service" ];
-      StopWhenUnneeded = true;
-    };
-    what = "/dev/disk/by-label/DavidBACKUP"; #TEST LABEL=DavidBACKUP
-    where = "/mnt/DavidBACKUP";
-  }];
+  systemd.mounts = [
+    {
+      unitConfig = {
+        Description = "disk with label DavidBACKUP";
+        Wants = [ "mnt-DavidBACKUP.service" ];
+        StopWhenUnneeded = true;
+      };
+      what = "/dev/disk/by-label/DavidBACKUP"; # TEST LABEL=DavidBACKUP
+      where = "/mnt/DavidBACKUP";
+    }
+  ];
   systemd.services."mnt-DavidBACKUP" = {
     unitConfig = {
       Description = "change owner of DavidBACKUP";
@@ -58,7 +66,10 @@
   };
   systemd.services."borgbackup-job-DavidBACKUP" = {
     unitConfig = {
-      RequiresMountsFor = [ "/DavidARCHIVE" "/mnt/DavidBACKUP" ]; # autofail
+      RequiresMountsFor = [
+        "/DavidARCHIVE"
+        "/mnt/DavidBACKUP"
+      ]; # autofail
     };
     serviceConfig = {
       ReadWritePaths = [ "/mnt/DavidBACKUP" ];

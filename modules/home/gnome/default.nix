@@ -1,4 +1,11 @@
-{ config, lib, pkgs, inputs, osConfig ? { }, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  osConfig ? { },
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -22,7 +29,12 @@ in
     dconf.settings = {
       #$ dconf watch /
       "org/gnome/desktop/input-sources" = {
-        sources = [ (config.lib.gvariant.mkTuple [ "xkb" "de+nodeadkeys" ]) ]; # TODO depend on locale
+        sources = [
+          (config.lib.gvariant.mkTuple [
+            "xkb"
+            "de+nodeadkeys"
+          ])
+        ]; # TODO depend on locale
       };
       "org/gnome/desktop/peripherals/touchpad" = {
         tap-to-click = true;
@@ -48,7 +60,6 @@ in
       "org/gnome/settings-daemon/plugins/color" = {
         night-light-enabled = true;
       };
-
 
       # Window manager
       "org/gnome/mutter" = {
@@ -140,7 +151,8 @@ in
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
         binding = "<Super><Alt>f";
-        command = if config.dafitt.filemanagers.default != null then config.dafitt.filemanagers.default else "";
+        command =
+          if config.dafitt.filemanagers.default != null then config.dafitt.filemanagers.default else "";
         name = "Files";
       };
     };

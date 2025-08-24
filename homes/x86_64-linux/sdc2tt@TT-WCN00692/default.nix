@@ -1,9 +1,16 @@
 #nix-repl> homeConfigurations."sdc2tt@TT-WCN00692".config
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
-with lib.dafitt; {
+with lib.dafitt;
+{
   imports = with inputs; [
   ];
 

@@ -11,10 +11,17 @@
 #$ nixos-rebuild --flake .#<host> <test|switch|boot>
 #$ nix run .#nixosConfigurations.<host>.config.system.build.toplevel
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
-with lib.dafitt; {
+with lib.dafitt;
+{
   imports = with inputs; [
     ./hardware-configuration.nix
 
@@ -27,58 +34,108 @@ with lib.dafitt; {
     #$ nixos-rebuild --flake .#defaults repl
     #> :p config.dafitt
 
-    appimage = { enable = false; };
-    audio = { enable = false; };
-    batteryOptimization = { enable = false; };
-    bluetooth = { enable = false; };
+    appimage = {
+      enable = false;
+    };
+    audio = {
+      enable = false;
+    };
+    batteryOptimization = {
+      enable = false;
+    };
+    bluetooth = {
+      enable = false;
+    };
     bootloader = {
-      grub = { enable = false; };
-      systemd-boot = { enable = true; };
+      grub = {
+        enable = false;
+      };
+      systemd-boot = {
+        enable = true;
+      };
     };
     displayManager = {
-      gdm = { enable = false; };
-      greetd = { enable = false; };
+      gdm = {
+        enable = false;
+      };
+      greetd = {
+        enable = false;
+      };
       sessionPaths = [ ];
     };
     enable = false;
-    flatpak = { enable = false; };
+    flatpak = {
+      enable = false;
+    };
     fonts = {
       enable = false;
       fonts = [ ];
     };
-    fwupd = { enable = false; };
-    gnome = { enable = false; };
+    fwupd = {
+      enable = false;
+    };
+    gnome = {
+      enable = false;
+    };
     hyprland = {
       enable = false;
-      hyprlock = { allow = false; };
+      hyprlock = {
+        allow = false;
+      };
     };
     kernel = {
       enable = false;
       package = pkgs.linuxPackages_latest;
     };
-    locale = { enable = false; };
-    locate = { enable = false; };
+    locale = {
+      enable = false;
+    };
+    locate = {
+      enable = false;
+    };
     networking = {
-      connman = { enable = false; };
+      connman = {
+        enable = false;
+      };
       firewall = {
         allowLocalsend = false;
         allowSyncthing = false;
       };
-      networkmanager = { enable = false; };
+      networkmanager = {
+        enable = false;
+      };
     };
-    printing = { enable = false; };
+    printing = {
+      enable = false;
+    };
     shells = {
       default = null;
-      fish = { enable = false; };
+      fish = {
+        enable = false;
+      };
     };
-    stylix = { enable = false; };
-    suiteDevelopment = { enable = false; };
-    suiteGaming = { enable = false; };
-    suiteVirtualization = { enable = false; };
-    systemd = { enable = false; };
-    time = { enable = false; };
+    stylix = {
+      enable = false;
+    };
+    suiteDevelopment = {
+      enable = false;
+    };
+    suiteGaming = {
+      enable = false;
+    };
+    suiteVirtualization = {
+      enable = false;
+    };
+    systemd = {
+      enable = false;
+    };
+    time = {
+      enable = false;
+    };
     users = {
-      guest = { enable = false; };
+      guest = {
+        enable = false;
+      };
     };
   };
 

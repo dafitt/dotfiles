@@ -1,6 +1,11 @@
 # A module to remeber you to go to sleep early without being too annoying
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;

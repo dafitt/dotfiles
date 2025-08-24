@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -25,7 +30,10 @@ in
 
       keymap = {
         mgr.append_keymap = [
-          { run = "tab_close"; on = "T"; }
+          {
+            run = "tab_close";
+            on = "T";
+          }
         ];
       };
     };
@@ -39,7 +47,14 @@ in
       exec = ''${config.programs.yazi.package}/bin/yazi %u'';
       terminal = true;
       type = "Application";
-      categories = [ "Utility" "Core" "System" "FileTools" "FileManager" "ConsoleOnly" ];
+      categories = [
+        "Utility"
+        "Core"
+        "System"
+        "FileTools"
+        "FileManager"
+        "ConsoleOnly"
+      ];
       mimeType = [ "inode/directory" ];
 
       settings = {
@@ -49,8 +64,12 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, F, exec, uwsm app -- ${config.programs.yazi.package}/bin/yazi" ];
-      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] uwsm app -- ${config.programs.yazi.package}/bin/yazi" ];
+      bind = mkIf cfg.configureKeybindings [
+        "SUPER_ALT, F, exec, uwsm app -- ${config.programs.yazi.package}/bin/yazi"
+      ];
+      exec-once = mkIf cfg.autostart [
+        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${config.programs.yazi.package}/bin/yazi"
+      ];
     };
 
     # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart

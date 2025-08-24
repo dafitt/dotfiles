@@ -3,21 +3,74 @@
   #$ nix flake update [--commit-lock-file]
   #$ nix flake update <input>
   inputs = {
-    betterfox = { url = "github:HeitorAugustoLN/betterfox-nix"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/HeitorAugustoLN/betterfox-nix
-    disko = { url = "github:nix-community/disko/latest"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/disko
-    home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/home-manager
-    hypr-darkwindow = { url = "github:micha4w/Hypr-DarkWindow"; }; # https://github.com/micha4w/Hypr-DarkWindow
-    nix-flatpak = { url = "github:gmodena/nix-flatpak/v0.5.2"; }; # https://github.com/gmodena/nix-flatpak/tags
-    nixGL = { url = "github:nix-community/nixGL"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/nixGL
-    nixos-generators = { url = "github:nix-community/nixos-generators"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/nix-community/nixos-generators
-    nixos-hardware = { url = "github:NixOS/nixos-hardware/master"; }; # https://github.com/NixOS/nixos-hardware
-    nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; }; # https://github.com/NixOS/nixpkgs
-    nur = { url = "github:nix-community/NUR"; }; # https://github.com/nix-community/NUR
-    programsdb = { url = "github:wamserma/flake-programs-sqlite"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/wamserma/flake-programs-sqlite
-    snowfall-lib = { url = "github:snowfallorg/lib"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/snowfallorg/lib
-    stylix = { url = "github:danth/stylix"; }; # https://github.com/danth/stylix
-    walker = { url = "github:abenz1267/walker"; inputs.nixpkgs.follows = "nixpkgs"; }; # https://github.com/abenz1267/walker
-    xdg-autostart = { url = "github:Zocker1999NET/home-manager-xdg-autostart"; }; # https://github.com/Zocker1999NET/home-manager-xdg-autostart
+    # https://github.com/HeitorAugustoLN/betterfox-nix
+    betterfox = {
+      url = "github:HeitorAugustoLN/betterfox-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # https://github.com/nix-community/disko
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # https://github.com/nix-community/home-manager
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # https://github.com/micha4w/Hypr-DarkWindow
+    hypr-darkwindow = {
+      url = "github:micha4w/Hypr-DarkWindow";
+    };
+    # https://github.com/gmodena/nix-flatpak/tags
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/v0.5.2";
+    };
+    # https://github.com/nix-community/nixGL
+    nixGL = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # https://github.com/nix-community/nixos-generators
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # https://github.com/NixOS/nixos-hardware
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
+    # https://github.com/NixOS/nixpkgs
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+    };
+    # https://github.com/nix-community/NUR
+    nur = {
+      url = "github:nix-community/NUR";
+    };
+    # https://github.com/wamserma/flake-programs-sqlite
+    programsdb = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # https://github.com/snowfallorg/lib
+    snowfall-lib = {
+      url = "github:snowfallorg/lib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # https://github.com/danth/stylix
+    stylix = {
+      url = "github:danth/stylix";
+    };
+    # https://github.com/abenz1267/walker
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # https://github.com/Zocker1999NET/home-manager-xdg-autostart
+    xdg-autostart = {
+      url = "github:Zocker1999NET/home-manager-xdg-autostart";
+    };
 
     # for development; see overlays/-git/default.nix
     pyprland.url = "github:hyprland-community/pyprland"; # https://github.com/hyprland-community/pyprland
@@ -39,52 +92,53 @@
   #  ];
   #};
 
-
   # [Snowfall framework](https://snowfall.org/guides/lib/quickstart/)
   #$ nix flake check --keep-going
   #$ nix flake show
   #$ nix fmt [./folder] [./file.nix]
-  outputs = inputs: inputs.snowfall-lib.mkFlake {
-    inherit inputs;
-    src = ./.;
+  outputs =
+    inputs:
+    inputs.snowfall-lib.mkFlake {
+      inherit inputs;
+      src = ./.;
 
-    snowfall = {
-      namespace = "dafitt";
-      meta = {
-        name = "dafitt-desktop-flake";
-        title = "Dafitt's desktop flake";
+      snowfall = {
+        namespace = "dafitt";
+        meta = {
+          name = "dafitt-desktop-flake";
+          title = "Dafitt's desktop flake";
+        };
+      };
+
+      channels-config = {
+        allowUnfree = true;
+      };
+
+      overlays = with inputs; [
+        nur.overlays.default
+        nixGL.overlays.default
+      ];
+
+      systems.modules.nixos = with inputs; [
+        stylix.nixosModules.stylix
+        disko.nixosModules.disko
+      ];
+
+      homes.modules = with inputs; [
+        betterfox.homeManagerModules.betterfox
+        nix-flatpak.homeManagerModules.nix-flatpak
+        stylix.homeModules.stylix
+        walker.homeManagerModules.default
+        xdg-autostart.homeManagerModules.xdg-autostart
+      ];
+
+      templates = import ./templates { };
+
+      # [Generic outputs](https://snowfall.org/guides/lib/generic/)
+      outputs-builder = channels: {
+        formatter = channels.nixpkgs.nixfmt-tree; # [nix fmt](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-fmt.html)
       };
     };
-
-    channels-config = {
-      allowUnfree = true;
-    };
-
-    overlays = with inputs; [
-      nur.overlays.default
-      nixGL.overlays.default
-    ];
-
-    systems.modules.nixos = with inputs; [
-      stylix.nixosModules.stylix
-      disko.nixosModules.disko
-    ];
-
-    homes.modules = with inputs; [
-      betterfox.homeManagerModules.betterfox
-      nix-flatpak.homeManagerModules.nix-flatpak
-      stylix.homeModules.stylix
-      walker.homeManagerModules.default
-      xdg-autostart.homeManagerModules.xdg-autostart
-    ];
-
-    templates = import ./templates { };
-
-    # [Generic outputs](https://snowfall.org/guides/lib/generic/)
-    outputs-builder = channels: {
-      formatter = channels.nixpkgs.nixpkgs-fmt; # [nix fmt](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-fmt.html)
-    };
-  };
 
   description = "Dafitt's desktop flake.";
 }

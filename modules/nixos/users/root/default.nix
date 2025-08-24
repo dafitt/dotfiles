@@ -1,5 +1,11 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
+{
   users.users.root = {
     packages = with pkgs; [
       bashmount # easy mounting

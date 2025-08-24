@@ -1,4 +1,10 @@
-{ config, lib, pkgs, osConfig ? { }, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  osConfig ? { },
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -7,14 +13,15 @@ let
   osCfg = osConfig.dafitt.networking.networkmanager or null;
 in
 {
-  options.dafitt.networking.networkmanager = with types;{
+  options.dafitt.networking.networkmanager = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Whether to enable a gui for networkmanager.";
   };
 
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
-      bind = optionals config.dafitt.hyprland.pyprland.enable
-        [ "SUPER_ALT, N, exec, ${pkgs.pyprland}/bin/pypr toggle networkmanager" ];
+      bind = optionals config.dafitt.hyprland.pyprland.enable [
+        "SUPER_ALT, N, exec, ${pkgs.pyprland}/bin/pypr toggle networkmanager"
+      ];
       windowrule = [ "float, class:nm-connection-editor" ];
     };
 

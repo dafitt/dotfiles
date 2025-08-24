@@ -7,9 +7,11 @@ let
 in
 {
   config = {
-    assertions = [{
-      assertion = length enabledSubModules <= 1;
-      message = "${toString ./.}: Only one submodule can be enabled. Currently enabled: ${concatStringsSep ", " enabledSubModules}";
-    }];
+    assertions = [
+      {
+        assertion = length enabledSubModules <= 1;
+        message = "${toString ./.}: Only one submodule can be enabled. Currently enabled: ${concatStringsSep ", " enabledSubModules}";
+      }
+    ];
   };
 }

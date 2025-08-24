@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.dafitt;
@@ -20,8 +25,7 @@ in
         pkgs.linuxPackages_latest;
         pkgs.linuxPackages_zen;
       '';
-      default =
-        if zfs then pkgs.linuxPackages else pkgs.linuxPackages_latest;
+      default = if zfs then pkgs.linuxPackages else pkgs.linuxPackages_latest;
     };
   };
 
