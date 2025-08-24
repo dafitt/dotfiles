@@ -8,13 +8,12 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.clipboardManagers.clipse;
+  cfg = config.dafitt.clipse;
 in
 {
-  options.dafitt.clipboardManagers.clipse = with types; {
-    enable = mkEnableOption "clipboard manager 'clipse'";
-
-    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+  options.dafitt.clipse = with types; {
+    enable = mkEnableOption "clipse";
+    setAsDefaultClipboardManager = mkEnableOption "making clipse the default clipboard manager";
   };
 
   config = mkIf cfg.enable {
@@ -23,7 +22,7 @@ in
     ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [
+      bind = mkIf cfg.setAsDefaultClipboardManager [
         "SUPER_ALT, V, exec, uwsm app -- ${getExe pkgs.kitty} --class=clipse -e ${getExe pkgs.clipse}"
       ];
       exec-once = [ "uwsm app -- ${getExe pkgs.clipse} -listen" ];

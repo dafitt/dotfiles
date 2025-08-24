@@ -30,7 +30,8 @@ in
         stylix.enable = true;
       }
       // (mkDefault {
-        clipboardManagers.default = "cliphist";
+        cliphist.enable = true;
+        cliphist.setAsDefaultClipboardManager = true;
         gnome-calculator.enable = true;
         hyprland.hypridle.enable = true;
         hyprland.hyprlock.enable = true;

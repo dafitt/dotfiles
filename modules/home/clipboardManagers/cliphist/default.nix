@@ -8,13 +8,12 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.clipboardManagers.cliphist;
+  cfg = config.dafitt.cliphist;
 in
 {
-  options.dafitt.clipboardManagers.cliphist = with types; {
-    enable = mkEnableOption "clipboard manager 'cliphist'";
-
-    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+  options.dafitt.cliphist = with types; {
+    enable = mkEnableOption "cliphist";
+    setAsDefaultClipboardManager = mkEnableOption "making cliphist the default clipboard manager";
   };
 
   config = mkIf cfg.enable {
@@ -31,7 +30,7 @@ in
 
     # simple cliphist selector
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [
+      bind = mkIf cfg.setAsDefaultClipboardManager [
         "SUPER_ALT, V, exec, uwsm app -- ${getExe pkgs.kitty} --class=cliphist -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'"
       ];
       windowrule = [
