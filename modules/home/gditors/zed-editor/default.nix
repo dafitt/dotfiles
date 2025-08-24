@@ -40,6 +40,14 @@ in
           context = "Editor";
           bindings = {
             "ctrl-#" = "editor::ToggleComments";
+            "ctrl-alt-l" = "editor::DuplicateLineDown";
+          };
+        }
+        {
+          context = "Workspace";
+          bindings = {
+            "ctrl-w" = null;
+            "ctrl-?" = "workspace::ToggleRightDock";
           };
         }
       ];
