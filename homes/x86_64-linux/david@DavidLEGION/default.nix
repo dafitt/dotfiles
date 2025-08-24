@@ -16,7 +16,6 @@ with lib.dafitt;
   ];
 
   dafitt = {
-    filemanagers.yazi.enable = true;
     hyprland.monitors = [
       {
         name = "eDP-2";
@@ -28,6 +27,7 @@ with lib.dafitt;
         vrr = 1;
       }
     ];
+    filemanagers.yazi.enable = true;
     latex.enable = false;
     launchers.rofi.enable = true;
     steam.enable = true;

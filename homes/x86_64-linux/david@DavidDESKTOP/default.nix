@@ -16,20 +16,22 @@ with lib.dafitt;
   ];
 
   dafitt = {
+    hyprland = {
+      monitors = [
+        {
+          name = "desc:Microstep MSI MAG271CQP 0x3030424C";
+          primary = true;
+          width = 2560;
+          height = 1440;
+          refreshRate = 144;
+        }
+      ];
+      hypridle.sleepTriggersLock = false;
+      hypridle.timeouts.lock = 0;
+      hypridle.timeouts.suspend = 0;
+      plugins.hypr-dynamic-cursors.enable = true;
+    };
     filemanagers.yazi.enable = true;
-    hyprland.hypridle.sleepTriggersLock = false;
-    hyprland.hypridle.timeouts.lock = 0;
-    hyprland.hypridle.timeouts.suspend = 0;
-    hyprland.monitors = [
-      {
-        name = "desc:Microstep MSI MAG271CQP 0x3030424C";
-        primary = true;
-        width = 2560;
-        height = 1440;
-        refreshRate = 144;
-      }
-    ];
-    hyprland.plugins.hypr-dynamic-cursors.enable = true;
     launchers.rofi.enable = true;
     suiteEditing.enable = true;
     suiteMusic.enable = true;
