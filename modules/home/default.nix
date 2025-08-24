@@ -21,12 +21,13 @@ in
     dafitt = mkDefault {
       browsers.default = "firefox";
       btop.enable = true;
-      editors.default = "micro";
       fastfetch.enable = true;
       file-roller.enable = true;
       filemanagers.default = "nautilus";
       flatpak.enable = true;
       imv.enable = true;
+      micro.enable = true;
+      micro.setAsDefaultEditor = true;
       mpv.enable = true;
       passwordManagers.default = "bitwarden";
       personalEnvironment.enable = true;

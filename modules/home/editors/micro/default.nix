@@ -8,14 +8,12 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.editors.micro;
+  cfg = config.dafitt.micro;
 in
 {
-  options.dafitt.editors.micro = with types; {
-    enable = mkEnableOption "terminal text editor 'micro'";
-
-    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
-    configureVariables = mkBoolOpt false "Whether to configure variables.";
+  options.dafitt.micro = with types; {
+    enable = mkEnableOption "`micro`";
+    setAsDefaultEditor = mkEnableOption "making micro the default EDITOR";
   };
 
   config = mkIf cfg.enable {
@@ -78,10 +76,10 @@ in
       };
     };
 
-    home.sessionVariables.EDITOR = mkIf cfg.configureVariables (getExe config.programs.micro.package);
+    home.sessionVariables.EDITOR = mkIf cfg.setAsDefaultEditor (getExe config.programs.micro.package);
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [
+      bind = mkIf cfg.setAsDefaultEditor [
         "SUPER_ALT, E, exec, uwsm app -- ${getExe pkgs.kitty} -e ${pkgs.micro}/bin/micro"
       ];
     };

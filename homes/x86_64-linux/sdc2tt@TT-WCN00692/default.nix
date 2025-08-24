@@ -16,10 +16,11 @@ with lib.dafitt;
 
   dafitt = {
     browsers.default = "firefox";
-    editors.default = "micro";
     filemanagers.yazi.enable = true;
     flatpak.enable = true;
     hyprland.enable = true;
+    micro.enable = true;
+    micro.setAsDefaultEditor = true;
     personalEnvironment.enable = true;
     suiteDevelopment.enable = true;
   };
