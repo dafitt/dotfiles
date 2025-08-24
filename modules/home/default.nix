@@ -28,6 +28,8 @@ in
       firefox.setAsDefaultBrowser = true;
       flatpak.enable = true;
       imv.enable = true;
+      kitty.enable = true;
+      kitty.setAsDefaultTerminal = true;
       micro.enable = true;
       micro.setAsDefaultEditor = true;
       mpv.enable = true;

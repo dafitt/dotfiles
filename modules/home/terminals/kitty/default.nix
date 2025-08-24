@@ -8,14 +8,12 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.terminals.kitty;
+  cfg = config.dafitt.kitty;
 in
 {
-  options.dafitt.terminals.kitty = with types; {
-    enable = mkEnableOption "terminal emulator 'kitty'";
-
-    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
-    configureVariables = mkBoolOpt false "Whether to configure variables.";
+  options.dafitt.kitty = with types; {
+    enable = mkEnableOption "`kitty`";
+    setAsDefaultTerminal = mkEnableOption "making it the default TERM";
   };
 
   config = mkIf cfg.enable {
@@ -81,11 +79,13 @@ in
     };
 
     # this option is being used by other modules
-    home.sessionVariables.TERMINAL = mkIf cfg.configureVariables (getExe config.programs.kitty.package);
+    home.sessionVariables.TERMINAL = mkIf cfg.setAsDefaultTerminal (
+      getExe config.programs.kitty.package
+    );
 
     wayland.windowManager.hyprland.settings = {
       bind =
-        optionals cfg.configureKeybindings [
+        optionals cfg.setAsDefaultTerminal [
           "SUPER, RETURN, exec, uwsm app -- ${getExe config.programs.kitty.package}"
         ]
         ++ optionals config.dafitt.hyprland.pyprland.enable [
