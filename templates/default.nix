@@ -1,4 +1,3 @@
-{ ... }:
 {
   #$ nix flake show templates
   #$ nix flake init -t .#<name>
