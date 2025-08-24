@@ -8,14 +8,14 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.gditors.zed-editor;
+  cfg = config.dafitt.zed-editor;
 in
 {
-  options.dafitt.gditors.zed-editor = with types; {
+  options.dafitt.zed-editor = with types; {
     enable = mkEnableOption "zed-editor";
+    setAsDefaultGditor = mkEnableOption "making vscode the default gditor";
 
-    autostart = mkBoolOpt false "Start zed-editor on login";
-    configureKeybindings = mkBoolOpt false "Configure keybindings for zed-editor";
+    autostart = mkBoolOpt cfg.setAsDefaultGditor "Start zed-editor on login";
     workspace = mkOpt int 2 "Which workspace is mainly to be used for this application.";
   };
 
@@ -347,7 +347,7 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [
+      bind = mkIf cfg.setAsDefaultGditor [
         "SUPER_ALT, G, exec, uwsm app -- ${getExe config.programs.zed-editor.package}"
       ];
       exec-once = mkIf cfg.autostart [

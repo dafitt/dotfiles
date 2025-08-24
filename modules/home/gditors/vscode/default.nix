@@ -8,16 +8,16 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.gditors.vscode;
+  cfg = config.dafitt.vscode;
 in
 {
   imports = [ ./mkMutable.nix ];
 
-  options.dafitt.gditors.vscode = with types; {
+  options.dafitt.vscode = with types; {
     enable = mkEnableOption "vscode";
+    setAsDefaultGditor = mkEnableOption "making vscode the default gditor";
 
-    autostart = mkBoolOpt false "Start vscode on login";
-    configureKeybindings = mkBoolOpt false "Configure keybindings for vscode";
+    autostart = mkBoolOpt cfg.setAsDefaultGditor "Start vscode on login";
     workspace = mkOpt int 2 "Which workspace is mainly to be used for this application.";
   };
 
@@ -536,7 +536,7 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [
+      bind = mkIf cfg.setAsDefaultGditor [
         "SUPER_ALT, G, exec, uwsm app -- ${getExe config.programs.vscode.package}"
       ];
       exec-once = mkIf cfg.autostart [
