@@ -8,13 +8,12 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.passwordManagers._1password;
+  cfg = config.dafitt._1password;
 in
 {
-  options.dafitt.passwordManagers._1password = with types; {
-    enable = mkEnableOption "password manager '_1password'";
-
-    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+  options.dafitt._1password = with types; {
+    enable = mkEnableOption "1Password";
+    setAsDefaultPasswordManager = mkEnableOption "making it the default password manager";
   };
 
   config = mkIf cfg.enable {
@@ -23,7 +22,7 @@ in
     home.packages = with pkgs; [ _1password-gui ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [
+      bind = mkIf cfg.setAsDefaultPasswordManager [
         "SUPER_ALT, PERIOD, exec, uwsm app -- ${pkgs._1password-gui}/bin/1password"
       ];
       windowrule = [

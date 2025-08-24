@@ -8,20 +8,19 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.passwordManagers.bitwarden;
+  cfg = config.dafitt.bitwarden;
 in
 {
-  options.dafitt.passwordManagers.bitwarden = with types; {
-    enable = mkEnableOption "password manager 'bitwarden'";
-
-    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+  options.dafitt.bitwarden = with types; {
+    enable = mkEnableOption "Bitwarden";
+    setAsDefaultPasswordManager = mkEnableOption "making it the default password manager";
   };
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ bitwarden-desktop ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [
+      bind = mkIf cfg.setAsDefaultPasswordManager [
         "SUPER_ALT, PERIOD, exec, uwsm app -- ${pkgs.bitwarden-desktop}/bin/bitwarden"
       ];
       windowrule = [

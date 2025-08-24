@@ -19,6 +19,8 @@ in
 
   config = mkIf cfg.enableDefaults {
     dafitt = mkDefault {
+      bitwarden.enable = true;
+      bitwarden.setAsDefaultPasswordManager = true;
       btop.enable = true;
       fastfetch.enable = true;
       file-roller.enable = true;
@@ -31,7 +33,6 @@ in
       mpv.enable = true;
       nautilus.enable = true;
       nautilus.setAsDefaultFileManager = true;
-      passwordManagers.default = "bitwarden";
       personalEnvironment.enable = true;
       starship.enable = true;
       stylix.enable = true;
