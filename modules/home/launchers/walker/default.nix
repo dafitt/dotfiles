@@ -9,13 +9,12 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.launchers.walker;
+  cfg = config.dafitt.walker;
 in
 {
-  options.dafitt.launchers.walker = with types; {
-    enable = mkEnableOption "application launcher 'walker'";
-
-    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+  options.dafitt.walker = with types; {
+    enable = mkEnableOption "walker";
+    setAsDefaultLauncher = mkEnableOption "making it the default launcher";
   };
 
   config = mkIf cfg.enable {
@@ -65,7 +64,7 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [
+      bind = mkIf cfg.setAsDefaultLauncher [
         "SUPER, SPACE, exec, ${config.programs.walker.package}/bin/walker"
       ];
     };

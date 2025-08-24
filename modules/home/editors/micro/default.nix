@@ -13,7 +13,7 @@ in
 {
   options.dafitt.micro = with types; {
     enable = mkEnableOption "`micro`";
-    setAsDefaultEditor = mkEnableOption "making micro the default EDITOR";
+    setAsDefaultEditor = mkEnableOption "making it the default EDITOR";
   };
 
   config = mkIf cfg.enable {

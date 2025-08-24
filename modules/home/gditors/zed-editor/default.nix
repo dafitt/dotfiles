@@ -13,7 +13,7 @@ in
 {
   options.dafitt.zed-editor = with types; {
     enable = mkEnableOption "zed-editor";
-    setAsDefaultGditor = mkEnableOption "making vscode the default gditor";
+    setAsDefaultGditor = mkEnableOption "making it the default gditor";
 
     autostart = mkBoolOpt cfg.setAsDefaultGditor "Start zed-editor on login";
     workspace = mkOpt int 2 "Which workspace is mainly to be used for this application.";

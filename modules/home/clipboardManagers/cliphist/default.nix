@@ -13,7 +13,7 @@ in
 {
   options.dafitt.cliphist = with types; {
     enable = mkEnableOption "cliphist";
-    setAsDefaultClipboardManager = mkEnableOption "making cliphist the default clipboard manager";
+    setAsDefaultClipboardManager = mkEnableOption "making it the default clipboard manager";
   };
 
   config = mkIf cfg.enable {

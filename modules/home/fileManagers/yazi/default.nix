@@ -13,7 +13,7 @@ in
 {
   options.dafitt.yazi = with types; {
     enable = mkEnableOption "yazi";
-    setAsDefaultFileManager = mkEnableOption "making yazi the default file manager";
+    setAsDefaultFileManager = mkEnableOption "making it the default file manager";
 
     autostart = mkBoolOpt cfg.setAsDefaultFileManager "Whether to autostart at user login.";
     workspace = mkOpt int 3 "Which workspace is mainly to be used for this application.";

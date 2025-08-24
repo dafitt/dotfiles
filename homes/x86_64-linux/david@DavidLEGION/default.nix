@@ -27,12 +27,12 @@ with lib.dafitt;
         vrr = 1;
       }
     ];
-    yazi.enable = true;
     latex.enable = false;
-    launchers.rofi.enable = true;
+    rofi.enable = true;
     steam.enable = true;
     suiteOffice.enable = true;
     suiteSocial.enable = true;
+    yazi.enable = true;
   };
 
   # [Hyprland - Tearing](https://wiki.hyprland.org/Configuring/Tearing/)

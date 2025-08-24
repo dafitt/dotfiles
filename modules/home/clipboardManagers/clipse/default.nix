@@ -13,7 +13,7 @@ in
 {
   options.dafitt.clipse = with types; {
     enable = mkEnableOption "clipse";
-    setAsDefaultClipboardManager = mkEnableOption "making clipse the default clipboard manager";
+    setAsDefaultClipboardManager = mkEnableOption "making it the default clipboard manager";
   };
 
   config = mkIf cfg.enable {

@@ -13,7 +13,7 @@ in
 {
   options.dafitt.librewolf = with types; {
     enable = mkEnableOption "librewolf";
-    setAsDefaultBrowser = mkEnableOption "making librewolf the default web browser";
+    setAsDefaultBrowser = mkEnableOption "making it the default web browser";
 
     autostart = mkBoolOpt cfg.setAsDefaultBrowser "Whether to autostart at user login.";
     workspace = mkOpt int 1 "Which workspace is mainly to be used for this application.";

@@ -31,14 +31,14 @@ with lib.dafitt;
       hypridle.timeouts.suspend = 0;
       plugins.hypr-dynamic-cursors.enable = true;
     };
-    yazi.enable = true;
-    launchers.rofi.enable = true;
+    #suiteRicing.enable = true; # TODO fixme modules/home/desktops/hyprland/ricing/wallpaper/default.nix
+    rofi.enable = true;
     suiteEditing.enable = true;
     suiteMusic.enable = true;
     suiteOffice.enable = true;
-    #suiteRicing.enable = true; # TODO fixme modules/home/desktops/hyprland/ricing/wallpaper/default.nix
     suiteSocial.enable = true;
     suiteWeb.enable = true;
+    yazi.enable = true;
   };
 
   # [Hyprland - Tearing](https://wiki.hyprland.org/Configuring/Tearing/)

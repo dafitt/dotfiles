@@ -15,7 +15,7 @@ in
 {
   options.dafitt.firefox = with types; {
     enable = mkEnableOption "firefox";
-    setAsDefaultBrowser = mkEnableOption "making firefox the default web browser";
+    setAsDefaultBrowser = mkEnableOption "making it the default web browser";
 
     autostart = mkBoolOpt cfg.setAsDefaultBrowser "Whether to autostart at user login.";
     workspace = mkOpt int 1 "Which workspace is mainly to be used for this application.";

@@ -32,6 +32,8 @@ in
       // (mkDefault {
         cliphist.enable = true;
         cliphist.setAsDefaultClipboardManager = true;
+        fuzzel.enable = true;
+        fuzzel.setAsDefaultLauncher = true;
         gnome-calculator.enable = true;
         hyprland.hypridle.enable = true;
         hyprland.hyprlock.enable = true;
@@ -39,7 +41,6 @@ in
         hyprland.pyprland.enable = true;
         hyprland.themes.hyprpanel.enable = true;
         hyprland.wlsunset.enable = true;
-        launchers.default = "fuzzel";
         pavucontrol.enable = true;
         playerctld.enable = true;
       });

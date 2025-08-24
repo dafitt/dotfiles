@@ -13,7 +13,7 @@ in
 {
   options.dafitt.pcmanfm = with types; {
     enable = mkEnableOption "pcmanfm";
-    setAsDefaultFileManager = mkEnableOption "making pcmanfm the default file manager";
+    setAsDefaultFileManager = mkEnableOption "making it the default file manager";
 
     autostart = mkBoolOpt cfg.setAsDefaultFileManager "Whether to autostart at user login.";
     workspace = mkOpt int 3 "Which workspace is mainly to be used for this application.";
