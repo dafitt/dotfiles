@@ -8,14 +8,14 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.filemanagers.pcmanfm;
+  cfg = config.dafitt.pcmanfm;
 in
 {
-  options.dafitt.filemanagers.pcmanfm = with types; {
-    enable = mkEnableOption "file manager 'pcmanfm'";
+  options.dafitt.pcmanfm = with types; {
+    enable = mkEnableOption "pcmanfm";
+    setAsDefaultFileManager = mkEnableOption "making pcmanfm the default file manager";
 
-    autostart = mkBoolOpt false "Whether to autostart at user login.";
-    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+    autostart = mkBoolOpt cfg.setAsDefaultFileManager "Whether to autostart at user login.";
     workspace = mkOpt int 3 "Which workspace is mainly to be used for this application.";
   };
 
@@ -59,7 +59,7 @@ in
     '';
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [
+      bind = mkIf cfg.setAsDefaultFileManager [
         "SUPER_ALT, F, exec, uwsm app -- ${pkgs.pcmanfm}/bin/pcmanfm"
       ];
       exec-once = mkIf cfg.autostart [

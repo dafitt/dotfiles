@@ -8,14 +8,14 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.filemanagers.nautilus;
+  cfg = config.dafitt.nautilus;
 in
 {
-  options.dafitt.filemanagers.nautilus = with types; {
-    enable = mkEnableOption "file manager 'nautilus'";
+  options.dafitt.nautilus = with types; {
+    enable = mkEnableOption "nautilus";
+    setAsDefaultFileManager = mkEnableOption "making nautilus the default file manager";
 
-    autostart = mkBoolOpt false "Whether to autostart at user login.";
-    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+    autostart = mkBoolOpt cfg.setAsDefaultFileManager "Whether to autostart at user login.";
     workspace = mkOpt int 3 "Which workspace is mainly to be used for this application.";
   };
 
@@ -70,7 +70,7 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [
+      bind = mkIf cfg.setAsDefaultFileManager [
         "SUPER_ALT, F, exec, uwsm app -- uwsm app -- ${pkgs.nautilus}/bin/nautilus"
       ];
       exec-once = mkIf cfg.autostart [

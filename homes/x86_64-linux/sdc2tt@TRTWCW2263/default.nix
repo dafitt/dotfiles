@@ -15,7 +15,7 @@ with lib.dafitt;
   ];
 
   dafitt = {
-    filemanagers.yazi.enable = true;
+    yazi.enable = true;
     micro.enable = true;
     micro.setAsDefaultEditor = true;
     personalEnvironment.enable = true;

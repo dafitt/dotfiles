@@ -31,7 +31,7 @@ with lib.dafitt;
       hypridle.timeouts.suspend = 0;
       plugins.hypr-dynamic-cursors.enable = true;
     };
-    filemanagers.yazi.enable = true;
+    yazi.enable = true;
     launchers.rofi.enable = true;
     suiteEditing.enable = true;
     suiteMusic.enable = true;

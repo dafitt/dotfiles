@@ -8,14 +8,14 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.filemanagers.yazi;
+  cfg = config.dafitt.yazi;
 in
 {
-  options.dafitt.filemanagers.yazi = with types; {
-    enable = mkEnableOption "terminal file manager 'yazi'";
+  options.dafitt.yazi = with types; {
+    enable = mkEnableOption "yazi";
+    setAsDefaultFileManager = mkEnableOption "making yazi the default file manager";
 
-    autostart = mkBoolOpt false "Whether to autostart at user login.";
-    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+    autostart = mkBoolOpt cfg.setAsDefaultFileManager "Whether to autostart at user login.";
     workspace = mkOpt int 3 "Which workspace is mainly to be used for this application.";
   };
 
@@ -64,7 +64,7 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [
+      bind = mkIf cfg.setAsDefaultFileManager [
         "SUPER_ALT, F, exec, uwsm app -- ${config.programs.yazi.package}/bin/yazi"
       ];
       exec-once = mkIf cfg.autostart [

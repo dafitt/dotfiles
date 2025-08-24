@@ -135,19 +135,12 @@ in
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings" = mkAfter {
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         ];
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         binding = "<Super>Return";
         command = "kgx";
         name = "Terminal";
-      };
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-        binding = "<Super><Alt>f";
-        command =
-          if config.dafitt.filemanagers.default != null then config.dafitt.filemanagers.default else "";
-        name = "Files";
       };
     };
   };

@@ -22,7 +22,6 @@ in
       btop.enable = true;
       fastfetch.enable = true;
       file-roller.enable = true;
-      filemanagers.default = "nautilus";
       firefox.enable = true;
       firefox.setAsDefaultBrowser = true;
       flatpak.enable = true;
@@ -30,6 +29,8 @@ in
       micro.enable = true;
       micro.setAsDefaultEditor = true;
       mpv.enable = true;
+      nautilus.enable = true;
+      nautilus.setAsDefaultFileManager = true;
       passwordManagers.default = "bitwarden";
       personalEnvironment.enable = true;
       starship.enable = true;

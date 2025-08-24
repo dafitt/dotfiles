@@ -27,7 +27,7 @@ with lib.dafitt;
         vrr = 1;
       }
     ];
-    filemanagers.yazi.enable = true;
+    yazi.enable = true;
     latex.enable = false;
     launchers.rofi.enable = true;
     steam.enable = true;
