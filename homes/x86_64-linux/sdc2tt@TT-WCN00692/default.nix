@@ -15,8 +15,9 @@ with lib.dafitt;
   ];
 
   dafitt = {
-    browsers.default = "firefox";
     filemanagers.yazi.enable = true;
+    firefox.enable = true;
+    firefox.setAsDefaultBrowser = true;
     flatpak.enable = true;
     hyprland.enable = true;
     micro.enable = true;

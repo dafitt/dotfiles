@@ -8,14 +8,14 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.browsers.librewolf;
+  cfg = config.dafitt.librewolf;
 in
 {
-  options.dafitt.browsers.librewolf = with types; {
-    enable = mkEnableOption "browser 'librewolf'";
+  options.dafitt.librewolf = with types; {
+    enable = mkEnableOption "librewolf";
+    setAsDefaultBrowser = mkEnableOption "making librewolf the default web browser";
 
-    autostart = mkBoolOpt false "Whether to autostart at user login.";
-    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+    autostart = mkBoolOpt cfg.setAsDefaultBrowser "Whether to autostart at user login.";
     workspace = mkOpt int 1 "Which workspace is mainly to be used for this application.";
   };
 
@@ -37,7 +37,7 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [
+      bind = mkIf cfg.setAsDefaultBrowser [
         "SUPER_ALT, W, exec, uwsm app -- ${config.programs.librewolf.package}/bin/librewolf"
       ];
       exec-once = mkIf cfg.autostart [

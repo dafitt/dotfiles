@@ -8,14 +8,14 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.browsers.epiphany;
+  cfg = config.dafitt.epiphany;
 in
 {
-  options.dafitt.browsers.epiphany = with types; {
-    enable = mkEnableOption "browser 'epiphany'";
+  options.dafitt.epiphany = with types; {
+    enable = mkEnableOption "epiphany";
+    setAsDefaultBrowser = mkEnableOption "making epiphany the default web browser";
 
-    autostart = mkBoolOpt false "Whether to autostart at user login.";
-    configureKeybindings = mkBoolOpt false "Whether to configure keybindings.";
+    autostart = mkBoolOpt cfg.setAsDefaultBrowser "Whether to autostart at user login.";
     workspace = mkOpt int 1 "Which workspace is mainly to be used for this application.";
   };
 
@@ -24,7 +24,7 @@ in
     home.packages = with pkgs; [ epiphany ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.configureKeybindings [ "SUPER_ALT, W, exec, uwsm app -- ${getExe pkgs.epiphany}" ];
+      bind = mkIf cfg.setAsDefaultBrowser [ "SUPER_ALT, W, exec, uwsm app -- ${getExe pkgs.epiphany}" ];
       exec-once = mkIf cfg.autostart [
         "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.epiphany}"
       ];

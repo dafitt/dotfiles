@@ -206,7 +206,7 @@ outputs = { nixpkgs, ... }@inputs: {
       inputs.dafitt.nixosModules."gnome"
       inputs.dafitt.nixosModules."bootloader/systemd"
       inputs.dafitt.homeManagerModules."stylix"
-      inputs.dafitt.homeManagerModules."browsers/firefox"
+      inputs.dafitt.homeManagerModules."firefox"
     ];
   };
 };
@@ -220,7 +220,7 @@ What you have to customize:
 
 - [ ] [modules/nixos/time/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/time/default.nix): timezone
 - [ ] [modules/nixos/locale/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/locale/default.nix): locale
-- [ ] [modules/home/browsers/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/d60f8b464f1713ccb022d3d24558d5f4631ad123/modules/home/browsers/firefox/default.nix#L183):
+- [ ] [modules/home/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/firefox/default.nix#L183):
   - the default searx search engine is my own local instance/server, use a official one or setup your own
   - custom firefox plugins
 - [ ] [systems/\<architecure\>/\<host\>/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix): your own host-configuration

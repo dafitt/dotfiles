@@ -19,11 +19,12 @@ in
 
   config = mkIf cfg.enableDefaults {
     dafitt = mkDefault {
-      browsers.default = "firefox";
       btop.enable = true;
       fastfetch.enable = true;
       file-roller.enable = true;
       filemanagers.default = "nautilus";
+      firefox.enable = true;
+      firefox.setAsDefaultBrowser = true;
       flatpak.enable = true;
       imv.enable = true;
       micro.enable = true;
