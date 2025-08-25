@@ -19,7 +19,6 @@ with lib.dafitt;
     firefox.enable = true;
     firefox.setAsDefaultBrowser = true;
     flatpak.enable = true;
-    hyprland.enable = true;
     micro.enable = true;
     micro.setAsDefaultEditor = true;
     personalEnvironment.enable = true;
