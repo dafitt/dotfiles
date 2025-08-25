@@ -22,6 +22,7 @@ in
       bitwarden.enable = true;
       bitwarden.setAsDefaultPasswordManager = true;
       btop.enable = true;
+      btop.setAsDefaultTop = true;
       fastfetch.enable = true;
       file-roller.enable = true;
       firefox.enable = true;

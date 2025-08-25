@@ -13,6 +13,7 @@ in
 {
   options.dafitt.btop = with types; {
     enable = mkEnableOption "btop";
+    setAsDefaultTop = mkEnableOption "making it the default TOP";
   };
 
   config = mkIf cfg.enable {
@@ -31,8 +32,12 @@ in
       };
     };
 
+    home.sessionVariables = mkIf cfg.setAsDefaultTop {
+      TOP = "${getExe config.programs.btop.package}";
+    };
+
     wayland.windowManager.hyprland.settings = {
-      bind = optionals config.dafitt.hyprland.pyprland.enable [
+      bind = optionals (config.dafitt.hyprland.pyprland.enable && cfg.setAsDefaultTop) [
         "SUPER_ALT, P, exec, ${pkgs.pyprland}/bin/pypr toggle btop"
       ];
     };
