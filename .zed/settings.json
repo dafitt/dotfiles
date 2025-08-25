@@ -14,10 +14,7 @@
     "nixd": {
       "settings": {
         "diagnostic": {
-          "suppress": [
-            "sema-extra-width",
-            "sema-unused-def-lambda-noarg-formal"
-          ]
+          "suppress": ["sema-extra-with", "sema-unused-def-lambda-noarg-formal"]
         }
       }
     }
