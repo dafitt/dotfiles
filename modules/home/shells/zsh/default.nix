@@ -9,11 +9,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.shells.zsh;
-  osCfg = osConfig.dafitt.shells.zsh or null;
+  cfg = config.dafitt.zsh;
+  osCfg = osConfig.dafitt.zsh or null;
 in
 {
-  options.dafitt.shells.zsh = with types; {
+  options.dafitt.zsh = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Whether to enable zsh shell.";
   };
 

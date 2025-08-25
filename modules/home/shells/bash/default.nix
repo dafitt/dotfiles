@@ -9,11 +9,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.shells.bash;
-  osCfg = osConfig.dafitt.shells.bash or null;
+  cfg = config.dafitt.bash;
+  osCfg = osConfig.dafitt.bash or null;
 in
 {
-  options.dafitt.shells.bash = with types; {
+  options.dafitt.bash = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Whether to enable bourne-again shell's configuration.";
   };
 

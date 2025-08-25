@@ -21,6 +21,8 @@ in
       appimage.enable = true;
       audio.enable = true;
       bootloader.systemd-boot.enable = true;
+      fish.enable = true;
+      fish.setAsDefaultShell = true;
       fonts.enable = true;
       gnome.enable = true;
       home-manager.enable = true;
@@ -29,7 +31,6 @@ in
       locate.enable = true;
       networking.networkmanager.enable = true;
       nix.enable = true;
-      shells.default = "fish";
       stylix.enable = true;
       sudo.enable = true;
       systemd.enable = true;

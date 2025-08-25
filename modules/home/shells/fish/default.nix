@@ -9,11 +9,11 @@
 with lib;
 with lib.dafitt;
 let
-  cfg = config.dafitt.shells.fish;
-  osCfg = osConfig.dafitt.shells.fish or null;
+  cfg = config.dafitt.fish;
+  osCfg = osConfig.dafitt.fish or null;
 in
 {
-  options.dafitt.shells.fish = with types; {
+  options.dafitt.fish = with types; {
     enable = mkBoolOpt (osCfg.enable or false) "Whether to enable the fish shell.";
   };
 

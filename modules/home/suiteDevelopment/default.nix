@@ -19,7 +19,7 @@ in
 
   config = mkIf cfg.enable {
     dafitt = mkDefault {
-      shells.fish.enable = true;
+      fish.enable = true;
       starship.enable = true;
       vscode.enable = true;
       zed-editor.enable = true;
