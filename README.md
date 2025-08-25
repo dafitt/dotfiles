@@ -2,34 +2,6 @@
 
 ![Hyprland-ricing](https://github.com/dafitt/dotfiles/assets/50248238/380705a7-4bd5-4431-81fe-ab04195e19f0)
 
-- [My daily driver's Snowfall🌨️🍂 NixOS❄️ desktop flake](#my-daily-drivers-snowfall️-nixos️-desktop-flake)
-  - [Notes](#notes)
-  - [Programs and Features](#programs-and-features)
-  - [Installation](#installation)
-    - [On a new host machine](#on-a-new-host-machine)
-    - [Only in a new home environment](#only-in-a-new-home-environment)
-  - [Configuration](#configuration)
-    - [NixOS stable branch](#nixos-stable-branch)
-    - [Importing my modules](#importing-my-modules)
-    - [You want to build from here?](#you-want-to-build-from-here)
-  - [Usage](#usage)
-    - [Flake](#flake)
-      - [Shell environment](#shell-environment)
-      - [Overview](#overview)
-      - [Build and switch configuration](#build-and-switch-configuration)
-      - [Update flake inputs](#update-flake-inputs)
-      - [Rollback](#rollback)
-      - [Code formatting](#code-formatting)
-    - [Hyprkeys](#hyprkeys)
-  - [Structure](#structure)
-    - [Modules](#modules)
-  - [Troubleshooting](#troubleshooting)
-    - [Some options in modules/home/ or homes/ are not being applied with nixos-rebuild](#some-options-in-moduleshome-or-homes-are-not-being-applied-with-nixos-rebuild)
-    - [Unable to see fonts](#unable-to-see-fonts)
-    - [bluetoothd: Failed to set mode: Failed (0x03)](#bluetoothd-failed-to-set-mode-failed-0x03)
-    - [Application won't open with Home-manager standalone](#application-wont-open-with-home-manager-standalone)
-  - [👀, 🏆 and ❤️](#--and-️)
-
 My dotfiles are not perfekt, but they strive to be:
 
 - fully declarative 📝
