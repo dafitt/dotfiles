@@ -128,6 +128,14 @@ This flake can and will radically change as I learn, discover new things and hav
 
 ## Configuration
 
+### Helpful Nix resources
+
+- [NüschtOS option search](https://search.xn--nschtos-n2a.de/)
+- [NixOS packages search](https://search.nixos.org/packages)
+- [Nix functions](https://teu5us.github.io/nix-lib.html)
+- [Nix functions](https://ryantm.github.io/nixpkgs/functions/library/attrsets/)
+- [Noogle](https://noogle.dev/)
+
 ### NixOS stable branch
 
 To use [nixpkgs](https://github.com/NixOS/nixpkgs) stable branch, update the following inputs to the latest release (`25.05` as an example) in _[flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix)_ and rebuild the system. \
