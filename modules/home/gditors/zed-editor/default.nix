@@ -41,6 +41,7 @@ in
           bindings = {
             "ctrl-#" = "editor::ToggleComments";
             "ctrl-alt-l" = "editor::DuplicateLineDown";
+            "ctrl-alt-v" = "editor::SortLinesCaseInsensitive";
           };
         }
         {
