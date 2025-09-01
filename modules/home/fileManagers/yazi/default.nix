@@ -50,6 +50,40 @@ in
             desc = "Go to ~/.local";
           }
         ];
+        help.append_keymap = [
+          {
+            on = [
+              "<S-PageUp>"
+              "<C-u>"
+            ];
+            run = "arrow -50%";
+            desc = "Move cursor up half page";
+          }
+          {
+            on = [
+              "<S-PageDown>"
+              "<C-d>"
+            ];
+            run = "arrow 50%";
+            desc = "Move cursor down half page";
+          }
+          {
+            on = [
+              "<PageUp>"
+              "<C-b>"
+            ];
+            run = "arrow -100%";
+            desc = "Move cursor up one page";
+          }
+          {
+            on = [
+              "<PageDown>"
+              "<C-f>"
+            ];
+            run = "arrow 100%";
+            desc = "Move cursor down one page";
+          }
+        ];
       };
     };
 
@@ -58,7 +92,7 @@ in
       name = "Yazi";
       genericName = "File Manager";
       comment = "Blazing fast terminal file manager written in Rust, based on async I/O";
-      icon = "yazi";
+      icon = "yazi.svg";
       exec = ''${config.programs.yazi.package}/bin/yazi %u'';
       terminal = true;
       type = "Application";
