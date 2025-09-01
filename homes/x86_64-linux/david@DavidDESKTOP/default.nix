@@ -32,6 +32,7 @@ with lib.dafitt;
       plugins.hypr-dynamic-cursors.enable = true;
     };
     #suiteRicing.enable = true; # TODO fixme modules/home/desktops/hyprland/ricing/wallpaper/default.nix
+    nautilus.setAsDefaultFileManager = false;
     rofi.enable = true;
     suiteEditing.enable = true;
     suiteMusic.enable = true;
@@ -39,6 +40,7 @@ with lib.dafitt;
     suiteSocial.enable = true;
     suiteWeb.enable = true;
     yazi.enable = true;
+    yazi.setAsDefaultFileManager = true;
   };
 
   # [Hyprland - Tearing](https://wiki.hyprland.org/Configuring/Tearing/)
