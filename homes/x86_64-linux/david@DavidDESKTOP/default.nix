@@ -46,4 +46,9 @@ with lib.dafitt;
   wayland.windowManager.hyprland.settings.env = [ "WLR_DRM_NO_ATOMIC,1" ]; # because of amd gpu
 
   services.flatpak.overrides."com.valvesoftware.Steam".Context.filesystems = [ "/DavidGAMES" ];
+
+  gtk.gtk3.bookmarks = [
+    "file:///DavidARCHIVE"
+    "file:///DavidGAMES"
+  ];
 }

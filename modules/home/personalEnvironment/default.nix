@@ -91,9 +91,10 @@ in
       "file://${download}"
       "file://${music}"
       "file://${pictures}"
-      "file://${publicShare}"
+      #"file://${publicShare}"
       "file://${templates}"
       "file://${videos}"
+      "file://${config.home.homeDirectory}/Sync"
     ];
   };
 }
