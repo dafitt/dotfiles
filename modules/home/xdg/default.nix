@@ -32,16 +32,5 @@ in
         };
       };
     };
-
-    gtk.gtk3.bookmarks = with config.xdg.userDirs; [
-      "file://${desktop}"
-      "file://${documents}"
-      "file://${download}"
-      "file://${music}"
-      "file://${pictures}"
-      "file://${publicShare}"
-      "file://${templates}"
-      "file://${videos}"
-    ];
   };
 }
