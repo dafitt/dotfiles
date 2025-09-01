@@ -44,54 +44,6 @@ in
           {
             on = [
               "g"
-              "s"
-            ];
-            run = "cd ${desktop}";
-            desc = "Go to ~/Desktop";
-          }
-          {
-            on = [
-              "g"
-              "f"
-            ];
-            run = "cd ${documents}";
-            desc = "Go to ~/Documents";
-          }
-          {
-            on = [
-              "g"
-              "m"
-            ];
-            run = "cd ${music}";
-            desc = "Go to ~/Music";
-          }
-          {
-            on = [
-              "g"
-              "p"
-            ];
-            run = "cd ${pictures}";
-            desc = "Go to ~/Pictures";
-          }
-          {
-            on = [
-              "g"
-              "t"
-            ];
-            run = "cd ${templates}";
-            desc = "Go to ~/Templates";
-          }
-          {
-            on = [
-              "g"
-              "v"
-            ];
-            run = "cd ${videos}";
-            desc = "Go to ~/Videos";
-          }
-          {
-            on = [
-              "g"
               "l"
             ];
             run = "cd ~/.local";
