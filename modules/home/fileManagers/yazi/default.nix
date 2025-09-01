@@ -29,10 +29,73 @@ in
       enableZshIntegration = true;
 
       keymap = {
-        mgr.append_keymap = [
+        mgr.append_keymap = with config.xdg.userDirs; [
           {
-            run = "tab_close";
             on = "T";
+            run = "tab_close";
+            desc = "Close current tab";
+          }
+          {
+            on = "<C-h>";
+            run = "hidden toggle";
+            desc = "Toggle hidden files";
+          }
+
+          {
+            on = [
+              "g"
+              "s"
+            ];
+            run = "cd ${desktop}";
+            desc = "Go to ~/Desktop";
+          }
+          {
+            on = [
+              "g"
+              "f"
+            ];
+            run = "cd ${documents}";
+            desc = "Go to ~/Documents";
+          }
+          {
+            on = [
+              "g"
+              "m"
+            ];
+            run = "cd ${music}";
+            desc = "Go to ~/Music";
+          }
+          {
+            on = [
+              "g"
+              "p"
+            ];
+            run = "cd ${pictures}";
+            desc = "Go to ~/Pictures";
+          }
+          {
+            on = [
+              "g"
+              "t"
+            ];
+            run = "cd ${templates}";
+            desc = "Go to ~/Templates";
+          }
+          {
+            on = [
+              "g"
+              "v"
+            ];
+            run = "cd ${videos}";
+            desc = "Go to ~/Videos";
+          }
+          {
+            on = [
+              "g"
+              "l"
+            ];
+            run = "cd ~/.local";
+            desc = "Go to ~/.local";
           }
         ];
       };
@@ -43,7 +106,7 @@ in
       name = "Yazi";
       genericName = "File Manager";
       comment = "Blazing fast terminal file manager written in Rust, based on async I/O";
-      icon = "yazi.svg";
+      icon = "yazi";
       exec = ''${config.programs.yazi.package}/bin/yazi %u'';
       terminal = true;
       type = "Application";
