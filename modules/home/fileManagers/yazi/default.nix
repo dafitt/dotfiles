@@ -29,6 +29,13 @@ in
       enableZshIntegration = true;
 
       keymap = {
+        mgr.prepend_keymap = [
+          {
+            on = "<C-q>";
+            run = "quit";
+            desc = "Quit yazi";
+          }
+        ];
         mgr.append_keymap = with config.xdg.userDirs; [
           {
             on = "T";
@@ -52,34 +59,42 @@ in
         ];
         help.append_keymap = [
           {
-            on = [
-              "<S-PageUp>"
-              "<C-u>"
-            ];
+            on = "<C-u>";
             run = "arrow -50%";
             desc = "Move cursor up half page";
           }
           {
-            on = [
-              "<S-PageDown>"
-              "<C-d>"
-            ];
+            on = "<C-d>";
             run = "arrow 50%";
             desc = "Move cursor down half page";
           }
           {
-            on = [
-              "<PageUp>"
-              "<C-b>"
-            ];
+            on = "<C-b>";
             run = "arrow -100%";
             desc = "Move cursor up one page";
           }
           {
-            on = [
-              "<PageDown>"
-              "<C-f>"
-            ];
+            on = "<C-f>";
+            run = "arrow 100%";
+            desc = "Move cursor down one page";
+          }
+          {
+            on = "<S-PageUp>";
+            run = "arrow -50%";
+            desc = "Move cursor up half page";
+          }
+          {
+            on = "<S-PageDown>";
+            run = "arrow 50%";
+            desc = "Move cursor down half page";
+          }
+          {
+            on = "<PageUp>";
+            run = "arrow -100%";
+            desc = "Move cursor up one page";
+          }
+          {
+            on = "<PageDown>";
             run = "arrow 100%";
             desc = "Move cursor down one page";
           }

@@ -49,8 +49,27 @@ with lib.dafitt;
 
   services.flatpak.overrides."com.valvesoftware.Steam".Context.filesystems = [ "/DavidGAMES" ];
 
+  # Bookmarks #
   gtk.gtk3.bookmarks = [
     "file:///DavidARCHIVE"
     "file:///DavidGAMES"
+  ];
+  programs.yazi.keymap.mgr.append_keymap = [
+    {
+      on = [
+        "g"
+        "A"
+      ];
+      run = "cd /DavidARCHIVE";
+      desc = "Go to /DavidARCHIVE";
+    }
+    {
+      on = [
+        "g"
+        "G"
+      ];
+      run = "cd /DavidGAMES";
+      desc = "Go to /DavidGAMES";
+    }
   ];
 }

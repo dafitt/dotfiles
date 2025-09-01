@@ -85,8 +85,20 @@ in
       };
     };
 
+    # Bookmarks #
     gtk.gtk3.bookmarks = [
       "file://${config.home.homeDirectory}/Sync"
+    ];
+
+    programs.yazi.keymap.mgr.append_keymap = [
+      {
+        on = [
+          "g"
+          "S"
+        ];
+        run = "cd ${config.home.homeDirectory}/Sync";
+        desc = "Go to ~/Sync";
+      }
     ];
   };
 }
