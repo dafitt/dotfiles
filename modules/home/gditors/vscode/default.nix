@@ -543,5 +543,13 @@ in
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.vscode.package}"
       ];
     };
+
+    programs.yazi.settings.opener.edit = [
+      {
+        run = ''${getExe config.programs.vscode.package} --new-window "$@"'';
+        block = true;
+        desc = "VSCode";
+      }
+    ];
   };
 }

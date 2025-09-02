@@ -363,5 +363,13 @@ in
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.zed-editor.package}"
       ];
     };
+
+    programs.yazi.settings.opener.edit = [
+      {
+        run = ''${getExe config.programs.zed-editor.package} --new "$@"'';
+        block = true;
+        desc = "Zeditor";
+      }
+    ];
   };
 }
