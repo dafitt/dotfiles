@@ -48,6 +48,16 @@ in
               run = "quit";
               desc = "Quit yazi";
             }
+
+            {
+              on = "<C-c>";
+              run = "noop";
+            }
+            {
+              on = "<C-w>";
+              run = "close";
+              desc = "Close the current tab, or quit if it's the last";
+            }
           ];
           mgr.append_keymap = [
             {
@@ -66,6 +76,7 @@ in
               desc = "Rename selected file(s)";
             }
 
+            # bookmarks
             {
               on = [
                 "g"
@@ -175,6 +186,8 @@ in
     (mkIf (cfg.enable && cfg.enablePlugins) {
       home.packages = with pkgs; [
         ouch
+        trash-cli
+        wl-clipboard-rs
       ];
 
       programs.yazi = {
@@ -185,6 +198,7 @@ in
           recycle-bin = recycle-bin; # https://github.com/uhs-robert/recycle-bin.yazi
           smart-enter = smart-enter; # https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi
           starship = starship; # https://github.com/Rolv-Apneseth/starship.yazi
+          wl-clipboard = wl-clipboard; # https://github.com/grappas/wl-clipboard.yazi
         };
 
         initLua = concatStringsSep "\n" [
@@ -196,6 +210,7 @@ in
 
         settings.plugin = {
           prepend_fetchers = [
+            # git
             {
               id = "git";
               name = "*";
@@ -208,6 +223,7 @@ in
             }
           ];
           prepend_previewers = [
+            # ouch
             {
               mime = "application/*zip";
               run = "ouch";
@@ -257,18 +273,27 @@ in
 
         keymap = {
           mgr.prepend_keymap = [
+            # smart-enter
             {
               on = "<Enter>";
               run = "plugin smart-enter";
               desc = "Enter the child directory, or open the file";
             }
 
+            # ouch
             {
               on = "C";
               run = "plugin ouch";
               desc = "Compress with ouch";
             }
 
+            # wl-clipboard
+            {
+              on = "<C-y>";
+              run = "plugin wl-clipboard";
+            }
+
+            # recycle-bin
             {
               on = [
                 "g"
