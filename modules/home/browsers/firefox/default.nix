@@ -27,6 +27,13 @@ in
 
     programs.firefox = {
       enable = true;
+
+      # https://github.com/HeitorAugustoLN/betterfox-nix
+      betterfox = {
+        enable = true;
+        profiles.${config.home.username}.enableAllSections = true;
+      };
+
       profiles.${config.home.username} = {
         name = config.home.username;
         id = 0;
@@ -80,12 +87,6 @@ in
 
           # Extensions are managed with Nix, so don't update.
           "extensions.update.enabled" = false;
-        };
-
-        # https://github.com/HeitorAugustoLN/betterfox-nix
-        betterfox = {
-          enable = true;
-          enableAllSections = true;
         };
 
         extraConfig = concatStringsSep "\n" [

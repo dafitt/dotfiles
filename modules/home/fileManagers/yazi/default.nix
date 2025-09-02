@@ -182,7 +182,7 @@ in
           full-border = full-border; # https://github.com/yazi-rs/plugins/tree/main/full-border.yazi
           git = git; # https://github.com/yazi-rs/plugins/tree/main/git.yazi
           ouch = ouch; # https://github.com/ndtoan96/ouch.yazi
-          # recycle-bin = recycle-bin; # https://github.com/uhs-robert/recycle-bin.yazi
+          recycle-bin = recycle-bin; # https://github.com/uhs-robert/recycle-bin.yazi
           smart-enter = smart-enter; # https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi
           starship = starship; # https://github.com/Rolv-Apneseth/starship.yazi
         };
@@ -190,7 +190,7 @@ in
         initLua = concatStringsSep "\n" [
           ''require("full-border"):setup()''
           ''require("git"):setup()''
-          # ''require("recycle-bin"):setup()''
+          ''require("recycle-bin"):setup()''
           ''require("starship"):setup()''
         ];
 
@@ -269,54 +269,54 @@ in
               desc = "Compress with ouch";
             }
 
-            # {
-            #   on = [
-            #     "g"
-            #     "t"
-            #   ];
-            #   run = "plugin recycle-bin open";
-            #   desc = "Go to Trash";
-            # }
-            # {
-            #   on = [
-            #     "R"
-            #     "o"
-            #   ];
-            #   run = "plugin recycle-bin open";
-            #   desc = "Open Trash";
-            # }
-            # {
-            #   on = [
-            #     "R"
-            #     "e"
-            #   ];
-            #   run = "plugin recycle-bin empty";
-            #   desc = "Empty Trash";
-            # }
-            # {
-            #   on = [
-            #     "R"
-            #     "d"
-            #   ];
-            #   run = "plugin recycle-bin delete";
-            #   desc = "Delete from Trash";
-            # }
-            # {
-            #   on = [
-            #     "R"
-            #     "D"
-            #   ];
-            #   run = "plugin recycle-bin emptyDays";
-            #   desc = "Empty by days deleted";
-            # }
-            # {
-            #   on = [
-            #     "R"
-            #     "r"
-            #   ];
-            #   run = "plugin recycle-bin restore";
-            #   desc = "Restore from Trash";
-            # }
+            {
+              on = [
+                "g"
+                "t"
+              ];
+              run = "plugin recycle-bin open";
+              desc = "Go to Trash";
+            }
+            {
+              on = [
+                "R"
+                "o"
+              ];
+              run = "plugin recycle-bin open";
+              desc = "Open Trash";
+            }
+            {
+              on = [
+                "R"
+                "e"
+              ];
+              run = "plugin recycle-bin empty";
+              desc = "Empty Trash";
+            }
+            {
+              on = [
+                "R"
+                "d"
+              ];
+              run = "plugin recycle-bin delete";
+              desc = "Delete from Trash";
+            }
+            {
+              on = [
+                "R"
+                "D"
+              ];
+              run = "plugin recycle-bin emptyDays";
+              desc = "Empty by days deleted";
+            }
+            {
+              on = [
+                "R"
+                "r"
+              ];
+              run = "plugin recycle-bin restore";
+              desc = "Restore from Trash";
+            }
           ];
         };
       };

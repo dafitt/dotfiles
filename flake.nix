@@ -116,7 +116,7 @@
       ];
 
       homes.modules = with inputs; [
-        betterfox.homeManagerModules.betterfox
+        betterfox.homeModules.betterfox
         nix-flatpak.homeManagerModules.nix-flatpak
         stylix.homeModules.stylix
         xdg-autostart.homeManagerModules.xdg-autostart
