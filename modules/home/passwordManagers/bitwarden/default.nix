@@ -24,6 +24,7 @@ in
         "SUPER_ALT, PERIOD, exec, uwsm app -- ${pkgs.bitwarden-desktop}/bin/bitwarden"
       ];
       windowrule = [
+        "noscreenshare, class:Bitwarden"
         "float, class:Bitwarden, title:Bitwarden"
       ];
     };

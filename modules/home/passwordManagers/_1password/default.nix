@@ -26,6 +26,7 @@ in
         "SUPER_ALT, PERIOD, exec, uwsm app -- ${pkgs._1password-gui}/bin/1password"
       ];
       windowrule = [
+        "noscreenshare, class:1Password"
         "float, class:1Password, title:1Password"
         "size 650 620, class:1Password, title:1Password"
         "move 70% 10%, class:1Password, title:1Password"
