@@ -39,13 +39,6 @@ with lib;
                   # "@" = {
                   #   mountpoint = "/";
                   # };
-                  "@persist" = {
-                    mountpoint = "/persist";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                  };
                   "@nix" = {
                     mountpoint = "/nix";
                     mountOptions = [
@@ -102,7 +95,7 @@ with lib;
   #   rmdir --ignore-fail-on-non-empty --parents /tmp/impermanance
   # '';
 
-  environment.persistence."/persist" = {
+  environment.persistence."/nix/persist" = {
     hideMounts = true;
 
     # https://nixos.org/manual/nixos/unstable/#ch-system-state
