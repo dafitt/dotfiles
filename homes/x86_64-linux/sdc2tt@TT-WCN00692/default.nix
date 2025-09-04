@@ -1,4 +1,5 @@
 #nix-repl> homeConfigurations."sdc2tt@TT-WCN00692".config
+#$ home-manager --flake .#sdc2tt@TT-WCN00692 switch
 
 {
   config,
