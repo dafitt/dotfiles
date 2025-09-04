@@ -54,9 +54,9 @@
       };
     };
 
-    logind = {
-      powerKey = "suspend";
-      powerKeyLongPress = "poweroff";
+    logind.settings.Login = {
+      HandlePowerKey = "suspend";
+      HandlePowerKeyLongPress = "poweroff";
     };
 
     upower = {
