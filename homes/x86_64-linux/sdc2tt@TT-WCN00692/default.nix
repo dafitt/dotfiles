@@ -31,7 +31,6 @@ with lib.dafitt;
   ];
 
   services.flatpak.packages = [
-    "com.github.rajsolai.textsnatcher" # Snatch Text with just a Drag
     "com.logseq.Logseq" # Connect your notes and knowledge
     "org.gnome.meld" # Compare and merge your files
   ];
