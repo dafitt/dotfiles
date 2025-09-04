@@ -96,31 +96,7 @@ with lib;
   # '';
 
   environment.persistence."/nix/persist" = {
+    enable = true;
     hideMounts = true;
-
-    # https://nixos.org/manual/nixos/unstable/#ch-system-state
-    directories = [
-      "/var/lib/nixos"
-      "/var/lib/systemd"
-      "/var/log/journal"
-
-      # connections
-      "/var/lib/bluetooth"
-      "/etc/NetworkManager/system-connections"
-
-      # todo
-      "/etc/ssh"
-    ];
-    files = [
-      "/etc/machine-id"
-
-      # users and groups
-      "/etc/passwd"
-      "/etc/group"
-      "/etc/shadow"
-      "/etc/gshadow"
-      "/etc/subuid"
-      "/etc/subgid"
-    ];
   };
 }

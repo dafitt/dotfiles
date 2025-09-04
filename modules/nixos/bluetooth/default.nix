@@ -20,5 +20,9 @@ in
 
     # GUI
     environment.systemPackages = with pkgs; [ overskride ];
+
+    environment.persistence."/nix/persist".directories = [
+      "/var/lib/bluetooth"
+    ];
   };
 }

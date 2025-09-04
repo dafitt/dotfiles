@@ -22,5 +22,9 @@ in
 
     # GTK GUI for NetworkManager
     environment.systemPackages = with pkgs; [ networkmanagerapplet ];
+
+    environment.persistence."/nix/persist".directories = [
+      "/etc/NetworkManager/system-connections"
+    ];
   };
 }
