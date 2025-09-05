@@ -51,6 +51,12 @@ in
             "ctrl-?" = "workspace::ToggleRightDock";
           };
         }
+        {
+          # global
+          bindings = {
+            "ctrl-q" = null;
+          };
+        }
       ];
 
       themes."myStylix" = with config.lib.stylix.colors.withHashtag; {
