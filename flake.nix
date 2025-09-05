@@ -22,6 +22,10 @@
     hypr-darkwindow = {
       url = "github:micha4w/Hypr-DarkWindow";
     };
+    # https://github.com/nix-community/impermanence
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
     # https://github.com/gmodena/nix-flatpak/tags
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/v0.5.2";
@@ -107,12 +111,14 @@
       ];
 
       systems.modules.nixos = with inputs; [
-        stylix.nixosModules.stylix
         disko.nixosModules.disko
+        impermanence.nixosModules.impermanence
+        stylix.nixosModules.stylix
       ];
 
       homes.modules = with inputs; [
         betterfox.homeModules.betterfox
+        impermanence.homeManagerModules.impermanence
         nix-flatpak.homeManagerModules.nix-flatpak
         stylix.homeModules.stylix
       ];
