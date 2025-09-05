@@ -31,9 +31,7 @@ in
       clang-tools # clangd for c/c++
       dig # tool for DNS
       fira-code-symbols # the ligatures aviable as symbols
-      gcc # gnu c compiler
-      gitui # TUI for Git written in Rust
-      gnome-nettool
+      gcc # gnu c compiler      gnome-nettool
       gnumake # makefile
       gucharmap # to search unicode characters
       httpie # a modern command line HTTP client
@@ -81,6 +79,9 @@ in
         };
       };
     };
+
+    # TUI for Git written in Rust
+    programs.gitui.enable = true;
 
     programs.firefox.profiles.${config.home.username}.extensions =
       with pkgs.nur.repos.rycee.firefox-addons; [
