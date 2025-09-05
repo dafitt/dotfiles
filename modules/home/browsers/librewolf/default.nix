@@ -50,8 +50,5 @@ in
         #TODO no fullscreen
       ];
     };
-
-    # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
-    xdg.autoStart.packages = mkIf cfg.autostart [ config.programs.librewolf.package ];
   };
 }

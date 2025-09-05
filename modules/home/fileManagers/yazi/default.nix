@@ -172,15 +172,6 @@ in
           "[workspace ${toString cfg.workspace} silent] uwsm app -- ${config.programs.yazi.package}/bin/yazi"
         ];
       };
-
-      # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
-      xdg.autoStart.desktopItems = mkIf cfg.autostart {
-        yazi = pkgs.makeDesktopItem {
-          name = "yazi";
-          desktopName = "Files";
-          exec = "${config.programs.yazi.package}/bin/yazi";
-        };
-      };
     })
 
     (mkIf (cfg.enable && cfg.enablePlugins) {

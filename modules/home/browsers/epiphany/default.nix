@@ -29,8 +29,5 @@ in
         "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.epiphany}"
       ];
     };
-
-    # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
-    xdg.autoStart.packages = mkIf cfg.autostart [ pkgs.epiphany ];
   };
 }

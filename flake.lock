@@ -1097,8 +1097,7 @@
         "programsdb": "programsdb",
         "pyprland": "pyprland",
         "snowfall-lib": "snowfall-lib",
-        "stylix": "stylix",
-        "xdg-autostart": "xdg-autostart"
+        "stylix": "stylix"
       }
     },
     "snowfall-lib": {
@@ -1389,21 +1388,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "xdg-autostart": {
-      "locked": {
-        "lastModified": 1723314998,
-        "narHash": "sha256-BwP56CHfU3P7ZHr2SzAEjF3uveiN1dZ5hFHTzRLS/WI=",
-        "owner": "Zocker1999NET",
-        "repo": "home-manager-xdg-autostart",
-        "rev": "4d1def4a330d6812fe18be140781e94003c3cc0a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Zocker1999NET",
-        "repo": "home-manager-xdg-autostart",
         "type": "github"
       }
     },

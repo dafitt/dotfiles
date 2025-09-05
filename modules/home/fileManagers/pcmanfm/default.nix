@@ -66,8 +66,5 @@ in
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${pkgs.pcmanfm}/bin/pcmanfm"
       ];
     };
-
-    # needs inputs.xdg-autostart.homeManagerModules.xdg-autostart
-    xdg.autoStart.packages = mkIf cfg.autostart [ pkgs.pcmanfm ];
   };
 }

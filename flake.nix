@@ -62,10 +62,6 @@
     stylix = {
       url = "github:danth/stylix";
     };
-    # https://github.com/Zocker1999NET/home-manager-xdg-autostart
-    xdg-autostart = {
-      url = "github:Zocker1999NET/home-manager-xdg-autostart";
-    };
 
     # for development; see overlays/-git/default.nix
     pyprland.url = "github:hyprland-community/pyprland"; # https://github.com/hyprland-community/pyprland
@@ -119,7 +115,6 @@
         betterfox.homeModules.betterfox
         nix-flatpak.homeManagerModules.nix-flatpak
         stylix.homeModules.stylix
-        xdg-autostart.homeManagerModules.xdg-autostart
       ];
 
       templates = import ./templates { };
