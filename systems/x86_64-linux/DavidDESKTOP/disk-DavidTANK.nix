@@ -2,7 +2,7 @@
   # sudo nix run nixpkgs#disko -- -m format,mount <file|--flake .#>
   disko.devices.disk = {
     "DavidTANK" = {
-      type = "disk";
+      destroy = false;
       device = "/dev/disk/by-id/ata-ST4000VN008-2DR166_ZDH5AE7Q";
       content = {
         type = "btrfs";

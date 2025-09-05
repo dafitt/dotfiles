@@ -6,7 +6,6 @@
 
   disko.devices.disk = {
     "root" = {
-      type = "disk";
       device = "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_2TB_S69ENF0W741037J";
       content = {
         type = "gpt";
