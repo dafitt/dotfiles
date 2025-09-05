@@ -20,7 +20,7 @@ in
       enable = true;
       device = "nodev";
       efiSupport = true;
-      configurationLimit = 5;
+      configurationLimit = 7;
       useOSProber = true;
       extraEntries = ''
         if [ "$grub_platform" = "efi" ]; then
