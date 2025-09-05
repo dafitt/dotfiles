@@ -64,6 +64,7 @@ with lib;
         mountOptions = [
           "size=3G"
           "mode=0755"
+          "noexec"
         ];
       };
     };
