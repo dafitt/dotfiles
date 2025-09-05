@@ -37,7 +37,7 @@ in
     # https://github.com/zyedidia/micro/blob/master/assets/packaging/micro.desktop
     xdg.desktopEntries.micro = {
       name = "Micro";
-      icon = "micro.svg";
+      icon = "micro";
       genericName = "Text Editor";
       comment = "Edit text files in a terminal";
       exec = "${getExe config.programs.micro.package} %F";
