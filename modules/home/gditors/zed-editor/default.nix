@@ -37,6 +37,12 @@ in
 
       userKeymaps = [
         {
+          # global
+          bindings = {
+            "ctrl-q" = null;
+          };
+        }
+        {
           context = "Editor";
           bindings = {
             "ctrl-#" = "editor::ToggleComments";
@@ -45,16 +51,24 @@ in
           };
         }
         {
+          context = "Terminal";
+          bindings = {
+            "ctrl-w" = null;
+            "ctrl-q" = [
+              "terminal::SendKeystroke"
+              "ctrl-q"
+            ];
+            "ctrl-s" = [
+              "terminal::SendKeystroke"
+              "ctrl-s"
+            ];
+          };
+        }
+        {
           context = "Workspace";
           bindings = {
             "ctrl-w" = null;
             "ctrl-?" = "workspace::ToggleRightDock";
-          };
-        }
-        {
-          # global
-          bindings = {
-            "ctrl-q" = null;
           };
         }
       ];
