@@ -50,10 +50,6 @@ with lib.dafitt;
     lact # Linux AMDGPU Controller
   ];
 
-  environment.persistence."/nix/persist".directories = [
-    "/etc/ssh"
-  ];
-
   # Skip the boot selection menu. [space] to open it.
   boot.loader.timeout = 0;
 
