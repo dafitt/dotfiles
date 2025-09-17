@@ -43,6 +43,8 @@ with lib.dafitt;
     yazi.setAsDefaultFileManager = true;
   };
 
+  wayland.windowManager.hyprland.settings.input.accel_profile = "flat";
+
   # [Hyprland - Tearing](https://wiki.hyprland.org/Configuring/Tearing/)
   wayland.windowManager.hyprland.settings.general.allow_tearing = true;
   wayland.windowManager.hyprland.settings.env = [ "WLR_DRM_NO_ATOMIC,1" ]; # because of amd gpu

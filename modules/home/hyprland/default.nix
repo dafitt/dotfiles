@@ -174,7 +174,7 @@ in
             kb_variant = "nodeadkeys";
             numlock_by_default = true;
             follow_mouse = 1;
-            accel_profile = "flat";
+            accel_profile = mkDefault "adaptive";
 
             touchpad = {
               #clickfinger_behavior = true;
