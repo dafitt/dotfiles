@@ -59,7 +59,10 @@ in
       "org.gnome.meld" # Compare and merge your files
     ];
 
-    programs.direnv.enable = true;
+    programs.direnv = {
+      enable = true;
+      package = pkgs.nix-direnv;
+    };
     home.sessionVariables.DIRENV_LOG_FORMAT = ""; # silents direnv
 
     # Distributed version control system
