@@ -15,5 +15,9 @@ in
     enable = mkEnableOption "the Virtualization suite";
   };
 
-  config = mkIf cfg.enable { };
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      gparted # graphical disk partitioning tool
+    ];
+  };
 }

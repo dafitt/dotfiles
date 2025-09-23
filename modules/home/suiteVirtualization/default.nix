@@ -21,9 +21,5 @@ in
     dafitt = {
       quickemu.enable = true;
     };
-
-    home.packages = with pkgs; [
-      gparted # Graphical disk partitioning tool
-    ];
   };
 }

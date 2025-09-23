@@ -16,6 +16,13 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      bashmount # easy mounting
+      gparted # graphical disk partitioning tool
+      gptfdisk # gdisk, cgdisk, sgdisk
+      hdparm # get/set ATA/SATA drive parameters
+    ];
+
     programs.direnv = {
       enable = true;
       silent = true;
