@@ -9,6 +9,19 @@ with lib;
 with lib.dafitt;
 let
   cfg = config.dafitt.kitty;
+
+  sshAliasForBash = ''
+    if test "$TERM" = "xterm-kitty"; then
+      alias ssh='kitten ssh'
+    fi
+  '';
+  sshAliasForFish = ''
+    if test $TERM = 'xterm-kitty'
+      function ssh
+        kitten ssh $argv
+      end
+    end
+  '';
 in
 {
   options.dafitt.kitty = with types; {
@@ -62,10 +75,6 @@ in
         "kitty_mod+up" = "next_window";
         "kitty_mod+down" = "previous_window";
       };
-
-      actionAliases = {
-        "ssh" = "kitten ssh";
-      };
     };
 
     #$ kitty --session idleinhibitor
@@ -77,6 +86,11 @@ in
         new_tab
       '';
     };
+
+    # alias ssh='kitten ssh' only within kitty
+    programs.bash.initExtra = sshAliasForBash;
+    programs.zsh.initContent = mkOrder 1000 sshAliasForBash;
+    programs.fish.shellInit = sshAliasForFish;
 
     # this option is being used by other modules
     home.sessionVariables.TERMINAL = mkIf cfg.setAsDefaultTerminal (
