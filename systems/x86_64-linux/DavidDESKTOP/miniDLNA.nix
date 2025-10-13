@@ -6,7 +6,7 @@
 
     bindMounts = {
       recordings = {
-        hostPath = "/DavidTANK/Archive/priv/3-Aufnahmen";
+        hostPath = "/DavidARCHIVE/priv/Historie";
         mountPoint = "/mnt/media/Aufnahmen";
         isReadOnly = true;
       };
