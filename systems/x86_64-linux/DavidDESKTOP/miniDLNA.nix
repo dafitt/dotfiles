@@ -47,6 +47,7 @@
 
         environment.systemPackages = with pkgs; [
           inotify-tools
+          minidlna
         ];
 
         system.stateVersion = "23.11";
