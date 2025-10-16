@@ -188,11 +188,15 @@ in
             hide_on_key_press = true;
             warp_back_after_non_mouse_input = true;
           };
+
           gestures = {
             # https://wiki.hyprland.org/Configuring/Variables/#gestures
-            workspace_swipe = true;
             workspace_swipe_forever = true;
           };
+
+          gesture = [
+            "3, horizontal, workspace"
+          ];
 
           binds = {
             # https://wiki.hyprland.org/Configuring/Variables/#binds

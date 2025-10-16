@@ -25,15 +25,6 @@ in
     programs.librewolf = {
       enable = true;
       settings = config.programs.firefox.profiles.${config.home.username}.settings // { };
-
-      # https://github.com/HeitorAugustoLN/betterfox-nix
-      betterfox = {
-        enable = true;
-        settings = {
-          enable = true;
-          enableAllSections = true;
-        };
-      };
     };
 
     wayland.windowManager.hyprland.settings = {
