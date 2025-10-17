@@ -19,12 +19,14 @@ in
   config = mkIf cfg.enable {
     home.packages = [ pkgs.hyprpanel ];
 
-    # https://github.com/Jas-SinghFSU/HyprPanel/blob/master/nix/module.nix#L65
     # https://hyprpanel.com/configuration/settings.html
+    # https://github.com/Jas-SinghFSU/HyprPanel/blob/master/src/components/settings/pages/config/general/index.tsx
     programs.hyprpanel = {
       enable = true;
 
       settings = {
+        scalingPriority = "both";
+
         bar.layouts."0" = {
           # https://hyprpanel.com/configuration/modules.html
           left = [
