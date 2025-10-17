@@ -188,6 +188,7 @@ in
         plugins = with pkgs.yaziPlugins; {
           full-border = full-border; # https://github.com/yazi-rs/plugins/tree/main/full-border.yazi
           git = git; # https://github.com/yazi-rs/plugins/tree/main/git.yazi
+          mount = mount; # https://github.com/yazi-rs/plugins/tree/main/mount.yazi
           ouch = ouch; # https://github.com/ndtoan96/ouch.yazi
           recycle-bin = recycle-bin; # https://github.com/uhs-robert/recycle-bin.yazi
           smart-enter = smart-enter; # https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi
@@ -267,6 +268,12 @@ in
 
         keymap = {
           mgr.prepend_keymap = [
+            # mount
+            {
+              on = "M";
+              run = "plugin mount";
+              desc = "Enter the mount menu";
+            }
             # smart-enter
             {
               on = "<Enter>";
