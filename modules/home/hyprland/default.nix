@@ -62,12 +62,12 @@ in
         systemd.enable = false; # conflicts with UWSM
 
         settings = {
-          # [Variables](https://wiki.hyprland.org/Configuring/Variables/)
+          # [Variables](https://wiki.hypr.land/Configuring/Variables/)
 
           xwayland.force_zero_scaling = true;
 
           general = {
-            # https://wiki.hyprland.org/Configuring/Variables/#general
+            # https://wiki.hypr.land/Configuring/Variables/#general
             gaps_in = 5;
             gaps_out = 8;
             border_size = 2;
@@ -76,14 +76,14 @@ in
             "col.active_border" = mkForce "rgb(${config.lib.stylix.colors.base0A})";
           };
           dwindle = {
-            # https://wiki.hyprland.org/Configuring/Dwindle-Layout/
+            # https://wiki.hypr.land/Configuring/Dwindle-Layout/
             pseudotile = true; # master switch for pseudotiling
             force_split = 2;
             preserve_split = true; # you probably want this
             default_split_ratio = 1.25; # 0.1 - 1.9
           };
           misc = {
-            # https://wiki.hyprland.org/Configuring/Variables/#misc
+            # https://wiki.hypr.land/Configuring/Variables/#misc
             disable_autoreload = true;
             disable_hyprland_logo = true;
             focus_on_activate = true;
@@ -93,7 +93,7 @@ in
             background_color = mkForce "rgb(${config.lib.stylix.colors.base01})";
           };
           decoration = {
-            # https://wiki.hyprland.org/Configuring/Variables/#decoration
+            # https://wiki.hypr.land/Configuring/Variables/#decoration
             #active_opacity = 0.97;
             #inactive_opacity = 0.97;
 
@@ -114,7 +114,7 @@ in
             };
           };
           animations = {
-            # https://wiki.hyprland.org/Configuring/Animations/
+            # https://wiki.hypr.land/Configuring/Animations/
             enabled = true;
 
             bezier = [
@@ -147,7 +147,7 @@ in
           };
 
           windowrule = [
-            # https://wiki.hyprland.org/Configuring/Window-Rules/
+            # https://wiki.hypr.land/Configuring/Window-Rules/
             # https://regex101.com/
             #$ hyprctl clients
             "opacity 1 0.7, floating:1, title:(.)+, xwayland:0" # make inactive floating windows (with titles) more transparent
@@ -168,7 +168,7 @@ in
           workspace = [ ];
 
           input = {
-            # https://wiki.hyprland.org/Configuring/Variables/#input
+            # https://wiki.hypr.land/Configuring/Variables/#input
             # list of options `/usr/share/X11/xkb/rules/base.lst`
             kb_layout = "de";
             kb_variant = "nodeadkeys";
@@ -190,16 +190,17 @@ in
           };
 
           gestures = {
-            # https://wiki.hyprland.org/Configuring/Variables/#gestures
+            # https://wiki.hypr.land/Configuring/Variables/#gestures
             workspace_swipe_forever = true;
           };
 
           gesture = [
+            # https://wiki.hypr.land/Configuring/Gestures/
             "3, horizontal, workspace"
           ];
 
           binds = {
-            # https://wiki.hyprland.org/Configuring/Variables/#binds
+            # https://wiki.hypr.land/Configuring/Variables/#binds
             workspace_back_and_forth = true;
             allow_workspace_cycles = true;
             scroll_event_delay = 150;
@@ -208,8 +209,8 @@ in
           bind =
             with pkgs;
             [
-              # https://wiki.hyprland.org/Configuring/Binds/
-              # https://wiki.hyprland.org/Configuring/Dispatchers/
+              # https://wiki.hypr.land/Configuring/Binds/
+              # https://wiki.hypr.land/Configuring/Dispatchers/
 
               "SUPER_CONTROL, Q, exec, hyprctl dispatch exit" # Exit Hyprland all together
               "SUPER_CONTROL, R, exec, hyprctl reload; forcerendererreload"
@@ -378,7 +379,7 @@ in
 
           # only on launch
           exec-once = [
-            # [Some of my apps take a really long time to open…?](https://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open)
+            # [Some of my apps take a really long time to open…?](https://wiki.hypr.land/FAQ/#some-of-my-apps-take-a-really-long-time-to-open)
             #"sleep 1 && ${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
             #"${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
@@ -416,7 +417,7 @@ in
         # It is required for GUI applications to be able to request elevated privileges.
         Unit = {
           Description = "Hyprland Polkit authentication agent";
-          Documentation = "https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent/";
+          Documentation = "https://wiki.hypr.land/Hypr-Ecosystem/hyprpolkitagent/";
           PartOf = [ "wayland-session@Hyprland.target" ];
         };
         Service = {
@@ -428,7 +429,7 @@ in
         Install.WantedBy = [ "wayland-session@Hyprland.target" ];
       };
 
-      # https://wiki.hyprland.org/Configuring/Environment-variables/
+      # https://wiki.hypr.land/Configuring/Environment-variables/
       #` export KEY=VAL
       xdg.configFile."uwsm/env" = {
         text = '''';
@@ -445,7 +446,7 @@ in
       xdg.configFile."hypr/application-style.conf" = {
         text = config.lib.generators.toHyprconf {
           attrs = {
-            # https://wiki.hyprland.org/Hypr-Ecosystem/hyprland-qt-support/
+            # https://wiki.hypr.land/Hypr-Ecosystem/hyprland-qt-support/
             roundness = 2;
           };
         };

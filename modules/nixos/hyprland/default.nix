@@ -20,7 +20,7 @@ in
     programs.hyprland = {
       enable = true;
 
-      # https://wiki.hyprland.org/Useful-Utilities/Systemd-start/
+      # https://wiki.hypr.land/Useful-Utilities/Systemd-start/
       withUWSM = true;
     };
 
@@ -36,7 +36,7 @@ in
       ];
     };
 
-    # [Must Have's](https://wiki.hyprland.org/Useful-Utilities/Must-have/)
+    # [Must Have's](https://wiki.hypr.land/Useful-Utilities/Must-have/)
     programs.light.enable = true; # Monitor backlight control
     services = {
       gvfs = {

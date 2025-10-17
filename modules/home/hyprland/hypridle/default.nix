@@ -39,7 +39,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    # https://wiki.hyprland.org/Hypr-Ecosystem/hypridle/
+    # https://wiki.hypr.land/Hypr-Ecosystem/hypridle/
     services.hypridle = {
       enable = true;
       systemdTarget = "wayland-session@Hyprland.target";

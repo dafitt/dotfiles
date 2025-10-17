@@ -152,8 +152,8 @@ in
     ];
 
     wayland.windowManager.hyprland.settings.monitor =
-      # https://wiki.hyprland.org/Configuring/Monitors/
-      # https://wiki.hyprland.org/hyprland-wiki/pages/Configuring/Advanced-config/#monitors
+      # https://wiki.hypr.land/Configuring/Monitors/
+      # https://wiki.hypr.land/hyprland-wiki/pages/Configuring/Advanced-config/#monitors
 
       #$ nix run nixpkgs#wlr-randr
 

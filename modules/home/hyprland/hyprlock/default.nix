@@ -22,7 +22,7 @@ in
 
     home.packages = [ config.programs.hyprlock.package ];
 
-    # https://wiki.hyprland.org/Hypr-Ecosystem/hyprlock/
+    # https://wiki.hypr.land/Hypr-Ecosystem/hyprlock/
     programs.hyprlock = {
       enable = true;
 

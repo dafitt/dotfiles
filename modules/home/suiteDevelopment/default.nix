@@ -92,7 +92,7 @@ in
       ];
 
     # Enable hyprland debug logs
-    # https://wiki.hyprland.org/Configuring/Variables/#debug
+    # https://wiki.hypr.land/Configuring/Variables/#debug
     wayland.windowManager.hyprland.settings.debug = {
       # current log #$ cat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log
       # last log #$ cat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 2 | tail -n 1)/hyprland.log
