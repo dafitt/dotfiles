@@ -274,24 +274,12 @@ in
               run = "plugin mount";
               desc = "Enter the mount menu";
             }
-            # smart-enter
-            {
-              on = "<Enter>";
-              run = "plugin smart-enter";
-              desc = "Enter the child directory, or open the file";
-            }
 
             # ouch
             {
               on = "C";
               run = "plugin ouch";
               desc = "Compress with ouch";
-            }
-
-            # wl-clipboard
-            {
-              on = "<C-y>";
-              run = "plugin wl-clipboard";
             }
 
             # recycle-bin
@@ -342,6 +330,19 @@ in
               ];
               run = "plugin recycle-bin restore";
               desc = "Restore from Trash";
+            }
+
+            # smart-enter
+            {
+              on = "<Enter>";
+              run = "plugin smart-enter";
+              desc = "Enter the child directory, or open the file";
+            }
+
+            # wl-clipboard
+            {
+              on = "<C-y>";
+              run = "plugin wl-clipboard";
             }
           ];
         };
