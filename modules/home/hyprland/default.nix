@@ -100,7 +100,7 @@ in
             rounding = 16;
 
             dim_inactive = true;
-            dim_strength = .1;
+            dim_strength = 0.1;
 
             shadow = {
               range = 16;

@@ -50,5 +50,7 @@ in
     };
 
     services.ratbagd.enable = true; # a DBus daemon to configure gaming mice
+
+    hardware.opentabletdriver.enable = true;
   };
 }

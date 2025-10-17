@@ -5,7 +5,6 @@
 # Case: Dark Base 900 Orange
 
 {
-  config,
   lib,
   pkgs,
   inputs,

@@ -1,15 +1,12 @@
 #nix-repl> nixosConfigurations.DavidDESKTOP.config.snowfallorg.users.david.home.config
 
 {
-  config,
   lib,
-  pkgs,
   inputs,
   ...
 }:
 
 with lib;
-with lib.dafitt;
 {
   imports = with inputs; [
     ../../user-configurations/david.nix
@@ -42,8 +39,6 @@ with lib.dafitt;
     yazi.enable = true;
     yazi.setAsDefaultFileManager = true;
   };
-
-  wayland.windowManager.hyprland.settings.input.accel_profile = "flat";
 
   # [Hyprland - Tearing](https://wiki.hypr.land/Configuring/Tearing/)
   wayland.windowManager.hyprland.settings.general.allow_tearing = true;
