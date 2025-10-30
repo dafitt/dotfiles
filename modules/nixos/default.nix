@@ -34,6 +34,7 @@ in
       stylix.enable = true;
       sudo.enable = true;
       systemd.enable = true;
+      tailscale.enable = true;
       time.enable = true;
       users.guest.enable = true;
       uutils.enable = true;
