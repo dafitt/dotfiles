@@ -12,15 +12,11 @@
 #$ nix run .#nixosConfigurations.<host>.config.system.build.toplevel
 
 {
-  config,
-  lib,
   pkgs,
   inputs,
   ...
 }:
 
-with lib;
-with lib.dafitt;
 {
   imports = with inputs; [
     ./hardware-configuration.nix

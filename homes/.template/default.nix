@@ -13,15 +13,11 @@
 #$ nix run .#homeConfigurations.<user>[@<host>].activationPackage
 
 {
-  config,
-  lib,
   pkgs,
   inputs,
   ...
 }:
 
-with lib;
-with lib.dafitt;
 {
   imports = with inputs; [ ];
 

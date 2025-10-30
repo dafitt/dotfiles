@@ -123,8 +123,6 @@
         stylix.homeModules.stylix
       ];
 
-      templates = import ./templates { };
-
       # [Generic outputs](https://snowfall.org/guides/lib/generic/)
       outputs-builder = channels: {
         formatter = channels.nixpkgs.nixfmt-tree; # [nix fmt](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-fmt.html)
