@@ -42,7 +42,7 @@ with lib.dafitt;
     fonts = rec {
       sansSerif = serif;
       serif = {
-        package = pkgs.ubuntu_font_family;
+        package = pkgs.ubuntu-classic;
         name = "Ubuntu";
       };
       monospace = {
@@ -50,7 +50,7 @@ with lib.dafitt;
         name = "JetBrainsMono Nerd Font";
       };
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
       sizes = {
