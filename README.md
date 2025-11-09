@@ -496,6 +496,34 @@ sudo rfkill unblock bluetooth
   sudo apt install <PROGRAM>
   ```
 
+### Corrupted /nix/var/nix/db/db.sqlite
+
+You need to reinstall NixOS.
+
+Create a new subvolume (i.e. `@nix.new`) and mount it under `/mnt/nix` (i.e. mount <btrfs> -o subvol=nix2 /tmp/foo/nix --mkdir). Next bind-mount your `/boot` and/or efi in the same place relative to `/mnt/` as they are in the real system (i.e. `/mnt/boot`).
+Then you `nixos-install --flake .#<hostname>`.
+
+Now you’ve got a working Nix store with your current closure in the `nix.new` subvolume and a bootloader set up to boot from it. All that is left to do is swap the `@nix.new` subvol with your regular `@nix` subvol (that’s where your fstab is set up to find it) and reboot. If you’ve done everything correctly, you should boot into your current generation with a brand new Nix store.
+
+Commands to help:
+
+```sh
+mount /dev/nvme0n1p2 /mnt
+btrfs subvolume create /mnt/@nix.new
+umount /mnt
+mkdir /mnt/nix /mnt/boot
+mount /dev/nvme0n1p1 /mnt/nix
+mount -o subvol=@nix2 /dev/nvme0n1p2 /mnt/nix
+nixos-install --flake .#<hostname>
+umount /mnt/nix /mnt/boot
+mount /dev/nvme0n1p2 /mnt
+mv /mnt/@nix /mnt/@nix.old
+mv /mnt/@nix.new /mnt/@nix
+reboot
+mount /dev/nvme0n1p2 /mnt
+btrfs subvolume delete /mnt/@nix.old
+```
+
 ## 👀, 🏆 and ❤️
 
 - [Vimjoyer - Youtube](https://www.youtube.com/@vimjoyer)
