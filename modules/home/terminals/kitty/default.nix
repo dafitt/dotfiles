@@ -74,10 +74,6 @@ in
       '';
     };
 
-    home.shellAliases = {
-      ssh = "kitten ssh";
-    };
-
     # this option is being used by other modules
     home.sessionVariables.TERMINAL = mkIf cfg.setAsDefaultTerminal (
       getExe config.programs.kitty.package
