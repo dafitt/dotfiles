@@ -31,7 +31,6 @@ in
         allowed-users = [ "@wheel" ];
         trusted-users = [ "@wheel" ];
 
-        auto-optimise-store = true;
         connect-timeout = 5;
         http-connections = 50;
         log-lines = 50; # more log lines in case of error
