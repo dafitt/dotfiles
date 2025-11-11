@@ -6,6 +6,8 @@ with lib;
     ./disk-DavidGAMES.nix
   ];
 
+  services.btrfs.autoScrub.enable = true;
+
   disko.devices = {
     disk = {
       "root" = {
