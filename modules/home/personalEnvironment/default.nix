@@ -68,7 +68,6 @@ in
 
         # I don't like the default but my hand just types it
         calc = "numbat";
-        cat = "bat --pager='less -qRFM'";
         cd = "z";
         df = "duf";
         du = "dust";
