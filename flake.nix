@@ -51,6 +51,7 @@
     # https://github.com/nix-community/NUR
     nur = {
       url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     # https://github.com/wamserma/flake-programs-sqlite
     programsdb = {
@@ -65,6 +66,7 @@
     # https://github.com/danth/stylix
     stylix = {
       url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # for development; see overlays/-git/default.nix
