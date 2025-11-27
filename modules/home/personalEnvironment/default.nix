@@ -35,7 +35,6 @@ in
       ripgrep # better `grep`
       tldr # simplified and community-driven man pages
       wiki-tui # wikipedia in a terminal
-      xfce.thunar # for the bulk renamer
     ];
 
     programs = {

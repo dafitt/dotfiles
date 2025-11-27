@@ -35,6 +35,7 @@ with lib;
     suiteOffice.enable = true;
     suiteSocial.enable = true;
     suiteWeb.enable = true;
+    thunar.enable = true;
     yazi.enable = true;
   };
 
