@@ -20,7 +20,6 @@ in
   config = mkIf cfg.enableDefaults {
     dafitt = mkDefault {
       bitwarden.enable = true;
-      bitwarden.setAsDefaultPasswordManager = true;
       btop.enable = true;
       btop.setAsDefaultTop = true;
       fastfetch.enable = true;
@@ -29,6 +28,8 @@ in
       firefox.setAsDefaultBrowser = true;
       flatpak.enable = true;
       imv.enable = true;
+      keepassxc.enable = true;
+      keepassxc.setAsDefaultPasswordManager = true;
       kitty.enable = true;
       kitty.setAsDefaultTerminal = true;
       micro.enable = true;
