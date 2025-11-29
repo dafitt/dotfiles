@@ -21,6 +21,10 @@ in
     # https://1password.com/
     home.packages = with pkgs; [ _1password-gui ];
 
+    programs.firefox.profiles.${config.home.username}.extensions.packages = [
+      pkgs.nur.repos.rycee.firefox-addons.onepassword-password-manager
+    ];
+
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.setAsDefaultPasswordManager [
         "SUPER_ALT, PERIOD, exec, uwsm app -- ${pkgs._1password-gui}/bin/1password"

@@ -21,6 +21,10 @@ in
       enable = true;
     };
 
+    programs.firefox.profiles.${config.home.username}.extensions.packages = [
+      pkgs.nur.repos.rycee.firefox-addons.keepassxc-browser
+    ];
+
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.setAsDefaultPasswordManager [
         "SUPER_ALT, PERIOD, exec, uwsm app -- ${getExe pkgs.keepassxc}"

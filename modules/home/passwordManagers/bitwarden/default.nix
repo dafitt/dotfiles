@@ -19,6 +19,10 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ bitwarden-desktop ];
 
+    programs.firefox.profiles.${config.home.username}.extensions.packages = [
+      pkgs.nur.repos.rycee.firefox-addons.bitwarden
+    ];
+
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.setAsDefaultPasswordManager [
         "SUPER_ALT, PERIOD, exec, uwsm app -- ${pkgs.bitwarden-desktop}/bin/bitwarden"
