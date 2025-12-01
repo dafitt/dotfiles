@@ -48,9 +48,7 @@ in
     fonts.fontconfig.enable = true; # discover fonts and configurations installed through home.packages and nix-env
 
     wayland.windowManager.hyprland.settings = {
-      exec-once = [
-        "[workspace 7 silent;noinitialfocus] uwsm app -- ${pkgs.flatpak}/bin/flatpak run com.logseq.Logseq"
-      ];
+      exec-once = [ ];
       windowrule = [
         "float, class:scribus, title:(New Document)"
       ];
