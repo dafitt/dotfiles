@@ -413,21 +413,9 @@ in
         };
       };
 
-      systemd.user.services."polkit-hyprpolkitagent" = {
-        # It is required for GUI applications to be able to request elevated privileges.
-        Unit = {
-          Description = "Hyprland Polkit authentication agent";
-          Documentation = "https://wiki.hypr.land/Hypr-Ecosystem/hyprpolkitagent/";
-          PartOf = [ "wayland-session@Hyprland.target" ];
-        };
-        Service = {
-          ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
-          Restart = "always";
-          RestartSec = 2;
-          TimeoutStopSec = 10;
-        };
-        Install.WantedBy = [ "wayland-session@Hyprland.target" ];
-      };
+      services.hyprpolkitagent.enable = true;
+      systemd.user.services.hyprpolkitagent.Service.ExecCondition =
+        ''${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""'';
 
       # https://wiki.hypr.land/Configuring/Environment-variables/
       #` export KEY=VAL
