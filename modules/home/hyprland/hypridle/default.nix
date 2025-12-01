@@ -42,7 +42,6 @@ in
     # https://wiki.hypr.land/Hypr-Ecosystem/hypridle/
     services.hypridle = {
       enable = true;
-      systemdTarget = "wayland-session@Hyprland.target";
 
       settings = {
         general = {
@@ -84,6 +83,8 @@ in
         ];
       };
     };
+    systemd.user.services.hypridle.Service.ExecCondition =
+      ''${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""'';
     # disable temporarily #$ systemctl stop --user hypridle
   };
 }

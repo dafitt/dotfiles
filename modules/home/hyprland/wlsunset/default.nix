@@ -18,7 +18,6 @@ in
   config = mkIf cfg.enable {
     services.wlsunset = {
       enable = true;
-      systemdTarget = "wayland-session@Hyprland.target";
 
       latitude = "48.0";
       longitude = "12.6";

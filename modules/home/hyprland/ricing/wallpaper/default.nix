@@ -36,8 +36,8 @@ in
       Unit = {
         Description = "ricing wallpaper";
         ConditionEnvironment = "WAYLAND_DISPLAY";
-        After = [ "wayland-session@Hyprland.target" ];
-        PartOf = [ "wayland-session@Hyprland.target" ];
+        After = [ config.wayland.systemd.target ];
+        PartOf = [ config.wayland.systemd.target ];
         X-Restart-Triggers = [ "${config.xdg.configFile."kitty/wallpaper".source}" ];
       };
       Service = {
@@ -45,10 +45,11 @@ in
           "PATH=/run/current-system/sw/bin"
           "KITTY_DISABLE_WAYLAND=1" # https://github.com/hyprwm/hyprland-plugins/issues/177
         ];
+        ExecCondition = ''${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""'';
         ExecStart = "${config.programs.kitty.package}/bin/kitty --session wallpaper --override background_opacity=0";
         Restart = "always";
       };
-      Install.WantedBy = [ "wayland-session@Hyprland.target" ];
+      Install.WantedBy = [ config.wayland.systemd.target ];
     };
   };
 }

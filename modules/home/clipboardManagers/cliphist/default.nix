@@ -23,10 +23,7 @@ in
 
     # Wayland clipboard manager
     # https://github.com/sentriz/cliphist
-    services.cliphist = {
-      enable = true;
-      systemdTargets = [ "wayland-session@Hyprland.target" ];
-    };
+    services.cliphist.enable = true;
 
     # simple cliphist selector
     wayland.windowManager.hyprland.settings = {

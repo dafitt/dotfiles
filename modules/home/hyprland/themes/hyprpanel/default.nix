@@ -78,13 +78,9 @@ in
     };
 
     systemd.user.services.hyprpanel = {
-      Unit = {
-        # FIXME upstream systemdTargets option
-        After = mkForce "wayland-session@Hyprland.target";
-        PartOf = mkForce "wayland-session@Hyprland.target";
-      };
-      Install.WantedBy = [ "wayland-session@Hyprland.target" ];
       Service = {
+        # TODO upstream
+        ExecCondition = ''${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""'';
         Nice = "19";
       };
     };
