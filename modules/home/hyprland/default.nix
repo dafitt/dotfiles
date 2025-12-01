@@ -450,18 +450,18 @@ in
     })
     (mkIf cfg.ttyAutostart {
       programs.bash.profileExtra = ''
-        if [[ $(tty) =~ /dev/tty[${cfg.ttyAutostartNumbers}] ]] && uwsm check may-start && uwsm select; then
-          exec systemd-cat -t uwsm_start uwsm start default
+        if [[ $(tty) =~ /dev/tty[${cfg.ttyAutostartNumbers}] ]] && uwsm check may-start; then
+          exec uwsm start default
         fi
       '';
       programs.zsh.loginExtra = ''
-        if [[ $(tty) =~ /dev/tty[${cfg.ttyAutostartNumbers}] ]] && uwsm check may-start && uwsm select; then
-          exec systemd-cat -t uwsm_start uwsm start default
+        if [[ $(tty) =~ /dev/tty[${cfg.ttyAutostartNumbers}] ]] && uwsm check may-start; then
+          exec uwsm start default
         fi
       '';
       programs.fish.loginShellInit = ''
-        if tty | string match -r "/dev/tty[${cfg.ttyAutostartNumbers}]" && uwsm check may-start && uwsm select
-          systemd-cat -t uwsm_start uwsm start default
+        if string match --regex --quiet "/dev/tty[${cfg.ttyAutostartNumbers}]" $(tty) && uwsm check may-start
+          exec uwsm start default
         end
       '';
     })
