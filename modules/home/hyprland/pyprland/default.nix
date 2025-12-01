@@ -56,7 +56,7 @@ in
     home.packages = [ pkgs.pyprland ];
 
     xdg.configFile."hypr/pyprland.toml".source = (pkgs.formats.toml { }).generate "pyprland.toml" {
-      # https://github.com/hyprland-community/pyprland/wiki/Getting-started
+      # https://hyprland-community.github.io/pyprland/Getting-started.html
       pyprland.plugins = [
         "magnify" # https://hyprland-community.github.io/pyprland/magnify.html
         "scratchpads" # https://hyprland-community.github.io/pyprland/scratchpads.html
@@ -92,13 +92,14 @@ in
       Unit = {
         Description = "Scratchpads & many goodies for Hyprland";
         Documentation = "https://github.com/hyprland-community/pyprland";
-        PartOf = [ "wayland-session@Hyprland.target" ];
-        After = [ "wayland-session@Hyprland.target" ];
+        PartOf = [ "graphical-session.target" ];
+        After = [ "graphical-session.target" ];
         ConditionEnvironment = "WAYLAND_DISPLAY";
         X-Reload-Triggers = [ "${config.xdg.configFile."hypr/pyprland.toml".source}" ];
       };
-      Install.WantedBy = [ "wayland-session@Hyprland.target" ];
+      Install.WantedBy = [ "graphical-session.target" ];
       Service = with pkgs; {
+        ExecCondition = ''${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""'';
         ExecStart = getExe pyprland;
         ExecReload = "${getExe pyprland} reload";
         ExecStop = "${getExe pyprland} exit";
