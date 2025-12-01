@@ -60,7 +60,5 @@ in
         gnome-online-accounts.enable = true;
       };
     };
-
-    security.polkit.enable = true;
   };
 }
