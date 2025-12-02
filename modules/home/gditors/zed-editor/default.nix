@@ -35,43 +35,7 @@ in
         title_bar.show_branch_icon = true;
       };
 
-      userKeymaps = [
-        {
-          # global
-          bindings = {
-            "ctrl-q" = null;
-          };
-        }
-        {
-          context = "Editor";
-          bindings = {
-            "ctrl-#" = "editor::ToggleComments";
-            "ctrl-alt-l" = "editor::DuplicateLineDown";
-            "ctrl-alt-v" = "editor::SortLinesCaseInsensitive";
-          };
-        }
-        {
-          context = "Terminal";
-          bindings = {
-            "ctrl-w" = null;
-            "ctrl-q" = [
-              "terminal::SendKeystroke"
-              "ctrl-q"
-            ];
-            "ctrl-s" = [
-              "terminal::SendKeystroke"
-              "ctrl-s"
-            ];
-          };
-        }
-        {
-          context = "Workspace";
-          bindings = {
-            "ctrl-w" = null;
-            "ctrl-?" = "workspace::ToggleRightDock";
-          };
-        }
-      ];
+      userKeymaps = builtins.fromJSON (builtins.readFile ./keymaps.json);
 
       themes."myStylix" = with config.lib.stylix.colors.withHashtag; {
         name = "Stylix";

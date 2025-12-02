@@ -1,0 +1,36 @@
+[
+  {
+    "bindings": {
+      "ctrl-q": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-alt-l": "editor::DuplicateLineDown",
+      "ctrl-#": "editor::ToggleComments",
+      "ctrl-alt-v": "editor::SortLinesCaseInsensitive"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-q": ["terminal::SendKeystroke", "ctrl-q"],
+      "ctrl-s": ["terminal::SendKeystroke", "ctrl-s"],
+      "ctrl-w": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-w": null,
+      "ctrl-?": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "(Editor && edit_prediction)",
+    "bindings": {
+      "tab": null
+    }
+  }
+]
