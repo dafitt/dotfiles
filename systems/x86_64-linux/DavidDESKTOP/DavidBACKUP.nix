@@ -75,4 +75,8 @@
       ReadWritePaths = [ "/mnt/DavidBACKUP" ];
     };
   };
+
+  environment.shellAliases = {
+    watch-borgbackup-job-DavidBACKUP = "watch -cn1 systemctl status --no-pager borgbackup-job-DavidBACKUP";
+  };
 }
