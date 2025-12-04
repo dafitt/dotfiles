@@ -1,0 +1,22 @@
+{
+  "icon_theme": "Soft Charmed Icons",
+
+  "soft_wrap": "editor_width",
+  "always_treat_brackets_as_autoclosed": true,
+
+  "title_bar": {
+    "show_branch_icon": true
+  },
+
+  "tabs": {
+    "file_icons": true
+  },
+
+  "toolbar": {
+    "breadcrumbs": true
+  },
+
+  "search": {
+    "case_sensitive": true
+  }
+}

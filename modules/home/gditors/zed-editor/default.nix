@@ -29,12 +29,9 @@ in
 
       # https://zed.dev/docs/configuring-zed
       userSettings = {
-        icon_theme = "Soft Charmed Icons";
-        tabs.file_icons = true;
         theme = mkForce "Stylix";
-        title_bar.show_branch_icon = true;
-      };
-
+      }
+      // builtins.fromJSON (builtins.readFile ./settings.json);
       userKeymaps = builtins.fromJSON (builtins.readFile ./keymaps.json);
 
       themes."myStylix" = with config.lib.stylix.colors.withHashtag; {
