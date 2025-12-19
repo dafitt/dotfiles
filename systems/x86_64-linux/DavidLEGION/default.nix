@@ -23,7 +23,6 @@ with lib.dafitt;
   imports = with inputs; [
     ./hardware-configuration.nix
     ./power-management.nix
-    ./DavidVPN.nix
 
     # [HARDWARE_MODULES](https://github.com/NixOS/nixos-hardware/blob/master/flake.nix)
     nixos-hardware.nixosModules.common-cpu-amd
