@@ -38,5 +38,18 @@ in
 
     # Enable thermald (only necessary if on Intel CPUs)
     services.thermald.enable = true;
+
+    # suspend-then-hibernate
+    # sleep.conf.d(5)
+    systemd.sleep.extraConfig = ''
+      HibernateDelaySec=3h
+    '';
+    services.logind.settings.Login = {
+      # logind.conf(5)
+      SleepOperation = "suspend-then-hibernate suspend hibernate";
+
+      HandleLidSwitch = "sleep";
+      HandleLidSwitchExternalPower = "sleep";
+    };
   };
 }
