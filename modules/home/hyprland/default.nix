@@ -216,7 +216,7 @@ in
               "SUPER_CONTROL, R, exec, hyprctl reload; forcerendererreload"
               "SUPER_CONTROL, ADIAERESIS, exec, ${systemd}/bin/systemctl poweroff" # quick-poweroff
               "SUPER_CONTROL, ODIAERESIS, exec, ${systemd}/bin/systemctl reboot" # quick-reboot
-              "SUPER, UDIAERESIS, exec, ${systemd}/bin/systemctl suspend" # quick-suspend
+              "SUPER, UDIAERESIS, exec, ${systemd}/bin/systemctl sleep" # quick-sleep
               "SUPER, ODIAERESIS, exec, sleep 0.5 && hyprctl dispatch dpms off" # screen off
 
               # Window control
