@@ -56,7 +56,10 @@ in
     home = {
       language.base = "en_US.UTF-8";
 
-      sessionPath = [ "$HOME/.path" ];
+      sessionPath = [
+        "$HOME/.path"
+        "$XDG_DESKTOP_DIR/scripts"
+      ];
 
       sessionVariables = {
         SYSTEMD_LESS = "j.25MqRFSWK#.25";
