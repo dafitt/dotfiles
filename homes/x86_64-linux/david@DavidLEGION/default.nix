@@ -16,17 +16,7 @@ with lib.dafitt;
   ];
 
   dafitt = {
-    hyprland.monitors = [
-      {
-        name = "eDP-2";
-        primary = true;
-        width = 2560;
-        height = 1600;
-        refreshRate = 165;
-        scale = 1.25;
-        vrr = 1;
-      }
-    ];
+    hyprland.nwg-displays.enable = true;
     latex.enable = false;
     rofi.enable = true;
     steam.enable = true;
