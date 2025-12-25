@@ -1,11 +1,7 @@
-{
-  lib,
-  stdenvNoCC,
-  fetchzip,
-}:
+{ pkgs, ... }:
 
 #TODO upstream to nixpkgs
-stdenvNoCC.mkDerivation rec {
+pkgs.stdenvNoCC.mkDerivation rec {
   dontPatch = true;
   dontConfigure = true;
   dontBuild = true;
@@ -15,7 +11,7 @@ stdenvNoCC.mkDerivation rec {
   pname = "phosphoricons";
   version = "2.0.0";
 
-  src = fetchzip {
+  src = pkgs.fetchzip {
     url = "https://github.com/phosphor-icons/homepage/releases/download/v${version}/phosphor-icons.zip";
     sha256 = "sha256-IfgGO56N8eO2MB8H16+KvkpHiHfs6SOEittYEnaVIfY=";
   };
@@ -37,7 +33,7 @@ stdenvNoCC.mkDerivation rec {
     runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = with pkgs.lib; {
     homepage = "https://phosphoricons.com/";
     description = "A flexible icon family for interfaces, diagrams, presentations — whatever, really.";
     license = licenses.mit;

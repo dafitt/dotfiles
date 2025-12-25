@@ -1,13 +1,5 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}:
-
+{ lib, pkgs, ... }:
 with lib;
-with lib.dafitt;
 {
   stylix = mkDefault {
 

@@ -1,0 +1,29 @@
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+with lib;
+{
+  imports = with inputs; [
+    self.homeModules.pyprland
+  ];
+
+  wayland.windowManager.hyprland.settings = {
+    bind = optionals config.dafitt.pyprland.enable [
+      "SUPER_ALT, B, exec, ${pkgs.pyprland}/bin/pypr toggle bluetooth"
+    ];
+    windowrule = [ "float, class:io.github.kaii_lb.Overskride" ];
+  };
+
+  dafitt.pyprland.scratchpads.bluetooth = {
+    animation = "fromRight";
+    command = "uwsm app -- ${pkgs.overskride}/bin/overskride";
+    class = "io.github.kaii_lb.Overskride";
+    size = "40% 70%";
+    margin = "2%";
+    lazy = true;
+  };
+}

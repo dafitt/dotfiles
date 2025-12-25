@@ -1,4 +1,0 @@
-{ lib, ... }:
-
-with lib;
-rec { }

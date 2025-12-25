@@ -1,10 +1,9 @@
+# direnv
+.direnv/
+
 # nix
 result
 result-*
-*.qcow2
-
-# direnv
-.direnv/
 
 # fonts
 *.ttf

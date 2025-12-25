@@ -1,0 +1,26 @@
+{ pkgs, ... }:
+{
+  services.connman = {
+    enable = true;
+    wifi.backend = "iwd";
+    extraConfig = ''
+      [General]
+      PreferredTechnologies=ethernet,wifi
+    '';
+
+    networkInterfaceBlacklist = [
+      "vmnet"
+      "vboxnet"
+      "virbr"
+      "ifb"
+      "ve"
+    ];
+  };
+
+  # GTK GUI for Connman
+  environment.systemPackages = with pkgs; [
+    connman-gtk
+    connman-ncurses
+    connman-notify
+  ];
+}

@@ -1,0 +1,31 @@
+{ inputs, ... }:
+{
+  imports = with inputs.self.nixosModules; [
+    appimage
+    audio
+    certificates
+    coreutils
+    desktopEnvironment-hyprland
+    flatpak
+    fonts
+    home-manager
+    hostName
+    kernel
+    locale
+    localsend
+    locate
+    nix
+    powerKey
+    shell-fish
+    shell-fish
+    stylix
+    sudo
+    syncthing
+    systemd
+    tailscale
+    time
+    user-david
+    user-guest
+    user-root
+  ];
+}

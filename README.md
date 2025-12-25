@@ -1,10 +1,9 @@
-# My daily driver's Snowfall🌨️🍂 NixOS❄️ desktop flake
+# My daily driver's NixOS❄️ desktop flake
 
 ![Hyprland-ricing](https://github.com/dafitt/dotfiles/assets/50248238/380705a7-4bd5-4431-81fe-ab04195e19f0)
 
 My dotfiles are not perfekt, but they strive to be:
 
-- fully declarative 📝
 - highly structured 🧱
 - modular 🎛️
 - a consistent look'n'feel ✨
@@ -14,73 +13,54 @@ My dotfiles are not perfekt, but they strive to be:
 
 This flake can and will radically change as I learn, discover new things and have new ideas.
 
-## Programs and Features
+## Most important features and programs
 
-- 👥 Multiple hosts
-- 🧍 Standalone home
-- ❄️🏗️ [Snowfall-lib structure](https://snowfall.org/reference/lib/#flake-structure)
-- ❄️ almost every module can be disabled
-- ❄️💲 [Snowfall-flake commands](https://github.com/snowfallorg/flake?tab=readme-ov-file#usage)
-- 📦 [Declarative flatpaks](https://github.com/gmodena/nix-flatpak)
-
-| Operating System 💻 | [NixOS](https://nixos.org/)                                                                                                                                    |
-| ------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|   Window manager 🪟 | [GNOME](https://www.gnome.org/) with extensions, [Hyprland](https://hypr.land/) with plugins                                                                |
-|    Login manager 🔒 | gdm, greetd, tty                                                                                                                                               |
-|  Session locking 🔒 | [hyprlock](https://github.com/hyprwm/hyprlock)                                                                                                                 |
-|         Terminal ⌨️ | [kitty](https://sw.kovidgoyal.net/kitty/)                                                                                                                      |
-|            Shell 🐚 | [fish](https://fishshell.com/)                                                                                                                                 |
-|           Prompt ➡️ | [starship](https://starship.rs/)                                                                                                                               |
-|     File manager 📁 | nautilus, pcmanfm, yazi                                                                                                                                        |
-|           Editor ✏️ | [VSCodium](https://vscodium.com/)                                                                                                                              |
-|              Web 🌍 | [Firefox](https://www.mozilla.org/en-US/firefox/new/), [Librewolf](https://librewolf.net/), [Epiphany](https://apps.gnome.org/Epiphany/)                       |
-|          Theming 🎨 | [Stylix](https://github.com/danth/stylix) - modified [catppuccin](https://github.com/catppuccin) 🌿 [Mocha](https://github.com/catppuccin/catppuccin#-palette) |
-|       Networking 🌐 | networkmanager, connman                                                                                                                                        |
-|   Virtualization 🪟 | virt-manager, bottles                                                                                                                                          |
+- 🏗 [github:numtide/blueprint](https://github.com/numtide/blueprint) nix flake❄️ structure
+- 📦 [github:gmodena/nix-flatpak](https://github.com/gmodena/nix-flatpak) declarative flatpaks
+- 🎨 [github:danth/stylix](https://github.com/danth/stylix) theming (modified [catppuccin](https://github.com/catppuccin) 🌿 [Mocha](https://github.com/catppuccin/catppuccin#-palette))
+- 🪟 [Hyprland](https://hypr.land/) with plugins, [GNOME](https://www.gnome.org/) with extensions
 
 ## Installation
 
-### On a new host machine
+### New host machine
 
-1. Install [NixOS](https://nixos.org/download/) and enable the (experimental) nix feature [flakes](https://wiki.nixos.org/wiki/Flakes#Enabling_flakes).
+1. Install [NixOS](https://nixos.org/download/) and enable the nix feature "[flakes](https://wiki.nixos.org/wiki/Flakes#Enabling_flakes)"
 
 2. **Dotfiles preparation** (mandatory changes to my dotfiles):
 
-   1. `git clone https://github.com/dafitt/dotfiles.git`.
-   2. `cd dotfiles`.
-   3. Read and understand my dotfiles' structure and code.
+   1. `git clone https://github.com/dafitt/dotfiles.git`
+   2. `cd dotfiles`
+   3. Read and understand my dotfiles' structure and code
 
-   4. Add a (**your**) new system-configuration to _`/systems/<architecture>/<host>/default.nix`_.
-      _Available `dafitt-nixos` options can be found at [templates/system/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix)._
+   4. Add (**your own**) system-configuration to _`hosts/<host>/configuration.nix`_.
 
-   5. Copy and import _`hardware-configuration.nix`_.
+      1. Copy and import _`hardware-configuration.nix`_
 
-   6. Set the correct current `system.stateVersion`.
+      2. Set the correct current `system.stateVersion`
 
-   7. Add a (**your**) new home-configuration to _`homes/<architecture>/<user>[@<host>]/default.nix`_
-      _Available `dafitt-home` options can be found at [templates/home/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix)._
+   7. Add (**your own**) home-configuration(s) to _`hosts/<host>/users/<user>.nix`_
 
    8. Commit all changes:
 
       ```
-      git add . && git commit -m "systems: added <host>"
+      git add . && git commit -m "hosts/<host>: Added new host"
       ```
 
-   9. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time.
+   9. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time
 
 3. Build:
 
-   1. Enter `nix-shell` and then `nix develop .#default`
-   2. `sudo nixos-rebuild boot --flake .#<host>`
+   1. Enter (`nix-shell` and then) `nix develop .#default`
+   2. `sudo nixos-rebuild --flake .#<host> boot`
    3. Check for home-manager errors with `systemctl status home-manager-<user>.service` and resolve them if necessary
 
    - _NOTE: First install may take some time; especially with flatpaks enabled._
 
-4. `reboot`.
+4. `reboot`
 
 5. Personal imperative setup:
 
-   1. Configure monitor setup with `nwg-displays`
+   1. Configure monitor setup with `nwg-displays` on Hyprland
    2. [Syncthing](https://localhost:8384/) setup
    3. firefox: Sync Login
       1. NoScript
@@ -88,41 +68,40 @@ This flake can and will radically change as I learn, discover new things and hav
       3. Sidebery
    4. pavucontrol: Set standard audio output
 
-### Only in a new home environment
+### New home standalone environment
 
-1. Install [nix](https://nixos.org/download/) and enable the (experimental) nix feature [flakes](https://wiki.nixos.org/wiki/Flakes#Other_Distros,_without_Home_Manager).
+1. Install [nix](https://nixos.org/download/) and enable the nix feature "[flakes](https://wiki.nixos.org/wiki/Flakes#Other_Distros,_without_Home_Manager)"
 
 2. **Dotfiles preparation** (mandatory changes to my dotfiles):
 
-   1. `git clone https://github.com/dafitt/dotfiles.git`.
-   2. `cd dotfiles`.
-   3. Read and understand my dotfiles' structure and code.
+   1. `git clone https://github.com/dafitt/dotfiles.git`
+   2. `cd dotfiles`
+   3. Read and understand my dotfiles' structure and code
 
-   4. Set the correct current `system.stateVersion`.
+   4. Set the correct current `home.stateVersion`
 
-   5. Add a (**your**) new home-configuration to _`homes/<architecture>/<user>[@<host>]/default.nix`_
-      _Available `dafitt-home` options can be found at [templates/home/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix)._
+   5. Add (**your own**) home-configuration to _`hosts/<host>/users/<user>.nix`_
 
    6. Commit all changes:
 
       ```
-      git add . && git commit -m "homes: added <user>[@<host>]"
+      git add . && git commit -m "hosts/<host>: Added new home"
       ```
 
-   7. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time.
+   7. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time
 
-3. System Requirements (Installation depending on your Distribution):
+3. Check your system's requirements when importing the following modules (Installation depending on your distribution):
 
-   - `dafitt.flatpak.enable`: [Flatpak](https://flatpak.org/setup/)
-   - `dafitt.hyprland.enable`: [Hyprland](https://wiki.hypr.land/Getting-Started/Installation/), [UWSM](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#installation-and-basic-configuration)
-   - `dafitt.gnome.enable`: GNOME
+   - [modules/home/flatpak.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/flatpak.nix): [Flatpak](https://flatpak.org/setup/)
+   - [modules/home/hyprland.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/hyprland.nix): [Hyprland](https://wiki.hypr.land/Getting-Started/Installation/), [UWSM](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#installation-and-basic-configuration)
+   - [modules/home/gnome.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/gnome.nix): GNOME
 
 4. Build:
 
-   1. Enter `nix develop .#default`'s shell.
-      Alternative: `nix run home-manager -- --flake .#<user>[@<host>] switch`.
-   2. `home-manager --flake .#<user>[@<host>] switch`.
-   3. Check for home-manager errors with `systemctl status home-manager-<user>.service` and resolve them if necessary.
+   1. Enter `nix develop .#default` \
+      or run: `nix run home-manager -- --flake .#<user>@<host> switch`
+   2. `home-manager --flake .#<user>@<host> switch`
+   3. Check for home-manager errors with `systemctl status home-manager-<user>.service` and resolve them if necessary
 
    - _NOTE: First install may take some time; especially with flatpaks enabled._
 
@@ -145,21 +124,21 @@ ATTENTION! When the latest release of [nixpkgs](https://github.com/NixOS/nixpkgs
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = { url = "github:nix-community/home-manager/release-25.05"; inputs.nixpkgs.follows = "nixpkgs"; };
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix/release-25.05";
   };
 }
 ```
 
-To still let specific packages follow nixpkgs unstable while on the stable branch you can add a _`overlays/unstable/default.nix`_:
+To still let specific packages follow nixpkgs unstable while on the stable branch you can add an overlay:
 
-```shell
-{ channels, ... }:
+```nix
+{ inputs, ... }:
 
 final: prev:
-with channels.unstable; {
-  # packages to get from inputs.unstable
+with inputs.nixpkgs-unstable.legacyPackages.${prev.system}; {
   inherit
     gamescope
     lutris
@@ -175,7 +154,8 @@ You can try using my modules through importing them:
 ```nix
 # flake.nix
 inputs = {
-  dafitt = { url = "github:dafitt/dotfiles"; inputs.nixpkgs.follows = "nixpkgs"; };
+  dafitt.url = "github:dafitt/dotfiles";
+  dafitt.inputs.nixpkgs.follows = "nixpkgs";
 };
 
 outputs = { nixpkgs, ... }@inputs: {
@@ -183,10 +163,9 @@ outputs = { nixpkgs, ... }@inputs: {
     system = "x86_64-linux";
     modules = [
       # e.g.
-      inputs.dafitt.nixosModules."gnome"
-      inputs.dafitt.nixosModules."bootloader/systemd"
-      inputs.dafitt.homeManagerModules."stylix"
-      inputs.dafitt.homeManagerModules."firefox"
+      inputs.dafitt.nixosModules.hyprland
+      inputs.dafitt.homeModules.hyprland
+      inputs.dafitt.homeModules.browser-firefox
     ];
   };
 };
@@ -196,21 +175,18 @@ But it is certainly better to simply copy them into your dotfiles and adapt them
 
 ### You want to build from here?
 
-What you have to customize:
+Starting points for customization:
 
-- [ ] [modules/nixos/time/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/time/default.nix): timezone
-- [ ] [modules/nixos/locale/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/locale/default.nix): locale
-- [ ] [modules/home/firefox/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/firefox/default.nix#L183):
+- [ ] [modules/nixos/time.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/time/default.nix): timezone
+- [ ] [modules/nixos/locale.nix](https://github.com/dafitt/dotfiles/blob/main/modules/nixos/locale/default.nix): locale
+- [ ] [modules/home/browser-firefox.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/browser-firefox.nix#L183):
   - the default searx search engine is my own local instance/server, use a official one or setup your own
   - custom firefox plugins
-- [ ] [systems/\<architecure\>/\<host\>/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/system/default.nix): your own host-configuration
+- [ ] [hosts/](https://github.com/dafitt/dotfiles/blob/main/hosts): your own hosts configuration
+  - [ ] `configuration.nix`
   - [ ] `hardware-configuration.nix`
-  - [ ] maybe some host-specific `configuration.nix`: make sure to import it: `imports = [ ./configuration.nix ];`
-- [ ] [homes/\<architecure\>/\<user\>[@\<host\>]/default.nix](https://github.com/dafitt/dotfiles/blob/main/templates/home/default.nix): your own user with your home-configuration
-
-Optionally:
-
-- [ ] [modules/home/desktops/hyprland/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/desktops/hyprland/default.nix): familiar keybindings
+  - [ ] users
+- [ ] [modules/home/hyprland/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/hyprland/default.nix): familiar keybindings
 - [ ] [modules/home/stylix/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/stylix/default.nix): custom base16 theme / icon theme
 - [ ] Packages and programs you need
 
@@ -222,7 +198,7 @@ Some basic flake commands
 
 #### Shell environment
 
-```shell
+```sh
 nix-shell shell.nix # only when on legacy-nix: enables flakes & git (works only locally)
 
 nix develop github:dafitt/dotfiles#default
@@ -230,7 +206,7 @@ nix develop github:dafitt/dotfiles#default
 
 #### Overview
 
-```shell
+```sh
 nix flake show github:dafitt/dotfiles
 ```
 
@@ -238,19 +214,19 @@ nix flake show github:dafitt/dotfiles
 
 NixOS & Home-manager:
 
-```shell
-nixos-rebuild switch --flake .#[<host>]
+```sh
+nixos-rebuild --flake .#[<host>] switch
 ```
 
 Home-manager standalone:
 
-```shell
-home-manager switch --flake .#[<user>@<host>]
+```sh
+home-manager --flake .#[<user>@<host>] switch
 ```
 
 #### Update flake inputs
 
-```shell
+```sh
 nix flake update --commit-lock-file
 
 # specific input
@@ -259,14 +235,23 @@ nix flake lock --update-input [input]
 
 #### Rollback
 
-NixOS: `sudo nixos-rebuild switch --rollback`
+- NixOS: `sudo nixos-rebuild switch --rollback`
 
-Home-manager standalone: [see Home-manager documentation](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)
+- Home-manager standalone: [see Home-manager documentation](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)
 
 #### Code formatting
 
-```shell
+```sh
 nix fmt [./folder] [./file.nix]
+```
+
+### Repl
+
+```sh
+nixos-rebuild --flake .#[<host>] repl
+
+> config # current system configuration
+> perSystem.self.homeConfigurations."<user>@<host>".config # current home configuration
 ```
 
 ### [Hyprkeys](https://github.com/hyprland-community/Hyprkeys)
@@ -433,39 +418,7 @@ nix fmt [./folder] [./file.nix]
 
 </details>
 
-## Structure
-
-### Modules
-
-I use [snowfall-lib](https://github.com/snowfallorg/lib), so every _`default.nix`_ is automatically imported.
-
-My systems and homes are assembled using custom modules `config.dafitt.<myModule>`. Any custom module has at least one enable option `config.dafitt.<myModule>.enable` which name matches the folder _`modules/<nixos|home>/<myModule>/`_.
-
-Modules in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) are built with the standard `nixos-rebuild` command.
-
-Modules in [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) are built with `home-manager` (standalone) **and** in addition to `nixos-rebuild` if the homes-hostname "\<user>[@\<host>]" matches with the host your building on. This is done by [snowfall-lib](https://github.com/snowfallorg/lib) with the systemd-service _`home-manager-<user>.service`_. [snowfall-lib](https://github.com/snowfallorg/lib) will create the user if it doesn't exist yet.
-
-Some [home-modules](https://github.com/dafitt/dotfiles/blob/main/modules/home) in my dotfiles are automatically activated, if the twin module in [nixos-modules](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) is enabled. See this line in [modules/home/suiteGaming/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/suiteGaming/default.nix#L11) for example:
-
-```nix
-options.dafitt.suiteGaming.enable = mkBoolOpt (osConfig.dafitt.suiteGaming.enable or false) "...
-```
-
-The special attribute set `osConfig` which contains all the nixos-configuration is only present when building with `nixos-rebuild`.
-
 ## Troubleshooting
-
-### Some options in [modules/home/](https://github.com/dafitt/dotfiles/blob/main/modules/home) or [homes/](https://github.com/dafitt/dotfiles/blob/main/homes) are not being applied with nixos-rebuild
-
-Check if your option is being set through `osCfg`. Like this:
-
-```nix
-enable = mkBoolOpt (osCfg.enable or config.dafitt.suiteGaming.enable) "Whether to enable steam.";
-```
-
-If that is the case and `osCfg.enable` is not `null` then the `osCfg`-option will be preferred. Even if it is `false`.
-
-To solve this set your option to `true` in [modules/nixos/](https://github.com/dafitt/dotfiles/blob/main/modules/nixos) or [systems/](https://github.com/dafitt/dotfiles/blob/main/systems).
 
 ### Unable to see fonts
 
@@ -528,9 +481,9 @@ btrfs subvolume delete /mnt/@nix.old
 
 - [Vimjoyer - Youtube](https://www.youtube.com/@vimjoyer)
 - [IogaMaster - Youtube](https://www.youtube.com/@IogaMaster)
-- [mikeroyal/NixOS-Guide](https://github.com/mikeroyal/NixOS-Guide)
-- [jakehamilton/config](https://github.com/jakehamilton/config)
-- [IogaMaster/dotfiles](https://github.com/IogaMaster/dotfiles)
-- [IogaMaster/snowfall-starter](https://github.com/IogaMaster/snowfall-starter)
-- [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
-- [Aylur/dotfiles](https://github.com/Aylur/dotfiles)
+- [github:mikeroyal/NixOS-Guide](https://github.com/mikeroyal/NixOS-Guide)
+- [github:jakehamilton/config](https://github.com/jakehamilton/config)
+- [github:IogaMaster/dotfiles](https://github.com/IogaMaster/dotfiles)
+- [github:IogaMaster/snowfall-starter](https://github.com/IogaMaster/snowfall-starter)
+- [github:Misterio77/nix-config](https://github.com/Misterio77/nix-config)
+- [github:Aylur/dotfiles](https://github.com/Aylur/dotfiles)

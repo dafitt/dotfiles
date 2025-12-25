@@ -1,0 +1,51 @@
+{ pkgs, inputs, ... }:
+
+# Lenovo Legion7 16 ARHA7 Laptop
+# CPU: AMD Ryzen 7 6800 H with Radeon Graphics (3,20GHz - 4,70GHz)
+# RAM: 32GB (2x16GB) SO-DIMM DDR5 4800MHz
+# GPU: AMD Radeon RX 6850M 10GB GDDR6
+# Display: 16" WQXGA (2560x1600px), IPS, Blendschutz, Dolby Vision, Free-Sync, HDR 400, 500 Nits, 165Hz
+# Camera: 1080p-FHD Frontcamera
+# Battery: 4 cell 99.9Wh
+# WIFI: 6E 11AX (2x2)
+# Bluetooth: 5.1
+# Color: Storm Grey
+{
+  nixpkgs.hostPlatform = "x86_64-linux";
+  system.stateVersion = "23.05";
+
+  imports =
+    with inputs;
+    with inputs.self.nixosModules;
+    [
+      ./hardware-configuration.nix
+
+      # [HARDWARE_MODULES](https://github.com/NixOS/nixos-hardware/blob/master/flake.nix)
+      nixos-hardware.nixosModules.common-cpu-amd
+      nixos-hardware.nixosModules.common-cpu-amd-pstate
+      nixos-hardware.nixosModules.common-gpu-amd
+      nixos-hardware.nixosModules.common-pc
+      nixos-hardware.nixosModules.common-pc-ssd
+
+      ./power-management.nix
+
+      SHARED
+      batteryOptimization
+      bluetooth
+      bootloader-systemd-boot
+      desktopEnvironment-gnome
+      development
+      gaming
+      loginManager-gdm
+      networking-networkmanager
+      printing
+      virtualization
+    ];
+
+  environment.systemPackages = with pkgs; [
+    lact # Linux AMDGPU Controller
+  ];
+
+  # Skip the boot selection menu. [space] to open it.
+  boot.loader.timeout = 0;
+}
