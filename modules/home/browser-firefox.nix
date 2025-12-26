@@ -4,7 +4,6 @@
   config,
   lib,
   pkgs,
-  hostName, # osConfig.networking.hostName
   osConfig ? { },
   ...
 }:
@@ -58,6 +57,7 @@ in
           "general.autoScroll" = true; # enable middle-click scrolling
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # enable userChrome customisations
           "ui.textSelectBackgroundAttention" = "${config.lib.stylix.colors.withHashtag.base00}";
+          "dom.security.https_only_mode" = mkForce false;
 
           # ui arrangement
           "browser.uiCustomization.state" = ''
