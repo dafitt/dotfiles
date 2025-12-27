@@ -1,4 +1,10 @@
-{ pkgs, inputs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+with lib;
 {
   imports = with inputs; [
     niri.homeModules.niri
@@ -56,9 +62,9 @@
 
         "Mod+Control+Q".action.quit.skip-confirmation = true;
         # "Mod+Control+R".action.load-config-file = { };
-        "Mod+Control+Adiaeresis".action.spawn = "${pkgs.systemd}/bin/systemctl poweroff"; # quick-poweroff
-        "Mod+Control+Odiaeresis".action.spawn = "${pkgs.systemd}/bin/systemctl reboot"; # quick-reboot
-        "Mod+Udiaeresis".action.spawn = "${pkgs.systemd}/bin/systemctl sleep"; # quick-sleep
+        "Mod+Control+Adiaeresis".action.spawn-sh = "${pkgs.systemd}/bin/systemctl poweroff"; # quick-poweroff
+        "Mod+Control+Odiaeresis".action.spawn-sh = "${pkgs.systemd}/bin/systemctl reboot"; # quick-reboot
+        "Mod+Udiaeresis".action.spawn-sh = "${pkgs.systemd}/bin/systemctl sleep"; # quick-sleep
         "Mod+Odiaeresis".action.power-off-monitors = { };
 
         # "Mod+Delete".action.close-window = { };
@@ -160,9 +166,34 @@
         "Mod+Shift+U".action.move-workspace-down = { };
         "Mod+Shift+I".action.move-workspace-up = { };
 
+        # Screenshot
         "Print".action.screenshot = { };
         "Control+Print".action.screenshot-screen = { };
         "Alt+Print".action.screenshot-window = { };
+
+        # Audio
+        "XF86AudioMute".action.spawn-sh =
+          "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "Alt+XF86AudioMute".action.spawn-sh =
+          "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+        "XF86AudioMicMute".action.spawn-sh =
+          "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+        "XF86AudioRaiseVolume".action.spawn-sh =
+          "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2.5%+";
+        "XF86AudioLowerVolume".action.spawn-sh =
+          "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2.5%-";
+        "Alt+XF86AudioRaiseVolume".action.spawn-sh =
+          "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 2.5%+";
+        "Alt+XF86AudioLowerVolume".action.spawn-sh =
+          "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 2.5%-";
+
+        # Brightness
+        "XF86MonBrightnessUp".action.spawn-sh = "${getExe pkgs.brightnessctl} --exponent s 5%+";
+        "XF86MonBrightnessDown".action.spawn-sh = "${getExe pkgs.brightnessctl} --exponent s 5%-";
+        "XF86KbdBrightnessUp".action.spawn-sh =
+          "${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%+";
+        "XF86KbdBrightnessDown".action.spawn-sh =
+          "${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%-";
       };
 
       window-rules = [
