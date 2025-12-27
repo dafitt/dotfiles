@@ -11,15 +11,14 @@ let
 in
 {
   imports = with inputs; [
+    self.homeModules.noctalia
     self.homeModules.pyprland
     self.homeModules.stylix
     ./animated-background.nix
     ./hypridle.nix
-    ./hyprlock.nix
     ./monitors.nix
     ./nwg-displays.nix
     ./plugins.nix
-    ./themes.nix
   ];
 
   options.dafitt.desktopEnvironment-hyprland = with types; {
@@ -42,9 +41,7 @@ in
       dafitt = {
         desktopEnvironment-hyprland = {
           hypridle.enable = true;
-          hyprlock.enable = true;
           plugins.hyprexpo.enable = true;
-          themes.hyprpanel.enable = true;
         };
         pyprland.enable = true;
       };

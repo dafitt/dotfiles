@@ -7,10 +7,9 @@
 with lib;
 let
   cfg = config.dafitt.desktopEnvironment-hyprland.hypridle;
-  hyprlockCfg = config.programs.hyprlock;
   hyprlandCfg = config.wayland.windowManager.hyprland;
 
-  locking_enabled = cfg.timeouts.lock > 0 && hyprlockCfg.enable;
+  locking_enabled = cfg.timeouts.lock > 0;
 in
 {
   options.dafitt.desktopEnvironment-hyprland.hypridle = with types; {
@@ -48,10 +47,8 @@ in
       settings = {
         general = {
           # declaration for dbus events
-          lock_cmd = mkIf hyprlockCfg.enable "${pkgs.procps}/bin/pidof hyprlock || uwsm app -- ${hyprlockCfg.package}/bin/hyprlock --immediate";
-          before_sleep_cmd = mkIf (
-            hyprlockCfg.enable && cfg.sleepTriggersLock
-          ) "${pkgs.systemd}/bin/loginctl lock-session";
+          lock_cmd = "${pkgs.systemd}/bin/loginctl lock-session";
+          before_sleep_cmd = mkIf cfg.sleepTriggersLock "${pkgs.systemd}/bin/loginctl lock-session";
           after_sleep_cmd = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on && ${pkgs.systemd}/bin/systemctl restart --user wlsunset.service";
         };
 

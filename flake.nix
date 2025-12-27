@@ -28,6 +28,8 @@
     nixos-generators.url = "github:nix-community/nixos-generators"; # https://github.com/nix-community/nixos-generators
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master"; # https://github.com/NixOS/nixos-hardware
+    noctalia.url = "github:noctalia-dev/noctalia-shell"; # https://github.com/noctalia-dev/noctalia-shell
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR"; # https://github.com/nix-community/NUR
     nur.inputs.nixpkgs.follows = "nixpkgs";
     programsdb.url = "github:wamserma/flake-programs-sqlite"; # https://github.com/wamserma/flake-programs-sqlite
