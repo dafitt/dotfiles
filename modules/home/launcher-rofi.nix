@@ -356,7 +356,11 @@ in
       ];
     };
     programs.niri.settings.binds = mkIf cfg.setAsDefaultLauncher {
-      "Mod+Space".action.spawn = "${config.programs.rofi.package}/bin/rofi -show drun";
+      "Mod+Space".action.spawn = [
+        "${config.programs.rofi.package}/bin/rofi"
+        "-show"
+        "drun"
+      ];
     };
   };
 }

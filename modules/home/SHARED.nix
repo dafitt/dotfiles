@@ -35,7 +35,7 @@ with lib;
       xdg
     ];
 
-  dafitt = {
+  dafitt = mkDefault {
     browser-firefox.setAsDefaultBrowser = true;
     editor-micro.setAsDefaultEditor = true;
     fileManager-nautilus.setAsDefaultFileManager = true;
