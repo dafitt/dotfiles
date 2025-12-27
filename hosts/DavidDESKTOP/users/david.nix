@@ -10,6 +10,7 @@
     [
       SHARED
       bluetooth
+      desktopEnvironment-niri
       development
       editing
       fileManager-thunar

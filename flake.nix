@@ -22,6 +22,8 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     hypr-darkwindow.url = "github:micha4w/Hypr-DarkWindow"; # https://github.com/micha4w/Hypr-DarkWindow
     impermanence.url = "github:nix-community/impermanence"; # https://github.com/nix-community/impermanence
+    niri.url = "github:sodiboo/niri-flake"; # https://github.com/sodiboo/niri-flake
+    niri.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest"; # https://github.com/gmodena/nix-flatpak/tags
     nixGL.url = "github:nix-community/nixGL"; # https://github.com/nix-community/nixGL
     nixGL.inputs.nixpkgs.follows = "nixpkgs";
