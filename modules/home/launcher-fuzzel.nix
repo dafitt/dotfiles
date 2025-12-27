@@ -44,5 +44,8 @@ in
         "SUPER, SPACE, exec, ${config.programs.fuzzel.package}/bin/fuzzel"
       ];
     };
+    programs.niri.settings.binds = mkIf cfg.setAsDefaultLauncher {
+      "Mod+Space".action.spawn = "${config.programs.fuzzel.package}/bin/fuzzel";
+    };
   };
 }

@@ -22,6 +22,7 @@ with lib;
       };
       bar = {
         density = "comfortable";
+        position = "left";
         widgets = {
           left = [
             {

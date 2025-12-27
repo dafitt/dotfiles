@@ -236,7 +236,6 @@ in
               "SUPER, UP, movefocus, u"
               "SUPER, DOWN, movefocus, d"
               "SUPER, Tab, cyclenext,"
-              "SUPER, Tab, cyclenext, prev"
               "SUPER_SHIFT, LEFT, swapwindow, l"
               "SUPER_SHIFT, RIGHT, swapwindow, r"
               "SUPER_SHIFT, UP, swapwindow, u"

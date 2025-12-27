@@ -355,5 +355,8 @@ in
         "SUPER, SPACE, exec, ${config.programs.rofi.package}/bin/rofi -show drun"
       ];
     };
+    programs.niri.settings.binds = mkIf cfg.setAsDefaultLauncher {
+      "Mod+Space".action.spawn = "${config.programs.rofi.package}/bin/rofi -show drun";
+    };
   };
 }
