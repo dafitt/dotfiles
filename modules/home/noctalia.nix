@@ -94,7 +94,7 @@ in
           };
         };
         appLauncher = {
-          customLaunchPrefix = "uwsm app";
+          customLaunchPrefix = "uwsm app --";
           customLaunchPrefixEnabled = true;
           viewMode = "grid";
         };
