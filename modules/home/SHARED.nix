@@ -19,6 +19,7 @@ with lib;
       imv
       launcher-fuzzel
       mpv
+      noctalia
       passwordManager-bitwarden
       passwordManager-keepassxc
       personalEnvironment
@@ -39,7 +40,7 @@ with lib;
     browser-firefox.setAsDefaultBrowser = true;
     editor-micro.setAsDefaultEditor = true;
     fileManager-nautilus.setAsDefaultFileManager = true;
-    launcher-fuzzel.setAsDefaultLauncher = true;
+    noctalia.setAsDefaultLauncher = true;
     passwordManager-keepassxc.setAsDefaultPasswordManager = true;
     terminal-kitty.setAsDefaultTerminal = true;
     top-btop.setAsDefaultTop = true;

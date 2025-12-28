@@ -40,9 +40,6 @@
       hypridle.timeouts.suspend = 0;
       plugins.hypr-dynamic-cursors.enable = true;
     };
-
-    launcher-fuzzel.setAsDefaultLauncher = false;
-    noctalia.setAsDefaultLauncher = true;
   };
 
   # [Hyprland - Tearing](https://wiki.hypr.land/Configuring/Tearing/)
