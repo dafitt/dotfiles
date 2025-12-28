@@ -46,6 +46,12 @@
   wayland.windowManager.hyprland.settings.general.allow_tearing = true;
   wayland.windowManager.hyprland.settings.env = [ "WLR_DRM_NO_ATOMIC,1" ]; # because of amd gpu
 
+  programs.niri.settings.outputs."Microstep MSI MAG271CQP 0x3030424C".mode = {
+    width = 2560;
+    height = 1440;
+    refresh = 143.999;
+  };
+
   services.flatpak.overrides."com.valvesoftware.Steam".Context.filesystems = [ "/DavidGAMES" ];
 
   # Bookmarks #

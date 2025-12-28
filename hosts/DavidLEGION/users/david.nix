@@ -27,4 +27,14 @@
 
   # MultiGPU
   #wayland.windowManager.hyprland.settings.env = [ "WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0" ];
+
+  programs.niri.settings.outputs."eDP-2" = {
+    mode = {
+      width = 2560;
+      height = 1600;
+      refresh = 165.;
+    };
+    scale = 1.25;
+    variable-refresh-rate = true;
+  };
 }
