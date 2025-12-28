@@ -18,7 +18,9 @@ This flake can and will radically change as I learn, discover new things and hav
 - 🏗 [github:numtide/blueprint](https://github.com/numtide/blueprint) nix flake❄️ structure
 - 📦 [github:gmodena/nix-flatpak](https://github.com/gmodena/nix-flatpak) declarative flatpaks
 - 🎨 [github:danth/stylix](https://github.com/danth/stylix) theming (modified [catppuccin](https://github.com/catppuccin) 🌿 [Mocha](https://github.com/catppuccin/catppuccin#-palette))
-- 🪟 [Hyprland](https://hypr.land/) with plugins, [GNOME](https://www.gnome.org/) with extensions
+- 🪟 [Niri](https://github.com/YaLTeR/niri)
+- 🪟 [Hyprland](https://hypr.land/) with plugins
+- 🪟 [GNOME](https://www.gnome.org/) with extensions
 
 ## Installation
 
