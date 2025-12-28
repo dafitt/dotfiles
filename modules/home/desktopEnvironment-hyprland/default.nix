@@ -14,6 +14,7 @@ in
     self.homeModules.noctalia
     self.homeModules.pyprland
     self.homeModules.stylix
+    ../desktopEnvironment-common/keybinds.nix
     ./animated-background.nix
     ./hypridle.nix
     ./monitors.nix
@@ -333,11 +334,6 @@ in
               "SUPER_ALT, K, exec, uwsm app -- ${getExe hyprpicker} | ${wl-clipboard-rs}/bin/wl-copy"
               "SUPER_ALT, SPACE, exec, uwsm app -- ${getExe nwg-drawer} -ovl"
 
-              # Audio
-              ", XF86AudioMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-              "ALT, XF86AudioMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-              ", XF86AudioMicMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-
               # Screenshots
               # quick fullscreen | copy save
               ", PRINT, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} copysave output ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
@@ -357,21 +353,6 @@ in
             # Move/resize windows with mainMod + LMB/RMB and dragging
             "SUPER, mouse:272, movewindow"
             "SUPER, mouse:273, resizewindow"
-          ];
-
-          # Bind: repeat while holding
-          binde = [
-            # Audio
-            ", XF86AudioRaiseVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2.5%+"
-            ", XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2.5%-"
-            "ALT, XF86AudioRaiseVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 2.5%+"
-            "ALT, XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 2.5%-"
-
-            # Brightness
-            ", XF86MonBrightnessUp, exec, ${getExe pkgs.brightnessctl} --exponent s 5%+"
-            ", XF86MonBrightnessDown, exec, ${getExe pkgs.brightnessctl} --exponent s 5%-"
-            ", XF86KbdBrightnessUp, exec, ${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%+"
-            ", XF86KbdBrightnessDown, exec, ${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%-"
           ];
 
           # only on launch
