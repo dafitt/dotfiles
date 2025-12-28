@@ -93,6 +93,11 @@ in
             ];
           };
         };
+        appLauncher = {
+          customLaunchPrefix = "uwsm app";
+          customLaunchPrefixEnabled = true;
+          viewMode = "grid";
+        };
         wallpaper.enabled = false;
       };
     };

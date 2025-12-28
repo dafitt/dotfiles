@@ -8,6 +8,8 @@
 with lib;
 let
   cfg = config.dafitt.terminal-kitty;
+
+  kittyExe = getExe config.programs.kitty.package;
 in
 {
   imports = with inputs; [
@@ -19,88 +21,99 @@ in
     setAsDefaultTerminal = mkEnableOption "making it the default TERM";
   };
 
-  config = {
+  config = mkMerge [
+    {
+      # A modern, hackable, featureful, OpenGL based terminal emulator
+      # https://github.com/kovidgoyal/kitty
+      programs.kitty = {
+        enable = true;
 
-    # A modern, hackable, featureful, OpenGL based terminal emulator
-    # https://github.com/kovidgoyal/kitty
-    programs.kitty = {
-      enable = true;
+        settings = {
+          # https://sw.kovidgoyal.net/kitty/conf/
 
-      settings = {
-        # https://sw.kovidgoyal.net/kitty/conf/
+          # Scrollback
+          scrollback_lines = 10000;
 
-        # Scrollback
-        scrollback_lines = 10000;
+          # Mouse
+          copy_on_select = "clipboard";
 
-        # Mouse
-        copy_on_select = "clipboard";
+          # Terminal Bell
+          enable_audio_bell = false;
 
-        # Terminal Bell
-        enable_audio_bell = false;
+          # window layout
+          window_border_width = "5px";
+          active_border_color = "none";
+          inactive_border_color = config.lib.stylix.colors.withHashtag.base01;
+          inactive_text_alpha = "0.9";
+          window_padding_width = 5;
+          confirm_os_window_close = 0;
 
-        # window layout
-        window_border_width = "5px";
-        active_border_color = "none";
-        inactive_border_color = config.lib.stylix.colors.withHashtag.base01;
-        inactive_text_alpha = "0.9";
-        window_padding_width = 5;
-        confirm_os_window_close = 0;
+          # Advanced
+          update_check_interval = 0;
 
-        # Advanced
-        update_check_interval = 0;
+          # Keyboard Shortcuts
+          kitty_mod = "ctrl+shift";
+        };
 
-        # Keyboard Shortcuts
-        kitty_mod = "ctrl+shift";
+        keybindings = {
+          # https://sw.kovidgoyal.net/kitty/conf/#keyboard-shortcuts
+
+          # Scrolling
+          "kitty_mod+[" = "scroll_to_prompt -1";
+          "kitty_mod+]" = "scroll_to_prompt 1";
+
+          # Window management
+          "kitty_mod+up" = "next_window";
+          "kitty_mod+down" = "previous_window";
+        };
       };
 
-      keybindings = {
-        # https://sw.kovidgoyal.net/kitty/conf/#keyboard-shortcuts
+      #$ kitty --session idleinhibitor
+      xdg.configFile = {
+        "kitty/idleinhibitor".text = ''
+          os_window_class idleinhibitor
+          launch --title idleinhibit "hyprctl activewindow"
 
-        # Scrolling
-        "kitty_mod+[" = "scroll_to_prompt -1";
-        "kitty_mod+]" = "scroll_to_prompt 1";
-
-        # Window management
-        "kitty_mod+up" = "next_window";
-        "kitty_mod+down" = "previous_window";
+          new_tab
+        '';
       };
-    };
 
-    #$ kitty --session idleinhibitor
-    xdg.configFile = {
-      "kitty/idleinhibitor".text = ''
-        os_window_class idleinhibitor
-        launch --title idleinhibit "hyprctl activewindow"
-
-        new_tab
-      '';
-    };
-
-    # this option is being used by other modules
-    home.sessionVariables.TERMINAL = mkIf cfg.setAsDefaultTerminal (
-      getExe config.programs.kitty.package
-    );
-
-    wayland.windowManager.hyprland.settings = {
-      bind =
-        optionals cfg.setAsDefaultTerminal [
-          "SUPER, RETURN, exec, uwsm app -- ${getExe config.programs.kitty.package}"
-        ]
-        ++ optionals config.dafitt.pyprland.enable [
+      wayland.windowManager.hyprland.settings = {
+        windowrule = [
+          "idleinhibit always, class:idleinhibitor, floating:1"
+        ];
+        bind = optionals config.dafitt.pyprland.enable [
           "SUPER_ALT, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty"
         ];
-      windowrule = [
-        "idleinhibit always, class:idleinhibitor, floating:1"
-      ];
-    };
+      };
 
-    dafitt.pyprland.scratchpads.kitty = {
-      animation = "fromTop";
-      command = "uwsm app -- ${config.programs.kitty.package}/bin/kitty --class dropterm --hold ${getExe config.programs.fastfetch.package}";
-      class = "dropterm";
-      size = "90% 90%";
-      margin = "2%";
-      lazy = true;
-    };
-  };
+      dafitt.pyprland.scratchpads.kitty = {
+        animation = "fromTop";
+        command = "uwsm app -- ${kittyExe} --class dropterm --hold ${getExe config.programs.fastfetch.package}";
+        class = "dropterm";
+        size = "90% 90%";
+        margin = "2%";
+        lazy = true;
+      };
+    }
+
+    (mkIf cfg.setAsDefaultTerminal {
+      home.sessionVariables.TERMINAL = kittyExe;
+
+      programs.fuzzel.settings.main.terminal = kittyExe;
+      programs.rofi.terminal = kittyExe;
+      programs.noctalia-shell.settings.appLauncher.terminalCommand = kittyExe;
+
+      wayland.windowManager.hyprland.settings = {
+        bind = [ "SUPER, RETURN, exec, uwsm app -- ${kittyExe}" ];
+      };
+
+      programs.niri.settings.binds."Mod+Return".action.spawn = [
+        "uwsm"
+        "app"
+        "--"
+        kittyExe
+      ];
+    })
+  ];
 }
