@@ -60,7 +60,7 @@ with lib;
       binds = {
         #$ niri msg action [<action> --help]
 
-        "Mod+Shift+Slash".action.show-hotkey-overlay = { };
+        "Mod+Ssharp".action.show-hotkey-overlay = { };
 
         "Mod+Control+Q".action.quit.skip-confirmation = true;
         # "Mod+Control+R".action.load-config-file = { };
@@ -69,8 +69,6 @@ with lib;
         "Mod+Udiaeresis".action.spawn-sh = "${pkgs.systemd}/bin/systemctl sleep"; # quick-sleep
         "Mod+Odiaeresis".action.power-off-monitors = { };
 
-        # "Mod+Delete".action.close-window = { };
-        # "Mod+Shift+X".action.close-window = { };
         "Mod+X" = {
           repeat = false;
           action.close-window = { };
@@ -83,6 +81,10 @@ with lib;
         "Mod+R".action.switch-preset-column-width = { };
         "Mod+Shift+R".action.switch-preset-window-height = { };
         "Mod+O" = {
+          repeat = false;
+          action.toggle-overview = { };
+        };
+        "Mod+Asciicircum" = {
           repeat = false;
           action.toggle-overview = { };
         };
@@ -126,13 +128,30 @@ with lib;
           cooldown-ms = 150;
           action.focus-workspace-up = { };
         };
-        "Mod+Shift+WheelScrollDown" = {
+        "Mod+Alt+WheelScrollDown" = {
           cooldown-ms = 150;
           action.move-column-to-workspace-down = { };
         };
-        "Mod+Shift+WheelScrollUp" = {
+        "Mod+Alt+WheelScrollUp" = {
           cooldown-ms = 150;
           action.move-column-to-workspace-up = { };
+        };
+
+        "Mod+Shift+WheelScrollDown" = {
+          cooldown-ms = 150;
+          action.focus-column-right = { };
+        };
+        "Mod+Shift+WheelScrollUp" = {
+          cooldown-ms = 150;
+          action.focus-column-left = { };
+        };
+        "Mod+Shift+Alt+WheelScrollDown" = {
+          cooldown-ms = 150;
+          action.move-column-right = { };
+        };
+        "Mod+Shift+Alt+WheelScrollUp" = {
+          cooldown-ms = 150;
+          action.move-column-left = { };
         };
         "Mod+WheelScrollRight".action.focus-column-right = { };
         "Mod+WheelScrollLeft".action.focus-column-left = { };
