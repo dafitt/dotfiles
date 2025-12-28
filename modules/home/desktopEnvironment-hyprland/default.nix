@@ -137,10 +137,10 @@ in
             ];
             animation = [
               # "NAME,ONOFF,SPEED,CURVE,STYLE"
-              "global,      1,  5, easeOutExpo"
-              "windows,     1,  5, easeOutExpo, popin"
-              "layers,      1,  5, easeOutExpo, slide"
-              "workspaces,  1,  7.5, easeOutExpo, slidefade 5%"
+              "global,      1, 5,   easeOutExpo"
+              "windows,     1, 5,   easeOutExpo, popin"
+              "layers,      1, 5,   easeOutExpo, slide"
+              "workspaces,  1, 7.5, easeOutExpo, slidefadevert 5%"
             ];
           };
 
