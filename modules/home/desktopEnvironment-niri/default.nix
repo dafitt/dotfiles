@@ -19,6 +19,7 @@ with lib;
     enable = true;
     package = pkgs.niri; # follow nixpkgs
 
+    # https://yalter.github.io/niri/Configuration%3A-Introduction.html
     # https://github.com/sodiboo/niri-flake/blob/main/docs.md
     settings = {
 
@@ -195,6 +196,8 @@ with lib;
         "XF86KbdBrightnessDown".action.spawn-sh =
           "${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%-";
       };
+
+      input.keyboard.numlock = true;
 
       window-rules = [
         {
