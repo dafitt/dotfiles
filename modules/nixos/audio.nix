@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   # https://wiki.nixos.org/wiki/PipeWire
   security.rtkit.enable = true;
@@ -10,4 +11,8 @@
   };
 
   programs.noisetorch.enable = true; # creates a virtual microphone that suppresses noise in any application
+
+  environment.systemPackages = with pkgs; [
+    helvum
+  ];
 }
