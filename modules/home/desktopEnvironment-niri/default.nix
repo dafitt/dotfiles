@@ -13,6 +13,7 @@ with lib;
 
   home.packages = with pkgs; [
     wdisplays
+    xwayland-satellite
   ];
 
   programs.niri = {
