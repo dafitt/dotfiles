@@ -205,7 +205,7 @@ with lib;
             bottom-right = 12.0;
           };
           clip-to-geometry = true;
-          open-maximized = false;
+          # open-maximized-to-edges = false; # TODO: after https://github.com/sodiboo/niri-flake/pull/1548
         }
       ];
     };
