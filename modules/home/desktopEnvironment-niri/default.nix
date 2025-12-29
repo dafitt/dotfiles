@@ -43,7 +43,7 @@ with lib;
         ];
 
         default-column-width = {
-          proportion = 0.5;
+          proportion = 1. / 3.;
         };
 
         focus-ring = {
