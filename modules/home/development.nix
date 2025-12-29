@@ -22,12 +22,6 @@ with lib;
     zed-editor.setAsDefaultGditor = true;
   };
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "yEd"
-    ];
-
   home.packages = with pkgs; [
     clang-tools
     dig
@@ -49,7 +43,7 @@ with lib;
     tldr
     tokei
     wev
-    # yed
+    yed
   ];
 
   services.flatpak.packages = [

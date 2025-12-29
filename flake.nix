@@ -50,13 +50,7 @@
     inputs.blueprint {
       inherit inputs;
 
-      nixpkgs.config.allowUnfree = true;
-
-      nixpkgs.overlays = [
-        (final: prev: {
-          # pyprland = inputs.pyprland.packages.${prev.system}.pyprland;
-        })
-      ];
+      # [nixpkgs.config and nixpgks.overlays](https://github.com/numtide/blueprint/issues/115) workaround: modules/nixos/nixpkgs.nix
     };
 
   #NOTE uncomment and enter `nix develop` on your first build for faster build time
