@@ -194,6 +194,8 @@ with lib;
         "Alt+Print".action.screenshot-window = { };
       };
 
+      screenshot-path = "~/Pictures/Screenshots/%Y-%m-%dT%H:%M:%S.png";
+
       input.keyboard.numlock = true;
 
       window-rules = [
