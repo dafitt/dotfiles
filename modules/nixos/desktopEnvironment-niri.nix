@@ -9,4 +9,6 @@
       binPath = "/run/current-system/sw/bin/niri --session";
     };
   };
+
+  security.soteria.enable = true;
 }
