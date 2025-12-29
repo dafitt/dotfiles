@@ -32,17 +32,36 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.setAsDefaultBrowser [
-        "SUPER_ALT, W, exec, uwsm app -- ${config.programs.librewolf.package}/bin/librewolf"
+      bind = optionals cfg.setAsDefaultBrowser [
+        "SUPER_ALT, W, exec, uwsm app -- ${getExe config.programs.librewolf.package}"
       ];
-      exec-once = mkIf cfg.autostart [
-        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${config.programs.librewolf.package}/bin/librewolf"
+      exec-once = optionals cfg.autostart [
+        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.librewolf.package}"
       ];
       windowrule = [
         "idleinhibit fullscreen, class:librewolf, title:(Youtube)"
         "float, class:librewolf, title:^Extension: \(NoScript\) - NoScript"
         #FIXME initial title is librewolf
         #TODO no fullscreen
+      ];
+    };
+    programs.niri.settings = {
+      binds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
+        action.spawn-sh = "uwsm app -- ${getExe config.programs.librewolf.package}";
+      };
+      spawn-at-startup = optionals cfg.autostart [
+        { sh = "uwsm app -- ${getExe config.programs.librewolf.package}"; }
+      ];
+      window-rules = [
+        {
+          matches = [
+            {
+              app-id = "librewolf";
+              title = "^Extension: \(NoScript\) - NoScript";
+            }
+          ];
+          open-floating = true;
+        }
       ];
     };
   };

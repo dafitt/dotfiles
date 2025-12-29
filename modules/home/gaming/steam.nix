@@ -26,4 +26,17 @@
     "bordercolor rgb(1887d8), class:steam"
     "float, class:steam, title:(Friends List)|(Settings)"
   ];
+  programs.niri.settings = {
+    window-rules = [
+      {
+        matches = [
+          {
+            app-id = "steam";
+            title = "(Friends List)|(Settings)";
+          }
+        ];
+        open-floating = true;
+      }
+    ];
+  };
 }

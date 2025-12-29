@@ -57,8 +57,4 @@
   home.shellAliases = {
     neofetch = "fastfetch";
   };
-
-  home.packages = with pkgs; [
-    python3 # required for fish shell's autocompletion
-  ];
 }

@@ -75,11 +75,19 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.setAsDefaultFileManager [
-        "SUPER_ALT, F, exec, uwsm app -- uwsm app -- ${pkgs.nautilus}/bin/nautilus"
+      bind = optionals cfg.setAsDefaultFileManager [
+        "SUPER_ALT, F, exec, uwsm app -- ${getExe pkgs.nautilus}"
       ];
-      exec-once = mkIf cfg.autostart [
-        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${pkgs.nautilus}/bin/nautilus"
+      exec-once = optionals cfg.autostart [
+        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.nautilus}"
+      ];
+    };
+    programs.niri.settings = {
+      binds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
+        action.spawn-sh = "uwsm app -- ${getExe pkgs.nautilus}";
+      };
+      spawn-at-startup = optionals cfg.autostart [
+        { sh = "uwsm app -- ${getExe pkgs.nautilus}"; }
       ];
     };
   };

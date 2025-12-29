@@ -551,6 +551,14 @@ in
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.vscode.package}"
       ];
     };
+    programs.niri.settings = {
+      binds."Mod+Alt+G" = mkIf cfg.setAsDefaultGditor {
+        action.spawn-sh = "uwsm app -- ${getExe config.programs.vscode.package}";
+      };
+      spawn-at-startup = optionals cfg.autostart [
+        { sh = "uwsm app -- ${getExe config.programs.vscode.package}"; }
+      ];
+    };
 
     programs.yazi.settings.opener.edit = [
       {

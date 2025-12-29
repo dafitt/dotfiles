@@ -86,7 +86,6 @@ in
           "SUPER_ALT, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty"
         ];
       };
-
       dafitt.pyprland.scratchpads.kitty = {
         animation = "fromTop";
         command = "uwsm app -- ${kittyExe} --class dropterm --hold ${getExe config.programs.fastfetch.package}";
@@ -107,7 +106,6 @@ in
       wayland.windowManager.hyprland.settings = {
         bind = [ "SUPER, RETURN, exec, uwsm app -- ${kittyExe}" ];
       };
-
       programs.niri.settings.binds."Mod+Return".action.spawn = [
         "uwsm"
         "app"

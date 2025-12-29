@@ -17,7 +17,6 @@
       "ALT, XF86AudioPlay, exec, systemctl --user restart playerctld"
     ];
   };
-
   programs.niri.settings.binds = {
     "XF86AudioPlay".action.spawn-sh = "${config.services.playerctld.package}/bin/playerctl play-pause";
     "XF86AudioPause".action.spawn-sh = "${config.services.playerctld.package}/bin/playerctl play-pause";

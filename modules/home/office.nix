@@ -34,9 +34,21 @@
   fonts.fontconfig.enable = true; # discover fonts and configurations installed through home.packages and nix-env
 
   wayland.windowManager.hyprland.settings = {
-    exec-once = [ ];
     windowrule = [
       "float, class:scribus, title:(New Document)"
+    ];
+  };
+  programs.niri.settings = {
+    window-rules = [
+      {
+        matches = [
+          {
+            app-id = "scribus";
+            title = "New Document";
+          }
+        ];
+        open-floating = true;
+      }
     ];
   };
 }

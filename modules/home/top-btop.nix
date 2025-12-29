@@ -40,10 +40,9 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals (config.dafitt.pyprland.enable && cfg.setAsDefaultTop) [
-        "SUPER_ALT, P, exec, ${pkgs.pyprland}/bin/pypr toggle btop"
+        "SUPER_ALT, P, exec, ${getExe pkgs.pyprland} toggle btop"
       ];
     };
-
     dafitt.pyprland.scratchpads.btop = {
       animation = "fromTop";
       command = "uwsm app -- ${getExe pkgs.kitty} --class btop ${getExe config.programs.btop.package} --update 3000";
@@ -51,6 +50,11 @@ in
       size = "90% 90%";
       margin = "2%";
       lazy = true;
+    };
+    programs.niri.settings = {
+      binds."Mod+Alt+P" = mkIf cfg.setAsDefaultTop {
+        action.spawn-sh = "uwsm app -- ${getExe pkgs.kitty} --class btop ${getExe config.programs.btop.package}";
+      };
     };
   };
 }

@@ -110,7 +110,6 @@ in
     ++ (optionals cfg.setAsDefaultLauncher [
       "SUPER, SPACE, exec, ${getExe config.programs.noctalia-shell.package} ipc call launcher toggle"
     ]);
-
     programs.niri.settings.binds = {
       "Mod+W".action.spawn-sh = "${getExe config.programs.noctalia-shell.package} ipc call bar toggle";
       "Mod+L".action.spawn-sh =

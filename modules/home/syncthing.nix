@@ -27,6 +27,9 @@
   };
 
   wayland.windowManager.hyprland.settings = {
-    bind = [ "SUPER_ALT, Z, exec, xdg-open https://localhost:8384" ];
+    bind = [ "SUPER_ALT, Z, exec, ${pkgs.xdg-utils}/bin/xdg-open https://localhost:8384" ];
+  };
+  programs.niri.settings = {
+    binds."Mod+Alt+Z".action.spawn-sh = "${pkgs.xdg-utils}/bin/xdg-open https://localhost:8384";
   };
 }

@@ -23,9 +23,32 @@ in
     programs.MODULE.enable = true;
 
     wayland.windowManager.hyprland.settings = {
-      bind = cfg.setAsDefault [ ];
-      exec-once = mkIf cfg.autostart [ "[workspace ${toString cfg.workspace} silent] ${pkgs.MODULE}" ];
+      bind = optionals cfg.setAsDefault [
+        "SUPER_ALT, ?, exec, uwsm app -- ${getExe pkgs.MODULE}"
+      ];
+      exec-once = optionals cfg.autostart [
+        "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.MODULE}"
+      ];
       windowrule = [ ];
+    };
+    programs.niri.settings = {
+      binds."Mod+Alt+?" = mkIf cfg.setAsDefault {
+        action.spawn-sh = "uwsm app -- ${getExe pkgs.MODULE}";
+      };
+      spawn-at-startup = optionals cfg.autostart [
+        { sh = "uwsm app -- ${getExe pkgs.MODULE}"; }
+      ];
+    };
+    programs.niri.settings = {
+      # https://yalter.github.io/niri/Configuration%3A-Window-Rules.html
+      #$ niri msg pick-window
+      window-rules = [
+        {
+          matches = [ { app-id = ""; } ];
+          open-floating = true;
+          block-out-from = "screen-capture";
+        }
+      ];
     };
   };
 }

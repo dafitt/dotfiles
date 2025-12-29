@@ -29,9 +29,19 @@ in
     home.packages = with pkgs; [ epiphany ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.setAsDefaultBrowser [ "SUPER_ALT, W, exec, uwsm app -- ${getExe pkgs.epiphany}" ];
-      exec-once = mkIf cfg.autostart [
+      bind = optionals cfg.setAsDefaultBrowser [
+        "SUPER_ALT, W, exec, uwsm app -- ${getExe pkgs.epiphany}"
+      ];
+      exec-once = optionals cfg.autostart [
         "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.epiphany}"
+      ];
+    };
+    programs.niri.settings = {
+      binds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
+        action.spawn-sh = "uwsm app -- ${getExe pkgs.epiphany}";
+      };
+      spawn-at-startup = optionals cfg.autostart [
+        { sh = "uwsm app -- ${getExe pkgs.epiphany}"; }
       ];
     };
   };

@@ -22,12 +22,24 @@ in
     ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.setAsDefaultPasswordManager [
-        "SUPER_ALT, PERIOD, exec, uwsm app -- ${pkgs.bitwarden-desktop}/bin/bitwarden"
+      bind = optionals cfg.setAsDefaultPasswordManager [
+        "SUPER_ALT, PERIOD, exec, uwsm app -- ${getExe pkgs.bitwarden-desktop}"
       ];
       windowrule = [
         "noscreenshare, class:Bitwarden"
         "float, class:Bitwarden, title:Bitwarden"
+      ];
+    };
+    programs.niri.settings = {
+      binds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
+        action.spawn-sh = "uwsm app -- ${getExe pkgs.bitwarden-desktop}";
+      };
+      window-rules = [
+        {
+          matches = [ { app-id = "Bitwarden"; } ];
+          open-floating = true;
+          block-out-from = "screen-capture";
+        }
       ];
     };
   };

@@ -360,15 +360,34 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.setAsDefaultBrowser [
+      bind = optionals cfg.setAsDefaultBrowser [
         "SUPER_ALT, W, exec, uwsm app -- ${getExe config.programs.firefox.package}"
       ];
-      exec-once = mkIf cfg.autostart [
+      exec-once = optionals cfg.autostart [
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.firefox.package}"
       ];
       windowrule = [
         "idleinhibit fullscreen, class:firefox, title:(Youtube)"
         "float, class:firefox, title:^Extension: \(NoScript\) - NoScript"
+      ];
+    };
+    programs.niri.settings = {
+      binds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
+        action.spawn-sh = "uwsm app -- ${getExe config.programs.firefox.package}";
+      };
+      spawn-at-startup = optionals cfg.autostart [
+        { sh = "uwsm app -- ${getExe config.programs.firefox.package}"; }
+      ];
+      window-rules = [
+        {
+          matches = [
+            {
+              app-id = "firefox";
+              title = "^Extension: \(NoScript\) - NoScript";
+            }
+          ];
+          open-floating = true;
+        }
       ];
     };
   };

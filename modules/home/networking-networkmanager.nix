@@ -13,11 +13,10 @@ with lib;
 
   wayland.windowManager.hyprland.settings = {
     bind = optionals config.dafitt.pyprland.enable [
-      "SUPER_ALT, N, exec, ${pkgs.pyprland}/bin/pypr toggle networkmanager"
+      "SUPER_ALT, N, exec, ${getExe pkgs.pyprland} toggle networkmanager"
     ];
     windowrule = [ "float, class:nm-connection-editor" ];
   };
-
   dafitt.pyprland.scratchpads.networkmanager = {
     animation = "fromRight";
     command = "uwsm app -- ${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
@@ -25,5 +24,9 @@ with lib;
     size = "40% 70%";
     margin = "2%";
     lazy = true;
+  };
+  programs.niri.settings = {
+    binds."Mod+Alt+N".action.spawn-sh =
+      "uwsm app -- ${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
   };
 }

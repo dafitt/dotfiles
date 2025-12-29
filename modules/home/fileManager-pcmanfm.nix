@@ -64,11 +64,19 @@ in
     '';
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.setAsDefaultFileManager [
-        "SUPER_ALT, F, exec, uwsm app -- ${pkgs.pcmanfm}/bin/pcmanfm"
+      bind = optionals cfg.setAsDefaultFileManager [
+        "SUPER_ALT, F, exec, uwsm app -- ${getExe pkgs.pcmanfm}"
       ];
-      exec-once = mkIf cfg.autostart [
-        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${pkgs.pcmanfm}/bin/pcmanfm"
+      exec-once = optionals cfg.autostart [
+        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.pcmanfm}"
+      ];
+    };
+    programs.niri.settings = {
+      binds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
+        action.spawn-sh = "uwsm app -- ${getExe pkgs.pcmanfm}";
+      };
+      spawn-at-startup = optionals cfg.autostart [
+        { sh = "uwsm app -- ${getExe pkgs.pcmanfm}"; }
       ];
     };
   };

@@ -177,11 +177,19 @@ in
       };
 
       wayland.windowManager.hyprland.settings = {
-        bind = mkIf cfg.setAsDefaultFileManager [
+        bind = optionals cfg.setAsDefaultFileManager [
           "SUPER_ALT, F, exec, uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}"
         ];
-        exec-once = mkIf cfg.autostart [
-          "[workspace ${toString cfg.workspace} silent] uwsm app -- ${config.programs.yazi.package}/bin/yazi"
+        exec-once = optionals cfg.autostart [
+          "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}"
+        ];
+      };
+      programs.niri.settings = {
+        binds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
+          action.spawn-sh = "uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}";
+        };
+        spawn-at-startup = optionals cfg.autostart [
+          { sh = "uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}"; }
         ];
       };
     }

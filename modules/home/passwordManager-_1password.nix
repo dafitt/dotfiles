@@ -24,8 +24,8 @@ in
     ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.setAsDefaultPasswordManager [
-        "SUPER_ALT, PERIOD, exec, uwsm app -- ${pkgs._1password-gui}/bin/1password"
+      bind = optionals cfg.setAsDefaultPasswordManager [
+        "SUPER_ALT, PERIOD, exec, uwsm app -- ${getExe pkgs._1password-gui}"
       ];
       windowrule = [
         "noscreenshare, class:1Password"
@@ -38,6 +38,20 @@ in
         "size 600 450, class:1Password, title:(Lock Screen)"
       ];
       # titles: Lock Screen — 1Password ; All Items — 1Password ;
+    };
+    programs.niri.settings = {
+      binds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
+        action.spawn-sh = "uwsm app -- ${getExe pkgs._1password-gui}";
+      };
+      window-rules = [
+        {
+          matches = [ { app-id = "1Password"; } ];
+          open-floating = true;
+          default-window-height.fixed = 600;
+          default-column-width.fixed = 450;
+          block-out-from = "screen-capture";
+        }
+      ];
     };
   };
 }

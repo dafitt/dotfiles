@@ -76,9 +76,14 @@ in
     home.sessionVariables.EDITOR = mkIf cfg.setAsDefaultEditor (getExe config.programs.micro.package);
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.setAsDefaultEditor [
+      bind = optionals cfg.setAsDefaultEditor [
         "SUPER_ALT, E, exec, uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}"
       ];
+    };
+    programs.niri.settings = {
+      binds."Mod+Alt+E" = mkIf cfg.setAsDefaultEditor {
+        action.spawn-sh = "uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}";
+      };
     };
 
     programs.yazi.settings.opener.edit = [

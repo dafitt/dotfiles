@@ -33,11 +33,19 @@ in
     ];
 
     wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.setAsDefaultFileManager [
-        "SUPER_ALT, F, exec, uwsm app -- ${pkgs.xfce.thunar}/bin/thunar"
+      bind = optionals cfg.setAsDefaultFileManager [
+        "SUPER_ALT, F, exec, uwsm app -- ${getExe pkgs.xfce.thunar}"
       ];
-      exec-once = mkIf cfg.autostart [
-        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${pkgs.xfce.thunar}/bin/thunar"
+      exec-once = optionals cfg.autostart [
+        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.xfce.thunar}"
+      ];
+    };
+    programs.niri.settings = {
+      binds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
+        action.spawn-sh = "uwsm app -- ${getExe pkgs.xfce.thunar}";
+      };
+      spawn-at-startup = optionals cfg.autostart [
+        { sh = "uwsm app -- ${getExe pkgs.xfce.thunar}"; }
       ];
     };
   };

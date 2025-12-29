@@ -11,10 +11,4 @@
     "io.github.mimbrero.WhatsAppDesktop"
     "ch.threema.threema-web-desktop"
   ];
-
-  wayland.windowManager.hyprland.settings = {
-    windowrule = [
-      "float, class:whatsapp-desktop-linux, title:WhatsApp"
-    ];
-  };
 }
