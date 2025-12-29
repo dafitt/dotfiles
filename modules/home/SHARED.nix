@@ -10,6 +10,7 @@ with lib;
     with inputs.self.homeModules;
     [
       browser-firefox
+      calculator
       desktopEnvironment-hyprland
       editor-micro
       fastfetch
