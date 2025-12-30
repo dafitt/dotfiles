@@ -68,7 +68,7 @@ in
           {
             timeout =
               if locking_enabled then
-                (cfg.timeouts.lock + config.programs.hyprlock.settings.general.grace)
+                (cfg.timeouts.lock + (config.programs.hyprlock.settings.general.grace or 0))
               else
                 360;
             on-timeout = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms off";
