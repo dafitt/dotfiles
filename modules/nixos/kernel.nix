@@ -15,4 +15,6 @@ in
   # pkgs.linuxPackages_latest;
   # pkgs.linuxPackages_zen;
   boot.kernelPackages = mkDefault (if zfs then pkgs.linuxPackages else pkgs.linuxPackages_latest);
+
+  services.system76-scheduler.enable = true;
 }
