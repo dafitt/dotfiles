@@ -28,7 +28,7 @@ with lib;
       prefer-no-csd = true;
 
       layout = {
-        gaps = 16;
+        gaps = 8;
 
         center-focused-column = "never";
 
