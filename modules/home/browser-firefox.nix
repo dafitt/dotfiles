@@ -368,7 +368,8 @@ in
       ];
       windowrule = [
         "idleinhibit fullscreen, class:firefox, title:(Youtube)"
-        "float, class:firefox, title:^Extension: \(NoScript\) - NoScript"
+        "float, class:firefox$, title:^Extension: \(NoScript\) - NoScript"
+        "float, class:firefox$, title:^Picture-in-Picture$"
       ];
     };
     programs.niri.settings = {
@@ -382,8 +383,12 @@ in
         {
           matches = [
             {
-              app-id = "firefox";
+              app-id = "firefox$";
               title = "^Extension: \(NoScript\) - NoScript";
+            }
+            {
+              app-id = "firefox$";
+              title = "^Picture-in-Picture$";
             }
           ];
           open-floating = true;
