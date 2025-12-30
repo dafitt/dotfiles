@@ -58,12 +58,8 @@
   #NOTE uncomment and enter `nix develop` on your first build for faster build time
   #nixConfig = {
   #  extra-substituters = [
-  #    "https://hyprland-community.cachix.org"
-  #    "https://hyprland.cachix.org"
   #  ];
   #  extra-trusted-public-keys = [
-  #    "hyprland-community.cachix.org-1:5dTHY+TjAJjnQs23X+vwMQG4va7j+zmvkTKoYuSXnmE="
-  #    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
   #  ];
   #};
 }
