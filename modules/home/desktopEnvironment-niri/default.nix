@@ -2,6 +2,7 @@
   lib,
   pkgs,
   inputs,
+  perSystem,
   ...
 }:
 with lib;
@@ -217,6 +218,10 @@ with lib;
           clip-to-geometry = true;
           # open-maximized-to-edges = false; # TODO: after https://github.com/sodiboo/niri-flake/pull/1548
         }
+      ];
+
+      spawn-at-startup = [
+        { argv = [ (getExe perSystem.niri-system76-scheduler.default) ]; }
       ];
     };
   };

@@ -751,6 +751,26 @@
         "type": "github"
       }
     },
+    "niri-system76-scheduler": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1754125228,
+        "narHash": "sha256-SjqVVvwbgDucVPOEssS4/kg4vrK5QKZkLhAUG0U611E=",
+        "owner": "Kirottu",
+        "repo": "system76-scheduler-niri",
+        "rev": "c950aacb8417e1e14f1988639ed7391e08919757",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kirottu",
+        "repo": "system76-scheduler-niri",
+        "type": "github"
+      }
+    },
     "niri-unstable": {
       "flake": false,
       "locked": {
@@ -1117,6 +1137,7 @@
         "hypr-darkwindow": "hypr-darkwindow",
         "impermanence": "impermanence",
         "niri": "niri",
+        "niri-system76-scheduler": "niri-system76-scheduler",
         "nix-darwin": "nix-darwin",
         "nix-flatpak": "nix-flatpak",
         "nixGL": "nixGL",

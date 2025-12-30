@@ -24,6 +24,8 @@
     impermanence.url = "github:nix-community/impermanence"; # https://github.com/nix-community/impermanence
     niri.url = "github:sodiboo/niri-flake"; # https://github.com/sodiboo/niri-flake
     niri.inputs.nixpkgs.follows = "nixpkgs";
+    niri-system76-scheduler.url = "github:Kirottu/system76-scheduler-niri"; # https://github.com/Kirottu/system76-scheduler-niri
+    niri-system76-scheduler.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest"; # https://github.com/gmodena/nix-flatpak/tags
     nixGL.url = "github:nix-community/nixGL"; # https://github.com/nix-community/nixGL
     nixGL.inputs.nixpkgs.follows = "nixpkgs";
