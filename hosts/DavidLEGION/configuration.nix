@@ -46,6 +46,8 @@
     lact # Linux AMDGPU Controller
   ];
 
-  # Skip the boot selection menu. [space] to open it.
-  boot.loader.timeout = 0;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    timeout = 0;
+  };
 }

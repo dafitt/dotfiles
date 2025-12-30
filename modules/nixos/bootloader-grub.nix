@@ -1,10 +1,10 @@
+{ lib, ... }:
+with lib;
 {
   boot.loader.grub = {
     enable = true;
-    device = "nodev";
-    efiSupport = true;
-    configurationLimit = 7;
-    useOSProber = true;
+    configurationLimit = mkDefault 50;
+
     extraEntries = ''
       if [ "$grub_platform" = "efi" ]; then
           menuentry 'UEFI Firmware Settings' $menuentry_id_option 'uefi-firmware' {
@@ -21,5 +21,11 @@
       }
     '';
   };
-  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Depending on host:
+  # boot.loader.grub = {
+  #   device = "nodev";
+  #   efiSupport = true;
+  #   useOSProber = true;
+  # };
 }

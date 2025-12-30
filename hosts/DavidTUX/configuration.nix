@@ -24,7 +24,15 @@
       loginManager-gdm
     ];
 
-  boot.loader.timeout = 10;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    timeout = 10;
+    grub = {
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+    };
+  };
 
   hardware.tuxedo-rs = {
     enable = true;
