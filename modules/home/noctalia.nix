@@ -42,7 +42,7 @@ in
                 id = "Workspace";
                 colorizeIcons = true;
                 hideUnoccupied = false;
-                labelMode = "index";
+                labelMode = "name";
                 showApplications = true;
               }
               {

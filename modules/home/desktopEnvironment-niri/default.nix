@@ -56,6 +56,14 @@ with lib;
         };
       };
 
+      input = {
+        focus-follows-mouse = {
+          enable = true;
+          max-scroll-amount = "10%";
+        };
+        workspace-auto-back-and-forth = true;
+      };
+
       hotkey-overlay.skip-at-startup = true;
 
       binds = {
