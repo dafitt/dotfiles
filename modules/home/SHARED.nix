@@ -41,6 +41,7 @@ with lib;
   dafitt = mkDefault {
     browser-firefox.setAsDefaultBrowser = true;
     editor-micro.setAsDefaultEditor = true;
+    fileManager-nautilus.autostart = false;
     fileManager-nautilus.setAsDefaultFileManager = true;
     noctalia.setAsDefaultLauncher = true;
     passwordManager-keepassxc.setAsDefaultPasswordManager = true;
