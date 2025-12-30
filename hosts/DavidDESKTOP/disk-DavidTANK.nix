@@ -30,4 +30,14 @@
       };
     };
   };
+
+  services.smartd = {
+    enable = true;
+    devices = [
+      { device = "/dev/disk/by-id/ata-ST4000VN008-2DR166_ZDH5AE7Q"; }
+      { device = "/dev/disk/by-id/ata-ST4000VN008-2DR166_ZDH5AE7Q"; }
+      { device = "/dev/disk/by-id/ata-MB4000GVYZK_ZC18DNEY"; }
+      { device = "/dev/disk/by-id/ata-MB4000GVYZK_ZC18DN03"; }
+    ];
+  };
 }
