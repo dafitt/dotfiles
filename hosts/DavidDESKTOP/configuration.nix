@@ -29,7 +29,7 @@
 
       SHARED
       bluetooth
-      bootloader-systemd-boot
+      bootloader-limine
       development
       gaming
       impermanance
