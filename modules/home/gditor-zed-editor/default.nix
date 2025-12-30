@@ -345,6 +345,14 @@ in
       };
     };
 
+    programs.yazi.settings.opener.edit = [
+      {
+        run = ''${getExe config.programs.zed-editor.package} --new "$@"'';
+        block = true;
+        desc = "Zeditor";
+      }
+    ];
+
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.setAsDefaultGditor [
         "SUPER_ALT, G, exec, uwsm app -- ${getExe config.programs.zed-editor.package}"
@@ -353,13 +361,13 @@ in
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.zed-editor.package}"
       ];
     };
-
-    programs.yazi.settings.opener.edit = [
-      {
-        run = ''${getExe config.programs.zed-editor.package} --new "$@"'';
-        block = true;
-        desc = "Zeditor";
-      }
-    ];
+    programs.niri.settings = {
+      binds."Mod+Alt+G" = mkIf cfg.setAsDefaultGditor {
+        action.spawn-sh = "uwsm app -- ${getExe config.programs.zed-editor.package}";
+      };
+      spawn-at-startup = optionals cfg.autostart [
+        { sh = "uwsm app -- ${getExe config.programs.zed-editor.package}"; }
+      ];
+    };
   };
 }

@@ -543,6 +543,14 @@ in
       };
     };
 
+    programs.yazi.settings.opener.edit = [
+      {
+        run = ''${getExe config.programs.vscode.package} --new-window "$@"'';
+        block = true;
+        desc = "VSCode";
+      }
+    ];
+
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.setAsDefaultGditor [
         "SUPER_ALT, G, exec, uwsm app -- ${getExe config.programs.vscode.package}"
@@ -559,13 +567,5 @@ in
         { sh = "uwsm app -- ${getExe config.programs.vscode.package}"; }
       ];
     };
-
-    programs.yazi.settings.opener.edit = [
-      {
-        run = ''${getExe config.programs.vscode.package} --new-window "$@"'';
-        block = true;
-        desc = "VSCode";
-      }
-    ];
   };
 }

@@ -75,6 +75,14 @@ in
 
     home.sessionVariables.EDITOR = mkIf cfg.setAsDefaultEditor (getExe config.programs.micro.package);
 
+    programs.yazi.settings.opener.edit = [
+      {
+        run = ''${getExe config.programs.micro.package} "$@"'';
+        block = true;
+        desc = "micro";
+      }
+    ];
+
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultEditor [
         "SUPER_ALT, E, exec, uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}"
@@ -85,13 +93,5 @@ in
         action.spawn-sh = "uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}";
       };
     };
-
-    programs.yazi.settings.opener.edit = [
-      {
-        run = ''${getExe config.programs.micro.package} "$@"'';
-        block = true;
-        desc = "micro";
-      }
-    ];
   };
 }
