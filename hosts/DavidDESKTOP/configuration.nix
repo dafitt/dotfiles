@@ -30,7 +30,6 @@
       SHARED
       bluetooth
       bootloader-systemd-boot
-      desktopEnvironment-niri
       development
       gaming
       impermanance

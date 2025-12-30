@@ -6,6 +6,7 @@
     certificates
     coreutils
     desktopEnvironment-hyprland
+    desktopEnvironment-niri
     flatpak
     fonts
     home-manager

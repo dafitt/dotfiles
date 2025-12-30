@@ -12,6 +12,7 @@ with lib;
       browser-firefox
       calculator
       desktopEnvironment-hyprland
+      desktopEnvironment-niri
       editor-micro
       fastfetch
       file-roller
