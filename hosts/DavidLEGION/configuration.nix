@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 # Lenovo Legion7 16 ARHA7 Laptop
 # CPU: AMD Ryzen 7 6800 H with Radeon Graphics (3,20GHz - 4,70GHz)
@@ -10,6 +15,7 @@
 # WIFI: 6E 11AX (2x2)
 # Bluetooth: 5.1
 # Color: Storm Grey
+with lib;
 {
   nixpkgs.hostPlatform = "x86_64-linux";
   system.stateVersion = "23.05";
@@ -38,6 +44,8 @@
       virtualization
     ];
 
+  services.fprintd.enable = mkForce false; # No fingerprint reader
+
   environment.systemPackages = with pkgs; [
     lact # Linux AMDGPU Controller
   ];
@@ -45,5 +53,6 @@
   boot.loader = {
     efi.canTouchEfiVariables = true;
     timeout = 0;
+    systemd-boot.configurationLimit = 5;
   };
 }
