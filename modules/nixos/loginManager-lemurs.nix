@@ -1,5 +1,5 @@
 {
-  services.loginManager.lemurs = {
+  services.displayManager.lemurs = {
     enable = true;
   };
 
