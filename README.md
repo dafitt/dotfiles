@@ -430,7 +430,16 @@ Manually reload the fontconfig cache using
 fc-cache -r [-f]
 ```
 
-### bluetoothd: Failed to set mode: Failed (0x03)
+### Bluetooth does not power on
+
+Error messages:
+
+```
+Failed to set power on: org.bluez.Error.Failed
+bluetoothd: Failed to set mode: Failed (0x03)
+```
+
+Check and unblock bluetooth software side with:
 
 ```shell
 rfkill list
