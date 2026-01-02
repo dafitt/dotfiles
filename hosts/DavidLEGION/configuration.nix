@@ -26,6 +26,10 @@ with lib;
     [
       ./hardware-configuration.nix
 
+      disko.nixosModules.disko
+      ./disk-configuration.nix
+      impermanance
+
       # [HARDWARE_MODULES](https://github.com/NixOS/nixos-hardware/blob/master/flake.nix)
       nixos-hardware.nixosModules.lenovo-legion-16arha7
 

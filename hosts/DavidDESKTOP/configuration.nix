@@ -17,6 +17,7 @@
 
       disko.nixosModules.disko
       ./disk-configuration.nix
+      impermanance
 
       # https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
       nixos-hardware.nixosModules.common-cpu-amd
@@ -32,7 +33,6 @@
       bootloader-limine
       development
       gaming
-      impermanance
       loginManager-greetd
       networking-networkmanager
       printing

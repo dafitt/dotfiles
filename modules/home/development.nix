@@ -27,6 +27,7 @@ with lib;
     dig
     fira-code-symbols
     gcc
+    glow
     gnumake
     gucharmap
     httpie
