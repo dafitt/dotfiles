@@ -23,9 +23,10 @@ with lib;
       fwupd
     ];
 
-  # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/cd-dvd/iso-image.nix
+  # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/cd-dvd/iso-image.nix#L558
   isoImage = {
     squashfsCompression = "zstd"; # -Xcompression-level 1..22
+    # includeSystemBuildDependencies = true; # VERY LARGE iso, but ability, to build without internet.
 
     contents = [
       {
