@@ -33,7 +33,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultBrowser [
-        "SUPER_ALT, W, exec, uwsm app -- ${getExe config.programs.librewolf.package}"
+        "Super&Alt, W, exec, uwsm app -- ${getExe config.programs.librewolf.package}"
       ];
       exec-once = optionals cfg.autostart [
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.librewolf.package}"

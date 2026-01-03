@@ -20,7 +20,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultClipboardManager [
-        "SUPER_ALT, V, exec, uwsm app -- ${getExe pkgs.kitty} --class=clipse -e ${getExe pkgs.clipse}"
+        "Super&Alt, V, exec, uwsm app -- ${getExe pkgs.kitty} --class=clipse -e ${getExe pkgs.clipse}"
       ];
       exec-once = [ "uwsm app -- ${getExe pkgs.clipse} -listen" ];
       windowrule = [

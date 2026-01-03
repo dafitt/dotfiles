@@ -13,7 +13,7 @@ with lib;
 
   wayland.windowManager.hyprland.settings = {
     bind = optionals config.dafitt.pyprland.enable [
-      "SUPER_ALT, B, exec, ${pkgs.pyprland}/bin/pypr toggle bluetooth"
+      "Super&Alt, B, exec, ${pkgs.pyprland}/bin/pypr toggle bluetooth"
     ];
     windowrule = [ "float, class:io.github.kaii_lb.Overskride" ];
   };

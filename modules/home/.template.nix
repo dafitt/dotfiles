@@ -24,7 +24,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefault [
-        "SUPER_ALT, ?, exec, uwsm app -- ${getExe pkgs.MODULE}"
+        "Super&Alt, ?, exec, uwsm app -- ${getExe pkgs.MODULE}"
       ];
       exec-once = optionals cfg.autostart [
         "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.MODULE}"

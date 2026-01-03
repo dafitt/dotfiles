@@ -30,7 +30,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultBrowser [
-        "SUPER_ALT, W, exec, uwsm app -- ${getExe pkgs.epiphany}"
+        "Super&Alt, W, exec, uwsm app -- ${getExe pkgs.epiphany}"
       ];
       exec-once = optionals cfg.autostart [
         "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.epiphany}"

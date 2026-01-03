@@ -40,7 +40,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals (config.dafitt.pyprland.enable && cfg.setAsDefaultTop) [
-        "SUPER_ALT, P, exec, ${getExe pkgs.pyprland} toggle btop"
+        "Super&Alt, P, exec, ${getExe pkgs.pyprland} toggle btop"
       ];
     };
     dafitt.pyprland.scratchpads.btop = {

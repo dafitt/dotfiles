@@ -13,7 +13,7 @@ with lib;
 
   wayland.windowManager.hyprland.settings = {
     bind = optionals config.dafitt.pyprland.enable [
-      "SUPER_ALT, N, exec, ${getExe pkgs.pyprland} toggle networkmanager"
+      "Super&Alt, N, exec, ${getExe pkgs.pyprland} toggle networkmanager"
     ];
     windowrule = [ "float, class:nm-connection-editor" ];
   };

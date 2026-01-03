@@ -25,7 +25,7 @@ in
       # https://github.com/KZDKM/Hyprspace
       plugins = [ pkgs.hyprlandPlugins.hyprspace ];
 
-      settings.bind = [ "SUPER, ASCIICIRCUM, overview:toggle, " ];
+      settings.bind = [ "Super, ASCIICIRCUM, overview:toggle, " ];
 
       # https://github.com/KZDKM/Hyprspace?tab=readme-ov-file#configuration
       settings.plugin.overview = {

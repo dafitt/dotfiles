@@ -19,7 +19,7 @@ in
       #TODO upstream: add to nixpkgs
       plugins = [ perSystem.hypr-darkwindow.Hypr-DarkWindow ];
 
-      settings.bind = [ "SUPER, O, invertactivewindow, " ];
+      settings.bind = [ "Super, O, invertactivewindow, " ];
     };
   };
 }

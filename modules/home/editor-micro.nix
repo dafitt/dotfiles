@@ -85,7 +85,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultEditor [
-        "SUPER_ALT, E, exec, uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}"
+        "Super&Alt, E, exec, uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}"
       ];
     };
     programs.niri.settings = {

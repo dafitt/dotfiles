@@ -25,7 +25,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultPasswordManager [
-        "SUPER_ALT, PERIOD, exec, uwsm app -- ${getExe pkgs.keepassxc}"
+        "Super&Alt, PERIOD, exec, uwsm app -- ${getExe pkgs.keepassxc}"
       ];
       windowrule = [
         "noscreenshare, class:keepassxc"

@@ -104,11 +104,11 @@ in
 
     # [Keybinds](https://docs.noctalia.dev/getting-started/keybinds/)
     wayland.windowManager.hyprland.settings.bind = [
-      "SUPER, W, exec, ${getExe config.programs.noctalia-shell.package} ipc call bar toggle"
-      "SUPER, L, exec, ${getExe config.programs.noctalia-shell.package} ipc call lockScreen lock"
+      "Super, W, exec, ${getExe config.programs.noctalia-shell.package} ipc call bar toggle"
+      "Super, L, exec, ${getExe config.programs.noctalia-shell.package} ipc call lockScreen lock"
     ]
     ++ (optionals cfg.setAsDefaultLauncher [
-      "SUPER, SPACE, exec, ${getExe config.programs.noctalia-shell.package} ipc call launcher toggle"
+      "Super, SPACE, exec, ${getExe config.programs.noctalia-shell.package} ipc call launcher toggle"
     ]);
     programs.niri.settings.binds = {
       "Mod+W".action.spawn-sh = "${getExe config.programs.noctalia-shell.package} ipc call bar toggle";

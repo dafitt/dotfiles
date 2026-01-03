@@ -23,7 +23,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultPasswordManager [
-        "SUPER_ALT, PERIOD, exec, uwsm app -- ${getExe pkgs.bitwarden-desktop}"
+        "Super&Alt, PERIOD, exec, uwsm app -- ${getExe pkgs.bitwarden-desktop}"
       ];
       windowrule = [
         "noscreenshare, class:Bitwarden"

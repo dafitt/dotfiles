@@ -23,7 +23,7 @@ in
       # https://github.com/hyprwm/hyprland-plugins/tree/main/hyprexpo
       plugins = [ pkgs.hyprlandPlugins.hyprexpo ];
 
-      settings.bind = [ "SUPER, ASCIICIRCUM, hyprexpo:expo, toggle" ]; # can be: toggle, off/disable or on/enable
+      settings.bind = [ "Super, ASCIICIRCUM, hyprexpo:expo, toggle" ]; # can be: toggle, off/disable or on/enable
 
       # https://github.com/hyprwm/hyprland-plugins/tree/main/hyprexpo#config
       extraConfig = ''

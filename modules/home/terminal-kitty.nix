@@ -83,7 +83,7 @@ in
           "idleinhibit always, class:idleinhibitor, floating:1"
         ];
         bind = optionals config.dafitt.pyprland.enable [
-          "SUPER_ALT, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty"
+          "Super&Alt, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty"
         ];
       };
       dafitt.pyprland.scratchpads.kitty = {
@@ -104,7 +104,7 @@ in
       programs.noctalia-shell.settings.appLauncher.terminalCommand = kittyExe;
 
       wayland.windowManager.hyprland.settings = {
-        bind = [ "SUPER, RETURN, exec, uwsm app -- ${kittyExe}" ];
+        bind = [ "Super, RETURN, exec, uwsm app -- ${kittyExe}" ];
       };
       programs.niri.settings.binds."Mod+Return".action.spawn = [
         "uwsm"

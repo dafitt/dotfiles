@@ -21,7 +21,7 @@ in
         ```
         wayland.windowManager.hyprland.settings = {
           bind = optionals config.dafitt.pyprland.enable
-            [ "SUPER_ALT, P, exec, ${pkgs.pyprland}/bin/pypr toggle btop" ];
+            [ "Super&Alt, P, exec, ${pkgs.pyprland}/bin/pypr toggle btop" ];
         };
         ```
       '';
@@ -70,15 +70,15 @@ in
     wayland.windowManager.hyprland.settings = {
       bind = [
         # magnify
-        "SUPER, Z, exec, ${pkgs.pyprland}/bin/pypr zoom"
-        "SUPER, MINUS, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
-        "SUPER, PLUS, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
-        "SUPER_ALT, mouse_down, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
-        "SUPER_ALT, mouse_up, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
-        "SUPER_ALT, mouse:274, exec, ${pkgs.pyprland}/bin/pypr zoom"
+        "Super, Z, exec, ${pkgs.pyprland}/bin/pypr zoom"
+        "Super, MINUS, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
+        "Super, PLUS, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
+        "Super&Alt, mouse_down, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
+        "Super&Alt, mouse_up, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
+        "Super&Alt, mouse:274, exec, ${pkgs.pyprland}/bin/pypr zoom"
         # toggle_special (minimize windows)
-        "SUPER, Y, exec, ${pkgs.pyprland}/bin/pypr toggle_special minimized" # move
-        "SUPER_SHIFT, Y, togglespecialworkspace, minimized" # show
+        "Super, Y, exec, ${pkgs.pyprland}/bin/pypr toggle_special minimized" # move
+        "Super&Shift, Y, togglespecialworkspace, minimized" # show
       ];
       bindn = [
         # scratchpads

@@ -361,7 +361,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultBrowser [
-        "SUPER_ALT, W, exec, uwsm app -- ${getExe config.programs.firefox.package}"
+        "Super&Alt, W, exec, uwsm app -- ${getExe config.programs.firefox.package}"
       ];
       exec-once = optionals cfg.autostart [
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.firefox.package}"

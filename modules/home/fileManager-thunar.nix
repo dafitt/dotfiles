@@ -34,7 +34,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultFileManager [
-        "SUPER_ALT, F, exec, uwsm app -- ${getExe pkgs.xfce.thunar}"
+        "Super&Alt, F, exec, uwsm app -- ${getExe pkgs.xfce.thunar}"
       ];
       exec-once = optionals cfg.autostart [
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.xfce.thunar}"

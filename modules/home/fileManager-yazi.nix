@@ -178,7 +178,7 @@ in
 
       wayland.windowManager.hyprland.settings = {
         bind = optionals cfg.setAsDefaultFileManager [
-          "SUPER_ALT, F, exec, uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}"
+          "Super&Alt, F, exec, uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}"
         ];
         exec-once = optionals cfg.autostart [
           "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}"

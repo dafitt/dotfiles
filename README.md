@@ -258,140 +258,140 @@ nixos-rebuild --flake .#[<host>] repl
 
 ### [Hyprkeys](https://github.com/hyprland-community/Hyprkeys)
 
-<kbd>SUPER_CONTROL</kbd> - System and Hyprland control \
-<kbd>SUPER</kbd> - Window control \
-<kbd>SUPER_ALT</kbd> - Applications \
-<kbd>SHIFT</kbd> - reverse, grab, move
+<kbd>Super&Control</kbd> - System and Hyprland control \
+<kbd>Super</kbd> - Window control \
+<kbd>Super&Alt</kbd> - Applications \
+<kbd>Shift</kbd> - reverse, grab, move
 
 <details><summary>keybind table</summary>
 
 | Keybind                              | Dispatcher                     | Command                                                                                                     |
 | ------------------------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------- |
-| <kbd>SUPER_ALT B</kbd>               | exec                           | pypr toggle bluetooth                                                                                       |
-| <kbd>SUPER_ALT W</kbd>               | exec                           | firefox                                                                                                     |
-| <kbd>SUPER_ALT P</kbd>               | exec                           | pypr toggle btop                                                                                            |
-| <kbd>SUPER_ALT E</kbd>               | exec                           | micro                                                                                                       |
-| <kbd>SUPER_ALT F</kbd>               | exec                           | nautilus                                                                                                    |
+| <kbd>Super&Alt B</kbd>               | exec                           | pypr toggle bluetooth                                                                                       |
+| <kbd>Super&Alt W</kbd>               | exec                           | firefox                                                                                                     |
+| <kbd>Super&Alt P</kbd>               | exec                           | pypr toggle btop                                                                                            |
+| <kbd>Super&Alt E</kbd>               | exec                           | micro                                                                                                       |
+| <kbd>Super&Alt F</kbd>               | exec                           | nautilus                                                                                                    |
 | <kbd>XF86Calculator</kbd>            | exec                           | gnome-calculator                                                                                            |
-| <kbd>SUPER_CONTROL Q</kbd>           | exit                           |                                                                                                             |
-| <kbd>SUPER_CONTROL R</kbd>           | exec                           | hyprctl reload; forcerendererreload                                                                         |
-| <kbd>SUPER_CONTROL ADIAERESIS</kbd>  | exec                           | poweroff                                                                                                    |
-| <kbd>SUPER_CONTROL ODIAERESIS</kbd>  | exec                           | poweroff --reboot                                                                                           |
-| <kbd>SUPER UDIAERESIS</kbd>          | exec                           | systemctl suspend                                                                                           |
-| <kbd>SUPER DELETE</kbd>              | exec                           | hyprctl kill                                                                                                |
-| <kbd>SUPER X</kbd>                   | killactive                     |                                                                                                             |
-| <kbd>SUPER_SHIFT X</kbd>             | forcekillactive                |                                                                                                             |
-| <kbd>SUPER P</kbd>                   | pseudo                         |                                                                                                             |
-| <kbd>SUPER R</kbd>                   | togglesplit                    |                                                                                                             |
-| <kbd>SUPER H</kbd>                   | swapnext                       |                                                                                                             |
-| <kbd>SUPER_SHIFT H</kbd>             | swapnext                       | prev                                                                                                        |
-| <kbd>SUPER F</kbd>                   | fullscreen                     |                                                                                                             |
-| <kbd>SUPER A</kbd>                   | fullscreen                     | 1                                                                                                           |
-| <kbd>SUPER V</kbd>                   | togglefloating                 |                                                                                                             |
-| <kbd>SUPER Z</kbd>                   | alterzorder                    | top                                                                                                         |
-| <kbd>SUPER_SHIFT Z</kbd>             | alterzorder                    | bottom                                                                                                      |
-| <kbd>SUPER B</kbd>                   | pin                            |                                                                                                             |
-| <kbd>SUPER left</kbd>                | movefocus                      | l                                                                                                           |
-| <kbd>SUPER right</kbd>               | movefocus                      | r                                                                                                           |
-| <kbd>SUPER up</kbd>                  | movefocus                      | u                                                                                                           |
-| <kbd>SUPER down</kbd>                | movefocus                      | d                                                                                                           |
-| <kbd>SUPER Tab</kbd>                 | cyclenext                      |                                                                                                             |
-| <kbd>SUPER Tab</kbd>                 | cyclenext                      | prev                                                                                                        |
-| <kbd>SUPER_SHIFT left</kbd>          | swapwindow                     | l                                                                                                           |
-| <kbd>SUPER_SHIFT right</kbd>         | swapwindow                     | r                                                                                                           |
-| <kbd>SUPER_SHIFT up</kbd>            | swapwindow                     | u                                                                                                           |
-| <kbd>SUPER_SHIFT down</kbd>          | swapwindow                     | d                                                                                                           |
-| <kbd>SUPER_SHIFT Tab</kbd>           | swapnext                       |                                                                                                             |
-| <kbd>SUPER_ALT plus</kbd>            | resizeactive                   | 100 0                                                                                                       |
-| <kbd>SUPER_ALT minus</kbd>           | resizeactive                   | -100 0                                                                                                      |
-| <kbd>SUPER_ALT right</kbd>           | resizeactive                   | 100 0                                                                                                       |
-| <kbd>SUPER_ALT left</kbd>            | resizeactive                   | -100 0                                                                                                      |
-| <kbd>SUPER_ALT down</kbd>            | resizeactive                   | 0 100                                                                                                       |
-| <kbd>SUPER_ALT up</kbd>              | resizeactive                   | 0 -100                                                                                                      |
-| <kbd>SUPER_CONTROL G</kbd>           | togglegroup                    |                                                                                                             |
-| <kbd>SUPER G</kbd>                   | changegroupactive              | f                                                                                                           |
-| <kbd>SUPER_SHIFT G</kbd>             | changegroupactive              | f                                                                                                           |
-| <kbd>SUPER_SHIFT_CONTROL left</kbd>  | movewindoworgroup              | l                                                                                                           |
-| <kbd>SUPER_SHIFT_CONTROL right</kbd> | movewindoworgroup              | r                                                                                                           |
-| <kbd>SUPER_SHIFT_CONTROL up</kbd>    | movewindoworgroup              | u                                                                                                           |
-| <kbd>SUPER_SHIFT_CONTROL down</kbd>  | movewindoworgroup              | d                                                                                                           |
-| <kbd>SUPER 1</kbd>                   | focusworkspaceoncurrentmonitor | 1                                                                                                           |
-| <kbd>SUPER 2</kbd>                   | focusworkspaceoncurrentmonitor | 2                                                                                                           |
-| <kbd>SUPER 3</kbd>                   | focusworkspaceoncurrentmonitor | 3                                                                                                           |
-| <kbd>SUPER 4</kbd>                   | focusworkspaceoncurrentmonitor | 4                                                                                                           |
-| <kbd>SUPER 5</kbd>                   | focusworkspaceoncurrentmonitor | 5                                                                                                           |
-| <kbd>SUPER 6</kbd>                   | focusworkspaceoncurrentmonitor | 6                                                                                                           |
-| <kbd>SUPER 7</kbd>                   | focusworkspaceoncurrentmonitor | 7                                                                                                           |
-| <kbd>SUPER 8</kbd>                   | focusworkspaceoncurrentmonitor | 8                                                                                                           |
-| <kbd>SUPER 9</kbd>                   | focusworkspaceoncurrentmonitor | 9                                                                                                           |
-| <kbd>SUPER 0</kbd>                   | focusworkspaceoncurrentmonitor | 10                                                                                                          |
-| <kbd>SUPER D</kbd>                   | focusworkspaceoncurrentmonitor | name:D                                                                                                      |
-| <kbd>SUPER code:87</kbd>             | focusworkspaceoncurrentmonitor | 1                                                                                                           |
-| <kbd>SUPER code:88</kbd>             | focusworkspaceoncurrentmonitor | 2                                                                                                           |
-| <kbd>SUPER code:89</kbd>             | focusworkspaceoncurrentmonitor | 3                                                                                                           |
-| <kbd>SUPER code:83</kbd>             | focusworkspaceoncurrentmonitor | 4                                                                                                           |
-| <kbd>SUPER code:84</kbd>             | focusworkspaceoncurrentmonitor | 5                                                                                                           |
-| <kbd>SUPER code:85</kbd>             | focusworkspaceoncurrentmonitor | 6                                                                                                           |
-| <kbd>SUPER code:79</kbd>             | focusworkspaceoncurrentmonitor | 7                                                                                                           |
-| <kbd>SUPER code:80</kbd>             | focusworkspaceoncurrentmonitor | 8                                                                                                           |
-| <kbd>SUPER code:81</kbd>             | focusworkspaceoncurrentmonitor | 9                                                                                                           |
-| <kbd>SUPER code:91</kbd>             | focusworkspaceoncurrentmonitor | 10                                                                                                          |
-| <kbd>SUPER code:86</kbd>             | focusworkspaceoncurrentmonitor | +1                                                                                                          |
-| <kbd>SUPER code:82</kbd>             | focusworkspaceoncurrentmonitor | -1                                                                                                          |
-| <kbd>SUPER backspace</kbd>           | focusworkspaceoncurrentmonitor | previous                                                                                                    |
-| <kbd>SUPER mouse_down</kbd>          | focusworkspaceoncurrentmonitor | -1                                                                                                          |
-| <kbd>SUPER mouse_up</kbd>            | focusworkspaceoncurrentmonitor | +1                                                                                                          |
-| <kbd>SUPER_SHIFT 1</kbd>             | movetoworkspacesilent          | 1                                                                                                           |
-| <kbd>SUPER_SHIFT 2</kbd>             | movetoworkspacesilent          | 2                                                                                                           |
-| <kbd>SUPER_SHIFT 3</kbd>             | movetoworkspacesilent          | 3                                                                                                           |
-| <kbd>SUPER_SHIFT 4</kbd>             | movetoworkspacesilent          | 4                                                                                                           |
-| <kbd>SUPER_SHIFT 5</kbd>             | movetoworkspacesilent          | 5                                                                                                           |
-| <kbd>SUPER_SHIFT 6</kbd>             | movetoworkspacesilent          | 6                                                                                                           |
-| <kbd>SUPER_SHIFT 7</kbd>             | movetoworkspacesilent          | 7                                                                                                           |
-| <kbd>SUPER_SHIFT 8</kbd>             | movetoworkspacesilent          | 8                                                                                                           |
-| <kbd>SUPER_SHIFT 9</kbd>             | movetoworkspacesilent          | 9                                                                                                           |
-| <kbd>SUPER_SHIFT 0</kbd>             | movetoworkspacesilent          | 10                                                                                                          |
-| <kbd>SUPER_SHIFT code:87</kbd>       | movetoworkspacesilent          | 1                                                                                                           |
-| <kbd>SUPER_SHIFT code:88</kbd>       | movetoworkspacesilent          | 2                                                                                                           |
-| <kbd>SUPER_SHIFT code:89</kbd>       | movetoworkspacesilent          | 3                                                                                                           |
-| <kbd>SUPER_SHIFT code:83</kbd>       | movetoworkspacesilent          | 4                                                                                                           |
-| <kbd>SUPER_SHIFT code:84</kbd>       | movetoworkspacesilent          | 5                                                                                                           |
-| <kbd>SUPER_SHIFT code:85</kbd>       | movetoworkspacesilent          | 6                                                                                                           |
-| <kbd>SUPER_SHIFT code:79</kbd>       | movetoworkspacesilent          | 7                                                                                                           |
-| <kbd>SUPER_SHIFT code:80</kbd>       | movetoworkspacesilent          | 8                                                                                                           |
-| <kbd>SUPER_SHIFT code:81</kbd>       | movetoworkspacesilent          | 9                                                                                                           |
-| <kbd>SUPER_SHIFT code:91</kbd>       | movetoworkspacesilent          | 10                                                                                                          |
-| <kbd>SUPER_SHIFT code:86</kbd>       | movetoworkspacesilent          | +1                                                                                                          |
-| <kbd>SUPER_SHIFT code:82</kbd>       | movetoworkspacesilent          | -1                                                                                                          |
-| <kbd>SUPER_CTRL left</kbd>           | movecurrentworkspacetomonitor  | l                                                                                                           |
-| <kbd>SUPER_CTRL right</kbd>          | movecurrentworkspacetomonitor  | r                                                                                                           |
-| <kbd>SUPER_CTRL up</kbd>             | movecurrentworkspacetomonitor  | u                                                                                                           |
-| <kbd>SUPER_CTRL down</kbd>           | movecurrentworkspacetomonitor  | d                                                                                                           |
-| <kbd>SUPER_ALT U</kbd>               | exec                           | gnome-characters                                                                                            |
-| <kbd>SUPER_ALT K</kbd>               | exec                           | wl-copy                                                                                                     |
+| <kbd>Super&Control Q</kbd>           | exit                           |                                                                                                             |
+| <kbd>Super&Control R</kbd>           | exec                           | hyprctl reload; forcerendererreload                                                                         |
+| <kbd>Super&Control ADIAERESIS</kbd>  | exec                           | poweroff                                                                                                    |
+| <kbd>Super&Control ODIAERESIS</kbd>  | exec                           | poweroff --reboot                                                                                           |
+| <kbd>Super UDIAERESIS</kbd>          | exec                           | systemctl suspend                                                                                           |
+| <kbd>Super DELETE</kbd>              | exec                           | hyprctl kill                                                                                                |
+| <kbd>Super X</kbd>                   | killactive                     |                                                                                                             |
+| <kbd>Super&Shift X</kbd>             | forcekillactive                |                                                                                                             |
+| <kbd>Super P</kbd>                   | pseudo                         |                                                                                                             |
+| <kbd>Super R</kbd>                   | togglesplit                    |                                                                                                             |
+| <kbd>Super H</kbd>                   | swapnext                       |                                                                                                             |
+| <kbd>Super&Shift H</kbd>             | swapnext                       | prev                                                                                                        |
+| <kbd>Super F</kbd>                   | fullscreen                     |                                                                                                             |
+| <kbd>Super A</kbd>                   | fullscreen                     | 1                                                                                                           |
+| <kbd>Super V</kbd>                   | togglefloating                 |                                                                                                             |
+| <kbd>Super Z</kbd>                   | alterzorder                    | top                                                                                                         |
+| <kbd>Super&Shift Z</kbd>             | alterzorder                    | bottom                                                                                                      |
+| <kbd>Super B</kbd>                   | pin                            |                                                                                                             |
+| <kbd>Super left</kbd>                | movefocus                      | l                                                                                                           |
+| <kbd>Super right</kbd>               | movefocus                      | r                                                                                                           |
+| <kbd>Super up</kbd>                  | movefocus                      | u                                                                                                           |
+| <kbd>Super down</kbd>                | movefocus                      | d                                                                                                           |
+| <kbd>Super Tab</kbd>                 | cyclenext                      |                                                                                                             |
+| <kbd>Super Tab</kbd>                 | cyclenext                      | prev                                                                                                        |
+| <kbd>Super&Shift left</kbd>          | swapwindow                     | l                                                                                                           |
+| <kbd>Super&Shift right</kbd>         | swapwindow                     | r                                                                                                           |
+| <kbd>Super&Shift up</kbd>            | swapwindow                     | u                                                                                                           |
+| <kbd>Super&Shift down</kbd>          | swapwindow                     | d                                                                                                           |
+| <kbd>Super&Shift Tab</kbd>           | swapnext                       |                                                                                                             |
+| <kbd>Super&Alt plus</kbd>            | resizeactive                   | 100 0                                                                                                       |
+| <kbd>Super&Alt minus</kbd>           | resizeactive                   | -100 0                                                                                                      |
+| <kbd>Super&Alt right</kbd>           | resizeactive                   | 100 0                                                                                                       |
+| <kbd>Super&Alt left</kbd>            | resizeactive                   | -100 0                                                                                                      |
+| <kbd>Super&Alt down</kbd>            | resizeactive                   | 0 100                                                                                                       |
+| <kbd>Super&Alt up</kbd>              | resizeactive                   | 0 -100                                                                                                      |
+| <kbd>Super&Control G</kbd>           | togglegroup                    |                                                                                                             |
+| <kbd>Super G</kbd>                   | changegroupactive              | f                                                                                                           |
+| <kbd>Super&Shift G</kbd>             | changegroupactive              | f                                                                                                           |
+| <kbd>Super&Shift&Control left</kbd>  | movewindoworgroup              | l                                                                                                           |
+| <kbd>Super&Shift&Control right</kbd> | movewindoworgroup              | r                                                                                                           |
+| <kbd>Super&Shift&Control up</kbd>    | movewindoworgroup              | u                                                                                                           |
+| <kbd>Super&Shift&Control down</kbd>  | movewindoworgroup              | d                                                                                                           |
+| <kbd>Super 1</kbd>                   | focusworkspaceoncurrentmonitor | 1                                                                                                           |
+| <kbd>Super 2</kbd>                   | focusworkspaceoncurrentmonitor | 2                                                                                                           |
+| <kbd>Super 3</kbd>                   | focusworkspaceoncurrentmonitor | 3                                                                                                           |
+| <kbd>Super 4</kbd>                   | focusworkspaceoncurrentmonitor | 4                                                                                                           |
+| <kbd>Super 5</kbd>                   | focusworkspaceoncurrentmonitor | 5                                                                                                           |
+| <kbd>Super 6</kbd>                   | focusworkspaceoncurrentmonitor | 6                                                                                                           |
+| <kbd>Super 7</kbd>                   | focusworkspaceoncurrentmonitor | 7                                                                                                           |
+| <kbd>Super 8</kbd>                   | focusworkspaceoncurrentmonitor | 8                                                                                                           |
+| <kbd>Super 9</kbd>                   | focusworkspaceoncurrentmonitor | 9                                                                                                           |
+| <kbd>Super 0</kbd>                   | focusworkspaceoncurrentmonitor | 10                                                                                                          |
+| <kbd>Super D</kbd>                   | focusworkspaceoncurrentmonitor | name:D                                                                                                      |
+| <kbd>Super code:87</kbd>             | focusworkspaceoncurrentmonitor | 1                                                                                                           |
+| <kbd>Super code:88</kbd>             | focusworkspaceoncurrentmonitor | 2                                                                                                           |
+| <kbd>Super code:89</kbd>             | focusworkspaceoncurrentmonitor | 3                                                                                                           |
+| <kbd>Super code:83</kbd>             | focusworkspaceoncurrentmonitor | 4                                                                                                           |
+| <kbd>Super code:84</kbd>             | focusworkspaceoncurrentmonitor | 5                                                                                                           |
+| <kbd>Super code:85</kbd>             | focusworkspaceoncurrentmonitor | 6                                                                                                           |
+| <kbd>Super code:79</kbd>             | focusworkspaceoncurrentmonitor | 7                                                                                                           |
+| <kbd>Super code:80</kbd>             | focusworkspaceoncurrentmonitor | 8                                                                                                           |
+| <kbd>Super code:81</kbd>             | focusworkspaceoncurrentmonitor | 9                                                                                                           |
+| <kbd>Super code:91</kbd>             | focusworkspaceoncurrentmonitor | 10                                                                                                          |
+| <kbd>Super code:86</kbd>             | focusworkspaceoncurrentmonitor | +1                                                                                                          |
+| <kbd>Super code:82</kbd>             | focusworkspaceoncurrentmonitor | -1                                                                                                          |
+| <kbd>Super backspace</kbd>           | focusworkspaceoncurrentmonitor | previous                                                                                                    |
+| <kbd>Super mouse_down</kbd>          | focusworkspaceoncurrentmonitor | -1                                                                                                          |
+| <kbd>Super mouse_up</kbd>            | focusworkspaceoncurrentmonitor | +1                                                                                                          |
+| <kbd>Super&Shift 1</kbd>             | movetoworkspacesilent          | 1                                                                                                           |
+| <kbd>Super&Shift 2</kbd>             | movetoworkspacesilent          | 2                                                                                                           |
+| <kbd>Super&Shift 3</kbd>             | movetoworkspacesilent          | 3                                                                                                           |
+| <kbd>Super&Shift 4</kbd>             | movetoworkspacesilent          | 4                                                                                                           |
+| <kbd>Super&Shift 5</kbd>             | movetoworkspacesilent          | 5                                                                                                           |
+| <kbd>Super&Shift 6</kbd>             | movetoworkspacesilent          | 6                                                                                                           |
+| <kbd>Super&Shift 7</kbd>             | movetoworkspacesilent          | 7                                                                                                           |
+| <kbd>Super&Shift 8</kbd>             | movetoworkspacesilent          | 8                                                                                                           |
+| <kbd>Super&Shift 9</kbd>             | movetoworkspacesilent          | 9                                                                                                           |
+| <kbd>Super&Shift 0</kbd>             | movetoworkspacesilent          | 10                                                                                                          |
+| <kbd>Super&Shift code:87</kbd>       | movetoworkspacesilent          | 1                                                                                                           |
+| <kbd>Super&Shift code:88</kbd>       | movetoworkspacesilent          | 2                                                                                                           |
+| <kbd>Super&Shift code:89</kbd>       | movetoworkspacesilent          | 3                                                                                                           |
+| <kbd>Super&Shift code:83</kbd>       | movetoworkspacesilent          | 4                                                                                                           |
+| <kbd>Super&Shift code:84</kbd>       | movetoworkspacesilent          | 5                                                                                                           |
+| <kbd>Super&Shift code:85</kbd>       | movetoworkspacesilent          | 6                                                                                                           |
+| <kbd>Super&Shift code:79</kbd>       | movetoworkspacesilent          | 7                                                                                                           |
+| <kbd>Super&Shift code:80</kbd>       | movetoworkspacesilent          | 8                                                                                                           |
+| <kbd>Super&Shift code:81</kbd>       | movetoworkspacesilent          | 9                                                                                                           |
+| <kbd>Super&Shift code:91</kbd>       | movetoworkspacesilent          | 10                                                                                                          |
+| <kbd>Super&Shift code:86</kbd>       | movetoworkspacesilent          | +1                                                                                                          |
+| <kbd>Super&Shift code:82</kbd>       | movetoworkspacesilent          | -1                                                                                                          |
+| <kbd>Super&Control left</kbd>           | movecurrentworkspacetomonitor  | l                                                                                                           |
+| <kbd>Super&Control right</kbd>          | movecurrentworkspacetomonitor  | r                                                                                                           |
+| <kbd>Super&Control up</kbd>             | movecurrentworkspacetomonitor  | u                                                                                                           |
+| <kbd>Super&Control down</kbd>           | movecurrentworkspacetomonitor  | d                                                                                                           |
+| <kbd>Super&Alt U</kbd>               | exec                           | gnome-characters                                                                                            |
+| <kbd>Super&Alt K</kbd>               | exec                           | wl-copy                                                                                                     |
 | <kbd>XF86AudioMute</kbd>             | exec                           | wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle                                                                  |
 | <kbd>ALT XF86AudioMute</kbd>         | exec                           | wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle                                                                |
 | <kbd>XF86AudioMicMute</kbd>          | exec                           | wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle                                                                |
 | <kbd>PRINT</kbd>                     | exec                           | grimblast copysave output /home/david/Pictures/Screenshots/$(date +'%F-%T\_%N.png')                         |
-| <kbd>SUPER PRINT</kbd>               | exec                           | grimblast --notify --freeze copysave area /home/david/Pictures/Screenshots/$(date +'%F-%T\_%N.png')         |
+| <kbd>Super PRINT</kbd>               | exec                           | grimblast --notify --freeze copysave area /home/david/Pictures/Screenshots/$(date +'%F-%T\_%N.png')         |
 | <kbd>ALT PRINT</kbd>                 | exec                           | satty --filename - --fullscreen --output-filename /home/david/Pictures/Screenshots/$(date +'%F-%T\_%N.png') |
-| <kbd>SUPER_ALT PRINT</kbd>           | exec                           | satty --filename - --output-filename /home/david/Pictures/Screenshots/$(date +'%F-%T\_%N.png')              |
-| <kbd>SUPER_ALT V</kbd>               | exec                           | wl-copy'                                                                                                    |
-| <kbd>SUPER L</kbd>                   | exec                           | hyprlock                                                                                                    |
-| <kbd>SUPER Z</kbd>                   | exec                           | pypr zoom                                                                                                   |
-| <kbd>SUPER minus</kbd>               | exec                           | pypr zoom --0.5                                                                                             |
-| <kbd>SUPER plus</kbd>                | exec                           | pypr zoom ++0.5                                                                                             |
-| <kbd>SUPER_ALT mouse_down</kbd>      | exec                           | pypr zoom ++0.5                                                                                             |
-| <kbd>SUPER_ALT mouse_up</kbd>        | exec                           | pypr zoom --0.5                                                                                             |
-| <kbd>SUPER_ALT mouse:274</kbd>       | exec                           | pypr zoom                                                                                                   |
-| <kbd>SUPER ODIAERESIS</kbd>          | exec                           | pypr toggle_dpms                                                                                            |
-| <kbd>SUPER Y</kbd>                   | exec                           | pypr toggle_special minimized                                                                               |
-| <kbd>SUPER_SHIFT Y</kbd>             | togglespecialworkspace         | minimized                                                                                                   |
-| <kbd>SUPER W</kbd>                   | exec                           | hyprpanel toggleWindow bar-0                                                                                |
-| <kbd>SUPER SPACE</kbd>               | exec                           | fuzzel                                                                                                      |
-| <kbd>SUPER_ALT N</kbd>               | exec                           | pypr toggle networkmanager                                                                                  |
-| <kbd>SUPER_ALT PERIOD</kbd>          | exec                           | bitwarden                                                                                                   |
-| <kbd>SUPER_ALT A</kbd>               | exec                           | pypr toggle pavucontrol                                                                                     |
+| <kbd>Super&Alt PRINT</kbd>           | exec                           | satty --filename - --output-filename /home/david/Pictures/Screenshots/$(date +'%F-%T\_%N.png')              |
+| <kbd>Super&Alt V</kbd>               | exec                           | wl-copy'                                                                                                    |
+| <kbd>Super L</kbd>                   | exec                           | hyprlock                                                                                                    |
+| <kbd>Super Z</kbd>                   | exec                           | pypr zoom                                                                                                   |
+| <kbd>Super minus</kbd>               | exec                           | pypr zoom --0.5                                                                                             |
+| <kbd>Super plus</kbd>                | exec                           | pypr zoom ++0.5                                                                                             |
+| <kbd>Super&Alt mouse_down</kbd>      | exec                           | pypr zoom ++0.5                                                                                             |
+| <kbd>Super&Alt mouse_up</kbd>        | exec                           | pypr zoom --0.5                                                                                             |
+| <kbd>Super&Alt mouse:274</kbd>       | exec                           | pypr zoom                                                                                                   |
+| <kbd>Super ODIAERESIS</kbd>          | exec                           | pypr toggle_dpms                                                                                            |
+| <kbd>Super Y</kbd>                   | exec                           | pypr toggle_special minimized                                                                               |
+| <kbd>Super&Shift Y</kbd>             | togglespecialworkspace         | minimized                                                                                                   |
+| <kbd>Super W</kbd>                   | exec                           | hyprpanel toggleWindow bar-0                                                                                |
+| <kbd>Super SPACE</kbd>               | exec                           | fuzzel                                                                                                      |
+| <kbd>Super&Alt N</kbd>               | exec                           | pypr toggle networkmanager                                                                                  |
+| <kbd>Super&Alt PERIOD</kbd>          | exec                           | bitwarden                                                                                                   |
+| <kbd>Super&Alt A</kbd>               | exec                           | pypr toggle pavucontrol                                                                                     |
 | <kbd>XF86AudioPlay</kbd>             | exec                           | playerctl play-pause                                                                                        |
 | <kbd>XF86AudioPause</kbd>            | exec                           | playerctl play-pause                                                                                        |
 | <kbd>XF86AudioStop</kbd>             | exec                           | playerctl stop                                                                                              |
@@ -402,10 +402,10 @@ nixos-rebuild --flake .#[<host>] repl
 | <kbd>ALT XF86AudioNext</kbd>         | exec                           | playerctld shift                                                                                            |
 | <kbd>ALT XF86AudioPrev</kbd>         | exec                           | playerctld unshift                                                                                          |
 | <kbd>ALT XF86AudioPlay</kbd>         | exec                           | systemctl --user restart playerctld                                                                         |
-| <kbd>SUPER_ALT Z</kbd>               | exec                           | xdg-open https://localhost:8384                                                                             |
-| <kbd>SUPER RETURN</kbd>              | exec                           | kitty                                                                                                       |
-| <kbd>SUPER_ALT T</kbd>               | exec                           | pypr toggle kitty                                                                                           |
-| <kbd>SUPER_ALT G</kbd>               | exec                           | codium                                                                                                      |
+| <kbd>Super&Alt Z</kbd>               | exec                           | xdg-open https://localhost:8384                                                                             |
+| <kbd>Super RETURN</kbd>              | exec                           | kitty                                                                                                       |
+| <kbd>Super&Alt T</kbd>               | exec                           | pypr toggle kitty                                                                                           |
+| <kbd>Super&Alt G</kbd>               | exec                           | codium                                                                                                      |
 | <kbd>XF86AudioRaiseVolume</kbd>      | exec                           | wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2.5%+                                                        |
 | <kbd>XF86AudioLowerVolume</kbd>      | exec                           | wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2.5%-                                                        |
 | <kbd>ALT XF86AudioRaiseVolume</kbd>  | exec                           | wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 2.5%+                                                      |
@@ -414,8 +414,8 @@ nixos-rebuild --flake .#[<host>] repl
 | <kbd>XF86KbdBrightnessDown</kbd>     | exec                           | light -s sysfs/leds/kbd_backlight -U 10                                                                     |
 | <kbd>XF86MonBrightnessUp</kbd>       | exec                           | light -U 5                                                                                                  |
 | <kbd>XF86MonBrightnessDown</kbd>     | exec                           | light -A 5                                                                                                  |
-| <kbd>SUPER mouse:272</kbd>           | movewindow                     |                                                                                                             |
-| <kbd>SUPER mouse:273</kbd>           | resizewindow                   |                                                                                                             |
+| <kbd>Super mouse:272</kbd>           | movewindow                     |                                                                                                             |
+| <kbd>Super mouse:273</kbd>           | resizewindow                   |                                                                                                             |
 | <kbd>Escape</kbd>                    | exec                           | pypr hide '\*'                                                                                              |
 
 </details>

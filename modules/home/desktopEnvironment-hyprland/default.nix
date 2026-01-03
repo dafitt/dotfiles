@@ -210,51 +210,51 @@ in
               # https://wiki.hypr.land/Configuring/Binds/
               # https://wiki.hypr.land/Configuring/Dispatchers/
 
-              "SUPER_CONTROL, Q, exec, hyprctl dispatch exit" # Exit Hyprland all together
-              "SUPER_CONTROL, R, exec, hyprctl reload; forcerendererreload"
-              "SUPER_CONTROL, ADIAERESIS, exec, ${systemd}/bin/systemctl poweroff" # quick-poweroff
-              "SUPER_CONTROL, ODIAERESIS, exec, ${systemd}/bin/systemctl reboot" # quick-reboot
-              "SUPER, UDIAERESIS, exec, ${systemd}/bin/systemctl sleep" # quick-sleep
-              "SUPER, ODIAERESIS, exec, sleep 0.5 && hyprctl dispatch dpms off" # screen off
+              "Super&Control, Q, exec, hyprctl dispatch exit" # Exit Hyprland all together
+              "Super&Control, R, exec, hyprctl reload; forcerendererreload"
+              "Super&Control, ADIAERESIS, exec, ${systemd}/bin/systemctl poweroff" # quick-poweroff
+              "Super&Control, ODIAERESIS, exec, ${systemd}/bin/systemctl reboot" # quick-reboot
+              "Super, UDIAERESIS, exec, ${systemd}/bin/systemctl sleep" # quick-sleep
+              "Super, ODIAERESIS, exec, sleep 0.5 && hyprctl dispatch dpms off" # screen off
 
               # Window control
-              "SUPER, DELETE, exec, hyprctl kill" # kill a window by clicking it
-              "SUPER, X, killactive," # close the active window
-              "SUPER_SHIFT, X, forcekillactive," # kill the active window
-              "SUPER, P, pseudo," # dwindle
-              "SUPER, R, togglesplit," # dwindle
-              "SUPER, H, swapnext,"
-              "SUPER_SHIFT, H, swapnext, prev"
-              "SUPER, F, fullscreen,"
-              "SUPER, A, fullscreen, 1" # maximize only
-              "SUPER, V, togglefloating," # Allow a window to float
-              "SUPER, Z, alterzorder, top" # floating only
-              "SUPER_SHIFT, Z, alterzorder, bottom" # floating only
-              "SUPER, B, pin," # floating only
-              "SUPER, LEFT, movefocus, l"
-              "SUPER, RIGHT, movefocus, r"
-              "SUPER, UP, movefocus, u"
-              "SUPER, DOWN, movefocus, d"
-              "SUPER, Tab, cyclenext,"
-              "SUPER_SHIFT, LEFT, swapwindow, l"
-              "SUPER_SHIFT, RIGHT, swapwindow, r"
-              "SUPER_SHIFT, UP, swapwindow, u"
-              "SUPER_SHIFT, DOWN, swapwindow, d"
-              "SUPER_SHIFT, Tab, swapnext,"
-              "SUPER_ALT, PLUS, resizeactive, 100 0"
-              "SUPER_ALT, MINUS, resizeactive, -100 0"
-              "SUPER_ALT, RIGHT, resizeactive, 100 0"
-              "SUPER_ALT, LEFT, resizeactive, -100 0"
-              "SUPER_ALT, DOWN, resizeactive, 0 100"
-              "SUPER_ALT, UP, resizeactive, 0 -100"
+              "Super, DELETE, exec, hyprctl kill" # kill a window by clicking it
+              "Super, X, killactive," # close the active window
+              "Super&Shift, X, forcekillactive," # kill the active window
+              "Super, P, pseudo," # dwindle
+              "Super, R, togglesplit," # dwindle
+              "Super, H, swapnext,"
+              "Super&Shift, H, swapnext, prev"
+              "Super, F, fullscreen,"
+              "Super, A, fullscreen, 1" # maximize only
+              "Super, V, togglefloating," # Allow a window to float
+              "Super, Z, alterzorder, top" # floating only
+              "Super&Shift, Z, alterzorder, bottom" # floating only
+              "Super, B, pin," # floating only
+              "Super, LEFT, movefocus, l"
+              "Super, RIGHT, movefocus, r"
+              "Super, UP, movefocus, u"
+              "Super, DOWN, movefocus, d"
+              "Super, Tab, cyclenext,"
+              "Super&Shift, LEFT, swapwindow, l"
+              "Super&Shift, RIGHT, swapwindow, r"
+              "Super&Shift, UP, swapwindow, u"
+              "Super&Shift, DOWN, swapwindow, d"
+              "Super&Shift, Tab, swapnext,"
+              "Super&Alt, PLUS, resizeactive, 100 0"
+              "Super&Alt, MINUS, resizeactive, -100 0"
+              "Super&Alt, RIGHT, resizeactive, 100 0"
+              "Super&Alt, LEFT, resizeactive, -100 0"
+              "Super&Alt, DOWN, resizeactive, 0 100"
+              "Super&Alt, UP, resizeactive, 0 -100"
               # Window groups
-              "SUPER_CONTROL, G, togglegroup,"
-              "SUPER, G, changegroupactive, f"
-              "SUPER_SHIFT, G, changegroupactive, f"
-              "SUPER_SHIFT_CONTROL, LEFT, movewindoworgroup, l"
-              "SUPER_SHIFT_CONTROL, RIGHT, movewindoworgroup, r"
-              "SUPER_SHIFT_CONTROL, UP, movewindoworgroup, u"
-              "SUPER_SHIFT_CONTROL, DOWN, movewindoworgroup, d"
+              "Super&Control, G, togglegroup,"
+              "Super, G, changegroupactive, f"
+              "Super&Shift, G, changegroupactive, f"
+              "Super&Shift&Control, LEFT, movewindoworgroup, l"
+              "Super&Shift&Control, RIGHT, movewindoworgroup, r"
+              "Super&Shift&Control, UP, movewindoworgroup, u"
+              "Super&Shift&Control, DOWN, movewindoworgroup, d"
             ]
             ++
               optionals
@@ -266,89 +266,89 @@ in
                 )
                 [
                   # Workspace control
-                  "SUPER, 1, focusworkspaceoncurrentmonitor, 1"
-                  "SUPER, 2, focusworkspaceoncurrentmonitor, 2"
-                  "SUPER, 3, focusworkspaceoncurrentmonitor, 3"
-                  "SUPER, 4, focusworkspaceoncurrentmonitor, 4"
-                  "SUPER, 5, focusworkspaceoncurrentmonitor, 5"
-                  "SUPER, 6, focusworkspaceoncurrentmonitor, 6"
-                  "SUPER, 7, focusworkspaceoncurrentmonitor, 7"
-                  "SUPER, 8, focusworkspaceoncurrentmonitor, 8"
-                  "SUPER, 9, focusworkspaceoncurrentmonitor, 9"
-                  "SUPER, 0, focusworkspaceoncurrentmonitor, 10"
-                  "SUPER, D, focusworkspaceoncurrentmonitor, name:D" # desktop only
-                  "SUPER, code:87, focusworkspaceoncurrentmonitor, 1" # Numpad
-                  "SUPER, code:88, focusworkspaceoncurrentmonitor, 2" # Numpad
-                  "SUPER, code:89, focusworkspaceoncurrentmonitor, 3" # Numpad
-                  "SUPER, code:83, focusworkspaceoncurrentmonitor, 4" # Numpad
-                  "SUPER, code:84, focusworkspaceoncurrentmonitor, 5" # Numpad
-                  "SUPER, code:85, focusworkspaceoncurrentmonitor, 6" # Numpad
-                  "SUPER, code:79, focusworkspaceoncurrentmonitor, 7" # Numpad
-                  "SUPER, code:80, focusworkspaceoncurrentmonitor, 8" # Numpad
-                  "SUPER, code:81, focusworkspaceoncurrentmonitor, 9" # Numpad
-                  "SUPER, code:91, focusworkspaceoncurrentmonitor, 10" # Numpad
-                  "SUPER, code:86, focusworkspaceoncurrentmonitor, +1" # Numpad +
-                  "SUPER, code:82, focusworkspaceoncurrentmonitor, -1" # Numpad -
-                  "SUPER, backspace, focusworkspaceoncurrentmonitor, previous"
-                  "SUPER, mouse_DOWN, focusworkspaceoncurrentmonitor, -1"
-                  "SUPER, mouse_UP, focusworkspaceoncurrentmonitor, +1"
+                  "Super, 1, focusworkspaceoncurrentmonitor, 1"
+                  "Super, 2, focusworkspaceoncurrentmonitor, 2"
+                  "Super, 3, focusworkspaceoncurrentmonitor, 3"
+                  "Super, 4, focusworkspaceoncurrentmonitor, 4"
+                  "Super, 5, focusworkspaceoncurrentmonitor, 5"
+                  "Super, 6, focusworkspaceoncurrentmonitor, 6"
+                  "Super, 7, focusworkspaceoncurrentmonitor, 7"
+                  "Super, 8, focusworkspaceoncurrentmonitor, 8"
+                  "Super, 9, focusworkspaceoncurrentmonitor, 9"
+                  "Super, 0, focusworkspaceoncurrentmonitor, 10"
+                  "Super, D, focusworkspaceoncurrentmonitor, name:D" # desktop only
+                  "Super, code:87, focusworkspaceoncurrentmonitor, 1" # Numpad
+                  "Super, code:88, focusworkspaceoncurrentmonitor, 2" # Numpad
+                  "Super, code:89, focusworkspaceoncurrentmonitor, 3" # Numpad
+                  "Super, code:83, focusworkspaceoncurrentmonitor, 4" # Numpad
+                  "Super, code:84, focusworkspaceoncurrentmonitor, 5" # Numpad
+                  "Super, code:85, focusworkspaceoncurrentmonitor, 6" # Numpad
+                  "Super, code:79, focusworkspaceoncurrentmonitor, 7" # Numpad
+                  "Super, code:80, focusworkspaceoncurrentmonitor, 8" # Numpad
+                  "Super, code:81, focusworkspaceoncurrentmonitor, 9" # Numpad
+                  "Super, code:91, focusworkspaceoncurrentmonitor, 10" # Numpad
+                  "Super, code:86, focusworkspaceoncurrentmonitor, +1" # Numpad +
+                  "Super, code:82, focusworkspaceoncurrentmonitor, -1" # Numpad -
+                  "Super, backspace, focusworkspaceoncurrentmonitor, previous"
+                  "Super, mouse_DOWN, focusworkspaceoncurrentmonitor, -1"
+                  "Super, mouse_UP, focusworkspaceoncurrentmonitor, +1"
 
                   # Move active window to a workspace
-                  "SUPER_SHIFT, 1, movetoworkspacesilent, 1"
-                  "SUPER_SHIFT, 2, movetoworkspacesilent, 2"
-                  "SUPER_SHIFT, 3, movetoworkspacesilent, 3"
-                  "SUPER_SHIFT, 4, movetoworkspacesilent, 4"
-                  "SUPER_SHIFT, 5, movetoworkspacesilent, 5"
-                  "SUPER_SHIFT, 6, movetoworkspacesilent, 6"
-                  "SUPER_SHIFT, 7, movetoworkspacesilent, 7"
-                  "SUPER_SHIFT, 8, movetoworkspacesilent, 8"
-                  "SUPER_SHIFT, 9, movetoworkspacesilent, 9"
-                  "SUPER_SHIFT, 0, movetoworkspacesilent, 10"
-                  "SUPER_SHIFT, code:87, movetoworkspacesilent, 1" # Numpad
-                  "SUPER_SHIFT, code:88, movetoworkspacesilent, 2" # Numpad
-                  "SUPER_SHIFT, code:89, movetoworkspacesilent, 3" # Numpad
-                  "SUPER_SHIFT, code:83, movetoworkspacesilent, 4" # Numpad
-                  "SUPER_SHIFT, code:84, movetoworkspacesilent, 5" # Numpad
-                  "SUPER_SHIFT, code:85, movetoworkspacesilent, 6" # Numpad
-                  "SUPER_SHIFT, code:79, movetoworkspacesilent, 7" # Numpad
-                  "SUPER_SHIFT, code:80, movetoworkspacesilent, 8" # Numpad
-                  "SUPER_SHIFT, code:81, movetoworkspacesilent, 9" # Numpad
-                  "SUPER_SHIFT, code:91, movetoworkspacesilent, 10" # Numpad
-                  "SUPER_SHIFT, code:86, movetoworkspacesilent, +1" # Numpad +
-                  "SUPER_SHIFT, code:82, movetoworkspacesilent, -1" # Numpad -
+                  "Super&Shift, 1, movetoworkspacesilent, 1"
+                  "Super&Shift, 2, movetoworkspacesilent, 2"
+                  "Super&Shift, 3, movetoworkspacesilent, 3"
+                  "Super&Shift, 4, movetoworkspacesilent, 4"
+                  "Super&Shift, 5, movetoworkspacesilent, 5"
+                  "Super&Shift, 6, movetoworkspacesilent, 6"
+                  "Super&Shift, 7, movetoworkspacesilent, 7"
+                  "Super&Shift, 8, movetoworkspacesilent, 8"
+                  "Super&Shift, 9, movetoworkspacesilent, 9"
+                  "Super&Shift, 0, movetoworkspacesilent, 10"
+                  "Super&Shift, code:87, movetoworkspacesilent, 1" # Numpad
+                  "Super&Shift, code:88, movetoworkspacesilent, 2" # Numpad
+                  "Super&Shift, code:89, movetoworkspacesilent, 3" # Numpad
+                  "Super&Shift, code:83, movetoworkspacesilent, 4" # Numpad
+                  "Super&Shift, code:84, movetoworkspacesilent, 5" # Numpad
+                  "Super&Shift, code:85, movetoworkspacesilent, 6" # Numpad
+                  "Super&Shift, code:79, movetoworkspacesilent, 7" # Numpad
+                  "Super&Shift, code:80, movetoworkspacesilent, 8" # Numpad
+                  "Super&Shift, code:81, movetoworkspacesilent, 9" # Numpad
+                  "Super&Shift, code:91, movetoworkspacesilent, 10" # Numpad
+                  "Super&Shift, code:86, movetoworkspacesilent, +1" # Numpad +
+                  "Super&Shift, code:82, movetoworkspacesilent, -1" # Numpad -
                 ]
             ++ optionals (!cfg.plugins.hyprsplit.enable) [
               # Monitor control
-              "SUPER_CTRL, LEFT, movecurrentworkspacetomonitor, l"
-              "SUPER_CTRL, RIGHT, movecurrentworkspacetomonitor, r"
-              "SUPER_CTRL, UP, movecurrentworkspacetomonitor, u"
-              "SUPER_CTRL, DOWN, movecurrentworkspacetomonitor, d"
+              "Super&Control, LEFT, movecurrentworkspacetomonitor, l"
+              "Super&Control, RIGHT, movecurrentworkspacetomonitor, r"
+              "Super&Control, UP, movecurrentworkspacetomonitor, u"
+              "Super&Control, DOWN, movecurrentworkspacetomonitor, d"
             ]
             ++ [
               # some small helper programs
-              "SUPER_ALT, U, exec, uwsm app -- ${gnome-characters}/bin/gnome-characters"
-              "SUPER_ALT, K, exec, uwsm app -- ${getExe hyprpicker} | ${wl-clipboard-rs}/bin/wl-copy"
-              "SUPER_ALT, SPACE, exec, uwsm app -- ${getExe nwg-drawer} -ovl"
+              "Super&Alt, U, exec, uwsm app -- ${gnome-characters}/bin/gnome-characters"
+              "Super&Alt, K, exec, uwsm app -- ${getExe hyprpicker} | ${wl-clipboard-rs}/bin/wl-copy"
+              "Super&Alt, SPACE, exec, uwsm app -- ${getExe nwg-drawer} -ovl"
 
               # Screenshots
               # quick fullscreen | copy save
               ", PRINT, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} copysave output ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
               # select area | copy save
-              "SUPER, PRINT, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --notify --freeze copysave area ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
+              "Super, PRINT, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --notify --freeze copysave area ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
               # quick fullscreen | edit | save
               "ALT, PRINT, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --notify --freeze --cursor save output - | ${getExe satty} --filename - --fullscreen --output-filename ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
               # select area | edit | save
-              "SUPER_ALT, PRINT, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --freeze save area - | ${getExe satty} --filename - --output-filename ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
+              "Super&Alt, PRINT, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --freeze save area - | ${getExe satty} --filename - --output-filename ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
               # select area | ocr | copy
-              "SUPER, T, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --freeze save area - | ${getExe tesseract} - - -l deu+eng | ${wl-clipboard-rs}/bin/wl-copy"
+              "Super, T, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --freeze save area - | ${getExe tesseract} - - -l deu+eng | ${wl-clipboard-rs}/bin/wl-copy"
               # GRIMBLAST_HIDE_CURSOR=1: https://github.com/Jas-SinghFSU/HyprPanel/issues/832
             ];
 
           # Bind: mouse binds
           bindm = [
             # Move/resize windows with mainMod + LMB/RMB and dragging
-            "SUPER, mouse:272, movewindow"
-            "SUPER, mouse:273, resizewindow"
+            "Super, mouse:272, movewindow"
+            "Super, mouse:273, resizewindow"
           ];
 
           # only on launch

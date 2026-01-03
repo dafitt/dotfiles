@@ -553,7 +553,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.setAsDefaultGditor [
-        "SUPER_ALT, G, exec, uwsm app -- ${getExe config.programs.vscode.package}"
+        "Super&Alt, G, exec, uwsm app -- ${getExe config.programs.vscode.package}"
       ];
       exec-once = mkIf cfg.autostart [
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.vscode.package}"

@@ -30,7 +30,7 @@ in
     # simple cliphist selector
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultClipboardManager [
-        "SUPER_ALT, V, exec, uwsm app -- ${getExe pkgs.kitty} --class=cliphist -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'"
+        "Super&Alt, V, exec, uwsm app -- ${getExe pkgs.kitty} --class=cliphist -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'"
       ];
       windowrule = [
         "noscreenshare, class:(cliphist)"
