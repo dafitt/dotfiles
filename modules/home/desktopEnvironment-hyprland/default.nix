@@ -72,7 +72,7 @@ in
             border_size = 2;
             resize_on_border = true;
             layout = "dwindle";
-            "col.active_border" = mkForce "rgb(${config.lib.stylix.colors.base0A})";
+            "col.active_border" = mkForce "rgb(${config.lib.stylix.colors.base0B})";
           };
           dwindle = {
             # https://wiki.hypr.land/Configuring/Dwindle-Layout/
@@ -184,8 +184,7 @@ in
           cursor = {
             warp_on_change_workspace = 1;
             zoom_rigid = true;
-            hide_on_key_press = true;
-            warp_back_after_non_mouse_input = true;
+            persistent_warps = true;
           };
 
           gestures = {
@@ -195,7 +194,7 @@ in
 
           gesture = [
             # https://wiki.hypr.land/Configuring/Gestures/
-            "3, horizontal, workspace"
+            "3, vertical, workspace"
           ];
 
           binds = {
@@ -249,14 +248,13 @@ in
               "SUPER_ALT, DOWN, resizeactive, 0 100"
               "SUPER_ALT, UP, resizeactive, 0 -100"
               # Window groups
-              "SUPER_CONTROL, G, togglegroUP,"
+              "SUPER_CONTROL, G, togglegroup,"
               "SUPER, G, changegroupactive, f"
               "SUPER_SHIFT, G, changegroupactive, f"
-              "SUPER_SHIFT_CONTROL, LEFT, movewindoworgroUP, l"
-              "SUPER_SHIFT_CONTROL, RIGHT, movewindoworgroUP, r"
-              "SUPER_SHIFT_CONTROL, UP, movewindoworgroUP, u"
-              "SUPER_SHIFT_CONTROL, DOWN, movewindoworgroUP, d"
-
+              "SUPER_SHIFT_CONTROL, LEFT, movewindoworgroup, l"
+              "SUPER_SHIFT_CONTROL, RIGHT, movewindoworgroup, r"
+              "SUPER_SHIFT_CONTROL, UP, movewindoworgroup, u"
+              "SUPER_SHIFT_CONTROL, DOWN, movewindoworgroup, d"
             ]
             ++
               optionals
@@ -318,7 +316,6 @@ in
                   "SUPER_SHIFT, code:91, movetoworkspacesilent, 10" # Numpad
                   "SUPER_SHIFT, code:86, movetoworkspacesilent, +1" # Numpad +
                   "SUPER_SHIFT, code:82, movetoworkspacesilent, -1" # Numpad -
-
                 ]
             ++ optionals (!cfg.plugins.hyprsplit.enable) [
               # Monitor control
@@ -326,7 +323,6 @@ in
               "SUPER_CTRL, RIGHT, movecurrentworkspacetomonitor, r"
               "SUPER_CTRL, UP, movecurrentworkspacetomonitor, u"
               "SUPER_CTRL, DOWN, movecurrentworkspacetomonitor, d"
-
             ]
             ++ [
               # some small helper programs
