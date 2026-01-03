@@ -1,0 +1,3 @@
+{
+  services.wluma.enable = true;
+}

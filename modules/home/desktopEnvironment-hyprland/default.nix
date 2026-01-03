@@ -357,7 +357,6 @@ in
             #"sleep 1 && ${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
             #"${pkgs.systemd}/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
-            "uwsm app -- ${pkgs.wluma}/bin/wluma"
             "uwsm app -- ${pkgs.udiskie}/bin/udiskie --no-automount --tray &"
           ];
 

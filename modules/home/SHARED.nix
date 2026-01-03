@@ -35,6 +35,7 @@ with lib;
       top-btop
       web
       wlsunset
+      wluma
       xdg
     ];
 
