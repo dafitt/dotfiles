@@ -18,6 +18,8 @@ with lib;
 
   config = mkMerge [
     {
+      users.mutableUsers = false; # mutableUsers not really compatible with Impermanence
+
       environment.persistence."/nix/persist" = {
 
         # Basic needed state directories and files
@@ -33,14 +35,6 @@ with lib;
       # They do not need to exist in /nix/persist.
       environment.etc = {
         "machine-id".source = "/nix/persist/etc/machine-id";
-
-        # users and groups
-        "passwd".source = "/nix/persist/etc/passwd";
-        "group".source = "/nix/persist/etc/group";
-        "shadow".source = "/nix/persist/etc/shadow";
-        "gshadow".source = "/nix/persist/etc/gshadow";
-        "subuid".source = "/nix/persist/etc/subuid";
-        "subgid".source = "/nix/persist/etc/subgid";
 
         # machine ssh keys
         "ssh/ssh_host_ed25519_key".source = "/nix/persist/etc/ssh/ssh_host_ed25519_key";

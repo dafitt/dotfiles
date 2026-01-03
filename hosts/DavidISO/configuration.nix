@@ -23,9 +23,6 @@ with lib;
       fwupd
     ];
 
-  users.users.root.initialHashedPassword = mkForce null;
-  users.users.root.initialPassword = "root";
-  users.users."david".initialPassword = "david";
   services.getty.autologinUser = mkForce "david";
 
   # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/cd-dvd/iso-image.nix#L558
