@@ -23,6 +23,11 @@ with lib;
       fwupd
     ];
 
+  users.users.root.initialHashedPassword = mkForce null;
+  users.users.root.initialPassword = "root";
+  users.users."david".initialPassword = "david";
+  services.getty.autologinUser = mkForce "david";
+
   # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/cd-dvd/iso-image.nix#L558
   isoImage = {
     squashfsCompression = "zstd"; # -Xcompression-level 1..22
@@ -41,23 +46,38 @@ with lib;
     (writeScriptBin "help-install" ''
       ${getExe pkgs.glow} - <<'EOF'
 
-      1. Generate a configuration file for your host.
+      0. Internet: Wifi
+
+      ```sh
+      nmcli device wifi list
+      nmcli device wifi connect <SSID> password <PASSWORD>
+      nmcli device status
+      ```
+
+      1. Copy the dotfiles to the current working directory (writeable)
+
+      ```sh
+      cp -r /iso/dotfiles .
+      chmod u+x -R dotfiles/
+      ```
+
+      2. Generate a configuration file for your host.
 
       ```sh
       nixos-generate-config --no-filesystems
-      cp /etc/nixos/hardware-configuration.nix /dotfiles/hosts/<your-configured-host>/hardware-configuration.nix
+      cp /etc/nixos/hardware-configuration.nix dotfiles/hosts/<your-configured-host>/hardware-configuration.nix
       ```
 
-      2. Run either `nixos-install`
+      3. Run either `nixos-install`
 
       ```sh
-      nixos-install --flake /dotfiles#<your-configured-host>
+      nixos-install --flake dotfiles#<your-configured-host>
       ```
 
       Or `disko-install`, if you have configured a disk with disko.
 
       ```sh
-      disko-install --flake /dotfiles#<your-configured-host> [--write-efi-boot-entries]
+      disko-install --flake dotfiles#<your-configured-host> [--write-efi-boot-entries]
       ```
 
       - Add `--disk <disk> /dev/disk/by-id/<your-disk-id>` to the `disko-install` command to override the attribute `disko.devices.disk.<disk>.device`.
