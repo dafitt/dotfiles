@@ -45,7 +45,7 @@
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
-    timeout = 0;
+    timeout = 1;
   };
 
   services.btrfs.autoScrub.enable = true;
