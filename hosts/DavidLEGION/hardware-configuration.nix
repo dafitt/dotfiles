@@ -22,16 +22,6 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/dbab5f10-713f-4ce3-92bd-6cfdb4bfc0f8";
-    fsType = "ext4";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/466D-33E0";
-    fsType = "vfat";
-  };
-
   # Swap & hibernation
   boot.kernel.sysctl = {
     "vm.swappiness" = 10; # reduce swappiness

@@ -11,7 +11,7 @@ with lib;
     disk = {
       "main" = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_2TB_S69ENF0W741037J";
+        device = "/dev/disk/by-id/nvme-Micron_MTFDKBA1T0TFH_2217373922F2";
         content = {
           type = "gpt";
           partitions = {

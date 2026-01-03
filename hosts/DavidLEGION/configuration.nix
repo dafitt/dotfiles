@@ -38,7 +38,7 @@ with lib;
       SHARED
       batteryOptimization
       bluetooth
-      bootloader-systemd-boot
+      bootloader-limine
       desktopEnvironment-gnome
       development
       gaming
