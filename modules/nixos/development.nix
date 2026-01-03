@@ -1,6 +1,9 @@
 { lib, pkgs, ... }:
 with lib;
 {
+  documentation.enable = true;
+  documentation.dev.enable = true;
+
   environment.systemPackages = with pkgs; [
     bashmount # easy mounting
     gparted # graphical disk partitioning tool

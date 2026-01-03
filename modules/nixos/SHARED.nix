@@ -7,6 +7,7 @@
     coreutils
     desktopEnvironment-hyprland
     desktopEnvironment-niri
+    documentation
     flatpak
     fonts
     home-manager
