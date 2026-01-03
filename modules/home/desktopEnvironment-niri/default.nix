@@ -121,8 +121,8 @@ with lib;
         "Mod+Shift+Minus".action.set-window-height = "-10%";
         "Mod+Alt+Right".action.set-column-width = "+10%";
         "Mod+Alt+Left".action.set-column-width = "-10%";
-        "Mod+Alt+Up".action.set-window-height = "+10%";
-        "Mod+Alt+Down".action.set-window-height = "-10%";
+        "Mod+Alt+Up".action.set-window-height = "-10%";
+        "Mod+Alt+Down".action.set-window-height = "+10%";
 
         "Mod+T".action.toggle-column-tabbed-display = { };
         "Mod+Comma".action.consume-or-expel-window-left = { };
