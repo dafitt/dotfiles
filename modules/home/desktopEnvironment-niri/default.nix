@@ -11,6 +11,7 @@ with lib;
     niri.homeModules.niri
     self.homeModules.noctalia
     ../desktopEnvironment-common/keybinds.nix
+    ../desktopEnvironment-common/mustHaves.nix
   ];
 
   home.packages = with pkgs; [

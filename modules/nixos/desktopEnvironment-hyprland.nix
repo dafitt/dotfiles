@@ -1,6 +1,8 @@
-{ lib, pkgs, ... }:
-with lib;
 {
+  imports = [
+    ./desktopEnvironment-mustHaves.nix
+  ];
+
   programs.hyprland = {
     enable = true;
 
@@ -18,32 +20,6 @@ with lib;
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "hyprland-community.cachix.org-1:5dTHY+TjAJjnQs23X+vwMQG4va7j+zmvkTKoYuSXnmE="
     ];
-  };
-
-  # [Must Have's](https://wiki.hypr.land/Useful-Utilities/Must-have/)
-  programs.light.enable = true; # Monitor backlight control
-  services = {
-    gvfs = {
-      enable = true; # userspace virtual filesystem (to be able to browse remote resources)
-      package = pkgs.gvfs;
-    };
-    devmon.enable = true;
-    udisks2 = {
-      enable = true; # to allow applications to query and manipulate storage devices
-      settings = {
-        "udisks2.conf".defaults = {
-          allow = "exec";
-        };
-      };
-    };
-    power-profiles-daemon.enable = mkDefault true;
-    accounts-daemon.enable = true;
-    gnome = {
-      evolution-data-server.enable = true;
-      glib-networking.enable = true;
-      gnome-keyring.enable = true;
-      gnome-online-accounts.enable = true;
-    };
   };
 
   # Allow hyprlock to unlock the screen

@@ -1,4 +1,8 @@
 {
+  imports = [
+    ./desktopEnvironment-mustHaves.nix
+  ];
+
   programs.niri.enable = true;
   programs.uwsm.enable = true;
 
@@ -9,6 +13,4 @@
       binPath = "/run/current-system/sw/bin/niri --session";
     };
   };
-
-  security.soteria.enable = true;
 }
