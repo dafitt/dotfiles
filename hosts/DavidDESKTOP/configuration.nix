@@ -31,6 +31,7 @@
       SHARED
       bluetooth
       bootloader-limine
+      clamav
       development
       gaming
       loginManager-greetd
