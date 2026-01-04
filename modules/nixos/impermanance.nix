@@ -20,6 +20,7 @@ with lib;
     {
       users.mutableUsers = false; # mutableUsers not really compatible with Impermanence
 
+      # https://github.com/nix-community/impermanence?tab=readme-ov-file#module-usage
       environment.persistence."/nix/persist" = {
 
         # Basic needed state directories and files
@@ -53,6 +54,16 @@ with lib;
         {
           directory = "/etc/NetworkManager/system-connections";
           mode = "u=rwx,g=,o=";
+        }
+      ];
+    })
+
+    (mkIf config.services.greetd.enable {
+      environment.persistence."/nix/persist".directories = [
+        {
+          directory = "/var/cache/tuigreet";
+          user = "greeter";
+          group = "greeter";
         }
       ];
     })
