@@ -6,14 +6,14 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.zed-editor;
+  cfg = config.dafitt.gditor-zed-editor;
 in
 {
   imports = with inputs; [
     self.homeModules.stylix
   ];
 
-  options.dafitt.zed-editor = with types; {
+  options.dafitt.gditor-zed-editor = with types; {
     setAsDefaultGditor = mkEnableOption "making it the default gditor";
 
     autostart = mkOption {

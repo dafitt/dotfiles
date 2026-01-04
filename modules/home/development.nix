@@ -19,7 +19,7 @@ with lib;
   ];
 
   dafitt = mkDefault {
-    zed-editor.setAsDefaultGditor = true;
+    gditor-zed-editor.setAsDefaultGditor = true;
   };
 
   home.packages = with pkgs; [
