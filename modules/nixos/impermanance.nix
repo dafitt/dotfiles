@@ -30,18 +30,22 @@ with lib;
           "/var/lib"
           "/var/log/journal"
         ];
+        files = [
+          "/etc/machine-id"
+        ];
       };
-      # Some important /etc files linked this way, because of timing issues of environment.persistence
-      # They do not need to exist in /nix/persist.
-      environment.etc = {
-        "machine-id".source = "/nix/persist/etc/machine-id";
 
-        # machine ssh keys
-        "ssh/ssh_host_ed25519_key".source = "/nix/persist/etc/ssh/ssh_host_ed25519_key";
-        "ssh/ssh_host_ed25519_key.pub".source = "/nix/persist/etc/ssh/ssh_host_ed25519_key.pub";
-        "ssh/ssh_host_rsa_key".source = "/nix/persist/etc/ssh/ssh_host_rsa_key";
-        "ssh/ssh_host_rsa_key.pub".source = "/nix/persist/etc/ssh/ssh_host_rsa_key.pub";
-      };
+      services.openssh.hostKeys = [
+        {
+          path = "/persist/etc/ssh_host_ed25519_key";
+          type = "ed25519";
+        }
+        {
+          path = "/persist/etc/ssh_host_rsa_key";
+          type = "rsa";
+          bits = 4096;
+        }
+      ];
     }
 
     (mkIf config.networking.networkmanager.enable {
