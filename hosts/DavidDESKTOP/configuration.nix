@@ -31,12 +31,12 @@
       SHARED
       bluetooth
       bootloader-limine
-      clamav
       development
       gaming
       loginManager-greetd
       networking-networkmanager
       printing
+      securityScan
       virtualization
     ];
 
