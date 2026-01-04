@@ -26,7 +26,7 @@ This flake can and will radically change as I learn, discover new things and hav
 
 ## Installation
 
-### New host machine - Using the official Installer
+### New machine - Using the official Installer
 
 1. Install [NixOS](https://nixos.org/download/) and enable the nix feature "[flakes](https://wiki.nixos.org/wiki/Flakes#Enabling_flakes)"
 
@@ -72,7 +72,7 @@ This flake can and will radically change as I learn, discover new things and hav
       3. Sidebery
    4. pavucontrol: Set standard audio output
 
-### New home standalone environment
+### New standalone home environment
 
 1. Install [nix](https://nixos.org/download/) and enable the nix feature "[flakes](https://wiki.nixos.org/wiki/Flakes#Other_Distros,_without_Home_Manager)"
 
@@ -109,9 +109,9 @@ This flake can and will radically change as I learn, discover new things and hav
 
    - _NOTE: First install may take some time; especially with flatpaks enabled._
 
-### New host machine - Using the custom ISO
+### New machine - Using the custom ISO
 
-I have configured my own custom installer iso in [hosts/DavidISO](https://github.com/dafitt/dotfiles/blob/main/modules/DavidISO), which can be used to install a new system.
+I have configured my own custom installer iso in [hosts/DavidISO](https://github.com/dafitt/dotfiles/blob/main/modules/DavidISO), which can be used to install a new system. It can also be used to repair a broken existing machine.
 
 1. **Dotfiles preparation**:
 
@@ -133,7 +133,7 @@ I have configured my own custom installer iso in [hosts/DavidISO](https://github
       git add . && git commit -m "hosts/<host>: Added new host"
       ```
 
-2. Build install-iso:
+2. Build install-iso with the current dotfiles:
 
 ```sh
 nix build .#nixosConfigurations.DavidISO.config.formats.install-iso
@@ -147,7 +147,7 @@ dd if=result/<file.iso> of=/dev/<usb>
 
 3. Boot from the ISO (or USB-Stick) on the target system
 
-4. Follow the installation notes on the command `help-install`
+4. Follow the instructions on the command `help-install`
 
 ## Usage
 
