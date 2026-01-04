@@ -71,8 +71,8 @@ in
       bind = [
         # magnify
         "Super, Z, exec, ${pkgs.pyprland}/bin/pypr zoom"
-        "Super, MINUS, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
-        "Super, PLUS, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
+        "Super, Minus, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
+        "Super, Plus, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
         "Super&Alt, mouse_down, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
         "Super&Alt, mouse_up, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
         "Super&Alt, mouse:274, exec, ${pkgs.pyprland}/bin/pypr zoom"

@@ -19,9 +19,9 @@ in
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "Super&Control, ADIAERESIS, exec, ${quickPoweroff}"
-      "Super&Control, ODIAERESIS, exec, ${quickReboot}"
-      "Super, UDIAERESIS, exec, ${quickSleep}"
+      "Super&Control, Adiaeresis, exec, ${quickPoweroff}"
+      "Super&Control, Odiaeresis, exec, ${quickReboot}"
+      "Super, Udiaeresis, exec, ${quickSleep}"
 
       ", XF86AudioMute, exec, ${audioMute}"
       "ALT, XF86AudioMute, exec, ${micMute}"

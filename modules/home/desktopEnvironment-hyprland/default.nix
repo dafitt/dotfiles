@@ -213,10 +213,10 @@ in
 
               "Super&Control, Q, exec, hyprctl dispatch exit" # Exit Hyprland all together
               "Super&Control, R, exec, hyprctl reload; forcerendererreload"
-              "Super, ODIAERESIS, exec, sleep 0.5 && hyprctl dispatch dpms off" # screen off
+              "Super, Odiaeresis, exec, sleep 0.5 && hyprctl dispatch dpms off" # screen off
 
               # Window control
-              "Super, DELETE, exec, hyprctl kill" # kill a window by clicking it
+              "Super, Delete, exec, hyprctl kill" # kill a window by clicking it
               "Super, X, killactive," # close the active window
               "Super&Shift, X, forcekillactive," # kill the active window
               "Super, P, pseudo," # dwindle
@@ -229,30 +229,30 @@ in
               "Super, Z, alterzorder, top" # floating only
               "Super&Shift, Z, alterzorder, bottom" # floating only
               "Super, B, pin," # floating only
-              "Super, LEFT, movefocus, l"
-              "Super, RIGHT, movefocus, r"
-              "Super, UP, movefocus, u"
-              "Super, DOWN, movefocus, d"
+              "Super, Left, movefocus, l"
+              "Super, Right, movefocus, r"
+              "Super, Up, movefocus, u"
+              "Super, Down, movefocus, d"
               "Super, Tab, cyclenext,"
-              "Super&Shift, LEFT, swapwindow, l"
-              "Super&Shift, RIGHT, swapwindow, r"
-              "Super&Shift, UP, swapwindow, u"
-              "Super&Shift, DOWN, swapwindow, d"
+              "Super&Shift, Left, swapwindow, l"
+              "Super&Shift, Right, swapwindow, r"
+              "Super&Shift, Up, swapwindow, u"
+              "Super&Shift, Down, swapwindow, d"
               "Super&Shift, Tab, swapnext,"
-              "Super&Alt, PLUS, resizeactive, 100 0"
-              "Super&Alt, MINUS, resizeactive, -100 0"
-              "Super&Alt, RIGHT, resizeactive, 100 0"
-              "Super&Alt, LEFT, resizeactive, -100 0"
-              "Super&Alt, DOWN, resizeactive, 0 100"
-              "Super&Alt, UP, resizeactive, 0 -100"
+              "Super&Alt, Plus, resizeactive, 100 0"
+              "Super&Alt, Minus, resizeactive, -100 0"
+              "Super&Alt, Right, resizeactive, 100 0"
+              "Super&Alt, Left, resizeactive, -100 0"
+              "Super&Alt, Down, resizeactive, 0 100"
+              "Super&Alt, Up, resizeactive, 0 -100"
               # Window groups
               "Super&Control, G, togglegroup,"
               "Super, G, changegroupactive, f"
               "Super&Shift, G, changegroupactive, f"
-              "Super&Shift&Control, LEFT, movewindoworgroup, l"
-              "Super&Shift&Control, RIGHT, movewindoworgroup, r"
-              "Super&Shift&Control, UP, movewindoworgroup, u"
-              "Super&Shift&Control, DOWN, movewindoworgroup, d"
+              "Super&Shift&Control, Left, movewindoworgroup, l"
+              "Super&Shift&Control, Right, movewindoworgroup, r"
+              "Super&Shift&Control, Up, movewindoworgroup, u"
+              "Super&Shift&Control, Down, movewindoworgroup, d"
             ]
             ++
               optionals
@@ -317,10 +317,10 @@ in
                 ]
             ++ optionals (!cfg.plugins.hyprsplit.enable) [
               # Monitor control
-              "Super&Control, LEFT, movecurrentworkspacetomonitor, l"
-              "Super&Control, RIGHT, movecurrentworkspacetomonitor, r"
-              "Super&Control, UP, movecurrentworkspacetomonitor, u"
-              "Super&Control, DOWN, movecurrentworkspacetomonitor, d"
+              "Super&Control, Left, movecurrentworkspacetomonitor, l"
+              "Super&Control, Right, movecurrentworkspacetomonitor, r"
+              "Super&Control, Up, movecurrentworkspacetomonitor, u"
+              "Super&Control, Down, movecurrentworkspacetomonitor, d"
             ]
             ++ [
               # some small helper programs
