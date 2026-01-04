@@ -50,19 +50,19 @@ with lib;
         complete --command disko --long yes-wipe-all-disks --no-files
         complete --command disko --long root-mountpoint --require-parameter --arguments "/mnt"
         complete --command disko --long mode --short m --require-parameter --no-files --arguments "destroy format mount unmount format,mount destroy,format,mount"
-        complete --command disko --long flake --short f --require-parameter --arguments "${flakePathArguments}"
+        complete --command disko --long flake --require-parameter --arguments "${flakePathArguments}"
 
         complete --command mkdir --arguments "/mnt/nix/persist{/var/log/journal,/var/lib}"
         complete --command mount --arguments "{/mnt/nix/persist,/mnt}/var/log/journal {/mnt/nix/persist,/mnt}/var/lib"
 
         complete --command nixos-install --long help --no-files
         complete --command nixos-install --long no-root-passwd --no-files
-        complete --command nixos-install --long flake --short f --require-parameter --arguments "${flakePathArguments}"
+        complete --command nixos-install --long flake --require-parameter --arguments "${flakePathArguments}"
 
         complete --command disko-install --long help --no-files
         complete --command disko-install --long disk --require-parameter --no-files --arguments "main"
         complete --command disko-install --long write-efi-boot-entries --no-files
-        complete --command disko-install --long flake --short f --require-parameter --arguments "${flakePathArguments}"
+        complete --command disko-install --long flake --require-parameter --arguments "${flakePathArguments}"
       '';
   };
 }
