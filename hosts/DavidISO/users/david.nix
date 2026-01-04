@@ -17,6 +17,12 @@
       web
     ];
 
+  dafitt = {
+    browser-firefox.autostart = false;
+    fileManager-nautilus.autostart = false;
+    gditor-zed-editor.autostart = false;
+  };
+
   programs.fish.completions = {
     nixos-install =
       let
