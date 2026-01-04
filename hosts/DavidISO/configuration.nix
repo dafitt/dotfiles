@@ -41,46 +41,63 @@ with lib;
   environment.systemPackages = with pkgs; [
     disko
     (writeScriptBin "help-install" ''
-      ${getExe pkgs.glow} - <<'EOF'
+      ${getExe pkgs.glow} - << 'EOF'
 
       0. Internet: Wifi
 
-      ```sh
-      nmcli device wifi list
-      nmcli device wifi connect <SSID> password <PASSWORD>
-      nmcli device status
-      ```
+        ```sh
+        nmcli device wifi list
+        nmcli device wifi connect <SSID> password <PASSWORD>
+        nmcli device status
+        ```
 
       1. Copy the dotfiles to the current working directory (writeable)
 
-      ```sh
-      cp -r /iso/dotfiles .
-      chmod u+x -R dotfiles/
-      ```
+        ```sh
+        cp -r /iso/dotfiles .
+        chmod u+x -R dotfiles/
+        ```
 
-      2. Generate a configuration file for your host.
+      2. Add and check machine to the dotfiles
 
-      ```sh
-      nixos-generate-config --no-filesystems
-      cp /etc/nixos/hardware-configuration.nix dotfiles/hosts/<your-configured-host>/hardware-configuration.nix
-      ```
+        _dotfiles/hosts/\<your-host>/configuration.nix_
+        _dotfiles/hosts/\<your-host>/hardware-configuration.nix_
+        _dotfiles/hosts/\<your-host>/disk-configuration.nix_ (optional, only when using disko)
 
-      3. Run either `nixos-install`
+        - Generate a configuration file for your host:
 
-      ```sh
-      nixos-install --flake dotfiles#<your-configured-host>
-      ```
+          ```sh
+          nixos-generate-config --no-filesystems
+          cp /etc/nixos/hardware-configuration.nix dotfiles/hosts/<your-configured-host>/hardware-configuration.nix
+          ```
 
-      Or `disko-install`, if you have configured a disk with disko.
+      3. Installation
 
-      ```sh
-      disko-install --flake dotfiles#<your-configured-host> [--write-efi-boot-entries]
-      ```
+          - Either with `nixos-install`
 
-      - Add `--disk <disk> /dev/disk/by-id/<your-disk-id>` to the `disko-install` command to override the attribute `disko.devices.disk.<disk>.device`.
-      - Add `--mode mount` to the `disko-install` command if you want to repair a system.
+            ```sh
+            sudo disko --mode destroy,format,mount --flake dotfiles#<your-configured-host>
+            sudo mkdir -p /mnt/nix/persist{/var/log/journal,/var/lib}
+            sudo mount -o bind {/mnt/nix/persist,}/var/log/journal
+            sudo mount -o bind {/mnt/nix/persist,}/var/lib
+            sudo nixos-install --no-root-passwd --flake ./dotfiles#<your-configured-host>
+            ```
 
-      <https://github.com/nix-community/disko/blob/master/docs/disko-install.md>
+          - Alternatively with `disko-install`, if you have configured a disk with disko.
+
+            ```sh
+            sudo disko-install --flake dotfiles#<your-configured-host> --disk main /dev/disk/by-id/<your-main-disk-id>
+            ```
+
+              - Add further `--disk <disk> /dev/disk/by-id/<your-disk-id>` to the `disko-install` command to override the attribute `disko.devices.disk.<disk>.device`.
+
+              <https://github.com/nix-community/disko/blob/master/docs/disko-install.md>
+
+      4. (optional) Add flake to host
+
+        ```sh
+        sudo cp -r dotfiles /mnt/home/...
+        ```
 
       EOF
     '')
