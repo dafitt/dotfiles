@@ -59,4 +59,6 @@ with lib;
     timeout = 1;
     systemd-boot.configurationLimit = 5;
   };
+
+  boot.kernel.sysctl."vm.swappiness" = 10; # reduce swappiness
 }

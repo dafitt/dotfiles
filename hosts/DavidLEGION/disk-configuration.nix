@@ -51,6 +51,14 @@ with lib;
                 };
               };
             };
+            "swap" = {
+              size = "38G";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
+                resumeDevice = true;
+              };
+            };
           };
         };
       };
