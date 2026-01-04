@@ -1,6 +1,10 @@
 { lib, pkgs, ... }:
 with lib;
 let
+  quickPoweroff = "${pkgs.systemd}/bin/systemctl poweroff";
+  quickReboot = "${pkgs.systemd}/bin/systemctl reboot";
+  quickSleep = "${pkgs.systemd}/bin/systemctl sleep";
+
   audioMute = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
   audioRaiseVolume = "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2%+";
   audioLowerVolume = "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2%-";
@@ -15,6 +19,10 @@ in
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
+      "Super&Control, ADIAERESIS, exec, ${quickPoweroff}"
+      "Super&Control, ODIAERESIS, exec, ${quickReboot}"
+      "Super, UDIAERESIS, exec, ${quickSleep}"
+
       ", XF86AudioMute, exec, ${audioMute}"
       "ALT, XF86AudioMute, exec, ${micMute}"
       ", XF86AudioMicMute, exec, ${micMute}"
@@ -33,6 +41,10 @@ in
   };
 
   programs.niri.settings.binds = {
+    "Mod+Control+Adiaeresis".action.spawn-sh = quickPoweroff;
+    "Mod+Control+Odiaeresis".action.spawn-sh = quickReboot;
+    "Mod+Udiaeresis".action.spawn-sh = quickSleep;
+
     "XF86AudioMute".action.spawn-sh = audioMute;
     "Alt+XF86AudioMute".action.spawn-sh = micMute;
     "XF86AudioMicMute".action.spawn-sh = micMute;

@@ -212,9 +212,6 @@ in
 
               "Super&Control, Q, exec, hyprctl dispatch exit" # Exit Hyprland all together
               "Super&Control, R, exec, hyprctl reload; forcerendererreload"
-              "Super&Control, ADIAERESIS, exec, ${systemd}/bin/systemctl poweroff" # quick-poweroff
-              "Super&Control, ODIAERESIS, exec, ${systemd}/bin/systemctl reboot" # quick-reboot
-              "Super, UDIAERESIS, exec, ${systemd}/bin/systemctl sleep" # quick-sleep
               "Super, ODIAERESIS, exec, sleep 0.5 && hyprctl dispatch dpms off" # screen off
 
               # Window control

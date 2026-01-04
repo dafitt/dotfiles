@@ -74,9 +74,6 @@ with lib;
 
         "Mod+Control+Q".action.quit.skip-confirmation = true;
         # "Mod+Control+R".action.load-config-file = { };
-        "Mod+Control+Adiaeresis".action.spawn-sh = "${pkgs.systemd}/bin/systemctl poweroff"; # quick-poweroff
-        "Mod+Control+Odiaeresis".action.spawn-sh = "${pkgs.systemd}/bin/systemctl reboot"; # quick-reboot
-        "Mod+Udiaeresis".action.spawn-sh = "${pkgs.systemd}/bin/systemctl sleep"; # quick-sleep
         "Mod+Odiaeresis".action.power-off-monitors = { };
 
         "Mod+X" = {
