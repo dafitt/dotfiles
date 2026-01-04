@@ -18,13 +18,13 @@ This flake can and will radically change as I learn, discover new things and hav
 - 🏗 [github:numtide/blueprint](https://github.com/numtide/blueprint) nix flake❄️ structure
 - 📦 [github:gmodena/nix-flatpak](https://github.com/gmodena/nix-flatpak) declarative flatpaks
 - 🎨 [github:danth/stylix](https://github.com/danth/stylix) theming (modified [catppuccin](https://github.com/catppuccin) 🌿 [Mocha](https://github.com/catppuccin/catppuccin#-palette))
-- 🪟 [Niri](https://github.com/YaLTeR/niri)
-- 🪟 [Hyprland](https://hypr.land/) with plugins
 - 🪟 [GNOME](https://www.gnome.org/) with extensions
+- 🪟 [Hyprland](https://hypr.land/) with plugins
+- 🪟 [Niri](https://github.com/YaLTeR/niri)
 
 ## Installation
 
-### New host machine
+### New host machine - Using the official Installer
 
 1. Install [NixOS](https://nixos.org/download/) and enable the nix feature "[flakes](https://wiki.nixos.org/wiki/Flakes#Enabling_flakes)"
 
@@ -106,6 +106,46 @@ This flake can and will radically change as I learn, discover new things and hav
    3. Check for home-manager errors with `systemctl status home-manager-<user>.service` and resolve them if necessary
 
    - _NOTE: First install may take some time; especially with flatpaks enabled._
+
+### New host machine - Using the custom ISO
+
+I have configured my own custom installer iso in [hosts/DavidISO](https://github.com/dafitt/dotfiles/blob/main/modules/DavidISO), which can be used to install a new system.
+
+1. **Dotfiles preparation**:
+
+   1. `git clone https://github.com/dafitt/dotfiles.git`
+   2. `cd dotfiles`
+   3. Read and understand my dotfiles' structure and code
+
+   4. Add (**your own**) system-configuration to _`hosts/<host>/configuration.nix`_.
+
+      1. Copy and import _`hardware-configuration.nix`_
+
+      2. Set the correct current `system.stateVersion`
+
+   7. Add (**your own**) home-configuration(s) to _`hosts/<host>/users/<user>.nix`_
+
+   8. Commit all changes:
+
+      ```
+      git add . && git commit -m "hosts/<host>: Added new host"
+      ```
+
+2. Build install-iso:
+
+```sh
+nix build .#nixosConfigurations.DavidISO.config.formats.install-iso
+```
+
+- (optional) Flash the result to a USB-Stick
+
+```sh
+dd if=result/<file.iso> of=/dev/<usb>
+```
+
+3. Boot from the ISO (or USB-Stick) on the target system
+
+4. Follow the installation notes on the command `help-install`
 
 ## Configuration
 
