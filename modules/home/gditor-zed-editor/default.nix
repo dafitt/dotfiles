@@ -34,6 +34,10 @@ in
 
       extensions = [
         "charmed-icons"
+        "comment"
+        "git-firefly"
+        "kdl"
+        "nix"
       ];
 
       # https://zed.dev/docs/configuring-zed
