@@ -376,17 +376,14 @@ in
 
       # https://wiki.hypr.land/Configuring/Environment-variables/
       #` export KEY=VAL
-      xdg.configFile."uwsm/env" = {
-        text = '''';
-      };
       xdg.configFile."uwsm/env-hyprland".text =
         let
-          hyprlandEnvList = config.wayland.windowManager.hyprland.settings.env;
-          modifiedHyprlandEnvVars = builtins.map (
+          hyprlandEnvList = config.wayland.windowManager.hyprland.settings.env or [ ];
+          modifiedHyprlandEnvVars = map (
             x: "export ${lib.replaceStrings [ "," "=" ] [ "=" "=" ] x}"
           ) hyprlandEnvList;
         in
-        builtins.concatStringsSep "\n" modifiedHyprlandEnvVars;
+        concatStringsSep "\n" modifiedHyprlandEnvVars;
 
       xdg.configFile."hypr/application-style.conf" = {
         text = config.lib.generators.toHyprconf {
