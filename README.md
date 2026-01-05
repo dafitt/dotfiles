@@ -62,15 +62,6 @@ This flake can and will radically change as I learn, discover new things and hav
 
 4. `reboot`
 
-5. Personal imperative setup:
-
-   1. Configure monitor setup with `nwg-displays` on Hyprland
-   2. [Syncthing](https://localhost:8384/) setup
-   3. firefox: Sync Login
-      1. NoScript
-      2. 1Password
-      3. Sidebery
-   4. pavucontrol: Set standard audio output
 
 ### New standalone home environment
 
@@ -148,6 +139,14 @@ dd if=result/<file.iso> of=/dev/<usb>
 3. Boot from the ISO (or USB-Stick) on the target system
 
 4. Follow the instructions on the command `help-install`
+
+### Post-install imperative setup
+
+- hyprland: Monitor setup with `nwg-displays`
+- VPN
+- [Syncthing](https://localhost:8384/)
+- Account logins
+- pavucontrol: Set standard audio output
 
 ## Usage
 
