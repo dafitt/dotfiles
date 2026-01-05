@@ -32,6 +32,7 @@
       bluetooth
       bootloader-limine
       development
+      diskManagement
       gaming
       loginManager-greetd
       networking-networkmanager

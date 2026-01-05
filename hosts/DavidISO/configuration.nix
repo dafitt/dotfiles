@@ -20,6 +20,7 @@ with lib;
 
       SHARED
       development
+      diskManagement
       fwupd
     ];
 
