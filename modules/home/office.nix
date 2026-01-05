@@ -20,7 +20,6 @@
   ];
 
   services.flatpak.packages = [
-    "com.github.rajsolai.textsnatcher" # Snatch Text with just a Drag
     "com.logseq.Logseq" # Connect your notes and knowledge
     "de.bund.ausweisapp.ausweisapp2" # Official authentication app for German ID card and residence permit
     "md.obsidian.Obsidian" # Markdown-based knowledge base
