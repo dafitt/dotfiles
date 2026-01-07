@@ -43,7 +43,7 @@ with lib;
     browser-firefox.autostart = true;
     browser-firefox.setAsDefaultBrowser = true;
     editor-micro.setAsDefaultEditor = true;
-    fileManager-nautilus.setAsDefaultFileManager = true;
+    fileManager-thunar.setAsDefaultFileManager = true;
     noctalia.setAsDefaultLauncher = true;
     passwordManager-keepassxc.setAsDefaultPasswordManager = true;
     terminal-kitty.setAsDefaultTerminal = true;
