@@ -16,11 +16,8 @@ in
   options.dafitt.gditor-zed-editor = with types; {
     setAsDefaultGditor = mkEnableOption "making it the default gditor";
 
-    autostart = mkOption {
-      type = bool;
-      default = cfg.setAsDefaultGditor;
-      description = "Whether to autostart at user login.";
-    };
+    autostart = mkEnableOption "autostart at user login";
+
     workspace = mkOption {
       type = int;
       default = 2;

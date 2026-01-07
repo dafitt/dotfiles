@@ -12,11 +12,8 @@ in
   options.dafitt.fileManager-yazi = with types; {
     setAsDefaultFileManager = mkEnableOption "making it the default file manager";
 
-    autostart = mkOption {
-      type = bool;
-      default = cfg.setAsDefaultFileManager;
-      description = "Whether to autostart at user login.";
-    };
+    autostart = mkEnableOption "autostart at user login";
+
     workspace = mkOption {
       type = int;
       default = 3;

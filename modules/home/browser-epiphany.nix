@@ -12,11 +12,8 @@ in
   options.dafitt.browser-epiphany = with types; {
     setAsDefaultBrowser = mkEnableOption "making it the default web browser";
 
-    autostart = mkOption {
-      type = bool;
-      default = cfg.setAsDefaultBrowser;
-      description = "Whether to autostart at user login.";
-    };
+    autostart = mkEnableOption "autostart at user login";
+
     workspace = mkOption {
       type = int;
       default = 1;

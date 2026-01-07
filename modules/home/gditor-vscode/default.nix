@@ -18,11 +18,8 @@ in
   options.dafitt.vscode = with types; {
     setAsDefaultGditor = mkEnableOption "making it the default gditor";
 
-    autostart = mkOption {
-      type = types.bool;
-      default = cfg.setAsDefaultGditor;
-      description = "Start vscode on login";
-    };
+    autostart = mkEnableOption "autostart at user login";
+
     workspace = mkOption {
       type = types.int;
       default = 2;

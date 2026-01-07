@@ -13,8 +13,13 @@ in
   options.dafitt.MODULE = with types; {
     setAsDefault = mkEnableOption "making it the default";
 
-    autostart = mkBoolOpt false "Whether to autostart at user login.";
-    workspace = mkOpt int 5 "Which workspace is mainly to be used for this application.";
+    autostart = mkEnableOption "autostart at user login";
+
+    workspace = mkOption {
+      type = int;
+      default = 5;
+      description = "Which workspace is mainly to be used for this application.";
+    };
   };
 
   config = {

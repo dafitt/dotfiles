@@ -19,6 +19,7 @@ with lib;
   ];
 
   dafitt = mkDefault {
+    gditor-zed-editor.autostart = true;
     gditor-zed-editor.setAsDefaultGditor = true;
   };
 
