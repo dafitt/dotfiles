@@ -7,11 +7,11 @@ let
 
   audioMute = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
   audioRaiseVolume = "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2%+";
-  audioLowerVolume = "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2%-";
+  audioLowerVolume = "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 3%-";
   micMute = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
   micRaiseVolume = "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 4%+";
-  micLowerVolume = "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 4%-";
-  monBrightnessUp = "${getExe pkgs.brightnessctl} --exponent s 5%+";
+  micLowerVolume = "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 5%-";
+  monBrightnessUp = "${getExe pkgs.brightnessctl} --exponent s 4%+";
   monBrightnessDown = "${getExe pkgs.brightnessctl} --exponent s 5%-";
   kbdBrightnessUp = "${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%+";
   kbdBrightnessDown = "${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%-";
