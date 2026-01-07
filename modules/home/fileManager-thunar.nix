@@ -21,41 +21,55 @@ in
     };
   };
 
-  config = {
-    home.packages = with pkgs.xfce; [
-      thunar
-      tumbler
-    ];
-
-    dbus.packages = with pkgs.xfce; [
-      thunar
-      tumbler
-    ];
-
-    wayland.windowManager.hyprland.settings = {
-      bind = optionals cfg.setAsDefaultFileManager [
-        "Super&Alt, F, exec, uwsm app -- ${getExe pkgs.xfce.thunar}"
-      ];
-      exec-once = optionals cfg.autostart [
-        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.xfce.thunar}"
-      ];
-      windowrule = [
-        "float, class:thunar$, title:^Rename"
-      ];
-    };
-    programs.niri.settings = {
-      binds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
-        action.spawn-sh = "uwsm app -- ${getExe pkgs.xfce.thunar}";
+  config =
+    let
+      thunar = pkgs.xfce.thunar.override {
+        thunarPlugins = [
+          pkgs.xfce.thunar-archive-plugin
+          pkgs.xfce.thunar-media-tags-plugin
+          pkgs.xfce.thunar-vcs-plugin
+        ];
       };
-      spawn-at-startup = optionals cfg.autostart [
-        { sh = "uwsm app -- ${getExe pkgs.xfce.thunar}"; }
+    in
+    {
+      home.packages = with pkgs.xfce; [
+        thunar
+        tumbler
       ];
-      window-rules = [
-        {
-          matches = [ { app-id = "thunar$"; } ];
-          open-floating = true;
-        }
+
+      dbus.packages = with pkgs.xfce; [
+        thunar
+        tumbler
       ];
+
+      # How to fix default terminal not found:
+      #$ nix shell nixpkgs#xfce.xfce4-settings
+      #$ xfce4-mime-settings
+
+      wayland.windowManager.hyprland.settings = {
+        bind = optionals cfg.setAsDefaultFileManager [
+          "Super&Alt, F, exec, uwsm app -- ${getExe pkgs.xfce.thunar}"
+        ];
+        exec-once = optionals cfg.autostart [
+          "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.xfce.thunar}"
+        ];
+        windowrule = [
+          "float, class:thunar$, title:^Rename"
+        ];
+      };
+      programs.niri.settings = {
+        binds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
+          action.spawn-sh = "uwsm app -- ${getExe pkgs.xfce.thunar}";
+        };
+        spawn-at-startup = optionals cfg.autostart [
+          { sh = "uwsm app -- ${getExe pkgs.xfce.thunar}"; }
+        ];
+        window-rules = [
+          {
+            matches = [ { app-id = "thunar$"; } ];
+            open-floating = true;
+          }
+        ];
+      };
     };
-  };
 }
