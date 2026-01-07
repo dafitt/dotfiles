@@ -39,6 +39,9 @@ in
       exec-once = optionals cfg.autostart [
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.xfce.thunar}"
       ];
+      windowrule = [
+        "float, class:thunar$, title:^Rename"
+      ];
     };
     programs.niri.settings = {
       binds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
@@ -46,6 +49,12 @@ in
       };
       spawn-at-startup = optionals cfg.autostart [
         { sh = "uwsm app -- ${getExe pkgs.xfce.thunar}"; }
+      ];
+      window-rules = [
+        {
+          matches = [ { app-id = "thunar$"; } ];
+          open-floating = true;
+        }
       ];
     };
   };
