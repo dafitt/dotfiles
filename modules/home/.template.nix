@@ -34,7 +34,10 @@ in
       exec-once = optionals cfg.autostart [
         "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.MODULE}"
       ];
-      windowrule = [ ];
+      windowrule = [
+        "class:$, title:^, float"
+        "class:$, title:^, no_screen_share"
+      ];
     };
     programs.niri.settings = {
       binds."Mod+Alt+?" = mkIf cfg.setAsDefault {
@@ -49,7 +52,7 @@ in
       #$ niri msg pick-window
       window-rules = [
         {
-          matches = [ { app-id = ""; } ];
+          matches = [ { app-id = "$"; } ];
           open-floating = true;
           block-out-from = "screen-capture";
         }
