@@ -27,10 +27,7 @@ in
   config = {
     home.packages = with pkgs.xfce; [ thunar ];
 
-    dbus.packages = with pkgs.xfce; [
-      thunar
-      xfconf
-    ];
+    dbus.packages = with pkgs.xfce; [ thunar ];
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultFileManager [

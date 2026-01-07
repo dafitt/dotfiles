@@ -22,6 +22,9 @@ with lib;
     };
   };
 
+  # Xfce programs
+  programs.xfconf.enable = true;
+
   services.power-profiles-daemon.enable = mkDefault true;
 
   services.accounts-daemon.enable = true;
