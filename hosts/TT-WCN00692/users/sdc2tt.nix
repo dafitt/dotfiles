@@ -23,6 +23,7 @@ with lib;
       editor-micro
       fileManager-yazi
       flatpak
+      nix
       personalEnvironment
       top-btop
     ];
