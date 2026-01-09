@@ -66,5 +66,16 @@ with lib;
   programs.kitty.package = mkForce (config.lib.nixGL.wrap pkgs.kitty);
   programs.zed-editor.package = mkForce (config.lib.nixGL.wrap pkgs.zed-editor);
 
-  #wayland.windowManager.hyprland.settings.env = [ "AQ_DRM_DEVICES,/dev/dri/card1" ];
+  gtk.gtk3.bookmarks = [
+    "file:///home/sdc2tt/DriveU/DavidWORK"
+    "file:///home/sdc2tt/DriveU/DavidWORK/adm"
+    "file:///home/sdc2tt/DriveU/DavidWORK/work"
+    "file:///home/sdc2tt/DriveF/group/Entwicklung/Elektronik/Allgemein/CAM-Daten/SchallerD CAM-Daten"
+    "file:///home/sdc2tt/DriveF/group/Entwicklung/Elektronik/HerdeOeffentlich/SchallerD HerdeOeffentlich"
+    "file:///home/sdc2tt/DriveF/group/Entwicklung/Elektronik/Allgemein/Inventar_GED_TRT Inventur"
+    "file:///home/sdc2tt/DriveF/group/Entwicklung/Labor/Arbeitsordner/SchallerD Arbeitsordner-Labor"
+    "file:///home/sdc2tt/DriveF/group/Entwicklung/Organisation/CGDO/L/P Werkstatt"
+    "file:///home/sdc2tt/DriveF/group/Entwicklung/Organisation/CGDO/L/P/Arbeitsordner/SchallerD Werkstatt-Arbeitsordner"
+    "file:///home/sdc2tt/DriveF/group/Entwicklung/Organisation/CGDO/L/P/Azubi Werkstatt-Azubi"
+  ];
 }
