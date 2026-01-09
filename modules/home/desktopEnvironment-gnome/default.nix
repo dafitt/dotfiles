@@ -112,6 +112,17 @@ with lib;
       switch-to-application-9 = [ ];
       toggle-application-view = [ ];
     };
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      app-hotkey-1 = [ ];
+      app-hotkey-2 = [ ];
+      app-hotkey-3 = [ ];
+      app-hotkey-4 = [ ];
+      app-hotkey-5 = [ ];
+      app-hotkey-6 = [ ];
+      app-hotkey-7 = [ ];
+      app-hotkey-8 = [ ];
+      app-hotkey-9 = [ ];
+    };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       logout = [ "<Control><Super>q" ];
       volume-step = 2;
