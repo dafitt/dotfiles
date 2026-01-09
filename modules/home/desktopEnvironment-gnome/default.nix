@@ -7,7 +7,7 @@
 with lib;
 {
   imports = [
-    ./extensions
+    ./extensions.nix
   ];
 
   home.packages = with pkgs; [

@@ -16,9 +16,10 @@ with lib;
     with inputs;
     with inputs.self.homeModules;
     [
-      niri.homeModules.niri
+      niri.homeModules.config
 
       browser-firefox
+      desktopEnvironment-gnome
       development
       editor-micro
       fileManager-yazi
@@ -55,11 +56,6 @@ with lib;
     "com.logseq.Logseq" # Connect your notes and knowledge
     "org.gnome.meld" # Compare and merge your files
   ];
-
-  programs.niri = {
-    enable = true;
-    package = (config.lib.nixGL.wrap pkgs.niri);
-  };
 
   targets.genericLinux.nixGL = {
     packages = inputs.nixGL.packages;
