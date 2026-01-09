@@ -1,11 +1,14 @@
 {
+  config,
   lib,
+  pkgs,
   inputs,
   perSystem,
   ...
 }:
 with lib;
 #> perSystem.self.homeConfigurations."sdc2tt@TT-WCN00692"
+#$ home-manager --flake .#sdc2tt@TT-WCN00692 switch
 {
   home.stateVersion = "25.11";
 
@@ -13,18 +16,23 @@ with lib;
     with inputs;
     with inputs.self.homeModules;
     [
+      niri.homeModules.niri
+
       browser-firefox
       development
       editor-micro
       fileManager-yazi
       flatpak
       personalEnvironment
+      top-btop
     ];
 
   dafitt = {
     browser-firefox.setAsDefaultBrowser = true;
     editor-micro.setAsDefaultEditor = true;
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   stylix = {
     autoEnable = false;
@@ -47,7 +55,12 @@ with lib;
     "org.gnome.meld" # Compare and merge your files
   ];
 
-  nixGL = {
+  programs.niri = {
+    enable = true;
+    package = (config.lib.nixGL.wrap pkgs.niri);
+  };
+
+  targets.genericLinux.nixGL = {
     packages = inputs.nixGL.packages;
     vulkan.enable = true;
   };

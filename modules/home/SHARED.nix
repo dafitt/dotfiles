@@ -9,6 +9,8 @@ with lib;
     with inputs;
     with inputs.self.homeModules;
     [
+      niri.homeModules.niri
+
       browser-firefox
       calculator
       desktopEnvironment-hyprland
