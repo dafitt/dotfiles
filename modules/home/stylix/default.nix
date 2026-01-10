@@ -1,9 +1,4 @@
-{
-  inputs,
-  config,
-  pkgs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 {
   imports = with inputs; [
     stylix.homeModules.stylix
@@ -24,13 +19,5 @@
       #dark = "Fluent-orange-dark";
       #light = "Fluent-orange-light";
     };
-  };
-
-  wayland.windowManager.hyprland.settings = {
-    exec-once = [
-      # Fixes cursor themes in gnome apps under hyprland
-      "gsettings set org.gnome.desktop.interface cursor-theme '${config.stylix.cursor.name}'"
-      "gsettings set org.gnome.desktop.interface cursor-size ${toString config.stylix.cursor.size}"
-    ];
   };
 }
