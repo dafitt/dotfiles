@@ -39,8 +39,44 @@ with lib;
     ];
   };
 
+  boot.supportedFilesystems = {
+    btrfs = true;
+    cephfs = true;
+    cifs = true;
+    exfat = true;
+    ext = true;
+    f2fs = true;
+    fuse = true;
+    hfs = true;
+    hfsplus = true;
+    jfs = true;
+    nfs = true;
+    nilfs2 = true;
+    ntfs = true;
+    reiser4 = true;
+    reiserfs = true;
+    vfat = true;
+    xfs = true;
+    zfs = true;
+  };
+
   environment.systemPackages = with pkgs; [
+    btrfs-progs
     disko
+    dosfstools
+    e2fsprogs
+    exfat
+    exfatprogs
+    f2fs-tools
+    hfsprogs
+    jfsutils
+    mdadm
+    nilfs-utils
+    ntfsprogs
+    reiser4progs
+    udftools
+    util-linux
+    xfsprogs
     (writeScriptBin "help-install" ''
       ${getExe pkgs.glow} - << 'EOF'
 
