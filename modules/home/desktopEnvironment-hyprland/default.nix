@@ -223,7 +223,8 @@ in
               "Super, R, togglesplit," # dwindle
               "Super, H, swapnext,"
               "Super&Shift, H, swapnext, prev"
-              "Super, F, fullscreen,"
+              "Super, F, fullscreenstate, 2 0"
+              ", F11, fullscreen,"
               "Super, A, fullscreen, 1" # maximize only
               "Super, V, togglefloating," # Allow a window to float
               "Super, Z, alterzorder, top" # floating only
