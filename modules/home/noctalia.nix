@@ -10,7 +10,10 @@ let
   cfg = config.dafitt.noctalia;
 in
 {
-  imports = [ inputs.noctalia.homeModules.default ];
+  imports = with inputs; [
+    noctalia.homeModules.default
+    self.homeModules.stylix
+  ];
 
   options.dafitt.noctalia = {
     setAsDefaultLauncher = mkEnableOption "making it the default launcher";
@@ -23,10 +26,19 @@ in
       systemd.enable = true;
 
       # [Settings](https://docs.noctalia.dev/getting-started/nixos/#config-ref)
-      #$ bat ~/.config/noctalia/gui-settings.json
+      #$ cat ~/.config/noctalia/gui-settings.json
       settings = {
         general = {
           animationDisabled = true;
+        };
+        appLauncher = {
+          customLaunchPrefix = "uwsm app --";
+          customLaunchPrefixEnabled = true;
+          viewMode = "grid";
+        };
+        audio = {
+          cavaFrameRate = 120;
+          visualizerType = "mirrored";
         };
         bar = {
           density = "comfortable";
@@ -93,14 +105,33 @@ in
             ];
           };
         };
-        appLauncher = {
-          customLaunchPrefix = "uwsm app --";
-          customLaunchPrefixEnabled = true;
-          viewMode = "grid";
+        controlCenter = {
+          shortcuts = {
+            left = [
+              { id = "ScreenRecorder"; }
+              { id = "WallpaperSelector"; }
+            ];
+            right = [
+              { id = "KeepAwake"; }
+              { id = "NightLight"; }
+              { id = "DarkMode"; }
+              { id = "PowerProfile"; }
+            ];
+          };
         };
-        wallpaper.enabled = false;
+        osd = {
+          enabledTypes = [
+            0
+            1
+            2
+            3
+            4
+          ];
+        };
       };
     };
+
+    home.file."${config.xdg.userDirs.pictures}/Wallpapers/wallpaper.png".source = config.stylix.image;
 
     # [Keybinds](https://docs.noctalia.dev/getting-started/keybinds/)
     wayland.windowManager.hyprland.settings.bind = [
