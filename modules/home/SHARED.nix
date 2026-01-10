@@ -16,7 +16,7 @@ with lib;
       editor-micro
       fastfetch
       file-roller
-      fileManager-nautilus
+      fileManager-thunar
       flatpak
       imv
       launcher-fuzzel
