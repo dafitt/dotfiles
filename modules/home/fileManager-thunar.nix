@@ -23,21 +23,21 @@ in
 
   config =
     let
-      thunar = pkgs.xfce.thunar.override {
-        thunarPlugins = [
-          pkgs.xfce.thunar-archive-plugin
-          pkgs.xfce.thunar-media-tags-plugin
-          pkgs.xfce.thunar-vcs-plugin
+      thunar = pkgs.thunar.override {
+        thunarPlugins = with pkgs; [
+          thunar-archive-plugin
+          thunar-media-tags-plugin
+          thunar-vcs-plugin
         ];
       };
     in
     {
-      home.packages = with pkgs.xfce; [
+      home.packages = with pkgs; [
         thunar
         tumbler
       ];
 
-      dbus.packages = with pkgs.xfce; [
+      dbus.packages = with pkgs; [
         thunar
         tumbler
       ];
