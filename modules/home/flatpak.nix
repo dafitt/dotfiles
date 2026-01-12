@@ -1,4 +1,10 @@
-{ inputs, pkgs, ... }:
+{
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
+with lib;
 {
   imports = with inputs; [ nix-flatpak.homeManagerModules.nix-flatpak ];
 
@@ -7,11 +13,7 @@
     enable = true;
     #uninstallUnmanaged = true; # enable this for one activation if you get `error: No installed refs found for '<package>'`
 
-    remotes = [
-      {
-        name = "flathub";
-        location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
-      }
+    remotes = mkOptionDefault [
       {
         name = "flathub-beta";
         location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
@@ -55,4 +57,9 @@
   home.shellAliases = {
     flatpak-install = "flatpak install --user --or-update --assumeyes";
   };
+
+  home.packages = with pkgs; [
+    gnome-software
+    bazaar
+  ];
 }
