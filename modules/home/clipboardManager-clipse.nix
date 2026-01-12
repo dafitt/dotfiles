@@ -24,10 +24,10 @@ in
       ];
       exec-once = [ "uwsm app -- ${getExe pkgs.clipse} -listen" ];
       windowrule = [
-        "noscreenshare, class:(clipse)"
-        "float, class:(clipse)"
-        "size 622 652, class:(clipse)"
-        "center, class:(clipse)"
+        "match:class clipse$, no_screen_share on"
+        "match:class clipse$, float on"
+        "match:class clipse$, size 622 652"
+        "match:class clipse$, center on"
       ];
     };
     programs.niri.settings = {

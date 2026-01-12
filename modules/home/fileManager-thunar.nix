@@ -54,7 +54,7 @@ in
           "[workspace ${toString cfg.workspace} silent] uwsm app -- ${thunar}/bin/thunar"
         ];
         windowrule = [
-          "float, class:thunar$, title:^Rename"
+          "match:class thunar$, match:title ^Rename, float on"
         ];
       };
       programs.niri.settings = {

@@ -35,8 +35,8 @@ in
         "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.MODULE}"
       ];
       windowrule = [
-        "class:$, title:^, float"
-        "class:$, title:^, no_screen_share"
+        "match:class ^$, match:title ^$, float on"
+        "match:class ^$, match:title ^$, no_screen_share"
       ];
     };
     programs.niri.settings = {

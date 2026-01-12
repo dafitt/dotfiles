@@ -33,10 +33,10 @@ in
         "Super&Alt, V, exec, uwsm app -- ${getExe pkgs.kitty} --class=cliphist -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'"
       ];
       windowrule = [
-        "noscreenshare, class:(cliphist)"
-        "float, class:(cliphist)"
-        "size 622 652, class:(cliphist)"
-        "center, class:(cliphist)"
+        "match:class cliphist$, no_screen_share on"
+        "match:class cliphist$, float on"
+        "match:class cliphist$, size 622 652"
+        "match:class cliphist$, center on"
       ];
     };
     programs.niri.settings = {

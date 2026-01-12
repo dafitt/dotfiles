@@ -80,7 +80,7 @@ in
 
       wayland.windowManager.hyprland.settings = {
         windowrule = [
-          "idleinhibit always, class:idleinhibitor, floating:1"
+          "match:class idleinhibitor, match:float 1, idle_inhibit always"
         ];
         bind = optionals config.dafitt.pyprland.enable [
           "Super&Alt, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty"

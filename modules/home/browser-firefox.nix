@@ -364,9 +364,9 @@ in
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.firefox.package}"
       ];
       windowrule = [
-        "idleinhibit fullscreen, class:firefox, title:(Youtube)"
-        "float, class:firefox$, title:^Extension: \(NoScript\) - NoScript"
-        "float, class:firefox$, title:^Picture-in-Picture$"
+        "match:class firefox$, match:title (Youtube), idle_inhibit fullscreen"
+        "match:class firefox$, match:title ^Extension: \(NoScript\) - NoScript, float on"
+        "match:class firefox$, match:title ^Picture-in-Picture$, float on"
       ];
     };
     programs.niri.settings = {

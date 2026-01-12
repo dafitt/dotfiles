@@ -18,9 +18,9 @@ with lib;
       "Super&Alt, A, exec, ${pkgs.pyprland}/bin/pypr toggle pavucontrol"
     ];
     windowrule = [
-      "float, class:pavucontrol, title:^(Volume Control)$"
-      "center, class:pavucontrol, title:^(Volume Control)$"
-      #"size 800 600, class:pavucontrol, title:^(Volume Control)$"
+      "match:class pavucontrol$, match:title ^Volume Control$, float on"
+      "match:class pavucontrol$, match:title ^Volume Control$, center on"
+      #"match:class pavucontrol$, match:title ^Volume Control$, size 800 600"
     ];
   };
 

@@ -150,20 +150,19 @@ in
             # https://wiki.hypr.land/Configuring/Window-Rules/
             # https://regex101.com/
             #$ hyprctl clients
-            "opacity 1 0.7, floating:1, title:(.)+, xwayland:0" # make inactive floating windows (with titles) more transparent
-            "bordercolor rgb(${config.lib.stylix.colors.base09}), xwayland:1" # other border color for xwayland windows
+            "match:title (.)+, match:xwayland 0, match:float 1, opacity 1 0.7" # make inactive floating windows (with titles) more transparent
+            "match:xwayland 1, border_color rgb(${config.lib.stylix.colors.base09})" # other border color for xwayland windows
 
-            "float, title:(A|a)lert"
-            "float, title:(S|s)etup"
-            "float, title:(P|p)rogress"
-            "float, class:nm-connection-editor"
+            "match:title (A|a)lert, float on"
+            "match:title (S|s)etup, float on"
+            "match:title (P|p)rogress, float on"
 
-            "noblur, title:.*" # Disables blur for windows. Substantially improves performance.
+            "match:title .*, no_blur on" # Disables blur for windows. Substantially improves performance.
           ];
           layerrule = [
-            "xray 1, .*"
-            "blur, launcher"
-            "ignorealpha 0.5, launcher"
+            "match:namespace .*, xray 1"
+            "match:namespace launcher, blur on"
+            "match:namespace launcher, ignore_alpha 0.5"
           ];
           workspace = [ ];
 
@@ -363,10 +362,10 @@ in
             "f[1], gapsout:0, gapsin:0"
           ];
           windowrule = [
-            "bordersize 0, floating:0, onworkspace:w[tv1]"
-            "rounding 0, floating:0, onworkspace:w[tv1]"
-            "bordersize 0, floating:0, onworkspace:f[1]"
-            "rounding 0, floating:0, onworkspace:f[1]"
+            "match:float 0, match:workspace w[tv1], bordersize 0"
+            "match:float 0, match:workspace w[tv1], rounding 0"
+            "match:float 0, match:workspace f[1], bordersize 0"
+            "match:float 0, match:workspace f[1], rounding 0"
           ];
         };
       };

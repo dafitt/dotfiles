@@ -28,14 +28,14 @@ in
         "Super&Alt, PERIOD, exec, uwsm app -- ${getExe pkgs._1password-gui}"
       ];
       windowrule = [
-        "noscreenshare, class:1Password"
-        "float, class:1Password, title:1Password"
-        "size 650 620, class:1Password, title:1Password"
-        "move 70% 10%, class:1Password, title:1Password"
-        "opacity 1 0.5, class:1Password, title:1Password, floating:1"
+        "match:class 1Password$, no_screen_share on"
+        "match:class 1Password$, match:title 1Password, float on"
+        "match:class 1Password$, match:title 1Password, size 650 620"
+        "match:class 1Password$, match:title 1Password, move 70% 10%"
+        "match:class 1Password$, match:title 1Password, match:float 1, opacity 1 0.5"
 
-        "center, class:1Password, title:(Lock Screen)"
-        "size 600 450, class:1Password, title:(Lock Screen)"
+        "match:class 1Password$, match:title ^Lock Screen$, center on"
+        "match:class 1Password$, match:title ^Lock Screen$, size 600 450"
       ];
       # titles: Lock Screen — 1Password ; All Items — 1Password ;
     };

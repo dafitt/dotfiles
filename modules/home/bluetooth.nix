@@ -15,7 +15,9 @@ with lib;
     bind = optionals config.dafitt.pyprland.enable [
       "Super&Alt, B, exec, ${pkgs.pyprland}/bin/pypr toggle bluetooth"
     ];
-    windowrule = [ "float, class:io.github.kaii_lb.Overskride" ];
+    windowrule = [
+      "match:class io.github.kaii_lb.Overskride$, float on"
+    ];
   };
 
   dafitt.pyprland.scratchpads.bluetooth = {

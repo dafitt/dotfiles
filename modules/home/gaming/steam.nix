@@ -23,8 +23,8 @@
   };
 
   wayland.windowManager.hyprland.settings.windowrule = [
-    "bordercolor rgb(1887d8), class:steam"
-    "float, class:steam, title:(Friends List)|(Settings)"
+    "match:class steam$, border_color rgb(1887d8)"
+    "match:class steam$, match:title (Friends List)|(Settings), float on"
   ];
   programs.niri.settings = {
     window-rules = [
