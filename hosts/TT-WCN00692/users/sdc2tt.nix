@@ -50,6 +50,7 @@ with lib;
 
   home.packages = [
     perSystem.nixGL.nixGLIntel
+    perSystem.nixGL.nixVulkanIntel
   ];
 
   services.flatpak.packages = [
