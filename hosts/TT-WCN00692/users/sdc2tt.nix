@@ -61,9 +61,6 @@ with lib;
     packages = inputs.nixGL.packages;
     vulkan.enable = true;
   };
-  wayland.windowManager.hyprland.package = (config.lib.nixGL.wrap pkgs.hyprland);
-  programs.vscode.package = mkForce (config.lib.nixGL.wrap pkgs.vscodium);
-  programs.kitty.package = mkForce (config.lib.nixGL.wrap pkgs.kitty);
   programs.zed-editor.package = mkForce (config.lib.nixGL.wrap pkgs.zed-editor);
 
   gtk.gtk3.bookmarks = [
