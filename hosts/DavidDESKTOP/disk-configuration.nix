@@ -44,11 +44,15 @@ with lib;
                 subvolumes = {
                   # "@" = {
                   #   mountpoint = "/";
+                  #   mountOptions = [
+                  #     "compress=none"
+                  #     "noatime"
+                  #   ];
                   # };
                   "@nix" = {
                     mountpoint = "/nix";
                     mountOptions = [
-                      "compress=zstd"
+                      "compress=zlib"
                       "noatime"
                     ];
                   };

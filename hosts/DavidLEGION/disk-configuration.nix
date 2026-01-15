@@ -40,13 +40,13 @@ with lib;
                   "@nix" = {
                     mountpoint = "/nix";
                     mountOptions = [
-                      "compress=zstd"
+                      "compress=zlib"
                       "noatime"
                     ];
                   };
                   "@home" = {
                     mountpoint = "/home";
-                    mountOptions = [ "compress=zstd" ];
+                    mountOptions = [ "compress=zlib" ];
                   };
                 };
               };

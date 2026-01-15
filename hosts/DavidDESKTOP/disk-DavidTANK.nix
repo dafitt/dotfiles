@@ -22,7 +22,9 @@
               "compress-force=zstd"
               "autodefrag"
               # [options](https://man.archlinux.org/man/mount.8#FILESYSTEM-INDEPENDENT_MOUNT_OPTIONS)
+              "users"
               "defaults"
+              "x-mount.mkdir"
               "x-gvfs-show"
             ];
           };

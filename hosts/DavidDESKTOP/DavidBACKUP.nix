@@ -32,7 +32,7 @@
     repo = "/mnt/DavidBACKUP/DavidBACKUP-repo";
     encryption.mode = "repokey-blake2";
     encryption.passCommand = "${pkgs.coreutils}/bin/cat /home/david/.local/secrets/DavidBACKUP.key";
-    compression = "auto,zstd";
+    compression = "auto,zlib";
     user = "david";
     group = "users";
 

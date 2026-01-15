@@ -14,10 +14,12 @@
           "@" = {
             mountpoint = "/DavidGAMES";
             mountOptions = [
-              "compress-force=zstd"
-              "ssd"
+              "compress-force=zlib"
               # [options](https://man.archlinux.org/man/mount.8#FILESYSTEM-INDEPENDENT_MOUNT_OPTIONS)
+              "users"
+              "noatime"
               "defaults"
+              "x-mount.mkdir"
               "x-gvfs-show"
             ];
           };
