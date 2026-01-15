@@ -49,12 +49,9 @@ with lib;
     fuse = true;
     hfs = true;
     hfsplus = true;
-    jfs = true;
     nfs = true;
     nilfs2 = true;
     ntfs = true;
-    reiser4 = true;
-    reiserfs = true;
     vfat = true;
     xfs = true;
     zfs = true;
@@ -69,11 +66,9 @@ with lib;
     exfatprogs
     f2fs-tools
     hfsprogs
-    jfsutils
     mdadm
     nilfs-utils
     ntfsprogs
-    reiser4progs
     udftools
     util-linux
     xfsprogs
