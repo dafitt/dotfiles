@@ -48,6 +48,12 @@ with lib;
       virtualization
     ];
 
+  services.logind.settings.Login = {
+    # logind.conf(5)
+    HandlePowerKey = "sleep";
+    HandlePowerKeyLongPress = "poweroff";
+  };
+
   services.fprintd.enable = mkForce false; # No fingerprint reader
 
   environment.systemPackages = with pkgs; [

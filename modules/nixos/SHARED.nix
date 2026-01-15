@@ -18,7 +18,6 @@
     locate
     nix
     nixpkgs
-    powerKey
     shell-fish
     shell-fish
     stylix
