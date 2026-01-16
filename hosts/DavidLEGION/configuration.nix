@@ -33,7 +33,7 @@ with lib;
       # [HARDWARE_MODULES](https://github.com/NixOS/nixos-hardware/blob/master/flake.nix)
       nixos-hardware.nixosModules.lenovo-legion-16arha7
 
-      ./power-management.nix
+      ./powerManagement.nix
 
       SHARED
       batteryOptimization
