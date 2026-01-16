@@ -12,7 +12,7 @@ with lib;
   programs.fish = {
     enable = true;
 
-    shellInit = mkMerge [
+    interactiveShellInit = mkMerge [
       # [Default keybindings](https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_default_key_bindings.fish)
       #$ fish_key_reader
       ''
@@ -20,6 +20,7 @@ with lib;
         bind \e\[3\;5~ kill-word
         bind \e\[3\;3~ kill-word
         bind \b backward-kill-path-component
+        set sponge_delay 5
       ''
     ];
 
