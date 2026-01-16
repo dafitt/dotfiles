@@ -1,12 +1,6 @@
 { lib, pkgs, ... }:
 with lib;
 {
-  environment.systemPackages = with pkgs; [
-    disko
-  ];
-
-  services.btrfs.autoScrub.enable = true;
-
   disko.devices = {
     disk = {
       "main" = {
@@ -75,6 +69,12 @@ with lib;
       };
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    disko
+  ];
+
+  services.btrfs.autoScrub.enable = true;
 
   environment.persistence."/nix/persist" = {
     enable = true;

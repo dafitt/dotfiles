@@ -6,12 +6,6 @@ with lib;
     ./disk-DavidGAMES.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    disko
-  ];
-
-  services.btrfs.autoScrub.enable = true;
-
   disko.devices = {
     disk = {
       "root" = {
@@ -79,6 +73,12 @@ with lib;
       };
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    disko
+  ];
+
+  services.btrfs.autoScrub.enable = true;
 
   ## https://www.notashelf.dev/posts/impermanence/#impermanence
   #boot.initrd.systemd = {
