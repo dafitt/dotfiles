@@ -49,11 +49,6 @@ with lib;
       };
     };
 
-    logind.settings.Login = {
-      HandlePowerKey = "suspend";
-      HandlePowerKeyLongPress = "poweroff";
-    };
-
     upower = {
       enable = true; # provides power management support to applications
       criticalPowerAction = "Hibernate";
@@ -82,9 +77,6 @@ with lib;
       ''ACTION=="add", SUBSYSTEM=="net", NAME=="enp*", RUN+="${pkgs.ethtool}/sbin/ethtool -s $name wol d"''
     ];
   };
-
-  # stock NixOS power management: hibernate & suspend
-  powerManagement.enable = true;
 
   # Enable powertop
   powerManagement.powertop.enable = true;
