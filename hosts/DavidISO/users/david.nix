@@ -46,8 +46,8 @@ with lib;
         complete --command disko --long mode --short m --require-parameter --no-files --arguments "destroy format mount unmount format,mount destroy,format,mount"
         complete --command disko --long flake --require-parameter --arguments "${flakePathArguments}"
 
-        complete --command mkdir --arguments "/mnt/nix/persist{/var/log/journal,/var/lib}"
-        complete --command mount --arguments "{/mnt/nix/persist,/mnt}/var/log/journal {/mnt/nix/persist,/mnt}/var/lib"
+        complete --command mkdir --arguments "/mnt/persist{/var/log/journal,/var/lib}"
+        complete --command mount --arguments "{/mnt/persist,/mnt}/var/log/journal {/mnt/persist,/mnt}/var/lib"
 
         complete --command nixos-install --long help --no-files
         complete --command nixos-install --long no-root-passwd --no-files

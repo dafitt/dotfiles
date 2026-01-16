@@ -109,9 +109,9 @@ with lib;
 
             ```sh
             sudo disko --mode destroy,format,mount --flake dotfiles#<your-configured-host>
-            sudo mkdir -p /mnt/nix/persist{/var/log/journal,/var/lib}
-            sudo mount -o bind {/mnt/nix/persist,}/var/log/journal
-            sudo mount -o bind {/mnt/nix/persist,}/var/lib
+            sudo mkdir -p /mnt/persist{/var/log/journal,/var/lib}
+            sudo mount -o bind {/mnt/persist,}/var/log/journal
+            sudo mount -o bind {/mnt/persist,}/var/lib
             sudo nixos-install --no-root-passwd --flake ./dotfiles#<your-configured-host>
             ```
 

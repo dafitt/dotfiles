@@ -43,6 +43,10 @@ with lib;
                   #     "noatime"
                   #   ];
                   # };
+                  "@persist" = {
+                    mountpoint = "/persist";
+                    mountOptions = [ "compress=zlib" ];
+                  };
                   "@nix" = {
                     mountpoint = "/nix";
                     mountOptions = [
@@ -129,7 +133,7 @@ with lib;
   #  };
   #};
 
-  environment.persistence."/nix/persist" = {
+  environment.persistence."/persist" = {
     enable = true;
     hideMounts = true;
   };

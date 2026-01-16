@@ -31,6 +31,10 @@ with lib;
                   "--label root"
                 ];
                 subvolumes = {
+                  "@persist" = {
+                    mountpoint = "/persist";
+                    mountOptions = [ "compress=zlib" ];
+                  };
                   "@nix" = {
                     mountpoint = "/nix";
                     mountOptions = [
@@ -76,7 +80,7 @@ with lib;
 
   services.btrfs.autoScrub.enable = true;
 
-  environment.persistence."/nix/persist" = {
+  environment.persistence."/persist" = {
     enable = true;
     hideMounts = true;
   };

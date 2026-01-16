@@ -10,7 +10,7 @@
 # https://xeiaso.net/blog/paranoid-nixos-2021-07-18/
 
 #! before your first 'nixos-rebuild switch' if transitioning to impermanence
-#$ sudo cp --archive --parents {,/nix/persist}/<DIR>
+#$ sudo cp --archive --parents {,/persist}/<DIR>
 
 with lib;
 {
@@ -20,8 +20,10 @@ with lib;
     {
       users.mutableUsers = false; # mutableUsers not really compatible with Impermanence
 
+      fileSystems."/persist".neededForBoot = true;
+
       # https://github.com/nix-community/impermanence?tab=readme-ov-file#module-usage
-      environment.persistence."/nix/persist" = {
+      environment.persistence."/persist" = {
 
         # Basic needed state directories and files
         # https://nixos.org/manual/nixos/unstable/#ch-system-state
@@ -50,7 +52,7 @@ with lib;
     }
 
     (mkIf config.networking.networkmanager.enable {
-      environment.persistence."/nix/persist".directories = [
+      environment.persistence."/persist".directories = [
         {
           directory = "/etc/NetworkManager/system-connections";
           mode = "u=rwx,g=,o=";
@@ -59,7 +61,7 @@ with lib;
     })
 
     (mkIf config.services.greetd.enable {
-      environment.persistence."/nix/persist".directories = [
+      environment.persistence."/persist".directories = [
         {
           directory = "/var/cache/tuigreet";
           user = "greeter";
