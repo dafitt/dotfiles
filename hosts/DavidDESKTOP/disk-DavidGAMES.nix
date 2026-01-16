@@ -14,8 +14,9 @@
           "@" = {
             mountpoint = "/DavidGAMES";
             mountOptions = [
+              # [mount(8)](https://man.archlinux.org/man/mount.8#FILESYSTEM-INDEPENDENT_MOUNT_OPTIONS)
               "compress-force=zlib"
-              # [options](https://man.archlinux.org/man/mount.8#FILESYSTEM-INDEPENDENT_MOUNT_OPTIONS)
+              "nofail"
               "users"
               "noatime"
               "defaults"

@@ -19,9 +19,10 @@
           "@DavidARCHIVE" = {
             mountpoint = "/DavidARCHIVE";
             mountOptions = [
+              # [mount(8)](https://man.archlinux.org/man/mount.8#FILESYSTEM-INDEPENDENT_MOUNT_OPTIONS)
               "compress-force=zstd"
               "autodefrag"
-              # [options](https://man.archlinux.org/man/mount.8#FILESYSTEM-INDEPENDENT_MOUNT_OPTIONS)
+              "nofail"
               "users"
               "defaults"
               "x-mount.mkdir"
