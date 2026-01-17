@@ -11,7 +11,7 @@ My dotfiles are not perfekt, but they strive to be:
 - a consistent look'n'feel ✨
 - KISS (keep it stupid simple)🥴
 
-## Notes
+# Notes
 
 This flake can and will radically change as I learn, discover new things and have new ideas.
 
@@ -24,9 +24,9 @@ This flake can and will radically change as I learn, discover new things and hav
 - 🪟 [Hyprland](https://hypr.land/) with plugins
 - 🪟 [Niri](https://github.com/YaLTeR/niri)
 
-## Installation
+# Installation
 
-### New machine - Using the official Installer
+## New machine - Using the official Installer
 
 1. Install [NixOS](https://nixos.org/download/) and enable the nix feature "[flakes](https://wiki.nixos.org/wiki/Flakes#Enabling_flakes)"
 
@@ -63,7 +63,7 @@ This flake can and will radically change as I learn, discover new things and hav
 4. `reboot`
 
 
-### New standalone home environment
+## New standalone home environment
 
 1. Install [nix](https://nixos.org/download/) and enable the nix feature "[flakes](https://wiki.nixos.org/wiki/Flakes#Other_Distros,_without_Home_Manager)"
 
@@ -100,7 +100,7 @@ This flake can and will radically change as I learn, discover new things and hav
 
    - _NOTE: First install may take some time; especially with flatpaks enabled._
 
-### New machine - Using the custom ISO
+## New machine - Using the custom ISO
 
 I have configured my own custom installer iso in [hosts/DavidISO](https://github.com/dafitt/dotfiles/blob/main/modules/DavidISO), which can be used to install a new system. It can also be used to repair a broken existing machine.
 
@@ -140,7 +140,7 @@ dd if=result/<file.iso> of=/dev/<usb>
 
 4. Follow the instructions on the commands `help-install` or `help-repair`
 
-### Post-install imperative setup
+## Post-install imperative setup
 
 - hyprland: Monitor setup with `nwg-displays`
 - VPN
@@ -148,13 +148,13 @@ dd if=result/<file.iso> of=/dev/<usb>
 - Account logins
 - pavucontrol: Set standard audio output
 
-## Usage
+# Usage
 
-### Flake
+## Flake
 
 Some basic flake commands
 
-#### Shell environment
+### Shell environment
 
 ```sh
 nix-shell shell.nix # only when on legacy-nix: enables flakes & git (works only locally)
@@ -162,13 +162,13 @@ nix-shell shell.nix # only when on legacy-nix: enables flakes & git (works only 
 nix develop github:dafitt/dotfiles#default
 ```
 
-#### Overview
+### Overview
 
 ```sh
 nix flake show github:dafitt/dotfiles
 ```
 
-#### Build and switch configuration
+### Build and switch configuration
 
 NixOS & Home-manager:
 
@@ -182,7 +182,7 @@ Home-manager standalone:
 home-manager --flake .#[<user>@<host>] switch
 ```
 
-#### Update flake inputs
+### Update flake inputs
 
 ```sh
 nix flake update --commit-lock-file
@@ -191,13 +191,13 @@ nix flake update --commit-lock-file
 nix flake lock --update-input [input]
 ```
 
-#### Rollback
+## Rollback
 
 - NixOS: `sudo nixos-rebuild switch --rollback`
 
 - Home-manager standalone: [see Home-manager documentation](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)
 
-#### Code formatting
+### Code formatting
 
 ```sh
 nix fmt [./folder] [./file.nix]
@@ -212,7 +212,7 @@ nixos-rebuild --flake .#[<host>] repl
 > perSystem.self.homeConfigurations."<user>@<host>".config # current home configuration
 ```
 
-### [Hyprkeys](https://github.com/hyprland-community/Hyprkeys)
+## [Hyprkeys](https://github.com/hyprland-community/Hyprkeys)
 
 <kbd>Super&Control</kbd> - System and Hyprland control \
 <kbd>Super</kbd> - Window control \
@@ -376,9 +376,9 @@ nixos-rebuild --flake .#[<host>] repl
 
 </details>
 
-## Configuration
+# Configuration
 
-### Helpful Nix resources
+## Helpful Nix resources
 
 - [NüschtOS option search](https://search.xn--nschtos-n2a.de/)
 - [NixOS packages search](https://search.nixos.org/packages)
@@ -386,7 +386,7 @@ nixos-rebuild --flake .#[<host>] repl
 - [Nix functions](https://ryantm.github.io/nixpkgs/functions/library/attrsets/)
 - [Noogle](https://noogle.dev/)
 
-### NixOS stable branch
+## NixOS stable branch
 
 To use [nixpkgs](https://github.com/NixOS/nixpkgs) stable branch, update the following inputs to the latest release (`25.05` as an example) in _[flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix)_ and rebuild the system. \
 ATTENTION! When the latest release of [nixpkgs](https://github.com/NixOS/nixpkgs) is some time away, then you will likely need to refactor some breaking changed options. See the backward incompatibilities [in the release notes](https://github.com/NixOS/nixpkgs/blob/nixos-unstable/nixos/doc/manual/release-notes/rl-2505.section.md#backward-incompatibilities-sec-release-2505-incompatibilities) for those. Directly after a new release should be the best time to switch.
@@ -418,7 +418,7 @@ with inputs.nixpkgs-unstable.legacyPackages.${prev.system}; {
 }
 ```
 
-### Importing my modules
+## Importing my modules
 
 You can try using my modules through importing them:
 
@@ -444,7 +444,7 @@ outputs = { nixpkgs, ... }@inputs: {
 
 But it is certainly better to simply copy them into your dotfiles and adapt them to your needs.
 
-### You want to build from here?
+## You want to build from here?
 
 Starting points for customization:
 
@@ -461,9 +461,9 @@ Starting points for customization:
 - [ ] [modules/home/stylix/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/stylix/default.nix): custom base16 theme / icon theme
 - [ ] Packages and programs you need
 
-## Troubleshooting
+# Troubleshooting
 
-### Unable to see fonts
+## Unable to see fonts
 
 Manually reload the fontconfig cache using
 
@@ -471,7 +471,7 @@ Manually reload the fontconfig cache using
 fc-cache -r [-f]
 ```
 
-### Bluetooth does not power on
+## Bluetooth does not power on
 
 Error messages:
 
@@ -487,7 +487,7 @@ rfkill list
 sudo rfkill unblock bluetooth
 ```
 
-### Application won't open with Home-manager standalone
+## Application won't open with Home-manager standalone
 
 - ["Using Nix on non-NixOS distros, it's common to see GL application errors"](https://github.com/nix-community/nixGL?tab=readme-ov-file#motivation) - [NixGL](https://github.com/nix-community/nixGL):
 
@@ -501,7 +501,7 @@ sudo rfkill unblock bluetooth
   sudo apt install <PROGRAM>
   ```
 
-### Corrupted /nix/var/nix/db/db.sqlite
+## Corrupted /nix/var/nix/db/db.sqlite
 
 You need to reinstall NixOS.
 
@@ -529,7 +529,7 @@ mount /dev/nvme0n1p2 /mnt
 btrfs subvolume delete /mnt/@nix.old
 ```
 
-## 👀, 🏆 and ❤️
+# 👀, 🏆 and ❤️
 
 - [Vimjoyer - Youtube](https://www.youtube.com/@vimjoyer)
 - [IogaMaster - Youtube](https://www.youtube.com/@IogaMaster)
