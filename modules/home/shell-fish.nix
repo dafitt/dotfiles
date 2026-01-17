@@ -78,6 +78,12 @@ with lib;
           "puffer" # https://github.com/nickeb96/puffer-fish
           "sponge" # https://github.com/meaningful-ooo/sponge
         ];
+
+    completions = {
+      uwsm = ''
+        complete --command uwsm --arguments "select start stop finalize app check aux default" --no-files
+      '';
+    };
   };
 
   home.sessionVariables = {

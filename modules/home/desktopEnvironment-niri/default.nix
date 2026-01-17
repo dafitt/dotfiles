@@ -222,4 +222,8 @@ with lib;
       ];
     };
   };
+
+  programs.fish.completions.uwsm-niri = ''
+    complete --command uwsm --arguments "niri.desktop niri-uwsm.desktop" --no-files
+  '';
 }
