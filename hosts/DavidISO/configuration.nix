@@ -87,7 +87,7 @@ with lib;
 
         ```sh
         cp -r /iso/dotfiles .
-        chmod u+x -R dotfiles/
+        chmod u+w -R dotfiles/
         ```
 
       2. Add and check machine to the dotfiles
@@ -99,7 +99,7 @@ with lib;
         - Generate a configuration file for your host:
 
           ```sh
-          nixos-generate-config --no-filesystems
+          sudo nixos-generate-config --no-filesystems
           cp /etc/nixos/hardware-configuration.nix dotfiles/hosts/<your-configured-host>/hardware-configuration.nix
           ```
 
@@ -108,7 +108,7 @@ with lib;
           - Either with `nixos-install`
 
             ```sh
-            sudo disko --mode destroy,format,mount --flake dotfiles#<your-configured-host>
+            sudo disko --mode destroy,format,mount --flake ./dotfiles#<your-configured-host>
             sudo mkdir -p /mnt/persist{/var/log/journal,/var/lib}
             sudo mount -o bind {/mnt/persist,}/var/log/journal
             sudo mount -o bind {/mnt/persist,}/var/lib
@@ -118,22 +118,68 @@ with lib;
           - Alternatively with `disko-install`, if you have configured a disk with disko.
 
             ```sh
-            sudo disko-install --flake dotfiles#<your-configured-host> --disk main /dev/disk/by-id/<your-main-disk-id>
+            sudo disko-install --flake ./dotfiles#<your-configured-host> --disk main /dev/disk/by-id/<your-main-disk-id>
             ```
 
               - Add further `--disk <disk> /dev/disk/by-id/<your-disk-id>` to the `disko-install` command to override the attribute `disko.devices.disk.<disk>.device`.
 
               <https://github.com/nix-community/disko/blob/master/docs/disko-install.md>
 
-      4. (optional) Add flake to host
+      4. Save modified flake to host
 
         ```sh
-        sudo cp -r dotfiles /mnt/home/...
+        sudo cp -ar dotfiles /mnt/home/...
+        ```
+
+      EOF
+    '')
+    (writeScriptBin "help-repair" ''
+      ${getExe pkgs.glow} - << 'EOF'
+
+      1. Mount drives
+
+        ```sh
+        sudo mount /dev/<main> /mnt
+        sudo mount [-o subvol=@boot] /dev/<main-boot> /mnt/boot
+        sudo mount [-o subvol=@nix] /dev/<main-nix> /mnt/nix
+        sudo mount [-o subvol=@home] /dev/<main-home> /mnt/home
+        ```
+
+        OR with disko
+
+        ```sh
+        sudo disko --mode mount --flake ./dotfiles#<your-configured-host>
+        lsblk
+        sudo mkdir -p /mnt/persist{/var/log/journal,/var/lib}
+        sudo mount -o bind {/mnt/persist,}/var/log/journal
+        sudo mount -o bind {/mnt/persist,}/var/lib
+        ```
+
+      - Enter host
+
+        ```sh
+        sudo nixos-enter
+        ```
+
+      - Add a new nixos-rebuild (system-generation / profile)
+
+        ```sh
+        sudo nixos-install --no-root-passwd --flake ./dotfiles#<your-configured-host>
+        ```
+
+      - Save modified flake to host
+
+        ```sh
+        sudo cp -ar dotfiles /mnt/home/...
         ```
 
       EOF
     '')
   ];
 
-  services.getty.helpLine = "Type 'help-install' for help with installation.";
+  services.getty.helpLine = ''
+    Try:
+    - `help-install`
+    - `help-repair`
+  '';
 }

@@ -138,7 +138,7 @@ dd if=result/<file.iso> of=/dev/<usb>
 
 3. Boot from the ISO (or USB-Stick) on the target system
 
-4. Follow the instructions on the command `help-install`
+4. Follow the instructions on the commands `help-install` or `help-repair`
 
 ### Post-install imperative setup
 
