@@ -20,6 +20,7 @@ with lib;
     loupe
     ncdu
     numbat
+    ouch
     raider
     ripgrep
     tldr
@@ -60,6 +61,7 @@ with lib;
       # I don't like the default but my hand just types it
       calc = "numbat";
       cd = "z";
+      compress = "ouch compress";
       df = "duf";
       du = "dust";
       fdisk = "gdisk";
