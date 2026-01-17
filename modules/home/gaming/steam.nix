@@ -15,9 +15,12 @@
       "org.freedesktop.Platform.VulkanLayer.vkBasalt//23.08"
     ];
     overrides = {
-      "com.valvesoftware.Steam".Environment = {
-        #ENABLE_VKBASALT = "1";
-        #MANGOHUD = "1";
+      "com.valvesoftware.Steam" = {
+        Environment = {
+          #ENABLE_VKBASALT = "1";
+          #MANGOHUD = "1";
+        };
+        Context.filesystems = [ "~/.themes:ro" ];
       };
     };
   };
