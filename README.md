@@ -1,6 +1,6 @@
 # My daily driver's NixOS❄️ desktop flake
 
-![Hyprland-ricing](https://github.com/dafitt/dotfiles/assets/50248238/380705a7-4bd5-4431-81fe-ab04195e19f0)
+![Preview](README.preview.png)
 
 <p align="center"><a href="#installation">Installation</a> &bull; <a href="#usage">Usage</a> &bull; <a href="#configuration">Configuration</a> &bull; <a href="#troubleshooting">Troubleshooting</a></p>
 
