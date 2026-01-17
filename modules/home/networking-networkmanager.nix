@@ -15,7 +15,9 @@ with lib;
     bind = optionals config.dafitt.pyprland.enable [
       "Super&Alt, N, exec, ${getExe pkgs.pyprland} toggle networkmanager"
     ];
-    windowrule = [ "float, class:nm-connection-editor" ];
+    windowrule = [
+      "match:class nm-connection-editor, float on"
+    ];
   };
   dafitt.pyprland.scratchpads.networkmanager = {
     animation = "fromRight";

@@ -34,7 +34,7 @@
 
   wayland.windowManager.hyprland.settings = {
     windowrule = [
-      "float, class:scribus, title:(New Document)"
+      "match:class scribus, match:title (New Document), float on"
     ];
   };
   programs.niri.settings = {

@@ -28,8 +28,8 @@ in
         "Super&Alt, PERIOD, exec, uwsm app -- ${getExe pkgs.keepassxc}"
       ];
       windowrule = [
-        "noscreenshare, class:keepassxc"
-        "float, class:keepassxc, title:keepassxc"
+        "match:class keepassxc$, no_screen_share on"
+        "match:class keepassxc$, match:title keepassxc, float on"
       ];
     };
     programs.niri.settings = {

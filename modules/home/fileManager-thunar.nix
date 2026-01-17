@@ -23,21 +23,21 @@ in
 
   config =
     let
-      thunar = pkgs.xfce.thunar.override {
-        thunarPlugins = [
-          pkgs.xfce.thunar-archive-plugin
-          pkgs.xfce.thunar-media-tags-plugin
-          pkgs.xfce.thunar-vcs-plugin
+      thunar = pkgs.thunar.override {
+        thunarPlugins = with pkgs; [
+          thunar-archive-plugin
+          thunar-media-tags-plugin
+          thunar-vcs-plugin
         ];
       };
     in
     {
-      home.packages = with pkgs.xfce; [
+      home.packages = with pkgs; [
         thunar
         tumbler
       ];
 
-      dbus.packages = with pkgs.xfce; [
+      dbus.packages = with pkgs; [
         thunar
         tumbler
       ];
@@ -48,21 +48,21 @@ in
 
       wayland.windowManager.hyprland.settings = {
         bind = optionals cfg.setAsDefaultFileManager [
-          "Super&Alt, F, exec, uwsm app -- ${getExe pkgs.xfce.thunar}"
+          "Super&Alt, F, exec, uwsm app -- ${thunar}/bin/thunar"
         ];
         exec-once = optionals cfg.autostart [
-          "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.xfce.thunar}"
+          "[workspace ${toString cfg.workspace} silent] uwsm app -- ${thunar}/bin/thunar"
         ];
         windowrule = [
-          "float, class:thunar$, title:^Rename"
+          "match:class thunar$, match:title ^Rename, float on"
         ];
       };
       programs.niri.settings = {
         binds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
-          action.spawn-sh = "uwsm app -- ${getExe pkgs.xfce.thunar}";
+          action.spawn-sh = "uwsm app -- ${thunar}/bin/thunar";
         };
         spawn-at-startup = optionals cfg.autostart [
-          { sh = "uwsm app -- ${getExe pkgs.xfce.thunar}"; }
+          { sh = "uwsm app -- ${thunar}/bin/thunar"; }
         ];
         window-rules = [
           {

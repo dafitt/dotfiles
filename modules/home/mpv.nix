@@ -4,7 +4,7 @@
 
   wayland.windowManager.hyprland.settings = {
     windowrule = [
-      "idleinhibit focus, class:mpv"
+      "match:class mpv$, idle_inhibit focus"
     ];
   };
 }

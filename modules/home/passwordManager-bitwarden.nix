@@ -26,8 +26,8 @@ in
         "Super&Alt, PERIOD, exec, uwsm app -- ${getExe pkgs.bitwarden-desktop}"
       ];
       windowrule = [
-        "noscreenshare, class:Bitwarden"
-        "float, class:Bitwarden, title:Bitwarden"
+        "match:class Bitwarden, no_screen_share on"
+        "match:class Bitwarden, match:title Bitwarden, float on"
       ];
     };
     programs.niri.settings = {

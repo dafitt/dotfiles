@@ -36,8 +36,8 @@ in
         "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.librewolf.package}"
       ];
       windowrule = [
-        "idleinhibit fullscreen, class:librewolf, title:(Youtube)"
-        "float, class:librewolf, title:^Extension: \(NoScript\) - NoScript"
+        "match:class librewolf, match:title (Youtube), idle_inhibit fullscreen"
+        "match:class librewolf, match:title ^Extension: \(NoScript\) - NoScript, float on"
         #FIXME initial title is librewolf
         #TODO no fullscreen
       ];

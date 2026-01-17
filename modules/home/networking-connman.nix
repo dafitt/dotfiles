@@ -15,7 +15,9 @@ with lib;
     bind = optionals config.dafitt.pyprland.enable [
       "Super&Alt, N, exec, ${getExe pkgs.pyprland} toggle connman"
     ];
-    windowrule = [ "float, class:connman-gtk" ];
+    windowrule = [
+      "match:class connman-gtk, float on"
+    ];
   };
   dafitt.pyprland.scratchpads.connman = {
     animation = "fromRight";
