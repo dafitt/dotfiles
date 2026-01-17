@@ -149,6 +149,7 @@ Post-install imperative setup
 - Flatpak: Osu `~/.var/app/sh.ppy.osu/data/osu/`
 - Hyprland: Monitor setup with `nwg-displays`
 - Pavucontrol: Set standard audio output
+- SSH keypair `~/.ssh` `ssh-keygen`
 - Syncthing <https://localhost:8384/>
 - VPN
 
