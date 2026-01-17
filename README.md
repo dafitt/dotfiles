@@ -148,6 +148,7 @@ Post-install imperative setup
 - Firefox Addons (Settings)
 - Flatpak: Osu `~/.var/app/sh.ppy.osu/data/osu/`
 - Hyprland: Monitor setup with `nwg-displays`
+- Xfce/Thunar: Set mime-apps `xfce4-mime-settings` (`nix shell nixpkgs#xfce.xfce4-settings`)
 - Pavucontrol: Set standard audio output
 - SSH keypair `~/.ssh` `ssh-keygen`
 - Syncthing <https://localhost:8384/>
