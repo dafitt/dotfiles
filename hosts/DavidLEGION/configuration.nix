@@ -56,9 +56,8 @@ with lib;
 
   services.fprintd.enable = mkForce false; # No fingerprint reader
 
-  environment.systemPackages = with pkgs; [
-    lact # Linux AMDGPU Controller
-  ];
+  services.lact.enable = true;
+  hardware.amdgpu.overdrive.enable = true;
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
