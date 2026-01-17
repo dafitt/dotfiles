@@ -140,13 +140,17 @@ dd if=result/<file.iso> of=/dev/<usb>
 
 4. Follow the instructions on the commands `help-install` or `help-repair`
 
-## Post-install imperative setup
+## Imperative (not Declarative)
 
-- hyprland: Monitor setup with `nwg-displays`
+Post-install imperative setup
+
+- Accounts and Logins
+- Firefox Addons (Settings)
+- Flatpak: Osu `~/.var/app/sh.ppy.osu/data/osu/`
+- Hyprland: Monitor setup with `nwg-displays`
+- Pavucontrol: Set standard audio output
+- Syncthing <https://localhost:8384/>
 - VPN
-- [Syncthing](https://localhost:8384/)
-- Account logins
-- pavucontrol: Set standard audio output
 
 # Usage
 
