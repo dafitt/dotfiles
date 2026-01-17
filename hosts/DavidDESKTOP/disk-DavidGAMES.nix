@@ -18,6 +18,7 @@
               "compress-force=zlib"
               "nofail"
               "users"
+              "exec" # needs to be after users
               "noatime"
               "defaults"
               "x-mount.mkdir"
