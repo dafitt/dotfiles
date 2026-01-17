@@ -1,12 +1,17 @@
 { inputs, ... }:
 
 #
+# Case:
 # Mainboard:
 # CPU:
-# GPU:
 # Memory:
-# Case:
+# Disks:
+#   -
+# Power Supply:
+# GPU:
 # Display:
+# Keyboard:
+# Mouse:
 # Camera:
 # Battery:
 # WIFI:

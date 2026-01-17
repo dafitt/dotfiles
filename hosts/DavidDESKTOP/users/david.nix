@@ -55,18 +55,9 @@
 
   # Bookmarks #
   gtk.gtk3.bookmarks = [
-    "file:///DavidARCHIVE"
     "file:///DavidGAMES"
   ];
   programs.yazi.keymap.mgr.append_keymap = [
-    {
-      on = [
-        "g"
-        "A"
-      ];
-      run = "cd /DavidARCHIVE";
-      desc = "Go to /DavidARCHIVE";
-    }
     {
       on = [
         "g"

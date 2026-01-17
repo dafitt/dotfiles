@@ -2,15 +2,14 @@
 with lib;
 {
   imports = [
-    ./disk-DavidTANK.nix
     ./disk-DavidGAMES.nix
   ];
 
   disko.devices = {
     disk = {
-      "root" = {
+      "main" = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_2TB_S69ENF0W741037J";
+        device = "/dev/disk/by-id/nvme-WD_BLACK_SN7100_1TB_2451BP403282";
         content = {
           type = "gpt";
           partitions = {
@@ -18,7 +17,7 @@ with lib;
               priority = 1;
               name = "ESP";
               start = "1M"; # iB
-              end = "1G"; # iB
+              end = "2G"; # iB
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -59,6 +58,14 @@ with lib;
                     mountOptions = [ "compress=zstd" ];
                   };
                 };
+              };
+            };
+            "swap" = {
+              size = "72G";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
+                resumeDevice = true;
               };
             };
           };

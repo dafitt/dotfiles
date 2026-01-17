@@ -37,7 +37,6 @@
     group = "users";
 
     paths = [
-      "/DavidARCHIVE"
       "/home/david/Sync"
       "/home/david/Desktop"
       "/home/david/Documents"
@@ -62,7 +61,6 @@
   systemd.services."borgbackup-job-DavidBACKUP" = {
     unitConfig = {
       RequiresMountsFor = [
-        "/DavidARCHIVE"
         "/mnt/DavidBACKUP"
       ]; # autofail
     };

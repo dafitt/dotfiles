@@ -1,10 +1,15 @@
 { pkgs, inputs, ... }:
 
-# Mainboard: Micro-Star International Co., Ltd. MEG B550 UNIFY-X (MS-7D13)
-# CPU: AMD Ryzen 7 5700X (16) @ 3.400GHz
+# Case: Jonsbo T6 Black
+# Mainboard: Asrock Z790 PG-ITX/TB4, Sockel 1700
+# CPU: Intel I5 14600K + Thermalright Phantom Spirit 120 SE BLACK
+# Memory: Crucial Pro DDR5 RAM 64GB Kit (2x32GB) 6000MHz CL40
+# Disks:
+#   - WD_BLACK SN7100 NVMe SSD 1TB
+# Power Supply: Corsair SF750
+# GPU: MSI Radeon RX560 4 GB
 # GPU: AMD ATI Radeon RX 6650 XT
-# Memory: 64GB
-# Case: Dark Base 900 Orange
+# Display:
 {
   nixpkgs.hostPlatform = "x86_64-linux";
   system.stateVersion = "23.11";
@@ -20,7 +25,7 @@
       impermanance
 
       # https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
-      nixos-hardware.nixosModules.common-cpu-amd
+      nixos-hardware.nixosModules.common-cpu-intel
       nixos-hardware.nixosModules.common-gpu-amd
       nixos-hardware.nixosModules.common-pc
       nixos-hardware.nixosModules.common-pc-ssd
