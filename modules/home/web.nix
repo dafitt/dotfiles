@@ -8,6 +8,7 @@
     packages = [
       "de.haeckerfelix.Fragments" # Manage torrents
       "dev.geopjr.Collision" # Check hashes for your files
+      "io.freetubeapp.FreeTube" # An Open Source YouTube app for privacy
       "xyz.ketok.Speedtest" # Measure your internet connection speed
     ];
     overrides = {
