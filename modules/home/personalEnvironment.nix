@@ -60,6 +60,7 @@ with lib;
 
       # I don't like the default but my hand just types it
       calc = "numbat";
+      cat = "bat --style plain --pager never";
       cd = "z";
       compress = "ouch compress";
       df = "duf";
@@ -67,7 +68,7 @@ with lib;
       fdisk = "gdisk";
       grep = "rg";
       top = "$TOP";
-      tree = "eza -T";
+      tree = "eza --tree";
 
       # rsync
       rsync-copy = "rsync --archive --progress -zvh";
