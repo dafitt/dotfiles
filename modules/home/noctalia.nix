@@ -20,13 +20,17 @@ in
   };
 
   config = {
+    home.packages = with pkgs; [
+      gpu-screen-recorder
+    ];
+
     # https://docs.noctalia.dev/
     programs.noctalia-shell = {
       enable = true;
       systemd.enable = true;
 
-      # [Settings](https://docs.noctalia.dev/getting-started/nixos/#config-ref)
-      #$ cat ~/.config/noctalia/gui-settings.json
+      # https://docs.noctalia.dev/getting-started/nixos/#config-ref
+      #$ cat ~/.config/noctalia/gui-settings.json | nix-converter
       settings = {
         general = {
           animationDisabled = true;
@@ -37,7 +41,7 @@ in
           viewMode = "grid";
         };
         audio = {
-          cavaFrameRate = 120;
+          cavaFrameRate = 144;
           visualizerType = "mirrored";
         };
         bar = {
@@ -69,15 +73,25 @@ in
               {
                 id = "Clock";
                 formatHorizontal = "yyyy-MM-ddTHH:mm";
-                formatVertical = "MM dd - HH mm";
+                formatVertical = "yy MM dd T HH :mm";
+                tooltipFormat = "yyyy-MM-ddTHH:mm";
                 useMonospacedFont = true;
                 usePrimaryColor = true;
               }
               {
                 id = "NotificationHistory";
               }
+              {
+                id = "plugin:timer";
+              }
             ];
             right = [
+              {
+                id = "plugin:pomodoro";
+              }
+              {
+                id = "plugin:catwalk";
+              }
               {
                 id = "SystemMonitor";
               }
@@ -91,6 +105,7 @@ in
               }
               {
                 id = "Volume";
+                displayMode = "alwaysHide";
               }
               {
                 id = "Bluetooth";
@@ -108,8 +123,8 @@ in
         controlCenter = {
           shortcuts = {
             left = [
-              { id = "ScreenRecorder"; }
               { id = "WallpaperSelector"; }
+              { id = "plugin:screen-recorder"; }
             ];
             right = [
               { id = "KeepAwake"; }
@@ -118,6 +133,9 @@ in
               { id = "PowerProfile"; }
             ];
           };
+        };
+        location = {
+          name = "Palling";
         };
         osd = {
           enabledTypes = [
@@ -131,6 +149,60 @@ in
         wallpaper = {
           randomEnabled = true;
           randomIntervalSec = 86400;
+        };
+      };
+
+      # https://docs.noctalia.dev/getting-started/nixos/#plugins
+      #$ cat ~/.config/noctalia/plugins/<name>/settings.json | nix-converter
+      plugins = {
+        sources = [
+          {
+            enabled = true;
+            name = "Official Noctalia Plugins";
+            url = "https://github.com/noctalia-dev/noctalia-plugins";
+          }
+        ];
+        states = {
+          catwalk = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          kaomoji-provider = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          keybind-cheatsheet = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          pomodoro = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          screen-recorder = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          screenshot = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          timer = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          unicode-picker = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+        };
+        version = 1;
+      };
+
+      #$ cat ~/.config/noctalia/plugins/<name>/settings.json | nix-converter
+      pluginSettings = {
+        pomodoro = {
+          compactMode = true;
         };
       };
     };

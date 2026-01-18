@@ -52,6 +52,7 @@ in
         grimblast
         hyprkeys
         hyprpicker
+        hyprshot
         hyprsysteminfo
         waypaper
       ];
