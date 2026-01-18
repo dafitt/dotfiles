@@ -128,6 +128,10 @@ in
             4
           ];
         };
+        wallpaper = {
+          randomEnabled = true;
+          randomIntervalSec = 86400;
+        };
       };
     };
 
