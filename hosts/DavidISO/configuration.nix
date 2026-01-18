@@ -194,4 +194,6 @@ with lib;
       '';
     };
   };
+
+  security.sudo-rs.wheelNeedsPassword = false;
 }
