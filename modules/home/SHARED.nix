@@ -23,6 +23,7 @@ with lib;
       imv
       mpv
       noctalia
+      nwg-drawer
       passwordManager-bitwarden
       passwordManager-keepassxc
       personalEnvironment

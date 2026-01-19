@@ -18,7 +18,6 @@ let
   kbdBrightnessDown = "${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%-";
 
   gnomeCharacters = "uwsm app -- ${getExe pkgs.gnome-characters}";
-  nwgDrawer = "uwsm app -- ${getExe pkgs.nwg-drawer} -ovl";
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -33,7 +32,6 @@ in
       ", XF86AudioMicMute, exec, ${micMute}"
 
       "Super&Alt, U, exec, ${gnomeCharacters}"
-      "Super&Alt, Space, exec, ${nwgDrawer}"
     ];
     # Bind: repeat while holding
     binde = [
@@ -67,6 +65,5 @@ in
     "XF86KbdBrightnessDown".action.spawn-sh = kbdBrightnessDown;
 
     "Mod+Alt+U".action.spawn-sh = gnomeCharacters;
-    "Mod+Alt+Space".action.spawn-sh = nwgDrawer;
   };
 }
