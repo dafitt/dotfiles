@@ -50,8 +50,10 @@ in
 
       home.packages = with pkgs; [
         grimblast
+        hyprfreeze
         hyprkeys
         hyprpicker
+        hyprprop
         hyprshot
         hyprsysteminfo
         waypaper
@@ -341,6 +343,8 @@ in
               # select area | ocr | copy
               "Super, T, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --freeze save area - | ${getExe tesseract} - - -l deu+eng | ${wl-clipboard-rs}/bin/wl-copy"
               # GRIMBLAST_HIDE_CURSOR=1: https://github.com/Jas-SinghFSU/HyprPanel/issues/832
+
+              ", PAUSE, exec, hyprfreeze -a"
             ];
 
           # Bind: mouse binds
