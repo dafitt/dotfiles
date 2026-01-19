@@ -21,7 +21,6 @@ with lib;
       fileManager-thunar
       flatpak
       imv
-      launcher-fuzzel
       mpv
       noctalia
       passwordManager-bitwarden

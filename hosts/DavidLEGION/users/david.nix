@@ -12,7 +12,6 @@
       bluetooth
       development
       fileManager-yazi
-      launcher-rofi
       office
       social
       user-david

@@ -15,7 +15,6 @@
       fileManager-thunar
       fileManager-yazi
       gaming
-      launcher-rofi
       office
       ricing
       social
