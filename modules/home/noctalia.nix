@@ -98,10 +98,12 @@ in
               {
                 id = "Battery";
                 alwaysShowPercentage = false;
+                showPowerProfiles = true;
                 warningThreshold = 30;
               }
               {
                 id = "Brightness";
+                displayMode = "alwaysHide";
               }
               {
                 id = "Volume";
