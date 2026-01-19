@@ -4,6 +4,7 @@ let
   quickPoweroff = "${pkgs.systemd}/bin/systemctl poweroff";
   quickReboot = "${pkgs.systemd}/bin/systemctl reboot";
   quickSleep = "${pkgs.systemd}/bin/systemctl sleep";
+  quickHibernate = "${pkgs.systemd}/bin/systemctl hibernate";
 
   audioMute = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
   audioRaiseVolume = "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2%+";
@@ -21,6 +22,7 @@ in
     bind = [
       "Super&Control, Adiaeresis, exec, ${quickPoweroff}"
       "Super&Control, Odiaeresis, exec, ${quickReboot}"
+      "Super&Control, Udiaeresis, exec, ${quickHibernate}"
       "Super, Udiaeresis, exec, ${quickSleep}"
 
       ", XF86AudioMute, exec, ${audioMute}"
@@ -43,6 +45,7 @@ in
   programs.niri.settings.binds = {
     "Mod+Control+Adiaeresis".action.spawn-sh = quickPoweroff;
     "Mod+Control+Odiaeresis".action.spawn-sh = quickReboot;
+    "Mod+Control+Udiaeresis".action.spawn-sh = quickHibernate;
     "Mod+Udiaeresis".action.spawn-sh = quickSleep;
 
     "XF86AudioMute".action.spawn-sh = audioMute;
