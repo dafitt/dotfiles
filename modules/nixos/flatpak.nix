@@ -2,8 +2,5 @@
 {
   services.flatpak.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    gnome-software
-    bazaar
-  ];
+  environment.systemPackages = with pkgs; [ bazaar ];
 }

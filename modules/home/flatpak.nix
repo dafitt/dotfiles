@@ -58,8 +58,5 @@ with lib;
     flatpak-install = "flatpak install --user --or-update --assumeyes";
   };
 
-  home.packages = with pkgs; [
-    gnome-software
-    bazaar
-  ];
+  home.packages = with pkgs; [ bazaar ];
 }
