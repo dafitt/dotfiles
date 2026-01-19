@@ -353,6 +353,11 @@ in
 
           monitor = [ ", preferred, auto, 1" ];
 
+          exec-once = [
+            # [Soteria systemd service does not start](https://github.com/NixOS/nixpkgs/issues/373290)
+            "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_ID"
+          ];
+
           exec-shutdown = [
             ''hyprctl --batch $(hyprctl -j clients | ${getExe pkgs.jq} -j '.[] | "dispatch closewindow address:\(.address); "')'' # close all windows
             "uwsm stop"
@@ -371,10 +376,6 @@ in
           ];
         };
       };
-
-      services.hyprpolkitagent.enable = true;
-      systemd.user.services.hyprpolkitagent.Service.ExecCondition =
-        ''${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""'';
 
       # https://wiki.hypr.land/Configuring/Environment-variables/
       #` export KEY=VAL

@@ -218,6 +218,17 @@ with lib;
       ];
 
       spawn-at-startup = [
+        {
+          # [Soteria systemd service does not start](https://github.com/NixOS/nixpkgs/issues/373290)
+          argv = [
+            "${pkgs.dbus}/bin/dbus-update-activation-environment"
+            "--systemd"
+            "DISPLAY"
+            "WAYLAND_DISPLAY"
+            "XDG_CURRENT_DESKTOP"
+            "XDG_SESSION_ID"
+          ];
+        }
         { argv = [ (getExe perSystem.niri-system76-scheduler.default) ]; }
       ];
     };
