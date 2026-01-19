@@ -326,25 +326,22 @@ in
               "Super&Control, Down, movecurrentworkspacetomonitor, d"
             ]
             ++ [
-              # some small helper programs
-              "Super&Alt, U, exec, uwsm app -- ${gnome-characters}/bin/gnome-characters"
+              # Goodies
               "Super&Alt, K, exec, uwsm app -- ${getExe hyprpicker} | ${wl-clipboard-rs}/bin/wl-copy"
-              "Super&Alt, SPACE, exec, uwsm app -- ${getExe nwg-drawer} -ovl"
+              ", PAUSE, exec, ${getExe hyprfreeze} --active"
 
               # Screenshots
               # quick fullscreen | copy save
-              ", PRINT, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} copysave output ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
+              ", Print, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} copysave output ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
               # select area | copy save
-              "Super, PRINT, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --notify --freeze copysave area ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
+              "Super, Print, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --notify --freeze copysave area ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
               # quick fullscreen | edit | save
-              "ALT, PRINT, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --notify --freeze --cursor save output - | ${getExe satty} --filename - --fullscreen --output-filename ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
+              "ALT, Print, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --notify --freeze --cursor save output - | ${getExe satty} --filename - --fullscreen --output-filename ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
               # select area | edit | save
-              "Super&Alt, PRINT, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --freeze save area - | ${getExe satty} --filename - --output-filename ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
+              "Super&Alt, Print, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --freeze save area - | ${getExe satty} --filename - --output-filename ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')"
               # select area | ocr | copy
               "Super, T, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --freeze save area - | ${getExe tesseract} - - -l deu+eng | ${wl-clipboard-rs}/bin/wl-copy"
               # GRIMBLAST_HIDE_CURSOR=1: https://github.com/Jas-SinghFSU/HyprPanel/issues/832
-
-              ", PAUSE, exec, hyprfreeze -a"
             ];
 
           # Bind: mouse binds

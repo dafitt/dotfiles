@@ -11,9 +11,7 @@ with lib;
     ];
   };
   programs.niri.settings = {
-    binds."XF86Calculator" = {
-      action.spawn-sh = "uwsm app -- ${getExe pkgs.gnome-calculator}";
-    };
+    binds."XF86Calculator".action.spawn-sh = "uwsm app -- ${getExe pkgs.gnome-calculator}";
     window-rules = [
       {
         matches = [ { app-id = "org.gnome.Calculator"; } ];
