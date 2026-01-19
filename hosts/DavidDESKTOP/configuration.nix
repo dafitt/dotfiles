@@ -31,7 +31,6 @@
       nixos-hardware.nixosModules.common-pc-ssd
 
       ./DavidBACKUP.nix
-      ./miniDLNA.nix
 
       SHARED
       bluetooth
