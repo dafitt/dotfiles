@@ -97,7 +97,7 @@ with lib;
       toggle-fullscreen = [ "<Super>f" ];
       toggle-maximized = [ "<Super>a" ];
       toggle-message-tray = [ "<Super>n" ];
-      toggle-overview = [ "<Shift><Super>y" ];
+      toggle-overview = [ "<Super>asciicircum" ];
       unmaximize = [ ];
     };
     "org/gnome/shell/keybindings" = {
@@ -125,7 +125,12 @@ with lib;
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       logout = [ "<Control><Super>q" ];
+      shutdown = [ "<Control><Super>adiaeresis" ];
+      reboot = [ "<Control><Super>odiaeresis" ];
       volume-step = 2;
+    };
+    "org/gnome/mutter/wayland/keybindings" = {
+      restore-shortcuts = [ ];
     };
     "org/gnome/shell/window-switcher" = {
       current-workspace-only = false;
