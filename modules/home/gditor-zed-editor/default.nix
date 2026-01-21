@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   inputs,
   ...
 }:
@@ -43,6 +44,29 @@ in
       }
       // builtins.fromJSON (builtins.readFile ./settings.json);
       userKeymaps = builtins.fromJSON (builtins.readFile ./keymaps.json);
+
+      userTasks = [
+        {
+          # [Add ability to take code snippet screenshots](https://github.com/zed-industries/zed/issues/17181#issuecomment-2922338169)
+          label = "CodeSnap";
+          command = getExe pkgs.codesnap;
+          args = [
+            "--file-path \"$ZED_RELATIVE_FILE\""
+            "--from-code \"$ZED_SELECTED_TEXT\""
+            "--output clipboard"
+            "--has-line-number"
+            "--start-line-number $ZED_ROW"
+            "--has-breadcrumbs true"
+            "--watermark CodeSnap.zed"
+          ];
+          use_new_terminal = false;
+          allow_concurrent_runs = false;
+          reveal = "never";
+          reveal_target = "dock";
+          hide = "on_success";
+          shell = "system";
+        }
+      ];
 
       themes."myStylix" = with config.lib.stylix.colors.withHashtag; {
         name = "Stylix";
