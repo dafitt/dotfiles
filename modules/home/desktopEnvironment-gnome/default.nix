@@ -148,4 +148,6 @@ with lib;
       name = "Terminal";
     };
   };
+
+  xdg.portal.configPackages = [ pkgs.gnome-session ];
 }
