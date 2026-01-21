@@ -9,7 +9,7 @@
   stylix = {
     enable = true;
 
-    iconTheme = {
+    icons = {
       enable = true;
 
       package = pkgs.papirus-icon-theme.override { color = "paleorange"; };
