@@ -404,10 +404,6 @@ in
         exec = "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome-control-center}/bin/gnome-control-center";
         categories = [ "X-Preferences" ];
       };
-
-      programs.fish.completions.uwsm-hyprland = ''
-        complete --command uwsm --arguments "hyprland.desktop hyprland-uwsm.desktop" --no-files
-      '';
     }
 
     (mkIf cfg.ttyAutostart {

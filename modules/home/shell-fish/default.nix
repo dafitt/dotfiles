@@ -80,9 +80,7 @@ with lib;
         ];
 
     completions = {
-      uwsm = ''
-        complete --command uwsm --arguments "select start stop finalize app check aux default" --no-files
-      '';
+      uwsm = readFile completions/uwsm.fish;
     };
   };
 
@@ -90,4 +88,6 @@ with lib;
     FZF_COMPLETE = "2";
     FZF_LEGACY_KEYBINDINGS = "0";
   };
+
+  programs.zed-editor.extensions = [ "fish" ];
 }
