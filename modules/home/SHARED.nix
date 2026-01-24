@@ -24,7 +24,6 @@ with lib;
       mpv
       noctalia
       nwg-drawer
-      passwordManager-bitwarden
       passwordManager-keepassxc
       personalEnvironment
       playerctld
