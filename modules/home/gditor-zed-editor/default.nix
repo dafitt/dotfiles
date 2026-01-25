@@ -36,6 +36,7 @@ in
         "git-firefly"
         "kdl"
         "nix"
+        "toml"
       ];
 
       # https://zed.dev/docs/configuring-zed
