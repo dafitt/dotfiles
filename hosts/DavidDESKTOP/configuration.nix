@@ -47,6 +47,7 @@
 
   services.lact.enable = true;
   hardware.amdgpu.overdrive.enable = true;
+  environment.persistence."/persist".files = [ "/etc/lact/config.yaml" ];
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
