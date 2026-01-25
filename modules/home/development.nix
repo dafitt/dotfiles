@@ -33,6 +33,7 @@ with lib;
     gucharmap
     httpie
     hyperfine
+    jq
     mtr
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
@@ -45,6 +46,7 @@ with lib;
     tldr
     tokei
     wev
+    xan
     yed
   ];
 
