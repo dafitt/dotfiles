@@ -46,8 +46,6 @@ in
 
       settings = {
         general = {
-          # declaration for dbus events
-          lock_cmd = "${pkgs.systemd}/bin/loginctl lock-session";
           before_sleep_cmd = mkIf cfg.sleepTriggersLock "${pkgs.systemd}/bin/loginctl lock-session";
           after_sleep_cmd = "${hyprlandCfg.package}/bin/hyprctl dispatch dpms on && ${pkgs.systemd}/bin/systemctl restart --user wlsunset.service";
         };

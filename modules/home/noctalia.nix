@@ -211,10 +211,13 @@ in
 
     home.file."${config.xdg.userDirs.pictures}/Wallpapers/wallpaper.png".source = config.stylix.image;
 
+    services.hypridle.settings.general.lock_cmd =
+      "${getExe config.programs.noctalia-shell.package} ipc call lockScreen lock";
+
     # [Keybinds](https://docs.noctalia.dev/getting-started/keybinds/)
     wayland.windowManager.hyprland.settings.bind = [
       "Super, W, exec, ${getExe config.programs.noctalia-shell.package} ipc call bar toggle"
-      "Super, L, exec, ${getExe config.programs.noctalia-shell.package} ipc call lockScreen lock"
+      "Super, L, exec, ${config.services.hypridle.settings.general.lock_cmd}"
     ]
     ++ (optionals cfg.setAsDefaultLauncher [
       "Super, SPACE, exec, ${getExe config.programs.noctalia-shell.package} ipc call launcher toggle"
