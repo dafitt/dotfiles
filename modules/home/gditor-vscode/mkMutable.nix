@@ -10,15 +10,20 @@
 # This makes vscode settings/keybindings/tasks/snippets writable
 with lib;
 let
+  cfg = config.programs.vscode;
+
   # Path logic from:
-  # https://github.com/nix-community/home-manager/blob/3876cc613ac3983078964ffb5a0c01d00028139e/modules/programs/vscode.nix
+  # https://github.com/nix-community/home-manager/blob/eec72f127831326b042d1f35003767a4ab6a9516/modules/programs/vscode/default.nix#L51
   configDirName =
     {
       "vscode" = "Code";
       "vscode-insiders" = "Code - Insiders";
       "vscodium" = "VSCodium";
+      "openvscode-server" = "OpenVSCode Server";
+      "windsurf" = "Windsurf";
+      "cursor" = "Cursor";
     }
-    .${config.programs.vscode.package.pname};
+    .${cfg.package.pname};
 
   configUserDirPath =
     if pkgs.stdenv.hostPlatform.isDarwin then
@@ -26,17 +31,31 @@ let
     else
       "${config.xdg.configHome}/${configDirName}/User";
 
-  snippetDir = "${configUserDirPath}/snippets";
-  pathsToMakeWritable = lib.flatten (
-    with config.programs.vscode.profiles.default;
-    [
-      (lib.optional (userSettings != { }) "${configUserDirPath}/settings.json")
-      (lib.optional (keybindings != [ ]) "${configUserDirPath}/keybindings.json")
-      (lib.optional (userTasks != { }) "${configUserDirPath}/tasks.json")
-      (lib.optional (globalSnippets != { }) "${snippetDir}/global.code-snippets")
-      (lib.mapAttrsToList (language: _: "${snippetDir}/${language}.json") languageSnippets)
-    ]
-  );
+  configFilePath =
+    name:
+    "${configUserDirPath}/${lib.optionalString (name != "default") "profiles/${name}/"}settings.json";
+  tasksFilePath =
+    name:
+    "${configUserDirPath}/${lib.optionalString (name != "default") "profiles/${name}/"}tasks.json";
+  keybindingsFilePath =
+    name:
+    "${configUserDirPath}/${
+      lib.optionalString (name != "default") "profiles/${name}/"
+    }keybindings.json";
+  snippetDirPath =
+    name: "${configUserDirPath}/${lib.optionalString (name != "default") "profiles/${name}/"}snippets";
+
+  pathsToMakeWritable = lib.flatten [
+    (lib.mapAttrsToList (n: v: [
+      (lib.optional (
+        v.userSettings != { } || v.enableUpdateCheck != null || v.enableExtensionUpdateCheck != null
+      ) (configFilePath n))
+      (lib.optional (v.userTasks != { }) (tasksFilePath n))
+      (lib.optional (v.keybindings != [ ]) (keybindingsFilePath n))
+      (lib.optional (v.globalSnippets != { }) "${snippetDirPath n}/global.code-snippets")
+      (lib.mapAttrsToList (language: _: "${snippetDirPath n}/${language}.json") v.languageSnippets)
+    ]) cfg.profiles)
+  ];
 in
 {
   imports = with inputs; [
