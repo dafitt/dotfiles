@@ -8,6 +8,7 @@
 with lib;
 {
   imports = with inputs; [
+    # niri.homeModules.niri
     self.homeModules.noctalia
     ../desktopEnvironment-common/keybinds.nix
     ../desktopEnvironment-common/mustHaves.nix

@@ -16,8 +16,7 @@ with lib;
     with inputs;
     with inputs.self.homeModules;
     [
-      niri.homeModules.config
-
+      imports
       browser-firefox
       desktopEnvironment-gnome
       development

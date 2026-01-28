@@ -12,6 +12,7 @@ with lib;
     with inputs;
     with inputs.self.homeModules;
     [
+      imports
       SHARED
       development
       web

@@ -11,7 +11,7 @@ let
 in
 {
   imports = with inputs; [
-    noctalia.homeModules.default
+    # noctalia.homeModules.default
     self.homeModules.stylix
   ];
 

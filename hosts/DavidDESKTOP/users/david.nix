@@ -8,6 +8,7 @@
     with inputs;
     with inputs.self.homeModules;
     [
+      imports
       SHARED
       bluetooth
       development
