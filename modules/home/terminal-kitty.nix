@@ -13,6 +13,7 @@ let
 in
 {
   imports = with inputs; [
+    noctalia.homeModules.default
     self.homeModules.pyprland
     self.homeModules.stylix
   ];
