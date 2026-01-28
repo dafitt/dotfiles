@@ -69,6 +69,7 @@ with lib;
       grep = "rg";
       top = "$TOP";
       tree = "eza --tree";
+      uncompress = "ouch decompress";
 
       # rsync
       rsync-copy = "rsync --archive --progress -zvh";
