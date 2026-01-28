@@ -22,11 +22,12 @@ with lib;
       desktopEnvironment-gnome
       development
       editor-micro
-      fileManager-yazi
+      fileManager-thunar
       flatpak
       nix
       personalEnvironment
       top-btop
+      xdg
     ];
 
   dafitt = {
@@ -38,7 +39,7 @@ with lib;
 
   stylix = {
     autoEnable = false;
-    iconTheme.package = mkForce pkgs.papirus-icon-theme;
+    icons.package = mkForce pkgs.papirus-icon-theme;
     targets = {
       fish.enable = true;
       gnome.enable = true;
