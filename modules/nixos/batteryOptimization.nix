@@ -1,8 +1,7 @@
 {
-  # Better scheduling for CPU cycles
   services.system76-scheduler.settings.cfsProfiles.enable = true;
 
-  # Enable TLP (better than gnomes internal power manager)
+  services.power-profiles-daemon.enable = false;
   services.tlp = {
     enable = true;
     settings = {
@@ -13,10 +12,11 @@
     };
   };
 
-  # Disable GNOMEs power management
-  services.power-profiles-daemon.enable = false;
+  services.upower = {
+    enable = true; # provides power management support to applications
+    criticalPowerAction = "Hibernate";
+  };
 
-  # Enable powertop
   powerManagement.powertop.enable = true;
 
   # suspend-then-hibernate
