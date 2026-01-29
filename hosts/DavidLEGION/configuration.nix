@@ -54,10 +54,6 @@ with lib;
 
   services.fprintd.enable = mkForce false; # No fingerprint reader
 
-  services.lact.enable = true;
-  hardware.amdgpu.overdrive.enable = true;
-  environment.persistence."/persist".files = [ "/etc/lact/config.yaml" ];
-
   #TODO services.thinkfan = {
   #  enable = true;
   #};
@@ -97,6 +93,8 @@ with lib;
     CPU_BOOST_ON_AC = 1;
     CPU_BOOST_ON_BAT = 0;
   };
+
+  services.upower.ignoreLid = true;
 
   services.udev.extraRules = mkMerge [
     # [diable wakeup](https://wiki.nixos.org/wiki/Power_Management#System_Immediately_wakes_up_from_suspend)
