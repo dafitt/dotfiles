@@ -145,14 +145,15 @@ dd if=result/<file.iso> of=/dev/<usb>
 Post-install imperative setup
 
 - Accounts and Logins
+- Age keypair for sops: `age-keygen -o ~/.config/sops/age/keys.txt`
 - Firefox Addons (Settings)
 - Flatpak: Osu `~/.var/app/sh.ppy.osu/data/osu/`
 - Hyprland: Monitor setup with `nwg-displays`
-- Xfce/Thunar: Set mime-apps `xfce4-mime-settings` (`nix shell nixpkgs#xfce.xfce4-settings`)
 - Pavucontrol: Set standard audio output
 - SSH keypair `~/.ssh` `ssh-keygen`
 - Syncthing <https://localhost:8384/>
 - VPN
+- Xfce/Thunar: Set mime-apps `xfce4-mime-settings` (`nix shell nixpkgs#xfce.xfce4-settings`)
 
 # Usage
 
