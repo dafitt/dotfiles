@@ -19,9 +19,6 @@
   # Enable powertop
   powerManagement.powertop.enable = true;
 
-  # Enable thermald (only necessary if on Intel CPUs)
-  services.thermald.enable = true;
-
   # suspend-then-hibernate
   # sleep.conf.d(5)
   systemd.sleep.extraConfig = ''
