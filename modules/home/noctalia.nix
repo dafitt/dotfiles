@@ -97,7 +97,7 @@ in
               }
               {
                 id = "Battery";
-                alwaysShowPercentage = false;
+                displayMode = "alwaysShow";
                 showPowerProfiles = true;
                 warningThreshold = 30;
               }
