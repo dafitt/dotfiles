@@ -37,4 +37,29 @@
     scale = 1.25;
     variable-refresh-rate = true;
   };
+
+  programs.noctalia-shell.settings.desktopWidgets = {
+    enabled = true;
+    gridSnap = true;
+    monitorWidgets = [
+      {
+        name = "eDP-2";
+        widgets = [
+          {
+            clockStyle = "minimal";
+            customFont = "Unifont";
+            format = "yyyy-MM-dd T HH:mm";
+            id = "Clock";
+            roundedCorners = false;
+            scale = 3.121209858125082;
+            showBackground = false;
+            useCustomFont = true;
+            usePrimaryColor = true;
+            x = 60;
+            y = 1320;
+          }
+        ];
+      }
+    ];
+  };
 }
