@@ -145,18 +145,15 @@ with lib;
     hideMounts = true;
   };
 
-  systemd.tmpfiles.rules = [
-    "d /home/snapshots.d 0755 btrbk btrbk"
-    "d /persist/snapshots.d 0755 btrbk btrbk"
-  ];
-
   # https://digint.ch/btrbk/doc/readme.html
+  #$ sudo systemctl start btrbk-<instance>
   services.btrbk = {
     instances."home" = {
       onCalendar = "hourly";
       settings = {
         subvolume = "/home";
-        snapshot_dir = "/home/snapshots.d";
+        snapshot_create = "onchange";
+        snapshot_dir = "/home";
         snapshot_preserve = "16h 7d 3w 2m";
         snapshot_preserve_min = "12h";
       };
@@ -165,7 +162,8 @@ with lib;
       onCalendar = "hourly";
       settings = {
         subvolume = "/persist";
-        snapshot_dir = "/persist/snapshots.d";
+        snapshot_create = "onchange";
+        snapshot_dir = "/persist";
         snapshot_preserve = "16h 7d 3w 2m";
         snapshot_preserve_min = "12h";
       };
