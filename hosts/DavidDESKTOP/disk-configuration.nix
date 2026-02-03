@@ -26,6 +26,14 @@ with lib;
                 mountOptions = [ "umask=0077" ];
               };
             };
+            "swap" = {
+              size = "72G";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
+                resumeDevice = true;
+              };
+            };
             "main" = {
               size = "100%";
               content = {
@@ -58,14 +66,6 @@ with lib;
                     mountOptions = [ "compress=zstd" ];
                   };
                 };
-              };
-            };
-            "swap" = {
-              size = "72G";
-              content = {
-                type = "swap";
-                discardPolicy = "both";
-                resumeDevice = true;
               };
             };
           };
