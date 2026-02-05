@@ -72,10 +72,11 @@ in
               }
               {
                 id = "Clock";
-                formatHorizontal = "yyyy-MM-ddTHH:mm";
-                formatVertical = "yy MM dd T HH :mm";
+                customFont = config.stylix.fonts.monospace.name;
+                formatHorizontal = "yyyy-MM-dd HH:mm";
+                formatVertical = "yy MM dd - HH :mm";
                 tooltipFormat = "yyyy-MM-ddTHH:mm";
-                useMonospacedFont = true;
+                useCustomFont = true;
                 usePrimaryColor = true;
               }
               {
