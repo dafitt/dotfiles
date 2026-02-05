@@ -169,29 +169,56 @@ in
           ];
 
           engines = {
+            "arch-wiki" = {
+              name = "Arch Wiki";
+              definedAliases = [
+                "@arch-wiki"
+                "@archwiki"
+                "@aw"
+              ];
+              urls = [ { template = "https://wiki.archlinux.org/index.php?search={searchTerms}"; } ];
+              icon = "https://wiki.archlinux.org/favicon.ico";
+            };
+            "amazon" = {
+              name = "Amazon";
+              definedAliases = [
+                "@amazon"
+                "@az"
+              ];
+              urls = [ { template = "https://www.amazon.de/s?k={searchTerms}"; } ];
+              icon = "https://amazon.de/favicon.ico";
+            };
             "bing".metaData.hidden = true;
             "ddg".metaData.alias = "@d";
-            "google".metaData.hidden = true;
-
-            "searx" = {
-              name = "Searx";
-              icon = "https://searx.schallernetz.de/favicon.ico";
+            "flathub" = {
+              name = "FlatHub";
               definedAliases = [
-                "@searx"
-                "@sx"
-                "@s"
+                "@flathub"
+                "@fh"
+                "@flatpak"
+                "@fp"
               ];
-              urls = [
-                {
-                  template = "https://searx.schallernetz.de/search";
-                  params = [
-                    {
-                      name = "q";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
+              urls = [ { template = "https://flathub.org/en/apps/search?q={searchTerms}"; } ];
+              icon = "https://flathub.org/favicon.ico";
+            };
+            "google".metaData.hidden = true;
+            "github" = {
+              name = "GitHub";
+              definedAliases = [
+                "@github"
+                "@gh"
               ];
+              urls = [ { template = "https://github.com/search?q={searchTerms}"; } ];
+              icon = "https://github.com/favicon.ico";
+            };
+            "hackernews" = {
+              name = "Hacker News";
+              definedAliases = [
+                "@hackernews"
+                "@hn"
+              ];
+              urls = [ { template = "https://hn.algolia.com/?query={searchTerms}"; } ];
+              icon = "https://hn.algolia.com/favicon.ico";
             };
             "kagi" = {
               name = "Kagi";
@@ -200,35 +227,7 @@ in
                 "@kagi"
                 "@kg"
               ];
-              urls = [
-                {
-                  template = "https://kagi.com/search";
-                  params = [
-                    {
-                      name = "q";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
-            };
-            "youtube" = {
-              icon = "https://youtube.com/favicon.ico";
-              definedAliases = [
-                "@youtube"
-                "@yt"
-              ];
-              urls = [
-                {
-                  template = "https://www.youtube.com/results";
-                  params = [
-                    {
-                      name = "search_query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
+              urls = [ { template = "https://kagi.com/search?q={searchTerms}"; } ];
             };
             "nix-packages" = {
               name = "Nix Packages";
@@ -237,21 +236,7 @@ in
                 "@nixpkgs"
                 "@np"
               ];
-              urls = [
-                {
-                  template = "https://search.nixos.org/packages";
-                  params = [
-                    {
-                      name = "type";
-                      value = "packages";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
+              urls = [ { template = "https://search.nixos.org/packages?type=packages&query={searchTerms}"; } ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             };
             "nixos-wiki" = {
@@ -270,86 +255,31 @@ in
                 "@nixos-options"
                 "@nixosopt"
                 "@no"
-              ];
-              urls = [
-                {
-                  template = "https://search.nixos.org/options";
-                  params = [
-                    {
-                      name = "channel";
-                      value = "${osConfig.system.stateVersion or config.home.stateVersion or "unstable"}";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            };
-            "home-manager-options" = {
-              name = "Home Manager Options";
-              definedAliases = [
                 "@home-manager-options"
                 "@hmopt"
                 "@hm"
                 "@ho"
               ];
-              urls = [
-                {
-                  template = "https://home-manager-options.extranix.com/";
-                  params = [
-                    {
-                      name = "release";
-                      value = "release-${config.home.stateVersion}";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
+              urls = [ { template = "https://search.xn--nschtos-n2a.de/?query={searchTerms}"; } ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             };
-            "github" = {
-              name = "GitHub";
+            "searx" = {
+              name = "Searx";
+              icon = "https://searxng.clan/favicon.ico";
               definedAliases = [
-                "@github"
-                "@gh"
+                "@searx"
+                "@sx"
+                "@s"
               ];
-              urls = [
-                {
-                  template = "https://github.com/search";
-                  params = [
-                    {
-                      name = "q";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
-              icon = "https://github.com/favicon.ico";
+              urls = [ { template = "https://searxng.clan/search?q={searchTerms}"; } ];
             };
-            "hackernews" = {
-              name = "Hacker News";
+            "youtube" = {
               definedAliases = [
-                "@hackernews"
-                "@hn"
+                "@youtube"
+                "@yt"
               ];
-              urls = [
-                {
-                  template = "https://hn.algolia.com/";
-                  params = [
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
-              icon = "https://hn.algolia.com/favicon.ico";
+              urls = [ { template = "https://www.youtube.com/results?search_query={searchTerms}"; } ];
+              icon = "https://youtube.com/favicon.ico";
             };
           };
         };
