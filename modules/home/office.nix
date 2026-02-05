@@ -6,6 +6,8 @@
 
   home.packages = with pkgs; [
     cantarell-fonts
+    evince
+    geary
     ghostscript
     hunspell
     hunspellDicts.de_DE
@@ -16,14 +18,12 @@
     pandoc
     pdfarranger
     scribus
-    evince
   ];
 
   services.flatpak.packages = [
     "com.logseq.Logseq" # Connect your notes and knowledge
     "de.bund.ausweisapp.ausweisapp2" # Official authentication app for German ID card and residence permit
     "md.obsidian.Obsidian" # Markdown-based knowledge base
-    "org.gnome.Evolution" # Manage your email, contacts and schedule
     "org.gnome.meld" # Compare and merge your files
     "org.gustavoperedo.FontDownloader" # Install fonts from online sources
   ];
