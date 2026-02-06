@@ -13,6 +13,7 @@ with lib;
     duf
     dust
     fd
+    file
     gnome-characters
     gnome-text-editor
     libnotify
