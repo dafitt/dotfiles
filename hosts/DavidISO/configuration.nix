@@ -188,7 +188,7 @@ with lib;
     wantedBy = [ "default.target" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = writeShellScript "cp-dotfiles.sh" ''
+      ExecStart = pkgs.writeShellScript "cp-dotfiles.sh" ''
         cp -r /iso/dotfiles/. %h/
         chmod u+w -R %h/dotfiles/
       '';
