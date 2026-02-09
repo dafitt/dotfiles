@@ -11,6 +11,5 @@
     "org.gnome.Fractal"
     "org.signal.Signal"
     "io.github.mimbrero.WhatsAppDesktop"
-    "ch.threema.threema-web-desktop"
   ];
 }

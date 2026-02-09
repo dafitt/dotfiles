@@ -51,11 +51,9 @@ with lib;
   home.packages = [
     perSystem.nixGL.nixGLIntel
     perSystem.nixGL.nixVulkanIntel
-  ];
 
-  services.flatpak.packages = [
-    "com.logseq.Logseq" # Connect your notes and knowledge
-    "org.gnome.meld" # Compare and merge your files
+    logseq
+    meld
   ];
 
   targets.genericLinux.nixGL = {

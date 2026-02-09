@@ -27,6 +27,7 @@ with lib;
 
   home.packages = with pkgs; [
     clang-tools
+    devtoolbox
     dig
     fira-code-symbols
     gcc
@@ -36,6 +37,7 @@ with lib;
     httpie
     hyperfine
     jq
+    meld
     mtr
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
@@ -45,6 +47,7 @@ with lib;
     nix-prefetch-github
     nixd
     nixpkgs-fmt
+    textpieces
     tldr
     tokei
     wev
@@ -54,10 +57,6 @@ with lib;
 
   services.flatpak.packages = [
     "com.belmoussaoui.ashpd.demo" # Play with portals
-    "io.gitlab.liferooter.TextPieces" # Developer's scratchpad
-    "me.iepure.devtoolbox" # Dev tools at your fingertips
-    "nl.hjdskes.gcolor3" # Choose colors from the picker or the screen
-    "org.gnome.meld" # Compare and merge your files
   ];
 
   programs.direnv = {
