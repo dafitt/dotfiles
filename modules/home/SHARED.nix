@@ -9,13 +9,13 @@ with lib;
     with inputs;
     with inputs.self.homeModules;
     [
+      archiveManager
       browser-firefox
       calculator
       desktopEnvironment-hyprland
       desktopEnvironment-niri
       editor-micro
       fastfetch
-      file-roller
       fileManager-thunar
       flatpak
       imv

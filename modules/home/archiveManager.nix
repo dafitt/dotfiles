@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
-  # GNOME's archive manager
+  meta.doc = "Installs and configures an archive manager.";
+
   home.packages = with pkgs; [
     file-roller
   ];
