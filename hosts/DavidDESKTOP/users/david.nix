@@ -11,6 +11,7 @@
       imports
       SHARED
       bluetooth
+      comics
       development
       editing
       fileManager-thunar
