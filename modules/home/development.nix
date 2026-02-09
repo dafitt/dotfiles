@@ -8,6 +8,8 @@
 }:
 with lib;
 {
+  meta.doc = "A suite for development work, focused on nix.";
+
   imports = with inputs; [
     self.homeModules.flatpak
 

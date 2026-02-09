@@ -1,4 +1,6 @@
 {
+  meta.doc = "A suite of applications for managing music and audio files.";
+
   services.flatpak.packages = [
     "app.drey.EarTag" # Edit audio file tags
     "com.rafaelmardojai.Blanket" # Listen to ambient sounds

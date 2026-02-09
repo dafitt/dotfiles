@@ -7,6 +7,8 @@
 }:
 with lib;
 {
+  meta.doc = "A module to manage Bluetooth devices.";
+
   imports = with inputs; [
     self.homeModules.pyprland
   ];

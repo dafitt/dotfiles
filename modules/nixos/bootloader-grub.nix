@@ -1,6 +1,8 @@
 { lib, ... }:
 with lib;
 {
+  meta.doc = "Enables and configures the GRUB bootloader.";
+
   boot.loader.grub = {
     enable = true;
     configurationLimit = mkDefault 50;

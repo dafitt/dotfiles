@@ -9,13 +9,18 @@ let
   cfg = config.dafitt.editor-micro;
 in
 {
+  meta.doc = ''
+    Installs and configures the Micro text editor.
+    <https://micro-editor.github.io/>
+  '';
+
   options.dafitt.editor-micro = with types; {
     setAsDefaultEditor = mkEnableOption "making it the default EDITOR";
   };
 
   config = {
     # Modern and intuitive terminal-based text editor
-    # https://micro-editor.github.io/
+    #
     programs.micro = {
       enable = true;
       settings = {

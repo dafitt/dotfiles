@@ -1,5 +1,7 @@
 { inputs, ... }:
 {
+  meta.doc = "A suite of LaTeX editors and tools for creating and editing LaTeX documents.";
+
   imports = with inputs; [ nix-flatpak.homeManagerModules.nix-flatpak ];
 
   services.flatpak = {

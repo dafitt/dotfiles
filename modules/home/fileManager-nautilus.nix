@@ -9,6 +9,8 @@ let
   cfg = config.dafitt.fileManager-nautilus;
 in
 {
+  meta.doc = "Installs and configures the Nautilus file manager.";
+
   options.dafitt.fileManager-nautilus = with types; {
     setAsDefaultFileManager = mkEnableOption "making it the default file manager";
 
@@ -22,7 +24,6 @@ in
   };
 
   config = {
-    # The file manager for GNOME
     home.packages = with pkgs; [
       nautilus
       nautilus-open-any-terminal

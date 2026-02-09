@@ -1,6 +1,8 @@
 { lib, ... }:
 with lib;
 {
+  meta.doc = "Enables and configures the systemd-boot bootloader.";
+
   boot.loader.systemd-boot = {
     enable = true;
     configurationLimit = mkDefault 50;

@@ -1,6 +1,8 @@
 { config, lib, ... }:
 with lib;
 {
+  meta.doc = "Optimizes the documentation on your system.";
+
   documentation.enable = mkDefault false;
 
   documentation.man = {

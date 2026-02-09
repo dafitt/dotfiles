@@ -7,6 +7,8 @@
 }:
 with lib;
 {
+  meta.doc = "Adds Connman network control.";
+
   imports = with inputs; [
     self.homeModules.pyprland
   ];

@@ -1,6 +1,8 @@
 { lib, ... }:
 with lib;
 {
+  meta.doc = "Configures the german locale on your system.";
+
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [

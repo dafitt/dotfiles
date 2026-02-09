@@ -5,15 +5,23 @@
   ...
 }:
 
-# https://wiki.nixos.org/wiki/Impermanence
-# https://saylesss88.github.io/installation/unencrypted/impermanence.html
-# https://xeiaso.net/blog/paranoid-nixos-2021-07-18/
-
-#! before your first 'nixos-rebuild switch' if transitioning to impermanence
-#$ sudo cp --archive --parents {,/persist}/<DIR>
-
 with lib;
 {
+  meta.doc = ''
+    Adds persistence under `/persist` to your impermanent system and configuration.
+    <https://wiki.nixos.org/wiki/Impermanence>
+    <https://saylesss88.github.io/installation/unencrypted/impermanence.html>
+    <https://xeiaso.net/blog/paranoid-nixos-2021-07-18/>
+
+    # ATTENTION
+
+    When transitioning to impermanence: Before your `nixos-rebuild` and reboot, copy relevant directories and files to `/persist`.
+
+    ```sh
+    sudo cp --archive --parents {,/persist}/<DIR/FILE>
+    ```
+  '';
+
   imports = with inputs; [ impermanence.nixosModules.impermanence ];
 
   config = mkMerge [

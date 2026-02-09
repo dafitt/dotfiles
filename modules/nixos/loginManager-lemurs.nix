@@ -1,4 +1,6 @@
 {
+  meta.doc = "Enables and configures the login manager Lemurs.";
+
   services.displayManager.lemurs = {
     enable = true;
   };

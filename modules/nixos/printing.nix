@@ -1,8 +1,11 @@
 { pkgs, ... }:
 {
-  # https://wiki.nixos.org/wiki/Printing
+  meta.doc = ''
+    Enables printing support from your system.
 
-  # Enable CUPS
+    <https://wiki.nixos.org/wiki/Printing>
+  '';
+
   services.printing = {
     enable = true;
     drivers = with pkgs; [
@@ -11,7 +14,6 @@
     ];
   };
 
-  # Avahi’s service discovery facilities
   services.avahi = {
     enable = true;
     nssmdns4 = true;

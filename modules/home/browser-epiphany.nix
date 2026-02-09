@@ -9,6 +9,8 @@ let
   cfg = config.dafitt.browser-epiphany;
 in
 {
+  meta.doc = "Installs and configures the Epiphany web browser.";
+
   options.dafitt.browser-epiphany = with types; {
     setAsDefaultBrowser = mkEnableOption "making it the default web browser";
 
@@ -22,7 +24,6 @@ in
   };
 
   config = {
-    # Simple and easy to use web browser
     home.packages = with pkgs; [ epiphany ];
 
     wayland.windowManager.hyprland.settings = {

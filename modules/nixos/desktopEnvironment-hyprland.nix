@@ -1,4 +1,6 @@
 {
+  meta.doc = "Enables and configures the Hyprland desktop environment on your system.";
+
   imports = [
     ./desktopEnvironment-mustHaves.nix
   ];

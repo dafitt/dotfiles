@@ -1,7 +1,7 @@
 {
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+  meta.doc = "Home Manager self-management and optimizations.";
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  systemd.user.startServices = "sd-switch"; # Nicely reload system units when changing configs
 }

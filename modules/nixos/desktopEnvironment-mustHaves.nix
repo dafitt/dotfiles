@@ -1,8 +1,12 @@
 { lib, pkgs, ... }:
 
-# [Must Have's](https://wiki.hypr.land/Useful-Utilities/Must-have/)
 with lib;
 {
+  meta.doc = ''
+    Configures common must-haves for every desktop environment on the system.
+    <https://wiki.hypr.land/Useful-Utilities/Must-have/>
+  '';
+
   # Polkit implementation
   security.soteria.enable = true;
 

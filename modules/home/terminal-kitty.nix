@@ -12,6 +12,11 @@ let
   kittyExe = getExe config.programs.kitty.package;
 in
 {
+  meta.doc = ''
+    Installs and configures the terminal emulator Kitty.
+    <https://github.com/kovidgoyal/kitty>
+  '';
+
   imports = with inputs; [
     self.homeModules.pyprland
     self.homeModules.stylix
@@ -23,8 +28,6 @@ in
 
   config = mkMerge [
     {
-      # A modern, hackable, featureful, OpenGL based terminal emulator
-      # https://github.com/kovidgoyal/kitty
       programs.kitty = {
         enable = true;
 

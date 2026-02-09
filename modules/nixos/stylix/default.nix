@@ -1,5 +1,10 @@
 { inputs, ... }:
 {
+  meta.doc = ''
+    Enables system-wide theming.
+    <https://stylix.danth.me/>
+  '';
+
   imports = with inputs; [
     stylix.nixosModules.stylix
     ./theme.nix

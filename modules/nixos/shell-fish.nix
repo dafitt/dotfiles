@@ -1,5 +1,11 @@
 { pkgs, ... }:
 {
+  meta.doc = ''
+    Installs and configures a friendly interactive shell to your system.
+
+    <https://fishshell.com/>
+  '';
+
   programs.fish.enable = true;
 
   # https://wiki.nixos.org/wiki/Fish#Setting_fish_as_your_shell

@@ -1,5 +1,7 @@
 { config, ... }:
 {
+  meta.doc = "Enables and configures XDG Specifications.";
+
   xdg = {
     enable = true;
     cacheHome = "${config.home.homeDirectory}/.local/cache";

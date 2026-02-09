@@ -10,6 +10,8 @@ let
   cfg = config.dafitt.passwordManager-bitwarden;
 in
 {
+  meta.doc = "Installs and configures Bitwarden password manager.";
+
   options.dafitt.passwordManager-bitwarden = with types; {
     setAsDefaultPasswordManager = mkEnableOption "making it the default password manager";
   };

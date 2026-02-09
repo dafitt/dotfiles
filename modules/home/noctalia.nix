@@ -10,6 +10,11 @@ let
   cfg = config.dafitt.noctalia;
 in
 {
+  meta.doc = ''
+    Installs and configures Noctalia shell.
+    <https://docs.noctalia.dev/>
+  '';
+
   imports = with inputs; [
     # noctalia.homeModules.default
     self.homeModules.stylix
@@ -24,7 +29,6 @@ in
       gpu-screen-recorder
     ];
 
-    # https://docs.noctalia.dev/
     programs.noctalia-shell = {
       enable = true;
       systemd.enable = true;

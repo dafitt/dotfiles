@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {
-  # https://syncthing.net/
+  meta.doc = ''
+    Installs and configures Syncthing.
+    <https://syncthing.net/>
+  '';
+
   services.syncthing = {
     enable = true;
     guiAddress = "localhost:8384";

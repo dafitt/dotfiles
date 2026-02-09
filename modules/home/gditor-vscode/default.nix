@@ -10,6 +10,11 @@ let
   cfg = config.dafitt.vscode;
 in
 {
+  meta.doc = ''
+    Installs and configures the Visual Studio Code editor.
+    <https://code.visualstudio.com/>
+  '';
+
   imports = with inputs; [
     self.homeModules.stylix
     ./mkMutable.nix

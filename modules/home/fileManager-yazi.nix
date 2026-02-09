@@ -9,6 +9,8 @@ let
   cfg = config.dafitt.fileManager-yazi;
 in
 {
+  meta.doc = "Installs and configures the Yazi file manager.";
+
   options.dafitt.fileManager-yazi = with types; {
     setAsDefaultFileManager = mkEnableOption "making it the default file manager";
 
@@ -154,7 +156,7 @@ in
           url = "https://raw.githubusercontent.com/sxyazi/yazi/main/assets/logo.png";
           sha256 = "05crmd367v5915i553z172fsip6y8n8mvppjcpqxq9v7bml1vw3x";
         };
-        exec = ''${config.programs.yazi.package}/bin/yazi %u'';
+        exec = "${config.programs.yazi.package}/bin/yazi %u";
         terminal = true;
         type = "Application";
         categories = [
@@ -168,7 +170,7 @@ in
         mimeType = [ "inode/directory" ];
 
         settings = {
-          TryExec = ''${config.programs.yazi.package}/bin/yazi'';
+          TryExec = "${config.programs.yazi.package}/bin/yazi";
           Keywords = "File;Manager;Explorer;Browser;Launcher";
         };
       };

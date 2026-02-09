@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 {
-  # https://github.com/zefr0x/ianny
+  meta.doc = ''
+    Installs and configures Ianny, a simple break timer for your desktop environment.
+    <https://github.com/zefr0x/ianny>
+  '';
+
   home.packages = with pkgs; [ ianny ];
 
   xdg.configFile."io.github.zefr0x.ianny/config.toml".source =
@@ -31,6 +35,4 @@
     };
     Install.WantedBy = [ "graphical-session.target" ];
   };
-
-  #wayland.windowManager.hyprland.settings.exec-once = [ "uwsm app -- ${pkgs.ianny}/bin/ianny" ];
 }

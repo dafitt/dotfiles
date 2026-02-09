@@ -1,14 +1,17 @@
 { lib, pkgs, ... }:
 with lib;
 {
+  meta.doc = ''
+    Enables and configures a friendly interactive shell.
+    <https://fishshell.com/>
+    <https://github.com/fish-shell/fish-shell>
+  '';
+
   home.packages = with pkgs; [
     fzf
     grc
   ];
 
-  # The friendly interactive shell
-  # https://fishshell.com/
-  # https://github.com/fish-shell/fish-shell
   programs.fish = {
     enable = true;
 

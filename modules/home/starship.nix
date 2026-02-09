@@ -1,6 +1,9 @@
 {
-  # A minimal, blazing fast, and extremely customizable prompt for any shell
-  # https://starship.rs/
+  meta.doc = ''
+    Installs and configures the Starship prompt for any shell.
+    <https://starship.rs/>
+  '';
+
   programs.starship = {
     enable = true;
 

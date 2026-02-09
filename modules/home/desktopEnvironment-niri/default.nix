@@ -7,6 +7,11 @@
 }:
 with lib;
 {
+  meta.doc = ''
+    Installs and configures the Niri desktop environment.
+    <https://github.com/YaLTeR/niri>
+  '';
+
   imports = with inputs; [
     # niri.homeModules.niri
     self.homeModules.noctalia

@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  meta.doc = "A suite for ricing your environment.";
+
   imports = [
     ./cava.nix
   ];

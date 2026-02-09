@@ -1,4 +1,6 @@
 {
+  meta.doc = "Enables and configures the login manager GDM.";
+
   services.displayManager.gdm = {
     enable = true;
     wayland = true;

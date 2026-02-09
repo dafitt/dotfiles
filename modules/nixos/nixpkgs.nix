@@ -1,5 +1,11 @@
 { lib, inputs, ... }:
 {
+  meta.doc = ''
+    Configures Nixpkgs within your flake.
+
+    Workaround for <https://github.com/numtide/blueprint/issues/115>.
+  '';
+
   # nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate =
     pkg:

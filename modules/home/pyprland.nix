@@ -9,6 +9,11 @@ let
   cfg = config.dafitt.pyprland;
 in
 {
+  meta.doc = ''
+    A module, that installs and configures pyprland, and adds the scratchpads option.
+    <https://github.com/hyprland-community/pyprland>
+  '';
+
   options.dafitt.pyprland = with types; {
     enable = mkEnableOption "pyprland, a hyprland plugin system";
 
@@ -51,7 +56,7 @@ in
 
   config = mkIf cfg.enable {
     #TODO upstream a pyprland nix module?
-    # https://github.com/hyprland-community/pyprland
+
     home.packages = [ pkgs.pyprland ];
 
     xdg.configFile."hypr/pyprland.toml".source = (pkgs.formats.toml { }).generate "pyprland.toml" {

@@ -10,6 +10,8 @@ let
   cfg = config.dafitt.passwordManager-keepassxc;
 in
 {
+  meta.doc = "Installs and configures KeePassXC password manager.";
+
   options.dafitt.passwordManager-keepassxc = with types; {
     setAsDefaultPasswordManager = mkEnableOption "making it the default password manager";
   };

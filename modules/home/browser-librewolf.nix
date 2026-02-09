@@ -8,6 +8,11 @@ let
   cfg = config.dafitt.browser-librewolf;
 in
 {
+  meta.doc = ''
+    Installs and configures the LibreWolf web browser.
+    https://librewolf.net/
+  '';
+
   options.dafitt.browser-librewolf = with types; {
     setAsDefaultBrowser = mkEnableOption "making it the default web browser";
 
@@ -21,8 +26,6 @@ in
   };
 
   config = {
-    # a fork of Firefox, focused on privacy, security and freedom
-    # https://librewolf.net/
     programs.librewolf = {
       enable = true;
       settings = config.programs.firefox.profiles.${config.home.username}.settings // { };

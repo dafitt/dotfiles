@@ -9,6 +9,8 @@ let
   cfg = config.dafitt.clipboardManager-clipse;
 in
 {
+  meta.doc = "Installs and configures the Clipse clipboard manager.";
+
   options.dafitt.clipboardManager-clipse = with types; {
     setAsDefaultClipboardManager = mkEnableOption "making it the default clipboard manager";
   };

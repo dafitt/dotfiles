@@ -1,5 +1,10 @@
 { inputs, pkgs, ... }:
 {
+  meta.doc = ''
+    Enables home-environment-wide theming.
+    <https://stylix.danth.me/>
+  '';
+
   imports = with inputs; [
     stylix.homeModules.stylix
     ../../nixos/stylix/theme.nix

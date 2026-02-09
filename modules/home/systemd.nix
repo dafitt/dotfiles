@@ -1,4 +1,6 @@
 {
+  meta.doc = "Configures systemd user settings.";
+
   systemd.user.settings.Manager = {
     #$ man systemd-user.conf
 

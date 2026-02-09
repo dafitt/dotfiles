@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  meta.doc = "A module to be annoying in the evening.";
+
   systemd.user.services."bedtime-mute" = {
     Unit.Description = "muting the output volume, to tell you to go to sleep";
     Service = {

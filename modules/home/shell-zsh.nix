@@ -1,8 +1,11 @@
 { lib, pkgs, ... }:
 with lib;
 {
-  # The Z shell
-  # https://www.zsh.org/
+  meta.doc = ''
+    Installs and configures the Z shell.
+    <https://www.zsh.org/>
+  '';
+
   programs.zsh = {
     enable = true;
     autocd = true;

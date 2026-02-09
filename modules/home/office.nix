@@ -1,5 +1,7 @@
 { pkgs, inputs, ... }:
 {
+  meta.doc = "A suite of office applications.";
+
   imports = with inputs; [
     self.homeModules.flatpak
   ];

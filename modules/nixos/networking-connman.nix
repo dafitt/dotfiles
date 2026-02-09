@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  meta.doc = "Enables and configures the Connman network manager on your system.";
+
   services.connman = {
     enable = true;
     wifi.backend = "iwd";

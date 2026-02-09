@@ -20,6 +20,11 @@ let
   gnomeCharacters = "uwsm app -- ${getExe pkgs.gnome-characters}";
 in
 {
+  meta.doc = ''
+    Configures common keybinds for every desktop environment.
+    <https://wiki.hypr.land/Useful-Utilities/Must-have/>
+  '';
+
   wayland.windowManager.hyprland.settings = {
     bind = [
       "Super&Control, Adiaeresis, exec, ${quickPoweroff}"

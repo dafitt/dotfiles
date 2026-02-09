@@ -10,13 +10,16 @@ let
   cfg = config.dafitt.passwordManager-_1password;
 in
 {
+  meta.doc = ''
+    Installs and configures 1Password password manager.
+    <https://1password.com/>
+  '';
+
   options.dafitt.passwordManager-_1password = with types; {
     setAsDefaultPasswordManager = mkEnableOption "making it the default password manager";
   };
 
   config = {
-    # Multi-platform password manager
-    # https://1password.com/
     home.packages = with pkgs; [ _1password-gui ];
 
     programs.firefox.profiles.${config.home.username}.extensions.packages = [

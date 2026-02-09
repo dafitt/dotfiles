@@ -9,6 +9,12 @@ let
   cfg = config.dafitt.fileManager-pcmanfm;
 in
 {
+  meta.doc = ''
+    Installs and configures the PCManFM file manager.
+
+    <https://blog.lxde.org/category/pcmanfm/>
+  '';
+
   options.dafitt.fileManager-pcmanfm = with types; {
     setAsDefaultFileManager = mkEnableOption "making it the default file manager";
 
@@ -22,8 +28,6 @@ in
   };
 
   config = {
-    # Extremely fast and lightweight GTK file manager
-    # https://blog.lxde.org/category/pcmanfm/
     home.packages = with pkgs; [ pcmanfm ];
 
     home.file.".config/pcmanfm/pcmanfm.conf".text = ''

@@ -9,6 +9,8 @@ let
   cfg = config.dafitt.fileManager-thunar;
 in
 {
+  meta.doc = "Installs and configures the Thunar file manager.";
+
   options.dafitt.fileManager-thunar = with types; {
     setAsDefaultFileManager = mkEnableOption "making it the default file manager";
 

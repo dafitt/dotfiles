@@ -9,6 +9,11 @@ let
   cfg = config.dafitt.clipboardManager-cliphist;
 in
 {
+  meta.doc = ''
+    Installs and configures the Cliphist clipboard manager.
+    <https://github.com/sentriz/cliphist>
+  '';
+
   options.dafitt.clipboardManager-cliphist = with types; {
     setAsDefaultClipboardManager = mkEnableOption "making it the default clipboard manager";
   };
@@ -18,8 +23,6 @@ in
       wl-clipboard-rs
     ];
 
-    # Wayland clipboard manager
-    # https://github.com/sentriz/cliphist
     services.cliphist.enable = true;
 
     # in addition to https://github.com/nix-community/home-manager/blob/master/modules/services/cliphist.nix

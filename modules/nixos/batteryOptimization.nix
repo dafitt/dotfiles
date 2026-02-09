@@ -1,4 +1,6 @@
 {
+  meta.doc = "Applies battery optimization settings.";
+
   services.system76-scheduler.settings.cfsProfiles.enable = true;
 
   services.power-profiles-daemon.enable = false;

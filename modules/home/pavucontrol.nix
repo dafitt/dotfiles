@@ -7,6 +7,8 @@
 }:
 with lib;
 {
+  meta.doc = "Installs and configures pavucontrol audio control.";
+
   imports = with inputs; [
     self.homeModules.pyprland
   ];

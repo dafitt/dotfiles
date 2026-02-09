@@ -10,6 +10,11 @@ let
   cfg = config.dafitt.launcher-rofi;
 in
 {
+  meta.doc = ''
+    Installs and configures Rofi, an application launcher for X11 and Wayland compositors.
+    <https://github.com/davatorium/rofi>
+  '';
+
   imports = with inputs; [
     self.homeModules.stylix
   ];

@@ -1,6 +1,7 @@
 { config, ... }:
 {
-  # playerctl (media control) daemon
+  meta.doc = "Installs and configures playerctl media control daemon.";
+
   services.playerctld.enable = true;
 
   wayland.windowManager.hyprland.settings = {

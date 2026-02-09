@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  meta.doc = "Enables and configures audio on your system.";
+
   # https://wiki.nixos.org/wiki/PipeWire
   security.rtkit.enable = true;
   services.pipewire = {

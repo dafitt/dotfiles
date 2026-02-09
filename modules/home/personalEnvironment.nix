@@ -6,6 +6,8 @@
 }:
 with lib;
 {
+  meta.doc = "Configures dafitt's personal environment.";
+
   home.packages = with pkgs; [
     broot
     clapper

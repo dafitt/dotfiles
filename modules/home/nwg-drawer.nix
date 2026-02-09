@@ -7,6 +7,8 @@
 }:
 with lib;
 {
+  meta.doc = "Installs and configures nwg-drawer.";
+
   imports = with inputs; [ self.homeModules.stylix ];
 
   home.packages = with pkgs; [ nwg-drawer ];

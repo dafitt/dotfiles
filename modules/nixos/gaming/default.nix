@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  meta.doc = "A suite to game on your system.";
+
   imports = [
     ./steam.nix
   ];

@@ -1,5 +1,7 @@
 { inputs, ... }:
 {
+  meta.doc = "A collection of default modules beeing shared across hosts.";
+
   imports = with inputs.self.nixosModules; [
     appimage
     audio

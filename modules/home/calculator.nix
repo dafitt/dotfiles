@@ -1,6 +1,8 @@
 { lib, pkgs, ... }:
 with lib;
 {
+  meta.doc = "Installs and configures a calculator application.";
+
   home.packages = with pkgs; [ gnome-calculator ];
 
   wayland.windowManager.hyprland.settings = {

@@ -1,6 +1,9 @@
 {
-  # GNU Bourne-Again Shell, the de facto standard shell on Linux
-  # https://www.gnu.org/software/bash/
+  meta.doc = ''
+    Configures GNU Bourne-Again Shell.
+    <https://www.gnu.org/software/bash/>
+  '';
+
   programs.bash = {
     enable = true;
 

@@ -1,4 +1,6 @@
 {
+  meta.doc = "Enables and configures the Niri desktop environment on your system.";
+
   imports = [
     ./desktopEnvironment-mustHaves.nix
   ];

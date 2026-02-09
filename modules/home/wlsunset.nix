@@ -1,4 +1,6 @@
 {
+  meta.doc = "Installs and configures wlsunset.";
+
   services.wlsunset = {
     enable = true;
 

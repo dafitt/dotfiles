@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  meta.doc = "Enables and configures the GNOME desktop environment on your system.";
+
   services.desktopManager.gnome.enable = true;
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
 

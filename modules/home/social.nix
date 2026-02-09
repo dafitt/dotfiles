@@ -1,5 +1,7 @@
 { inputs, ... }:
 {
+  meta.doc = "A suite for social media applications.";
+
   imports = with inputs; [
     self.homeModules.flatpak
   ];

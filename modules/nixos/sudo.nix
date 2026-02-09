@@ -1,4 +1,6 @@
 {
+  meta.doc = "Configures sudo on your system.";
+
   security = {
     sudo.enable = false;
     sudo-rs = {

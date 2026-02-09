@@ -6,6 +6,8 @@
 }:
 with lib;
 {
+  meta.doc = "Configures Nix the package manager.";
+
   programs.git.enable = true;
 
   nix = {

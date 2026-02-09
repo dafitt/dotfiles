@@ -1,6 +1,8 @@
 { lib, pkgs, ... }:
 with lib;
 {
+  meta.doc = "Enables and configures the greetd login manager.";
+
   services.greetd = {
     enable = true;
     useTextGreeter = true;

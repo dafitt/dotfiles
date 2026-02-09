@@ -6,6 +6,11 @@
 }:
 with lib;
 {
+  meta.doc = ''
+    Installs and configures the GNOME desktop environment.
+    <https://www.gnome.org/>
+  '';
+
   imports = [
     ./extensions.nix
   ];

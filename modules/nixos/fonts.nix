@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  meta.doc = "Adds some basic fonts (& support).";
+
   environment.variables = {
     # Enable icons in tooling since we have nerdfonts.
     LOG_ICONS = "true";

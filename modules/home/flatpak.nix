@@ -6,6 +6,11 @@
 }:
 with lib;
 {
+  meta.doc = ''
+    Declarative Flatpak userspace support.
+    <https://github.com/gmodena/nix-flatpak>
+  '';
+
   imports = with inputs; [ nix-flatpak.homeManagerModules.nix-flatpak ];
 
   # https://github.com/gmodena/nix-flatpak?tab=readme-ov-file#getting-started
