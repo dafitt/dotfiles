@@ -7,7 +7,7 @@
 }:
 with lib;
 {
-  meta.doc = "Installs and configures nwg-drawer.";
+  #meta.doc = builtins.toFile "doc.md" "Installs and configures nwg-drawer.";
 
   imports = with inputs; [ self.homeModules.stylix ];
 

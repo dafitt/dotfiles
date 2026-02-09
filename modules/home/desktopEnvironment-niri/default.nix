@@ -7,10 +7,10 @@
 }:
 with lib;
 {
-  meta.doc = ''
-    Installs and configures the Niri desktop environment.
-    <https://github.com/YaLTeR/niri>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures the Niri desktop environment.
+  #  <https://github.com/YaLTeR/niri>
+  #'';
 
   imports = with inputs; [
     # niri.homeModules.niri

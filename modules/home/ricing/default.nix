@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "A suite for ricing your environment.";
+  #meta.doc = builtins.toFile "doc.md" "A suite for ricing your environment.";
 
   imports = [
     ./cava.nix

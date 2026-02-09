@@ -10,11 +10,11 @@ let
   cfg = config.dafitt.desktopEnvironment-hyprland;
 in
 {
-  meta.doc = ''
-    Installs and configures the Hyprland desktop environment.
-    <https://hypr.land/>
-    <https://github.com/hyprwm/Hyprland>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures the Hyprland desktop environment.
+  #  <https://hypr.land/>
+  #  <https://github.com/hyprwm/Hyprland>
+  #'';
 
   imports = with inputs; [
     self.homeModules.noctalia

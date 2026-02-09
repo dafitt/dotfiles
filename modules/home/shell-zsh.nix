@@ -1,10 +1,10 @@
 { lib, pkgs, ... }:
 with lib;
 {
-  meta.doc = ''
-    Installs and configures the Z shell.
-    <https://www.zsh.org/>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures the Z shell.
+  #  <https://www.zsh.org/>
+  #'';
 
   programs.zsh = {
     enable = true;

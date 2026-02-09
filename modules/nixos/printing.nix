@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
-  meta.doc = ''
-    Enables printing support from your system.
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Enables printing support from your system.
 
-    <https://wiki.nixos.org/wiki/Printing>
-  '';
+  #  <https://wiki.nixos.org/wiki/Printing>
+  #'';
 
   services.printing = {
     enable = true;

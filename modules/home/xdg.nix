@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  meta.doc = "Enables and configures XDG Specifications.";
+  #meta.doc = builtins.toFile "doc.md" "Enables and configures XDG Specifications.";
 
   xdg = {
     enable = true;

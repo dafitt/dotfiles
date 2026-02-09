@@ -1,5 +1,5 @@
 {
-  meta.doc = "Opens the firewall for localsend.";
+  #meta.doc = builtins.toFile "doc.md" "Opens the firewall for localsend.";
 
   networking.firewall = {
     allowedTCPPorts = [ 53317 ];

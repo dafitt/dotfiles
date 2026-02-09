@@ -1,9 +1,9 @@
 { inputs, pkgs, ... }:
 {
-  meta.doc = ''
-    Enables home-environment-wide theming.
-    <https://stylix.danth.me/>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Enables home-environment-wide theming.
+  #  <https://stylix.danth.me/>
+  #'';
 
   imports = with inputs; [
     stylix.homeModules.stylix

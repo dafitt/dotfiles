@@ -9,7 +9,7 @@ let
   cfg = config.dafitt.browser-epiphany;
 in
 {
-  meta.doc = "Installs and configures the Epiphany web browser.";
+  #meta.doc = builtins.toFile "doc.md" "Installs and configures the Epiphany web browser.";
 
   options.dafitt.browser-epiphany = with types; {
     setAsDefaultBrowser = mkEnableOption "making it the default web browser";

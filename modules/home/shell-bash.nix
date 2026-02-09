@@ -1,8 +1,8 @@
 {
-  meta.doc = ''
-    Configures GNU Bourne-Again Shell.
-    <https://www.gnu.org/software/bash/>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Configures GNU Bourne-Again Shell.
+  #  <https://www.gnu.org/software/bash/>
+  #'';
 
   programs.bash = {
     enable = true;

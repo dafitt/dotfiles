@@ -10,10 +10,10 @@ let
   cfg = config.dafitt.noctalia;
 in
 {
-  meta.doc = ''
-    Installs and configures Noctalia shell.
-    <https://docs.noctalia.dev/>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures Noctalia shell.
+  #  <https://docs.noctalia.dev/>
+  #'';
 
   imports = with inputs; [
     # noctalia.homeModules.default

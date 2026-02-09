@@ -6,7 +6,7 @@
 }:
 with lib;
 {
-  meta.doc = "Configures dafitt's personal environment.";
+  #meta.doc = builtins.toFile "doc.md" "Configures dafitt's personal environment.";
 
   home.packages = with pkgs; [
     broot

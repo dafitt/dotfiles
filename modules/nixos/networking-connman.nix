@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "Enables and configures the Connman network manager on your system.";
+  #meta.doc = builtins.toFile "doc.md" "Enables and configures the Connman network manager on your system.";
 
   services.connman = {
     enable = true;

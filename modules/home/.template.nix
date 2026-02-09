@@ -10,7 +10,7 @@ let
   cfg = config.dafitt.MODULE;
 in
 {
-  meta.doc = "A module that does something.";
+  #meta.doc = builtins.toFile "doc.md" "A module that does something.";
 
   options.dafitt.MODULE = with types; {
     setAsDefault = mkEnableOption "making it the default";

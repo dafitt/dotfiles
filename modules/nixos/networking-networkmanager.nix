@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "Enables and configures the NetworkManager network manager on your system.";
+  #meta.doc = builtins.toFile "doc.md" "Enables and configures the NetworkManager network manager on your system.";
 
   networking.networkmanager.enable = true;
 

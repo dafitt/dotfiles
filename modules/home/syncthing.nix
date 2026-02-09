@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
-  meta.doc = ''
-    Installs and configures Syncthing.
-    <https://syncthing.net/>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures Syncthing.
+  #  <https://syncthing.net/>
+  #'';
 
   services.syncthing = {
     enable = true;

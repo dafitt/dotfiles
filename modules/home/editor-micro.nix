@@ -9,10 +9,10 @@ let
   cfg = config.dafitt.editor-micro;
 in
 {
-  meta.doc = ''
-    Installs and configures the Micro text editor.
-    <https://micro-editor.github.io/>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures the Micro text editor.
+  #  <https://micro-editor.github.io/>
+  #'';
 
   options.dafitt.editor-micro = with types; {
     setAsDefaultEditor = mkEnableOption "making it the default EDITOR";

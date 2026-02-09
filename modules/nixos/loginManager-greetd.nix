@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 with lib;
 {
-  meta.doc = "Enables and configures the greetd login manager.";
+  #meta.doc = builtins.toFile "doc.md" "Enables and configures the greetd login manager.";
 
   services.greetd = {
     enable = true;

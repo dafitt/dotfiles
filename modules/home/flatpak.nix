@@ -6,10 +6,10 @@
 }:
 with lib;
 {
-  meta.doc = ''
-    Declarative Flatpak userspace support.
-    <https://github.com/gmodena/nix-flatpak>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Declarative Flatpak userspace support.
+  #  <https://github.com/gmodena/nix-flatpak>
+  #'';
 
   imports = with inputs; [ nix-flatpak.homeManagerModules.nix-flatpak ];
 

@@ -12,10 +12,10 @@ let
   kittyExe = getExe config.programs.kitty.package;
 in
 {
-  meta.doc = ''
-    Installs and configures the terminal emulator Kitty.
-    <https://github.com/kovidgoyal/kitty>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures the terminal emulator Kitty.
+  #  <https://github.com/kovidgoyal/kitty>
+  #'';
 
   imports = with inputs; [
     self.homeModules.pyprland

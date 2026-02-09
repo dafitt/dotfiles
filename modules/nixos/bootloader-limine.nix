@@ -1,7 +1,7 @@
 { lib, ... }:
 with lib;
 {
-  meta.doc = "Enables and configures the Limine bootloader.";
+  #meta.doc = builtins.toFile "doc.md" "Enables and configures the Limine bootloader.";
 
   boot.loader.limine = {
     enable = true;

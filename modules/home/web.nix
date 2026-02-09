@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  meta.doc = "A suite of additional web applications and tools.";
+  #meta.doc = builtins.toFile "doc.md" "A suite of additional web applications and tools.";
 
   imports = with inputs; [
     self.homeModules.flatpak

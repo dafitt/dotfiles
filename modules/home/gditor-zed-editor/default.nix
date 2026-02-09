@@ -10,10 +10,10 @@ let
   cfg = config.dafitt.gditor-zed-editor;
 in
 {
-  meta.doc = ''
-    Installs and configures the Zed Editor.
-    <https://zed.dev/>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures the Zed Editor.
+  #  <https://zed.dev/>
+  #'';
 
   imports = with inputs; [
     self.homeModules.stylix

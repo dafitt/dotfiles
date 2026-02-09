@@ -9,7 +9,7 @@ let
   cfg = config.dafitt.fileManager-yazi;
 in
 {
-  meta.doc = "Installs and configures the Yazi file manager.";
+  #meta.doc = builtins.toFile "doc.md" "Installs and configures the Yazi file manager.";
 
   options.dafitt.fileManager-yazi = with types; {
     setAsDefaultFileManager = mkEnableOption "making it the default file manager";

@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "Configures the user 'root' on your system.";
+  #meta.doc = builtins.toFile "doc.md" "Configures the user 'root' on your system.";
 
   users.users.root = {
     packages = with pkgs; [

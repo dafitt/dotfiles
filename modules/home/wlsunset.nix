@@ -1,5 +1,5 @@
 {
-  meta.doc = "Installs and configures wlsunset.";
+  #meta.doc = builtins.toFile "doc.md" "Installs and configures wlsunset.";
 
   services.wlsunset = {
     enable = true;

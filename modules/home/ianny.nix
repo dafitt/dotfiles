@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 {
-  meta.doc = ''
-    Installs and configures Ianny, a simple break timer for your desktop environment.
-    <https://github.com/zefr0x/ianny>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures Ianny, a simple break timer for your desktop environment.
+  #  <https://github.com/zefr0x/ianny>
+  #'';
 
   home.packages = with pkgs; [ ianny ];
 

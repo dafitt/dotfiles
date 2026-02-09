@@ -1,5 +1,5 @@
 {
-  meta.doc = "Home Manager self-management and optimizations.";
+  #meta.doc = builtins.toFile "doc.md" "Home Manager self-management and optimizations.";
 
   programs.home-manager.enable = true;
 

@@ -6,7 +6,7 @@
 }:
 with lib;
 {
-  meta.doc = "Configures Nix the package manager.";
+  #meta.doc = builtins.toFile "doc.md" "Configures Nix the package manager.";
 
   programs.git.enable = true;
 

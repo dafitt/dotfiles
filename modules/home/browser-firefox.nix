@@ -12,7 +12,7 @@ let
   cfg = config.dafitt.browser-firefox;
 in
 {
-  meta.doc = "Installs and configures the Firefox web browser.";
+  #meta.doc = builtins.toFile "doc.md" "Installs and configures the Firefox web browser.";
 
   imports = with inputs; [
     betterfox.homeModules.betterfox

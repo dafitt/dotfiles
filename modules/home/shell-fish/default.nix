@@ -1,11 +1,11 @@
 { lib, pkgs, ... }:
 with lib;
 {
-  meta.doc = ''
-    Enables and configures a friendly interactive shell.
-    <https://fishshell.com/>
-    <https://github.com/fish-shell/fish-shell>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Enables and configures a friendly interactive shell.
+  #  <https://fishshell.com/>
+  #  <https://github.com/fish-shell/fish-shell>
+  #'';
 
   home.packages = with pkgs; [
     fzf

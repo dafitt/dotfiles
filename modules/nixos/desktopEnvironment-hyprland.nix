@@ -1,5 +1,5 @@
 {
-  meta.doc = "Enables and configures the Hyprland desktop environment on your system.";
+  #meta.doc = builtins.toFile "doc.md" "Enables and configures the Hyprland desktop environment on your system.";
 
   imports = [
     ./desktopEnvironment-mustHaves.nix

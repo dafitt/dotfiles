@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "A suite for reading comics/mangas/webtoons.";
+  #meta.doc = builtins.toFile "doc.md" "A suite for reading comics/mangas/webtoons.";
 
   home.packages = with pkgs; [
     komikku

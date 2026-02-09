@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "A suite to game on your system.";
+  #meta.doc = builtins.toFile "doc.md" "A suite to game on your system.";
 
   imports = [
     ./steam.nix

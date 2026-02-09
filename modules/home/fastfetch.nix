@@ -1,8 +1,8 @@
 {
-  meta.doc = ''
-    Installs and configures the Fastfetch system information tool.
-    <https://github.com/fastfetch-cli/fastfetch/>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures the Fastfetch system information tool.
+  #  <https://github.com/fastfetch-cli/fastfetch/>
+  #'';
 
   programs.fastfetch = {
     enable = true;

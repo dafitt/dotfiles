@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  meta.doc = "Adds and configures Home Manager to your system and configruation.";
+  #meta.doc = builtins.toFile "doc.md" "Adds and configures Home Manager to your system and configruation.";
 
   imports = with inputs; [ home-manager.nixosModules.home-manager ];
 

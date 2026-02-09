@@ -8,10 +8,10 @@ let
   cfg = config.dafitt.browser-librewolf;
 in
 {
-  meta.doc = ''
-    Installs and configures the LibreWolf web browser.
-    https://librewolf.net/
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures the LibreWolf web browser.
+  #  https://librewolf.net/
+  #'';
 
   options.dafitt.browser-librewolf = with types; {
     setAsDefaultBrowser = mkEnableOption "making it the default web browser";

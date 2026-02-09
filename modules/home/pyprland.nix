@@ -9,10 +9,10 @@ let
   cfg = config.dafitt.pyprland;
 in
 {
-  meta.doc = ''
-    A module, that installs and configures pyprland, and adds the scratchpads option.
-    <https://github.com/hyprland-community/pyprland>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  A module, that installs and configures pyprland, and adds the scratchpads option.
+  #  <https://github.com/hyprland-community/pyprland>
+  #'';
 
   options.dafitt.pyprland = with types; {
     enable = mkEnableOption "pyprland, a hyprland plugin system";

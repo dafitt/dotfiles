@@ -1,5 +1,5 @@
 {
-  meta.doc = "Adds and configures the user 'david' on your system.";
+  #meta.doc = builtins.toFile "doc.md" "Adds and configures the user 'david' on your system.";
 
   users.users."david" = {
     isNormalUser = true;

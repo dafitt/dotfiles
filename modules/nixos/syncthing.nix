@@ -1,5 +1,5 @@
 {
-  meta.doc = "Opens the firewall for syncthing.";
+  #meta.doc = builtins.toFile "doc.md" "Opens the firewall for syncthing.";
 
   networking.firewall = {
     allowedTCPPorts = [

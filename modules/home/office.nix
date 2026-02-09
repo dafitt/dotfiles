@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  meta.doc = "A suite of office applications.";
+  #meta.doc = builtins.toFile "doc.md" "A suite of office applications.";
 
   imports = with inputs; [
     self.homeModules.flatpak

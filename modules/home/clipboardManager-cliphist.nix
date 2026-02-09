@@ -9,10 +9,10 @@ let
   cfg = config.dafitt.clipboardManager-cliphist;
 in
 {
-  meta.doc = ''
-    Installs and configures the Cliphist clipboard manager.
-    <https://github.com/sentriz/cliphist>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures the Cliphist clipboard manager.
+  #  <https://github.com/sentriz/cliphist>
+  #'';
 
   options.dafitt.clipboardManager-cliphist = with types; {
     setAsDefaultClipboardManager = mkEnableOption "making it the default clipboard manager";

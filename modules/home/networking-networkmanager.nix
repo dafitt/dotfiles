@@ -7,7 +7,7 @@
 }:
 with lib;
 {
-  meta.doc = "Adds NetworkManager network control.";
+  #meta.doc = builtins.toFile "doc.md" "Adds NetworkManager network control.";
 
   imports = with inputs; [
     self.homeModules.pyprland

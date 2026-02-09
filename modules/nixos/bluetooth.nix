@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "Enables and configures Bluetooth support.";
+  #meta.doc = builtins.toFile "doc.md" "Enables and configures Bluetooth support.";
 
   hardware.bluetooth = {
     enable = true;

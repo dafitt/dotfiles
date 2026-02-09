@@ -1,7 +1,7 @@
 { lib, ... }:
 with lib;
 {
-  meta.doc = "Configures the german locale on your system.";
+  #meta.doc = builtins.toFile "doc.md" "Configures the german locale on your system.";
 
   i18n = {
     defaultLocale = "en_US.UTF-8";

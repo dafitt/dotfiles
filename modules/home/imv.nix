@@ -1,8 +1,8 @@
 {
-  meta.doc = ''
-    Installs and configures IMV, a command line image viewer for tiling window managers.
-    <https://sr.ht/~exec64/imv/>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures IMV, a command line image viewer for tiling window managers.
+  #  <https://sr.ht/~exec64/imv/>
+  #'';
 
   programs.imv = {
     enable = true;

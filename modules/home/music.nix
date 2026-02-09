@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "A suite of applications for managing music and audio files.";
+  #meta.doc = builtins.toFile "doc.md" "A suite of applications for managing music and audio files.";
 
   home.packages = with pkgs; [
     amberol

@@ -1,5 +1,5 @@
 {
-  meta.doc = "Personal settings.";
+  #meta.doc = builtins.toFile "doc.md" "Personal settings.";
 
   programs.git.settings.user = {
     name = "dafitt";

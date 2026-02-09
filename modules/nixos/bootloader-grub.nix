@@ -1,7 +1,7 @@
 { lib, ... }:
 with lib;
 {
-  meta.doc = "Enables and configures the GRUB bootloader.";
+  #meta.doc = builtins.toFile "doc.md" "Enables and configures the GRUB bootloader.";
 
   boot.loader.grub = {
     enable = true;

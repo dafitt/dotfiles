@@ -1,11 +1,11 @@
 { pkgs, ... }:
 {
-  meta.doc = ''
-    Adds security scanning tools to your system.
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Adds security scanning tools to your system.
 
-    Update the virus database with `freshclam`.
-    Scan your system or directories with `clamscan`.
-  '';
+  #  Update the virus database with `freshclam`.
+  #  Scan your system or directories with `clamscan`.
+  #'';
 
   environment.systemPackages = with pkgs; [
     clamav

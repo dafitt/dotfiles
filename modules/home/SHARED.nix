@@ -5,7 +5,7 @@
 }:
 with lib;
 {
-  meta.doc = "A collection of default modules beeing shared across home environments.";
+  #meta.doc = builtins.toFile "doc.md" "A collection of default modules beeing shared across home environments.";
 
   imports =
     with inputs;

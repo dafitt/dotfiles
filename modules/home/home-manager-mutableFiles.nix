@@ -17,15 +17,15 @@ let
   ];
 in
 {
-  meta.doc = ''
-    Adds mutable file support to Home Manager:
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Adds mutable file support to Home Manager:
 
-    - `home.file.<name>.mutable`
-    - `xdg.configFile.<name>.mutable`
-    - `xdg.dataFile.<name>.mutable`
+  #  - `home.file.<name>.mutable`
+  #  - `xdg.configFile.<name>.mutable`
+  #  - `xdg.dataFile.<name>.mutable`
 
-    Sourced from: <https://gist.github.com/piousdeer/b29c272eaeba398b864da6abf6cb5daa>
-  '';
+  #  Sourced from: <https://gist.github.com/piousdeer/b29c272eaeba398b864da6abf6cb5daa>
+  #'';
 
   options =
     let

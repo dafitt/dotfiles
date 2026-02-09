@@ -9,19 +9,19 @@ let
   zfs = builtins.hasAttr "zfs" config.boot.supportedFilesystems;
 in
 {
-  meta.doc = ''
-    Configures the linux kernel.
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Configures the linux kernel.
 
-    Available kernel packages:
-    <https://wiki.nixos.org/wiki/Linux_kernel#List_available_kernels>
+  #  Available kernel packages:
+  #  <https://wiki.nixos.org/wiki/Linux_kernel#List_available_kernels>
 
-    ```
-    pkgs.linuxPackages_6_6;
-    pkgs.linuxPackages;
-    pkgs.linuxPackages_latest;
-    pkgs.linuxPackages_zen;
-    ```
-  '';
+  #  ```
+  #  pkgs.linuxPackages_6_6;
+  #  pkgs.linuxPackages;
+  #  pkgs.linuxPackages_latest;
+  #  pkgs.linuxPackages_zen;
+  #  ```
+  #'';
 
   boot.kernelPackages = mkDefault (if zfs then pkgs.linuxPackages else pkgs.linuxPackages_latest);
 

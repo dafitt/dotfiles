@@ -1,5 +1,5 @@
 {
-  meta.doc = "Configures sudo on your system.";
+  #meta.doc = builtins.toFile "doc.md" "Configures sudo on your system.";
 
   security = {
     sudo.enable = false;

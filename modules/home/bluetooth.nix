@@ -7,7 +7,7 @@
 }:
 with lib;
 {
-  meta.doc = "A module to manage Bluetooth devices.";
+  #meta.doc = builtins.toFile "doc.md" "A module to manage Bluetooth devices.";
 
   imports = with inputs; [
     self.homeModules.pyprland

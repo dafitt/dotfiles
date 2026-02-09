@@ -1,8 +1,8 @@
 {
-  meta.doc = ''
-    Installs and configures the Starship prompt for any shell.
-    <https://starship.rs/>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures the Starship prompt for any shell.
+  #  <https://starship.rs/>
+  #'';
 
   programs.starship = {
     enable = true;

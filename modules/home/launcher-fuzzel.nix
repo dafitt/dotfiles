@@ -9,10 +9,10 @@ let
   cfg = config.dafitt.launcher-fuzzel;
 in
 {
-  meta.doc = ''
-    Installs and configures Fuzzel, an application launcher for wlroots based Wayland compositors.
-    <https://codeberg.org/dnkl/fuzzel>
-  '';
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures Fuzzel, an application launcher for wlroots based Wayland compositors.
+  #  <https://codeberg.org/dnkl/fuzzel>
+  #'';
 
   imports = with inputs; [
     self.homeModules.stylix

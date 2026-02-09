@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "A module to be annoying in the evening.";
+  #meta.doc = builtins.toFile "doc.md" "A module to be annoying in the evening.";
 
   systemd.user.services."bedtime-mute" = {
     Unit.Description = "muting the output volume, to tell you to go to sleep";

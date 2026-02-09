@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
-  meta.doc = ''
-    Installs and configures a friendly interactive shell to your system.
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures a friendly interactive shell to your system.
 
-    <https://fishshell.com/>
-  '';
+  #  <https://fishshell.com/>
+  #'';
 
   programs.fish.enable = true;
 

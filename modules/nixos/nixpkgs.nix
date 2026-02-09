@@ -1,10 +1,10 @@
 { lib, inputs, ... }:
 {
-  meta.doc = ''
-    Configures Nixpkgs within your flake.
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Configures Nixpkgs within your flake.
 
-    Workaround for <https://github.com/numtide/blueprint/issues/115>.
-  '';
+  #  Workaround for <https://github.com/numtide/blueprint/issues/115>.
+  #'';
 
   # nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate =

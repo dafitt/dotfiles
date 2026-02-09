@@ -1,5 +1,5 @@
 {
-  meta.doc = "Applies battery optimization settings.";
+  #meta.doc = builtins.toFile "doc.md" "Applies battery optimization settings.";
 
   services.system76-scheduler.settings.cfsProfiles.enable = true;
 

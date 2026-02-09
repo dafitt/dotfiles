@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "A suite for virtualization on your system.";
+  #meta.doc = builtins.toFile "doc.md" "A suite for virtualization on your system.";
 
   environment.systemPackages = with pkgs; [
     gparted

@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  meta.doc = "Installs and configures playerctl media control daemon.";
+  #meta.doc = builtins.toFile "doc.md" "Installs and configures playerctl media control daemon.";
 
   services.playerctld.enable = true;
 

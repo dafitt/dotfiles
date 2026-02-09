@@ -8,7 +8,7 @@
 }:
 with lib;
 {
-  meta.doc = "A suite for development work, focused on nix.";
+  #meta.doc = builtins.toFile "doc.md" "A suite for development work, focused on nix.";
 
   imports = with inputs; [
     self.homeModules.flatpak

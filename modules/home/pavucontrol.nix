@@ -7,7 +7,7 @@
 }:
 with lib;
 {
-  meta.doc = "Installs and configures pavucontrol audio control.";
+  #meta.doc = builtins.toFile "doc.md" "Installs and configures pavucontrol audio control.";
 
   imports = with inputs; [
     self.homeModules.pyprland

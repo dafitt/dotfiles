@@ -1,5 +1,5 @@
 {
-  meta.doc = "Enables and configures the login manager Lemurs.";
+  #meta.doc = builtins.toFile "doc.md" "Enables and configures the login manager Lemurs.";
 
   services.displayManager.lemurs = {
     enable = true;

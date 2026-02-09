@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 with lib;
 {
-  meta.doc = "Installs and configures a calculator application.";
+  #meta.doc = builtins.toFile "doc.md" "Installs and configures a calculator application.";
 
   home.packages = with pkgs; [ gnome-calculator ];
 

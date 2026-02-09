@@ -1,5 +1,5 @@
 {
-  meta.doc = "A suite for CAD work.";
+  #meta.doc = builtins.toFile "doc.md" "A suite for CAD work.";
 
   services.flatpak.packages = [
     {

@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "Enables flatpak support on your system.";
+  #meta.doc = builtins.toFile "doc.md" "Enables flatpak support on your system.";
 
   services.flatpak.enable = true;
 

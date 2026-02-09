@@ -1,7 +1,7 @@
 { config, lib, ... }:
 with lib;
 {
-  meta.doc = "Optimizes the documentation on your system.";
+  #meta.doc = builtins.toFile "doc.md" "Optimizes the documentation on your system.";
 
   documentation.enable = mkDefault false;
 

@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "Adds some basic fonts (& support).";
+  #meta.doc = builtins.toFile "doc.md" "Adds some basic fonts (& support).";
 
   environment.variables = {
     # Enable icons in tooling since we have nerdfonts.

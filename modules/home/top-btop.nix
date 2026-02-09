@@ -10,7 +10,7 @@ let
   cfg = config.dafitt.top-btop;
 in
 {
-  meta.doc = "Installs and configures btop.";
+  #meta.doc = builtins.toFile "doc.md" "Installs and configures btop.";
 
   imports = with inputs; [
     self.homeModules.pyprland

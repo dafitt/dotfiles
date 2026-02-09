@@ -9,11 +9,11 @@ let
   cfg = config.dafitt.fileManager-pcmanfm;
 in
 {
-  meta.doc = ''
-    Installs and configures the PCManFM file manager.
+  #meta.doc = builtins.toFile "doc.md" ''
+  #  Installs and configures the PCManFM file manager.
 
-    <https://blog.lxde.org/category/pcmanfm/>
-  '';
+  #  <https://blog.lxde.org/category/pcmanfm/>
+  #'';
 
   options.dafitt.fileManager-pcmanfm = with types; {
     setAsDefaultFileManager = mkEnableOption "making it the default file manager";

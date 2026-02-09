@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  meta.doc = "Enables and configures audio on your system.";
+  #meta.doc = builtins.toFile "doc.md" "Enables and configures audio on your system.";
 
   # https://wiki.nixos.org/wiki/PipeWire
   security.rtkit.enable = true;
