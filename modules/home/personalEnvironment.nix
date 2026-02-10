@@ -25,6 +25,7 @@ with lib;
     numbat
     ouch
     raider
+    rename
     ripgrep
     tldr
     wiki-tui
