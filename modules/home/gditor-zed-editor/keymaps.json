@@ -7,8 +7,9 @@
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-alt-l": "editor::DuplicateLineDown",
+      "alt-z": "editor::ToggleSoftWrap",
       "ctrl-#": "editor::ToggleComments",
+      "ctrl-alt-l": "editor::DuplicateLineDown",
       "ctrl-alt-v": "editor::SortLinesCaseInsensitive"
     }
   },
