@@ -42,6 +42,7 @@ in
         "kdl"
         "nix"
         "toml"
+        "xml"
       ];
 
       # https://zed.dev/docs/configuring-zed
