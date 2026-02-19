@@ -47,6 +47,7 @@ in
 
       # https://zed.dev/docs/configuring-zed
       userSettings = {
+        auto_update = false;
         theme = mkForce "Stylix";
       }
       // builtins.fromJSON (builtins.readFile ./settings.json);
