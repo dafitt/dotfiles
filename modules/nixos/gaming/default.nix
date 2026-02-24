@@ -2,9 +2,7 @@
 {
   #meta.doc = builtins.toFile "doc.md" "A suite to game on your system.";
 
-  imports = [
-    ./steam.nix
-  ];
+  imports = [ ];
 
   environment.systemPackages = with pkgs; [
     piper # GUI for ratbagd
