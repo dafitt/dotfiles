@@ -17,6 +17,7 @@
       fileManager-thunar
       fileManager-yazi
       gaming
+      music
       office
       ricing
       social
