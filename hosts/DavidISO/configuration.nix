@@ -105,7 +105,7 @@ with lib;
 
       3. Installation
 
-          - Either with `nixos-install`
+          - Either with `nixos-install`:
 
             ```sh
             sudo disko --mode destroy,format,mount --flake ./dotfiles#<your-configured-host>
@@ -115,15 +115,15 @@ with lib;
             sudo nixos-install --no-root-passwd --flake ./dotfiles#<your-configured-host>
             ```
 
-          - Alternatively with `disko-install`, if you have configured a disk with disko.
+          - Alternatively with `disko-install`:
 
             ```sh
             sudo disko-install --flake ./dotfiles#<your-configured-host> --disk main /dev/disk/by-id/<your-main-disk-id>
             ```
 
-              - Add further `--disk <disk> /dev/disk/by-id/<your-disk-id>` to the `disko-install` command to override the attribute `disko.devices.disk.<disk>.device`.
+            - Add further `--disk <disk> /dev/disk/by-id/<your-disk-id>` to the `disko-install` command to override the attribute `disko.devices.disk.<disk>.device`.
 
-              <https://github.com/nix-community/disko/blob/master/docs/disko-install.md>
+            <https://github.com/nix-community/disko/blob/master/docs/disko-install.md>
 
       4. Save modified flake to host
 
