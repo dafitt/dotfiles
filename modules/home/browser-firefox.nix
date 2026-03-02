@@ -231,6 +231,17 @@ in
               ];
               urls = [ { template = "https://kagi.com/search?q={searchTerms}"; } ];
             };
+            "nix-functions" = {
+              name = "Nix Functions";
+              definedAliases = [
+                "@nix-functions"
+                "@noogle"
+                "@noo"
+                "@nf"
+              ];
+              urls = [ { template = "https://noogle.dev/q?term=test{searchTerms}"; } ];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            };
             "nix-packages" = {
               name = "Nix Packages";
               definedAliases = [
@@ -240,16 +251,6 @@ in
               ];
               urls = [ { template = "https://search.nixos.org/packages?type=packages&query={searchTerms}"; } ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            };
-            "nixos-wiki" = {
-              name = "NixOS Wiki";
-              definedAliases = [
-                "@nixos-wiki"
-                "@nixoswiki"
-                "@nw"
-              ];
-              urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
-              icon = "https://wiki.nixos.org/favicon.ico";
             };
             "nixos-options" = {
               name = "NixOS Options";
@@ -264,6 +265,16 @@ in
               ];
               urls = [ { template = "https://search.xn--nschtos-n2a.de/?query={searchTerms}"; } ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            };
+            "nixos-wiki" = {
+              name = "NixOS Wiki";
+              definedAliases = [
+                "@nixos-wiki"
+                "@nixoswiki"
+                "@nw"
+              ];
+              urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
+              icon = "https://wiki.nixos.org/favicon.ico";
             };
             "searx" = {
               name = "Searx";
