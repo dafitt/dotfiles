@@ -6,7 +6,7 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions;
 in
 {
   imports = [
@@ -26,7 +26,7 @@ in
     extensions/vitals.nix
   ];
 
-  options.dafitt.gnome.extensions = {
+  options.dafitt.desktopEnvironment-gnome.extensions = {
     enable = mkEnableOption "GNOME extensions";
   };
 
@@ -39,7 +39,7 @@ in
       };
     };
 
-    dafitt.gnome.extensions = mkDefault {
+    dafitt.desktopEnvironment-gnome.extensions = mkDefault {
       app-icons-taskbar.enable = true;
       appindicator.enable = true;
       arcmenu.enable = true;

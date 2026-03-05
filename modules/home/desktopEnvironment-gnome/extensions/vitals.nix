@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.vitals;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.vitals;
 in
 {
-  options.dafitt.gnome.extensions.vitals = {
+  options.dafitt.desktopEnvironment-gnome.extensions.vitals = {
     enable = mkEnableOption "GNOME extension 'vitals'";
   };
 

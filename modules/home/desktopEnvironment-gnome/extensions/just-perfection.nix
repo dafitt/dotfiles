@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.just-perfection;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.just-perfection;
 in
 {
-  options.dafitt.gnome.extensions.just-perfection = {
+  options.dafitt.desktopEnvironment-gnome.extensions.just-perfection = {
     enable = mkEnableOption "GNOME extension 'just-perfection'";
   };
 

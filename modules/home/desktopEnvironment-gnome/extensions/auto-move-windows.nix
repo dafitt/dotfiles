@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.auto-move-windows;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.auto-move-windows;
 in
 {
-  options.dafitt.gnome.extensions.auto-move-windows = {
+  options.dafitt.desktopEnvironment-gnome.extensions.auto-move-windows = {
     enable = mkEnableOption "GNOME extension 'auto-move-windows'";
   };
 

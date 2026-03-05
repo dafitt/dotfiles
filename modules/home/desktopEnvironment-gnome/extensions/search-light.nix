@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.search-light;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.search-light;
 in
 {
-  options.dafitt.gnome.extensions.search-light = {
+  options.dafitt.desktopEnvironment-gnome.extensions.search-light = {
     enable = mkEnableOption "GNOME extension 'search-light'";
   };
 

@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.app-icons-taskbar;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.app-icons-taskbar;
 in
 {
-  options.dafitt.gnome.extensions.app-icons-taskbar = {
+  options.dafitt.desktopEnvironment-gnome.extensions.app-icons-taskbar = {
     enable = mkEnableOption "GNOME extension 'app-icons-taskbar'";
   };
 

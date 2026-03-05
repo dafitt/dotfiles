@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.arcmenu;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.arcmenu;
 in
 {
-  options.dafitt.gnome.extensions.arcmenu = {
+  options.dafitt.desktopEnvironment-gnome.extensions.arcmenu = {
     enable = mkEnableOption "GNOME extension 'arcmenu'";
   };
 

@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.appindicator;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.appindicator;
 in
 {
-  options.dafitt.gnome.extensions.appindicator = {
+  options.dafitt.desktopEnvironment-gnome.extensions.appindicator = {
     enable = mkEnableOption "GNOME extension 'appindicator'";
   };
 

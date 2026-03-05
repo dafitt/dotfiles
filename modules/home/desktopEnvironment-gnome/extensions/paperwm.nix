@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.paperwm;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.paperwm;
 in
 {
-  options.dafitt.gnome.extensions.paperwm = {
+  options.dafitt.desktopEnvironment-gnome.extensions.paperwm = {
     enable = mkEnableOption "GNOME extension 'paperwm'";
   };
 

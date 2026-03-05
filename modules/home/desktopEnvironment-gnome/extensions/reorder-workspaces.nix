@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.reorder-workspaces;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.reorder-workspaces;
 in
 {
-  options.dafitt.gnome.extensions.reorder-workspaces = {
+  options.dafitt.desktopEnvironment-gnome.extensions.reorder-workspaces = {
     enable = mkEnableOption "GNOME extension 'reorder-workspaces'";
   };
 

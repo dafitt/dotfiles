@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.rounded-window-corners;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.rounded-window-corners;
 in
 {
-  options.dafitt.gnome.extensions.rounded-window-corners = {
+  options.dafitt.desktopEnvironment-gnome.extensions.rounded-window-corners = {
     enable = mkEnableOption "GNOME extension 'rounded-window-corners'";
   };
 

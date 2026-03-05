@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.forge;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.forge;
 in
 {
-  options.dafitt.gnome.extensions.forge = {
+  options.dafitt.desktopEnvironment-gnome.extensions.forge = {
     enable = mkEnableOption "GNOME extension 'forge'";
   };
 

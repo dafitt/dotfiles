@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.openweather;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.openweather;
 in
 {
-  options.dafitt.gnome.extensions.openweather = {
+  options.dafitt.desktopEnvironment-gnome.extensions.openweather = {
     enable = mkEnableOption "GNOME extension 'openweather'";
   };
 

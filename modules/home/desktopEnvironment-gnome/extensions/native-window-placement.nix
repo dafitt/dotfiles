@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.dafitt.gnome.extensions.native-window-placement;
+  cfg = config.dafitt.desktopEnvironment-gnome.extensions.native-window-placement;
 in
 {
-  options.dafitt.gnome.extensions.native-window-placement = {
+  options.dafitt.desktopEnvironment-gnome.extensions.native-window-placement = {
     enable = mkEnableOption "GNOME extension 'native-window-placement'";
   };
 
