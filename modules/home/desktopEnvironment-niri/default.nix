@@ -26,7 +26,6 @@ with lib;
 
   programs.niri = {
     enable = true;
-    package = pkgs.niri; # follow nixpkgs
 
     # https://yalter.github.io/niri/Configuration%3A-Introduction.html
     # https://github.com/sodiboo/niri-flake/blob/main/docs.md

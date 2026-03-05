@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ pkgs, inputs, ... }:
 {
   #meta.doc = builtins.toFile "doc.md" ''
   #  Workaround for a known issue [NixOS/nixpkgs#340361](https://github.com/NixOS/nixpkgs/issues/340361)
@@ -9,4 +9,6 @@
     niri.homeModules.niri
     noctalia.homeModules.default
   ];
+
+  programs.niri.package = pkgs.niri; # follow nixpkgs
 }
