@@ -127,6 +127,15 @@ with lib;
       app-hotkey-7 = [ ];
       app-hotkey-8 = [ ];
       app-hotkey-9 = [ ];
+      dash-max-icon-size = 32;
+      dock-fixed = false;
+      dock-position = "BOTTOM";
+      extend-height = false;
+      show-mounts = false;
+    };
+    "org/gnome/shell/extensions/tiling-assistant" = {
+      enable-tiling-popup = false;
+      disable-tile-groups = true;
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       logout = [ "<Control><Super>q" ];
