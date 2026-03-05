@@ -4,20 +4,17 @@
 {
   home.stateVersion = "23.11";
 
-  imports =
-    with inputs;
-    with inputs.self.homeModules;
-    [
-      imports
-      SHARED
-      bluetooth
-      development
-      fileManager-yazi
-      office
-      social
-      user-david
-      web
-    ];
+  imports = with inputs.self.homeModules; [
+    imports
+    user-david
+
+    bluetooth
+    development
+    fileManager-yazi
+    office
+    social
+    web
+  ];
 
   wayland.windowManager.hyprland.settings.input.sensitivity = 0.1;
 

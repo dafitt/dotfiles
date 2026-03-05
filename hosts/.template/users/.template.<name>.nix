@@ -9,6 +9,5 @@
     with inputs.self.homeModules;
     [
       imports
-      SHARED
     ];
 }

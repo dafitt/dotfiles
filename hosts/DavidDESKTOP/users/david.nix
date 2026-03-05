@@ -4,26 +4,23 @@
 {
   home.stateVersion = "23.11";
 
-  imports =
-    with inputs;
-    with inputs.self.homeModules;
-    [
-      imports
-      SHARED
-      bluetooth
-      comics
-      development
-      editing
-      fileManager-thunar
-      fileManager-yazi
-      gaming
-      music
-      office
-      ricing
-      social
-      user-david
-      web
-    ];
+  imports = with inputs.self.homeModules; [
+    imports
+    user-david
+
+    bluetooth
+    comics
+    development
+    editing
+    fileManager-thunar
+    fileManager-yazi
+    gaming
+    music
+    office
+    ricing
+    social
+    web
+  ];
 
   dafitt = {
     desktopEnvironment-hyprland = {

@@ -31,6 +31,7 @@ with lib;
     editor-micro.setAsDefaultEditor = true;
   };
 
+  stylix.enable = mkForce false;
   stylix.targets = {
     gnome.enable = false;
     gtk.enable = false;

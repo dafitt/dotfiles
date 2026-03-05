@@ -4,13 +4,11 @@
 {
   home.stateVersion = osConfig.system.stateVersion;
 
-  imports =
-    with inputs;
-    with inputs.self.homeModules;
-    [
-      imports
-      SHARED
-      development
-      social
-    ];
+  imports = with inputs.self.homeModules; [
+    user-david
+
+    development
+    imports
+    social
+  ];
 }

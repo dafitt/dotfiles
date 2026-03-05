@@ -8,15 +8,13 @@ with lib;
 {
   home.stateVersion = osConfig.system.stateVersion;
 
-  imports =
-    with inputs;
-    with inputs.self.homeModules;
-    [
-      imports
-      SHARED
-      development
-      web
-    ];
+  imports = with inputs.self.homeModules; [
+    imports
+    user-david
+
+    development
+    web
+  ];
 
   programs.fish.completions = {
     nixos-install =
