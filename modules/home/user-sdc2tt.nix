@@ -8,6 +8,8 @@
 }:
 with lib;
 {
+  #meta.doc = builtins.toFile "doc.md" "Personal settings.";
+
   imports =
     with inputs;
     with inputs.self.homeModules;
