@@ -117,6 +117,11 @@ with lib;
       switch-to-application-9 = [ ];
       toggle-application-view = [ ];
     };
+    "org/gnome/shell" = {
+      disabled-extensions = [
+        "ding@rastersoft.com" # desktop icons
+      ];
+    };
     "org/gnome/shell/extensions/dash-to-dock" = {
       app-hotkey-1 = [ ];
       app-hotkey-2 = [ ];
