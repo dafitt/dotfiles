@@ -1,77 +1,11 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  perSystem,
-  ...
-}:
-with lib;
+{ inputs, ... }:
 #> legacyPackages.x86_64-linux.homeConfigurations."sdc2tt@TT-WCN00692".config
 #$ home-manager --flake .#sdc2tt@TT-WCN00692 switch
 {
   home.stateVersion = "25.11";
 
-  imports =
-    with inputs;
-    with inputs.self.homeModules;
-    [
-      imports
-      browser-firefox
-      desktopEnvironment-gnome
-      development
-      editor-micro
-      fileManager-thunar
-      flatpak
-      nix
-      personalEnvironment
-      top-btop
-      xdg
-    ];
-
-  dafitt = {
-    browser-firefox.setAsDefaultBrowser = true;
-    editor-micro.setAsDefaultEditor = true;
-  };
-
-  nixpkgs.config.allowUnfree = true;
-
-  stylix = {
-    autoEnable = false;
-    icons.package = mkForce pkgs.papirus-icon-theme;
-    targets = {
-      fish.enable = true;
-      gnome.enable = true;
-      gtk.enable = true;
-      vscode.enable = true;
-      yazi.enable = true;
-    };
-  };
-
-  home.packages = [
-    perSystem.nixGL.nixGLIntel
-    perSystem.nixGL.nixVulkanIntel
-
-    logseq
-    meld
-  ];
-
-  targets.genericLinux.nixGL = {
-    packages = inputs.nixGL.packages;
-    vulkan.enable = true;
-  };
-  programs.zed-editor.package = mkForce (config.lib.nixGL.wrap pkgs.zed-editor);
-
-  gtk.gtk3.bookmarks = [
-    "file:///home/sdc2tt/DriveU/DavidWORK"
-    "file:///home/sdc2tt/DriveU/DavidWORK/adm"
-    "file:///home/sdc2tt/DriveU/DavidWORK/work"
-    "file:///home/sdc2tt/DriveF/group/Entwicklung/Elektronik/Allgemein/CAM-Daten/SchallerD CAM-Daten"
-    "file:///home/sdc2tt/DriveF/group/Entwicklung/Elektronik/HerdeOeffentlich/SchallerD HerdeOeffentlich"
-    "file:///home/sdc2tt/DriveF/group/Entwicklung/Elektronik/Allgemein/Inventar_GED_TRT Inventur"
-    "file:///home/sdc2tt/DriveF/group/Entwicklung/Labor/Arbeitsordner/SchallerD Arbeitsordner-Labor"
-    "file:///home/sdc2tt/DriveF/group/Entwicklung/Organisation/CGDO/L/P Werkstatt"
-    "file:///home/sdc2tt/DriveF/group/Entwicklung/Organisation/CGDO/L/P/Arbeitsordner/SchallerD Werkstatt-Arbeitsordner"
-    "file:///home/sdc2tt/DriveF/group/Entwicklung/Organisation/CGDO/L/P/Azubi Werkstatt-Azubi"
+  imports = with inputs.self.homeModules; [
+    imports
+    user-sdc2tt
   ];
 }
