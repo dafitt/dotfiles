@@ -16,7 +16,6 @@ with lib;
     self.homeModules.shell-fish
     self.homeModules.shell-nushell
     self.homeModules.starship
-    self.homeModules.gditor-vscode
     self.homeModules.gditor-zed-editor
   ];
 
@@ -52,7 +51,6 @@ with lib;
     tokei
     wev
     xan
-    yed
   ];
 
   services.flatpak.packages = [
