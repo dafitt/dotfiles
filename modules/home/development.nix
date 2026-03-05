@@ -11,8 +11,6 @@ with lib;
   #meta.doc = builtins.toFile "doc.md" "A suite for development work, focused on nix.";
 
   imports = with inputs; [
-    self.homeModules.flatpak
-
     self.homeModules.shell-fish
     self.homeModules.shell-nushell
     self.homeModules.starship

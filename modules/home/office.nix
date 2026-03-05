@@ -1,10 +1,6 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   #meta.doc = builtins.toFile "doc.md" "A suite of office applications.";
-
-  imports = with inputs; [
-    self.homeModules.flatpak
-  ];
 
   home.packages = with pkgs; [
     ausweisapp

@@ -11,8 +11,6 @@ with lib;
   #  <https://github.com/gmodena/nix-flatpak>
   #'';
 
-  imports = with inputs; [ nix-flatpak.homeManagerModules.nix-flatpak ];
-
   # https://github.com/gmodena/nix-flatpak?tab=readme-ov-file#getting-started
   services.flatpak = {
     enable = true;

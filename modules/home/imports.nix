@@ -7,6 +7,7 @@
 
   imports = with inputs; [
     niri.homeModules.niri
+    nix-flatpak.homeManagerModules.nix-flatpak
     noctalia.homeModules.default
   ];
 
