@@ -48,6 +48,12 @@ in
       #$ nix shell nixpkgs#xfce.xfce4-settings
       #$ xfce4-mime-settings
 
+      xfconf.settings.thunar = {
+        "misc-middle-click-in-tab" = true;
+        "misc-show-delete-action" = true;
+        "last-restore-tabs" = true;
+      };
+
       wayland.windowManager.hyprland.settings = {
         bind = optionals cfg.setAsDefaultFileManager [
           "Super&Alt, F, exec, uwsm app -- ${thunar}/bin/thunar"
