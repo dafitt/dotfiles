@@ -33,10 +33,15 @@ with lib;
     editor-micro.setAsDefaultEditor = true;
   };
 
-  stylix.enable = mkForce false;
-  stylix.targets = {
-    gnome.enable = false;
-    gtk.enable = false;
+  stylix = {
+    autoEnable = false;
+    stylix.targets = {
+      fish.enable = true;
+      yazi.enable = true;
+
+      gnome.enable = false;
+      gtk.enable = false;
+    };
   };
 
   home.packages = with pkgs; [
