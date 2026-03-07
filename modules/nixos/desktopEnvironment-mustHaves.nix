@@ -21,7 +21,9 @@ with lib;
     enable = true;
     settings = {
       "udisks2.conf".defaults = {
-        allow = "exec";
+        default = "noexec";
+        allow = "noexec";
+        ntfs_defaults = "noexec";
       };
     };
   };
