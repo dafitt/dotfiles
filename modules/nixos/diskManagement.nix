@@ -14,6 +14,8 @@
     hdparm
     parted
     tparted
+
+    udftools
   ];
 
   environment.shellAliases = {
