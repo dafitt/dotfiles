@@ -15,4 +15,8 @@
     parted
     tparted
   ];
+
+  environment.shellAliases = {
+    fdisk = "gdisk";
+  };
 }

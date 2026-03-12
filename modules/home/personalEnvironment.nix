@@ -69,7 +69,6 @@ with lib;
       compress = "ouch compress";
       df = "duf";
       du = "dust";
-      fdisk = "gdisk";
       grep = "rg";
       top = "$TOP";
       tree = "eza --tree";
