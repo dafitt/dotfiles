@@ -10,6 +10,8 @@ let
 in
 {
   #meta.doc = builtins.toFile "doc.md" "Installs and configures the Thunar file manager.";
+  # How to fix default terminal not found:
+  #$ xfce4-mime-settings
 
   options.dafitt.fileManager-thunar = with types; {
     setAsDefaultFileManager = mkEnableOption "making it the default file manager";
@@ -37,16 +39,13 @@ in
       home.packages = with pkgs; [
         thunar
         tumbler
+        xfce4-settings
       ];
 
       dbus.packages = with pkgs; [
         thunar
         tumbler
       ];
-
-      # How to fix default terminal not found:
-      #$ nix shell nixpkgs#xfce.xfce4-settings
-      #$ xfce4-mime-settings
 
       xfconf.settings.thunar = {
         "misc-middle-click-in-tab" = true;
