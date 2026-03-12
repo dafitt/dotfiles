@@ -76,6 +76,9 @@ with lib;
       core = {
         whitespace = "trailing-space,space-before-tab";
       };
+      gc = {
+        auto = 350;
+      };
     };
   };
 
