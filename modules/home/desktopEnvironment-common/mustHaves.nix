@@ -5,5 +5,19 @@
   #'';
 
   # Auto-mounting
-  services.udiskie.enable = true;
+  services.udiskie = {
+    enable = true;
+    settings = {
+      device_config = [
+        {
+          options = [
+            "noatime"
+            "noexec"
+          ];
+        }
+      ];
+      notifications.timeout = 0.5;
+    };
+  };
+
 }

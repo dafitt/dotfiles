@@ -17,16 +17,7 @@ with lib;
   };
 
   # Auto-mounting
-  services.udisks2 = {
-    enable = true;
-    settings = {
-      "udisks2.conf".defaults = {
-        default = "noexec";
-        allow = "noexec";
-        ntfs_defaults = "noexec";
-      };
-    };
-  };
+  services.udisks2.enable = true;
 
   # Xfce programs
   programs.xfconf.enable = true;
