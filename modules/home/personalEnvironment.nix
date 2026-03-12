@@ -16,6 +16,7 @@ with lib;
     dust
     fd
     file
+    gdu
     gnome-characters
     gnome-text-editor
     libnotify
