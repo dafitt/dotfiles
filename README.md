@@ -37,27 +37,22 @@ This flake can and will radically change as I learn, discover new things and hav
    3. Read and understand my dotfiles' structure and code
 
    4. Add (**your own**) system-configuration to _`hosts/<host>/configuration.nix`_.
+      - Copy and import _`hardware-configuration.nix`_
+      - Set the correct current `system.stateVersion`
 
-      1. Copy and import _`hardware-configuration.nix`_
+   5. Add (**your own**) home-configuration(s) to _`hosts/<host>/users/<user>.nix`_
 
-      2. Set the correct current `system.stateVersion`
-
-   7. Add (**your own**) home-configuration(s) to _`hosts/<host>/users/<user>.nix`_
-
-   8. Commit all changes:
-
+   6. Commit all changes:
       ```
       git add . && git commit -m "hosts/<host>: Added new host"
       ```
 
-   9. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time
+   7. Uncomment `nixConfig` in [flake.nix](https://github.com/dafitt/dotfiles/blob/main/flake.nix) and enter `nix develop` on your first build for faster build time
 
 3. Build:
-
    1. Enter (`nix-shell` and then) `nix develop .#default`
    2. `sudo nixos-rebuild --flake .#<host> boot`
    3. Check for home-manager errors with `systemctl status home-manager-<user>.service` and resolve them if necessary
-
    - _NOTE: First install may take some time; especially with flatpaks enabled._
 
 4. `reboot`
@@ -73,12 +68,10 @@ This flake can and will radically change as I learn, discover new things and hav
    2. `cd dotfiles`
    3. Read and understand my dotfiles' structure and code
 
-   4. Set the correct current `home.stateVersion`
-
    5. Add (**your own**) home-configuration to _`hosts/<host>/users/<user>.nix`_
+      - Set the correct current `home.stateVersion`
 
    6. Commit all changes:
-
       ```
       git add . && git commit -m "hosts/<host>: Added new home"
       ```
@@ -111,15 +104,12 @@ I have configured my own custom installer iso in [hosts/DavidISO](https://github
    3. Read and understand my dotfiles' structure and code
 
    4. Add (**your own**) system-configuration to _`hosts/<host>/configuration.nix`_.
+      - Copy and import _`hardware-configuration.nix`_
+      - Set the correct current `system.stateVersion`
 
-      1. Copy and import _`hardware-configuration.nix`_
+   5. Add (**your own**) home-configuration(s) to _`hosts/<host>/users/<user>.nix`_
 
-      2. Set the correct current `system.stateVersion`
-
-   7. Add (**your own**) home-configuration(s) to _`hosts/<host>/users/<user>.nix`_
-
-   8. Commit all changes:
-
+   6. Commit all changes:
       ```
       git add . && git commit -m "hosts/<host>: Added new host"
       ```
