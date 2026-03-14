@@ -1,7 +1,11 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 with lib;
 {
   #meta.doc = builtins.toFile "doc.md" "A suite for development work, focused on nix.";
+
+  imports = [
+    inputs.nix-index-database.nixosModules.default
+  ];
 
   documentation.enable = true;
   documentation.dev.enable = true;
@@ -10,6 +14,8 @@ with lib;
     enable = true;
     silent = true;
   };
+
+  programs.nix-index-database.comma.enable = true;
 
   programs.nix-ld.enable = true;
 

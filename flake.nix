@@ -27,6 +27,8 @@
     niri-system76-scheduler.url = "github:Kirottu/system76-scheduler-niri"; # https://github.com/Kirottu/system76-scheduler-niri
     niri-system76-scheduler.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest"; # https://github.com/gmodena/nix-flatpak/tags
+    nix-index-database.url = "github:nix-community/nix-index-database"; # https://github.com/nix-community/nix-index-database
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nixGL.url = "github:nix-community/nixGL"; # https://github.com/nix-community/nixGL
     nixGL.inputs.nixpkgs.follows = "nixpkgs";
     nixos-generators.url = "github:nix-community/nixos-generators"; # https://github.com/nix-community/nixos-generators
