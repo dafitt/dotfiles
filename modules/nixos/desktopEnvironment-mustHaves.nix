@@ -32,7 +32,4 @@ with lib;
     gnome-keyring.enable = true;
     gnome-online-accounts.enable = true;
   };
-
-  # Monitor backlight control
-  programs.light.enable = true;
 }
