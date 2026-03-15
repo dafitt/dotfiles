@@ -42,6 +42,7 @@ in
         enableFishIntegration = true;
         enableNushellIntegration = true;
         enableZshIntegration = true;
+        shellWrapperName = "y";
 
         settings.mgr.linemode = "size";
 
