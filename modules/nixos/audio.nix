@@ -15,6 +15,6 @@
   programs.noisetorch.enable = true; # creates a virtual microphone that suppresses noise in any application
 
   environment.systemPackages = with pkgs; [
-    helvum
+    crosspipe
   ];
 }
