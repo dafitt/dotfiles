@@ -32,7 +32,7 @@ in
           terminal = config.home.sessionVariables.TERMINAL;
           font = lib.mkForce "${config.stylix.fonts.serif.name}:size=16";
           letter-spacing = 1;
-          icon-theme = "${config.gtk.iconTheme.name}";
+          icon-theme = "${config.gtk.icons.name}";
           layer = "overlay";
         };
         border = {

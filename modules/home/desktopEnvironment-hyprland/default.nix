@@ -49,7 +49,7 @@ in
       dafitt = {
         desktopEnvironment-hyprland = {
           hypridle.enable = true;
-          plugins.hyprexpo.enable = true;
+          # plugins.hyprexpo.enable = true;
         };
         pyprland.enable = true;
       };
@@ -228,7 +228,7 @@ in
               "Super, X, killactive," # close the active window
               "Super&Shift, X, forcekillactive," # kill the active window
               "Super, P, pseudo," # dwindle
-              "Super, R, togglesplit," # dwindle
+              "Super, R, layoutmsg, togglesplit" # dwindle
               "Super, H, swapnext,"
               "Super&Shift, H, swapnext, prev"
               "Super, F, fullscreenstate, 2 0"
