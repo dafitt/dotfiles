@@ -5,12 +5,9 @@
   home.packages = with pkgs; [
     amberol
     blanket
+    deezer-enhanced
     eartag
     mousai
     shortwave
-  ];
-
-  services.flatpak.packages = [
-    "dev.aunetx.deezer" # Online music streaming service
   ];
 }
