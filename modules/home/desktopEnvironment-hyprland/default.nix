@@ -70,7 +70,7 @@ in
         enable = true;
         systemd.enable = false; # conflicts with UWSM
 
-        settings = {
+        settings = rec {
           # [Variables](https://wiki.hypr.land/Configuring/Variables/)
 
           xwayland.force_zero_scaling = true;
@@ -167,6 +167,8 @@ in
             "match:title (P|p)rogress, float on"
 
             "match:title .*, no_blur on" # Disables blur for windows. Substantially improves performance.
+
+            "match:pin 1, border_size ${toString (ceil (general.border_size * 1.5))}"
           ];
           layerrule = [
             "match:namespace .*, xray 1"
