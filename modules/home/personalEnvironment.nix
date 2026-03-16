@@ -52,8 +52,8 @@ with lib;
     language.base = "en_US.UTF-8";
 
     sessionPath = [
-      "$HOME/.path"
-      "$XDG_DESKTOP_DIR/scripts"
+      "${config.home.homeDirectory}/.path"
+      "${config.xdg.userDirs.desktop}/scripts"
     ];
 
     sessionVariables = {
@@ -81,6 +81,11 @@ with lib;
       rsync-sync = "rsync --archive --update --delete --progress -zvh";
       rsync-update = "rsync --archive --update --progress -zvh";
     };
+  };
+
+  xdg.userDirs.extraConfig = {
+    BIN = "${config.xdg.userDirs.desktop}/scripts";
+    SECRET = "${config.home.homeDirectory}/.secrets";
   };
 
   # Bookmarks #
