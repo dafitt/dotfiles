@@ -34,7 +34,7 @@ in
       systemd.enable = true;
 
       # https://docs.noctalia.dev/getting-started/nixos/#config-ref
-      #$ cat ~/.config/noctalia/gui-settings.json | nix-converter
+      #$ noctalia-shell ipc call state all | jq .settings | nix-converter
       settings = {
         general = {
           animationDisabled = true;
@@ -144,6 +144,9 @@ in
         location = {
           name = "Palling";
         };
+        notifications = {
+          location = "top";
+        };
         osd = {
           enabledTypes = [
             0
@@ -152,6 +155,7 @@ in
             3
             4
           ];
+          location = "bottom";
         };
         wallpaper = {
           randomEnabled = true;
