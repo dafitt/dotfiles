@@ -81,7 +81,7 @@ in
             gaps_out = 8;
             border_size = 2;
             resize_on_border = true;
-            layout = "dwindle";
+            layout = "master";
             "col.active_border" = mkForce "rgb(${config.lib.stylix.colors.base0B})";
           };
           dwindle = {
