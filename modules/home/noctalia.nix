@@ -76,6 +76,7 @@ in
               }
               {
                 id = "Clock";
+                clockColor = "primary";
                 customFont = config.stylix.fonts.monospace.name;
                 formatHorizontal = "yyyy-MM-dd HH:mm";
                 formatVertical = "yy MM dd - HH :mm";
