@@ -62,11 +62,22 @@ in
     xdg.configFile."pypr/config.toml".source = (pkgs.formats.toml { }).generate "config.toml" {
       # https://hyprland-community.github.io/pyprland/Getting-started.html
       pyprland.plugins = [
+        "gamemode" # https://hyprland-community.github.io/pyprland/gamemode.html
         "magnify" # https://hyprland-community.github.io/pyprland/magnify.html
         "scratchpads" # https://hyprland-community.github.io/pyprland/scratchpads.html
         "toggle_special" # https://hyprland-community.github.io/pyprland/toggle_special.html
         "workspaces_follow_focus" # https://hyprland-community.github.io/pyprland/workspaces_follow_focus.html
       ];
+
+      gamemode = {
+        auto = true;
+        patterns = [
+          "steam_app_*"
+          "gamescope*"
+          "lutris_*"
+          "eden"
+        ];
+      };
 
       scratchpads = cfg.scratchpads;
     };
