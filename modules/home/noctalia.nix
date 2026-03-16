@@ -65,11 +65,11 @@ in
                 labelMode = "name";
                 showApplications = true;
               }
+            ];
+            center = [
               {
                 id = "MediaMini";
               }
-            ];
-            center = [
               {
                 id = "Tray";
                 drawerEnabled = false;
