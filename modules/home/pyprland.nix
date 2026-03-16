@@ -89,6 +89,7 @@ in
         "Super&Alt, mouse:274, exec, ${pkgs.pyprland}/bin/pypr zoom"
         # toggle_special (minimize windows)
         "Super, Y, exec, ${pkgs.pyprland}/bin/pypr toggle_special minimized" # move
+        "Super, Y, togglefloating,"
         "Super&Shift, Y, togglespecialworkspace, minimized" # show
       ];
       binde = [
