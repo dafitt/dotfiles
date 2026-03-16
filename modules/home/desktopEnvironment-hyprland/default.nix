@@ -178,11 +178,13 @@ in
           input = {
             # https://wiki.hypr.land/Configuring/Variables/#input
             # list of options `/usr/share/X11/xkb/rules/base.lst`
+            accel_profile = mkDefault "adaptive";
+            follow_mouse = 1;
             kb_layout = "de";
             kb_variant = "nodeadkeys";
             numlock_by_default = true;
-            follow_mouse = 1;
-            accel_profile = mkDefault "adaptive";
+            repeat_delay = 300;
+            repeat_rate = 16;
 
             touchpad = {
               #clickfinger_behavior = true;
