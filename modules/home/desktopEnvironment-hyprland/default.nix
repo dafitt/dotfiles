@@ -232,7 +232,6 @@ in
               "Super, H, swapnext,"
               "Super&Shift, H, swapnext, prev"
               "Super, F, fullscreenstate, 2 0"
-              ", F11, fullscreen,"
               "Super, A, fullscreen, 1" # maximize only
               "Super, V, togglefloating," # Allow a window to float
               "Super, Z, alterzorder, top" # floating only
@@ -349,8 +348,6 @@ in
               "Super, T, exec, GRIMBLAST_HIDE_CURSOR=1 uwsm app -- ${getExe grimblast} --freeze save area - | ${getExe tesseract} - - -l deu+eng | ${wl-clipboard-rs}/bin/wl-copy"
               # GRIMBLAST_HIDE_CURSOR=1: https://github.com/Jas-SinghFSU/HyprPanel/issues/832
             ];
-
-          # Bind: mouse binds
           bindm = [
             # Move/resize windows with mainMod + LMB/RMB and dragging
             "Super, mouse:272, movewindow"
