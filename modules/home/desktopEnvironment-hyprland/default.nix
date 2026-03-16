@@ -199,24 +199,20 @@ in
             zoom_rigid = true;
             persistent_warps = true;
           };
-
           gestures = {
             # https://wiki.hypr.land/Configuring/Variables/#gestures
             workspace_swipe_forever = true;
           };
-
           gesture = [
             # https://wiki.hypr.land/Configuring/Gestures/
             "3, vertical, workspace"
           ];
-
           binds = {
             # https://wiki.hypr.land/Configuring/Variables/#binds
             workspace_back_and_forth = true;
             allow_workspace_cycles = true;
             scroll_event_delay = 150;
           };
-
           bind =
             with pkgs;
             [
