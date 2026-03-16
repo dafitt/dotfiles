@@ -50,7 +50,6 @@ in
       command = "uwsm app -- ${getExe pkgs.kitty} --class btop ${getExe config.programs.btop.package} --update 3000";
       class = "btop";
       size = "90% 90%";
-      margin = config.wayland.windowManager.hyprland.settings.general.gaps_out or 0;
       lazy = true;
     };
     programs.niri.settings = {

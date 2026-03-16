@@ -26,7 +26,6 @@ with lib;
     command = "uwsm app -- ${pkgs.connman-gtk}/bin/connman-gtk";
     class = "connman-gtk";
     size = "40% 70%";
-    margin = config.wayland.windowManager.hyprland.settings.general.gaps_out or 0;
     lazy = true;
   };
   programs.niri.settings = {

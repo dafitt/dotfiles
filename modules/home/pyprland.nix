@@ -37,7 +37,6 @@ in
           command = "uwsm app -- ${getExe pkgs.kitty} --class btop ${getExe config.programs.btop.package}";
           class = "btop";
           size = "90% 90%";
-          margin = config.wayland.windowManager.hyprland.settings.general.gaps_out or 0;
           lazy = true;
         };
         pavucontrol = {
@@ -45,7 +44,6 @@ in
           command = "uwsm app -- ${pkgs.pavucontrol}/bin/pavucontrol";
           class = "pavucontrol";
           size = "40% 70%";
-          margin = config.wayland.windowManager.hyprland.settings.general.gaps_out or 0;
           unfocus = "hide";
           lazy = true;
         };

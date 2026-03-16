@@ -27,7 +27,6 @@ with lib;
     command = "uwsm app -- ${pkgs.overskride}/bin/overskride";
     class = "io.github.kaii_lb.Overskride";
     size = "40% 70%";
-    margin = config.wayland.windowManager.hyprland.settings.general.gaps_out or 0;
     lazy = true;
   };
 }

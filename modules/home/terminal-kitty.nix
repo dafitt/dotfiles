@@ -94,7 +94,6 @@ in
         command = "uwsm app -- ${kittyExe} --class dropterm --hold ${getExe config.programs.fastfetch.package}";
         class = "dropterm";
         size = "90% 90%";
-        margin = config.wayland.windowManager.hyprland.settings.general.gaps_out or 0;
         lazy = true;
       };
     }
