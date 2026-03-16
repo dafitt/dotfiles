@@ -37,7 +37,7 @@ in
           command = "uwsm app -- ${getExe pkgs.kitty} --class btop ${getExe config.programs.btop.package}";
           class = "btop";
           size = "90% 90%";
-          margin = "2%";
+          margin = config.wayland.windowManager.hyprland.settings.general.gaps_out or 0;
           lazy = true;
         };
         pavucontrol = {
@@ -45,7 +45,7 @@ in
           command = "uwsm app -- ${pkgs.pavucontrol}/bin/pavucontrol";
           class = "pavucontrol";
           size = "40% 70%";
-          margin = "2%";
+          margin = config.wayland.windowManager.hyprland.settings.general.gaps_out or 0;
           unfocus = "hide";
           lazy = true;
         };
@@ -59,12 +59,11 @@ in
 
     home.packages = [ pkgs.pyprland ];
 
-    xdg.configFile."hypr/pyprland.toml".source = (pkgs.formats.toml { }).generate "pyprland.toml" {
+    xdg.configFile."pypr/config.toml".source = (pkgs.formats.toml { }).generate "config.toml" {
       # https://hyprland-community.github.io/pyprland/Getting-started.html
       pyprland.plugins = [
         "magnify" # https://hyprland-community.github.io/pyprland/magnify.html
         "scratchpads" # https://hyprland-community.github.io/pyprland/scratchpads.html
-        "toggle_dpms" # https://hyprland-community.github.io/pyprland/toggle_dpms.html
         "toggle_special" # https://hyprland-community.github.io/pyprland/toggle_special.html
         "workspaces_follow_focus" # https://hyprland-community.github.io/pyprland/workspaces_follow_focus.html
       ];
@@ -99,7 +98,7 @@ in
         PartOf = [ "graphical-session.target" ];
         After = [ "graphical-session.target" ];
         ConditionEnvironment = "WAYLAND_DISPLAY";
-        X-Reload-Triggers = [ "${config.xdg.configFile."hypr/pyprland.toml".source}" ];
+        X-Reload-Triggers = [ config.xdg.configFile."pypr/config.toml".source ];
       };
       Install.WantedBy = [ "graphical-session.target" ];
       Service = with pkgs; {

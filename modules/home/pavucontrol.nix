@@ -31,7 +31,7 @@ with lib;
     command = "uwsm app -- ${pkgs.pavucontrol}/bin/pavucontrol";
     class = "pavucontrol";
     size = "40% 70%";
-    margin = "2%";
+    margin = config.wayland.windowManager.hyprland.settings.general.gaps_out or 0;
     unfocus = "hide";
     lazy = true;
   };
