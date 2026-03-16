@@ -40,7 +40,7 @@ in
           lazy = true;
         };
         pavucontrol = {
-          animation = "fromRight";
+          animation = "fromLeft";
           command = "uwsm app -- ${pkgs.pavucontrol}/bin/pavucontrol";
           class = "pavucontrol";
           size = "40% 70%";

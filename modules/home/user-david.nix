@@ -4,6 +4,7 @@
 
   imports = with inputs.self.homeModules; [
     archiveManager
+    audio
     browser-firefox
     calculator
     desktopEnvironment-hyprland

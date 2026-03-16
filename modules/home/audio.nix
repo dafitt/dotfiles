@@ -17,22 +17,18 @@ with lib;
 
   wayland.windowManager.hyprland.settings = {
     bind = optionals config.dafitt.pyprland.enable [
-      "Super&Alt, A, exec, ${pkgs.pyprland}/bin/pypr toggle pavucontrol"
+      "Super&Alt, A, exec, ${pkgs.pyprland}/bin/pypr toggle audio"
     ];
     windowrule = [
       "match:class pavucontrol$, match:title ^Volume Control$, float on"
-      "match:class pavucontrol$, match:title ^Volume Control$, center on"
-      #"match:class pavucontrol$, match:title ^Volume Control$, size 800 600"
     ];
   };
 
-  dafitt.pyprland.scratchpads.pavucontrol = {
-    animation = "fromRight";
-    command = "uwsm app -- ${pkgs.pavucontrol}/bin/pavucontrol";
-    class = "pavucontrol";
+  dafitt.pyprland.scratchpads.audio = {
+    animation = "fromLeft";
+    command = "uwsm app -- ${getExe pkgs.pavucontrol}";
+    class = "org.pulseaudio.pavucontrol";
     size = "40% 70%";
-    margin = config.wayland.windowManager.hyprland.settings.general.gaps_out or 0;
-    unfocus = "hide";
     lazy = true;
   };
 }

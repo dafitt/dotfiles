@@ -22,7 +22,7 @@ with lib;
     ];
   };
   dafitt.pyprland.scratchpads.connman = {
-    animation = "fromRight";
+    animation = "fromLeft";
     command = "uwsm app -- ${pkgs.connman-gtk}/bin/connman-gtk";
     class = "connman-gtk";
     size = "40% 70%";

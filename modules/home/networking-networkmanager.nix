@@ -22,7 +22,7 @@ with lib;
     ];
   };
   dafitt.pyprland.scratchpads.networkmanager = {
-    animation = "fromRight";
+    animation = "fromLeft";
     command = "uwsm app -- ${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
     class = "nm-connection-editor";
     size = "40% 70%";
