@@ -23,9 +23,8 @@
 
   # suspend-then-hibernate
   # sleep.conf.d(5)
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=3h
-  '';
+  systemd.sleep.settings.Sleep.HibernateDelaySec = "3h";
+
   services.logind.settings.Login = {
     # logind.conf(5)
     SleepOperation = "suspend-then-hibernate suspend hibernate";
