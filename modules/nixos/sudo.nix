@@ -7,6 +7,7 @@
       enable = true;
       extraConfig = ''
         Defaults env_keep += "EDITOR PATH DISPLAY"
+        Defaults !pwfeedback
       '';
     };
   };
