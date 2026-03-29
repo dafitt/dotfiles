@@ -59,7 +59,7 @@ with lib;
       almostontop = {
         onEvent = "fish_preexec";
         body = ''
-          clear -x
+          printf "\e[H\e[22J"
           fish_prompt
           echo $argv[1] | fish_indent --ansi
         '';
