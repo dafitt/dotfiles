@@ -7,6 +7,7 @@
     cacheHome = "${config.home.homeDirectory}/.local/cache";
     userDirs = {
       enable = true;
+      setSessionVariables = true;
       createDirectories = true;
       extraConfig = {
         # Make some programs "XDG" compliant.
