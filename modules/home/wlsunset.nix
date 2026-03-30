@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   #meta.doc = builtins.toFile "doc.md" "Installs and configures wlsunset.";
 
@@ -11,5 +12,11 @@
       day = 6500; # neutral: 6500K
       night = 4200;
     };
+  };
+
+  wayland.windowManager.hyprland.settings = {
+    exec = [
+      "${pkgs.systemd}/bin/systemctl --user restart wlsunset.service"
+    ];
   };
 }
