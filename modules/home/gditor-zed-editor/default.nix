@@ -38,6 +38,7 @@ in
       extensions = [
         "charmed-icons"
         "comment"
+        "editorconfig"
         "git-firefly"
         "kdl"
         "nix"
