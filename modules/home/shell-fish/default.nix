@@ -25,6 +25,8 @@ with lib;
         bind \b backward-kill-path-component
         set sponge_delay 5
       ''
+      # https://github.com/haslersn/any-nix-shell
+      "${getExe pkgs.any-nix-shell} fish --info-right | source"
     ];
 
     functions = {
