@@ -5,10 +5,11 @@
   home.stateVersion = osConfig.system.stateVersion;
 
   imports = with inputs.self.homeModules; [
+    imports
     user-david
 
     development
-    imports
+    networking-networkmanager
     social
   ];
 }

@@ -22,6 +22,7 @@
       batteryOptimization
       bootloader-grub
       loginManager-gdm
+      networking-networkmanager
     ];
 
   boot.loader = {

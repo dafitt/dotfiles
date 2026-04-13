@@ -11,6 +11,7 @@
     bluetooth
     development
     fileManager-yazi
+    networking-networkmanager
     office
     social
     web

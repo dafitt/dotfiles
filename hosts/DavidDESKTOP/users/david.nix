@@ -16,6 +16,7 @@
     fileManager-yazi
     gaming
     music
+    networking-networkmanager
     office
     ricing
     social
