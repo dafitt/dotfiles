@@ -55,15 +55,6 @@ with lib;
           commandline -f up-line
         end
       '';
-
-      almostontop = {
-        onEvent = "fish_preexec";
-        body = ''
-          printf "\e[H\e[22J"
-          fish_prompt
-          echo $argv[1] | fish_indent --ansi
-        '';
-      };
     };
 
     # https://github.com/jorgebucaran/awsm.fish#readme
