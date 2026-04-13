@@ -48,9 +48,10 @@ in
       ];
 
       xfconf.settings.thunar = {
+        "last-restore-tabs" = true;
+        "misc-date-style" = "THUNAR_DATE_STYLE_YYYYMMDD";
         "misc-middle-click-in-tab" = true;
         "misc-show-delete-action" = true;
-        "last-restore-tabs" = true;
       };
 
       wayland.windowManager.hyprland.settings = {
