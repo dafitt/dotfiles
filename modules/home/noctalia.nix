@@ -26,7 +26,24 @@ in
 
   config = {
     home.packages = with pkgs; [
+      # plugin:screen-recorder
       gpu-screen-recorder
+
+      # plugin:screen-toolkit
+      grim
+      slurp
+      tesseract
+      imagemagick
+      zbar
+      curl
+      translate-shell
+      wl-screenrec
+      ffmpeg
+      gifski
+      jq
+
+      # plugin:file-search
+      fd
     ];
 
     programs.noctalia-shell = {
@@ -68,11 +85,27 @@ in
             ];
             center = [
               {
+                id = "plugin:screen-toolkit";
+              }
+              {
                 id = "MediaMini";
               }
               {
                 id = "Tray";
                 drawerEnabled = false;
+                blacklist = [
+                  "nm-applet"
+                  "udiskie"
+                ];
+              }
+              {
+                id = "plugin:syncthing-status";
+              }
+              {
+                id = "plugin:usb-drive-manager";
+              }
+              {
+                id = "NotificationHistory";
               }
               {
                 id = "Clock";
@@ -85,21 +118,15 @@ in
                 usePrimaryColor = true;
               }
               {
-                id = "NotificationHistory";
+                id = "plugin:timer";
               }
               {
-                id = "plugin:timer";
+                id = "plugin:pomodoro";
               }
             ];
             right = [
               {
-                id = "plugin:pomodoro";
-              }
-              {
                 id = "plugin:catwalk";
-              }
-              {
-                id = "SystemMonitor";
               }
               {
                 id = "Battery";
@@ -175,40 +202,22 @@ in
           }
         ];
         states = {
-          catwalk = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
-          kaomoji-provider = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
-          keybind-cheatsheet = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
-          pomodoro = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
-          screen-recorder = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
-          screenshot = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
-          timer = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
-          unicode-picker = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
+          catwalk.enabled = true;
+          file-search.enabled = true;
+          kaomoji-provider.enabled = true;
+          keybind-cheatsheet.enabled = true;
+          pomodoro.enabled = true;
+          screen-recorder.enabled = true;
+          screen-toolkit.enabled = true;
+          screenshot.enabled = true;
+          syncthing-status.enabled = true;
+          timer.enabled = true;
+          translator.enabled = true;
+          unicode-picker.enabled = true;
+          usb-drive-manager.enabled = true;
+          zed-provider.enabled = true;
         };
-        version = 1;
+        version = 2;
       };
 
       #$ cat ~/.config/noctalia/plugins/<name>/settings.json | nix-converter
