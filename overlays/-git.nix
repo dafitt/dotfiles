@@ -2,5 +2,5 @@
 { inputs, ... }:
 
 final: prev: {
-  pyprland = inputs.pyprland.packages.${prev.system}.pyprland;
+  # pyprland = inputs.pyprland.packages.${prev.system}.pyprland;
 }

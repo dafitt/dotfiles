@@ -19,7 +19,6 @@
     localsend
     locate
     nix
-    nixpkgs
     shell-fish
     shell-fish
     stylix

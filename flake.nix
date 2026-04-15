@@ -54,7 +54,20 @@
     inputs.blueprint {
       inherit inputs;
 
-      # [nixpkgs.config and nixpgks.overlays](https://github.com/numtide/blueprint/issues/115) workaround: modules/nixos/nixpkgs.nix
+      nixpkgs.config.allowUnfreePredicate =
+        pkg:
+        builtins.elem (inputs.nixpkgs.lib.getName pkg) [
+          "steam"
+          "steam-unwrapped"
+          "yEd"
+        ];
+
+      nixpkgs.overlays = [
+        # (final: prev: {
+        #   pyprland = inputs.pyprland.packages.${prev.system}.pyprland;
+        # })
+        (import overlays/-git.nix { inherit inputs; })
+      ];
     };
 
   #NOTE uncomment and enter `nix develop` on your first build for faster build time
