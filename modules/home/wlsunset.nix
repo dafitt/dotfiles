@@ -16,7 +16,7 @@
 
   wayland.windowManager.hyprland.settings = {
     exec = [
-      "${pkgs.systemd}/bin/systemctl --user restart wlsunset.service"
+      "${pkgs.systemd}/bin/systemctl restart --user wlsunset.service"
     ];
   };
 }

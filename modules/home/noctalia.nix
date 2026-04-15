@@ -225,13 +225,18 @@ in
       "${getExe config.programs.noctalia-shell.package} ipc call lockScreen lock";
 
     # [Keybinds](https://docs.noctalia.dev/getting-started/keybinds/)
-    wayland.windowManager.hyprland.settings.bind = [
-      "Super, W, exec, ${getExe config.programs.noctalia-shell.package} ipc call bar toggle"
-      "Super, L, exec, ${config.services.hypridle.settings.general.lock_cmd}"
-    ]
-    ++ (optionals cfg.setAsDefaultLauncher [
-      "Super, SPACE, exec, ${getExe config.programs.noctalia-shell.package} ipc call launcher toggle"
-    ]);
+    wayland.windowManager.hyprland.settings = {
+      exec = [
+        "${pkgs.systemd}/bin/systemctl restart --user noctalia-shell.service"
+      ];
+      bind = [
+        "Super, W, exec, ${getExe config.programs.noctalia-shell.package} ipc call bar toggle"
+        "Super, L, exec, ${config.services.hypridle.settings.general.lock_cmd}"
+      ]
+      ++ (optionals cfg.setAsDefaultLauncher [
+        "Super, SPACE, exec, ${getExe config.programs.noctalia-shell.package} ipc call launcher toggle"
+      ]);
+    };
     programs.niri.settings.binds = {
       "Mod+W".action.spawn-sh = "${getExe config.programs.noctalia-shell.package} ipc call bar toggle";
       "Mod+L".action.spawn-sh =
