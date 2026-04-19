@@ -27,7 +27,7 @@
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
-    timeout = 10;
+    timeout = 5;
     grub = {
       device = "nodev";
       efiSupport = true;

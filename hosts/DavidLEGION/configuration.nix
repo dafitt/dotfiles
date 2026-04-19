@@ -116,7 +116,7 @@ with lib;
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
-    timeout = 1;
+    timeout = 2;
     systemd-boot.configurationLimit = 5;
   };
 
