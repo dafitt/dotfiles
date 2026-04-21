@@ -135,6 +135,9 @@ in
                 warningThreshold = 30;
               }
               {
+                id = "KeepAwake";
+              }
+              {
                 id = "Brightness";
                 displayMode = "alwaysHide";
               }
