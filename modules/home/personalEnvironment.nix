@@ -25,6 +25,7 @@ with lib;
     ncdu
     numbat
     ouch
+    qrencode
     raider
     rename
     ripgrep
@@ -62,6 +63,7 @@ with lib;
 
     shellAliases = {
       # skip an alias with #$ command ...
+      qrencode-quick = "qrencode -t ANSIUTF8i -o -";
 
       # I don't like the default but my hand just types it
       calc = "numbat";
