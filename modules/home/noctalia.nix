@@ -8,6 +8,7 @@
 with lib;
 let
   cfg = config.dafitt.noctalia;
+  noctaliaExe = getExe config.programs.noctalia-shell.package;
 in
 {
   #meta.doc = builtins.toFile "doc.md" ''
@@ -233,8 +234,7 @@ in
 
     home.file."${config.xdg.userDirs.pictures}/Wallpapers/wallpaper.png".source = config.stylix.image;
 
-    services.hypridle.settings.general.lock_cmd =
-      "${getExe config.programs.noctalia-shell.package} ipc call lockScreen lock";
+    services.hypridle.settings.general.lock_cmd = "${noctaliaExe} ipc call lockScreen lock";
 
     # [Keybinds](https://docs.noctalia.dev/getting-started/keybinds/)
     wayland.windowManager.hyprland.settings = {
@@ -242,21 +242,24 @@ in
         "${pkgs.systemd}/bin/systemctl restart --user noctalia-shell.service"
       ];
       bind = [
-        "Super, W, exec, ${getExe config.programs.noctalia-shell.package} ipc call bar toggle"
+        "Super, B, exec, ${noctaliaExe} ipc call bluetooth toggle"
+        "Super+Alt, B, exec, ${noctaliaExe} ipc call bluetooth togglePanel"
         "Super, L, exec, ${config.services.hypridle.settings.general.lock_cmd}"
+        "Super, W, exec, ${noctaliaExe} ipc call bar toggle"
       ]
       ++ (optionals cfg.setAsDefaultLauncher [
-        "Super, SPACE, exec, ${getExe config.programs.noctalia-shell.package} ipc call launcher toggle"
+        "Super, SPACE, exec, ${noctaliaExe} ipc call launcher toggle"
       ]);
     };
     programs.niri.settings.binds = {
-      "Mod+W".action.spawn-sh = "${getExe config.programs.noctalia-shell.package} ipc call bar toggle";
-      "Mod+L".action.spawn-sh =
-        "${getExe config.programs.noctalia-shell.package} ipc call lockScreen lock";
+      "Mod+B".action.spawn-sh = "${noctaliaExe} ipc call bluetooth toggle";
+      "Mod+Alt+B".action.spawn-sh = "${noctaliaExe} ipc call bluetooth togglePanel";
+      "Mod+L".action.spawn-sh = "${noctaliaExe} ipc call lockScreen lock";
+      "Mod+W".action.spawn-sh = "${noctaliaExe} ipc call bar toggle";
 
       "Mod+Space" = mkIf cfg.setAsDefaultLauncher {
         action.spawn = [
-          "${getExe config.programs.noctalia-shell.package}"
+          "${noctaliaExe}"
           "ipc"
           "call"
           "launcher"

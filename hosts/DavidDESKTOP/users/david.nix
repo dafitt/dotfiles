@@ -8,7 +8,6 @@
     imports
     user-david
 
-    bluetooth
     comics
     development
     editing
