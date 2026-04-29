@@ -35,7 +35,7 @@ with lib;
 
   stylix = {
     autoEnable = false;
-    stylix.targets = {
+    targets = {
       fish.enable = true;
       yazi.enable = true;
 
