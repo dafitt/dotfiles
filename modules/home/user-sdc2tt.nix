@@ -43,6 +43,7 @@ with lib;
       gtk.enable = false;
     };
   };
+  programs.zed-editor.userSettings.theme = mkForce "One Dark";
 
   home.packages = with pkgs; [
     perSystem.nixGL.nixGLIntel
