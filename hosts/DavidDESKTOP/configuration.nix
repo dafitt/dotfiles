@@ -59,4 +59,10 @@
   services.btrfs.autoScrub.enable = true;
 
   security.sudo-rs.wheelNeedsPassword = false;
+
+  networking.firewall = {
+    allowedUDPPorts = [
+      34197 # Factorio
+    ];
+  };
 }
