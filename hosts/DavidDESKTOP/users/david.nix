@@ -50,7 +50,18 @@
     refresh = 143.999;
   };
 
-  services.flatpak.overrides."com.valvesoftware.Steam".Context.filesystems = [ "/DavidGAMES" ];
+  services.flatpak.overrides."com.valvesoftware.Steam" = {
+    Context.filesystems = [
+      "/DavidGAMES"
+      "/home/david/.config/MangoHud/config:ro"
+    ];
+    Environment = {
+      # https://github.com/flightlessmango/MangoHud?tab=readme-ov-file#environment-variables
+      MANGOHUD = "1";
+      MANGOHUD_CONFIGFILE = "/home/david/.config/MangoHud/config";
+      # MANGOHUD_CONFIG = "full,no_display,fps_limit=144";
+    };
+  };
 
   # Bookmarks #
   gtk.gtk3.bookmarks = [
