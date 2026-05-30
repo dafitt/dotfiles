@@ -85,7 +85,7 @@ with lib;
   # TUI for Git written in Rust
   programs.gitui.enable = true;
 
-  programs.firefox.profiles.${config.home.username}.extensions =
+  programs.firefox.profiles.${config.home.username}.extensions.packages =
     with perSystem.nur.repos.rycee.firefox-addons; [
       github-file-icons
     ];

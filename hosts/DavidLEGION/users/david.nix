@@ -8,7 +8,6 @@
     imports
     user-david
 
-    bluetooth
     development
     fileManager-yazi
     networking-networkmanager

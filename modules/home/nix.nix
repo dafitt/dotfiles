@@ -40,7 +40,4 @@ with lib;
       options = "--delete-older-than 45d";
     };
   };
-
-  # repair command-not-found database
-  programs.command-not-found.dbPath = inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
 }
