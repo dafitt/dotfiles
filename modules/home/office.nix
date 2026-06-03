@@ -14,7 +14,7 @@
     inter
     liberation_ttf
     libreoffice-fresh
-    logseq
+    # logseq # FIXME wait for update >0.10.15 because dependency electron-39 EOL
     meld
     pandoc
     pdfarranger

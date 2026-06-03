@@ -36,7 +36,7 @@
       hypridle.sleepTriggersLock = false;
       hypridle.timeouts.lock = 0;
       hypridle.timeouts.suspend = 0;
-      plugins.hypr-dynamic-cursors.enable = true;
+      # plugins.hypr-dynamic-cursors.enable = true; # FIXME wait for close: https://github.com/NixOS/nixpkgs/issues/521241
     };
   };
 

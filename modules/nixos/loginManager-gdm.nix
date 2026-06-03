@@ -1,10 +1,7 @@
 {
   #meta.doc = builtins.toFile "doc.md" "Enables and configures the login manager GDM.";
 
-  services.displayManager.gdm = {
-    enable = true;
-    wayland = true;
-  };
+  services.displayManager.gdm.enable = true;
 
   programs.dconf.profiles.gdm.databases = [
     {

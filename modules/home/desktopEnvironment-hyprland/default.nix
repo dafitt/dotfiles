@@ -56,19 +56,21 @@ in
 
       home.packages = with pkgs; [
         grimblast
-        hyprfreeze
         hyprkeys
         hyprpicker
         hyprprop
         hyprshot
         hyprsysteminfo
         waypaper
+        wl-freeze
       ];
 
       # [Hyprland](https://github.com/hyprwm/Hyprland)
       wayland.windowManager.hyprland = {
         enable = true;
         systemd.enable = false; # conflicts with UWSM
+
+        configType = "hyprlang"; # TODO update to lua
 
         settings = rec {
           # [Variables](https://wiki.hypr.land/Configuring/Variables/)
@@ -333,7 +335,7 @@ in
             ++ [
               # Goodies
               "Super&Alt, K, exec, uwsm app -- ${getExe hyprpicker} | ${wl-clipboard-rs}/bin/wl-copy"
-              ", PAUSE, exec, ${getExe hyprfreeze} --active"
+              ", PAUSE, exec, ${getExe wl-freeze} --active"
 
               # Screenshots
               # quick fullscreen | copy save
