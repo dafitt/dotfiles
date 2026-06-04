@@ -88,7 +88,6 @@ in
           };
           dwindle = {
             # https://wiki.hypr.land/Configuring/Dwindle-Layout/
-            pseudotile = true; # master switch for pseudotiling
             force_split = 2;
             preserve_split = true; # you probably want this
             default_split_ratio = 1.25; # 0.1 - 1.9
