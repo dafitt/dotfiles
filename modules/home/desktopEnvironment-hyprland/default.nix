@@ -335,7 +335,7 @@ in
             ++ [
               # Goodies
               "Super&Alt, K, exec, uwsm app -- ${getExe hyprpicker} | ${wl-clipboard-rs}/bin/wl-copy"
-              ", PAUSE, exec, ${getExe wl-freeze} --active"
+              "Super, PAUSE, exec, ${getExe wl-freeze} --active"
 
               # Screenshots
               # quick fullscreen | copy save
