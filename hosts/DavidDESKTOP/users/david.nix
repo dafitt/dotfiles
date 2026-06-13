@@ -4,7 +4,6 @@
 {
   home.stateVersion = "23.11";
   # default behavior changes
-  gtk.gtk4.theme = null;
   programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
 
   imports = with inputs.self.homeModules; [
