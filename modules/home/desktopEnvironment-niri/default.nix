@@ -75,6 +75,7 @@ with lib;
       binds = {
         #$ niri msg action [<action> --help]
 
+        "Mod+Question".action.show-hotkey-overlay = { };
         "Mod+Ssharp".action.show-hotkey-overlay = { };
 
         "Mod+Control+Q".action.quit.skip-confirmation = true;

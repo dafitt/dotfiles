@@ -275,6 +275,20 @@ in
             { description = "Toggle bar"; }
           ];
         }
+        {
+          _args = [
+            "SUPER + Question"
+            (mkLuaInline ''hl.dsp.exec_cmd("${noctaliaExe} ipc call plugin:keybind-cheatsheet toggle")'')
+            { description = "Toggle keybind cheatsheet"; }
+          ];
+        }
+        {
+          _args = [
+            "SUPER + Ssharp"
+            (mkLuaInline ''hl.dsp.exec_cmd("${noctaliaExe} ipc call plugin:keybind-cheatsheet toggle")'')
+            { description = "Toggle keybind cheatsheet"; }
+          ];
+        }
       ]
       ++ (optionals cfg.setAsDefaultLauncher [
         {
