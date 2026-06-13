@@ -1,4 +1,5 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
+with lib;
 {
   #meta.doc = builtins.toFile "doc.md" "Installs and configures wlsunset.";
 
@@ -15,8 +16,13 @@
   };
 
   wayland.windowManager.hyprland.settings = {
-    exec = [
-      "${pkgs.systemd}/bin/systemctl restart --user wlsunset.service"
+    on = [
+      {
+        _args = [
+          "hyprland.start"
+          (mkLuaInline ''function() hl.exec_cmd("${pkgs.systemd}/bin/systemctl restart --user wlsunset.service") end'')
+        ];
+      }
     ];
   };
 }

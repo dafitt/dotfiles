@@ -238,17 +238,52 @@ in
 
     # [Keybinds](https://docs.noctalia.dev/getting-started/keybinds/)
     wayland.windowManager.hyprland.settings = {
-      exec = [
-        "${pkgs.systemd}/bin/systemctl restart --user noctalia-shell.service"
+      on = [
+        {
+          _args = [
+            "hyprland.start"
+            (mkLuaInline ''function() hl.dsp.exec_cmd("${pkgs.systemd}/bin/systemctl restart --user noctalia-shell.service") end'')
+          ];
+        }
       ];
       bind = [
-        "Super, B, exec, ${noctaliaExe} ipc call bluetooth toggle"
-        "Super+Alt, B, exec, ${noctaliaExe} ipc call bluetooth togglePanel"
-        "Super, L, exec, ${config.services.hypridle.settings.general.lock_cmd}"
-        "Super, W, exec, ${noctaliaExe} ipc call bar toggle"
+        {
+          _args = [
+            "SUPER + B"
+            (mkLuaInline ''hl.dsp.exec_cmd("${noctaliaExe} ipc call bluetooth toggle")'')
+            { description = "Toggle Bluetooth"; }
+          ];
+        }
+        {
+          _args = [
+            "SUPER + ALT + B"
+            (mkLuaInline ''hl.dsp.exec_cmd("${noctaliaExe} ipc call bluetooth togglePanel")'')
+            { description = "Toggle Bluetooth panel"; }
+          ];
+        }
+        {
+          _args = [
+            "SUPER + L"
+            (mkLuaInline ''hl.dsp.exec_cmd("${config.services.hypridle.settings.general.lock_cmd}")'')
+            { description = "Lock screen"; }
+          ];
+        }
+        {
+          _args = [
+            "SUPER + W"
+            (mkLuaInline ''hl.dsp.exec_cmd("${noctaliaExe} ipc call bar toggle")'')
+            { description = "Toggle bar"; }
+          ];
+        }
       ]
       ++ (optionals cfg.setAsDefaultLauncher [
-        "Super, SPACE, exec, ${noctaliaExe} ipc call launcher toggle"
+        {
+          _args = [
+            "SUPER + Space"
+            (mkLuaInline ''hl.dsp.exec_cmd("${noctaliaExe} ipc call launcher toggle")'')
+            { description = "Toggle launcher"; }
+          ];
+        }
       ]);
     };
     programs.niri.settings.binds = {

@@ -389,10 +389,21 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.setAsDefaultGditor [
-        "Super&Alt, G, exec, uwsm app -- ${getExe config.programs.zed-editor.package}"
+        {
+          _args = [
+            "SUPER + ALT + G"
+            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe config.programs.zed-editor.package}")'')
+            { description = "Open Zed gditor"; }
+          ];
+        }
       ];
-      exec-once = mkIf cfg.autostart [
-        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe config.programs.zed-editor.package}"
+      on = optionals cfg.autostart [
+        {
+          _args = [
+            "hyprland.start"
+            (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe config.programs.zed-editor.package}", { workspace = "${toString cfg.workspace} silent" }) end'')
+          ];
+        }
       ];
     };
     programs.niri.settings = {

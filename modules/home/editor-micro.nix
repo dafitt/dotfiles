@@ -90,7 +90,13 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultEditor [
-        "Super&Alt, E, exec, uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}"
+        {
+          _args = [
+            "SUPER + ALT + E"
+            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}")'')
+            { description = "Open Micro editor"; }
+          ];
+        }
       ];
     };
     programs.niri.settings = {

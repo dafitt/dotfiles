@@ -42,7 +42,13 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals (config.dafitt.pyprland.enable && cfg.setAsDefaultTop) [
-        "Super&Alt, P, exec, ${getExe pkgs.pyprland} toggle btop"
+        {
+          _args = [
+            "SUPER + ALT + P"
+            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.pyprland} toggle btop")'')
+            { description = "Toggle btop scratchpad"; }
+          ];
+        }
       ];
     };
     dafitt.pyprland.scratchpads.btop = {

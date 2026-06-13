@@ -33,13 +33,22 @@ in
     # simple cliphist selector
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultClipboardManager [
-        "Super&Alt, V, exec, uwsm app -- ${getExe pkgs.kitty} --class=cliphist -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'"
+        {
+          _args = [
+            "SUPER + ALT + V"
+            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.kitty} --class=cliphist -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'")'')
+            { description = "Open clipboard"; }
+          ];
+        }
       ];
-      windowrule = [
-        "match:class cliphist$, no_screen_share on"
-        "match:class cliphist$, float on"
-        "match:class cliphist$, size 622 652"
-        "match:class cliphist$, center on"
+      window_rule = [
+        {
+          match.class = "cliphist$";
+          no_screen_share = true;
+          float = true;
+          size = "{622, 652}";
+          center = true;
+        }
       ];
     };
     programs.niri.settings = {

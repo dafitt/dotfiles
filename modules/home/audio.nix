@@ -17,10 +17,20 @@ with lib;
 
   wayland.windowManager.hyprland.settings = {
     bind = optionals config.dafitt.pyprland.enable [
-      "Super&Alt, A, exec, ${pkgs.pyprland}/bin/pypr toggle audio"
+      {
+        _args = [
+          "SUPER + ALT + A"
+          (mkLuaInline ''hl.dsp.exec_cmd("${pkgs.pyprland}/bin/pypr toggle audio")'')
+          { description = "Open audio scratchpad"; }
+        ];
+      }
     ];
-    windowrule = [
-      "match:class pavucontrol$, match:title ^Volume Control$, float on"
+    window_rule = [
+      {
+        match.class = "pavucontrol";
+        match.title = "^Volume Control$";
+        float = true;
+      }
     ];
   };
 

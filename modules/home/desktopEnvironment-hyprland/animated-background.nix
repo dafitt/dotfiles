@@ -14,7 +14,15 @@ in
   };
 
   config = mkIf cfg.enable {
-    dafitt.desktopEnvironment-hyprland.plugins.hyprwinwrap.enable = true;
+
+    wayland.windowManager.hyprland = {
+      # TODO flake is needed from https://github.com/gen3vra/hyprwinwrap
+      plugins = [ ];
+
+      settings.plugin.hyprwinwrap.window = [
+        { class = "wallpaper"; }
+      ];
+    };
 
     # https://sw.kovidgoyal.net/kitty/overview/#startup-sessions
     #$ kitty --session wallpaper

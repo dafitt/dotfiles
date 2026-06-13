@@ -15,10 +15,19 @@ with lib;
 
   wayland.windowManager.hyprland.settings = {
     bind = optionals config.dafitt.pyprland.enable [
-      "Super&Alt, N, exec, ${getExe pkgs.pyprland} toggle connman"
+      {
+        _args = [
+          "SUPER + ALT + N"
+          (mkLuaInline ''hl.dsp.exec_cmd("${getExe pkgs.pyprland} toggle connman")'')
+          { description = "Toggle connman scratchpad"; }
+        ];
+      }
     ];
-    windowrule = [
-      "match:class connman-gtk, float on"
+    window_rule = [
+      {
+        match.class = "connman-gtk";
+        float = true;
+      }
     ];
   };
   dafitt.pyprland.scratchpads.connman = {

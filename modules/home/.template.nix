@@ -31,14 +31,29 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefault [
-        "Super&Alt, ?, exec, uwsm app -- ${getExe pkgs.MODULE}"
+        {
+          _args = [
+            "SUPER + ALT + ?"
+            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.MODULE}")'')
+            { description = "Open MODULE"; }
+          ];
+        }
       ];
       exec-once = optionals cfg.autostart [
-        "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.MODULE}"
+        {
+          _args = [
+            "hyprland.start"
+            (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe pkgs.MODULE}", { workspace = "${toString cfg.workspace} silent" }) end'')
+          ];
+        }
       ];
-      windowrule = [
-        "match:class ^$, match:title ^$, float on"
-        "match:class ^$, match:title ^$, no_screen_share"
+      window_rule = [
+        {
+          match.class = "^$";
+          match.title = "^$";
+          float = true;
+          no_screen_share = true;
+        }
       ];
     };
     programs.niri.settings = {

@@ -1,4 +1,5 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
+with lib;
 {
   #meta.doc = builtins.toFile "doc.md" ''
   #  Installs and configures Syncthing.
@@ -31,7 +32,15 @@
   };
 
   wayland.windowManager.hyprland.settings = {
-    bind = [ "Super&Alt, Z, exec, ${pkgs.xdg-utils}/bin/xdg-open https://localhost:8384" ];
+    bind = [
+      {
+        _args = [
+          "SUPER + ALT + Z"
+          (mkLuaInline ''hl.dsp.exec_cmd("${pkgs.xdg-utils}/bin/xdg-open https://localhost:8384")'')
+          { description = "Open Syncthing GUI"; }
+        ];
+      }
+    ];
   };
   programs.niri.settings = {
     binds."Mod+Alt+Z".action.spawn-sh = "${pkgs.xdg-utils}/bin/xdg-open https://localhost:8384";

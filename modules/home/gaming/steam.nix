@@ -25,9 +25,16 @@
     };
   };
 
-  wayland.windowManager.hyprland.settings.windowrule = [
-    "match:class steam$, border_color rgb(1887d8)"
-    "match:class steam$, match:title (Friends List)|(Settings), float on"
+  wayland.windowManager.hyprland.settings.window_rule = [
+    {
+      match.class = "steam$";
+      border_color = "rgb(1887d8)";
+    }
+    {
+      match.class = "steam$";
+      match.title = "(Friends List)|(Settings)";
+      float = true;
+    }
   ];
   programs.niri.settings = {
     window-rules = [

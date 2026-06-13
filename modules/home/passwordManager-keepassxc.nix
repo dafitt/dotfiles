@@ -27,11 +27,24 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultPasswordManager [
-        "Super&Alt, PERIOD, exec, uwsm app -- ${getExe pkgs.keepassxc}"
+        {
+          _args = [
+            "SUPER + ALT + Period"
+            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.keepassxc}")'')
+            { description = "Open KeePassXC"; }
+          ];
+        }
       ];
-      windowrule = [
-        "match:class keepassxc$, no_screen_share on"
-        "match:class keepassxc$, match:title keepassxc, float on"
+      window_rule = [
+        {
+          match.class = "keepassxc$";
+          no_screen_share = true;
+        }
+        {
+          match.class = "keepassxc$";
+          match.title = "keepassxc$";
+          float = true;
+        }
       ];
     };
     programs.niri.settings = {

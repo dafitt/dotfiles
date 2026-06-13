@@ -74,10 +74,21 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultFileManager [
-        "Super&Alt, F, exec, uwsm app -- ${getExe pkgs.nautilus}"
+        {
+          _args = [
+            "SUPER + ALT + F"
+            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.nautilus}")'')
+            { description = "Open Nautilus file manager"; }
+          ];
+        }
       ];
-      exec-once = optionals cfg.autostart [
-        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.nautilus}"
+      on = optionals cfg.setAsDefaultFileManager [
+        {
+          _args = [
+            "hyprland.start"
+            (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe pkgs.nautilus}", { workspace = "${toString cfg.workspace} silent" }) end'')
+          ];
+        }
       ];
     };
     programs.niri.settings = {

@@ -27,25 +27,28 @@
 
   dafitt = {
     desktopEnvironment-hyprland = {
-      monitors = [
-        {
-          name = "desc:Microstep MSI MAG271CQP 0x3030424C";
-          primary = true;
-          width = 2560;
-          height = 1440;
-          refreshRate = 144;
-        }
-      ];
       hypridle.sleepTriggersLock = false;
       hypridle.timeouts.lock = 0;
       hypridle.timeouts.suspend = 0;
-      # plugins.hypr-dynamic-cursors.enable = true; # FIXME wait for close: https://github.com/NixOS/nixpkgs/issues/521241
+      plugins.hypr-dynamic-cursors.enable = true;
     };
   };
 
+  wayland.windowManager.hyprland.settings.monitor = [
+    {
+      output = "desc:Microstep MSI MAG271CQP 0x3030424C";
+      mode = "2560x1440@144";
+    }
+  ];
+
   # [Hyprland - Tearing](https://wiki.hypr.land/Configuring/Tearing/)
-  wayland.windowManager.hyprland.settings.general.allow_tearing = true;
-  wayland.windowManager.hyprland.settings.env = [ "WLR_DRM_NO_ATOMIC,1" ]; # because of amd gpu
+  wayland.windowManager.hyprland.settings.config.general.allow_tearing = true;
+  wayland.windowManager.hyprland.settings.env = {
+    _args = [
+      "WLR_DRM_NO_ATOMIC"
+      "1"
+    ]; # because of amd gpu
+  };
 
   programs.niri.settings.outputs."Microstep MSI MAG271CQP 0x3030424C".mode = {
     width = 2560;

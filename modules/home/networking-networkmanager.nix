@@ -15,10 +15,19 @@ with lib;
 
   wayland.windowManager.hyprland.settings = {
     bind = optionals config.dafitt.pyprland.enable [
-      "Super&Alt, N, exec, ${getExe pkgs.pyprland} toggle networkmanager"
+      {
+        _args = [
+          "SUPER + ALT + N"
+          (mkLuaInline ''hl.dsp.exec_cmd("${getExe pkgs.pyprland} toggle networkmanager")'')
+          { description = "Toggle NetworkManager scratchpad"; }
+        ];
+      }
     ];
-    windowrule = [
-      "match:class nm-connection-editor, float on"
+    window_rule = [
+      {
+        match.class = "nm-connection-editor";
+        float = true;
+      }
     ];
   };
   dafitt.pyprland.scratchpads.networkmanager = {

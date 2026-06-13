@@ -28,17 +28,39 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultPasswordManager [
-        "Super&Alt, PERIOD, exec, uwsm app -- ${getExe pkgs._1password-gui}"
+        {
+          _args = [
+            "SUPER + ALT + Period"
+            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs._1password-gui}")'')
+            { description = "Open 1Password"; }
+          ];
+        }
       ];
-      windowrule = [
-        "match:class 1Password$, no_screen_share on"
-        "match:class 1Password$, match:title 1Password, float on"
-        "match:class 1Password$, match:title 1Password, size 650 620"
-        "match:class 1Password$, match:title 1Password, move 70% 10%"
-        "match:class 1Password$, match:title 1Password, match:float 1, opacity 1 0.5"
-
-        "match:class 1Password$, match:title ^Lock Screen$, center on"
-        "match:class 1Password$, match:title ^Lock Screen$, size 600 450"
+      window_rule = [
+        {
+          match.class = "1Password$";
+          no_screen_share = true;
+        }
+        {
+          match.class = "1Password$";
+          match.title = "1Password$";
+          float = true;
+          size = "{650, 620}";
+          move = ''{"(window_w*0.7)", "(window_h*0.1)"}'';
+        }
+        {
+          match.class = "1Password$";
+          match.title = "1Password$";
+          match.float = true;
+          opacity = "1 0.5";
+        }
+        {
+          match.class = "1Password$";
+          match.title = "^Lock Screen$";
+          match.float = true;
+          center = true;
+          size = "{600, 450}";
+        }
       ];
       # titles: Lock Screen — 1Password ; All Items — 1Password ;
     };

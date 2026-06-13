@@ -178,10 +178,21 @@ in
 
       wayland.windowManager.hyprland.settings = {
         bind = optionals cfg.setAsDefaultFileManager [
-          "Super&Alt, F, exec, uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}"
+          {
+            _args = [
+              "SUPER + ALT + F"
+              (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}")'')
+              { description = "Open Yazi file manager"; }
+            ];
+          }
         ];
-        exec-once = optionals cfg.autostart [
-          "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}"
+        on = optionals cfg.setAsDefaultFileManager [
+          {
+            _args = [
+              "hyprland.start"
+              (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}", { workspace = "${toStr ending cfg.workspace} silent" })'')
+            ];
+          }
         ];
       };
       programs.niri.settings = {

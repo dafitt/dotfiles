@@ -56,13 +56,28 @@ in
 
       wayland.windowManager.hyprland.settings = {
         bind = optionals cfg.setAsDefaultFileManager [
-          "Super&Alt, F, exec, uwsm app -- ${thunar}/bin/thunar"
+          {
+            _args = [
+              "SUPER + ALT + F"
+              (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${thunar}/bin/thunar")'')
+              { description = "Open Thunar file manager"; }
+            ];
+          }
         ];
-        exec-once = optionals cfg.autostart [
-          "[workspace ${toString cfg.workspace} silent] uwsm app -- ${thunar}/bin/thunar"
+        on = optionals cfg.setAsDefaultFileManager [
+          {
+            _args = [
+              "hyprland.start"
+              (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${thunar}/bin/thunar", { workspace = "${toString cfg.workspace} silent" }) end'')
+            ];
+          }
         ];
-        windowrule = [
-          "match:class thunar$, match:title ^Rename, float on"
+        window_rule = [
+          {
+            match.class = "thunar$";
+            match.title = "^Rename";
+            float = true;
+          }
         ];
       };
       programs.niri.settings = {

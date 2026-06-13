@@ -44,7 +44,13 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.setAsDefaultLauncher [
-        "Super, SPACE, exec, ${config.programs.fuzzel.package}/bin/fuzzel"
+        {
+          _args = [
+            "SUPER + Space"
+            (mkLuaInline ''hl.dsp.exec_cmd("${config.programs.fuzzel.package}/bin/fuzzel")'')
+            { description = "Open fuzzel launcher"; }
+          ];
+        }
       ];
     };
     programs.niri.settings.binds = mkIf cfg.setAsDefaultLauncher {

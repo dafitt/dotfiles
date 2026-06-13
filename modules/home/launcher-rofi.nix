@@ -357,7 +357,13 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = mkIf cfg.setAsDefaultLauncher [
-        "Super, SPACE, exec, ${config.programs.rofi.package}/bin/rofi -show drun"
+        {
+          _args = [
+            "SUPER + Space"
+            (mkLuaInline ''hl.dsp.exec_cmd("${config.programs.rofi.package}/bin/rofi -show drun")'')
+            { description = "Open rofi launcher"; }
+          ];
+        }
       ];
     };
     programs.niri.settings.binds = mkIf cfg.setAsDefaultLauncher {

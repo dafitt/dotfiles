@@ -25,11 +25,24 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultPasswordManager [
-        "Super&Alt, PERIOD, exec, uwsm app -- ${getExe pkgs.bitwarden-desktop}"
+        {
+          _args = [
+            "SUPER + ALT + Period"
+            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.bitwarden-desktop}")'')
+            { description = "Open Bitwarden"; }
+          ];
+        }
       ];
-      windowrule = [
-        "match:class Bitwarden, no_screen_share on"
-        "match:class Bitwarden, match:title Bitwarden, float on"
+      window_rule = [
+        {
+          match.class = "Bitwarden";
+          no_screen_share = true;
+        }
+        {
+          match.class = "Bitwarden";
+          match.title = "Bitwarden";
+          float = true;
+        }
       ];
     };
     programs.niri.settings = {

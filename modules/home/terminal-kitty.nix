@@ -71,22 +71,15 @@ in
         };
       };
 
-      #$ kitty --session idleinhibitor
-      xdg.configFile = {
-        "kitty/idleinhibitor".text = ''
-          os_window_class idleinhibitor
-          launch --title idleinhibit "hyprctl activewindow"
-
-          new_tab
-        '';
-      };
-
       wayland.windowManager.hyprland.settings = {
-        windowrule = [
-          "match:class idleinhibitor, match:float 1, idle_inhibit always"
-        ];
         bind = optionals config.dafitt.pyprland.enable [
-          "Super&Alt, T, exec, ${pkgs.pyprland}/bin/pypr toggle kitty"
+          {
+            _args = [
+              "SUPER + ALT + T"
+              (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.pyprland} toggle kitty")'')
+              { description = "Toggle kitty scratchpad"; }
+            ];
+          }
         ];
       };
       dafitt.pyprland.scratchpads.kitty = {
@@ -106,7 +99,15 @@ in
       programs.noctalia-shell.settings.appLauncher.terminalCommand = kittyExe;
 
       wayland.windowManager.hyprland.settings = {
-        bind = [ "Super, RETURN, exec, uwsm app -- ${kittyExe}" ];
+        bind = [
+          {
+            _args = [
+              "SUPER + Return"
+              (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${kittyExe}")'')
+              { description = "Launch kitty"; }
+            ];
+          }
+        ];
       };
       programs.niri.settings.binds."Mod+Return".action.spawn = [
         "uwsm"

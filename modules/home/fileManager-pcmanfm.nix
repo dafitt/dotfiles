@@ -66,10 +66,21 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultFileManager [
-        "Super&Alt, F, exec, uwsm app -- ${getExe pkgs.pcmanfm}"
+        {
+          _args = [
+            "SUPER + ALT + F"
+            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.pcmanfm}")'')
+            { description = "Open Pcmanfm file manager"; }
+          ];
+        }
       ];
-      exec-once = optionals cfg.autostart [
-        "[workspace ${toString cfg.workspace} silent] uwsm app -- ${getExe pkgs.pcmanfm}"
+      on = optionals cfg.setAsDefaultFileManager [
+        {
+          _args = [
+            "hyprland.start"
+            (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe pkgs.pcmanfm}", { workspace = "${toString cfg.workspace} silent" }) end'')
+          ];
+        }
       ];
     };
     programs.niri.settings = {

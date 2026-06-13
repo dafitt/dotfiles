@@ -7,15 +7,13 @@
 
   home.activation = {
     touchNwgdisplayFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-      touch -a $HOME/.config/hypr/monitors.conf
-      touch -a $HOME/.config/hypr/workspaces.conf
+      touch -a $HOME/.config/hypr/monitors.lua
+      touch -a $HOME/.config/hypr/workspaces.lua
     '';
   };
 
-  wayland.windowManager.hyprland.settings = {
-    source = [
-      "~/.config/hypr/monitors.conf"
-      "~/.config/hypr/workspaces.conf"
-    ];
-  };
+  wayland.windowManager.hyprland.extraConfig = ''
+    require("monitors")
+    require("workspaces")
+  '';
 }

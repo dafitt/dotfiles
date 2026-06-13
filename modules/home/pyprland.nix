@@ -26,7 +26,15 @@ in
         ```
         wayland.windowManager.hyprland.settings = {
           bind = optionals config.dafitt.pyprland.enable
-            [ "Super&Alt, P, exec, ${pkgs.pyprland}/bin/pypr toggle btop" ];
+            [
+              {
+                _args = [
+                  "SUPER + ALT + P"
+                  (mkLuaInline \'\'hl.dsp.exec_cmd("''${getExe pkgs.pyprland} toggle btop")\'\')
+                  { description = "Toggle btop scratchpad"; }
+                ];
+              }
+            ];
         };
         ```
       '';
@@ -83,23 +91,94 @@ in
     wayland.windowManager.hyprland.settings = {
       bind = [
         # magnify
-        "Super, Z, exec, ${pkgs.pyprland}/bin/pypr zoom"
-        "Super&Alt, mouse:274, exec, ${pkgs.pyprland}/bin/pypr zoom"
+        {
+          _args = [
+            "SUPER + Z"
+            (mkLuaInline ''hl.dsp.exec_cmd("${pkgs.pyprland}/bin/pypr zoom")'')
+            { description = "Toggle zoom"; }
+          ];
+        }
+        {
+          _args = [
+            "SUPER + ALT + mouse:274"
+            (mkLuaInline ''hl.dsp.exec_cmd("${pkgs.pyprland}/bin/pypr zoom")'')
+            { description = "Toggle zoom"; }
+          ];
+        }
+        {
+          _args = [
+            "SUPER + Minus"
+            (mkLuaInline ''hl.dsp.exec_cmd("${pkgs.pyprland}/bin/pypr zoom --0.5")'')
+            {
+              repeating = true;
+              description = "Zoom out";
+            }
+          ];
+        }
+        {
+          _args = [
+            "SUPER + Plus"
+            (mkLuaInline ''hl.dsp.exec_cmd("${pkgs.pyprland}/bin/pypr zoom ++0.5")'')
+            {
+              repeating = true;
+              description = "Zoom in";
+            }
+          ];
+        }
+        {
+          _args = [
+            "SUPER + ALT + mouse_down"
+            (mkLuaInline ''hl.dsp.exec_cmd("${pkgs.pyprland}/bin/pypr zoom --0.5")'')
+            {
+              repeating = true;
+              description = "Zoom out";
+            }
+          ];
+        }
+        {
+          _args = [
+            "SUPER + ALT + mouse_up"
+            (mkLuaInline ''hl.dsp.exec_cmd("${pkgs.pyprland}/bin/pypr zoom ++0.5")'')
+            {
+              repeating = true;
+              description = "Zoom in";
+            }
+          ];
+        }
+
         # toggle_special (minimize windows)
-        "Super, Y, exec, ${pkgs.pyprland}/bin/pypr toggle_special minimized" # move
-        "Super, Y, togglefloating,"
-        "Super&Shift, Y, togglespecialworkspace, minimized" # show
-      ];
-      binde = [
-        # magnify
-        "Super, Minus, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
-        "Super, Plus, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
-        "Super&Alt, mouse_down, exec, ${pkgs.pyprland}/bin/pypr zoom ++0.5"
-        "Super&Alt, mouse_up, exec, ${pkgs.pyprland}/bin/pypr zoom --0.5"
-      ];
-      bindn = [
+        {
+          _args = [
+            "SUPER + Y"
+            (mkLuaInline ''hl.dsp.exec_cmd("${pkgs.pyprland}/bin/pypr toggle_special minimized")'')
+            { description = "Un-/minimize active window into special workspace"; }
+          ];
+        }
+        {
+          _args = [
+            "SUPER + Y"
+            (mkLuaInline ''hl.dsp.window.float({ action = "toggle" })'')
+            { description = "Also make the minimized active window float in the special workspace"; }
+          ];
+        }
+        {
+          _args = [
+            "SUPER + Y"
+            (mkLuaInline ''hl.dsp.workspace.toggle_special("minimized")'')
+            { description = "Show minimized windows in the special workspace"; }
+          ];
+        }
         # scratchpads
-        ", ESCAPE, exec, ${pkgs.pyprland}/bin/pypr hide '*'"
+        {
+          _args = [
+            "SUPER + Y"
+            (mkLuaInline ''hl.dsp.exec_cmd("${pkgs.pyprland}/bin/pypr hide '*'")'')
+            {
+              non_consuming = true;
+              description = "Show minimized windows in the special workspace";
+            }
+          ];
+        }
       ];
     };
 

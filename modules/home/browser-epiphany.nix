@@ -28,10 +28,21 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = optionals cfg.setAsDefaultBrowser [
-        "Super&Alt, W, exec, uwsm app -- ${getExe pkgs.epiphany}"
+        {
+          _args = [
+            "SUPER + ALT + W"
+            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.epiphany}")'')
+            { description = "Open browser"; }
+          ];
+        }
       ];
-      exec-once = optionals cfg.autostart [
-        "[workspace ${toString cfg.workspace} silent] ${getExe pkgs.epiphany}"
+      on = optionals cfg.autostart [
+        {
+          _args = [
+            "hyprland.start"
+            (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe pkgs.epiphany}", { workspace = "${toString cfg.workspace} silent" }) end'')
+          ];
+        }
       ];
     };
     programs.niri.settings = {

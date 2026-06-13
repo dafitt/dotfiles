@@ -6,8 +6,11 @@
   ];
 
   wayland.windowManager.hyprland.settings = {
-    windowrule = [
-      "match:class quickgui$, float on"
+    window_rule = [
+      {
+        match.class = "quickgui$";
+        float = true;
+      }
     ];
   };
   programs.niri.settings = {

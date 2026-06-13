@@ -19,7 +19,15 @@ in
       #TODO upstream: add to nixpkgs
       plugins = [ perSystem.hypr-darkwindow.Hypr-DarkWindow ];
 
-      settings.bind = [ "Super, O, invertactivewindow, " ];
+      settings.bind = [
+        {
+          _args = [
+            "SUPER + O"
+            (mkLuaInline ''hl.plugin.darkwindow.dsp_shade({shader = "invert"})'')
+            { description = "Invert the active window's colors (light/dark)"; }
+          ];
+        }
+      ];
     };
   };
 }

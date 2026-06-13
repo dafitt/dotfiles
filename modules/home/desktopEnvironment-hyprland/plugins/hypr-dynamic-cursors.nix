@@ -34,16 +34,13 @@ in
       plugins = [ pkgs.hyprlandPlugins.hypr-dynamic-cursors ];
 
       # https://github.com/VirtCode/hypr-dynamic-cursors/tree/inverted?tab=readme-ov-file#configuration
-      extraConfig = ''
-        plugin:dynamic-cursors {
-          enabled = true
+      settings.config.plugin.dynamic_cursors = {
+        enabled = true;
 
-          mode = ${cfg.mode}
-          rotate:length = ${toString config.stylix.cursor.size}
-
-          shake:enabled = false
-        }
-      '';
+        mode = cfg.mode;
+        rotate.length = config.stylix.cursor.size;
+        shake.enabled = false;
+      };
     };
   };
 }

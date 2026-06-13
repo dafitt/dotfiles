@@ -57,7 +57,13 @@ with lib;
 
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "Super&Alt, Space, exec, uwsm app -- ${getExe pkgs.nwg-drawer} -ovl"
+      {
+        _args = [
+          "SUPER + ALT + Space"
+          (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.nwg-drawer} -ovl")'')
+          { description = "Nwg-drawer overlay"; }
+        ];
+      }
     ];
   };
   programs.niri.settings = {
