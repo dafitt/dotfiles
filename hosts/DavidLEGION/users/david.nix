@@ -16,15 +16,24 @@
     web
   ];
 
-  wayland.windowManager.hyprland.settings.input.sensitivity = 0.1;
-
-  # [Hyprland - Tearing](https://wiki.hypr.land/Configuring/Tearing/)
-  wayland.windowManager.hyprland.settings.config.general.allow_tearing = true;
-  wayland.windowManager.hyprland.settings.env = {
-    _args = [
-      "WLR_DRM_NO_ATOMIC"
-      "1"
-    ]; # because of amd gpu
+  wayland.windowManager.hyprland.settings = {
+    monitor = [
+      {
+        output = "eDP-2";
+        mode = "2560x1600@165";
+        scale = 1.25;
+      }
+    ];
+    config = {
+      general.allow_tearing = true;
+      input.sensitivity = 0.1;
+    };
+    env = {
+      _args = [
+        "WLR_DRM_NO_ATOMIC"
+        "1"
+      ]; # because of amd gpu
+    };
   };
 
   # MultiGPU

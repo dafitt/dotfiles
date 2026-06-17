@@ -33,20 +33,20 @@
     };
   };
 
-  wayland.windowManager.hyprland.settings.monitor = [
-    {
-      output = "desc:Microstep MSI MAG271CQP 0x3030424C";
-      mode = "2560x1440@144";
-    }
-  ];
-
-  # [Hyprland - Tearing](https://wiki.hypr.land/Configuring/Tearing/)
-  wayland.windowManager.hyprland.settings.config.general.allow_tearing = true;
-  wayland.windowManager.hyprland.settings.env = {
-    _args = [
-      "WLR_DRM_NO_ATOMIC"
-      "1"
-    ]; # because of amd gpu
+  wayland.windowManager.hyprland.settings = {
+    monitor = [
+      {
+        output = "desc:Microstep MSI MAG271CQP 0x3030424C";
+        mode = "2560x1440@144";
+      }
+    ];
+    config.general.allow_tearing = true;
+    env = {
+      _args = [
+        "WLR_DRM_NO_ATOMIC"
+        "1"
+      ]; # because of amd gpu
+    };
   };
 
   programs.niri.settings.outputs."Microstep MSI MAG271CQP 0x3030424C".mode = {
