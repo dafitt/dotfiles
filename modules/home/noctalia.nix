@@ -131,7 +131,7 @@ in
               }
               {
                 id = "Battery";
-                displayMode = "alwaysShow";
+                displayMode = "icon-always";
                 showPowerProfiles = true;
                 warningThreshold = 30;
               }
