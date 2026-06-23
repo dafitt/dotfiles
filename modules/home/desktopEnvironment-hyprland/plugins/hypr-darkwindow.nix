@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  perSystem,
+  pkgs,
   ...
 }:
 with lib;
@@ -16,8 +16,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       # https://github.com/micha4w/Hypr-DarkWindow
-      #TODO upstream: add to nixpkgs
-      plugins = [ perSystem.hypr-darkwindow.Hypr-DarkWindow ];
+      plugins = [ pkgs.hyprlandPlugins.hypr-darkwindow ];
 
       settings.bind = [
         {
