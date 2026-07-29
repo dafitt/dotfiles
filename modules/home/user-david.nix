@@ -17,6 +17,7 @@
     mpv
     noctalia
     nwg-drawer
+    obsidian
     passwordManager-keepassxc
     personalEnvironment
     playerctld
