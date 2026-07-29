@@ -22,7 +22,6 @@ in
           "code.desktop:2"
           "codium.desktop:2"
           "md.obsidian.Obsidian.desktop:3"
-          "com.logseq.Logseq.desktop:3"
           "org.gnome.Nautilus.desktop:4"
         ];
       };
