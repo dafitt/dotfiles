@@ -35,19 +35,28 @@
   };
 
   wayland.windowManager.hyprland.settings = {
+    config.misc.vrr = 3;
     monitor = [
       {
         output = "desc:Microstep MSI MAG271CQP 0x3030424C";
         mode = "2560x1440@144";
       }
     ];
-    config.general.allow_tearing = true;
+
     env = {
       _args = [
         "WLR_DRM_NO_ATOMIC"
         "1"
       ]; # because of amd gpu
     };
+
+    config.general.allow_tearing = true;
+    window_rule = [
+      {
+        match.class = "^sh.ppy.osu$";
+        immediate = true;
+      }
+    ];
   };
 
   programs.niri.settings.outputs."Microstep MSI MAG271CQP 0x3030424C".mode = {
