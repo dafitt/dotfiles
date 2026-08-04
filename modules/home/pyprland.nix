@@ -156,14 +156,7 @@ in
         }
         {
           _args = [
-            "SUPER + Y"
-            (mkLuaInline ''hl.dsp.window.float({ action = "toggle" })'')
-            { description = "Also make the minimized active window float in the special workspace"; }
-          ];
-        }
-        {
-          _args = [
-            "SUPER + Y"
+            "SUPER + SHIFT + Y"
             (mkLuaInline ''hl.dsp.workspace.toggle_special("minimized")'')
             { description = "Show minimized windows in the special workspace"; }
           ];
@@ -171,13 +164,19 @@ in
         # scratchpads
         {
           _args = [
-            "SUPER + Y"
+            "Escape"
             (mkLuaInline ''hl.dsp.exec_cmd("${pkgs.pyprland}/bin/pypr hide '*'")'')
             {
               non_consuming = true;
-              description = "Show minimized windows in the special workspace";
+              description = "Hide all pypr scratchpads";
             }
           ];
+        }
+      ];
+      workspace_rule = [
+        {
+          workspace = "special:minimized";
+          layout = "scrolling";
         }
       ];
     };
