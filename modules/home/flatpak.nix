@@ -46,7 +46,6 @@ with lib;
 
         Environment = { };
         Context.filesystems = [
-          "/nix/store:ro"
         ];
       };
     };
