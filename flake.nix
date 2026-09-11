@@ -62,6 +62,9 @@
           "steam-unwrapped"
           "yEd"
         ];
+      nixpkgs.config.permittedInsecurePackages = [
+        "nwjs-0.102.1" # deezer-enhanced
+      ];
 
       nixpkgs.overlays = [
         # (final: prev: {

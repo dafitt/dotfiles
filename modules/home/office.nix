@@ -13,7 +13,7 @@
     hunspellDicts.en_US-large
     inter
     liberation_ttf
-    libreoffice-fresh
+    libreoffice
     meld
     pandoc
     pdfarranger
