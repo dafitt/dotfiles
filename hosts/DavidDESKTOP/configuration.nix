@@ -9,7 +9,6 @@
 # Power Supply: Corsair SF750
 # GPU: MSI Radeon RX560 4 GB
 # GPU: AMD ATI Radeon RX 6650 XT
-# Display:
 {
   nixpkgs.hostPlatform = "x86_64-linux";
   system.stateVersion = "23.11";

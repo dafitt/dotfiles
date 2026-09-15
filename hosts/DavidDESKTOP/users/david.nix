@@ -38,8 +38,8 @@
     config.misc.vrr = 3;
     monitor = [
       {
-        output = "desc:Microstep MSI MAG271CQP 0x3030424C";
-        mode = "2560x1440@144";
+        output = "desc:LG Electronics LG ULTRAGEAR+ 412NTAB4B136";
+        mode = "2560x1440@480.17";
       }
     ];
 
