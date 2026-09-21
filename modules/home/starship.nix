@@ -9,6 +9,8 @@
 
     settings = {
       # https://starship.rs/config
+      scan_timeout = 10;
+      follow_symlinks = false;
       cmd_duration = {
         format = "";
         min_time_to_notify = 450000;
