@@ -258,6 +258,7 @@ in
             {
               # Bigger border size for pinned windows
               match.pin = true;
+              opacity = "1 override";
               border_size = ceil (
                 config.wayland.windowManager.hyprland.settings.config.general.border_size * 1.5
               );
