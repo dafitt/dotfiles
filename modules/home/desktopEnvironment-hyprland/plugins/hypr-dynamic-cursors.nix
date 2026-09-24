@@ -33,7 +33,7 @@ in
       # https://github.com/VirtCode/hypr-dynamic-cursors
       plugins = [ pkgs.hyprlandPlugins.hypr-dynamic-cursors ];
 
-      # https://github.com/VirtCode/hypr-dynamic-cursors/tree/inverted?tab=readme-ov-file#configuration
+      # https://github.com/VirtCode/hypr-dynamic-cursors/tree/main?tab=readme-ov-file#configuration
       settings.config.plugin.dynamic_cursors = {
         enabled = true;
 

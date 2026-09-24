@@ -29,8 +29,6 @@
       hypridle.sleepTriggersLock = false;
       hypridle.timeouts.lock = 0;
       hypridle.timeouts.suspend = 0;
-      # plugins.hypr-darkwindow.enable = true;
-      plugins.hypr-dynamic-cursors.enable = true;
     };
   };
 
