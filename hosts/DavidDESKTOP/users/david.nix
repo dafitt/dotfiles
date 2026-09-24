@@ -40,6 +40,8 @@
       {
         output = "desc:LG Electronics LG ULTRAGEAR+ 412NTAB4B136";
         mode = "2560x1440@480.17";
+        supports_hdr = 1;
+        bitdepth = 10;
       }
     ];
 
@@ -59,10 +61,10 @@
     ];
   };
 
-  programs.niri.settings.outputs."Microstep MSI MAG271CQP 0x3030424C".mode = {
+  programs.niri.settings.outputs."LG Electronics LG ULTRAGEAR+ 412NTAB4B136".mode = {
     width = 2560;
     height = 1440;
-    refresh = 143.999;
+    refresh = 480.17;
   };
 
   services.flatpak.overrides."com.valvesoftware.Steam" = {
