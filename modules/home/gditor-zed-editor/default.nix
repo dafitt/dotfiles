@@ -17,6 +17,7 @@ in
 
   imports = with inputs; [
     self.homeModules.stylix
+    self.homeModules.home-manager-mutableFiles
   ];
 
   options.dafitt.gditor-zed-editor = with types; {
@@ -49,7 +50,7 @@ in
       # https://zed.dev/docs/configuring-zed
       userSettings = {
         auto_update = false;
-        theme = "Stylix";
+        theme = mkForce "myStylix";
       }
       // builtins.fromJSON (builtins.readFile ./settings.json);
       userKeymaps = builtins.fromJSON (builtins.readFile ./keymaps.json);
@@ -78,7 +79,7 @@ in
       ];
 
       themes."myStylix" = with config.lib.stylix.colors.withHashtag; {
-        name = "Stylix";
+        name = "myStylix";
         author = "https://github.com/nix-community/stylix";
         themes = [
           {
@@ -377,6 +378,10 @@ in
           }
         ];
       };
+    };
+    xdg.configFile."zed/themes/myStylix.json" = {
+      force = true;
+      mutable = true;
     };
 
     programs.yazi.settings.opener.edit = [
