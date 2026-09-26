@@ -6,7 +6,7 @@
 }:
 with lib;
 let
-  zfs = builtins.hasAttr "zfs" config.boot.supportedFilesystems;
+  hasZfs = builtins.hasAttr "zfs" config.boot.supportedFilesystems;
 in
 {
   #meta.doc = builtins.toFile "doc.md" ''
@@ -23,7 +23,7 @@ in
   #  ```
   #'';
 
-  boot.kernelPackages = mkDefault (if zfs then pkgs.linuxPackages else pkgs.linuxPackages_latest);
+  boot.kernelPackages = mkDefault (if hasZfs then pkgs.linuxPackages else pkgs.linuxPackages_latest);
 
   services.system76-scheduler.enable = true;
 }
