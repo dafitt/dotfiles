@@ -17,7 +17,7 @@ in
 
   imports = with inputs; [
     self.homeModules.stylix
-    ./mkMutable.nix
+    ./mutableFiles.nix
   ];
 
   options.dafitt.vscode = with types; {

@@ -62,18 +62,8 @@ in
     self.homeModules.home-manager-mutableFiles
   ];
 
-  options.dafitt.vscode = with types; {
-    mkMutable = mkOption {
-      type = bool;
-      default = true;
-      description = "Whether to make vscode settings mutable.";
-    };
-  };
-
-  config = mkIf config.dafitt.vscode.mkMutable {
-    home.file = lib.genAttrs pathsToMakeWritable (_: {
-      force = true;
-      mutable = true;
-    });
-  };
+  home.file = lib.genAttrs pathsToMakeWritable (_: {
+    force = true;
+    mutable = true;
+  });
 }
