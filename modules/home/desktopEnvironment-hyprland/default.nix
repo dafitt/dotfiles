@@ -17,6 +17,7 @@ in
   #'';
 
   imports = with inputs; [
+    self.homeModules.home-manager-mutableFiles
     self.homeModules.noctalia
     self.homeModules.pyprland
     self.homeModules.stylix
@@ -339,14 +340,33 @@ in
       #`   export KEY=VAL
       #` '';
 
-      xdg.configFile."hypr/application-style.conf" = {
-        text = config.lib.generators.toHyprconf {
-          attrs = {
-            # https://wiki.hypr.land/Hypr-Ecosystem/hyprland-qt-support/
-            roundness = 2;
+      xdg.configFile = {
+        "hypr/application-style.conf" = {
+          text = config.lib.generators.toHyprconf {
+            attrs = {
+              # https://wiki.hypr.land/Hypr-Ecosystem/hyprland-qt-support/
+              roundness = 2;
+            };
           };
+          force = true;
+          mutable = true;
         };
-      };
+      }
+      // listToAttrs (
+        forEach
+          [
+            "hypr/animations.lua"
+            "hypr/binds.lua"
+            "hypr/hyprland.lua"
+          ]
+          (file: {
+            name = file;
+            value = {
+              force = true;
+              mutable = true;
+            };
+          })
+      );
 
       xdg.desktopEntries."org.gnome.Settings" = {
         name = "GNOME Settings";
