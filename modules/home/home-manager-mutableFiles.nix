@@ -39,8 +39,8 @@ in
               `true`. Mutable files are not removed when you remove them from your
               configuration.
 
-              This option is useful for programs that don't have a very good
-              support for read-only configurations.
+              This option is useful for programs that don't have support for
+              read-only configurations.
             '';
             type = lib.types.bool;
             default = false;
@@ -66,7 +66,7 @@ in
         filterMutableFiles = builtins.filter (
           file:
           (file.mutable or false)
-          && lib.assertMsg file.force "if you specify `mutable` to `true` on a file, you must also set `force` to `true`"
+          && lib.assertMsg file.force "if you specify `mutable` to `true` on a file, you must also set `force` to `true` to allow overrides of mutable files"
         );
 
         mutableFiles = filterMutableFiles allFiles;
