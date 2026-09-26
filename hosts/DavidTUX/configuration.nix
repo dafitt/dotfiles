@@ -18,11 +18,37 @@
       nixos-hardware.nixosModules.common-pc
       nixos-hardware.nixosModules.common-pc-ssd
 
-      SHARED
+      appimage
+      audio
       batteryOptimization
       bootloader-grub
+      certificates
+      coreutils
+      desktopEnvironment-hyprland
+      desktopEnvironment-niri
+      documentation
+      flatpak
+      fonts
+      home-manager
+      hostName
+      kernel
+      locale
+      localsend
+      locate
       loginManager-gdm
       networking-networkmanager
+      nix
+      shell-fish
+      shell-fish
+      stylix
+      sudo
+      syncthing
+      systemd
+      tailscale
+      time
+      user-david
+      user-guest
+      user-root
     ];
 
   boot.loader = {

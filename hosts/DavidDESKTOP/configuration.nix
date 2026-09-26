@@ -31,16 +31,42 @@
 
       ./DavidBACKUP.nix
 
-      SHARED
+      appimage
+      audio
       bluetooth
       bootloader-limine
+      certificates
+      coreutils
+      desktopEnvironment-hyprland
+      desktopEnvironment-niri
       development
       diskManagement
+      documentation
+      flatpak
+      fonts
       gaming
+      home-manager
+      hostName
+      kernel
+      locale
+      localsend
+      locate
       loginManager-greetd
       networking-networkmanager
+      nix
       printing
       securityScan
+      shell-fish
+      shell-fish
+      stylix
+      sudo
+      syncthing
+      systemd
+      tailscale
+      time
+      user-david
+      user-guest
+      user-root
       virtualization
     ];
 

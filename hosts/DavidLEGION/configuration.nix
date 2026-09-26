@@ -33,16 +33,42 @@ with lib;
       # [HARDWARE_MODULES](https://github.com/NixOS/nixos-hardware/blob/master/flake.nix)
       nixos-hardware.nixosModules.lenovo-legion-16arha7
 
-      SHARED
+      appimage
+      audio
       batteryOptimization
       bluetooth
       bootloader-limine
+      certificates
+      coreutils
       desktopEnvironment-gnome
+      desktopEnvironment-hyprland
+      desktopEnvironment-niri
       development
+      documentation
+      flatpak
+      fonts
       gaming
+      home-manager
+      hostName
+      kernel
+      locale
+      localsend
+      locate
       loginManager-gdm
       networking-networkmanager
+      nix
       printing
+      shell-fish
+      shell-fish
+      stylix
+      sudo
+      syncthing
+      systemd
+      tailscale
+      time
+      user-david
+      user-guest
+      user-root
       virtualization
     ];
 

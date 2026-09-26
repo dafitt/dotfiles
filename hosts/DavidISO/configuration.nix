@@ -18,10 +18,36 @@ with lib;
       nixos-generators.nixosModules.all-formats
       "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"
 
-      SHARED
+      appimage
+      audio
+      certificates
+      coreutils
+      desktopEnvironment-hyprland
+      desktopEnvironment-niri
       development
       diskManagement
+      documentation
+      flatpak
+      fonts
       fwupd
+      home-manager
+      hostName
+      kernel
+      locale
+      localsend
+      locate
+      nix
+      shell-fish
+      shell-fish
+      stylix
+      sudo
+      syncthing
+      systemd
+      tailscale
+      time
+      user-david
+      user-guest
+      user-root
     ];
 
   services.getty.autologinUser = mkForce "david";
