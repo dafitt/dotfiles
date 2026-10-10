@@ -83,7 +83,7 @@ in
         author = "https://github.com/nix-community/stylix";
         themes = [
           {
-            name = "Stylix";
+            name = "myStylix";
             appearance = config.stylix.polarity;
             style = {
               "border" = base02;
