@@ -65,5 +65,17 @@ in
         }
       ];
     };
+    programs.umbriel.settings = {
+      keybinds."Mod+Alt+V" = mkIf cfg.setAsDefaultClipboardManager {
+        action = "spawn:${getExe pkgs.kitty} --class=cliphist -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'";
+        repeat = false;
+      };
+      window_rule = [
+        {
+          match.app_id = "cliphist";
+          default_floating = true;
+        }
+      ];
+    };
   };
 }

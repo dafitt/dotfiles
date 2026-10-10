@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 
 # Case: Jonsbo T6 Black
 # Mainboard: Asrock Z790 PG-ITX/TB4, Sockel 1700
@@ -39,6 +39,7 @@
       coreutils
       desktopEnvironment-hyprland
       desktopEnvironment-niri
+      desktopEnvironment-umbriel
       development
       diskManagement
       documentation

@@ -57,5 +57,17 @@ in
         }
       ];
     };
+    programs.umbriel.settings = {
+      keybinds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
+        action = "spawn:${getExe pkgs.bitwarden-desktop}";
+        repeat = false;
+      };
+      window_rule = [
+        {
+          match.app_id = "Bitwarden$";
+          default_floating = true;
+        }
+      ];
+    };
   };
 }

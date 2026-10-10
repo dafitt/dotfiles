@@ -203,6 +203,15 @@ in
           { sh = "uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}"; }
         ];
       };
+      programs.umbriel.settings = {
+        keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
+          action = "spawn:${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}";
+          repeat = false;
+        };
+        general.autostart = optionals cfg.autostart [
+          "${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}"
+        ];
+      };
     }
 
     (mkIf (cfg.enablePlugins) {

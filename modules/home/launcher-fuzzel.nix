@@ -56,5 +56,11 @@ in
     programs.niri.settings.binds = mkIf cfg.setAsDefaultLauncher {
       "Mod+Space".action.spawn = "${config.programs.fuzzel.package}/bin/fuzzel";
     };
+    programs.umbriel.settings.keybinds = mkIf cfg.setAsDefaultLauncher {
+      "Mod+Space" = {
+        action = "spawn:${config.programs.fuzzel.package}/bin/fuzzel";
+        repeat = false;
+      };
+    };
   };
 }

@@ -78,5 +78,26 @@ in
         }
       ];
     };
+    programs.umbriel.settings = {
+      keybinds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
+        action = "spawn:${getExe pkgs._1password-gui}";
+        repeat = false;
+      };
+      window_rule = [
+        {
+          match.app_id = "1Password$";
+          default_floating = true;
+          default_floating_size_px = {
+            x = 600;
+            y = 450;
+          };
+          default_position = {
+            anchor = "center";
+            x = 0;
+            y = 0;
+          };
+        }
+      ];
+    };
   };
 }

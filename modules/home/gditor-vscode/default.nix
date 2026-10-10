@@ -580,5 +580,18 @@ in
         { sh = "uwsm app -- ${getExe config.programs.vscode.package}"; }
       ];
     };
+    programs.umbriel.settings = {
+      keybinds."Mod+Alt+G" = mkIf cfg.setAsDefaultGditor {
+        action = "spawn:${getExe config.programs.vscode.package}";
+        repeat = false;
+      };
+      general.autostart = optionals cfg.autostart [ (getExe config.programs.vscode.package) ];
+      window_rule = [
+        {
+          match.app_id = "(codium|vscode)$";
+          default_workspace = cfg.workspace;
+        }
+      ];
+    };
   };
 }

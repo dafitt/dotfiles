@@ -115,6 +115,10 @@ in
         "--"
         kittyExe
       ];
+      programs.umbriel.settings.keybinds."Mod+Return" = {
+        action = "spawn:" + kittyExe;
+        repeat = false;
+      };
     })
   ];
 }

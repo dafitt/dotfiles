@@ -373,5 +373,11 @@ in
         "drun"
       ];
     };
+    programs.umbriel.settings.keybinds = mkIf cfg.setAsDefaultLauncher {
+      "Mod+Space" = {
+        action = "spawn:${config.programs.rofi.package}/bin/rofi -show drun";
+        repeat = false;
+      };
+    };
   };
 }

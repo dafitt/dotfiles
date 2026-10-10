@@ -104,5 +104,11 @@ in
         action.spawn-sh = "uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}";
       };
     };
+    programs.umbriel.settings = {
+      keybinds."Mod+Alt+E" = mkIf cfg.setAsDefaultEditor {
+        action = "spawn:${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}";
+        repeat = false;
+      };
+    };
   };
 }

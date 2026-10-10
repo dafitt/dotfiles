@@ -83,5 +83,23 @@ in
         }
       ];
     };
+    programs.umbriel.settings = {
+      keybinds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
+        action = "spawn:${getExe config.programs.librewolf.package}";
+        repeat = false;
+      };
+      general.autostart = optionals cfg.autostart [ (getExe config.programs.librewolf.package) ];
+      window_rule = [
+        {
+          match.app_id = "firefox$";
+          default_workspace = cfg.workspace;
+        }
+        {
+          match.app_id = "librewolf";
+          match.title = "^Extension: \(NoScript\) - NoScript";
+          default_floating = true;
+        }
+      ];
+    };
   };
 }

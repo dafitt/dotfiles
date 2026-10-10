@@ -316,6 +316,35 @@ in
         ];
       };
     };
+    programs.umbriel = {
+      settings.general.autostart = [ noctaliaExe ];
+      settings.keybinds = {
+        "Mod" = mkIf cfg.setAsDefaultLauncher {
+          action = "spawn:${noctaliaExe} ipc call launcher toggle";
+          repeat = false;
+        };
+        "Mod+Space" = mkIf cfg.setAsDefaultLauncher {
+          action = "spawn:${noctaliaExe} ipc call launcher toggle";
+          repeat = false;
+        };
+        "Mod+B" = {
+          action = "spawn:${noctaliaExe} ipc call bluetooth toggle";
+          repeat = false;
+        };
+        "Mod+Alt+B" = {
+          action = "spawn:${noctaliaExe} ipc call bluetooth togglePanel";
+          repeat = false;
+        };
+        "Mod+L" = {
+          action = "spawn:${noctaliaExe} ipc call lockScreen lock";
+          repeat = false;
+        };
+        "Mod+W" = {
+          action = "spawn:${noctaliaExe} ipc call bar toggle";
+          repeat = false;
+        };
+      };
+    };
 
     systemd.user.services.noctalia-shell.Service.ExecCondition =
       ''${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "Hyprland:niri" ""'';

@@ -358,5 +358,28 @@ in
         }
       ];
     };
+    programs.umbriel.settings = {
+      keybinds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
+        action = "spawn:${getExe config.programs.firefox.package}";
+        repeat = false;
+      };
+      general.autostart = optionals cfg.autostart [ (getExe config.programs.firefox.package) ];
+      window_rule = [
+        {
+          match.app_id = "firefox$";
+          default_workspace = cfg.workspace;
+        }
+        {
+          match.app_id = "firefox$";
+          match.title = "^Extension: \(NoScript\) - NoScript";
+          default_floating = true;
+        }
+        {
+          match.app_id = "firefox$";
+          match.title = "^Picture-in-Picture$";
+          default_floating = true;
+        }
+      ];
+    };
   };
 }

@@ -53,5 +53,18 @@ in
         { sh = "uwsm app -- ${getExe pkgs.epiphany}"; }
       ];
     };
+    programs.umbriel.settings = {
+      keybinds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
+        action = "spawn:${getExe pkgs.epiphany}";
+        repeat = false;
+      };
+      general.autostart = optionals cfg.autostart [ (getExe pkgs.epiphany) ];
+      window_rule = [
+        {
+          match.app_id = "epiphany$";
+          default_workspace = cfg.workspace;
+        }
+      ];
+    };
   };
 }

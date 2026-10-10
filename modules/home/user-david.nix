@@ -9,6 +9,7 @@
     calculator
     desktopEnvironment-hyprland
     desktopEnvironment-niri
+    desktopEnvironment-umbriel
     editor-micro
     fastfetch
     fileManager-thunar

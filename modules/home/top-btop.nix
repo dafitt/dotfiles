@@ -63,5 +63,32 @@ in
         action.spawn-sh = "uwsm app -- ${getExe pkgs.kitty} --class btop ${getExe config.programs.btop.package}";
       };
     };
+    programs.umbriel.settings = {
+      keybinds."Mod+Alt+P" = {
+        action = "scratchpad-toggle:monitor";
+        repeat = false;
+      };
+      scratchpad = [
+        {
+          name = "monitor";
+          spawn_when_empty = "${getExe pkgs.kitty} --class btop ${getExe config.programs.btop.package} --update 3000";
+        }
+      ];
+      window_rule = [
+        {
+          match.app_id = "^btop$";
+          default_scratchpad = "monitor";
+          default_floating_size = {
+            width = 0.9;
+            height = 0.9;
+          };
+          default_position = {
+            anchor = "top";
+            x = 0;
+            y = 0;
+          };
+        }
+      ];
+    };
   };
 }

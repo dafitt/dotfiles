@@ -49,8 +49,8 @@ in
       ];
       window_rule = [
         {
-          match.class = "^$";
-          match.title = "^$";
+          match.class = "MODULE$";
+          match.title = "MODULE$";
           float = true;
           no_screen_share = true;
         }
@@ -69,9 +69,22 @@ in
       #$ niri msg pick-window
       window-rules = [
         {
-          matches = [ { app-id = "$"; } ];
+          matches = [ { app-id = "MODULE$"; } ];
           open-floating = true;
           block-out-from = "screen-capture";
+        }
+      ];
+    };
+    programs.umbriel.settings = {
+      keybinds."Mod+Alt+?" = mkIf cfg.setAsDefault {
+        action = "spawn:${getExe pkgs.MODULE}";
+        repeat = false;
+      };
+      general.autostart = optionals cfg.autostart [ (getExe pkgs.MODULE) ];
+      window_rule = [
+        {
+          match.app_id = "MODULE$";
+          default_floating = true;
         }
       ];
     };

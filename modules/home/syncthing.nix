@@ -45,4 +45,10 @@ with lib;
   programs.niri.settings = {
     binds."Mod+Alt+Z".action.spawn-sh = "${pkgs.xdg-utils}/bin/xdg-open https://localhost:8384";
   };
+  programs.umbriel.settings = {
+    keybinds."Mod+Alt+Z" = {
+      action = "spawn:${pkgs.xdg-utils}/bin/xdg-open https://localhost:8384";
+      repeat = false;
+    };
+  };
 }

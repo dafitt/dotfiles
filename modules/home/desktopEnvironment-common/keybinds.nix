@@ -188,4 +188,37 @@ in
 
     "Mod+Alt+U".action.spawn-sh = gnomeCharacters;
   };
+
+  programs.umbriel.settings.keybinds = {
+    "Mod+Control+Adiaeresis" = {
+      action = "spawn:" + quickPoweroff;
+      repeat = false;
+    };
+    "Mod+Control+Odiaeresis" = {
+      action = "spawn:" + quickReboot;
+      repeat = false;
+    };
+    "Mod+Control+Udiaeresis" = {
+      action = "spawn:" + quickHibernate;
+      repeat = false;
+    };
+    "Mod+Udiaeresis" = {
+      action = "spawn:" + quickSleep;
+      repeat = false;
+    };
+
+    "XF86AudioMute" = "spawn:" + audioMute;
+    "Alt+XF86AudioMute" = "spawn:" + micMute;
+    "XF86AudioMicMute" = "spawn:" + micMute;
+    "XF86AudioRaiseVolume" = "spawn:" + audioRaiseVolume;
+    "XF86AudioLowerVolume" = "spawn:" + audioLowerVolume;
+    "Alt+XF86AudioRaiseVolume" = "spawn:" + micRaiseVolume;
+    "Alt+XF86AudioLowerVolume" = "spawn:" + micLowerVolume;
+    "XF86MonBrightnessUp" = "spawn:" + monBrightnessUp;
+    "XF86MonBrightnessDown" = "spawn:" + monBrightnessDown;
+    "XF86KbdBrightnessUp" = "spawn:" + kbdBrightnessUp;
+    "XF86KbdBrightnessDown" = "spawn:" + kbdBrightnessDown;
+
+    "Mod+Alt+U" = "spawn:" + gnomeCharacters;
+  };
 }

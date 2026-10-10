@@ -419,5 +419,18 @@ in
         { sh = "uwsm app -- ${getExe config.programs.zed-editor.package}"; }
       ];
     };
+    programs.umbriel.settings = {
+      keybinds."Mod+Alt+G" = mkIf cfg.setAsDefaultGditor {
+        action = "spawn:${getExe config.programs.zed-editor.package}";
+        repeat = false;
+      };
+      general.autostart = optionals cfg.autostart [ (getExe config.programs.zed-editor.package) ];
+      window_rule = [
+        {
+          match.app_id = "^dev.zed.Zed$";
+          default_workspace = cfg.workspace;
+        }
+      ];
+    };
   };
 }

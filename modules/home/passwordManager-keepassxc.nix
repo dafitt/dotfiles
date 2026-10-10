@@ -54,11 +54,27 @@ in
       window-rules = [
         {
           matches = [
-            { app-id = "org\.keepassxc\.KeePassXC"; }
-            { app-id = "org\.gnome\.World\.Secrets"; }
+            { app-id = "org[.]keepassxc[.]KeePassXC"; }
+            { app-id = "org[.]gnome[.]World[.]Secrets"; }
           ];
           open-floating = true;
           block-out-from = "screen-capture";
+        }
+      ];
+    };
+    programs.umbriel.settings = {
+      keybinds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
+        action = "spawn:${getExe pkgs.keepassxc}";
+        repeat = false;
+      };
+      window_rule = [
+        {
+          match.app_id = "^org[.]keepassxc[.]KeePassXC$";
+          default_floating = true;
+        }
+        {
+          match.app_id = "^org[.]gnome[.]World[.]Secrets$";
+          default_floating = true;
         }
       ];
     };

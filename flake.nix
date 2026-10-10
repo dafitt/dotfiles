@@ -42,6 +42,7 @@
     programsdb.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:nix-community/stylix/pull/2337/head"; # FIXME wait for close: https://github.com/nix-community/stylix/issues/2334 and revert to "github:danth/stylix"; # https://github.com/danth/stylix
     stylix.inputs.nixpkgs.follows = "nixpkgs";
+    umbriel.url = "github:noctalia-dev/umbriel/cachix";
 
     # for development; see packages/-git/default.nix
     pyprland.url = "github:hyprland-community/pyprland"; # https://github.com/hyprland-community/pyprland
@@ -75,10 +76,12 @@
     };
 
   #NOTE uncomment and enter `nix develop` on your first build for faster build time
-  #nixConfig = {
-  #  extra-substituters = [
-  #  ];
-  #  extra-trusted-public-keys = [
-  #  ];
-  #};
+  # nixConfig = {
+  #   extra-substituters = [
+  #     "https://umbriel.cachix.org"
+  #   ];
+  #   extra-trusted-public-keys = [
+  #     "umbriel.cachix.org-1:JfNq/2yg2S6D6z4Z2dVSZrZlDPQTKtexB6GAVLD98nw="
+  #   ];
+  # };
 }
