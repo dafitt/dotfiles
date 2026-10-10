@@ -1,4 +1,5 @@
 {
+  flake,
   inputs,
   config,
   lib,
@@ -352,21 +353,11 @@ in
           mutable = true;
         };
       }
-      // listToAttrs (
-        forEach
-          [
-            "hypr/animations.lua"
-            "hypr/binds.lua"
-            "hypr/hyprland.lua"
-          ]
-          (file: {
-            name = file;
-            value = {
-              force = true;
-              mutable = true;
-            };
-          })
-      );
+      // (flake.lib.mkMutableFiles [
+        "hypr/animations.lua"
+        "hypr/binds.lua"
+        "hypr/hyprland.lua"
+      ]);
 
       xdg.desktopEntries."org.gnome.Settings" = {
         name = "GNOME Settings";
