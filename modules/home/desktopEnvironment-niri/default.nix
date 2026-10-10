@@ -78,7 +78,7 @@ with lib;
         "Mod+Question".action.show-hotkey-overlay = { };
         "Mod+Ssharp".action.show-hotkey-overlay = { };
 
-        "Mod+Control+Q".action.quit.skip-confirmation = true;
+        "Mod+Control+Escape".action.quit.skip-confirmation = true;
         # "Mod+Control+R".action.load-config-file = { };
         "Mod+Odiaeresis".action.power-off-monitors = { };
 

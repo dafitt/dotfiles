@@ -1,4 +1,4 @@
-hl.bind("SUPER + CONTROL + Q", hl.dsp.exec_cmd("uwsm stop"))
+hl.bind("SUPER + CONTROL + Escape", hl.dsp.exec_cmd("uwsm stop"))
 hl.bind("SUPER + CONTROL + R", hl.dsp.exec_cmd("hyprctl reload forcerendererreload"))
 hl.bind("SUPER + Odiaeresis",
     function()
