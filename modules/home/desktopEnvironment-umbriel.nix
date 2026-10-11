@@ -60,6 +60,8 @@ in
             { name = "minimized"; }
           ];
 
+          workspaces.back_and_forth = true;
+
           input.focus.follows_mouse = true;
 
           input.cursor = {
@@ -189,6 +191,7 @@ in
             "Mod+Shift+Next" = "workspace-move-down";
             "Mod+Shift+KP_Subtract" = "workspace-move-up";
             "Mod+Shift+KP_Add" = "workspace-move-down";
+            "Mod+D" = "workspace-switch:Desktop";
 
             "Mod+M" = "workspace-set-layout:toggle";
 

@@ -65,6 +65,8 @@
     refresh = 480.17;
   };
 
+  programs.umbriel.settings.output."DP-3".workspaces = 5;
+
   services.flatpak.overrides."com.valvesoftware.Steam" = {
     Context.filesystems = [
       "/DavidGAMES"
