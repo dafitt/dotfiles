@@ -1,4 +1,4 @@
-{ config, ... }:
+{ flake, config, ... }:
 {
   #meta.doc = builtins.toFile "doc.md" "Enables and configures XDG Specifications.";
 
@@ -85,4 +85,6 @@
       desc = "Go to ~/Videos";
     }
   ];
+
+  xdg.configFile = flake.lib.mkMutableFiles [ "gtk-3.0/bookmarks" ];
 }

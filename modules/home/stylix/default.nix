@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  flake,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   #meta.doc = builtins.toFile "doc.md" ''
   #  Enables home-environment-wide theming.
@@ -34,4 +39,10 @@
 
   # gtk.gtk4.iconTheme.name = "Adwaita";
   # gtk.gtk4.iconTheme.package = pkgs.adwaita-icon-theme;
+
+  xdg.configFile = flake.lib.mkMutableFiles [
+    "gtk-3.0/settings.ini"
+    "gtk-3.0/settings.ini"
+    "gtk-4.0/settings.ini"
+  ];
 }
