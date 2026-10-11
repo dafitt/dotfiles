@@ -31,26 +31,6 @@ in
     };
 
     # simple cliphist selector
-    wayland.windowManager.hyprland.settings = {
-      bind = optionals cfg.setAsDefaultClipboardManager [
-        {
-          _args = [
-            "SUPER + ALT + V"
-            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.kitty} --class=cliphist -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'")'')
-            { description = "Open clipboard"; }
-          ];
-        }
-      ];
-      window_rule = [
-        {
-          match.class = "cliphist$";
-          no_screen_share = true;
-          float = true;
-          size = "{622, 652}";
-          center = true;
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+V" = mkIf cfg.setAsDefaultClipboardManager {
         action = "spawn:${getExe pkgs.kitty} --class=cliphist -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'";

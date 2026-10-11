@@ -553,25 +553,6 @@ in
       }
     ];
 
-    wayland.windowManager.hyprland.settings = {
-      bind = mkIf cfg.setAsDefaultGditor [
-        {
-          _args = [
-            "SUPER + ALT + G"
-            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe config.programs.vscode.package}")'')
-            { description = "Open VSCode gditor"; }
-          ];
-        }
-      ];
-      on = optionals cfg.autostart [
-        {
-          _args = [
-            "hyprland.start"
-            (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe config.programs.vscode.package}", { workspace = "${toString cfg.workspace} silent" }) end'')
-          ];
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+G" = mkIf cfg.setAsDefaultGditor {
         action = "spawn:${getExe config.programs.vscode.package}";

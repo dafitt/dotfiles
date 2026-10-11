@@ -20,7 +20,6 @@
     betterfox.inputs.nixpkgs.follows = "nixpkgs";
     disko.url = "github:nix-community/disko/latest"; # https://github.com/nix-community/disko
     disko.inputs.nixpkgs.follows = "nixpkgs";
-    hypr-darkwindow.url = "github:micha4w/Hypr-DarkWindow"; # https://github.com/micha4w/Hypr-DarkWindow
     impermanence.url = "github:nix-community/impermanence"; # https://github.com/nix-community/impermanence
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest"; # https://github.com/gmodena/nix-flatpak/tags
     nix-index-database.url = "github:nix-community/nix-index-database"; # https://github.com/nix-community/nix-index-database
@@ -40,7 +39,6 @@
     umbriel.url = "github:noctalia-dev/umbriel/cachix";
 
     # for development; see packages/-git/default.nix
-    pyprland.url = "github:hyprland-community/pyprland"; # https://github.com/hyprland-community/pyprland
   };
 
   #$ nix flake check --keep-going

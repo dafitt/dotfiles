@@ -24,7 +24,7 @@
       bootloader-grub
       certificates
       coreutils
-      desktopEnvironment-hyprland
+      desktopEnvironment-umbriel
       documentation
       flatpak
       fonts

@@ -54,32 +54,6 @@ in
         "misc-show-delete-action" = true;
       };
 
-      wayland.windowManager.hyprland.settings = {
-        bind = optionals cfg.setAsDefaultFileManager [
-          {
-            _args = [
-              "SUPER + ALT + F"
-              (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${thunar}/bin/thunar")'')
-              { description = "Open Thunar file manager"; }
-            ];
-          }
-        ];
-        on = optionals cfg.setAsDefaultFileManager [
-          {
-            _args = [
-              "hyprland.start"
-              (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${thunar}/bin/thunar", { workspace = "${toString cfg.workspace} silent" }) end'')
-            ];
-          }
-        ];
-        window_rule = [
-          {
-            match.class = "thunar$";
-            match.title = "^Rename";
-            float = true;
-          }
-        ];
-      };
       programs.umbriel.settings = {
         keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
           action = "spawn:${thunar}/bin/thunar";

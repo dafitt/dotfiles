@@ -64,25 +64,6 @@ in
       common_bg=0
     '';
 
-    wayland.windowManager.hyprland.settings = {
-      bind = optionals cfg.setAsDefaultFileManager [
-        {
-          _args = [
-            "SUPER + ALT + F"
-            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.pcmanfm}")'')
-            { description = "Open Pcmanfm file manager"; }
-          ];
-        }
-      ];
-      on = optionals cfg.setAsDefaultFileManager [
-        {
-          _args = [
-            "hyprland.start"
-            (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe pkgs.pcmanfm}", { workspace = "${toString cfg.workspace} silent" }) end'')
-          ];
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
         action = "spawn:" + (getExe pkgs.pcmanfm);

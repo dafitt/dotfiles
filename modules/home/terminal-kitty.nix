@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   inputs,
   ...
 }:
@@ -18,7 +17,6 @@ in
   #'';
 
   imports = with inputs; [
-    self.homeModules.pyprland
     self.homeModules.stylix
   ];
 
@@ -71,40 +69,38 @@ in
         };
       };
 
-      wayland.windowManager.hyprland.settings = {
-        bind = optionals config.dafitt.pyprland.enable [
+      programs.umbriel.settings = {
+        keybinds."Mod+Alt+T" = {
+          action = "scratchpad-toggle:terminal";
+          repeat = false;
+        };
+        scratchpad = [
           {
-            _args = [
-              "SUPER + ALT + T"
-              (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.pyprland} toggle kitty")'')
-              { description = "Toggle kitty scratchpad"; }
-            ];
+            name = "dropterm";
+            spawn_when_empty = "${kittyExe} --class dropterm --hold ${getExe config.programs.fastfetch.package}";
           }
         ];
-      };
-      dafitt.pyprland.scratchpads.kitty = {
-        animation = "fromTop";
-        command = "uwsm app -- ${kittyExe} --class dropterm --hold ${getExe config.programs.fastfetch.package}";
-        class = "dropterm";
-        size = "90% 90%";
-        lazy = true;
+        window_rule = [
+          {
+            match.app_id = "^dropterm$";
+            default_scratchpad = "dropterm";
+            default_floating_size = {
+              width = 0.9;
+              height = 0.9;
+            };
+            default_position = {
+              anchor = "top";
+              x = 0;
+              y = 0;
+            };
+          }
+        ];
       };
     }
 
     (mkIf cfg.setAsDefaultTerminal {
       home.sessionVariables.TERMINAL = kittyExe;
 
-      wayland.windowManager.hyprland.settings = {
-        bind = [
-          {
-            _args = [
-              "SUPER + Return"
-              (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${kittyExe}")'')
-              { description = "Launch kitty"; }
-            ];
-          }
-        ];
-      };
       programs.umbriel.settings.keybinds."Mod+Return" = {
         action = "spawn:" + kittyExe;
         repeat = false;

@@ -5,13 +5,4 @@
   #'';
 
   programs.mpv.enable = true;
-
-  wayland.windowManager.hyprland.settings = {
-    window_rule = [
-      {
-        match.class = "mpv$";
-        idle_inhibit = "focus";
-      }
-    ];
-  };
 }

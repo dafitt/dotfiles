@@ -31,17 +31,6 @@ with lib;
     ];
   };
 
-  wayland.windowManager.hyprland.settings = {
-    bind = [
-      {
-        _args = [
-          "SUPER + ALT + Z"
-          (mkLuaInline ''hl.dsp.exec_cmd("${pkgs.xdg-utils}/bin/xdg-open https://localhost:8384")'')
-          { description = "Open Syncthing GUI"; }
-        ];
-      }
-    ];
-  };
   programs.umbriel.settings = {
     keybinds."Mod+Alt+Z" = {
       action = "spawn:${pkgs.xdg-utils}/bin/xdg-open https://localhost:8384";

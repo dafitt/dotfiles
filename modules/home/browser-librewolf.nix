@@ -31,39 +31,6 @@ in
       settings = config.programs.firefox.profiles.${config.home.username}.settings // { };
     };
 
-    wayland.windowManager.hyprland.settings = {
-      bind = optionals cfg.setAsDefaultBrowser [
-        {
-          _args = [
-            "SUPER + ALT + W"
-            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe config.programs.librewolf.package}")'')
-            { description = "Open browser"; }
-          ];
-        }
-      ];
-      on = optionals cfg.autostart [
-        {
-          _args = [
-            "hyprland.start"
-            (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe config.programs.librewolf.package}", { workspace = "${toString cfg.workspace} silent" }) end'')
-          ];
-        }
-      ];
-      window_rule = [
-        {
-          match.class = "librewolf";
-          match.title = "Youtube";
-          idle_inhibit = "fullscreen";
-        }
-        {
-          match.class = "librewolf";
-          match.title = "^Extension: \(NoScript\) - NoScript";
-          float = true;
-        }
-        #FIXME initial title is librewolf
-        #TODO no fullscreen
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
         action = "spawn:${getExe config.programs.librewolf.package}";

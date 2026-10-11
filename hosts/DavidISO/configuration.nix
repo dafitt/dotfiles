@@ -22,7 +22,7 @@ with lib;
       audio
       certificates
       coreutils
-      desktopEnvironment-hyprland
+      desktopEnvironment-umbriel
       development
       diskManagement
       documentation

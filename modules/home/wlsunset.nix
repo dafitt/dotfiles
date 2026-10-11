@@ -14,15 +14,4 @@ with lib;
       night = 4200;
     };
   };
-
-  wayland.windowManager.hyprland.settings = {
-    on = [
-      {
-        _args = [
-          "hyprland.start"
-          (mkLuaInline ''function() hl.exec_cmd("${pkgs.systemd}/bin/systemctl restart --user wlsunset.service") end'')
-        ];
-      }
-    ];
-  };
 }

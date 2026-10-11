@@ -37,7 +37,6 @@
       bootloader-limine
       certificates
       coreutils
-      desktopEnvironment-hyprland
       desktopEnvironment-umbriel
       development
       diskManagement

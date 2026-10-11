@@ -29,33 +29,6 @@ in
 
     programs.MODULE.enable = true;
 
-    wayland.windowManager.hyprland.settings = {
-      bind = optionals cfg.setAsDefault [
-        {
-          _args = [
-            "SUPER + ALT + ?"
-            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.MODULE}")'')
-            { description = "Open MODULE"; }
-          ];
-        }
-      ];
-      exec-once = optionals cfg.autostart [
-        {
-          _args = [
-            "hyprland.start"
-            (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe pkgs.MODULE}", { workspace = "${toString cfg.workspace} silent" }) end'')
-          ];
-        }
-      ];
-      window_rule = [
-        {
-          match.class = "MODULE$";
-          match.title = "MODULE$";
-          float = true;
-          no_screen_share = true;
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+?" = mkIf cfg.setAsDefault {
         action = "spawn:${getExe pkgs.MODULE}";

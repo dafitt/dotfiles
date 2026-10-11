@@ -89,12 +89,4 @@ with lib;
     with perSystem.nur.repos.rycee.firefox-addons; [
       github-file-icons
     ];
-
-  # Enable hyprland debug logs
-  # https://wiki.hypr.land/Configuring/Variables/#debug
-  wayland.windowManager.hyprland.settings.config.debug = {
-    # current log #$ cat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log
-    # last log #$ cat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 2 | tail -n 1)/hyprland.log
-    disable_logs = false;
-  };
 }

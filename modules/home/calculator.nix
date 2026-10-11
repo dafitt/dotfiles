@@ -5,24 +5,6 @@ with lib;
 
   home.packages = with pkgs; [ gnome-calculator ];
 
-  wayland.windowManager.hyprland.settings = {
-    bind = [
-      {
-        _args = [
-          "XF86Calculator"
-          (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.gnome-calculator}")'')
-          { description = "Open calculator"; }
-        ];
-      }
-    ];
-    window_rule = [
-      {
-        match.class = "org.gnome.Calculator";
-        float = true;
-        keep_aspect_ratio = true;
-      }
-    ];
-  };
   programs.umbriel.settings = {
     keybinds."XF86Calculator" = {
       action = "spawn:${getExe pkgs.gnome-calculator}";

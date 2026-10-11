@@ -35,7 +35,6 @@
       audio
       certificates
       coreutils
-      desktopEnvironment-hyprland
       documentation
       flatpak
       fonts

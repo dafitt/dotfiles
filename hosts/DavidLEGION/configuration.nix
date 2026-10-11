@@ -41,7 +41,7 @@ with lib;
       certificates
       coreutils
       desktopEnvironment-gnome
-      desktopEnvironment-hyprland
+      desktopEnvironment-umbriel
       development
       documentation
       flatpak

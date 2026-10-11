@@ -88,17 +88,6 @@ in
       }
     ];
 
-    wayland.windowManager.hyprland.settings = {
-      bind = optionals cfg.setAsDefaultEditor [
-        {
-          _args = [
-            "SUPER + ALT + E"
-            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}")'')
-            { description = "Open Micro editor"; }
-          ];
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+E" = mkIf cfg.setAsDefaultEditor {
         action = "spawn:${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}";

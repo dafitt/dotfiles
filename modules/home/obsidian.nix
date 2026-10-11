@@ -28,25 +28,6 @@ in
     # programs.obsidian.enable = true;
     home.packages = with pkgs; [ obsidian ];
 
-    wayland.windowManager.hyprland.settings = {
-      bind = optionals cfg.setAsDefault [
-        {
-          _args = [
-            "SUPER + ALT + H"
-            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkg}")'')
-            { description = "Open obidian"; }
-          ];
-        }
-      ];
-      exec-once = optionals cfg.autostart [
-        {
-          _args = [
-            "hyprland.start"
-            (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe pkg}", { workspace = "${toString cfg.workspace} silent" }) end'')
-          ];
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+H" = mkIf cfg.setAsDefault {
         action = "spawn:" + (getExe pkg);

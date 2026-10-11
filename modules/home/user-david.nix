@@ -7,7 +7,6 @@
     audio
     browser-firefox
     calculator
-    desktopEnvironment-hyprland
     desktopEnvironment-umbriel
     editor-micro
     fastfetch

@@ -25,17 +25,6 @@
     };
   };
 
-  wayland.windowManager.hyprland.settings.window_rule = [
-    {
-      match.class = "steam$";
-      border_color = "rgb(1887d8)";
-    }
-    {
-      match.class = "steam$";
-      match.title = "(Friends List)|(Settings)";
-      float = true;
-    }
-  ];
   programs.umbriel.settings = {
     window_rule = [
       {

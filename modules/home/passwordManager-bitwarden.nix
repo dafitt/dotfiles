@@ -23,28 +23,6 @@ in
       perSystem.nur.repos.rycee.firefox-addons.bitwarden
     ];
 
-    wayland.windowManager.hyprland.settings = {
-      bind = optionals cfg.setAsDefaultPasswordManager [
-        {
-          _args = [
-            "SUPER + ALT + Period"
-            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.bitwarden-desktop}")'')
-            { description = "Open Bitwarden"; }
-          ];
-        }
-      ];
-      window_rule = [
-        {
-          match.class = "Bitwarden";
-          no_screen_share = true;
-        }
-        {
-          match.class = "Bitwarden";
-          match.title = "Bitwarden";
-          float = true;
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
         action = "spawn:${getExe pkgs.bitwarden-desktop}";

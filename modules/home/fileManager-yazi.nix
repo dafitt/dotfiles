@@ -176,25 +176,6 @@ in
         };
       };
 
-      wayland.windowManager.hyprland.settings = {
-        bind = optionals cfg.setAsDefaultFileManager [
-          {
-            _args = [
-              "SUPER + ALT + F"
-              (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}")'')
-              { description = "Open Yazi file manager"; }
-            ];
-          }
-        ];
-        on = optionals cfg.setAsDefaultFileManager [
-          {
-            _args = [
-              "hyprland.start"
-              (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}", { workspace = "${toStr ending cfg.workspace} silent" })'')
-            ];
-          }
-        ];
-      };
       programs.umbriel.settings = {
         keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
           action = "spawn:${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}";

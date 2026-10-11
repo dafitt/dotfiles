@@ -25,28 +25,6 @@ in
       perSystem.nur.repos.rycee.firefox-addons.keepassxc-browser
     ];
 
-    wayland.windowManager.hyprland.settings = {
-      bind = optionals cfg.setAsDefaultPasswordManager [
-        {
-          _args = [
-            "SUPER + ALT + Period"
-            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.keepassxc}")'')
-            { description = "Open KeePassXC"; }
-          ];
-        }
-      ];
-      window_rule = [
-        {
-          match.class = "keepassxc$";
-          no_screen_share = true;
-        }
-        {
-          match.class = "keepassxc$";
-          match.title = "keepassxc$";
-          float = true;
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
         action = "spawn:${getExe pkgs.keepassxc}";

@@ -449,58 +449,7 @@ in
 
     home.file."${config.xdg.userDirs.pictures}/Wallpapers/wallpaper.png".source = config.stylix.image;
 
-    services.hypridle.settings.general.lock_cmd = "${noctaliaExe} msg session lock";
-
-    # [Keybinds](https://docs.noctalia.dev/getting-started/keybinds/)
-    wayland.windowManager.hyprland.settings = {
-      on = [
-        {
-          _args = [
-            "hyprland.start"
-            (mkLuaInline ''function() hl.dsp.exec_cmd("${pkgs.systemd}/bin/systemctl restart --user noctalia.service") end'')
-          ];
-        }
-      ];
-      bind = [
-        {
-          _args = [
-            "SUPER + B"
-            (mkLuaInline ''hl.dsp.exec_cmd("${noctaliaExe} msg bluetooth-toggle")'')
-            { description = "Toggle Bluetooth"; }
-          ];
-        }
-        {
-          _args = [
-            "SUPER + ALT + B"
-            (mkLuaInline ''hl.dsp.exec_cmd("${noctaliaExe} msg panel-toggle control-center bluetooth")'')
-            { description = "Toggle Bluetooth panel"; }
-          ];
-        }
-        {
-          _args = [
-            "SUPER + L"
-            (mkLuaInline ''hl.dsp.exec_cmd("${config.services.hypridle.settings.general.lock_cmd}")'')
-            { description = "Lock screen"; }
-          ];
-        }
-        {
-          _args = [
-            "SUPER + W"
-            (mkLuaInline ''hl.dsp.exec_cmd("${noctaliaExe} msg bar-toggle main")'')
-            { description = "Toggle bar"; }
-          ];
-        }
-      ]
-      ++ (optionals cfg.setAsDefaultLauncher [
-        {
-          _args = [
-            "SUPER + Space"
-            (mkLuaInline ''hl.dsp.exec_cmd("${noctaliaExe} msg panel-toggle launcher")'')
-            { description = "Toggle launcher"; }
-          ];
-        }
-      ]);
-    };
+    # [IPC with Keybinds](https://docs.noctalia.dev/noctalia/ipc/)
     programs.umbriel = {
       settings.general.autostart = [ noctaliaExe ];
       settings.keybinds = {

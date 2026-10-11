@@ -55,17 +55,6 @@ with lib;
     }
   '';
 
-  wayland.windowManager.hyprland.settings = {
-    bind = [
-      {
-        _args = [
-          "SUPER + ALT + Space"
-          (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.nwg-drawer} -ovl")'')
-          { description = "Nwg-drawer overlay"; }
-        ];
-      }
-    ];
-  };
   programs.umbriel.settings = {
     keybinds."Mod+Alt+Space" = {
       action = "spawn:${getExe pkgs.nwg-drawer} -ovl";

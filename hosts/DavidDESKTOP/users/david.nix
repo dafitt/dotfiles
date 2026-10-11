@@ -24,42 +24,14 @@
     web
   ];
 
-  dafitt = {
-    desktopEnvironment-hyprland = {
-      hypridle.sleepTriggersLock = false;
-      hypridle.timeouts.lock = 0;
-      hypridle.timeouts.suspend = 0;
-    };
-  };
-
-  wayland.windowManager.hyprland.settings = {
-    config.misc.vrr = 3;
-    monitor = [
-      {
-        output = "desc:LG Electronics LG ULTRAGEAR+ 412NTAB4B136";
-        mode = "2560x1440@480.17";
-        supports_hdr = 1;
-        bitdepth = 10;
-      }
-    ];
-
-    env = {
-      _args = [
-        "WLR_DRM_NO_ATOMIC"
-        "1"
-      ]; # because of amd gpu
-    };
-
-    config.general.allow_tearing = true;
-    window_rule = [
-      {
-        match.class = "^sh.ppy.osu$";
-        immediate = true;
-      }
-    ];
-  };
-
   programs.umbriel.settings.output."DP-3".workspaces = 5;
+
+  programs.umbriel.settings.window_rule = [
+    {
+      match.class = "^sh.ppy.osu$";
+      tearing = true;
+    }
+  ];
 
   services.flatpak.overrides."com.valvesoftware.Steam" = {
     Context.filesystems = [

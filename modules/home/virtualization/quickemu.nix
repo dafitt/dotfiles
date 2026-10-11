@@ -5,14 +5,6 @@
     quickgui
   ];
 
-  wayland.windowManager.hyprland.settings = {
-    window_rule = [
-      {
-        match.class = "quickgui$";
-        float = true;
-      }
-    ];
-  };
   programs.umbriel.settings = {
     window_rule = [
       {

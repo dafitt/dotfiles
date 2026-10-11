@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 with lib;
@@ -11,10 +10,6 @@ let
 in
 {
   #meta.doc = builtins.toFile "doc.md" "Installs and configures btop.";
-
-  imports = with inputs; [
-    self.homeModules.pyprland
-  ];
 
   options.dafitt.top-btop = with types; {
     setAsDefaultTop = mkEnableOption "making it the default TOP";
@@ -40,24 +35,6 @@ in
       TOP = "${getExe config.programs.btop.package}";
     };
 
-    wayland.windowManager.hyprland.settings = {
-      bind = optionals (config.dafitt.pyprland.enable && cfg.setAsDefaultTop) [
-        {
-          _args = [
-            "SUPER + ALT + P"
-            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.pyprland} toggle btop")'')
-            { description = "Toggle btop scratchpad"; }
-          ];
-        }
-      ];
-    };
-    dafitt.pyprland.scratchpads.btop = {
-      animation = "fromTop";
-      command = "uwsm app -- ${getExe pkgs.kitty} --class btop ${getExe config.programs.btop.package} --update 3000";
-      class = "btop";
-      size = "90% 90%";
-      lazy = true;
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+P" = {
         action = "scratchpad-toggle:monitor";

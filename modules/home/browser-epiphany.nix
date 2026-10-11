@@ -26,25 +26,6 @@ in
   config = {
     home.packages = with pkgs; [ epiphany ];
 
-    wayland.windowManager.hyprland.settings = {
-      bind = optionals cfg.setAsDefaultBrowser [
-        {
-          _args = [
-            "SUPER + ALT + W"
-            (mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- ${getExe pkgs.epiphany}")'')
-            { description = "Open browser"; }
-          ];
-        }
-      ];
-      on = optionals cfg.autostart [
-        {
-          _args = [
-            "hyprland.start"
-            (mkLuaInline ''function() hl.exec_cmd("uwsm app -- ${getExe pkgs.epiphany}", { workspace = "${toString cfg.workspace} silent" }) end'')
-          ];
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
         action = "spawn:${getExe pkgs.epiphany}";
