@@ -71,7 +71,7 @@ in
 
       programs.umbriel.settings = {
         keybinds."Mod+Alt+T" = {
-          action = "scratchpad-toggle:terminal";
+          action = "scratchpad-toggle:dropterm";
           repeat = false;
         };
         scratchpad = [

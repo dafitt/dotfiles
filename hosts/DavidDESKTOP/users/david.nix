@@ -28,7 +28,7 @@
 
   programs.umbriel.settings.window_rule = [
     {
-      match.class = "^sh.ppy.osu$";
+      match.app_id = "^sh.ppy.osu$";
       tearing = true;
     }
   ];
