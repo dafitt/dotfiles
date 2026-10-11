@@ -1,10 +1,11 @@
 { lib, pkgs, ... }:
 with lib;
 let
-  quickPoweroff = "${pkgs.systemd}/bin/systemctl poweroff";
+  lock = "${pkgs.systemd}/bin/loginctl lock-session";
+  quickSleep = "${lock} && ${pkgs.systemd}/bin/systemctl sleep";
+  quickHibernate = "${lock} && ${pkgs.systemd}/bin/systemctl hibernate";
   quickReboot = "${pkgs.systemd}/bin/systemctl reboot";
-  quickSleep = "${pkgs.systemd}/bin/systemctl sleep";
-  quickHibernate = "${pkgs.systemd}/bin/systemctl hibernate";
+  quickPoweroff = "${pkgs.systemd}/bin/systemctl poweroff";
 
   audioMute = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
   audioRaiseVolume = "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 2%+";
@@ -25,20 +26,24 @@ in
   #'';
 
   programs.umbriel.settings.keybinds = {
-    "Mod+Control+Adiaeresis" = {
-      action = "spawn:" + quickPoweroff;
+    "Mod+L" = {
+      action = "spawn:${lock}";
       repeat = false;
     };
-    "Mod+Control+Odiaeresis" = {
-      action = "spawn:" + quickReboot;
+    "Mod+Udiaeresis" = {
+      action = "spawn:" + quickSleep;
       repeat = false;
     };
     "Mod+Control+Udiaeresis" = {
       action = "spawn:" + quickHibernate;
       repeat = false;
     };
-    "Mod+Udiaeresis" = {
-      action = "spawn:" + quickSleep;
+    "Mod+Control+Odiaeresis" = {
+      action = "spawn:" + quickReboot;
+      repeat = false;
+    };
+    "Mod+Control+Adiaeresis" = {
+      action = "spawn:" + quickPoweroff;
       repeat = false;
     };
 

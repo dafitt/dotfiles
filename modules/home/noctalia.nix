@@ -469,10 +469,6 @@ in
           action = "spawn:${noctaliaExe} msg panel-toggle control-center bluetooth";
           repeat = false;
         };
-        "Mod+L" = {
-          action = "spawn:${noctaliaExe} msg session lock";
-          repeat = false;
-        };
         "Mod+W" = {
           action = "spawn:${noctaliaExe} msg bar-toggle main";
           repeat = false;
