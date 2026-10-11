@@ -478,5 +478,9 @@ in
         };
       };
     };
+
+    home.activation.noctaliaTemplatesApply = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      run --quiet ${noctaliaExe} msg templates-apply
+    '';
   };
 }
