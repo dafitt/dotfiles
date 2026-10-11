@@ -21,7 +21,6 @@ in
     umbriel.homeModules.default
 
     self.homeModules.home-manager-mutableFiles
-    self.homeModules.noctalia
     # self.homeModules.stylix
     desktopEnvironment-common/keybinds.nix
     desktopEnvironment-common/mustHaves.nix
@@ -33,7 +32,7 @@ in
     ttyAutostart = mkOption {
       type = bool;
       default = true;
-      description = "Whether to autostart Hyprland from a tty after login.";
+      description = "Whether to autostart Umbriel from a tty after login.";
     };
     ttyAutostartNumbers = mkOption {
       type = str;

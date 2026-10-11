@@ -96,7 +96,6 @@ in
 
       programs.fuzzel.settings.main.terminal = kittyExe;
       programs.rofi.terminal = kittyExe;
-      programs.noctalia-shell.settings.appLauncher.terminalCommand = kittyExe;
 
       wayland.windowManager.hyprland.settings = {
         bind = [

@@ -30,7 +30,6 @@
     terminal-kitty
     top-btop
     web
-    wlsunset
     wluma
     xdg
   ];

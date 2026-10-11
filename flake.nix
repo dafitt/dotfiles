@@ -34,8 +34,7 @@
     nixos-generators.url = "github:nix-community/nixos-generators"; # https://github.com/nix-community/nixos-generators
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master"; # https://github.com/NixOS/nixos-hardware
-    noctalia.url = "github:noctalia-dev/noctalia-shell/legacy-v4"; # https://github.com/noctalia-dev/noctalia-shell
-    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia.url = "github:noctalia-dev/noctalia-shell"; # https://github.com/noctalia-dev/noctalia-shell
     nur.url = "github:nix-community/NUR"; # https://github.com/nix-community/NUR
     nur.inputs.nixpkgs.follows = "nixpkgs";
     programsdb.url = "github:wamserma/flake-programs-sqlite"; # https://github.com/wamserma/flake-programs-sqlite
@@ -79,9 +78,11 @@
   # nixConfig = {
   #   extra-substituters = [
   #     "https://umbriel.cachix.org"
+  #     "https://noctalia.cachix.org"
   #   ];
   #   extra-trusted-public-keys = [
   #     "umbriel.cachix.org-1:JfNq/2yg2S6D6z4Z2dVSZrZlDPQTKtexB6GAVLD98nw="
+  #     "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
   #   ];
   # };
 }
