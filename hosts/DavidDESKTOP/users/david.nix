@@ -24,7 +24,7 @@
     web
   ];
 
-  programs.umbriel.settings.output."DP-3".workspaces = 5;
+  programs.umbriel.settings.output."LG Electronics LG ULTRAGEAR+ 412NTAB4B136".min_workspaces = 5;
 
   programs.umbriel.settings.window_rule = [
     {

@@ -190,7 +190,7 @@ in
             "Mod+Shift+Next" = "workspace-move-down";
             "Mod+Shift+KP_Subtract" = "workspace-move-up";
             "Mod+Shift+KP_Add" = "workspace-move-down";
-            "Mod+D" = "workspace-switch:Desktop";
+            "Mod+D" = "workspace-switch:64";
 
             "Mod+M" = "workspace-set-layout:toggle";
 
