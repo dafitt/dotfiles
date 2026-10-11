@@ -94,9 +94,6 @@ in
     (mkIf cfg.setAsDefaultTerminal {
       home.sessionVariables.TERMINAL = kittyExe;
 
-      programs.fuzzel.settings.main.terminal = kittyExe;
-      programs.rofi.terminal = kittyExe;
-
       wayland.windowManager.hyprland.settings = {
         bind = [
           {
