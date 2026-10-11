@@ -229,7 +229,7 @@ in
           window_rule = [
             {
               match.is_floating = true;
-              match.is_focused = true;
+              match.is_focused = false;
               match.is_pinned = false;
               opacity = 0.7;
             }
