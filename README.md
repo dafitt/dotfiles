@@ -22,7 +22,6 @@ This flake can and will radically change as I learn, discover new things and hav
 - 🎨 [github:danth/stylix](https://github.com/danth/stylix) theming (modified [catppuccin](https://github.com/catppuccin) 🌿 [Mocha](https://github.com/catppuccin/catppuccin#-palette))
 - 🪟 [GNOME](https://www.gnome.org/) with extensions
 - 🪟 [Hyprland](https://hypr.land/) with plugins
-- 🪟 [Niri](https://github.com/YaLTeR/niri)
 
 # Installation
 

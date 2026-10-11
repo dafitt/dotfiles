@@ -23,7 +23,6 @@ with lib;
       certificates
       coreutils
       desktopEnvironment-hyprland
-      desktopEnvironment-niri
       development
       diskManagement
       documentation

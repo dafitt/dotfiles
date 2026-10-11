@@ -58,11 +58,6 @@ in
       size = "90% 90%";
       lazy = true;
     };
-    programs.niri.settings = {
-      binds."Mod+Alt+P" = mkIf cfg.setAsDefaultTop {
-        action.spawn-sh = "uwsm app -- ${getExe pkgs.kitty} --class btop ${getExe config.programs.btop.package}";
-      };
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+P" = {
         action = "scratchpad-toggle:monitor";

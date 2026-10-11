@@ -47,14 +47,6 @@ in
         }
       ];
     };
-    programs.niri.settings = {
-      binds."Mod+Alt+H" = mkIf cfg.setAsDefault {
-        action.spawn-sh = "uwsm app -- ${getExe pkg}";
-      };
-      spawn-at-startup = optionals cfg.autostart [
-        { sh = "uwsm app -- ${getExe pkg}"; }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+H" = mkIf cfg.setAsDefault {
         action = "spawn:" + (getExe pkg);

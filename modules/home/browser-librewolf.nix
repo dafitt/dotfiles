@@ -64,25 +64,6 @@ in
         #TODO no fullscreen
       ];
     };
-    programs.niri.settings = {
-      binds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
-        action.spawn-sh = "uwsm app -- ${getExe config.programs.librewolf.package}";
-      };
-      spawn-at-startup = optionals cfg.autostart [
-        { sh = "uwsm app -- ${getExe config.programs.librewolf.package}"; }
-      ];
-      window-rules = [
-        {
-          matches = [
-            {
-              app-id = "librewolf";
-              title = "^Extension: \(NoScript\) - NoScript";
-            }
-          ];
-          open-floating = true;
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
         action = "spawn:${getExe config.programs.librewolf.package}";

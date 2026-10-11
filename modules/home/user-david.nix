@@ -8,7 +8,6 @@
     browser-firefox
     calculator
     desktopEnvironment-hyprland
-    desktopEnvironment-niri
     desktopEnvironment-umbriel
     editor-micro
     fastfetch

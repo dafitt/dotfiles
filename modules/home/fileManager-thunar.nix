@@ -80,20 +80,6 @@ in
           }
         ];
       };
-      programs.niri.settings = {
-        binds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
-          action.spawn-sh = "uwsm app -- ${thunar}/bin/thunar";
-        };
-        spawn-at-startup = optionals cfg.autostart [
-          { sh = "uwsm app -- ${thunar}/bin/thunar"; }
-        ];
-        window-rules = [
-          {
-            matches = [ { app-id = "thunar$"; } ];
-            open-floating = true;
-          }
-        ];
-      };
       programs.umbriel.settings = {
         keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
           action = "spawn:${thunar}/bin/thunar";

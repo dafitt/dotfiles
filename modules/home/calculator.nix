@@ -23,15 +23,6 @@ with lib;
       }
     ];
   };
-  programs.niri.settings = {
-    binds."XF86Calculator".action.spawn-sh = "uwsm app -- ${getExe pkgs.gnome-calculator}";
-    window-rules = [
-      {
-        matches = [ { app-id = "org.gnome.Calculator"; } ];
-        open-floating = true;
-      }
-    ];
-  };
   programs.umbriel.settings = {
     keybinds."XF86Calculator" = {
       action = "spawn:${getExe pkgs.gnome-calculator}";

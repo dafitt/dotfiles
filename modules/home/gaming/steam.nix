@@ -36,19 +36,6 @@
       float = true;
     }
   ];
-  programs.niri.settings = {
-    window-rules = [
-      {
-        matches = [
-          {
-            app-id = "steam";
-            title = "(Friends List)|(Settings)";
-          }
-        ];
-        open-floating = true;
-      }
-    ];
-  };
   programs.umbriel.settings = {
     window_rule = [
       {

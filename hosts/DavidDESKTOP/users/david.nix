@@ -59,12 +59,6 @@
     ];
   };
 
-  programs.niri.settings.outputs."LG Electronics LG ULTRAGEAR+ 412NTAB4B136".mode = {
-    width = 2560;
-    height = 1440;
-    refresh = 480.17;
-  };
-
   programs.umbriel.settings.output."DP-3".workspaces = 5;
 
   services.flatpak.overrides."com.valvesoftware.Steam" = {

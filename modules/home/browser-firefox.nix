@@ -335,29 +335,6 @@ in
         }
       ];
     };
-    programs.niri.settings = {
-      binds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
-        action.spawn-sh = "uwsm app -- ${getExe config.programs.firefox.package}";
-      };
-      spawn-at-startup = optionals cfg.autostart [
-        { sh = "uwsm app -- ${getExe config.programs.firefox.package}"; }
-      ];
-      window-rules = [
-        {
-          matches = [
-            {
-              app-id = "firefox$";
-              title = "^Extension: \(NoScript\) - NoScript";
-            }
-            {
-              app-id = "firefox$";
-              title = "^Picture-in-Picture$";
-            }
-          ];
-          open-floating = true;
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
         action = "spawn:${getExe config.programs.firefox.package}";

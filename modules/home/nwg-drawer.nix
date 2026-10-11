@@ -66,11 +66,6 @@ with lib;
       }
     ];
   };
-  programs.niri.settings = {
-    binds."Mod+Alt+Space" = {
-      action.spawn-sh = "uwsm app -- ${getExe pkgs.nwg-drawer} -ovl";
-    };
-  };
   programs.umbriel.settings = {
     keybinds."Mod+Alt+Space" = {
       action = "spawn:${getExe pkgs.nwg-drawer} -ovl";

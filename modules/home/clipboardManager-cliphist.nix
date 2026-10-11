@@ -51,20 +51,6 @@ in
         }
       ];
     };
-    programs.niri.settings = {
-      binds."Mod+Alt+V" = mkIf cfg.setAsDefaultClipboardManager {
-        action.spawn-sh = "uwsm app -- ${getExe pkgs.kitty} --class=cliphist -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'";
-      };
-      window-rules = [
-        {
-          matches = [
-            { app-id = "cliphist"; }
-          ];
-          open-floating = true;
-          block-out-from = "screen-capture";
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+V" = mkIf cfg.setAsDefaultClipboardManager {
         action = "spawn:${getExe pkgs.kitty} --class=cliphist -e sh -c '${config.services.cliphist.package}/bin/cliphist list | ${pkgs.fzf}/bin/fzf | ${config.services.cliphist.package}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy'";

@@ -45,14 +45,6 @@ in
         }
       ];
     };
-    programs.niri.settings = {
-      binds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
-        action.spawn-sh = "uwsm app -- ${getExe pkgs.epiphany}";
-      };
-      spawn-at-startup = optionals cfg.autostart [
-        { sh = "uwsm app -- ${getExe pkgs.epiphany}"; }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
         action = "spawn:${getExe pkgs.epiphany}";

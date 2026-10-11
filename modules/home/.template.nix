@@ -56,25 +56,6 @@ in
         }
       ];
     };
-    programs.niri.settings = {
-      binds."Mod+Alt+?" = mkIf cfg.setAsDefault {
-        action.spawn-sh = "uwsm app -- ${getExe pkgs.MODULE}";
-      };
-      spawn-at-startup = optionals cfg.autostart [
-        { sh = "uwsm app -- ${getExe pkgs.MODULE}"; }
-      ];
-    };
-    programs.niri.settings = {
-      # https://yalter.github.io/niri/Configuration%3A-Window-Rules.html
-      #$ niri msg pick-window
-      window-rules = [
-        {
-          matches = [ { app-id = "MODULE$"; } ];
-          open-floating = true;
-          block-out-from = "screen-capture";
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+?" = mkIf cfg.setAsDefault {
         action = "spawn:${getExe pkgs.MODULE}";

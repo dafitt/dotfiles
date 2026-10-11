@@ -13,14 +13,6 @@
       }
     ];
   };
-  programs.niri.settings = {
-    window-rules = [
-      {
-        matches = [ { app-id = "quickgui"; } ];
-        open-floating = true;
-      }
-    ];
-  };
   programs.umbriel.settings = {
     window_rule = [
       {

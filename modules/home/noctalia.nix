@@ -501,21 +501,6 @@ in
         }
       ]);
     };
-    programs.niri.settings.binds = {
-      "Mod+B".action.spawn-sh = "${noctaliaExe} msg bluetooth-toggle";
-      "Mod+Alt+B".action.spawn-sh = "${noctaliaExe} msg panel-toggle control-center bluetooth";
-      "Mod+L".action.spawn-sh = "${noctaliaExe} msg session lock";
-      "Mod+W".action.spawn-sh = "${noctaliaExe} msg bar-toggle main";
-
-      "Mod+Space" = mkIf cfg.setAsDefaultLauncher {
-        action.spawn = [
-          "${noctaliaExe}"
-          "msg"
-          "panel-toggle"
-          "launcher"
-        ];
-      };
-    };
     programs.umbriel = {
       settings.general.autostart = [ noctaliaExe ];
       settings.keybinds = {
@@ -547,6 +532,6 @@ in
     };
 
     systemd.user.services.noctalia.Service.ExecCondition =
-      ''${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "Hyprland:niri" ""'';
+      ''${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""'';
   };
 }

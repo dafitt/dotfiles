@@ -64,20 +64,6 @@ in
       ];
       # titles: Lock Screen — 1Password ; All Items — 1Password ;
     };
-    programs.niri.settings = {
-      binds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
-        action.spawn-sh = "uwsm app -- ${getExe pkgs._1password-gui}";
-      };
-      window-rules = [
-        {
-          matches = [ { app-id = "1Password"; } ];
-          open-floating = true;
-          default-window-height.fixed = 600;
-          default-column-width.fixed = 450;
-          block-out-from = "screen-capture";
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
         action = "spawn:${getExe pkgs._1password-gui}";

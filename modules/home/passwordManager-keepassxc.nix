@@ -47,21 +47,6 @@ in
         }
       ];
     };
-    programs.niri.settings = {
-      binds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
-        action.spawn-sh = "uwsm app -- ${getExe pkgs.keepassxc}";
-      };
-      window-rules = [
-        {
-          matches = [
-            { app-id = "org[.]keepassxc[.]KeePassXC"; }
-            { app-id = "org[.]gnome[.]World[.]Secrets"; }
-          ];
-          open-floating = true;
-          block-out-from = "screen-capture";
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
         action = "spawn:${getExe pkgs.keepassxc}";

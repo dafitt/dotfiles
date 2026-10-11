@@ -37,9 +37,6 @@ with lib;
     size = "40% 70%";
     lazy = true;
   };
-  programs.niri.settings = {
-    binds."Mod+Alt+N".action.spawn-sh = "uwsm app -- ${pkgs.connman-gtk}/bin/connman-gtk";
-  };
   programs.umbriel.settings = {
     keybinds."Mod+Alt+N" = {
       action = "scratchpad-toggle:network";

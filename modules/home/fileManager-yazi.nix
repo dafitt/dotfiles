@@ -195,14 +195,6 @@ in
           }
         ];
       };
-      programs.niri.settings = {
-        binds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
-          action.spawn-sh = "uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}";
-        };
-        spawn-at-startup = optionals cfg.autostart [
-          { sh = "uwsm app -- ${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}"; }
-        ];
-      };
       programs.umbriel.settings = {
         keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
           action = "spawn:${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}";

@@ -168,27 +168,6 @@ in
     ];
   };
 
-  programs.niri.settings.binds = {
-    "Mod+Control+Adiaeresis".action.spawn-sh = quickPoweroff;
-    "Mod+Control+Odiaeresis".action.spawn-sh = quickReboot;
-    "Mod+Control+Udiaeresis".action.spawn-sh = quickHibernate;
-    "Mod+Udiaeresis".action.spawn-sh = quickSleep;
-
-    "XF86AudioMute".action.spawn-sh = audioMute;
-    "Alt+XF86AudioMute".action.spawn-sh = micMute;
-    "XF86AudioMicMute".action.spawn-sh = micMute;
-    "XF86AudioRaiseVolume".action.spawn-sh = audioRaiseVolume;
-    "XF86AudioLowerVolume".action.spawn-sh = audioLowerVolume;
-    "Alt+XF86AudioRaiseVolume".action.spawn-sh = micRaiseVolume;
-    "Alt+XF86AudioLowerVolume".action.spawn-sh = micLowerVolume;
-    "XF86MonBrightnessUp".action.spawn-sh = monBrightnessUp;
-    "XF86MonBrightnessDown".action.spawn-sh = monBrightnessDown;
-    "XF86KbdBrightnessUp".action.spawn-sh = kbdBrightnessUp;
-    "XF86KbdBrightnessDown".action.spawn-sh = kbdBrightnessDown;
-
-    "Mod+Alt+U".action.spawn-sh = gnomeCharacters;
-  };
-
   programs.umbriel.settings.keybinds = {
     "Mod+Control+Adiaeresis" = {
       action = "spawn:" + quickPoweroff;

@@ -91,14 +91,6 @@ in
         }
       ];
     };
-    programs.niri.settings = {
-      binds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
-        action.spawn-sh = "uwsm app -- ${getExe pkgs.nautilus}";
-      };
-      spawn-at-startup = optionals cfg.autostart [
-        { sh = "uwsm app -- ${getExe pkgs.nautilus}"; }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
         action = "spawn:" + (getExe pkgs.nautilus);

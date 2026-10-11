@@ -42,7 +42,6 @@ with lib;
       coreutils
       desktopEnvironment-gnome
       desktopEnvironment-hyprland
-      desktopEnvironment-niri
       development
       documentation
       flatpak

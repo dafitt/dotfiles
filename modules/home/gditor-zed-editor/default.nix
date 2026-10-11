@@ -411,14 +411,6 @@ in
         }
       ];
     };
-    programs.niri.settings = {
-      binds."Mod+Alt+G" = mkIf cfg.setAsDefaultGditor {
-        action.spawn-sh = "uwsm app -- ${getExe config.programs.zed-editor.package}";
-      };
-      spawn-at-startup = optionals cfg.autostart [
-        { sh = "uwsm app -- ${getExe config.programs.zed-editor.package}"; }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+G" = mkIf cfg.setAsDefaultGditor {
         action = "spawn:${getExe config.programs.zed-editor.package}";

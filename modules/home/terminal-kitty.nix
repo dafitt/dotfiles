@@ -105,12 +105,6 @@ in
           }
         ];
       };
-      programs.niri.settings.binds."Mod+Return".action.spawn = [
-        "uwsm"
-        "app"
-        "--"
-        kittyExe
-      ];
       programs.umbriel.settings.keybinds."Mod+Return" = {
         action = "spawn:" + kittyExe;
         repeat = false;

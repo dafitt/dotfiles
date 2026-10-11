@@ -45,18 +45,6 @@ in
         }
       ];
     };
-    programs.niri.settings = {
-      binds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
-        action.spawn-sh = "uwsm app -- ${getExe pkgs.bitwarden-desktop}";
-      };
-      window-rules = [
-        {
-          matches = [ { app-id = "Bitwarden"; } ];
-          open-floating = true;
-          block-out-from = "screen-capture";
-        }
-      ];
-    };
     programs.umbriel.settings = {
       keybinds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
         action = "spawn:${getExe pkgs.bitwarden-desktop}";

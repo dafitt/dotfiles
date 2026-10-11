@@ -38,7 +38,6 @@
       certificates
       coreutils
       desktopEnvironment-hyprland
-      desktopEnvironment-niri
       desktopEnvironment-umbriel
       development
       diskManagement
