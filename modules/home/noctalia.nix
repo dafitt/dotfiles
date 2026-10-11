@@ -447,12 +447,15 @@ in
     };
     xdg.configFile = flake.lib.mkMutableFiles [ "noctalia/config.toml" ];
 
+    systemd.user.services.noctalia.Service.ExecCondition =
+      ''${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""'';
+
     home.file."${config.xdg.userDirs.pictures}/Wallpapers/wallpaper.png".source = config.stylix.image;
 
     # [IPC with Keybinds](https://docs.noctalia.dev/noctalia/ipc/)
-    programs.umbriel = {
-      settings.general.autostart = [ noctaliaExe ];
-      settings.keybinds = {
+    programs.umbriel.settings = {
+      general.autostart = [ noctaliaExe ];
+      keybinds = {
         "Mod" = mkIf cfg.setAsDefaultLauncher {
           action = "spawn:${noctaliaExe} msg panel-toggle launcher";
           repeat = false;
@@ -475,8 +478,5 @@ in
         };
       };
     };
-
-    systemd.user.services.noctalia.Service.ExecCondition =
-      ''${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""'';
   };
 }
