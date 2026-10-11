@@ -35,7 +35,7 @@ in
       description = "Whether to autostart Umbriel from a tty after login.";
     };
     ttyAutostartNumbers = mkOption {
-      type = str;
+      type = strMatching "^[[:digit:],]*$";
       default = "2";
       description = "TTY numbers on where to autostart from after login. Bash strings [] syntax. e.g. `1-2,7`";
     };
