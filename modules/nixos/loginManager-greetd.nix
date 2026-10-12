@@ -19,7 +19,6 @@ with lib;
           "--remember-user-session"
           "--theme 'border=magenta;text=cyan;prompt=green;time=white;action=blue;button=yellow;container=black;input=red'"
           "--background matrix"
-          "--matrix-colors 'green,green,green'"
           "--matrix-length '5,17'"
           "--matrix-speed '0.20,0.80'"
         ];
