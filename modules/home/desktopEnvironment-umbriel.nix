@@ -195,8 +195,8 @@ in
             "Mod+M" = "workspace-set-layout:toggle";
 
             # Scratchpads
-            "Mod+Y" = "scratchpad-toggle:minimized";
-            "Mod+Shift+Y" = "window-toggle-scratchpad:minimized";
+            "Mod+Shift+Y" = "scratchpad-toggle:minimized";
+            "Mod+Y" = "window-toggle-scratchpad:minimized";
 
             # Screencapture
             # TODO grimblast alternative (because gimblast is for hyprland only)
