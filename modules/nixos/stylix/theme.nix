@@ -52,5 +52,9 @@ with lib;
         terminal = 14; # for terminals/text editors
       };
     };
+
+    targets = {
+      fish.colors.enable = false;
+    };
   };
 }
