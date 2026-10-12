@@ -1,4 +1,5 @@
 {
+  flake,
   config,
   lib,
   inputs,
@@ -68,6 +69,7 @@ in
           "kitty_mod+down" = "previous_window";
         };
       };
+      xdg.configFile = flake.lib.mkMutableFiles [ "kitty/kitty.conf" ];
 
       programs.umbriel.settings = {
         keybinds."Mod+Alt+T" = {

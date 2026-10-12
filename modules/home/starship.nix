@@ -1,4 +1,4 @@
-{
+{ flake, config, ... }: {
   #meta.doc = builtins.toFile "doc.md" ''
   #  Installs and configures the Starship prompt for any shell.
   #  <https://starship.rs/>
@@ -24,4 +24,5 @@
       };
     };
   };
+  home.file = flake.lib.mkMutableFiles [ config.programs.starship.configPath ];
 }
