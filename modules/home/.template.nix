@@ -1,4 +1,5 @@
 {
+  flake,
   config,
   lib,
   pkgs,
@@ -42,5 +43,6 @@ in
         }
       ];
     };
+    xdg.configFile = flake.lib.mkMutableFiles [ "MODULE/config" ];
   };
 }
