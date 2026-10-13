@@ -262,11 +262,6 @@ in
           exec start-umbriel
         fi
       '';
-      programs.zsh.loginExtra = ''
-        if [[ $(tty) =~ /dev/tty[${cfg.ttyAutostartNumbers}] ]]; then
-          exec start-umbriel
-        fi
-      '';
       programs.fish.loginShellInit = ''
         if string match --regex --quiet "/dev/tty[${cfg.ttyAutostartNumbers}]" $(tty)
           exec start-umbriel
