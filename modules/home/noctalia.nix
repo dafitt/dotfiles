@@ -37,6 +37,9 @@ in
     home.packages = with pkgs; [
       ddcutil
 
+      # plugin:color-picker
+      hyprpicker
+
       # plugin:nix-search
       nix-search-tv
 
