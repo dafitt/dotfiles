@@ -119,8 +119,8 @@ in
             start = [
               "launcher"
               "workspaces"
-              "media"
               "group:g1"
+              "media"
             ];
             widget_spacing = 12;
           };
@@ -353,6 +353,11 @@ in
           source = "wallpaper";
           templates = {
             builtin_ids = [
+              "cava"
+              "gtk3"
+              "gtk4"
+              "kitty"
+              "starship"
               "umbriel"
             ];
           };
