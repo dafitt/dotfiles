@@ -471,6 +471,10 @@ in
           action = "spawn:${noctaliaExe} msg panel-toggle launcher";
           repeat = false;
         };
+        "Alt+Tab" = mkIf cfg.setAsDefaultLauncher {
+          action = "spawn:${noctaliaExe} msg window-switcher";
+          repeat = false;
+        };
         "Mod+B" = {
           action = "spawn:${noctaliaExe} msg bluetooth-toggle";
           repeat = false;
