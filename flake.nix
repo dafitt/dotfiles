@@ -34,7 +34,7 @@
     nur.inputs.nixpkgs.follows = "nixpkgs";
     programsdb.url = "github:wamserma/flake-programs-sqlite"; # https://github.com/wamserma/flake-programs-sqlite
     programsdb.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.url = "github:nix-community/stylix/pull/2337/head"; # FIXME wait for close: https://github.com/nix-community/stylix/issues/2334 and revert to "github:danth/stylix"; # https://github.com/danth/stylix
+    stylix.url = "github:danth/stylix"; # https://github.com/danth/stylix
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     umbriel.url = "github:noctalia-dev/umbriel/cachix";
 
