@@ -4,13 +4,6 @@
 
 <p align="center"><a href="#installation">Installation</a> &bull; <a href="#usage">Usage</a> &bull; <a href="#configuration">Configuration</a> &bull; <a href="#troubleshooting">Troubleshooting</a></p>
 
-My dotfiles are not perfekt, but they strive to be:
-
-- highly structured 🧱
-- modular 🎛️
-- a consistent look'n'feel ✨
-- KISS (keep it stupid simple)🥴
-
 # Notes
 
 This flake can and will radically change as I learn, discover new things and have new ideas.
@@ -21,6 +14,7 @@ This flake can and will radically change as I learn, discover new things and hav
 - 📦 [github:gmodena/nix-flatpak](https://github.com/gmodena/nix-flatpak) declarative flatpaks
 - 🎨 [github:danth/stylix](https://github.com/danth/stylix) theming (modified [catppuccin](https://github.com/catppuccin) 🌿 [Mocha](https://github.com/catppuccin/catppuccin#-palette))
 - 🪟 [GNOME](https://www.gnome.org/) with extensions
+- 🪟 [Umbriel](https://docs.noctalia.dev/umbriel/) Wayland compositor
 
 # Installation
 
@@ -80,7 +74,8 @@ This flake can and will radically change as I learn, discover new things and hav
 3. Check your system's requirements when importing the following modules (Installation depending on your distribution):
 
    - [modules/home/flatpak.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/flatpak.nix): [Flatpak](https://flatpak.org/setup/)
-   - [modules/home/gnome.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/gnome.nix): GNOME
+   - [modules/home/desktopEnvironment-gnome/default.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/desktopEnvironment-gnome/default.nix): GNOME
+   - [modules/home/desktopEnvironment-umbriel.nix](https://github.com/dafitt/dotfiles/blob/main/modules/home/desktopEnvironment-umbriel.nix): [Installing Umbriel](https://docs.noctalia.dev/umbriel/installation/)
 
 4. Build:
 
@@ -135,7 +130,7 @@ Post-install imperative setup
 - Age keypair for sops: `age-keygen -o ~/.config/sops/age/keys.txt`
 - Firefox Addons (Settings)
 - Flatpak: Osu `~/.var/app/sh.ppy.osu/data/osu/`
-- Hyprland: Monitor setup with `nwg-displays`
+- Monitor setup
 - Pavucontrol: Set standard audio output
 - SSH keypair `~/.ssh` `ssh-keygen`
 - Syncthing <https://localhost:8384/>
