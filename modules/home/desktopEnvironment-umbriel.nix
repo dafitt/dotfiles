@@ -61,7 +61,10 @@ in
 
           workspaces.back_and_forth = true;
 
-          input.focus.follows_mouse = true;
+          input = {
+            window_drag_toggle = "pinned";
+            focus.follows_mouse = true;
+          };
 
           input.cursor = {
             size = 32;
