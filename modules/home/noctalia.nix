@@ -19,9 +19,9 @@ in
 
   imports = with inputs; [
     # noctalia.homeModules.default
+    self.homeModules.home-manager-mutableFiles
     self.homeModules.stylix
   ];
-
   options.dafitt.noctalia = {
     setAsDefaultLauncher = mkEnableOption "making it the default launcher";
   };

@@ -1,6 +1,15 @@
-{ flake, config, ... }:
+{
+  flake,
+  config,
+  inputs,
+  ...
+}:
 {
   #meta.doc = builtins.toFile "doc.md" "Enables and configures XDG Specifications.";
+
+  imports = with inputs; [
+    self.homeModules.home-manager-mutableFiles
+  ];
 
   xdg = {
     enable = true;

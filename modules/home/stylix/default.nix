@@ -11,6 +11,8 @@
   #'';
 
   imports = with inputs; [
+    self.homeModules.home-manager-mutableFiles
+
     stylix.homeModules.stylix
     ../../nixos/stylix/theme.nix
   ];

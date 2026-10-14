@@ -1,7 +1,16 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 with lib;
 {
   #meta.doc = builtins.toFile "doc.md" "Installs and configures pavucontrol audio control.";
+
+  imports = with inputs; [
+    umbriel.homeModules.default
+  ];
 
   home.packages = with pkgs; [ pavucontrol ];
 

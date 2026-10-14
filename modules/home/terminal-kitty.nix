@@ -18,6 +18,7 @@ in
   #'';
 
   imports = with inputs; [
+    self.homeModules.home-manager-mutableFiles
     self.homeModules.stylix
   ];
 

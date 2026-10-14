@@ -1,7 +1,8 @@
 {
   flake,
-  config,
   lib,
+  config,
+  inputs,
   pkgs,
   osConfig ? { },
   ...
@@ -12,6 +13,10 @@ let
 in
 {
   #meta.doc = builtins.toFile "doc.md" "A module that does something.";
+
+  imports = with inputs; [
+    self.homeModules.home-manager-mutableFiles
+  ];
 
   options.dafitt.MODULE = with types; {
     setAsDefault = mkEnableOption "making it the default";

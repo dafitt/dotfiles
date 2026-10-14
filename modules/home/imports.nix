@@ -8,5 +8,6 @@
   imports = with inputs; [
     nix-flatpak.homeManagerModules.nix-flatpak
     noctalia.homeModules.default
+    umbriel.homeModules.default
   ];
 }

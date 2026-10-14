@@ -1,8 +1,18 @@
-{ flake, config, ... }: {
+{
+  flake,
+  config,
+  inputs,
+  ...
+}:
+{
   #meta.doc = builtins.toFile "doc.md" ''
   #  Installs and configures the Starship prompt for any shell.
   #  <https://starship.rs/>
   #'';
+
+  imports = with inputs; [
+    self.homeModules.home-manager-mutableFiles
+  ];
 
   programs.starship = {
     enable = true;
