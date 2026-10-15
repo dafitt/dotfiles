@@ -21,6 +21,7 @@ with lib;
       ];
       allowed-users = [ "@wheel" ];
       trusted-users = [ "@wheel" ];
+      accept-flake-config = true;
 
       connect-timeout = 5;
       http-connections = 50;
