@@ -68,7 +68,7 @@
       ];
     };
 
-  #NOTE uncomment and enter `nix develop` on your first build for faster build time
+  #NOTE uncomment and enter `nix develop` for faster build time
   nixConfig = {
     extra-substituters = [
       "https://noctalia.cachix.org"
