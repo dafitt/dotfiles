@@ -26,7 +26,14 @@ in
 
   config = {
     # programs.obsidian.enable = true;
-    home.packages = with pkgs; [ obsidian ];
+    home.packages = with pkgs; [
+      obsidian
+
+      # plugin dependencies
+      typst
+      pandoc
+      imagemagick
+    ];
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+H" = mkIf cfg.setAsDefault {
