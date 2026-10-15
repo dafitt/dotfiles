@@ -18,7 +18,7 @@ in
   #'';
 
   imports = with inputs; [
-    umbriel.homeModules.default
+    # umbriel.homeModules.default see modules/home/imports.nix
 
     self.homeModules.home-manager-mutableFiles
     # self.homeModules.stylix
