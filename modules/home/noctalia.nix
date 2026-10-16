@@ -459,6 +459,8 @@ in
     programs.umbriel.settings = {
       general.autostart = [ noctaliaExe ];
       keybinds = {
+
+        # Controls
         "Mod" = mkIf cfg.setAsDefaultLauncher {
           action = "spawn:${noctaliaExe} msg panel-toggle launcher";
           repeat = false;
@@ -475,12 +477,18 @@ in
           action = "spawn:${noctaliaExe} msg bluetooth-toggle";
           repeat = false;
         };
+        "Mod+W" = {
+          action = "spawn:${noctaliaExe} msg bar-toggle main";
+          repeat = false;
+        };
+
+        # Apps
         "Mod+Alt+B" = {
           action = "spawn:${noctaliaExe} msg panel-toggle control-center bluetooth";
           repeat = false;
         };
-        "Mod+W" = {
-          action = "spawn:${noctaliaExe} msg bar-toggle main";
+        "Mod+Alt+V" = {
+          action = "spawn:${noctaliaExe} msg panel-toggle clipboard";
           repeat = false;
         };
 
