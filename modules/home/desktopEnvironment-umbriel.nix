@@ -200,26 +200,6 @@ in
             # Scratchpads
             "Mod+Shift+Y" = "scratchpad-toggle:minimized";
             "Mod+Y" = "window-toggle-scratchpad:minimized";
-
-            # Screencapture
-            # TODO grimblast alternative (because gimblast is for hyprland only)
-            "Print" =
-              ''spawn:${getExe pkgs.grimblast} copysave output "${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')")'';
-            "Mod+Print" = {
-              action = "submap:screencapture";
-              repeat = false;
-            };
-            "submap[screencapture],a" = {
-              action = ''spawn:${getExe pkgs.grimblast} --notify --freeze copysave area ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')")'';
-              submap = "reset";
-            }; # area
-            "submap[screencapture],e" = {
-              action = ''spawn:${getExe pkgs.grimblast} --notify --freeze --cursor save output - | ${getExe pkgs.satty} --filename - --fullscreen --output-filename ${config.xdg.userDirs.pictures}/Screenshots/$(date +'%F-%T_%N.png')")'';
-              submap = "reset";
-            }; # edit
-            "submap[screencapture],Escape" = "submap:reset";
-            "Mod+T" =
-              ''spawn:${getExe pkgs.grimblast} --freeze save area - | ${getExe pkgs.tesseract} - - -l deu+eng | ${pkgs.wl-clipboard-rs}/bin/wl-copy")'';
           };
 
           appearance = {

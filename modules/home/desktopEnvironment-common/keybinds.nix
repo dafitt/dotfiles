@@ -18,6 +18,8 @@ let
   kbdBrightnessUp = "${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%+";
   kbdBrightnessDown = "${getExe pkgs.brightnessctl} --device='*::kbd_backlight' s 10%-";
 
+  textOcr = ''${getExe pkgs.grim} -g "$(${getExe pkgs.slurp})" - | ${getExe pkgs.tesseract} - - -l deu+eng | wl-copy'';
+
   gnomeCharacters = "uwsm app -- ${getExe pkgs.gnome-characters}";
 in
 {
@@ -59,6 +61,7 @@ in
     "XF86KbdBrightnessUp" = "spawn:" + kbdBrightnessUp;
     "XF86KbdBrightnessDown" = "spawn:" + kbdBrightnessDown;
 
+    "Mod+T" = "spawn:" + textOcr;
     "Mod+Alt+U" = "spawn:" + gnomeCharacters;
   };
 }

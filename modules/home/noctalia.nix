@@ -483,6 +483,22 @@ in
           action = "spawn:${noctaliaExe} msg bar-toggle main";
           repeat = false;
         };
+
+        # Screencapture
+        "Print" = "spawn:noctalia msg screenshot-fullscreen";
+        "Mod+Print" = {
+          action = "submap:screencapture";
+          repeat = false;
+        };
+        "submap[screencapture],r" = {
+          action = "spawn:noctalia msg screenshot-region";
+          submap = "reset";
+        }; # region
+        "submap[screencapture],e" = {
+          action = "spawn:noctalia msg screenshot-annotate";
+          submap = "reset";
+        }; # annotate/edit
+        "submap[screencapture],Escape" = "submap:reset";
       };
     };
 
