@@ -220,9 +220,6 @@ in
             "submap[screencapture],Escape" = "submap:reset";
             "Mod+T" =
               ''spawn:${getExe pkgs.grimblast} --freeze save area - | ${getExe pkgs.tesseract} - - -l deu+eng | ${pkgs.wl-clipboard-rs}/bin/wl-copy")'';
-
-            # TODO Colorpicker
-            # ${getExe pkgs.hyprpicker} | ${pkgs.wl-clipboard-rs}/bin/wl-copy
           };
 
           appearance = {
