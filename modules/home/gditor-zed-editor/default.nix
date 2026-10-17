@@ -1,6 +1,7 @@
 {
-  config,
+  flake,
   lib,
+  config,
   pkgs,
   inputs,
   ...
@@ -381,10 +382,7 @@ in
         ];
       };
     };
-    xdg.configFile."zed/themes/myStylix.json" = {
-      force = true;
-      mutable = true;
-    };
+    xdg.configFile = flake.lib.mkMutableFiles [ "zed/themes/myStylix.json" ];
 
     programs.yazi.settings.opener.edit = [
       {
