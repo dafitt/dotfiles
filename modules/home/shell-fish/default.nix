@@ -1,5 +1,13 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 with lib;
+let
+  cfg = config.dafitt.shell-fish;
+in
 {
   #meta.doc = builtins.toFile "doc.md" ''
   #  Enables and configures a friendly interactive shell.
@@ -7,83 +15,90 @@ with lib;
   #  <https://github.com/fish-shell/fish-shell>
   #'';
 
-  home.packages = with pkgs; [
-    fzf
-    grc
-  ];
+  options.dafitt.shell-fish = with types; {
+    setAsDefaultShell = mkEnableOption "making it the default SHELL";
+  };
 
-  programs.fish = {
-    enable = true;
-
-    interactiveShellInit = mkMerge [
-      # [Default keybindings](https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_default_key_bindings.fish)
-      #$ fish_key_reader
-      ''
-        bind \cH backward-kill-word
-        bind \e\[3\;5~ kill-word
-        bind \e\[3\;3~ kill-word
-        bind \b backward-kill-path-component
-        set sponge_delay 5
-      ''
-      # https://github.com/haslersn/any-nix-shell
-      "${getExe pkgs.any-nix-shell} fish --info-right | source"
+  config = {
+    home.packages = with pkgs; [
+      fzf
+      grc
     ];
 
-    functions = {
+    programs.fish = {
+      enable = true;
 
-      # Disable greeting
-      fish_greeting = "";
+      interactiveShellInit = mkMerge [
+        # [Default keybindings](https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_default_key_bindings.fish)
+        #$ fish_key_reader
+        ''
+          bind \cH backward-kill-word
+          bind \e\[3\;5~ kill-word
+          bind \e\[3\;3~ kill-word
+          bind \b backward-kill-path-component
+          set sponge_delay 5
+        ''
+        # https://github.com/haslersn/any-nix-shell
+        "${getExe pkgs.any-nix-shell} fish --info-right | source"
+      ];
 
-      # Merge history upon doing up-or-search
-      # This lets multiple fish instances share history
-      up-or-search = ''
-        if commandline --search-mode
-          commandline -f history-search-backward
-          return
-        end
-        if commandline --paging-mode
-          commandline -f up-line
-          return
-        end
+      functions = {
 
-        set -l lineno (commandline -L)
-        switch $lineno
-        case 1
-          commandline -f history-search-backward
-          history merge
-        case '*'
-          commandline -f up-line
-        end
-      '';
+        # Disable greeting
+        fish_greeting = "";
+
+        # Merge history upon doing up-or-search
+        # This lets multiple fish instances share history
+        up-or-search = ''
+          if commandline --search-mode
+            commandline -f history-search-backward
+            return
+          end
+          if commandline --paging-mode
+            commandline -f up-line
+            return
+          end
+
+          set -l lineno (commandline -L)
+          switch $lineno
+          case 1
+            commandline -f history-search-backward
+            history merge
+          case '*'
+            commandline -f up-line
+          end
+        '';
+      };
+
+      # https://github.com/jorgebucaran/awsm.fish#readme
+      # https://search.nixos.org/packages?query=fishPlugins
+      plugins =
+        map
+          (n: {
+            name = n;
+            src = pkgs.fishPlugins.${n}.src;
+          })
+          [
+            "autopair" # https://github.com/jorgebucaran/autopair.fish
+            "bass" # https://github.com/edc/bass
+            "done" # https://github.com/franciscolourenco/done
+            "fzf" # https://github.com/jethrokuan/fzf
+            "grc"
+            "puffer" # https://github.com/nickeb96/puffer-fish
+            "sponge" # https://github.com/meaningful-ooo/sponge
+          ];
+
+      completions = {
+        uwsm = readFile completions/uwsm.fish;
+      };
     };
 
-    # https://github.com/jorgebucaran/awsm.fish#readme
-    # https://search.nixos.org/packages?query=fishPlugins
-    plugins =
-      map
-        (n: {
-          name = n;
-          src = pkgs.fishPlugins.${n}.src;
-        })
-        [
-          "autopair" # https://github.com/jorgebucaran/autopair.fish
-          "bass" # https://github.com/edc/bass
-          "done" # https://github.com/franciscolourenco/done
-          "fzf" # https://github.com/jethrokuan/fzf
-          "grc"
-          "puffer" # https://github.com/nickeb96/puffer-fish
-          "sponge" # https://github.com/meaningful-ooo/sponge
-        ];
-
-    completions = {
-      uwsm = readFile completions/uwsm.fish;
+    home.sessionVariables = {
+      FZF_COMPLETE = "2";
+      FZF_LEGACY_KEYBINDINGS = "0";
+      SHELL = mkIf cfg.setAsDefaultShell (getExe config.programs.fish.package);
     };
-  };
 
-  home.sessionVariables = {
-    FZF_COMPLETE = "2";
-    FZF_LEGACY_KEYBINDINGS = "0";
+    programs.zed-editor.extensions = [ "fish" ];
   };
-
-  programs.zed-editor.extensions = [ "fish" ];
 }

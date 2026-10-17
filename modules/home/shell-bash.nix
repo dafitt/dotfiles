@@ -1,46 +1,59 @@
+{ lib, config, ... }:
+with lib;
+let
+  cfg = config.dafitt.shell-bash;
+in
 {
   #meta.doc = builtins.toFile "doc.md" ''
   #  Configures GNU Bourne-Again Shell.
   #  <https://www.gnu.org/software/bash/>
   #'';
 
-  programs.bash = {
-    enable = true;
+  options.dafitt.shell-bash = with types; {
+    setAsDefaultShell = mkEnableOption "making it the default SHELL";
+  };
 
-    historyControl = [
-      "erasedups"
-      "ignoredups"
-      "ignorespace"
-    ];
-    historyIgnore = [
-      "ls"
-      "cd"
-      "rm"
-      "exit"
-    ];
-    shellOptions = [
-      "autocd"
+  config = {
+    programs.bash = {
+      enable = true;
 
-      # Append to history file rather than replacing it.
-      "histappend"
+      historyControl = [
+        "erasedups"
+        "ignoredups"
+        "ignorespace"
+      ];
+      historyIgnore = [
+        "ls"
+        "cd"
+        "rm"
+        "exit"
+      ];
+      shellOptions = [
+        "autocd"
 
-      # check the window size after each command and, if
-      # necessary, update the values of LINES and COLUMNS.
-      "checkwinsize"
+        # Append to history file rather than replacing it.
+        "histappend"
 
-      # Extended globbing.
-      "extglob"
-      "globstar"
+        # check the window size after each command and, if
+        # necessary, update the values of LINES and COLUMNS.
+        "checkwinsize"
 
-      # Warn if closing shell with running jobs.
-      "checkjobs"
+        # Extended globbing.
+        "extglob"
+        "globstar"
 
-      # save multi-line commands as single entries
-      "cmdhist"
-    ];
+        # Warn if closing shell with running jobs.
+        "checkjobs"
 
-    initExtra = ''
-      stty werase \^H
-    '';
+        # save multi-line commands as single entries
+        "cmdhist"
+      ];
+
+      initExtra = ''
+        stty werase \^H
+      '';
+    };
+
+    home.sessionVariables.SHELL = mkIf cfg.setAsDefaultShell (getExe config.programs.fish.package);
   };
 }
