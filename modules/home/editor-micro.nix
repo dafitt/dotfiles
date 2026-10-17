@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -7,12 +8,18 @@
 with lib;
 let
   cfg = config.dafitt.editor-micro;
+
+  exe = getExe config.programs.micro.package;
 in
 {
   #meta.doc = builtins.toFile "doc.md" ''
   #  Installs and configures the Micro text editor.
   #  <https://micro-editor.github.io/>
   #'';
+
+  imports = with inputs; [
+    self.homeModules.terminal-alacritty
+  ];
 
   options.dafitt.editor-micro = with types; {
     setAsDefaultEditor = mkEnableOption "making it the default EDITOR";
@@ -78,11 +85,11 @@ in
       };
     };
 
-    home.sessionVariables.EDITOR = mkIf cfg.setAsDefaultEditor (getExe config.programs.micro.package);
+    home.sessionVariables.EDITOR = mkIf cfg.setAsDefaultEditor exe;
 
     programs.yazi.settings.opener.edit = [
       {
-        run = ''${getExe config.programs.micro.package} "$@"'';
+        run = ''${exe} "$@"'';
         block = true;
         desc = "micro";
       }
@@ -90,7 +97,7 @@ in
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+E" = mkIf cfg.setAsDefaultEditor {
-        action = "spawn:${getExe pkgs.kitty} -e ${getExe config.programs.micro.package}";
+        action = "spawn:${getExe config.programs.alacritty.package} -e ${exe}";
         repeat = false;
       };
     };

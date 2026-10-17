@@ -1,7 +1,7 @@
 {
-  config,
+  inputs,
   lib,
-  pkgs,
+  config,
   ...
 }:
 with lib;
@@ -10,6 +10,10 @@ let
 in
 {
   #meta.doc = builtins.toFile "doc.md" "Installs and configures btop.";
+
+  imports = with inputs; [
+    self.homeModules.terminal-alacritty
+  ];
 
   options.dafitt.top-btop = with types; {
     setAsDefaultTop = mkEnableOption "making it the default TOP";
@@ -43,7 +47,9 @@ in
       scratchpad = [
         {
           name = "monitor";
-          spawn_when_empty = "${getExe pkgs.kitty} --class btop ${getExe config.programs.btop.package} --update 3000";
+          spawn_when_empty =
+            with config.programs;
+            "${getExe alacritty.package} --class btop ${getExe btop.package} --update 3000";
         }
       ];
       window_rule = [

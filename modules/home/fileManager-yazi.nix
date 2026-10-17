@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -10,6 +11,10 @@ let
 in
 {
   #meta.doc = builtins.toFile "doc.md" "Installs and configures the Yazi file manager.";
+
+  imports = with inputs; [
+    self.homeModules.terminal-alacritty
+  ];
 
   options.dafitt.fileManager-yazi = with types; {
     setAsDefaultFileManager = mkEnableOption "making it the default file manager";
@@ -176,13 +181,13 @@ in
         };
       };
 
-      programs.umbriel.settings = {
+      programs.umbriel.settings = with config.programs; {
         keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
-          action = "spawn:${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}";
+          action = "spawn:${getExe alacritty.package} -e ${getExe yazi.package}";
           repeat = false;
         };
         general.autostart = optionals cfg.autostart [
-          "${getExe pkgs.kitty} -e ${getExe config.programs.yazi.package}"
+          "${getExe alacritty.package} -e ${getExe yazi.package}"
         ];
       };
     }
