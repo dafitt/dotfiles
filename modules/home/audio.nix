@@ -12,7 +12,7 @@ with lib;
 
   programs.umbriel.settings = {
     keybinds."Mod+Alt+A" = {
-      action = "scratchpad-toggle:monitor";
+      action = "scratchpad-toggle:audio";
       repeat = false;
     };
     scratchpad = [
