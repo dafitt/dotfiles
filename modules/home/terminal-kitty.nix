@@ -14,7 +14,7 @@ in
 {
   #meta.doc = builtins.toFile "doc.md" ''
   #  Installs and configures the terminal emulator Kitty.
-  #  <https://github.com/kovidgoyal/kitty>
+  #  <https://sw.kovidgoyal.net/kitty/>
   #'';
 
   imports = with inputs; [
@@ -109,6 +109,8 @@ in
           }
         ];
       };
+
+      dconf.settings."com/github/stunkymonkey/nautilus-open-any-terminal".terminal = "kitty";
     })
   ];
 }

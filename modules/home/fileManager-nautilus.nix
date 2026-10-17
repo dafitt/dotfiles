@@ -67,9 +67,6 @@ in
         ];
         default-zoom-level = "small";
       };
-      "com/github/stunkymonkey/nautilus-open-any-terminal" = {
-        terminal = "kitty";
-      };
     };
 
     programs.umbriel.settings = {
