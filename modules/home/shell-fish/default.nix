@@ -1,4 +1,5 @@
 {
+  flake,
   lib,
   config,
   pkgs,
@@ -92,6 +93,7 @@ in
         uwsm = readFile completions/uwsm.fish;
       };
     };
+    xdg.configFile = flake.lib.mkMutableFiles [ "fish/config.fish" ];
 
     home.sessionVariables = {
       FZF_COMPLETE = "2";
