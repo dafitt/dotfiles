@@ -62,7 +62,12 @@ in
         general.autostart = optionals cfg.autostart [ "${thunar}/bin/thunar" ];
         window_rule = [
           {
-            match.app_id = "thunar$";
+            match.app_id = "Thunar$";
+            default_floating = true;
+          }
+          {
+            match.app_id = "Thunar$";
+            match.title = ''^Rename ".*"$'';
             default_floating = true;
           }
         ];
