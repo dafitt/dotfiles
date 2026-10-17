@@ -11,6 +11,8 @@
     self.homeModules.home-manager-mutableFiles
   ];
 
+  home.preferXdgDirectories = true;
+
   xdg = {
     enable = true;
     cacheHome = "${config.home.homeDirectory}/.local/cache";
