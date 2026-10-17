@@ -30,8 +30,14 @@ in
     {
       programs.alacritty = {
         enable = true;
+        settings = {
+          window = {
+            dynamic_padding = true;
+            padding.x = 2;
+          };
+        };
       };
-      # xdg.configFile = flake.lib.mkMutableFiles [ "alacritty/alacritty.toml" ];
+      xdg.configFile = flake.lib.mkMutableFiles [ "alacritty/alacritty.toml" ];
     }
 
     (mkIf cfg.setAsDefaultTerminal {
@@ -51,7 +57,9 @@ in
         scratchpad = [
           {
             name = "dropterm";
-            spawn_when_empty = "${exe} --class dropterm --hold ${getExe config.programs.fastfetch.package}";
+            spawn_when_empty =
+              with config.programs;
+              "${exe} --class=dropterm -e ${getExe fish.package} -C ${getExe fastfetch.package}";
           }
         ];
         window_rule = [

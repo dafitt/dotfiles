@@ -90,7 +90,7 @@ in
         scratchpad = [
           {
             name = "dropterm";
-            spawn_when_empty = "${kittyExe} --class dropterm --hold ${getExe config.programs.fastfetch.package}";
+            spawn_when_empty = "${kittyExe} --class=dropterm --hold -e ${getExe config.programs.fastfetch.package}";
           }
         ];
         window_rule = [
