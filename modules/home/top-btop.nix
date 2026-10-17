@@ -1,4 +1,5 @@
 {
+  flake,
   inputs,
   lib,
   config,
@@ -34,6 +35,7 @@ in
         ]; # for ricing
       };
     };
+    xdg.configFile = flake.lib.mkMutableFiles [ "btop/btop.conf" ];
 
     home.sessionVariables = mkIf cfg.setAsDefaultTop {
       TOP = "${getExe config.programs.btop.package}";
