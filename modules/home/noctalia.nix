@@ -54,7 +54,10 @@ in
       zbar
     ];
 
-    stylix.targets.noctalia.enable = false;
+    stylix.targets = {
+      noctalia.enable = false;
+      alacritty.colors.enable = false;
+    };
 
     programs.noctalia = {
       enable = true;
@@ -351,6 +354,8 @@ in
           source = "wallpaper";
           templates = {
             builtin_ids = [
+              "alacritty"
+              "btop"
               "cava"
               "gtk3"
               "gtk4"
