@@ -25,7 +25,7 @@
     syncthing
     systemd
     tailscale
-    terminal-kitty
+    terminal-alacritty
     top-btop
     web
     wluma
@@ -39,7 +39,7 @@
     fileManager-thunar.setAsDefaultFileManager = true;
     noctalia.setAsDefaultLauncher = true;
     passwordManager-keepassxc.setAsDefaultPasswordManager = true;
-    terminal-kitty.setAsDefaultTerminal = true;
+    terminal-alacritty.setAsDefaultTerminal = true;
     top-btop.setAsDefaultTop = true;
   };
 
