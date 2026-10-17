@@ -8,6 +8,8 @@
 with lib;
 let
   cfg = config.dafitt.fileManager-yazi;
+
+  exe = getExe config.programs.yazi.package;
 in
 {
   #meta.doc = builtins.toFile "doc.md" "Installs and configures the Yazi file manager.";
@@ -162,7 +164,7 @@ in
           url = "https://raw.githubusercontent.com/sxyazi/yazi/main/assets/logo.png";
           sha256 = "05crmd367v5915i553z172fsip6y8n8mvppjcpqxq9v7bml1vw3x";
         };
-        exec = "${config.programs.yazi.package}/bin/yazi %u";
+        exec = "${exe} %u";
         terminal = true;
         type = "Application";
         categories = [
@@ -176,18 +178,18 @@ in
         mimeType = [ "inode/directory" ];
 
         settings = {
-          TryExec = "${config.programs.yazi.package}/bin/yazi";
+          TryExec = exe;
           Keywords = "File;Manager;Explorer;Browser;Launcher";
         };
       };
 
       programs.umbriel.settings = with config.programs; {
         keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
-          action = "spawn:${getExe alacritty.package} -e ${getExe yazi.package}";
+          action = "spawn:${getExe alacritty.package} -e ${exe}";
           repeat = false;
         };
         general.autostart = optionals cfg.autostart [
-          "${getExe alacritty.package} -e ${getExe yazi.package}"
+          "${getExe alacritty.package} -e ${exe}"
         ];
       };
     }

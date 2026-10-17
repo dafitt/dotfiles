@@ -10,6 +10,8 @@
 with lib;
 let
   cfg = config.dafitt.MODULE;
+
+  exe = getExe config.programs.MODULE.package;
 in
 {
   #meta.doc = builtins.toFile "doc.md" "A module that does something.";
@@ -40,13 +42,14 @@ in
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+?" = mkIf cfg.setAsDefault {
-        action = "spawn:${getExe pkgs.MODULE}";
+        action = "spawn:${exe}";
         repeat = false;
       };
-      general.autostart = optionals cfg.autostart [ (getExe pkgs.MODULE) ];
+      general.autostart = optional cfg.autostart exe;
       window_rule = [
         {
           match.app_id = "MODULE$";
+          default_workspace = cfg.workspace;
           default_floating = true;
         }
       ];
