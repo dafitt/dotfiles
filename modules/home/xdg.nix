@@ -35,6 +35,7 @@
     "file://${templates}"
     "file://${videos}"
   ];
+  xdg.configFile = flake.lib.mkMutableFiles [ "gtk-3.0/bookmarks" ];
 
   programs.yazi.keymap.mgr.append_keymap = with config.xdg.userDirs; [
     {
@@ -94,6 +95,4 @@
       desc = "Go to ~/Videos";
     }
   ];
-
-  xdg.configFile = flake.lib.mkMutableFiles [ "gtk-3.0/bookmarks" ];
 }
