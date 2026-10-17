@@ -39,6 +39,7 @@
     fileManager-thunar.setAsDefaultFileManager = true;
     noctalia.setAsDefaultLauncher = true;
     passwordManager-keepassxc.setAsDefaultPasswordManager = true;
+    shell-fish.setAsDefaultShell = true;
     terminal-alacritty.setAsDefaultTerminal = true;
     top-btop.setAsDefaultTop = true;
   };
