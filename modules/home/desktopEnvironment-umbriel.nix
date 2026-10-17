@@ -235,7 +235,9 @@ in
       };
       xdg.configFile = flake.lib.mkMutableFiles [ "umbriel/config.toml" ];
 
-      xdg.portal.configPackages = [ config.programs.umbriel.package ];
+      xdg.portal.configPackages = mkIf (config.programs.umbriel.package != null) [
+        config.programs.umbriel.package
+      ];
     }
 
     (mkIf cfg.ttyAutostart {
