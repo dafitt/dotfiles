@@ -33,6 +33,8 @@ in
   };
 
   config = {
+    stylix.targets.zed.colors.enable = false;
+
     programs.zed-editor = {
       enable = true;
 
@@ -50,7 +52,7 @@ in
       # https://zed.dev/docs/configuring-zed
       userSettings = {
         auto_update = false;
-        theme = mkForce "myStylix";
+        theme = "myStylix";
       }
       // builtins.fromJSON (builtins.readFile ./settings.json);
       userKeymaps = builtins.fromJSON (builtins.readFile ./keymaps.json);
