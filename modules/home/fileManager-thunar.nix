@@ -64,6 +64,10 @@ in
           {
             match.app_id = "Thunar$";
             default_floating = true;
+            default_floating_size_px = {
+              height = 600;
+              width = 600;
+            };
           }
           {
             match.app_id = "Thunar$";
