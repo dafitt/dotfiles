@@ -71,7 +71,17 @@ in
         };
       };
       xdg.configFile = flake.lib.mkMutableFiles [ "kitty/kitty.conf" ];
+    }
 
+    (mkIf cfg.setAsDefaultTerminal {
+      home.sessionVariables.TERMINAL = kittyExe;
+
+      programs.umbriel.settings.keybinds."Mod+Return" = {
+        action = "spawn:" + kittyExe;
+        repeat = false;
+      };
+
+      # dropterm
       programs.umbriel.settings = {
         keybinds."Mod+Alt+T" = {
           action = "scratchpad-toggle:dropterm";
@@ -98,15 +108,6 @@ in
             };
           }
         ];
-      };
-    }
-
-    (mkIf cfg.setAsDefaultTerminal {
-      home.sessionVariables.TERMINAL = kittyExe;
-
-      programs.umbriel.settings.keybinds."Mod+Return" = {
-        action = "spawn:" + kittyExe;
-        repeat = false;
       };
     })
   ];
