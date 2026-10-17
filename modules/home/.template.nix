@@ -34,6 +34,9 @@ in
     home.packages = with pkgs; [ MODULE ];
 
     programs.MODULE.enable = true;
+    xdg.configFile = flake.lib.mkMutableFiles (
+      optional (config.programs.MODULE.settings != { }) "MODULE/config"
+    );
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+?" = mkIf cfg.setAsDefault {
@@ -48,6 +51,5 @@ in
         }
       ];
     };
-    xdg.configFile = flake.lib.mkMutableFiles [ "MODULE/config" ];
   };
 }
