@@ -49,12 +49,12 @@ in
           name = "monitor";
           spawn_when_empty =
             with config.programs;
-            "${getExe alacritty.package} --class btop ${getExe btop.package} --update 3000";
+            "${getExe alacritty.package} --class=monitor -e ${getExe btop.package} --update 3000";
         }
       ];
       window_rule = [
         {
-          match.app_id = "^btop$";
+          match.app_id = "^monitor$";
           default_scratchpad = "monitor";
           default_floating_size = {
             width = 0.9;
