@@ -30,7 +30,7 @@
   # programs.zed-editor.package = mkForce (config.lib.nixGL.wrap pkgs.zed-editor);
   # programs.kitty.package = mkForce (config.lib.nixGL.wrap pkgs.kitty);
 
-  home.packages = with pkgs; [
+  home.packages = [
     # https://github.com/nix-community/nixGL/blob/main/flake.nix
     perSystem.nixGL.nixGLIntel
     perSystem.nixGL.nixVulkanIntel
