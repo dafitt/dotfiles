@@ -33,6 +33,7 @@ with lib;
     desktopEnvironment-gnome.extensions.enable = true;
     editor-micro.setAsDefaultEditor = true;
     fileManager-nautilus.setAsDefaultFileManager = true;
+    noctalia.setAsDefaultLauncher = true;
     terminal-alacritty.setAsDefaultTerminal = true;
   };
 

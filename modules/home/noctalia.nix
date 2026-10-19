@@ -475,7 +475,7 @@ in
           action = "spawn:${noctaliaExe} msg panel-toggle launcher";
           repeat = false;
         };
-        "Alt+Tab" = mkIf cfg.setAsDefaultLauncher {
+        "Alt+Tab" = {
           action = "spawn:${noctaliaExe} msg window-switcher";
           repeat = false;
         };
