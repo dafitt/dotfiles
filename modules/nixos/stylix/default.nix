@@ -7,7 +7,7 @@
 
   imports = with inputs; [
     stylix.nixosModules.stylix
-    ./theme.nix
+    ../../home/stylix/theme.nix
   ];
 
   # https://stylix.danth.me/options/nixos.html

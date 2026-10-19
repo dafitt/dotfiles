@@ -17,7 +17,7 @@ with lib;
     self.homeModules.home-manager-mutableFiles
 
     stylix.homeModules.stylix
-    ../../nixos/stylix/theme.nix
+    ./theme.nix
   ];
 
   # https://stylix.danth.me/options/hm.html
