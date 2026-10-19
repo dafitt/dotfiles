@@ -144,7 +144,7 @@ in
             "Mod+Asciicircum" = {
               action = "overview-toggle";
             };
-            "Mod+Pause" = "spawn:${getExe pkgs.wl-freeze} --active";
+            "Mod+Pause" = "spawn:${getExe pkgs.wl-freeze} --notif-timeout 600 --pid $(umbriel windows --json | ${getExe pkgs.jq} --raw-output '.[] | select (.active) | .pid')";
 
             # Workspaces
             "Mod+1" = "workspace-switch:1";
