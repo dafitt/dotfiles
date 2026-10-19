@@ -1,9 +1,7 @@
 {
-  config,
   lib,
-  pkgs,
   inputs,
-  perSystem,
+  pkgs,
   ...
 }:
 with lib;
@@ -16,13 +14,16 @@ with lib;
     [
       browser-firefox
       desktopEnvironment-gnome
+      desktopEnvironment-umbriel
       development
       editor-micro
-      fileManager-thunar
+      fileManager-nautilus
       flatpak
       home-manager
       nix
+      noctalia
       personalEnvironment
+      terminal-alacritty
       top-btop
       xdg
     ];
@@ -31,12 +32,17 @@ with lib;
     browser-firefox.setAsDefaultBrowser = true;
     desktopEnvironment-gnome.extensions.enable = true;
     editor-micro.setAsDefaultEditor = true;
+    fileManager-nautilus.setAsDefaultFileManager = true;
+    terminal-alacritty.setAsDefaultTerminal = true;
   };
 
   stylix = {
     autoEnable = false;
     targets = {
+      alacritty.enable = true;
+      btop.enable = true;
       fish.enable = true;
+      micro.enable = true;
       yazi.enable = true;
 
       gnome.enable = false;
@@ -45,18 +51,11 @@ with lib;
   };
   programs.zed-editor.userSettings.theme = mkForce "One Dark";
 
-  home.packages = with pkgs; [
-    perSystem.nixGL.nixGLIntel
-    perSystem.nixGL.nixVulkanIntel
+  fonts.fontconfig.enable = true;
 
+  home.packages = with pkgs; [
     meld
   ];
-
-  targets.genericLinux.nixGL = {
-    packages = inputs.nixGL.packages;
-    vulkan.enable = true;
-  };
-  programs.zed-editor.package = mkForce (config.lib.nixGL.wrap pkgs.zed-editor);
 
   gtk.gtk3.bookmarks = [
     "file:///home/sdc2tt/DriveU/DavidWORK"
