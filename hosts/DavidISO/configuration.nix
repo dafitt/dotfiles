@@ -13,7 +13,7 @@ with lib;
 
   imports =
     with inputs;
-    with inputs.self.nixosModules;
+    with self.nixosModules;
     [
       nixos-generators.nixosModules.all-formats
       "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"

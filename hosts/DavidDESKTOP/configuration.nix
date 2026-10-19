@@ -15,7 +15,7 @@
 
   imports =
     with inputs;
-    with inputs.self.nixosModules;
+    with self.nixosModules;
     [
       ./hardware-configuration.nix
 
