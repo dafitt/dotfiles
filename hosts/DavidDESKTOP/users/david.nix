@@ -21,6 +21,7 @@
     office
     ricing
     social
+    torrenting
     web
   ];
 

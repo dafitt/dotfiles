@@ -83,7 +83,7 @@ in
 
       # dropterm
       programs.umbriel.settings = {
-        keybinds."Mod+Alt+T" = {
+        keybinds."Mod+Alt+D" = {
           action = "scratchpad-toggle:dropterm";
           repeat = false;
         };
