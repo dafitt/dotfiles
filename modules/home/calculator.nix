@@ -12,7 +12,7 @@ with lib;
     };
     window_rule = [
       {
-        match.app_id = "org.gnome.Calculator";
+        match.app_id = "^org[.]gnome[.]Calculator$";
         default_floating = true;
       }
     ];

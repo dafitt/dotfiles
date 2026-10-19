@@ -48,7 +48,7 @@ in
       general.autostart = optional cfg.autostart exe;
       window_rule = [
         {
-          match.app_id = "MODULE$";
+          match.app_id = "^MODULE$";
           default_workspace = cfg.workspace;
           default_floating = true;
         }

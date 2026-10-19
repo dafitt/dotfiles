@@ -44,11 +44,11 @@ in
       general.autostart = optionals cfg.autostart [ (getExe config.programs.librewolf.package) ];
       window_rule = [
         {
-          match.app_id = "firefox$";
+          match.app_id = "^librewolf$";
           default_workspace = cfg.workspace;
         }
         {
-          match.app_id = "librewolf";
+          match.app_id = "^librewolf$";
           match.title = "^Extension: \(NoScript\) - NoScript";
           default_floating = true;
         }

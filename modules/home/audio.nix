@@ -23,7 +23,7 @@ with lib;
     ];
     window_rule = [
       {
-        match.app_id = "^org.pulseaudio.pavucontrol$";
+        match.app_id = "^org[.]pulseaudio[.]pavucontrol$";
         default_scratchpad = "audio";
         default_floating_size = {
           width = 0.4;

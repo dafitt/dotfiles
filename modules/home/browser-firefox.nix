@@ -309,16 +309,16 @@ in
       general.autostart = optionals cfg.autostart [ (getExe config.programs.firefox.package) ];
       window_rule = [
         {
-          match.app_id = "firefox$";
+          match.app_id = "^firefox$";
           default_workspace = cfg.workspace;
         }
         {
-          match.app_id = "firefox$";
+          match.app_id = "^firefox$";
           match.title = "^Extension: \(NoScript\) - NoScript";
           default_floating = true;
         }
         {
-          match.app_id = "firefox$";
+          match.app_id = "^firefox$";
           match.title = "^Picture-in-Picture$";
           default_floating = true;
         }

@@ -28,8 +28,11 @@
   programs.umbriel.settings = {
     window_rule = [
       {
-        match.app_id = "steam";
-        match.title = "(Friends List)|(Settings)";
+        match.app_id = "^steam$";
+        match.title = [
+          "^Friends List$"
+          "^Settings$"
+        ];
         default_floating = true;
       }
     ];

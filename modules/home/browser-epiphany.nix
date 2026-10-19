@@ -38,7 +38,7 @@ in
       general.autostart = optionals cfg.autostart [ (getExe pkgs.epiphany) ];
       window_rule = [
         {
-          match.app_id = "epiphany$";
+          match.app_id = "^org[.]gnome[.]Epiphany$";
           default_workspace = cfg.workspace;
         }
       ];

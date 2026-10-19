@@ -8,7 +8,7 @@
   programs.umbriel.settings = {
     window_rule = [
       {
-        match.app_id = "quickgui";
+        match.app_id = "^quickgui$";
         default_floating = true;
       }
     ];

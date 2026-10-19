@@ -30,7 +30,7 @@ in
       ];
       window_rule = [
         {
-          match.app_id = "^torrenting$";
+          match.app_id = "^de[.]haeckerfelix[.]Fragments$";
           default_scratchpad = "torrenting";
           default_floating_size = {
             width = 0.9;

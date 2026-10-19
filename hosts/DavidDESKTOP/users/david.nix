@@ -33,7 +33,7 @@
 
     window_rule = [
       {
-        match.app_id = "^sh.ppy.osu$";
+        match.app_id = "^sh[.]ppy[.]osu$";
         tearing = true;
       }
     ];

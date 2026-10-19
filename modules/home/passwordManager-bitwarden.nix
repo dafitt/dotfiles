@@ -30,7 +30,7 @@ in
       };
       window_rule = [
         {
-          match.app_id = "Bitwarden$";
+          match.app_id = "^bitwarden$";
           default_floating = true;
         }
       ];
