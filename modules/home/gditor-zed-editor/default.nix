@@ -384,6 +384,8 @@ in
     };
     xdg.configFile = flake.lib.mkMutableFiles [ "zed/themes/myStylix.json" ];
 
+    home.shellAliases."zed" = "zeditor --new";
+
     programs.yazi.settings.opener.edit = [
       {
         run = ''${getExe config.programs.zed-editor.package} --new "$@"'';
