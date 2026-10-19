@@ -23,6 +23,7 @@ with lib;
   # https://stylix.danth.me/options/hm.html
   stylix = {
     enable = true;
+    overlays.enable = mkDefault false; # [stylix: incompatible with home-manager.useGlobalPkgs](https://github.com/nix-community/stylix/issues/1832)
 
     icons = {
       enable = true;

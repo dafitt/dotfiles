@@ -21,7 +21,5 @@
     # `autoImport = true;` we have to declare stylix configuration for the user(s)
     # seperately. WORKAROUND for users to still follow the system theme: see `theme.nix`
     # [NixOS Manual - Modularity](https://nixos.org/manual/nixos/stable/index.html#sec-modularity)
-
-    #TODO upstream: allow `homeManagerIntegration.autoImport = true;` when building with stylix.homeManagerModules.stylix to allow users to follow the system theme
   };
 }
