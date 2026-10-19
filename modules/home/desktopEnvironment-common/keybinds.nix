@@ -20,7 +20,7 @@ let
 
   textOcr = ''${getExe pkgs.grim} -g "$(${getExe pkgs.slurp})" - | ${getExe pkgs.tesseract} - - -l deu+eng | wl-copy'';
 
-  gnomeCharacters = "uwsm app -- ${getExe pkgs.gnome-characters}";
+  gnomeCharacters = "${getExe pkgs.gnome-characters}";
 in
 {
   #meta.doc = builtins.toFile "doc.md" ''
