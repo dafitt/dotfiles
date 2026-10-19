@@ -23,6 +23,7 @@ with lib;
       nix
       noctalia
       personalEnvironment
+      shell-fish
       terminal-alacritty
       top-btop
       xdg
@@ -34,6 +35,7 @@ with lib;
     editor-micro.setAsDefaultEditor = true;
     fileManager-nautilus.setAsDefaultFileManager = true;
     noctalia.setAsDefaultLauncher = true;
+    shell-fish.setAsDefaultShell = true;
     terminal-alacritty.setAsDefaultTerminal = true;
   };
 

@@ -20,6 +20,7 @@
     passwordManager-keepassxc
     personalEnvironment
     playerctld
+    shell-fish
     starship
     stylix
     syncthing

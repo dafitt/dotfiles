@@ -37,7 +37,6 @@ with lib;
       locate
       nix
       shell-fish
-      shell-fish
       stylix
       sudo
       syncthing

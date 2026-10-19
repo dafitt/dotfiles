@@ -58,7 +58,6 @@ with lib;
       nix
       printing
       shell-fish
-      shell-fish
       stylix
       sudo
       syncthing

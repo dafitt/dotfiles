@@ -56,7 +56,6 @@
       printing
       securityScan
       shell-fish
-      shell-fish
       stylix
       sudo
       syncthing
