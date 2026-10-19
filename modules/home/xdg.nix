@@ -1,9 +1,11 @@
 {
   flake,
+  lib,
   config,
   inputs,
   ...
 }:
+with lib;
 {
   #meta.doc = builtins.toFile "doc.md" "Enables and configures XDG Specifications.";
 
@@ -37,7 +39,11 @@
     "file://${templates}"
     "file://${videos}"
   ];
-  xdg.configFile = flake.lib.mkMutableFiles [ "gtk-3.0/bookmarks" ];
+  xdg.configFile =
+    with config.gtk;
+    flake.lib.mkMutableFiles (
+      optional (enable == true && gtk3.enable == true && gtk3.bookmarks != [ ]) "gtk-3.0/bookmarks"
+    );
 
   programs.yazi.keymap.mgr.append_keymap = with config.xdg.userDirs; [
     {
