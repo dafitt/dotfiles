@@ -463,6 +463,7 @@ in
     # [IPC with Keybinds](https://docs.noctalia.dev/noctalia/ipc/)
     programs.umbriel.settings = {
       general.autostart = [ noctaliaExe ];
+      include.optional.files = [ "outputs.toml" ];
       keybinds = {
 
         # Controls
