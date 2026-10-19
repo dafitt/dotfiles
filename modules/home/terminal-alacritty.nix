@@ -32,8 +32,10 @@ in
         enable = true;
         settings = {
           window = {
-            dynamic_padding = true;
-            padding.x = 2;
+            padding = {
+              x = 5;
+              y = 5;
+            };
           };
         };
       };
