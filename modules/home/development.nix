@@ -10,7 +10,7 @@ with lib;
 {
   #meta.doc = builtins.toFile "doc.md" "A suite for development work, focused on nix.";
 
-  imports = with inputs.self.nixosModules; [
+  imports = with inputs.self.homeModules; [
     shell-nushell
     starship
     gditor-zed-editor
