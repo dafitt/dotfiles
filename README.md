@@ -238,7 +238,6 @@ with inputs.nixpkgs-unstable.legacyPackages.${prev.system}; {
   inherit
     gamescope
     lutris
-    vscodium
     ;
 }
 ```
