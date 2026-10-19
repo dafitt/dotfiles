@@ -14,6 +14,7 @@ with lib;
     dua
     duf
     dust
+    fastfetch
     fd
     file
     gdu
