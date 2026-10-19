@@ -11,7 +11,6 @@
 
   targets.genericLinux = {
     enable = true;
-
     # https://home-manager.dev/manual/unstable/usage/gpu-non-nixos.html
     gpu = {
       enable = true;
@@ -22,19 +21,8 @@
         #$ nix store prefetch-file https://download.nvidia.com/XFree86/Linux-x86_64/595.99.02/NVIDIA-Linux-x86_64-595.99.02.run
       };
     };
-    # nixGL = {
-    #   packages = inputs.nixGL.packages;
-    #   vulkan.enable = true;
-    # };
+    nixGL.prime.installScript = "nvidia"; #$ prime-offload
   };
-  # programs.zed-editor.package = mkForce (config.lib.nixGL.wrap pkgs.zed-editor);
-  # programs.kitty.package = mkForce (config.lib.nixGL.wrap pkgs.kitty);
-
-  home.packages = [
-    # https://github.com/nix-community/nixGL/blob/main/flake.nix
-    perSystem.nixGL.nixGLIntel
-    perSystem.nixGL.nixVulkanIntel
-  ];
 
   nixpkgs.config.nvidia.acceptLicense = true;
   nixpkgs.config.allowUnfreePredicate =
