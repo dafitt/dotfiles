@@ -1,4 +1,9 @@
-{ inputs, pkgs, perSystem, ... }:
+{
+  inputs,
+  pkgs,
+  perSystem,
+  ...
+}:
 #> legacyPackages.x86_64-linux.homeConfigurations."sdc2tt@TT-WCN00760".config
 #$ home-manager --flake .#sdc2tt@TT-WCN00760 switch
 {
@@ -7,6 +12,8 @@
   imports = with inputs.self.homeModules; [
     imports
     user-sdc2tt
+
+    wluma
   ];
 
   targets.genericLinux = {
@@ -16,12 +23,12 @@
       enable = true;
       nvidia = {
         enable = true;
-        version = "595.99.02"; #$ nvidia-smi
+        version = "595.99.02"; # $ nvidia-smi
         sha256 = "sha256-6HR3lYv3YwcFSTJL1a1slI66btIQ5EAFs+/4SUD24ew=";
         #$ nix store prefetch-file https://download.nvidia.com/XFree86/Linux-x86_64/595.99.02/NVIDIA-Linux-x86_64-595.99.02.run
       };
     };
-    nixGL.prime.installScript = "nvidia"; #$ prime-offload
+    nixGL.prime.installScript = "nvidia"; # $ prime-offload
   };
 
   nixpkgs.config.nvidia.acceptLicense = true;

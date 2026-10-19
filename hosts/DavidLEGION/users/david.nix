@@ -15,5 +15,6 @@
     networking-networkmanager
     office
     social
+    wluma
   ];
 }
