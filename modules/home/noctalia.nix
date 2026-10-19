@@ -484,7 +484,7 @@ in
           repeat = false;
         };
         "Mod+W" = {
-          action = "spawn:${noctaliaExe} msg bar-toggle main";
+          action = "spawn:${noctaliaExe} msg bar-toggle main $(umbriel outputs --json | jq --raw-output '.[] | select(.focused) | .name')";
           repeat = false;
         };
 
