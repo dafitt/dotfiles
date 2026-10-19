@@ -13,7 +13,6 @@ with lib;
     user-david
 
     development
-    web
   ];
 
   programs.fish.completions = {

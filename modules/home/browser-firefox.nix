@@ -16,7 +16,9 @@ in
 
   imports = with inputs; [
     betterfox.homeModules.betterfox
+
     self.homeModules.stylix
+    self.homeModules.web-utils
   ];
 
   options.dafitt.browser-firefox = with types; {

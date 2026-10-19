@@ -15,6 +15,5 @@
     networking-networkmanager
     office
     social
-    web
   ];
 }

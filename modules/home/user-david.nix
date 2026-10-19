@@ -27,7 +27,6 @@
     tailscale
     terminal-alacritty
     top-btop
-    web
     wluma
     xdg
   ];

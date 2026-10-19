@@ -22,7 +22,6 @@
     ricing
     social
     torrenting
-    web
   ];
 
   programs.umbriel.settings.output."LG Electronics LG ULTRAGEAR+ 412NTAB4B136".min_workspaces = 5;

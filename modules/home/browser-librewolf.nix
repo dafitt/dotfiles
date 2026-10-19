@@ -1,4 +1,5 @@
 {
+  inpugs,
   config,
   lib,
   ...
@@ -12,6 +13,10 @@ in
   #  Installs and configures the LibreWolf web browser.
   #  https://librewolf.net/
   #'';
+
+  imports = with inputs; [
+    self.homeModules.web-utils
+  ];
 
   options.dafitt.browser-librewolf = with types; {
     setAsDefaultBrowser = mkEnableOption "making it the default web browser";

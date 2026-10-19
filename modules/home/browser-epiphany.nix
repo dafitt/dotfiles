@@ -11,6 +11,10 @@ in
 {
   #meta.doc = builtins.toFile "doc.md" "Installs and configures the Epiphany web browser.";
 
+  imports = with inputs; [
+    self.homeModules.web-utils
+  ];
+
   options.dafitt.browser-epiphany = with types; {
     setAsDefaultBrowser = mkEnableOption "making it the default web browser";
 
