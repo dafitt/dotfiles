@@ -24,14 +24,20 @@
     torrenting
   ];
 
-  programs.umbriel.settings.output."LG Electronics LG ULTRAGEAR+ 412NTAB4B136".min_workspaces = 5;
+  dafitt = {
+    torrenting.autostart = true;
+  };
 
-  programs.umbriel.settings.window_rule = [
-    {
-      match.app_id = "^sh.ppy.osu$";
-      tearing = true;
-    }
-  ];
+  programs.umbriel.settings = {
+    output."LG Electronics LG ULTRAGEAR+ 412NTAB4B136".min_workspaces = 5;
+
+    window_rule = [
+      {
+        match.app_id = "^sh.ppy.osu$";
+        tearing = true;
+      }
+    ];
+  };
 
   services.flatpak.overrides."com.valvesoftware.Steam" = {
     Context.filesystems = [
