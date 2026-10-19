@@ -92,18 +92,18 @@ in
             "Mod+Odiaeresis" = "dpms-off";
 
             # Window focus and movement
-            "Mod+Left" = "window-focus-left";
-            "Mod+Right" = "window-focus-right";
-            "Mod+Up" = "window-focus-up";
-            "Mod+Down" = "window-focus-down";
+            "Mod+Left" = "window-focus-or-output-left";
+            "Mod+Right" = "window-focus-or-output-right";
+            "Mod+Up" = "window-focus-or-output-up";
+            "Mod+Down" = "window-focus-or-output-down";
             "Mod+Home" = "column-focus-first";
             "Mod+End" = "column-focus-last";
             "Mod+Tab" = "window-focus-next";
             "Mod+Shift+Tab" = "window-focus-previous";
-            "Mod+Shift+Left" = "column-move-left";
-            "Mod+Shift+Right" = "column-move-right";
-            "Mod+Shift+Up" = "window-move-up";
-            "Mod+Shift+Down" = "window-move-down";
+            "Mod+Shift+Left" = "window-move-or-output-left";
+            "Mod+Shift+Right" = "window-move-or-output-right";
+            "Mod+Shift+Up" = "window-move-or-output-up";
+            "Mod+Shift+Down" = "window-move-or-output-down";
             "Mod+Shift+Home" = "column-move-to-first";
             "Mod+Shift+End" = "column-move-to-last";
             "Mod+H" = {
