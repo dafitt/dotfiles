@@ -119,8 +119,8 @@ in
             position = "left";
             start = [
               "launcher"
-              "workspaces"
               "group:g1"
+              "workspaces"
               "media"
             ];
             widget_spacing = 12;
