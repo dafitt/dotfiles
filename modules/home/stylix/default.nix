@@ -43,6 +43,11 @@ with lib;
     };
   };
 
+  # auto-discover fonts
+  fonts.fontconfig.enable =
+    with config.stylix.targets.font-packages;
+    mkIf (enable == true && fonts.enable == true) true;
+
   gtk.gtk2.force = true;
   home.file =
     with config.gtk;

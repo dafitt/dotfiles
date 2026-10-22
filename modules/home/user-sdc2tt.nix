@@ -55,7 +55,6 @@ with lib;
     };
   };
   programs.zed-editor.userSettings.theme = mkForce "One Dark";
-  fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     meld
