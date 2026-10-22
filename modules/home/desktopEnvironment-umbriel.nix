@@ -59,7 +59,13 @@ in
             { name = "minimized"; }
           ];
 
-          workspaces.back_and_forth = true;
+          workspaces = {
+            back_and_forth = true;
+          };
+
+          overview = {
+            zoom = 0.25;
+          };
 
           input = {
             window_drag_toggle = "pinned";
