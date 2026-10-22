@@ -46,6 +46,7 @@ with lib;
       alacritty.enable = true;
       btop.enable = true;
       fish.enable = true;
+      font-packages.enable = true;
       micro.enable = true;
       yazi.enable = true;
 
@@ -54,8 +55,6 @@ with lib;
     };
   };
   programs.zed-editor.userSettings.theme = mkForce "One Dark";
-
-  fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     meld
