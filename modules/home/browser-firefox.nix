@@ -78,6 +78,7 @@ in
           #"extensions.activeThemeID" = "firefox-compact-dark@mozilla.org"; # browser dark theme
           #"layout.css.prefers-color-scheme.content-override" = 0; # set default perefered color scheme to dark
           "svg.context-properties.content.enabled" = true; # fully support the dark theme
+          "sidebar.visibility" = "hide-launcher";
 
           #
           # Disable some useless stuff
@@ -130,13 +131,16 @@ in
         ];
 
         userChrome = ''
-          /* hide tabs title bar, if a sidebar is used */
-          #main-window[titlepreface*="Vtabs"] #TabsToolbar { visibility: collapse; }
-          #main-window[titlepreface*="Vtabs"] #sidebar-header { display: none; }
-          #sidebar-box { padding-inline-start: 0px; }
+          /*
+            hide tabs title bar, if a sidebar is used
+            https://gist.github.com/xphir/f174d4d6270fd8fbff6c3d37fffae051
+          */
+          #main-window[titlepreface*="sideberry"] #TabsToolbar { visibility: collapse !important; }
+
+          #sidebar-box { padding-inline-start: 0px !important; }
           #sidebar-panel-header {
-            padding-inline: var(--space-xsmall);
-            padding-box: var(--space-xsmall);
+            padding-inline: var(--space-xxsmall) !important;
+            padding-block: var(--space-xxsmall) !important;
           }
         '';
 
