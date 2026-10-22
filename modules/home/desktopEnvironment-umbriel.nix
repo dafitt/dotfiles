@@ -127,10 +127,10 @@ in
               repeat = false;
             };
 
-            "Mod+Plus" = "window-modify-primary-extent:+0.1";
-            "Mod+Minus" = "window-modify-primary-extent:-0.1";
-            "Mod+Shift+Plus" = "window-modify-secondary-extent:+0.1";
-            "Mod+Shift+Minus" = "window-modify-secondary-extent:-0.1";
+            "Mod+Plus" = "window-modify-primary-extent:+0.05";
+            "Mod+Minus" = "window-modify-primary-extent:-0.05";
+            "Mod+Shift+Plus" = "window-modify-secondary-extent:+0.05";
+            "Mod+Shift+Minus" = "window-modify-secondary-extent:-0.05";
 
             # Window state and layout
             "Mod+X" = {
