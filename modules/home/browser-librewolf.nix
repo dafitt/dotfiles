@@ -1,5 +1,5 @@
 {
-  inpugs,
+  inputs,
   config,
   lib,
   ...
