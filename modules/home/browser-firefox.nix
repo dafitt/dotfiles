@@ -46,9 +46,6 @@ in
       };
 
       profiles.${config.home.username} = {
-        name = config.home.username;
-        id = 0;
-        isDefault = true;
         settings = {
           #
           # General / personal settings
@@ -72,11 +69,11 @@ in
 
           # firefox sync
           "identity.fxaccounts.enabled" = true;
-          "identity.fxaccounts.account.device.name" = osConfig.networking.hostName or null;
+          "identity.fxaccounts.account.device.name" = mkIf (osConfig != null) osConfig.networking.hostName;
           "services.sync.prefs.sync.browser.uiCustomization.state" = true; # sync customized toolbar settings
           "noscript.sync.enabled" = true;
 
-          # dark theme
+          # theme
           "devtools.theme" = "dark";
           #"extensions.activeThemeID" = "firefox-compact-dark@mozilla.org"; # browser dark theme
           #"layout.css.prefers-color-scheme.content-override" = 0; # set default perefered color scheme to dark
@@ -136,6 +133,11 @@ in
           /* hide tabs title bar, if a sidebar is used */
           #main-window[titlepreface*="Vtabs"] #TabsToolbar { visibility: collapse; }
           #main-window[titlepreface*="Vtabs"] #sidebar-header { display: none; }
+          #sidebar-box { padding-inline-start: 0px; }
+          #sidebar-panel-header {
+            padding-inline: var(--space-xsmall);
+            padding-box: var(--space-xsmall);
+          }
         '';
 
         extensions.packages = with perSystem.nur.repos.rycee.firefox-addons; [
