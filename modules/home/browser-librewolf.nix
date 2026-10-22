@@ -31,9 +31,17 @@ in
   };
 
   config = {
-    programs.librewolf = {
-      enable = true;
+    programs.librewolf.enable = true;
+    programs.librewolf.profiles.${config.home.username} = {
       settings = config.programs.firefox.profiles.${config.home.username}.settings // { };
+
+      userChrome = config.programs.firefox.profiles.${config.home.username}.userChrome + "";
+
+      extensions.packages =
+        with perSystem.nur.repos.rycee.firefox-addons;
+        config.programs.firefox.profiles.${config.home.username}.extensions.packages ++ [ ];
+
+      # search = config.programs.firefox.profiles.${config.home.username}.search // { };
     };
 
     programs.umbriel.settings = {
