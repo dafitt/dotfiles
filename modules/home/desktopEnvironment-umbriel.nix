@@ -96,18 +96,22 @@ in
             "Mod+Right" = "window-focus-or-output-right";
             "Mod+Up" = "window-focus-or-output-up";
             "Mod+Down" = "window-focus-or-output-down";
-            "Mod+Shift+Left" = "window-consume-left";
-            "Mod+Shift+Right" = "window-consume-right";
+
+            "Mod+Shift+Left" = "window-move-or-output-left";
+            "Mod+Shift+Right" = "window-move-or-output-right";
             "Mod+Shift+Up" = "window-move-or-output-up";
             "Mod+Shift+Down" = "window-move-or-output-down";
-            "Mod+Shift+Alt+Left" = "window-move-or-output-left";
-            "Mod+Shift+Alt+Right" = "window-move-or-output-right";
+            "Mod+Shift+Alt+Left" = "window-consume-left";
+            "Mod+Shift+Alt+Right" = "window-consume-right";
+
             "Mod+Home" = "column-focus-first";
             "Mod+End" = "column-focus-last";
             "Mod+Shift+Home" = "column-move-to-first";
             "Mod+Shift+End" = "column-move-to-last";
+
             "Mod+Tab" = "window-focus-next";
             "Mod+Shift+Tab" = "window-focus-previous";
+
             "Mod+H" = {
               action = "window-swap-next";
               repeat = false;
@@ -146,7 +150,8 @@ in
             "Mod+Asciicircum" = {
               action = "overview-toggle";
             };
-            "Mod+Pause" = "spawn:${getExe pkgs.wl-freeze} --notif-timeout 600 --pid $(umbriel windows --json | ${getExe pkgs.jq} --raw-output '.[] | select (.active) | .pid')";
+            "Mod+Pause" =
+              "spawn:${getExe pkgs.wl-freeze} --notif-timeout 600 --pid $(umbriel windows --json | ${getExe pkgs.jq} --raw-output '.[] | select (.active) | .pid')";
 
             # Workspaces
             "Mod+1" = "workspace-switch:1";
@@ -167,12 +172,7 @@ in
             "Mod+KP_Home" = "workspace-switch:7";
             "Mod+KP_Up" = "workspace-switch:8";
             "Mod+KP_Prior" = "workspace-switch:9";
-            "Mod+Prior" = "workspace-previous";
-            "Mod+Next" = "workspace-next";
-            "Mod+KP_Subtract" = "workspace-previous";
-            "Mod+KP_Add" = "workspace-next";
-            "Mod+WheelUp" = "workspace-previous";
-            "Mod+WheelDown" = "workspace-next";
+
             "Mod+Shift+1" = "window-move-to-workspace:1";
             "Mod+Shift+2" = "window-move-to-workspace:2";
             "Mod+Shift+3" = "window-move-to-workspace:3";
@@ -191,10 +191,33 @@ in
             "Mod+Shift+KP_Home" = "window-move-to-workspace:7";
             "Mod+Shift+KP_Up" = "window-move-to-workspace:8";
             "Mod+Shift+KP_Prior" = "window-move-to-workspace:9";
-            "Mod+Shift+Prior" = "workspace-move-up";
-            "Mod+Shift+Next" = "workspace-move-down";
-            "Mod+Shift+KP_Subtract" = "workspace-move-up";
-            "Mod+Shift+KP_Add" = "workspace-move-down";
+
+            "Mod+Prior" = "workspace-previous";
+            "Mod+Next" = "workspace-next";
+            "Mod+KP_Subtract" = "workspace-previous";
+            "Mod+KP_Add" = "workspace-next";
+            "Mod+WheelUp" = "workspace-previous";
+            "Mod+WheelDown" = "workspace-next";
+
+            "Mod+Shift+Prior" = "window-move-to-workspace-previous";
+            "Mod+Shift+Next" = "window-move-to-workspace-next";
+            "Mod+Shift+KP_Subtract" = "window-move-to-workspace-previous";
+            "Mod+Shift+KP_Add" = "window-move-to-workspace-next";
+            "Mod+Shift+WheelUp" = "window-move-to-workspace-previous";
+            "Mod+Shift+WheelDown" = "window-move-to-workspace-next";
+
+            "Mod+Shift+Control+Prior" = "workspace-move-up";
+            "Mod+Shift+Control+Next" = "workspace-move-down";
+            "Mod+Shift+Control+KP_Subtract" = "workspace-move-up";
+            "Mod+Shift+Control+KP_Add" = "workspace-move-down";
+            "Mod+Shift+Control+WheelUp" = "workspace-move-up";
+            "Mod+Shift+Control+WheelDown" = "workspace-move-down";
+
+            "Mod+Shift+Control+Left" = "workspace-move-to-output-left";
+            "Mod+Shift+Control+Right" = "workspace-move-to-output-right";
+            "Mod+Shift+Control+Up" = "workspace-move-to-output-up";
+            "Mod+Shift+Control+Down" = "workspace-move-to-output-down";
+
             "Mod+D" = "workspace-switch:64";
 
             "Mod+M" = "workspace-set-layout:toggle";
