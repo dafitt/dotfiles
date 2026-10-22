@@ -62,10 +62,6 @@ with lib;
   ];
 
   programs.umbriel.settings = {
-    general.autostart = [
-      "/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=pkooggnaalmfkidjmlhoelhdllpphaga --app-url=https://outlook.office365.com/mail/"
-      "/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=cifhbcnohmdccbgoicgdjpfamggdegmo '--app-url=https://teams.microsoft.com/v2/?clientType=pwa'"
-    ];
     window_rule = [
       {
         match.app_id = "^msedge-.*";
