@@ -30,6 +30,7 @@ with lib;
     ];
 
   dafitt = {
+    browser-firefox.autostart = true;
     browser-firefox.setAsDefaultBrowser = true;
     desktopEnvironment-gnome.extensions.enable = true;
     editor-micro.setAsDefaultEditor = true;
@@ -59,6 +60,23 @@ with lib;
   home.packages = with pkgs; [
     meld
   ];
+
+  programs.umbriel.settings = {
+    general.autostart = [
+      "/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=pkooggnaalmfkidjmlhoelhdllpphaga --app-url=https://outlook.office365.com/mail/"
+      "/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=cifhbcnohmdccbgoicgdjpfamggdegmo '--app-url=https://teams.microsoft.com/v2/?clientType=pwa'"
+    ];
+    window_rule = [
+      {
+        match.app_id = "^msedge-.*";
+        match.title = [
+          "^Microsoft Teams"
+          "^Outlook \\(PWA\\)"
+        ];
+        default_workspace = 4;
+      }
+    ];
+  };
 
   gtk.gtk3.bookmarks = [
     "file:///home/sdc2tt/DriveU/DavidWORK"
