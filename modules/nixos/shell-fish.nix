@@ -11,10 +11,10 @@
   # https://wiki.nixos.org/wiki/Fish#Setting_fish_as_your_shell
   programs.bash = {
     interactiveShellInit = ''
-      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-      then
-        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      # "check if parent process is not fish" && "make nested shells work properly"
+      if grep -qv fish /proc/$PPID/comm && [[ $SHLVL == [12] ]]; then
+          # set $SHELL for better integration with programs like nix shell, tmux, etc.
+          SHELL=${pkgs.fish}/bin/fish exec fish
       fi
     '';
   };
