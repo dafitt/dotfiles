@@ -29,6 +29,7 @@
     nixos-generators.url = "github:nix-community/nixos-generators"; # https://github.com/nix-community/nixos-generators
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master"; # https://github.com/NixOS/nixos-hardware
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main"; # https://github.com/nix-community/nixos-wsl
     noctalia.url = "github:noctalia-dev/noctalia-shell"; # https://github.com/noctalia-dev/noctalia-shell
     nur.url = "github:nix-community/NUR"; # https://github.com/nix-community/NUR
     nur.inputs.nixpkgs.follows = "nixpkgs";
