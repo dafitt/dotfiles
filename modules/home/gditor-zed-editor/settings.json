@@ -15,6 +15,9 @@
     "dock": "left"
   },
   "agent": {
+    "threads_sidebar": {
+      "position": "right"
+    },
     "dock": "right"
   },
   "always_treat_brackets_as_autoclosed": true,
