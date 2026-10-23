@@ -15,6 +15,8 @@
 # WIFI: 6E 11AX (2x2)
 # Bluetooth: 5.1
 # Color: Storm Grey
+#
+#> nixosConfigurations.DavidLEGION.config
 with lib;
 {
   nixpkgs.hostPlatform = "x86_64-linux";

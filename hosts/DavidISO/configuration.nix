@@ -6,6 +6,7 @@
   ...
 }:
 
+#> nixosConfigurations.DavidISO.config
 #$ nix build .#nixosConfigurations.DavidISO.config.formats.install-iso
 with lib;
 {

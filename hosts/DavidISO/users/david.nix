@@ -4,6 +4,8 @@
   osConfig,
   ...
 }:
+
+#> legacyPackages.x86_64-linux.homeConfigurations."david@DavidISO".config
 with lib;
 {
   home.stateVersion = osConfig.system.stateVersion;

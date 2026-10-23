@@ -1,6 +1,6 @@
 { config, inputs, ... }:
 
-#> perSystem.self.homeConfigurations."david@DavidDESKTOP"
+#> legacyPackages.x86_64-linux.homeConfigurations."david@DavidDESKTOP".config
 {
   home.stateVersion = "23.11";
   # default behavior changes

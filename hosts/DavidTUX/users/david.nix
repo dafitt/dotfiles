@@ -1,6 +1,6 @@
 { inputs, osConfig, ... }:
 
-#> perSystem.self.homeConfigurations."<user>@<host>"
+#> legacyPackages.x86_64-linux.homeConfigurations."david@DavidTUX".config
 {
   home.stateVersion = osConfig.system.stateVersion;
 
