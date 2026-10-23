@@ -47,6 +47,10 @@ with lib;
       enableZshIntegration = true;
     };
     hstr.enable = true; # history search
+    nix-your-shell = {
+      enable = true;
+      nix-output-monitor.enable = true;
+    };
     zoxide.enable = true; # better `cd`
   };
 
