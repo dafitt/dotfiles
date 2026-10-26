@@ -15,10 +15,11 @@
   default = pkgs.mkShell {
     NIX_CONFIG = "extra-experimental-features = nix-command flakes repl-flake";
     packages = with pkgs; [
-      nix
-      home-manager
-      git
       disko
+      git
+      home-manager
+      jujutsu
+      nix
     ];
   };
 }

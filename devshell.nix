@@ -4,6 +4,7 @@ pkgs.mkShell {
   packages = with pkgs; [
     perSystem.home-manager.default
     git
+    jujutsu
     nil
     nix
     nix-converter
