@@ -32,4 +32,10 @@
 
   wsl.enable = true;
   security.sudo-rs.wheelNeedsPassword = false;
+
+  networking.proxy = {
+    httpProxy = "http://rb-proxy-de.bsh.corp.bshg.com:8080";
+    httpsProxy = "http://rb-proxy-de.bsh.corp.bshg.com:8080";
+    ftpProxy = "http://rb-proxy-de.bsh.corp.bshg.com:8081";
+  };
 }
