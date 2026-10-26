@@ -3,8 +3,9 @@
 #> legacyPackages.x86_64-linux.homeConfigurations."david@DavidLEGION".config
 {
   home.stateVersion = "23.11";
-  # default behavior changes
+  # default value changes since stateVersion
   programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
+  programs.nushell.loadSessionVariables = true;
 
   imports = with inputs.self.homeModules; [
     imports
