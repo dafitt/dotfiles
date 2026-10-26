@@ -20,7 +20,6 @@ in
   imports = with inputs; [
     # umbriel.homeModules.default see modules/home/imports.nix
 
-    self.homeModules.home-manager-mutableFiles
     # self.homeModules.stylix
     desktopEnvironment-common/keybinds.nix
     desktopEnvironment-common/mustHaves.nix
@@ -264,12 +263,15 @@ in
           ];
         };
       };
-      xdg.configFile = flake.lib.mkMutableFiles [ "umbriel/config.toml" ];
 
       xdg.portal.configPackages = mkIf (config.programs.umbriel.package != null) [
         config.programs.umbriel.package
       ];
     }
+
+    (mkIf (config.home.activation ? mutableFileGeneration) {
+      xdg.configFile = flake.lib.mkMutableFiles [ "umbriel/config.toml" ];
+    })
 
     (mkIf cfg.ttyAutostart {
       programs.bash.profileExtra = ''

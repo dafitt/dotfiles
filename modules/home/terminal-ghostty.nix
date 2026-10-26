@@ -18,7 +18,6 @@ in
   #'';
 
   imports = with inputs; [
-    self.homeModules.home-manager-mutableFiles
     self.homeModules.stylix
   ];
 
@@ -31,7 +30,6 @@ in
       programs.ghostty = {
         enable = true;
       };
-      # xdg.configFile = flake.lib.mkMutableFiles [ "ghostty/config" ];
     }
 
     (mkIf cfg.setAsDefaultTerminal {
@@ -72,6 +70,12 @@ in
       };
 
       dconf.settings."com/github/stunkymonkey/nautilus-open-any-terminal".terminal = "ghostty";
+    })
+
+    (mkIf (config.home.activation ? mutableFileGeneration) {
+      xdg.configFile = flake.lib.mkMutableFiles (
+        optional (config.programs.ghostty.settings != { }) "ghostty/config"
+      );
     })
   ];
 }

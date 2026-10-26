@@ -18,7 +18,6 @@ in
   #'';
 
   imports = with inputs; [
-    self.homeModules.home-manager-mutableFiles
     self.homeModules.stylix
   ];
 
@@ -70,7 +69,6 @@ in
           "kitty_mod+down" = "previous_window";
         };
       };
-      xdg.configFile = flake.lib.mkMutableFiles [ "kitty/kitty.conf" ];
     }
 
     (mkIf cfg.setAsDefaultTerminal {
@@ -111,6 +109,10 @@ in
       };
 
       dconf.settings."com/github/stunkymonkey/nautilus-open-any-terminal".terminal = "kitty";
+    })
+
+    (mkIf (config.home.activation ? mutableFileGeneration) {
+      xdg.configFile = flake.lib.mkMutableFiles [ "kitty/kitty.conf" ];
     })
   ];
 }

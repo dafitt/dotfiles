@@ -16,6 +16,7 @@
     fileManager-thunar
     fileManager-yazi
     gaming
+    home-manager-mutableFiles
     music
     networking-networkmanager
     office

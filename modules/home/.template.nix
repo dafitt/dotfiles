@@ -16,9 +16,7 @@ in
 {
   #meta.doc = builtins.toFile "doc.md" "A module that does something.";
 
-  imports = with inputs; [
-    self.homeModules.home-manager-mutableFiles
-  ];
+  imports = with inputs; [ ];
 
   options.dafitt.MODULE = with types; {
     setAsDefault = mkEnableOption "making it the default";
@@ -32,27 +30,32 @@ in
     };
   };
 
-  config = {
-    home.packages = with pkgs; [ MODULE ];
+  config = mkMerge [
+    {
+      home.packages = with pkgs; [ MODULE ];
 
-    programs.MODULE.enable = true;
-    xdg.configFile = flake.lib.mkMutableFiles (
-      optional (config.programs.MODULE.settings != { }) "MODULE/config"
-    );
+      programs.MODULE.enable = true;
 
-    programs.umbriel.settings = {
-      keybinds."Mod+Alt+?" = mkIf cfg.setAsDefault {
-        action = "spawn:${exe}";
-        repeat = false;
+      programs.umbriel.settings = {
+        keybinds."Mod+Alt+?" = mkIf cfg.setAsDefault {
+          action = "spawn:${exe}";
+          repeat = false;
+        };
+        general.autostart = optional cfg.autostart exe;
+        window_rule = [
+          {
+            match.app_id = "^MODULE$";
+            default_workspace = cfg.workspace;
+            default_floating = true;
+          }
+        ];
       };
-      general.autostart = optional cfg.autostart exe;
-      window_rule = [
-        {
-          match.app_id = "^MODULE$";
-          default_workspace = cfg.workspace;
-          default_floating = true;
-        }
-      ];
-    };
-  };
+    }
+
+    (mkIf (config.home.activation ? mutableFileGeneration) {
+      xdg.configFile = flake.lib.mkMutableFiles (
+        optional (config.programs.MODULE.settings != { }) "MODULE/config"
+      );
+    })
+  ];
 }

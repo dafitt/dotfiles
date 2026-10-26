@@ -18,7 +18,6 @@ in
   #'';
 
   imports = with inputs; [
-    self.homeModules.home-manager-mutableFiles
     self.homeModules.stylix
   ];
 
@@ -39,7 +38,6 @@ in
           };
         };
       };
-      xdg.configFile = flake.lib.mkMutableFiles [ "alacritty/alacritty.toml" ];
     }
 
     (mkIf cfg.setAsDefaultTerminal {
@@ -82,6 +80,10 @@ in
       };
 
       dconf.settings."com/github/stunkymonkey/nautilus-open-any-terminal".terminal = "alacritty";
+    })
+
+    (mkIf (config.home.activation ? mutableFileGeneration) {
+      xdg.configFile = flake.lib.mkMutableFiles [ "alacritty/alacritty.toml" ];
     })
   ];
 }

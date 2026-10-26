@@ -2,105 +2,107 @@
   flake,
   lib,
   config,
-  inputs,
   ...
 }:
 with lib;
 {
   #meta.doc = builtins.toFile "doc.md" "Enables and configures XDG Specifications.";
 
-  imports = with inputs; [
-    self.homeModules.home-manager-mutableFiles
-  ];
+  config = mkMerge [
+    {
+      home.preferXdgDirectories = true;
 
-  home.preferXdgDirectories = true;
-
-  xdg = {
-    enable = true;
-    cacheHome = "${config.home.homeDirectory}/.local/cache";
-    userDirs = {
-      enable = true;
-      setSessionVariables = true;
-      createDirectories = true;
-      extraConfig = {
-        # Make some programs "XDG" compliant.
-        LESSHISTFILE = "${config.xdg.cacheHome}/less.history";
-        WGETRC = "${config.xdg.cacheHome}/wgetrc";
+      xdg = {
+        enable = true;
+        cacheHome = "${config.home.homeDirectory}/.local/cache";
+        userDirs = {
+          enable = true;
+          setSessionVariables = true;
+          createDirectories = true;
+          extraConfig = {
+            # Make some programs "XDG" compliant.
+            LESSHISTFILE = "${config.xdg.cacheHome}/less.history";
+            WGETRC = "${config.xdg.cacheHome}/wgetrc";
+          };
+        };
       };
-    };
-  };
 
-  gtk.gtk3.bookmarks = with config.xdg.userDirs; [
-    "file://${desktop}"
-    "file://${documents}"
-    "file://${download}"
-    "file://${music}"
-    "file://${pictures}"
-    "file://${templates}"
-    "file://${videos}"
-  ];
-  xdg.configFile =
-    with config.gtk;
-    flake.lib.mkMutableFiles (
-      optional (enable == true && gtk3.enable == true && gtk3.bookmarks != [ ]) "gtk-3.0/bookmarks"
-    );
+      gtk.gtk3.bookmarks = with config.xdg.userDirs; [
+        "file://${desktop}"
+        "file://${documents}"
+        "file://${download}"
+        "file://${music}"
+        "file://${pictures}"
+        "file://${templates}"
+        "file://${videos}"
+      ];
 
-  programs.yazi.keymap.mgr.append_keymap = with config.xdg.userDirs; [
-    {
-      on = [
-        "g"
-        "s"
+      programs.yazi.keymap.mgr.append_keymap = with config.xdg.userDirs; [
+        {
+          on = [
+            "g"
+            "s"
+          ];
+          run = "cd ${desktop}";
+          desc = "Go to ~/Desktop";
+        }
+        {
+          on = [
+            "g"
+            "f"
+          ];
+          run = "cd ${documents}";
+          desc = "Go to ~/Documents";
+        }
+        {
+          on = [
+            "g"
+            "s"
+          ];
+          run = "cd ${download}";
+          desc = "Go to ~/Downloads";
+        }
+        {
+          on = [
+            "g"
+            "m"
+          ];
+          run = "cd ${music}";
+          desc = "Go to ~/Music";
+        }
+        {
+          on = [
+            "g"
+            "p"
+          ];
+          run = "cd ${pictures}";
+          desc = "Go to ~/Pictures";
+        }
+        {
+          on = [
+            "g"
+            "t"
+          ];
+          run = "cd ${templates}";
+          desc = "Go to ~/Templates";
+        }
+        {
+          on = [
+            "g"
+            "v"
+          ];
+          run = "cd ${videos}";
+          desc = "Go to ~/Videos";
+        }
       ];
-      run = "cd ${desktop}";
-      desc = "Go to ~/Desktop";
     }
-    {
-      on = [
-        "g"
-        "f"
-      ];
-      run = "cd ${documents}";
-      desc = "Go to ~/Documents";
-    }
-    {
-      on = [
-        "g"
-        "s"
-      ];
-      run = "cd ${download}";
-      desc = "Go to ~/Downloads";
-    }
-    {
-      on = [
-        "g"
-        "m"
-      ];
-      run = "cd ${music}";
-      desc = "Go to ~/Music";
-    }
-    {
-      on = [
-        "g"
-        "p"
-      ];
-      run = "cd ${pictures}";
-      desc = "Go to ~/Pictures";
-    }
-    {
-      on = [
-        "g"
-        "t"
-      ];
-      run = "cd ${templates}";
-      desc = "Go to ~/Templates";
-    }
-    {
-      on = [
-        "g"
-        "v"
-      ];
-      run = "cd ${videos}";
-      desc = "Go to ~/Videos";
-    }
+
+    (mkIf (config.home.activation ? mutableFileGeneration) {
+      xdg.configFile =
+        with config.gtk;
+        flake.lib.mkMutableFiles (
+          optional (enable == true && gtk3.enable == true && gtk3.bookmarks != [ ]) "gtk-3.0/bookmarks"
+        );
+    })
   ];
 }
