@@ -54,6 +54,6 @@ in
       '';
     };
 
-    home.sessionVariables.SHELL = mkIf cfg.setAsDefaultShell (getExe config.programs.fish.package);
+    home.sessionVariables.SHELL = mkIf cfg.setAsDefaultShell (getExe config.programs.bash.package);
   };
 }
