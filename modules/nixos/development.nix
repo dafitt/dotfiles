@@ -1,4 +1,9 @@
-{ lib, inputs, ... }:
+{
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 with lib;
 {
   #meta.doc = builtins.toFile "doc.md" "A suite for development work, focused on nix.";

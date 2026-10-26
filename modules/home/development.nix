@@ -33,6 +33,7 @@ with lib;
     httpie
     hyperfine
     jq
+    jujutsu
     meld
     mtr
     nerd-fonts.fira-code
