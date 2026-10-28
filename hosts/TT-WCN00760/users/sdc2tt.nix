@@ -13,6 +13,7 @@
     imports
     user-sdc2tt
 
+    home-manager-mutableFiles
     wluma
   ];
 
