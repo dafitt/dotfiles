@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
 {
   #meta.doc = builtins.toFile "doc.md" "Personal settings.";
 
@@ -47,4 +47,8 @@
     name = "dafitt";
     email = "dafitt@posteo.me";
   };
+
+  gtk.gtk3.bookmarks = [
+    "file://${config.home.homeDirectory}/Sync"
+  ];
 }

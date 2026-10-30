@@ -95,11 +95,6 @@ with lib;
     SECRET = "${config.home.homeDirectory}/.secrets";
   };
 
-  # Bookmarks #
-  gtk.gtk3.bookmarks = [
-    "file://${config.home.homeDirectory}/Sync"
-  ];
-
   programs.yazi.keymap.mgr.append_keymap = [
     {
       on = [
