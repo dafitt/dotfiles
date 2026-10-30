@@ -11,14 +11,13 @@
     [
       nixos-wsl.nixosModules.default
 
-      appimage
       audio
+      desktopEnvironment-umbriel
+      development
       documentation
-      flatpak
       fonts
       home-manager
       hostName
-      kernel
       locale
       locate
       nix
@@ -30,12 +29,59 @@
       user-root
     ];
 
-  wsl.enable = true;
+  wsl = {
+    enable = true;
+    useWindowsDriver = true;
+    docker-desktop.enable = true;
+    startMenuLaunchers = true;
+  };
   security.sudo-rs.wheelNeedsPassword = false;
 
-  networking.proxy = {
-    httpProxy = "http://rb-proxy-de.bsh.corp.bshg.com:8080";
-    httpsProxy = "http://rb-proxy-de.bsh.corp.bshg.com:8080";
-    ftpProxy = "http://rb-proxy-de.bsh.corp.bshg.com:8081";
+  # wsl.wslConf.network.generateResolvConf = false;
+  # networking = {
+  #   nameservers = [
+  #     "1.1.1.1"
+  #     "1.0.0.1"
+  #     "10.255.255.254"
+  #   ];
+  #   search = [
+  #     "de.bosch.com"
+  #     "bsh.corp.bshg.com"
+  #     "tt.de.bosch.com"
+  #     "bosch.com"
+  #   ];
+  #   # proxy = {
+  #   #  default = "http://rb-proxy-de.bsh.corp.bshg.com:8080";
+  #   #  ftpProxy = "http://rb-proxy-de.bsh.corp.bshg.com:8081";
+  #   # };
+  # };
+
+  fileSystems = {
+    "/mnt/f" = {
+      device = "F:";
+      fsType = "drvfs";
+      noCheck = true;
+      options = [
+        "_netdev"
+        "defaults"
+        "noauto"
+        "users"
+        "x-mount.mkdir"
+        "x-systemd.automount"
+      ];
+    };
+    "/mnt/u" = {
+      device = "U:";
+      fsType = "drvfs";
+      noCheck = true;
+      options = [
+        "_netdev"
+        "defaults"
+        "noauto"
+        "users"
+        "x-mount.mkdir"
+        "x-systemd.automount"
+      ];
+    };
   };
 }
