@@ -2,9 +2,9 @@
 #$ nix develop .#default
 pkgs.mkShell {
   packages = with pkgs; [
-    perSystem.home-manager.default
     git
     jujutsu
+    micro
     nil
     nix
     nix-converter
@@ -12,6 +12,7 @@ pkgs.mkShell {
     nix-prefetch-github
     nixd
     nixpkgs-fmt
+    perSystem.home-manager.default
   ];
 
   env = { };

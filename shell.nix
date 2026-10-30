@@ -19,6 +19,7 @@
       git
       home-manager
       jujutsu
+      micro
       nix
     ];
   };
