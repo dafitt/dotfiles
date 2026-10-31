@@ -43,6 +43,14 @@ in
       };
     };
 
+    xdg.configFile."micro/bindings.json".text = lib.strings.toJSON {
+      "Ctrl-w" = "DeleteWordLeft";
+      "OldBackspace" = "DeleteWordLeft";
+      "CtrlDelete" = "DeleteWordRight";
+      "Ctrl-y" = "Save,Quit";
+      "CtrlAlt-l" = "DuplicateLine";
+    };
+
     # https://github.com/zyedidia/micro/blob/master/assets/packaging/micro.desktop
     xdg.desktopEntries.micro = {
       name = "Micro";
