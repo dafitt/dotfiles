@@ -44,6 +44,7 @@ in
           "comment"
           "editorconfig"
           "git-firefly"
+          "ini"
           "kdl"
           "nix"
           "toml"
