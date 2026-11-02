@@ -4,7 +4,7 @@
 
   programs.umbriel.settings = {
     keybinds."Mod+Alt+N" = {
-      action = "scratchpad-toggle:network";
+      action = "scratchpad-toggle network";
       repeat = false;
     };
     scratchpad = [

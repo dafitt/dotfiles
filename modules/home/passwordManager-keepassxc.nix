@@ -27,7 +27,7 @@ in
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
-        action = "spawn:${getExe pkgs.keepassxc}";
+        action = "spawn ${getExe pkgs.keepassxc}";
         repeat = false;
       };
       window_rule = [

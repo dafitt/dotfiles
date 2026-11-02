@@ -66,7 +66,7 @@ in
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
-        action = "spawn:" + (getExe pkgs.pcmanfm);
+        action = "spawn " + (getExe pkgs.pcmanfm);
         repeat = false;
       };
       general.autostart = optionals cfg.autostart [ (getExe pkgs.pcmanfm) ];

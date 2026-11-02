@@ -57,7 +57,7 @@ with lib;
 
   programs.umbriel.settings = {
     keybinds."Mod+Alt+Space" = {
-      action = "spawn:${getExe pkgs.nwg-drawer} -ovl";
+      action = "spawn ${getExe pkgs.nwg-drawer} -ovl";
       repeat = false;
     };
   };

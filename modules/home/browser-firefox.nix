@@ -309,7 +309,7 @@ in
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
-        action = "spawn:${getExe config.programs.firefox.package}";
+        action = "spawn ${getExe config.programs.firefox.package}";
         repeat = false;
       };
       general.autostart = optionals cfg.autostart [ (getExe config.programs.firefox.package) ];

@@ -19,7 +19,7 @@ in
     programs.umbriel.settings = {
       general.autostart = mkIf cfg.autostart [ "fragments" ];
       keybinds."Mod+Alt+T" = {
-        action = "scratchpad-toggle:torrenting";
+        action = "scratchpad-toggle torrenting";
         repeat = false;
       };
       scratchpad = [

@@ -105,7 +105,7 @@ in
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+E" = mkIf cfg.setAsDefaultEditor {
-        action = "spawn:${getExe config.programs.alacritty.package} -e ${exe}";
+        action = "spawn ${getExe config.programs.alacritty.package} -e ${exe}";
         repeat = false;
       };
     };

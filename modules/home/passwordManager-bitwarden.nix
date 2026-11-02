@@ -25,7 +25,7 @@ in
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+Period" = mkIf cfg.setAsDefaultPasswordManager {
-        action = "spawn:${getExe pkgs.bitwarden-desktop}";
+        action = "spawn ${getExe pkgs.bitwarden-desktop}";
         repeat = false;
       };
       window_rule = [

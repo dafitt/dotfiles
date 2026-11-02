@@ -185,7 +185,7 @@ in
 
       programs.umbriel.settings = with config.programs; {
         keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
-          action = "spawn:${getExe alacritty.package} -e ${exe}";
+          action = "spawn ${getExe alacritty.package} -e ${exe}";
           repeat = false;
         };
         general.autostart = optionals cfg.autostart [

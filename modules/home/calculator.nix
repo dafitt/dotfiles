@@ -7,7 +7,7 @@ with lib;
 
   programs.umbriel.settings = {
     keybinds."XF86Calculator" = {
-      action = "spawn:${getExe pkgs.gnome-calculator}";
+      action = "spawn ${getExe pkgs.gnome-calculator}";
       repeat = false;
     };
     window_rule = [

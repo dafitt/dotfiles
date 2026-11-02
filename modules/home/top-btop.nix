@@ -43,7 +43,7 @@ in
 
       programs.umbriel.settings = {
         keybinds."Mod+Alt+P" = {
-          action = "scratchpad-toggle:monitor";
+          action = "scratchpad-toggle monitor";
           repeat = false;
         };
         scratchpad = [

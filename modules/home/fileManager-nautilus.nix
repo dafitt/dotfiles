@@ -71,7 +71,7 @@ in
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
-        action = "spawn:" + (getExe pkgs.nautilus);
+        action = "spawn " + (getExe pkgs.nautilus);
         repeat = false;
       };
       general.autostart = optionals cfg.autostart [ (getExe pkgs.nautilus) ];

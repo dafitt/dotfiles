@@ -44,14 +44,14 @@ in
       home.sessionVariables.TERMINAL = exe;
 
       programs.umbriel.settings.keybinds."Mod+Return" = {
-        action = "spawn:" + exe;
+        action = "spawn " + exe;
         repeat = false;
       };
 
       # dropterm
       programs.umbriel.settings = {
         keybinds."Mod+Alt+D" = {
-          action = "scratchpad-toggle:dropterm";
+          action = "scratchpad-toggle dropterm";
           repeat = false;
         };
         scratchpad = [

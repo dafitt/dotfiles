@@ -56,7 +56,7 @@ in
 
       programs.umbriel.settings = {
         keybinds."Mod+Alt+F" = mkIf cfg.setAsDefaultFileManager {
-          action = "spawn:${thunar}/bin/thunar";
+          action = "spawn ${thunar}/bin/thunar";
           repeat = false;
         };
         general.autostart = optionals cfg.autostart [ "${thunar}/bin/thunar" ];

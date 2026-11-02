@@ -37,7 +37,7 @@ in
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+H" = mkIf cfg.setAsDefault {
-        action = "spawn:" + (getExe pkg);
+        action = "spawn " + (getExe pkg);
         repeat = false;
       };
       general.autostart = optionals cfg.autostart [ (getExe pkg) ];

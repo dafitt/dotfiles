@@ -29,39 +29,39 @@ in
 
   programs.umbriel.settings.keybinds = {
     "Mod+L" = {
-      action = "spawn:${lock}";
+      action = "spawn ${lock}";
       repeat = false;
     };
     "Mod+Udiaeresis" = {
-      action = "spawn:" + quickSleep;
+      action = "spawn " + quickSleep;
       repeat = false;
     };
     "Mod+Control+Udiaeresis" = {
-      action = "spawn:" + quickHibernate;
+      action = "spawn " + quickHibernate;
       repeat = false;
     };
     "Mod+Control+Odiaeresis" = {
-      action = "spawn:" + quickReboot;
+      action = "spawn " + quickReboot;
       repeat = false;
     };
     "Mod+Control+Adiaeresis" = {
-      action = "spawn:" + quickPoweroff;
+      action = "spawn " + quickPoweroff;
       repeat = false;
     };
 
-    "XF86AudioMute" = "spawn:" + audioMute;
-    "Alt+XF86AudioMute" = "spawn:" + micMute;
-    "XF86AudioMicMute" = "spawn:" + micMute;
-    "XF86AudioRaiseVolume" = "spawn:" + audioRaiseVolume;
-    "XF86AudioLowerVolume" = "spawn:" + audioLowerVolume;
-    "Alt+XF86AudioRaiseVolume" = "spawn:" + micRaiseVolume;
-    "Alt+XF86AudioLowerVolume" = "spawn:" + micLowerVolume;
-    "XF86MonBrightnessUp" = "spawn:" + monBrightnessUp;
-    "XF86MonBrightnessDown" = "spawn:" + monBrightnessDown;
-    "XF86KbdBrightnessUp" = "spawn:" + kbdBrightnessUp;
-    "XF86KbdBrightnessDown" = "spawn:" + kbdBrightnessDown;
+    "XF86AudioMute" = "spawn " + audioMute;
+    "Alt+XF86AudioMute" = "spawn " + micMute;
+    "XF86AudioMicMute" = "spawn " + micMute;
+    "XF86AudioRaiseVolume" = "spawn " + audioRaiseVolume;
+    "XF86AudioLowerVolume" = "spawn " + audioLowerVolume;
+    "Alt+XF86AudioRaiseVolume" = "spawn " + micRaiseVolume;
+    "Alt+XF86AudioLowerVolume" = "spawn " + micLowerVolume;
+    "XF86MonBrightnessUp" = "spawn " + monBrightnessUp;
+    "XF86MonBrightnessDown" = "spawn " + monBrightnessDown;
+    "XF86KbdBrightnessUp" = "spawn " + kbdBrightnessUp;
+    "XF86KbdBrightnessDown" = "spawn " + kbdBrightnessDown;
 
-    "Mod+T" = "spawn:" + textOcr;
-    "Mod+Alt+U" = "spawn:" + gnomeCharacters;
+    "Mod+T" = "spawn " + textOcr;
+    "Mod+Alt+U" = "spawn " + gnomeCharacters;
   };
 }

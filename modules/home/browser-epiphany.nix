@@ -32,7 +32,7 @@ in
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
-        action = "spawn:${getExe pkgs.epiphany}";
+        action = "spawn ${getExe pkgs.epiphany}";
         repeat = false;
       };
       general.autostart = optionals cfg.autostart [ (getExe pkgs.epiphany) ];

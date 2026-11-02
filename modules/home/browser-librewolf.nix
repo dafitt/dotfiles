@@ -46,7 +46,7 @@ in
 
     programs.umbriel.settings = {
       keybinds."Mod+Alt+W" = mkIf cfg.setAsDefaultBrowser {
-        action = "spawn:${getExe config.programs.librewolf.package}";
+        action = "spawn ${getExe config.programs.librewolf.package}";
         repeat = false;
       };
       general.autostart = optionals cfg.autostart [ (getExe config.programs.librewolf.package) ];

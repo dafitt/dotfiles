@@ -467,51 +467,51 @@ in
 
           # Controls
           "Mod" = mkIf cfg.setAsDefaultLauncher {
-            action = "spawn:${noctaliaExe} msg panel-toggle launcher";
+            action = "spawn ${noctaliaExe} msg panel-toggle launcher";
             repeat = false;
           };
           "Mod+Space" = mkIf cfg.setAsDefaultLauncher {
-            action = "spawn:${noctaliaExe} msg panel-toggle launcher";
+            action = "spawn ${noctaliaExe} msg panel-toggle launcher";
             repeat = false;
           };
           "Alt+Tab" = {
-            action = "spawn:${noctaliaExe} msg window-switcher";
+            action = "spawn ${noctaliaExe} msg window-switcher";
             repeat = false;
           };
           "Mod+B" = {
-            action = "spawn:${noctaliaExe} msg bluetooth-toggle";
+            action = "spawn ${noctaliaExe} msg bluetooth-toggle";
             repeat = false;
           };
           "Mod+W" = {
-            action = "spawn:${noctaliaExe} msg bar-toggle main $(umbriel outputs --json | ${getExe pkgs.jq} --raw-output '.[] | select(.focused) | .name')";
+            action = "spawn ${noctaliaExe} msg bar-toggle main $(umbriel outputs --json | ${getExe pkgs.jq} --raw-output '.[] | select(.focused) | .name')";
             repeat = false;
           };
 
           # Apps
           "Mod+Alt+B" = {
-            action = "spawn:${noctaliaExe} msg panel-toggle control-center bluetooth";
+            action = "spawn ${noctaliaExe} msg panel-toggle control-center bluetooth";
             repeat = false;
           };
           "Mod+Alt+V" = {
-            action = "spawn:${noctaliaExe} msg panel-toggle clipboard";
+            action = "spawn ${noctaliaExe} msg panel-toggle clipboard";
             repeat = false;
           };
 
           # Screencapture
-          "Print" = "spawn:noctalia msg screenshot-fullscreen";
+          "Print" = "spawn noctalia msg screenshot-fullscreen";
           "Mod+Print" = {
-            action = "submap:screencapture";
+            action = "submap screencapture";
             repeat = false;
           };
           "submap[screencapture],r" = {
-            action = "spawn:noctalia msg screenshot-region";
+            action = "spawn noctalia msg screenshot-region";
             submap = "reset";
           }; # region
           "submap[screencapture],e" = {
-            action = "spawn:noctalia msg screenshot-annotate";
+            action = "spawn noctalia msg screenshot-annotate";
             submap = "reset";
           }; # annotate/edit
-          "submap[screencapture],Escape" = "submap:reset";
+          "submap[screencapture],Escape" = "submap reset";
         };
       };
 
