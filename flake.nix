@@ -1,5 +1,5 @@
 {
-  description = "Dafitt's desktop flake.";
+  description = "Dafitt's desktop flake";
 
   #$ flake update [inputs]
   #$ nix flake update [--commit-lock-file]
