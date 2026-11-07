@@ -161,9 +161,9 @@ in
               show_week_numbers = true;
             };
             shortcuts = [
-              { type = "caffeine"; }
               { type = "dark_mode"; }
               { type = "nightlight"; }
+              { type = "caffeine"; }
               { type = "power_profile"; }
               { type = "session"; }
             ];
@@ -235,8 +235,19 @@ in
             show_dots = true;
             smart_auto_hide = true;
           };
+          lockscreen = {
+            transition = [
+              "honeycomb"
+              "melt"
+              "pixel"
+            ];
+          };
           nightlight = {
             enabled = true;
+          };
+          notification = {
+            history_retention_hours = 96;
+            offset_y = 20;
           };
           osd = {
             offset_y = 20;
@@ -276,11 +287,13 @@ in
           };
           shell = {
             button_borders = false;
+            clipboard_confirm_clear_history = false;
             font_family = "FiraCode Nerd Font";
             input_borders = false;
             launch_apps_as_systemd_services = true;
             launcher = {
               provider_prefix = "#";
+              providers.panels.global = true;
               show_app_actions = true;
             };
             panel = {
@@ -300,16 +313,6 @@ in
             session = {
               actions = [
                 {
-                  action = "command";
-                  command = "systemctl hibernate";
-                  countdown_seconds = 0;
-                  enabled = true;
-                  glyph = "air-conditioning-disabled";
-                  label = "Hibernate";
-                  shortcut = "h";
-                  variant = "default";
-                }
-                {
                   action = "lock";
                   countdown_seconds = 0;
                   enabled = true;
@@ -321,6 +324,16 @@ in
                   countdown_seconds = 0;
                   enabled = true;
                   shortcut = "s";
+                  variant = "default";
+                }
+                {
+                  action = "command";
+                  command = "systemctl hibernate";
+                  countdown_seconds = 0;
+                  enabled = true;
+                  glyph = "air-conditioning-disabled";
+                  label = "Hibernate";
+                  shortcut = "h";
                   variant = "default";
                 }
                 {
@@ -348,6 +361,9 @@ in
             };
             settings_show_advanced = false;
             umbriel_overview_type_to_launch_enabled = true;
+            window_switcher = {
+              mru = true;
+            };
           };
           theme = {
             mode = "dark";
