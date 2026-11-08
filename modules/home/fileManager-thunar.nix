@@ -62,17 +62,24 @@ in
         general.autostart = optionals cfg.autostart [ "${thunar}/bin/thunar" ];
         window_rule = [
           {
-            match.app_id = "^thunar$";
+            match.app_id = "^Thunar$";
             default_floating = true;
-            default_floating_size_px = {
-              height = 600;
-              width = 600;
+            default_floating_size = {
+              height = 0.45;
+              width = 0.45;
             };
           }
           {
-            match.app_id = "^thunar$";
-            match.title = ''^Rename ".*"$'';
+            match.app_id = "^Thunar$";
+            match.title = [
+              ''^Rename ".*"$''
+              ''^Create Document from template ".*"$''
+            ];
             default_floating = true;
+            default_floating_size_px = {
+              height = 100;
+              width = 700;
+            };
           }
         ];
       };
