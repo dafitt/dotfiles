@@ -2,8 +2,8 @@
 with lib;
 let
   lock = "${pkgs.systemd}/bin/loginctl lock-session";
-  quickSleep = "${lock} && ${pkgs.systemd}/bin/systemctl sleep";
-  quickHibernate = "${lock} && ${pkgs.systemd}/bin/systemctl hibernate";
+  quickSleep = "${pkgs.systemd}/bin/systemctl sleep";
+  quickHibernate = "${pkgs.systemd}/bin/systemctl hibernate";
   quickReboot = "${pkgs.systemd}/bin/systemctl reboot";
   quickPoweroff = "${pkgs.systemd}/bin/systemctl poweroff";
 
