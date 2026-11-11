@@ -10,7 +10,8 @@
       "alt-z": "editor::ToggleSoftWrap",
       "ctrl-#": "editor::ToggleComments",
       "ctrl-alt-l": "editor::DuplicateLineDown",
-      "ctrl-alt-v": "editor::SortLinesCaseInsensitive"
+      "ctrl-alt-v": "editor::SortLinesCaseInsensitive",
+      "tab": "editor::Indent"
     }
   },
   {
