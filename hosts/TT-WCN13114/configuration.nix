@@ -37,24 +37,33 @@
   };
   security.sudo-rs.wheelNeedsPassword = false;
 
-  # wsl.wslConf.network.generateResolvConf = false;
-  # networking = {
-  #   nameservers = [
-  #     "1.1.1.1"
-  #     "1.0.0.1"
-  #     "10.255.255.254"
-  #   ];
-  #   search = [
-  #     "de.bosch.com"
-  #     "bsh.corp.bshg.com"
-  #     "tt.de.bosch.com"
-  #     "bosch.com"
-  #   ];
-  #   # proxy = {
-  #   #  default = "http://rb-proxy-de.bsh.corp.bshg.com:8080";
-  #   #  ftpProxy = "http://rb-proxy-de.bsh.corp.bshg.com:8081";
-  #   # };
-  # };
+  # WSL Settings > Network > Mode > "mirrored" needed
+  users.users.cntlm.group = "cntlm";
+  users.groups.cntlm = {};
+  services.cntlm = {
+    enable = true;
+    username = "sdc2tt";
+    domain = "tt.de.bosch.com";
+    password = "/etc/cntlm.password";
+    # $ nix run nixpkgs#cntlm -- -H
+
+    port = [ 3129 ];
+    proxy = [ "rb-proxy-de.bosch.com:8080" ];
+    noproxy = [
+      "127.0.0.1"
+      "localhost"
+      "127.*"
+      "172.*"
+      "192.168.50.1"
+      ".bshg.com"
+      ".bosch.com"
+    ];
+  };
+  networking.proxy = {
+    httpProxy = "http://127.0.0.1:3129";
+    httpsProxy = "http://127.0.0.1:3129";
+    noProxy = "127.0.0.1,localhost,127.*,172.*,192.168.50.1,.bshg.com,.bosch.com";
+  };
 
   fileSystems = {
     "/mnt/f" = {
