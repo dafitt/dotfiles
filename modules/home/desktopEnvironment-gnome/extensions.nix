@@ -20,7 +20,6 @@ in
     extensions/native-window-placement.nix
     extensions/openweather.nix
     extensions/paperwm.nix
-    extensions/reorder-workspaces.nix
     extensions/rounded-window-corners.nix
     extensions/search-light.nix
     extensions/vitals.nix
@@ -47,7 +46,6 @@ in
       just-perfection.enable = true;
       native-window-placement.enable = true;
       paperwm.enable = true;
-      reorder-workspaces.enable = true;
       search-light.enable = true;
       vitals.enable = true;
       # NOTE extensions must still be enabled manually.
