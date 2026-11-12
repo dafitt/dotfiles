@@ -22,6 +22,7 @@ with lib;
       home-manager
       nix
       noctalia
+      passwordManager-keepassxc
       personalEnvironment
       shell-fish
       terminal-alacritty
